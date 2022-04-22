@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports1.css" rel="stylesheet" id="ultra" />
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" id="retro" disabled="false"/>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <button class="button" id="button">Switch Retro Theme</button> <!-- button -->
+      <br/>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-Regression">
+              <span class="suite-name border-failed">Regression</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-Regression">
+                    <span>C:\AUL\Workspace\ADL\testng.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-Regression">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-Regression">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-Regression">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-Regression">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-Regression">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-Regression">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">41 methods, 2 failed,  2 skipped,  37 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Regression" class="hide-methods failed suite-Regression"> (hide)</a> <!-- hide-methods failed suite-Regression -->
+                      <a href="#" panel-name="suite-Regression" class="show-methods failed suite-Regression"> (show)</a> <!-- show-methods failed suite-Regression -->
+                    </span>
+                    <div class="method-list-content failed suite-Regression">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.screenTitle_test" hash-for-method="screenAgentTitle(Dealer Settings, Impersonate)">screenAgentTitle(Dealer Settings, Impersonate)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.screenTitle_test" hash-for-method="screenAgentTitle(Dealer Settings, Manage my Dealer Pricing)">screenAgentTitle(Dealer Settings, Manage my Dealer Pricing)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Regression -->
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Skipped methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-Regression" class="hide-methods skipped suite-Regression"> (hide)</a> <!-- hide-methods skipped suite-Regression -->
+                      <a href="#" panel-name="suite-Regression" class="show-methods skipped suite-Regression"> (show)</a> <!-- show-methods skipped suite-Regression -->
+                    </span>
+                    <div class="method-list-content skipped suite-Regression">
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.contract_test" hash-for-method="createContract1">createContract1</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.quote_test" hash-for-method="createQuote1">createQuote1</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-Regression -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Regression" class="hide-methods passed suite-Regression"> (hide)</a> <!-- hide-methods passed suite-Regression -->
+                      <a href="#" panel-name="suite-Regression" class="show-methods passed suite-Regression"> (show)</a> <!-- show-methods passed suite-Regression -->
+                    </span>
+                    <div class="method-list-content passed suite-Regression">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.baseTest" hash-for-method="VerifyForgotPassword_Loginastext_27238_27254_27220_27255_27237_27166">VerifyForgotPassword_Loginastext_27238_27254_27220_27255_27237_27166</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.baseTest" hash-for-method="VerifyGAPPortallinkfunctionality_27233_27259_27229">VerifyGAPPortallinkfunctionality_27233_27259_27229</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.baseTest" hash-for-method="VerifyLocationPrivacyPolicyLink_27224_27239_27254">VerifyLocationPrivacyPolicyLink_27224_27239_27254</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.baseTest" hash-for-method="VerifyRememberMyPasswordLocation_27214">VerifyRememberMyPasswordLocation_27214</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.baseTest" hash-for-method="VerifyWelcomeTextOnTheADLUILoginPage_27248_27244_27110">VerifyWelcomeTextOnTheADLUILoginPage_27248_27244_27110</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.baseTest" hash-for-method="Verify_image_on_the_right_side_of_the_login_page_27225">Verify_image_on_the_right_side_of_the_login_page_27225</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.baseTest" hash-for-method="VerifyeClaimsPortalforRepairFacilitieslink_27228_27231_27261">VerifyeClaimsPortalforRepairFacilitieslink_27228_27231_27261</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.loginValidation_test" hash-for-method="emptyLogin">emptyLogin</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.loginValidation_test" hash-for-method="emptyLoginPassword">emptyLoginPassword</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.loginValidation_test" hash-for-method="emptyLoginUsername">emptyLoginUsername</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.loginValidation_test" hash-for-method="incorrectCredential">incorrectCredential</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.loginValidation_test" hash-for-method="incorrectpasswordCredential">incorrectpasswordCredential</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.loginValidation_test" hash-for-method="incorrectusernameCredential">incorrectusernameCredential</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.login1_test" hash-for-method="loggedIn(coforgeadmin, TAdmin54!)">loggedIn(coforgeadmin, TAdmin54!)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.login1_test" hash-for-method="loggedIn(Agent110, Since1996)">loggedIn(Agent110, Since1996)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.login1_test" hash-for-method="loggedIn(Dealer7032823, 4558600)">loggedIn(Dealer7032823, 4558600)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.screenTitle_test" hash-for-method="screenAgentTitle(Reports, Claims History)">screenAgentTitle(Reports, Claims History)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.screenTitle_test" hash-for-method="screenAgentTitle(E-Rate, Rate/Contract)">screenAgentTitle(E-Rate, Rate/Contract)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.screenTitle_test" hash-for-method="screenAgentTitle(E-Rate, Quote History)">screenAgentTitle(E-Rate, Quote History)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.screenTitle_test" hash-for-method="screenAgentTitle(Reports, Agent Sales Report)">screenAgentTitle(Reports, Agent Sales Report)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.screenTitle_test" hash-for-method="screenAgentTitle(Reports, My Account Statements)">screenAgentTitle(Reports, My Account Statements)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.screenTitle_test" hash-for-method="screenAgentTitle(Reports, Early Claims)">screenAgentTitle(Reports, Early Claims)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.screenTitle_test" hash-for-method="screenAgentTitle(Reports, Actuarials)">screenAgentTitle(Reports, Actuarials)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.screenTitle_test" hash-for-method="screenAgentTitle(Contracts, Contract Search)">screenAgentTitle(Contracts, Contract Search)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.screenTitle_test" hash-for-method="screenAgentTitle(Reports, Cancellations)">screenAgentTitle(Reports, Cancellations)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.screenTitle_test" hash-for-method="screenTitle(Reports, Actuarials)">screenTitle(Reports, Actuarials)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.screenTitle_test" hash-for-method="screenTitle(Contracts, SPP)">screenTitle(Contracts, SPP)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.screenTitle_test" hash-for-method="screenTitle(E-Rate, Rate/Contract)">screenTitle(E-Rate, Rate/Contract)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.screenTitle_test" hash-for-method="screenTitle(Contracts, Contract Search)">screenTitle(Contracts, Contract Search)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.screenTitle_test" hash-for-method="screenTitle(Cancellations, Cancellation History)">screenTitle(Cancellations, Cancellation History)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.screenTitle_test" hash-for-method="screenTitle(E-Rate, Quote History)">screenTitle(E-Rate, Quote History)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.screenTitle_test" hash-for-method="screenTitle(Reports, Early Claims)">screenTitle(Reports, Early Claims)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.screenTitle_test" hash-for-method="screenTitle(Reports, My Account Statements)">screenTitle(Reports, My Account Statements)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.screenTitle_test" hash-for-method="screenTitle(Reports, Cancellations)">screenTitle(Reports, Cancellations)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.screenTitle_test" hash-for-method="screenTitle(Reports, Claims History)">screenTitle(Reports, Claims History)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.screenTitle_test" hash-for-method="screenTitle(Cancellations, Cancellation Quote)">screenTitle(Cancellations, Cancellation Quote)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression" title="testsuite.login1_test" hash-for-method="welcomePage">welcomePage</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Regression -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Regression" class="panel Regression">
+          <div class="suite-Regression-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">testsuite.screenTitle_test</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="screenAgentTitle(Dealer Settings, Impersonate)">
+                  </a> <!-- screenAgentTitle(Dealer Settings, Impersonate) -->
+                  <span class="method-name">screenAgentTitle</span>
+                  <span class="parameters">(Dealer Settings, Impersonate)</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;input[placeholder=&quot;Enter your username&quot;]&quot;}
+  (Session info: chrome=97.0.4692.99)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;
+System info: host: &apos;AUL-DEV-03&apos;, ip: &apos;10.0.5.63&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_261&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [2574890323d2c222083f1381afeb6c9b, findElement {using=css selector, value=input[placeholder=&quot;Enter your username&quot;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:58953}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:58953/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 2574890323d2c222083f1381afeb6c9b
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
+	at pageActions.loginAction.login(loginAction.java:23)
+	at testsuite.screenTitle_test.screenAgentTitle(screenTitle_test.java:85)
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+... Removed 31 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="screenAgentTitle(Dealer Settings, Manage my Dealer Pricing)">
+                  </a> <!-- screenAgentTitle(Dealer Settings, Manage my Dealer Pricing) -->
+                  <span class="method-name">screenAgentTitle</span>
+                  <span class="parameters">(Dealer Settings, Manage my Dealer Pricing)</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//a[contains(text(),&apos;Manage my Dealer Pricing&apos;)]&quot;}
+  (Session info: chrome=97.0.4692.99)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;
+System info: host: &apos;AUL-DEV-03&apos;, ip: &apos;10.0.5.63&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_261&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [2574890323d2c222083f1381afeb6c9b, findElement {using=xpath, value=//a[contains(text(),&apos;Manage my Dealer Pricing&apos;)]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:58953}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:58953/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 2574890323d2c222083f1381afeb6c9b
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
+	at utils.utilityClass.getfield(utilityClass.java:260)
+	at pageActions.verticalMenuAction.navigatetoLeftMenu(verticalMenuAction.java:30)
+	at testsuite.screenTitle_test.screenAgentTitle(screenTitle_test.java:86)
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+... Removed 31 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Regression-class-failed -->
+          <div class="suite-Regression-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">testsuite.contract_test</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="createContract1">
+                  </a> <!-- createContract1 -->
+                  <span class="method-name">createContract1</span>
+                  <div class="stack-trace">java.lang.RuntimeException: java.lang.Error: Unresolved compilation problems: 
+	She cannot be resolved to a type
+	Syntax error, insert &quot;;&quot; to complete LocalVariableDeclarationStatement
+	of cannot be resolved to a type
+	Syntax error on token &quot;int&quot;, ; expected
+	et cannot be resolved to a type
+	totalNoOfRows cannot be resolved to a variable
+	totalNoOfRows cannot be resolved to a variable
+
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	She cannot be resolved to a type
+	Syntax error, insert &quot;;&quot; to complete LocalVariableDeclarationStatement
+	of cannot be resolved to a type
+	Syntax error on token &quot;int&quot;, ; expected
+	et cannot be resolved to a type
+	totalNoOfRows cannot be resolved to a variable
+	totalNoOfRows cannot be resolved to a variable
+
+	at utils.baseClass.getExcelData(baseClass.java:155)
+	... 25 more
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Regression-class-skipped -->
+          <div class="suite-Regression-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">testsuite.quote_test</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="createQuote1">
+                  </a> <!-- createQuote1 -->
+                  <span class="method-name">createQuote1</span>
+                  <div class="stack-trace">java.lang.RuntimeException: java.lang.Error: Unresolved compilation problems: 
+	She cannot be resolved to a type
+	Syntax error, insert &quot;;&quot; to complete LocalVariableDeclarationStatement
+	of cannot be resolved to a type
+	Syntax error on token &quot;int&quot;, ; expected
+	et cannot be resolved to a type
+	totalNoOfRows cannot be resolved to a variable
+	totalNoOfRows cannot be resolved to a variable
+
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	She cannot be resolved to a type
+	Syntax error, insert &quot;;&quot; to complete LocalVariableDeclarationStatement
+	of cannot be resolved to a type
+	Syntax error on token &quot;int&quot;, ; expected
+	et cannot be resolved to a type
+	totalNoOfRows cannot be resolved to a variable
+	totalNoOfRows cannot be resolved to a variable
+
+	at utils.baseClass.getExcelData(baseClass.java:155)
+	... 25 more
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Regression-class-skipped -->
+          <div class="suite-Regression-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">testsuite.screenTitle_test</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="screenAgentTitle(Reports, Claims History)">
+                  </a> <!-- screenAgentTitle(Reports, Claims History) -->
+                  <span class="method-name">screenAgentTitle</span>
+                  <span class="parameters">(Reports, Claims History)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="screenAgentTitle(E-Rate, Rate/Contract)">
+                  </a> <!-- screenAgentTitle(E-Rate, Rate/Contract) -->
+                  <span class="method-name">screenAgentTitle</span>
+                  <span class="parameters">(E-Rate, Rate/Contract)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="screenAgentTitle(E-Rate, Quote History)">
+                  </a> <!-- screenAgentTitle(E-Rate, Quote History) -->
+                  <span class="method-name">screenAgentTitle</span>
+                  <span class="parameters">(E-Rate, Quote History)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="screenAgentTitle(Reports, Agent Sales Report)">
+                  </a> <!-- screenAgentTitle(Reports, Agent Sales Report) -->
+                  <span class="method-name">screenAgentTitle</span>
+                  <span class="parameters">(Reports, Agent Sales Report)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="screenAgentTitle(Reports, My Account Statements)">
+                  </a> <!-- screenAgentTitle(Reports, My Account Statements) -->
+                  <span class="method-name">screenAgentTitle</span>
+                  <span class="parameters">(Reports, My Account Statements)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="screenAgentTitle(Reports, Early Claims)">
+                  </a> <!-- screenAgentTitle(Reports, Early Claims) -->
+                  <span class="method-name">screenAgentTitle</span>
+                  <span class="parameters">(Reports, Early Claims)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="screenAgentTitle(Reports, Actuarials)">
+                  </a> <!-- screenAgentTitle(Reports, Actuarials) -->
+                  <span class="method-name">screenAgentTitle</span>
+                  <span class="parameters">(Reports, Actuarials)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="screenAgentTitle(Contracts, Contract Search)">
+                  </a> <!-- screenAgentTitle(Contracts, Contract Search) -->
+                  <span class="method-name">screenAgentTitle</span>
+                  <span class="parameters">(Contracts, Contract Search)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="screenAgentTitle(Reports, Cancellations)">
+                  </a> <!-- screenAgentTitle(Reports, Cancellations) -->
+                  <span class="method-name">screenAgentTitle</span>
+                  <span class="parameters">(Reports, Cancellations)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="screenTitle(Reports, Actuarials)">
+                  </a> <!-- screenTitle(Reports, Actuarials) -->
+                  <span class="method-name">screenTitle</span>
+                  <span class="parameters">(Reports, Actuarials)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="screenTitle(Contracts, SPP)">
+                  </a> <!-- screenTitle(Contracts, SPP) -->
+                  <span class="method-name">screenTitle</span>
+                  <span class="parameters">(Contracts, SPP)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="screenTitle(E-Rate, Rate/Contract)">
+                  </a> <!-- screenTitle(E-Rate, Rate/Contract) -->
+                  <span class="method-name">screenTitle</span>
+                  <span class="parameters">(E-Rate, Rate/Contract)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="screenTitle(Contracts, Contract Search)">
+                  </a> <!-- screenTitle(Contracts, Contract Search) -->
+                  <span class="method-name">screenTitle</span>
+                  <span class="parameters">(Contracts, Contract Search)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="screenTitle(Cancellations, Cancellation History)">
+                  </a> <!-- screenTitle(Cancellations, Cancellation History) -->
+                  <span class="method-name">screenTitle</span>
+                  <span class="parameters">(Cancellations, Cancellation History)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="screenTitle(E-Rate, Quote History)">
+                  </a> <!-- screenTitle(E-Rate, Quote History) -->
+                  <span class="method-name">screenTitle</span>
+                  <span class="parameters">(E-Rate, Quote History)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="screenTitle(Reports, Early Claims)">
+                  </a> <!-- screenTitle(Reports, Early Claims) -->
+                  <span class="method-name">screenTitle</span>
+                  <span class="parameters">(Reports, Early Claims)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="screenTitle(Reports, My Account Statements)">
+                  </a> <!-- screenTitle(Reports, My Account Statements) -->
+                  <span class="method-name">screenTitle</span>
+                  <span class="parameters">(Reports, My Account Statements)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="screenTitle(Reports, Cancellations)">
+                  </a> <!-- screenTitle(Reports, Cancellations) -->
+                  <span class="method-name">screenTitle</span>
+                  <span class="parameters">(Reports, Cancellations)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="screenTitle(Reports, Claims History)">
+                  </a> <!-- screenTitle(Reports, Claims History) -->
+                  <span class="method-name">screenTitle</span>
+                  <span class="parameters">(Reports, Claims History)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="screenTitle(Cancellations, Cancellation Quote)">
+                  </a> <!-- screenTitle(Cancellations, Cancellation Quote) -->
+                  <span class="method-name">screenTitle</span>
+                  <span class="parameters">(Cancellations, Cancellation Quote)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Regression-class-passed -->
+          <div class="suite-Regression-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">testsuite.loginValidation_test</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="emptyLogin">
+                  </a> <!-- emptyLogin -->
+                  <span class="method-name">emptyLogin</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="emptyLoginPassword">
+                  </a> <!-- emptyLoginPassword -->
+                  <span class="method-name">emptyLoginPassword</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="emptyLoginUsername">
+                  </a> <!-- emptyLoginUsername -->
+                  <span class="method-name">emptyLoginUsername</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="incorrectCredential">
+                  </a> <!-- incorrectCredential -->
+                  <span class="method-name">incorrectCredential</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="incorrectpasswordCredential">
+                  </a> <!-- incorrectpasswordCredential -->
+                  <span class="method-name">incorrectpasswordCredential</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="incorrectusernameCredential">
+                  </a> <!-- incorrectusernameCredential -->
+                  <span class="method-name">incorrectusernameCredential</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Regression-class-passed -->
+          <div class="suite-Regression-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">testsuite.login1_test</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="loggedIn(coforgeadmin, TAdmin54!)">
+                  </a> <!-- loggedIn(coforgeadmin, TAdmin54!) -->
+                  <span class="method-name">loggedIn</span>
+                  <span class="parameters">(coforgeadmin, TAdmin54!)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="loggedIn(Agent110, Since1996)">
+                  </a> <!-- loggedIn(Agent110, Since1996) -->
+                  <span class="method-name">loggedIn</span>
+                  <span class="parameters">(Agent110, Since1996)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="loggedIn(Dealer7032823, 4558600)">
+                  </a> <!-- loggedIn(Dealer7032823, 4558600) -->
+                  <span class="method-name">loggedIn</span>
+                  <span class="parameters">(Dealer7032823, 4558600)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="welcomePage">
+                  </a> <!-- welcomePage -->
+                  <span class="method-name">welcomePage</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Regression-class-passed -->
+          <div class="suite-Regression-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">testsuite.baseTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyForgotPassword_Loginastext_27238_27254_27220_27255_27237_27166">
+                  </a> <!-- VerifyForgotPassword_Loginastext_27238_27254_27220_27255_27237_27166 -->
+                  <span class="method-name">VerifyForgotPassword_Loginastext_27238_27254_27220_27255_27237_27166</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyGAPPortallinkfunctionality_27233_27259_27229">
+                  </a> <!-- VerifyGAPPortallinkfunctionality_27233_27259_27229 -->
+                  <span class="method-name">VerifyGAPPortallinkfunctionality_27233_27259_27229</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyLocationPrivacyPolicyLink_27224_27239_27254">
+                  </a> <!-- VerifyLocationPrivacyPolicyLink_27224_27239_27254 -->
+                  <span class="method-name">VerifyLocationPrivacyPolicyLink_27224_27239_27254</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyRememberMyPasswordLocation_27214">
+                  </a> <!-- VerifyRememberMyPasswordLocation_27214 -->
+                  <span class="method-name">VerifyRememberMyPasswordLocation_27214</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyWelcomeTextOnTheADLUILoginPage_27248_27244_27110">
+                  </a> <!-- VerifyWelcomeTextOnTheADLUILoginPage_27248_27244_27110 -->
+                  <span class="method-name">VerifyWelcomeTextOnTheADLUILoginPage_27248_27244_27110</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Verify_image_on_the_right_side_of_the_login_page_27225">
+                  </a> <!-- Verify_image_on_the_right_side_of_the_login_page_27225 -->
+                  <span class="method-name">Verify_image_on_the_right_side_of_the_login_page_27225</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyeClaimsPortalforRepairFacilitieslink_27228_27231_27261">
+                  </a> <!-- VerifyeClaimsPortalforRepairFacilitieslink_27228_27231_27261 -->
+                  <span class="method-name">VerifyeClaimsPortalforRepairFacilitieslink_27228_27231_27261</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Regression-class-passed -->
+        </div> <!-- panel Regression -->
+        <div panel-name="test-xml-Regression" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\AUL\Workspace\ADL\testng.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Regression&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;ADL&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;testsuite.baseTest&quot;/&gt;
+      &lt;class name=&quot;testsuite.loginValidation_test&quot;/&gt;
+      &lt;class name=&quot;testsuite.login1_test&quot;/&gt;
+      &lt;class name=&quot;testsuite.screenTitle_test&quot;/&gt;
+      &lt;class name=&quot;testsuite.contract_test&quot;/&gt;
+      &lt;class name=&quot;testsuite.quote_test&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- ADL --&gt;
+&lt;/suite&gt; &lt;!-- Regression --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Regression" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Regression</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">ADL (6 classes)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Regression" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Regression</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Regression" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Regression</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Regression');
+function tableData_Regression() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(41);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'screenAgentTitle')
+data.setCell(0, 2, 'testsuite.screenTitle_test')
+data.setCell(0, 3, 20054);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'screenAgentTitle')
+data.setCell(1, 2, 'testsuite.screenTitle_test')
+data.setCell(1, 3, 15055);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'screenAgentTitle')
+data.setCell(2, 2, 'testsuite.screenTitle_test')
+data.setCell(2, 3, 14748);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'screenAgentTitle')
+data.setCell(3, 2, 'testsuite.screenTitle_test')
+data.setCell(3, 3, 14564);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'screenAgentTitle')
+data.setCell(4, 2, 'testsuite.screenTitle_test')
+data.setCell(4, 3, 14339);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'screenTitle')
+data.setCell(5, 2, 'testsuite.screenTitle_test')
+data.setCell(5, 3, 14314);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'screenAgentTitle')
+data.setCell(6, 2, 'testsuite.screenTitle_test')
+data.setCell(6, 3, 14287);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'screenTitle')
+data.setCell(7, 2, 'testsuite.screenTitle_test')
+data.setCell(7, 3, 14287);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'screenAgentTitle')
+data.setCell(8, 2, 'testsuite.screenTitle_test')
+data.setCell(8, 3, 14273);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'screenTitle')
+data.setCell(9, 2, 'testsuite.screenTitle_test')
+data.setCell(9, 3, 14242);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'screenTitle')
+data.setCell(10, 2, 'testsuite.screenTitle_test')
+data.setCell(10, 3, 14231);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'screenTitle')
+data.setCell(11, 2, 'testsuite.screenTitle_test')
+data.setCell(11, 3, 14224);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'screenTitle')
+data.setCell(12, 2, 'testsuite.screenTitle_test')
+data.setCell(12, 3, 14223);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'screenTitle')
+data.setCell(13, 2, 'testsuite.screenTitle_test')
+data.setCell(13, 3, 14216);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'screenAgentTitle')
+data.setCell(14, 2, 'testsuite.screenTitle_test')
+data.setCell(14, 3, 14181);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'screenTitle')
+data.setCell(15, 2, 'testsuite.screenTitle_test')
+data.setCell(15, 3, 14175);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'screenTitle')
+data.setCell(16, 2, 'testsuite.screenTitle_test')
+data.setCell(16, 3, 14138);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'screenTitle')
+data.setCell(17, 2, 'testsuite.screenTitle_test')
+data.setCell(17, 3, 14124);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'screenTitle')
+data.setCell(18, 2, 'testsuite.screenTitle_test')
+data.setCell(18, 3, 14120);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'screenAgentTitle')
+data.setCell(19, 2, 'testsuite.screenTitle_test')
+data.setCell(19, 3, 14116);
+data.setCell(20, 0, 20)
+data.setCell(20, 1, 'screenAgentTitle')
+data.setCell(20, 2, 'testsuite.screenTitle_test')
+data.setCell(20, 3, 14079);
+data.setCell(21, 0, 21)
+data.setCell(21, 1, 'screenAgentTitle')
+data.setCell(21, 2, 'testsuite.screenTitle_test')
+data.setCell(21, 3, 13943);
+data.setCell(22, 0, 22)
+data.setCell(22, 1, 'loggedIn')
+data.setCell(22, 2, 'testsuite.login1_test')
+data.setCell(22, 3, 11796);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'loggedIn')
+data.setCell(23, 2, 'testsuite.login1_test')
+data.setCell(23, 3, 10001);
+data.setCell(24, 0, 24)
+data.setCell(24, 1, 'loggedIn')
+data.setCell(24, 2, 'testsuite.login1_test')
+data.setCell(24, 3, 9911);
+data.setCell(25, 0, 25)
+data.setCell(25, 1, 'incorrectCredential')
+data.setCell(25, 2, 'testsuite.loginValidation_test')
+data.setCell(25, 3, 597);
+data.setCell(26, 0, 26)
+data.setCell(26, 1, 'incorrectusernameCredential')
+data.setCell(26, 2, 'testsuite.loginValidation_test')
+data.setCell(26, 3, 588);
+data.setCell(27, 0, 27)
+data.setCell(27, 1, 'emptyLogin')
+data.setCell(27, 2, 'testsuite.loginValidation_test')
+data.setCell(27, 3, 588);
+data.setCell(28, 0, 28)
+data.setCell(28, 1, 'incorrectpasswordCredential')
+data.setCell(28, 2, 'testsuite.loginValidation_test')
+data.setCell(28, 3, 558);
+data.setCell(29, 0, 29)
+data.setCell(29, 1, 'emptyLoginPassword')
+data.setCell(29, 2, 'testsuite.loginValidation_test')
+data.setCell(29, 3, 515);
+data.setCell(30, 0, 30)
+data.setCell(30, 1, 'emptyLoginUsername')
+data.setCell(30, 2, 'testsuite.loginValidation_test')
+data.setCell(30, 3, 501);
+data.setCell(31, 0, 31)
+data.setCell(31, 1, 'VerifyRememberMyPasswordLocation_27214')
+data.setCell(31, 2, 'testsuite.baseTest')
+data.setCell(31, 3, 218);
+data.setCell(32, 0, 32)
+data.setCell(32, 1, 'welcomePage')
+data.setCell(32, 2, 'testsuite.login1_test')
+data.setCell(32, 3, 183);
+data.setCell(33, 0, 33)
+data.setCell(33, 1, 'VerifyeClaimsPortalforRepairFacilitieslink_27228_27231_27261')
+data.setCell(33, 2, 'testsuite.baseTest')
+data.setCell(33, 3, 180);
+data.setCell(34, 0, 34)
+data.setCell(34, 1, 'VerifyWelcomeTextOnTheADLUILoginPage_27248_27244_27110')
+data.setCell(34, 2, 'testsuite.baseTest')
+data.setCell(34, 3, 92);
+data.setCell(35, 0, 35)
+data.setCell(35, 1, 'VerifyLocationPrivacyPolicyLink_27224_27239_27254')
+data.setCell(35, 2, 'testsuite.baseTest')
+data.setCell(35, 3, 84);
+data.setCell(36, 0, 36)
+data.setCell(36, 1, 'VerifyForgotPassword_Loginastext_27238_27254_27220_27255_27237_27166')
+data.setCell(36, 2, 'testsuite.baseTest')
+data.setCell(36, 3, 76);
+data.setCell(37, 0, 37)
+data.setCell(37, 1, 'VerifyGAPPortallinkfunctionality_27233_27259_27229')
+data.setCell(37, 2, 'testsuite.baseTest')
+data.setCell(37, 3, 71);
+data.setCell(38, 0, 38)
+data.setCell(38, 1, 'Verify_image_on_the_right_side_of_the_login_page_27225')
+data.setCell(38, 2, 'testsuite.baseTest')
+data.setCell(38, 3, 37);
+data.setCell(39, 0, 39)
+data.setCell(39, 1, 'createQuote1')
+data.setCell(39, 2, 'testsuite.quote_test')
+data.setCell(39, 3, 0);
+data.setCell(40, 0, 40)
+data.setCell(40, 1, 'createContract1')
+data.setCell(40, 2, 'testsuite.contract_test')
+data.setCell(40, 3, 0);
+window.suiteTableData['Regression']= { tableData: data, tableDiv: 'times-div-Regression'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 5 minutes</span>
+              <div id="times-div-Regression">
+              </div> <!-- times-div-Regression -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Regression" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Regression</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Regression" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">20 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">testsuite.screenTitle_test</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterSuite</span>
+                <br/>
+                <span class="ignored-method-name">beforeSuite</span>
+                <br/>
+                <span class="ignored-method-name">afterTestMethod</span>
+                <br/>
+                <span class="ignored-method-name">beforTestMethod</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">testsuite.loginValidation_test</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterSuite</span>
+                <br/>
+                <span class="ignored-method-name">beforeSuite</span>
+                <br/>
+                <span class="ignored-method-name">afterTestMethod</span>
+                <br/>
+                <span class="ignored-method-name">beforTestMethod</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">testsuite.contract_test</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterSuite</span>
+                <br/>
+                <span class="ignored-method-name">beforeSuite</span>
+                <br/>
+                <span class="ignored-method-name">afterTestMethod</span>
+                <br/>
+                <span class="ignored-method-name">beforTestMethod</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">testsuite.login1_test</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterSuite</span>
+                <br/>
+                <span class="ignored-method-name">beforeSuite</span>
+                <br/>
+                <span class="ignored-method-name">afterTestMethod</span>
+                <br/>
+                <span class="ignored-method-name">beforTestMethod</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">testsuite.quote_test</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterSuite</span>
+                <br/>
+                <span class="ignored-method-name">beforeSuite</span>
+                <br/>
+                <span class="ignored-method-name">afterTestMethod</span>
+                <br/>
+                <span class="ignored-method-name">beforTestMethod</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Regression" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">testsuite.baseTest</div> <!-- chronological-class-name -->
+              <div class="configuration-suite before">
+                <span class="method-name">beforeSuite(org.testng.TestRunner@76134b9b)</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-suite before -->
+              <div class="configuration-test before">
+                <span class="method-name">beforTestMethod(org.testng.TestRunner@76134b9b)</span>
+                <span class="method-start">13 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="configuration-class before">
+                <span class="method-name">welcome</span>
+                <span class="method-start">3166 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">VerifyeClaimsPortalforRepairFacilitieslink_27228_27231_27261</span>
+                <span class="method-start">5414 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">VerifyRememberMyPasswordLocation_27214</span>
+                <span class="method-start">5601 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">VerifyLocationPrivacyPolicyLink_27224_27239_27254</span>
+                <span class="method-start">5821 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">VerifyWelcomeTextOnTheADLUILoginPage_27248_27244_27110</span>
+                <span class="method-start">5907 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">VerifyGAPPortallinkfunctionality_27233_27259_27229</span>
+                <span class="method-start">6003 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">VerifyForgotPassword_Loginastext_27238_27254_27220_27255_27237_27166</span>
+                <span class="method-start">6076 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">Verify_image_on_the_right_side_of_the_login_page_27225</span>
+                <span class="method-start">6154 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">testsuite.loginValidation_test</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">emptyLogin</span>
+                <span class="method-start">6197 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">emptyLoginPassword</span>
+                <span class="method-start">6789 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">emptyLoginUsername</span>
+                <span class="method-start">7308 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">incorrectCredential</span>
+                <span class="method-start">7810 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">incorrectpasswordCredential</span>
+                <span class="method-start">8408 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">incorrectusernameCredential</span>
+                <span class="method-start">8968 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">testsuite.login1_test</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">welcomePage</span>
+                <span class="method-start">9557 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">loggedIn(Dealer7032823, 4558600)</span>
+                <span class="method-start">9748 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">loggedIn(Agent110, Since1996)</span>
+                <span class="method-start">21546 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">loggedIn(coforgeadmin, TAdmin54!)</span>
+                <span class="method-start">31551 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">testsuite.screenTitle_test</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">login</span>
+                <span class="method-start">41463 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">screenTitle(E-Rate, Rate/Contract)</span>
+                <span class="method-start">42180 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">screenTitle(E-Rate, Quote History)</span>
+                <span class="method-start">56302 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">screenTitle(Contracts, Contract Search)</span>
+                <span class="method-start">70427 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">screenTitle(Contracts, SPP)</span>
+                <span class="method-start">84653 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">screenTitle(Cancellations, Cancellation Quote)</span>
+                <span class="method-start">98979 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">screenTitle(Cancellations, Cancellation History)</span>
+                <span class="method-start">113211 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">screenTitle(Reports, My Account Statements)</span>
+                <span class="method-start">127352 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">screenTitle(Reports, Early Claims)</span>
+                <span class="method-start">141571 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">screenTitle(Reports, Cancellations)</span>
+                <span class="method-start">155860 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">screenTitle(Reports, Claims History)</span>
+                <span class="method-start">170040 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">screenTitle(Reports, Actuarials)</span>
+                <span class="method-start">184265 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">screenAgentTitle(E-Rate, Rate/Contract)</span>
+                <span class="method-start">198511 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">screenAgentTitle(E-Rate, Quote History)</span>
+                <span class="method-start">212630 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">screenAgentTitle(Contracts, Contract Search)</span>
+                <span class="method-start">226920 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">screenAgentTitle(Reports, My Account Statements)</span>
+                <span class="method-start">241487 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">screenAgentTitle(Reports, Early Claims)</span>
+                <span class="method-start">256237 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">screenAgentTitle(Reports, Cancellations)</span>
+                <span class="method-start">270316 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">screenAgentTitle(Reports, Claims History)</span>
+                <span class="method-start">284499 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">screenAgentTitle(Reports, Actuarials)</span>
+                <span class="method-start">298775 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">screenAgentTitle(Reports, Agent Sales Report)</span>
+                <span class="method-start">313115 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">screenAgentTitle(Dealer Settings, Manage my Dealer Pricing)</span>
+                <span class="method-start">327059 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">screenAgentTitle(Dealer Settings, Impersonate)</span>
+                <span class="method-start">347119 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">close</span>
+                <span class="method-start">362180 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">testsuite.contract_test</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">login</span>
+                <span class="method-start">362181 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-class after">
+                <span class="method-name">close</span>
+                <span class="method-start">377670 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">testsuite.quote_test</div> <!-- chronological-class-name -->
+              <div class="configuration-class after">
+                <span class="method-name">close</span>
+                <span class="method-start">377685 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">testsuite.baseTest</div> <!-- chronological-class-name -->
+              <div class="configuration-test after">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">afterTestMethod(org.testng.TestRunner@76134b9b)</span>
+                <span class="method-start">387338 ms</span>
+              </div> <!-- configuration-test after -->
+              <div class="configuration-suite after">
+                <span class="method-name">afterSuite</span>
+                <span class="method-start">387445 ms</span>
+              </div> <!-- configuration-suite after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+<script type="text/javascript" src="testng-reports2.js"></script>
+</html>

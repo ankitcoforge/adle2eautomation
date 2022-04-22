@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Regression">
+	
+	<test name="ADL">
+		<classes>
+			<class name="testsuite.baseTest" />
+			<class name="testsuite.loginValidation_test"/>
+			<class name="testsuite.login1_test"/>
+			<class name="testsuite.screenTitle_test"/>
+			<class name="testsuite.contract_test"/>
+			<class name="testsuite.quote_test"/>
+			
+			
+		</classes>
+	</test>
+	
+	
+</suite>
