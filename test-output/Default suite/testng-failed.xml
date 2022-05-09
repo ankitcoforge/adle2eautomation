@@ -3,17 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testsuite.screenTitle_test">
+      <class name="testsuite.quote_test">
         <methods>
           <include name="afterSuite"/>
-          <include name="beforeSuite"/>
           <include name="close"/>
-          <include name="afterTestMethod"/>
-          <include name="screenAgentTitle" invocation-numbers="9 10"/>
+          <include name="beforeSuite"/>
+          <include name="createQuote1" invocation-numbers="0"/>
           <include name="login"/>
+          <include name="afterTestMethod"/>
           <include name="beforTestMethod"/>
         </methods>
-      </class> <!-- testsuite.screenTitle_test -->
+      </class> <!-- testsuite.quote_test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

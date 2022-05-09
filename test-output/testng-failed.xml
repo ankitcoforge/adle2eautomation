@@ -14,23 +14,23 @@
           <include name="beforTestMethod"/>
         </methods>
       </class> <!-- testsuite.screenTitle_test -->
-      <class name="testsuite.contract_test">
+      <class name="testsuite.erate_test">
         <methods>
           <include name="afterSuite"/>
           <include name="beforeSuite"/>
-          <include name="createContract1"/>
+          <include name="quickcode"/>
           <include name="close"/>
           <include name="afterTestMethod"/>
           <include name="login"/>
           <include name="beforTestMethod"/>
         </methods>
-      </class> <!-- testsuite.contract_test -->
+      </class> <!-- testsuite.erate_test -->
       <class name="testsuite.quote_test">
         <methods>
           <include name="afterSuite"/>
           <include name="close"/>
           <include name="beforeSuite"/>
-          <include name="createQuote1"/>
+          <include name="createQuote1" invocation-numbers="0"/>
           <include name="login"/>
           <include name="afterTestMethod"/>
           <include name="beforTestMethod"/>

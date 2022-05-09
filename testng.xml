@@ -8,6 +8,7 @@
 			<class name="testsuite.loginValidation_test"/>
 			<class name="testsuite.login1_test"/>
 			<class name="testsuite.screenTitle_test"/>
+			<class name="testsuite.erate_test"/>
 			<class name="testsuite.contract_test"/>
 			<class name="testsuite.quote_test"/>
 			

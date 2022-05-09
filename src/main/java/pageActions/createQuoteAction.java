@@ -45,7 +45,6 @@ public class createQuoteAction extends baseClass{
 		event.inputfield("cssSelector", co.contract, "10000", 0);
 		driver.findElements(By.cssSelector(co.textbox)).get(14).clear();
 		//event.inputfield("cssSelector", contract, "10000", 0);
-		
 		event.inputfield("cssSelector", co.textbox, "20130", 14);
 		driver.findElements(By.cssSelector(co.textbox)).get(13).clear();
 		event.inputfield("cssSelector", co.textbox, "Address", 13);

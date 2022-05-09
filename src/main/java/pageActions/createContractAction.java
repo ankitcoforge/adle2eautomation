@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import pageObjects.contractpo;
 import utils.baseClass;
@@ -19,7 +20,7 @@ public class createContractAction extends contractpo{
 		int i =0;
 		/************************Create contract 
 		 * @throws InterruptedException ****************************************/
-		public String createContract(String[] inputArray) throws InterruptedException {
+		public void createContract(String[] inputArray) throws InterruptedException {
 
 			HashMap<String, String> searchData1 = new HashMap<String, String>();
 			searchData1 = contractData(inputArray);
@@ -48,12 +49,12 @@ public class createContractAction extends contractpo{
 			event.clickfield("cssSelector", "div.review_contract__validate__checkbox > adl-checkbox > div > mat-checkbox", 1);
 			Thread.sleep(3000);
 			event.clickfield("xpath", "//span[contains(text(),'Generate Contract')]");
-			Thread.sleep(3000);
-			//String x1 = event.text("cssSelector", successMessage);
-			String x1 = driver.findElement(By.cssSelector(".notification__container__message >span")).getText();
-			System.out.println(x1);
+			Thread.sleep(5000);
+			//String text = event.text("cssSelector", successMessage);
+			String text = driver.findElement(By.cssSelector("div.notification__container__message > span")).getText();
+			Assert.assertEquals(text, "You have successfully generated a contract!");
 			event.clickfield("xpath", "//a[contains(text(),'Start New Quote')]");
-			return (x1);	
+			
 			
 		}
 		
