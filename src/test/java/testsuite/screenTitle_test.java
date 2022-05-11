@@ -47,7 +47,6 @@ public class screenTitle_test extends verticalMenupo{
         	{"Reports", "Claims History"},
         	{"Reports", "Actuarials"},
         	{"Reports", "Agent Sales Report"},
-        	{"Dealer Settings", "Manage my Dealer Pricing"},
         	{"Dealer Settings", "Impersonate"},
         	
         	

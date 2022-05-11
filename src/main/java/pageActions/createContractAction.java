@@ -33,6 +33,7 @@ public class createContractAction extends contractpo{
 			programSelect(searchData1.get("program"));
 			event.clickfield("xpath", table, 1);
 			event.inputfield("cssSelector", contract, "10000", 0);
+			event.clickfield("xpath", "//p[contains(text(),'Business Use')]//..");
 			driver.findElements(By.cssSelector(textbox)).get(14).clear();
 			event.inputfield("cssSelector", textbox, "20130", 14);
 			driver.findElements(By.cssSelector(textbox)).get(13).clear();
@@ -40,7 +41,6 @@ public class createContractAction extends contractpo{
 			Thread.sleep(5000);
 			event.clearfield("cssSelector", textbox, 17);
 			event.inputfield("cssSelector", textbox, "1234567890", 17);
-			boolean x = calculatePrice();
 			//Assert.assertEquals(x, true, "Total Price Mismatch");
 			event.clickfield("xpath", generateContract);
 			getDriver().findElement(By.xpath("//h3[contains(text(),'Generate Contract')]")).isDisplayed();

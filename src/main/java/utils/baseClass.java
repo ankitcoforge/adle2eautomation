@@ -218,6 +218,12 @@ public class baseClass {
 			case 4:
 				searchData.put("program", inputArray[i]);
 				break;
+			case 5: 
+				searchData.put("Surcharge", inputArray[i]);
+				break;
+			case 6:
+				searchData.put("AddOption", inputArray[i]);
+				break;
 			default:
 				searchData.put("NoData", inputArray[i]);
 				break;
