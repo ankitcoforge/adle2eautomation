@@ -17,14 +17,12 @@ public class createContractAction extends contractpo{
 		
 	    utilityClass event = new utilityClass();
 
-		int i =0;
 		/************************Create contract 
 		 * @throws InterruptedException ****************************************/
 		public void createContract(String[] inputArray) throws InterruptedException {
 
 			HashMap<String, String> searchData1 = new HashMap<String, String>();
 			searchData1 = contractData(inputArray);
-
 			event.inputfield("cssSelector", textbox, searchData1.get("Firstname"), 0);
 			event.inputfield("cssSelector", textbox, searchData1.get("Lastname"), 1);
 			event.inputfield("cssSelector", textbox, searchData1.get("Mileage"), 5);

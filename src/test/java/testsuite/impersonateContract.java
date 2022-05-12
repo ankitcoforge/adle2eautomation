@@ -1,37 +1,39 @@
 package testsuite;
 
-import org.testng.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import pageActions.createQuoteAction;
+import pageActions.createContractAction;
 import pageActions.loginAction;
 import pageActions.verticalMenuAction;
 
-
-public class quote_test extends createQuoteAction{
+public class impersonateContract extends createContractAction {
 
 	loginAction lo = new loginAction();
 	verticalMenuAction vo = new verticalMenuAction();
 	
 	/*************login to the application
 	 * @throws InterruptedException *********************/
-	@BeforeClass()
+	@BeforeClass
 	public void login() throws InterruptedException {
 		
 		navigate();
-		lo.login("westford", "4558600");
+		lo.login("coforgeadmin", "TAdmin54!");
+		vo.impersonateUser();
 		vo.navigatetoContract();
+		
 	}
 	
-	/********************quote creation test case****************/
+	/*****************Contract creation test case***************/
 	@Test(priority = 1, dataProvider ="test1")
-    public void createQuote1(String [] inputArray) throws InterruptedException {
+    public void createContract1(String[] inputArray) throws InterruptedException {
 		
 		
-		createQuote(inputArray);
+		createContract(inputArray);
+		
 		
 	    
 	}
@@ -40,8 +42,7 @@ public class quote_test extends createQuoteAction{
 	 * @throws InterruptedException ********************/
 	@AfterClass
 	public void close() throws InterruptedException {
-
+ 
 		lo.logout();
-		
 	}
 }
