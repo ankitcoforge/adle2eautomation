@@ -16,6 +16,7 @@ import utils.utilityClass;
 public class createContractAction extends contractpo{
 		
 	    utilityClass event = new utilityClass();
+	    generateContractAction gc = new generateContractAction();
 
 		/************************Create contract 
 		 * @throws InterruptedException ****************************************/
@@ -31,7 +32,10 @@ public class createContractAction extends contractpo{
 			programSelect(searchData1.get("program"));
 			event.clickfield("xpath", table, 1);
 			event.inputfield("cssSelector", contract, "10000", 0);
-			event.clickfield("xpath", "//p[contains(text(),'Business Use')]//..");
+			if(!(searchData1.get("program").contains("Limited Warranty"))) {
+				event.clickfield("xpath", "//p[contains(text(),'Business Use')]//..");
+			}
+			
 			driver.findElements(By.cssSelector(textbox)).get(14).clear();
 			event.inputfield("cssSelector", textbox, "20130", 14);
 			driver.findElements(By.cssSelector(textbox)).get(13).clear();
@@ -43,6 +47,9 @@ public class createContractAction extends contractpo{
 			event.clickfield("xpath", generateContract);
 			getDriver().findElement(By.xpath("//h3[contains(text(),'Generate Contract')]")).isDisplayed();
 			Thread.sleep(5000);
+			if((searchData1.get("GenerateContract")).equals("one")) {
+				gc.generateContractPopUp();
+			}
 			event.clickfield("cssSelector", "div.review_contract__validate__checkbox > adl-checkbox > div > mat-checkbox", 0);
 			event.clickfield("cssSelector", "div.review_contract__validate__checkbox > adl-checkbox > div > mat-checkbox", 1);
 			Thread.sleep(3000);

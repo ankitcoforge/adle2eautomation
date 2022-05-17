@@ -222,7 +222,7 @@ public class baseClass {
 				searchData.put("Surcharge", inputArray[i]);
 				break;
 			case 6:
-				searchData.put("AddOption", inputArray[i]);
+				searchData.put("GenerateContract", inputArray[i]);
 				break;
 			default:
 				searchData.put("NoData", inputArray[i]);

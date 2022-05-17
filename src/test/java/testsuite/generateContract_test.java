@@ -1,19 +1,15 @@
 package testsuite;
 
-import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import pageActions.createContractAction;
 import pageActions.loginAction;
 import pageActions.verticalMenuAction;
-import utils.baseClass;
 
-public class contract_test extends createContractAction {
-
+public class generateContract_test extends createContractAction{
+	
 	loginAction lo = new loginAction();
 	verticalMenuAction vo = new verticalMenuAction();
 	
@@ -23,7 +19,7 @@ public class contract_test extends createContractAction {
 	public void login() throws InterruptedException {
 		
 		navigate();
-		lo.login("dvidesdealer", "4558600");
+		lo.login("westford", "4558600");
 		vo.navigatetoContract();
 		
 	}
@@ -46,4 +42,6 @@ public class contract_test extends createContractAction {
  
 		lo.logout();
 	}
+
+
 }

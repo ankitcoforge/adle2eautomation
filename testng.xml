@@ -11,6 +11,7 @@
 			<class name="testsuite.erate_test"/>
 			<class name="testsuite.contract_test"/>
 			<class name="testsuite.quote_test"/>
+			<class name="testsuite.generateContract_test"/>
 			<class name="testsuite.impersonateContract"/>
 			
 			
