@@ -52,7 +52,7 @@ public class verticalMenuAction extends verticalMenupo{
         driver.switchTo().frame(1);
         Thread.sleep(4000);
 		driver.findElement(By.cssSelector("#cnt table #container table tbody tr input")).click();
-		event.inputfield("cssselector","#cnt table #container table tbody tr input","70340");
+		event.inputfield("cssselector","#cnt table #container table tbody tr input","22723");
 		event.clickfield("id", "ctl00_mainContent_ButtonGetUsers");
 		event.clickfield("id", "ctl00_mainContent_ASPxGridViewUsers_cell0_11_ASPxButtonImpersonate");
 		driver.switchTo().defaultContent();

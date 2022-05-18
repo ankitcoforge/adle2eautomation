@@ -19,7 +19,7 @@ public class generateContract_test extends createContractAction{
 	public void login() throws InterruptedException {
 		
 		navigate();
-		lo.login("westford", "4558600");
+		lo.login("dvidesdealer", "4558600");
 		vo.navigatetoContract();
 		
 	}

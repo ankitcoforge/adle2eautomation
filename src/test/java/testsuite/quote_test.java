@@ -22,7 +22,7 @@ public class quote_test extends createQuoteAction{
 	public void login() throws InterruptedException {
 		
 		navigate();
-		lo.login("westford", "4558600");
+		lo.login("dvidesdealer", "4558600");
 		vo.navigatetoContract();
 	}
 	
