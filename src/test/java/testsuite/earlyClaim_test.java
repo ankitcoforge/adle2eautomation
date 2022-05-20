@@ -4,14 +4,15 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import pageActions.createContractAction;
 import pageActions.loginAction;
 import pageActions.verticalMenuAction;
+import utils.baseClass;
 
-public class generateContract_test extends createContractAction{
-	
+public class earlyClaim_test extends baseClass{
+
 	loginAction lo = new loginAction();
 	verticalMenuAction vo = new verticalMenuAction();
+	
 	
 	/*************login to the application
 	 * @throws InterruptedException *********************/
@@ -19,17 +20,17 @@ public class generateContract_test extends createContractAction{
 	public void login() throws InterruptedException {
 		
 		navigate();
-		lo.login(prop.getProperty("username1"),prop.getProperty("password"));
-		vo.navigatetoContract();
+		lo.login(prop.getProperty("username"),prop.getProperty("password"));
+		vo.navigatetoLeftMenu("Reports", "Early Claims");
 		
 	}
 	
 	/*****************Contract creation test case***************/
-	@Test(priority = 1, dataProvider ="test1")
-    public void createContract1(String[] inputArray) throws InterruptedException {
+	@Test()
+    public void earlyClaim() {
 		
+		System.out.println("Hello");
 		
-		createContract(inputArray);
 		
 		
 	    
@@ -42,6 +43,4 @@ public class generateContract_test extends createContractAction{
  
 		lo.logout();
 	}
-
-
 }

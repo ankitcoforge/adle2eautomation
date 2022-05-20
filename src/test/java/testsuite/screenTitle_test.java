@@ -71,7 +71,7 @@ public class screenTitle_test extends verticalMenupo{
 	@Test(priority = 1, dataProvider = "Dealer")
     public void screenTitle(String heading, String subheading) throws InterruptedException {
 
-		lo.login("Dealer7032823", "4558600");
+		lo.login(prop.getProperty("username"),prop.getProperty("password"));
 		vo.navigatetoLeftMenu(heading, subheading);
 		Assert.assertEquals(vo.getTitle(), subheading);
 		lo.logout();
@@ -81,7 +81,7 @@ public class screenTitle_test extends verticalMenupo{
 	@Test(priority = 2, dataProvider = "Agent")
     public void screenAgentTitle(String heading, String subheading) throws InterruptedException {
 
-		lo.login("Agent110", "Since1996");
+		lo.login(prop.getProperty("agentusername"),prop.getProperty("agentpassword"));
 		vo.navigatetoLeftMenu(heading, subheading);
 		Assert.assertEquals(vo.getTitle(), subheading);
 		lo.logout();

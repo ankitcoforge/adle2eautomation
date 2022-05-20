@@ -26,6 +26,18 @@ public class verticalMenuAction extends verticalMenupo{
 
 	}
 	
+	/***************************Navigate to Contract page
+	 * @throws InterruptedException *******************************/
+	public void navigatetoimpersonate() throws InterruptedException {
+
+		Thread.sleep(4000);
+		driver.switchTo().activeElement();
+		event.clickfield("xpath", reports);
+		event.clickfield("xpath", impersonate);
+
+	}
+	
+	
 	public void navigatetoLeftMenu(String heading, String subheading) throws InterruptedException {
 		Thread.sleep(4000);
 		driver.switchTo().activeElement();
@@ -38,28 +50,6 @@ public class verticalMenuAction extends verticalMenupo{
 		return (event.text("cssSelector", "header > div >h3"));
 	}
 	
-	public void impersonateUser() throws InterruptedException {
-		driver.switchTo().activeElement();
-		event.clickfield("xpath", "//button[contains(text(),'Reports')]");
-		event.clickfield("xpath", "//a[contains(text(),'Impersonate')]");
-		Thread.sleep(4000);
-        driver.switchTo().defaultContent();
-        driver.switchTo().frame(1);
-        driver.findElement(By.id("ctl00_mainContent_DropDownListRoleType")).click();
-        driver.findElement(By.id("ctl00_mainContent_DropDownListRoleType")).sendKeys(Keys.ARROW_DOWN);
-        driver.findElement(By.id("ctl00_mainContent_DropDownListRoleType")).sendKeys(Keys.ENTER);
-        driver.switchTo().defaultContent();
-        driver.switchTo().frame(1);
-        Thread.sleep(4000);
-		driver.findElement(By.cssSelector("#cnt table #container table tbody tr input")).click();
-		event.inputfield("cssselector","#cnt table #container table tbody tr input","22723");
-		event.clickfield("id", "ctl00_mainContent_ButtonGetUsers");
-		event.clickfield("id", "ctl00_mainContent_ASPxGridViewUsers_cell0_11_ASPxButtonImpersonate");
-		driver.switchTo().defaultContent();
-		driver.switchTo().parentFrame();
-		//String header1 = event.text("xpath", header, 0);
-		
-
-	}
+	
 }
 

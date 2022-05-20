@@ -10,5 +10,7 @@ public class verticalMenupo extends baseClass {
 	public String quoteSearch = "//a[contains(text(),'Quote History')]";
 	public String contracts = "//button[contains(text(),'Contract')]";
 	public String contractSearch = "//a[contains(text(),'Contract Search')]";
+	public String impersonate = "//a[contains(text(),'Impersonate')]";
+	public String reports = "//button[contains(text(),'Reports')]";
 
 }

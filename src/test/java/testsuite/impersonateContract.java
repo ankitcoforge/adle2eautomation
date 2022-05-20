@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import pageActions.createContractAction;
+import pageActions.impersonateAction;
 import pageActions.loginAction;
 import pageActions.verticalMenuAction;
 
@@ -14,6 +15,7 @@ public class impersonateContract extends createContractAction {
 
 	loginAction lo = new loginAction();
 	verticalMenuAction vo = new verticalMenuAction();
+	impersonateAction ia = new impersonateAction();
 	
 	/*************login to the application
 	 * @throws InterruptedException *********************/
@@ -21,8 +23,9 @@ public class impersonateContract extends createContractAction {
 	public void login() throws InterruptedException {
 		
 		navigate();
-		lo.login("coforgeadmin", "TAdmin54!");
-		vo.impersonateUser();
+		lo.login(prop.getProperty("adminusername"),prop.getProperty("adminpassword"));
+		vo.navigatetoimpersonate();
+		ia.impersonateUser(prop.getProperty("roleid"));
 		vo.navigatetoContract();
 		
 	}

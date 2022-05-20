@@ -27,7 +27,7 @@ public class erate_test extends erateAction {
 	public void login() throws InterruptedException {
 
 		navigate();
-		lo.login("Dealer7032823", "4558600");
+		lo.login(prop.getProperty("username"),prop.getProperty("password"));
 		vo.navigatetoContract();
 
 	}
