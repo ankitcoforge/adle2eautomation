@@ -25,7 +25,7 @@ public class impersonateContract extends createContractAction {
 		navigate();
 		lo.login(prop.getProperty("adminusername"),prop.getProperty("adminpassword"));
 		vo.navigatetoimpersonate();
-		ia.impersonateUser(prop.getProperty("roleid"));
+		ia.impersonateUser("Dealer",prop.getProperty("roleid"));
 		vo.navigatetoContract();
 		
 	}

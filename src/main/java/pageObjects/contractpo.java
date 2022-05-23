@@ -19,5 +19,10 @@ public class contractpo extends baseClass{
 	public String programlastname = "')]";
 	public String total = "adl-rate-contract-footer > footer > div.total__price.col-4_sm-6 ";
 	public String qc = "adl-text-input[label='Quick Code']";
+	public String businessUse = "//p[contains(text(),'Business Use')]//..";
+	public String inServiceDate = "adl-text-input[label='In-Service Date']";
+	public String inServiceDateTextBox = "button > span >mat-icon";
+	public String phone = "adl-text-input[label='Phone Number'] > div > div.text-field__input.secure > input";
+	public String newQuotelink = "//a[contains(text(),'Start New Quote')]";
 	
 }

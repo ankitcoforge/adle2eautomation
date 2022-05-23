@@ -32,14 +32,15 @@ public class createContractAction extends contractpo{
 			event.clickfield("xpath", getProducts);
 			programSelect(searchData1.get("program"));
 			event.clickfield("xpath", table, 1);
+			String b = event.text("xpath", table,1);
+			System.out.println(b);
 			event.inputfield("cssSelector", contract, "10000", 0);
 			if(!(searchData1.get("program").contains("Limited Warranty"))) {
-				event.clickfield("xpath", "//p[contains(text(),'Business Use')]//..");
+				event.clickfield("xpath", businessUse);
 			}
-			List <WebElement> a = driver.findElements(By.cssSelector("adl-text-input[label='In-Service Date']"));
-			System.out.println(a.size());
+			List <WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
 			if(a.size() == 1) {
-				driver.findElement(By.cssSelector("button > span >mat-icon")).click();
+				driver.findElement(By.cssSelector(inServiceDateTextBox)).click();
 				driver.findElement(By.cssSelector("td[aria-label=\"May 1, 2022\"]")).click();
 			}
 			driver.findElements(By.cssSelector(textbox)).get(14).clear();
@@ -47,24 +48,23 @@ public class createContractAction extends contractpo{
 			driver.findElements(By.cssSelector(textbox)).get(13).clear();
 			event.inputfield("cssSelector", textbox, "Address", 13);
 			Thread.sleep(5000);
-			event.clearfield("cssSelector", "adl-text-input[label='Phone Number'] > div > div.text-field__input.secure > input");
-			event.inputfield("cssSelector", "adl-text-input[label='Phone Number'] > div > div.text-field__input.secure > input", "1234567890");
-			//Assert.assertEquals(x, true, "Total Price Mismatch");
+			event.clearfield("cssSelector", phone);
+			event.inputfield("cssSelector", phone, "1234567890");
 			event.clickfield("xpath", generateContract);
-			getDriver().findElement(By.xpath("//h3[contains(text(),'Generate Contract')]")).isDisplayed();
+			getDriver().findElement(By.xpath(gc.generateContractHeading)).isDisplayed();
 			Thread.sleep(5000);
 			if((searchData1.get("GenerateContract")).equals("one")) {
 				gc.generateContractPopUp();
 			}
-			event.clickfield("cssSelector", "div.review_contract__validate__checkbox > adl-checkbox > div > mat-checkbox", 0);
-			event.clickfield("cssSelector", "div.review_contract__validate__checkbox > adl-checkbox > div > mat-checkbox", 1);
+			event.clickfield("cssSelector", gc.checkbox, 0);
+			event.clickfield("cssSelector", gc.checkbox, 1);
 			Thread.sleep(3000);
-			event.clickfield("xpath", "//span[contains(text(),'Generate Contract')]");
+			event.clickfield("xpath", gc.genrateContractButton);
 			Thread.sleep(5000);
 			//String text = event.text("cssSelector", successMessage);
-			String text = driver.findElement(By.cssSelector("div.notification__container__message > span")).getText();
+			String text = driver.findElement(By.cssSelector(successMessage)).getText();
 			Assert.assertEquals(text, "You have successfully generated a contract!");
-			event.clickfield("xpath", "//a[contains(text(),'Start New Quote')]");
+			event.clickfield("xpath", newQuotelink);
 			
 			
 		}
