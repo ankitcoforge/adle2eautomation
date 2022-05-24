@@ -6,6 +6,7 @@ public class contractpo extends baseClass{
 
 	/*************page object for contract page is declared ********************/
 	
+	//public String successMessage = "adl-success-screen > div > div:nth-child(3) >span";
 	public String successMessage = "div.notification__container__message > span";
 	public String textbox = "adl-text-input > div > div.text-field__input.secure > input";
 	public String getProducts = "//span[contains(text(),'Get Products')]";
@@ -24,5 +25,6 @@ public class contractpo extends baseClass{
 	public String inServiceDateTextBox = "button > span >mat-icon";
 	public String phone = "adl-text-input[label='Phone Number'] > div > div.text-field__input.secure > input";
 	public String newQuotelink = "//a[contains(text(),'Start New Quote')]";
+	public String programNameCode = ".rate__card--rates>adl-rates-table >div >h3";
 	
 }

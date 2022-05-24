@@ -32,8 +32,11 @@ public class createContractAction extends contractpo{
 			event.clickfield("xpath", getProducts);
 			programSelect(searchData1.get("program"));
 			event.clickfield("xpath", table, 1);
-			String b = event.text("xpath", table,1);
-			System.out.println(b);
+			String header = event.text("cssSelector", programNameCode);
+			String[] program = header.split(" • ");
+			String programCode = program[0];
+			String programName = program[1];
+			String price = event.text("xpath", table,1);
 			event.inputfield("cssSelector", contract, "10000", 0);
 			if(!(searchData1.get("program").contains("Limited Warranty"))) {
 				event.clickfield("xpath", businessUse);
@@ -47,23 +50,21 @@ public class createContractAction extends contractpo{
 			event.inputfield("cssSelector", textbox, "20130", 14);
 			driver.findElements(By.cssSelector(textbox)).get(13).clear();
 			event.inputfield("cssSelector", textbox, "Address", 13);
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			event.clearfield("cssSelector", phone);
 			event.inputfield("cssSelector", phone, "1234567890");
 			event.clickfield("xpath", generateContract);
 			getDriver().findElement(By.xpath(gc.generateContractHeading)).isDisplayed();
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			if((searchData1.get("GenerateContract")).equals("one")) {
-				gc.generateContractPopUp();
+				gc.generateContractPopUp(programCode, programName, price);
 			}
 			event.clickfield("cssSelector", gc.checkbox, 0);
 			event.clickfield("cssSelector", gc.checkbox, 1);
-			Thread.sleep(3000);
 			event.clickfield("xpath", gc.genrateContractButton);
 			Thread.sleep(5000);
-			//String text = event.text("cssSelector", successMessage);
-			String text = driver.findElement(By.cssSelector(successMessage)).getText();
-			Assert.assertEquals(text, "You have successfully generated a contract!");
+			String text1 = event.text("cssSelector", successMessage);
+			Assert.assertEquals(text1, "You have successfully generated a contract!");
 			event.clickfield("xpath", newQuotelink);
 			
 			
