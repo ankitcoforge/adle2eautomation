@@ -6,9 +6,10 @@ import org.testng.annotations.Test;
 
 import pageActions.createContractAction;
 import pageActions.loginAction;
+import pageActions.pdfAction;
 import pageActions.verticalMenuAction;
 
-public class validatePDF_test extends createContractAction{
+public class validatePDF_test extends pdfAction{
 	
 	loginAction lo = new loginAction();
 	verticalMenuAction vo = new verticalMenuAction();
@@ -27,17 +28,9 @@ public class validatePDF_test extends createContractAction{
 	/*****************Contract creation test case***************/
 	@Test(priority = 1, dataProvider ="test1")
     public void createContract1(String[] inputArray) throws InterruptedException {
-		
-		
+			
 	   validatePDFContract(inputArray);
-		
-		
 	    
-	}
-	
-	private void validatePDFContract(String[] inputArray) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	/***************logout to the application

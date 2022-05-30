@@ -79,7 +79,7 @@ public class pdfAction extends contractpo {
 		driver.findElements(By.cssSelector("span[class='mat-button-wrapper']")).get(1).click();
 		Thread.sleep(3000);
 		HashSet<String> a1 = new HashSet<>();
-		a1 = isFileDownloaded("C:\\ankit", ".pdf");
+		a1 = isFileDownloaded(System.getProperty("user.dir"), ".pdf");
 		a1.removeAll(b);
 		String pdfUrl = "file:///C:/ankit/" + a1.toString().replaceAll("\\,|\\[|\\]|\\s", "");
 
