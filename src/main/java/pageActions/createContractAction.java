@@ -1,6 +1,9 @@
 package pageActions;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -9,6 +12,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
 
 import pageObjects.contractpo;
 import utils.baseClass;
@@ -65,8 +77,45 @@ public class createContractAction extends contractpo{
 			Thread.sleep(5000);
 			String text1 = event.text("cssSelector", successMessage);
 			Assert.assertEquals(text1, "You have successfully generated a contract!");
-			event.clickfield("xpath", newQuotelink);
+			event.clickfield("xpath", newQuotelink);					
+		}
+		
+		public void verifyContentInPDf(String url, String program) {
+			//specify the url of the pdf file
+			try {
+				String pdfContent = readPdfContent(url);
+				if(program.contains("Sentinel")) {
+					Assert.assertTrue(pdfContent.contains("Sentinel"));
+				}
+				else {
+					Assert.assertTrue(pdfContent.contains("AUL"));
+				}
+				
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		public static  String readPdfContent(String url) throws IOException {
 			
+			URL pdfUrl = new URL(url);
+			InputStream in = pdfUrl.openStream();
+			BufferedInputStream bf = new BufferedInputStream(in);
+			PDDocument doc = PDDocument.load(bf);
+			int numberOfPages = getPageCount(doc);
+			System.out.println("The total number of pages "+numberOfPages);
+			String content = new PDFTextStripper().getText(doc);
+			doc.close();
+		
+		return content;
+	}
+		
+		public static int getPageCount(PDDocument doc) {
+			//get the total number of pages in the pdf document
+			int pageCount = doc.getNumberOfPages();
+			return pageCount;
 			
 		}
 		
@@ -76,8 +125,23 @@ public class createContractAction extends contractpo{
 			
 		}
 		
-		
-		
+		public HashSet <String> isFileDownloaded(String downloadPath, String fileName) {
+//			boolean flag = false;
+		    String pathnames[] = null;
+		    File dir = new File(downloadPath);
+		 // Populates the array with names of files and directories
+	        pathnames = dir.list();
+	        // For each pathname in the pathnames array
+	        HashSet <String> a = new HashSet<> ();
+	        
+	        for (String pathname : pathnames) {
+	            // Print the names of files and directories
+	            a.add(pathname);
+	        }
+	       
+	        return a;
+	    }
+
 		public boolean calculatePrice() {
 			String covPrice = event.text("xpath", table, 1);
 			String price = covPrice.substring(1);
@@ -91,6 +155,3 @@ public class createContractAction extends contractpo{
 		}
 		
 	}
-
-
-

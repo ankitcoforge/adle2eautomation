@@ -1,24 +1,15 @@
 package testsuite;
 
-import java.io.File;
-import java.util.Objects;
-
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.By;
-
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import pageActions.createContractAction;
 import pageActions.loginAction;
 import pageActions.verticalMenuAction;
-import utils.baseClass;
 
-public class contract_test extends createContractAction {
-
+public class validatePDF_test extends createContractAction{
+	
 	loginAction lo = new loginAction();
 	verticalMenuAction vo = new verticalMenuAction();
 	
@@ -28,7 +19,7 @@ public class contract_test extends createContractAction {
 	public void login() throws InterruptedException {
 		
 		navigate();
-		lo.login("dvidesdealer", "4558600");
+		lo.login(prop.getProperty("username1"),prop.getProperty("password"));
 		vo.navigatetoContract();
 		
 	}
@@ -38,21 +29,24 @@ public class contract_test extends createContractAction {
     public void createContract1(String[] inputArray) throws InterruptedException {
 		
 		
-		createContract(inputArray);
+	   validatePDFContract(inputArray);
 		
 		
 	    
 	}
 	
+	private void validatePDFContract(String[] inputArray) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	/***************logout to the application
 	 * @throws InterruptedException ********************/
 	@AfterClass
 	public void close() throws InterruptedException {
  
-	        
-	        lo.logout();
-	    }
-		
+		lo.logout();
 	}
 
 
+}

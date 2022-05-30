@@ -23,6 +23,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -89,9 +90,9 @@ public class baseClass {
 		String browserName = prop.getProperty("browser");
 		if (driver == null) {
 			driver = createDriver(browserName);
-			driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-			driver.manage().timeouts().setScriptTimeout(15, TimeUnit.SECONDS);
-			driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			driver.manage().timeouts().setScriptTimeout(30, TimeUnit.SECONDS);
+			driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 			driver.manage().window().maximize();
 		}
 		return driver;
@@ -108,15 +109,22 @@ public class baseClass {
 			driver = new FirefoxDriver();
 		} else if (browser.equals("Chrome")) {
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//chromedriver.exe");
-			HashMap<String, String> mobileEmulation = new HashMap();
-			mobileEmulation.put("deviceName", "Nexus 5");
-			ChromeOptions chromeOptions = new ChromeOptions();
-			chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
-			driver = new ChromeDriver();
+			//HashMap<String, String> mobileEmulation = new HashMap();
+			//mobileEmulation.put("deviceName", "Nexus 5");
+			//ChromeOptions chromeOptions = new ChromeOptions();
+			//chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
+			HashMap<String,Object> chromePrefs = new HashMap<String, Object>();
+			chromePrefs.put("plugins.always_open_pdf_externally", true);
+			chromePrefs.put("download.default_directory", "C:\\ankit");
+			ChromeOptions options = new ChromeOptions();
+			options.setExperimentalOption("prefs", chromePrefs);
+			driver = new ChromeDriver(options);
 		} else if (browser.equals("IE")) {
-			// System.setProperty("webdriver.chrome.driver",
-			// prop.getProperty("iedriver_exe"));
-			// driver = new InternetExplorerDriver();
+			//Setting system properties of InternetExplorerDriver
+			System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + "//IEDriverServer.exe"); 
+
+			//Creating an object of InternetExplorerDriver
+		    driver=new InternetExplorerDriver();
 		}
 		return driver;
 	}
