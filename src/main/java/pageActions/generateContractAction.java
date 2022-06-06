@@ -8,7 +8,7 @@ import pageObjects.generateContractpo;
 public class generateContractAction extends generateContractpo {
 	
 	
-	public void generateContractPopUp(String code, String name, String total){
+	public void generateContractPopUp(String code, String name){
 	
 		String gcButton = driver.findElement(By.cssSelector(gcButtonattr)).getAttribute("disabled");
 		Assert.assertEquals(gcButton, "true");

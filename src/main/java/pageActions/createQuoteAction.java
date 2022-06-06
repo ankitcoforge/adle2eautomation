@@ -33,8 +33,8 @@ public class createQuoteAction extends baseClass{
 		event.inputfield("cssSelector", co.textbox, searchData1.get("Vin"), 6);
 		event.clickfield("xpath", co.getProducts);
 		co.programSelect(searchData1.get("program"));
-		event.clickfield("xpath", co.table, 1);
-		String price = event.text("xpath", co.table,1);
+		event.clickfield("cssSelector", co.table, 0);
+		String price = event.text("cssSelector", co.table,0);
 		event.inputfield("cssSelector", co.contract, "10000", 0);
 		if(!(searchData1.get("program").contains("Limited Warranty"))) {
 			event.clickfield("xpath", co.businessUse);
@@ -42,7 +42,7 @@ public class createQuoteAction extends baseClass{
 		List <WebElement> a = driver.findElements(By.cssSelector(co.inServiceDate));
 		if(a.size() == 1) {
 			driver.findElement(By.cssSelector(co.inServiceDateTextBox)).click();
-			driver.findElement(By.cssSelector("td[aria-label=\"May 1, 2022\"]")).click();
+			driver.findElement(By.cssSelector("td[aria-label=\"June 1, 2022\"]")).click();
 		}
 		driver.findElements(By.cssSelector(co.textbox)).get(14).clear();
 		event.inputfield("cssSelector", co.textbox, "20130", 14);

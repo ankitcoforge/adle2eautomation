@@ -13,6 +13,7 @@ import java.util.List;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
@@ -40,21 +41,25 @@ public class pdfAction extends contractpo {
 		event.inputfield("cssSelector", textbox, searchData1.get("Vin"), 6);
 		event.clickfield("xpath", getProducts);
 		ca.programSelect(searchData1.get("program"));
-		event.clickfield("xpath", table, 1);
-		String header = event.text("cssSelector", programNameCode);
-		String[] program = header.split(" • ");
-		String programCode = program[0];
-		String programName = program[1];
-		String price = event.text("xpath", table, 1);
-		event.inputfield("cssSelector", contract, "10000", 0);
+		event.clickfield("cssSelector", table, 0);
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+//		js.executeScript("window.scrollTo(0, 1000)");
+//		String header = event.text("cssSelector", programNameCode);
+//		String[] program = header.split(" • ");
+//		String programCode = program[0];
+//		String programName = program[1];
+		//String price = event.text("cssSelector", table, 0);
+		js.executeScript("window.scrollTo(0, 1800)");
 		if (!(searchData1.get("program").contains("Limited Warranty"))) {
 			event.clickfield("xpath", businessUse);
 		}
 		List<WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
 		if (a.size() == 1) {
 			driver.findElement(By.cssSelector(inServiceDateTextBox)).click();
-			driver.findElement(By.cssSelector("td[aria-label=\"May 1, 2022\"]")).click();
+			driver.findElement(By.cssSelector("td[aria-label=\"June 1, 2022\"]")).click();
 		}
+		js.executeScript("window.scrollTo(0, 2000)");
+		event.inputfield("cssSelector", contract, "10000", 0);
 		driver.findElements(By.cssSelector(textbox)).get(14).clear();
 		event.inputfield("cssSelector", textbox, "20130", 14);
 		driver.findElements(By.cssSelector(textbox)).get(13).clear();
@@ -65,9 +70,6 @@ public class pdfAction extends contractpo {
 		event.clickfield("xpath", generateContract);
 		getDriver().findElement(By.xpath(gc.generateContractHeading)).isDisplayed();
 		Thread.sleep(2000);
-		if ((searchData1.get("GenerateContract")).equals("one")) {
-			gc.generateContractPopUp(programCode, programName, price);
-		}
 		event.clickfield("cssSelector", gc.checkbox, 0);
 		event.clickfield("cssSelector", gc.checkbox, 1);
 		event.clickfield("xpath", gc.genrateContractButton);
@@ -75,18 +77,16 @@ public class pdfAction extends contractpo {
 		String text1 = event.text("cssSelector", successMessage);
 		Assert.assertEquals(text1, "You have successfully generated a contract!");
 		HashSet<String> b = new HashSet<>();
-		b = isFileDownloaded("C:\\ankit", ".pdf");
+		b = isFileDownloaded("C:\\PDF", ".pdf");
 		driver.findElements(By.cssSelector("span[class='mat-button-wrapper']")).get(1).click();
 		Thread.sleep(3000);
 		HashSet<String> a1 = new HashSet<>();
-		a1 = isFileDownloaded(System.getProperty("user.dir"), ".pdf");
+		a1 = isFileDownloaded("C:\\PDF", ".pdf");
 		a1.removeAll(b);
-		String pdfUrl = "file:///C:/ankit/" + a1.toString().replaceAll("\\,|\\[|\\]|\\s", "");
-
-		System.out.println(pdfUrl);
+		System.out.println(a1);
+		String pdfUrl = "file:///C:/PDF/" + a1.toString().replaceAll("\\,|\\[|\\]|\\s", "");
 		verifyContentInPDf(pdfUrl, searchData1.get("program"));
 		b.addAll(a1);
-
 		event.clickfield("xpath", newQuotelink);
 
 	}

@@ -6,11 +6,11 @@ import org.testng.annotations.Test;
 
 import pageActions.createContractAction;
 import pageActions.loginAction;
-import pageActions.pdfAction;
+import pageActions.twoProgramContractAction;
 import pageActions.verticalMenuAction;
 
-public class validatePDF_test extends pdfAction{
-	
+public class twoProgramContract extends twoProgramContractAction {
+
 	loginAction lo = new loginAction();
 	verticalMenuAction vo = new verticalMenuAction();
 	
@@ -20,25 +20,26 @@ public class validatePDF_test extends pdfAction{
 	public void login() throws InterruptedException {
 		
 		navigate();
-		lo.login(prop.getProperty("username1"),prop.getProperty("password"));
+		lo.login("dvidesdealer", "4558600");
 		vo.navigatetoContract();
 		
 	}
 	
 	/*****************Contract creation test case***************/
-	@Test(priority = 1, dataProvider ="test1")
+	@Test(priority = 1, dataProvider ="test2")
     public void createContract1(String[] inputArray) throws InterruptedException {
 			
-	   validatePDFContract(inputArray);
-	    
+		createContract(inputArray);
+	   
 	}
-
+	
 	/***************logout to the application
 	 * @throws InterruptedException ********************/
 	@AfterClass
 	public void close() throws InterruptedException {
- 
-		lo.logout();
+      
+	        lo.logout();
+	    }
+		
 	}
 
-}

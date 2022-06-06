@@ -11,7 +11,7 @@ public class contractpo extends baseClass{
 	public String textbox = "adl-text-input > div > div.text-field__input.secure > input";
 	public String getProducts = "//span[contains(text(),'Get Products')]";
 	public String selectProgram = "//mat-checkbox/label/div";
-	public String table = "//td";
+	public String table = "adl-rates-table > table >tbody > tr:nth-child(1) > td:nth-child(2)";
 	public String contract = "div.text-field__input.secure.text-field__input--prefix > input";
 	public String checkbox = "//mat-checkbox";
 	public String button = "//button";
@@ -20,11 +20,15 @@ public class contractpo extends baseClass{
 	public String programlastname = "')]";
 	public String total = "adl-rate-contract-footer > footer > div.total__price.col-4_sm-6 ";
 	public String qc = "adl-text-input[label='Quick Code']";
-	public String businessUse = "//p[contains(text(),'Business Use')]//..";
+	public String businessUse = "//p[contains(text(),'Business Use')]";
+	public String noSurcharge = "//span[contains(text(),'No Surcharges')]//..//div//input";
 	public String inServiceDate = "adl-text-input[label='In-Service Date']";
 	public String inServiceDateTextBox = "button > span >mat-icon";
 	public String phone = "adl-text-input[label='Phone Number'] > div > div.text-field__input.secure > input";
 	public String newQuotelink = "//a[contains(text(),'Start New Quote')]";
 	public String programNameCode = ".rate__card--rates>adl-rates-table >div >h3";
+	public String zipcode = "//label[contains(text(),'Zip Code')]//..//..//div//input";
+	public String address = "//label[contains(text(),'Address')]//..//..//div//input";
+	public String phoneno = "//label[contains(text(),'Phone Number')]//..//..//div//input";
 	
 }
