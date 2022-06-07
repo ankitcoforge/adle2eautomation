@@ -26,7 +26,6 @@ import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.relevantcodes.extentreports.ExtentReports;
 
 import pageActions.welcomeAction;

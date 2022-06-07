@@ -28,14 +28,7 @@ import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import com.aventstack.extentreports.reporter.configuration.Theme;
 
-import io.appium.java_client.windows.WindowsDriver;
-
-import com.aventstack.extentreports.ExtentReports;
 
 public class baseClass {
 

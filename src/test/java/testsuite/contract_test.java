@@ -3,7 +3,6 @@ package testsuite;
 import java.io.File;
 import java.util.Objects;
 
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 
 import org.testng.Assert;
