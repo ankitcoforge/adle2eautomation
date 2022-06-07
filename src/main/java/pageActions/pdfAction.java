@@ -70,6 +70,9 @@ public class pdfAction extends contractpo {
 		event.clickfield("xpath", generateContract);
 		getDriver().findElement(By.xpath(gc.generateContractHeading)).isDisplayed();
 		Thread.sleep(2000);
+//		if ((searchData1.get("GenerateContract")).equals("one")) {
+//			gc.generateContractPopUp(programCode, programName);
+//		}
 		event.clickfield("cssSelector", gc.checkbox, 0);
 		event.clickfield("cssSelector", gc.checkbox, 1);
 		event.clickfield("xpath", gc.genrateContractButton);
@@ -85,8 +88,10 @@ public class pdfAction extends contractpo {
 		a1.removeAll(b);
 		System.out.println(a1);
 		String pdfUrl = "file:///C:/PDF/" + a1.toString().replaceAll("\\,|\\[|\\]|\\s", "");
+		System.out.println(pdfUrl);
 		verifyContentInPDf(pdfUrl, searchData1.get("program"));
 		b.addAll(a1);
+
 		event.clickfield("xpath", newQuotelink);
 
 	}
