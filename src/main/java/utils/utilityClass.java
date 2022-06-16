@@ -1,6 +1,10 @@
 package utils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 public class utilityClass extends baseClass{
@@ -259,5 +263,61 @@ public class utilityClass extends baseClass{
 
  		return(driver.findElement(By.xpath(d)));
  	}
+ 	
+ 	public String toastMessage() {
+ 		
+ 		return(driver.findElement(By.cssSelector("div[role='alertdialog']")).getText());
+ 	}
+ 	
+ 	 /***********************Method to get all the objects related to same locator**************************/
+ 		public List<WebElement> getElementsList(String type, String fieldname){
+ 				
+ 			List<WebElement> listWebElement= null;
+
+ 			switch (type.toLowerCase()) {
+ 			
+ 			case "name" : 
+ 			listWebElement = getDriver().findElements(By.name(fieldname));
+ 			break;
+ 			case "id" : 
+ 			listWebElement = getDriver().findElements(By.id(fieldname));
+ 			break;
+ 			case "xpath" : 
+ 			listWebElement = getDriver().findElements(By.xpath(fieldname));
+ 			break;
+ 			case "cssselector" : 
+ 			listWebElement = getDriver().findElements(By.cssSelector(fieldname));
+ 			break;
+ 			case "tagname" : 
+ 			listWebElement = getDriver().findElements(By.tagName(fieldname));
+ 			break;
+ 			
+ 			}
+ 			
+ 			return listWebElement;
+ 		}
+ 			
+ 		/***********************Method to get text for all the objects related to same locator**************************/
+ 		public List<String> getTextValuesForObject(String type, String fieldname) {
+ 			List<WebElement> allEle = getElementsList(type, fieldname);
+ 			List<String> allNames = new ArrayList<String>();
+ 			for (WebElement header : allEle) {
+ 				String headerName = header.getText();
+ 				allNames.add(headerName);
+ 			}
+ 			return allNames;
+ 		}
+ 			
+ 		/***********************Method to scroll up the web page**************************/
+ 		public void scrollUp() {
+ 			driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL, Keys.PAGE_UP);
+ 			
+ 		}
+ 		
+ 		/***********************Method to scroll down the web page**************************/
+ 		public void scrollDown() {
+ 			driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL, Keys.PAGE_DOWN);
+ 		}
+ 		
 }
 

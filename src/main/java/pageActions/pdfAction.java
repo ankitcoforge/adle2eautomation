@@ -43,12 +43,6 @@ public class pdfAction extends contractpo {
 		ca.programSelect(searchData1.get("program"));
 		event.clickfield("cssSelector", table, 0);
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
-//		js.executeScript("window.scrollTo(0, 1000)");
-//		String header = event.text("cssSelector", programNameCode);
-//		String[] program = header.split(" • ");
-//		String programCode = program[0];
-//		String programName = program[1];
-		//String price = event.text("cssSelector", table, 0);
 		js.executeScript("window.scrollTo(0, 1800)");
 		if (!(searchData1.get("program").contains("Limited Warranty"))) {
 			event.clickfield("xpath", businessUse);
@@ -70,28 +64,24 @@ public class pdfAction extends contractpo {
 		event.clickfield("xpath", generateContract);
 		getDriver().findElement(By.xpath(gc.generateContractHeading)).isDisplayed();
 		Thread.sleep(2000);
-//		if ((searchData1.get("GenerateContract")).equals("one")) {
-//			gc.generateContractPopUp(programCode, programName);
-//		}
 		event.clickfield("cssSelector", gc.checkbox, 0);
 		event.clickfield("cssSelector", gc.checkbox, 1);
 		event.clickfield("xpath", gc.genrateContractButton);
-		Thread.sleep(5000);
+		Thread.sleep(4000);
 		String text1 = event.text("cssSelector", successMessage);
 		Assert.assertEquals(text1, "You have successfully generated a contract!");
 		HashSet<String> b = new HashSet<>();
-		b = isFileDownloaded("C:\\PDF", ".pdf");
+		b = isFileDownloaded( System.getProperty("user.dir") + "\\PDF", ".pdf");
 		driver.findElements(By.cssSelector("span[class='mat-button-wrapper']")).get(1).click();
 		Thread.sleep(3000);
 		HashSet<String> a1 = new HashSet<>();
-		a1 = isFileDownloaded("C:\\PDF", ".pdf");
+		a1 = isFileDownloaded( System.getProperty("user.dir") + "\\PDF", ".pdf");
 		a1.removeAll(b);
 		System.out.println(a1);
-		String pdfUrl = "file:///C:/PDF/" + a1.toString().replaceAll("\\,|\\[|\\]|\\s", "");
-		System.out.println(pdfUrl);
-		verifyContentInPDf(pdfUrl, searchData1.get("program"));
+		String pdfUrl = "file:///" +  System.getProperty("user.dir") + "\\PDF\\" + a1.toString().replaceAll("\\,|\\[|\\]|\\s", "");
+		String pdfUrl1 = pdfUrl.replace("\\", "/");
+		verifyContentInPDf(pdfUrl1, searchData1.get("program"));
 		b.addAll(a1);
-
 		event.clickfield("xpath", newQuotelink);
 
 	}

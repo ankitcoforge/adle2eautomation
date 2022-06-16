@@ -8,30 +8,25 @@ import pageActions.loginAction;
 import pageActions.verticalMenuAction;
 import utils.baseClass;
 
-public class earlyClaim_test extends baseClass{
-
+public class myaccountstatement_test extends baseClass{
+	
 	loginAction lo = new loginAction();
 	verticalMenuAction vo = new verticalMenuAction();
 	
-	
-	/*************login to the application
-	 * @throws InterruptedException *********************/
 	@BeforeClass
 	public void login() throws InterruptedException {
 		
 		navigate();
-		lo.login(prop.getProperty("username"),prop.getProperty("password"));
-		vo.navigatetoLeftMenu("Reports", "Early Claims");
+		lo.login("dvidesdealer", "4558600");
+		vo.navigatetoLeftMenu("Reports", " My Account Statements ");
 		
 	}
 	
-	/*****************Contract creation test case***************/
-	@Test()
-    public void earlyClaim() {
+	
+	@Test
+       public void test() throws InterruptedException {
 		
 		System.out.println("Hello");
-		
-		
 		
 	    
 	}
@@ -41,6 +36,9 @@ public class earlyClaim_test extends baseClass{
 	@AfterClass
 	public void close() throws InterruptedException {
  
-		lo.logout();
+	        
+	        lo.logout();
+	    }
+		
 	}
-}
+	

@@ -108,7 +108,8 @@ public class baseClass {
 			//chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
 			HashMap<String,Object> chromePrefs = new HashMap<String, Object>();
 			chromePrefs.put("plugins.always_open_pdf_externally", true);
-			chromePrefs.put("download.default_directory", "C:\\ankit");
+			System.out.println(System.getProperty("user.dir") + "//PDF");
+			chromePrefs.put("download.default_directory", System.getProperty("user.dir") + "\\PDF");
 			ChromeOptions options = new ChromeOptions();
 			options.setExperimentalOption("prefs", chromePrefs);
 			driver = new ChromeDriver(options);
