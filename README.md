@@ -19,7 +19,7 @@ ADL Repoistory
 5. Create a pull request and assign to your reviewer.
 
 ## How to write tests and How to organize the tests.
-Current Cypress framework is structured in four layer. Design of current framework is comprised of -
+Current automation framework is structured in four layer. Design of current framework is comprised of -
 
 1. End to End test - All test are written in cypress/integration/ folder. Test file should have *.spec.js filename in the end.
 2. Page Actions - All repeatable action are written in this folder. 
