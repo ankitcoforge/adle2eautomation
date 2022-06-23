@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -42,7 +43,14 @@ public class createContractAction extends contractpo{
 			event.inputfield("cssSelector", textbox, searchData1.get("Mileage"), 5);
 			event.inputfield("cssSelector", textbox, searchData1.get("Vin"), 6);
 			event.clickfield("xpath", getProducts);
+			JavascriptExecutor js = ((JavascriptExecutor) driver);
 			programSelect(searchData1.get("program"));
+			if((searchData1.get("program").contains("Absolute Reserve Care Lease"))) {
+				js.executeScript("window.scrollTo(0, 2000)");
+				Assert.assertEquals(driver.findElements(By.cssSelector("span[class =\"lease-term\"]")).size(), 2);
+				driver.findElements(By.cssSelector("span[class =\"lease-term\"]")).get(0).click();
+				driver.findElements(By.cssSelector("span[class =\"lease-term\"]")).get(1).click();
+			}
 			event.clickfield("cssSelector", table, 0);
 			String header = event.text("cssSelector", programNameCode);
 			String[] program = header.split(" • ");

@@ -68,6 +68,7 @@ public class twoProgramContractAction extends contractpo{
 		event.clearfield("xpath", phoneno);
 		event.inputfield("xpath", phoneno, "1234567890");
 		event.clickfield("xpath", generateContract);
+		Thread.sleep(2000);
 		event.clickfield("cssSelector", gc.checkbox, 0);
 		event.clickfield("cssSelector", gc.checkbox, 1);
 		event.clickfield("xpath", gc.genrateContractButton);

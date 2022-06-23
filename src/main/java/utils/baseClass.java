@@ -108,7 +108,6 @@ public class baseClass {
 			//chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
 			HashMap<String,Object> chromePrefs = new HashMap<String, Object>();
 			chromePrefs.put("plugins.always_open_pdf_externally", true);
-			System.out.println(System.getProperty("user.dir") + "//PDF");
 			chromePrefs.put("download.default_directory", System.getProperty("user.dir") + "\\PDF");
 			ChromeOptions options = new ChromeOptions();
 			options.setExperimentalOption("prefs", chromePrefs);
@@ -116,7 +115,6 @@ public class baseClass {
 		} else if (browser.equals("IE")) {
 			//Setting system properties of InternetExplorerDriver
 			System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + "//IEDriverServer.exe"); 
-
 			//Creating an object of InternetExplorerDriver
 		    driver=new InternetExplorerDriver();
 		}

@@ -1,8 +1,16 @@
 package pageActions;
 
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +24,9 @@ import org.testng.Assert;
 
 import pageObjects.earlyClaimspo;
 import utils.utilityClass;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
+import org.apache.commons.io.FileUtils;
 
 public class earlyClaimsAction extends earlyClaimspo {
 	utilityClass uc = new utilityClass();
@@ -23,14 +34,10 @@ public class earlyClaimsAction extends earlyClaimspo {
 	public void checkDropDownValidations() throws InterruptedException {
 		Assert.assertEquals(getDropdownTitle(), "Claims on contracts recently sold.");
 		Assert.assertEquals(getDropdownDefaultValue(), "30 days");
-		Thread.sleep(5000);
-		driver.switchTo().activeElement();
-		uc.element("cssSelector", dropdown).isDisplayed();
 		uc.clickfield("cssSelector", dropdown);
 		//Thread.sleep(1000);
 		driver.manage().timeouts().implicitlyWait(2,TimeUnit.SECONDS) ;
 		List<String> expectedValue = new ArrayList<String>(Arrays.asList("30 days", "60 days", "90 days"));
-		
 		Assert.assertEquals(expectedValue.equals(uc.getTextValuesForObject("cssSelector", dropdownOptions)), true);
 	}
 
@@ -64,6 +71,11 @@ public class earlyClaimsAction extends earlyClaimspo {
 	public String getDropdownDefaultValue() {
 		uc.element("cssSelector", dropdownDefaultValue).isDisplayed();
 		return (uc.element("cssSelector", dropdownDefaultValue).getText());
+	}
+	
+	public String getRoleTypeIdUI() {
+		uc.element("cssSelector", roleTypeId).isDisplayed();
+		return (uc.element("cssSelector", roleTypeId).getText());
 	}
 
 	public HashMap<Integer, HashMap<String, String>> checkGridBodyDetails() {
@@ -135,6 +147,9 @@ public class earlyClaimsAction extends earlyClaimspo {
 		int ub = Integer. parseInt(rangeMessageUI.substring(rangeMessageUI.indexOf("to")+3,rangeMessageUI.indexOf("of")-1));
 		int totalRows = Integer. parseInt(rangeMessageUI.substring(rangeMessageUI.indexOf("of")+3,rangeMessageUI.indexOf("records")-1));
 		int totalpages = totalRows/totalRowsPerPage;
+		int rem = totalRows%totalRowsPerPage;
+		if(rem>0)
+			totalpages++;
 		System.out.println("rangeMessageUI: " + rangeMessageUI);
 		System.out.println("lb: " + lb);
 		System.out.println("ub: " + ub);
@@ -259,5 +274,189 @@ public class earlyClaimsAction extends earlyClaimspo {
 		
 		}
 	}
+	
+	public String verifyPDF(HashMap<Integer, HashMap<String, String>> allTableData) throws InterruptedException, IOException {
+		int totalRowsPerPage = allTableData.size();
+		
+		HashSet<String> a1 = cleanCurrentDirectoryAndGetPdfFile("mainPage");
+		String pdfUrl = "file:///C:/PDF/" + a1.toString().replaceAll("\\,|\\[|\\]|\\s", "");
+		System.out.println(pdfUrl);
+		uc.scrollDown();
+		
+		String rangeMessageUI = uc.element("cssSelector", rangeMessage).getText();
+		
+		int lb = Integer. parseInt(rangeMessageUI.substring(rangeMessageUI.indexOf("g")+2,rangeMessageUI.indexOf("to")-1));
+		int ub = Integer. parseInt(rangeMessageUI.substring(rangeMessageUI.indexOf("to")+3,rangeMessageUI.indexOf("of")-1));
+		int totalRows = Integer. parseInt(rangeMessageUI.substring(rangeMessageUI.indexOf("of")+3,rangeMessageUI.indexOf("records")-1));
+		int totalpages = totalRows/totalRowsPerPage;
+		int rem = totalRows%totalRowsPerPage;
+		if(rem>0)
+			totalpages++;
+		System.out.println("rangeMessageUI: " + rangeMessageUI);
+		System.out.println("lb: " + lb);
+		System.out.println("ub: " + ub);
+		System.out.println("totalRows: " + totalRows);
+		System.out.println("totalpages:" + totalpages);
+		System.out.println("totalRowsPerPage:" + totalRowsPerPage);
+		uc.scrollUp();
+		String pdfContent=verifyContentInPDf(pdfUrl,totalpages,totalRows,totalRowsPerPage);
+		String firstRowPDF = pdfContent.substring(pdfContent.indexOf("Amount")+8, pdfContent.indexOf('.')+3);
+		System.out.println("firstRowPDF: " + firstRowPDF);
+		HashMap<String, String> getFirstRowData = allTableData.get(1);
+		String firstRowUI = "";
+		for (Map.Entry<String, String> set :
+			getFirstRowData.entrySet()) {
+			if(!set.getValue().equals("View Details"))
+			firstRowUI = firstRowUI + set.getValue() + " ";
+       }
+		firstRowUI = firstRowUI.trim();
+		System.out.println("firstRowUI: " + firstRowUI);
+		Assert.assertEquals(firstRowPDF,firstRowUI);
+		String pdfFileName = "";
+		for (String ele : a1) {
+			pdfFileName = ele;
+        }
+		return pdfFileName;
+		
+	}
+	
+	public HashSet<String> isFileDownloaded(String downloadPath, String fileName) {
+//		boolean flag = false;
+	String pathnames[] = null;
+	File dir = new File(downloadPath);
+	// Populates the array with names of files and directories
+	pathnames = dir.list();
+	// For each pathname in the pathnames array
+	HashSet<String> a = new HashSet<>();
+
+	for (String pathname : pathnames) {
+		// Print the names of files and directories
+		a.add(pathname);
+	}
+	return a;
+}
+	
+	public String verifyContentInPDf(String url, int expectedTotalpages, int totalRows,int totalRowsPerPage) {
+		// specify the url of the pdf file
+		String pdfContent = "";
+		try {
+			pdfContent = readPdfContent(url, expectedTotalpages,totalRows,totalRowsPerPage);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return pdfContent;
+	}
+	
+	public String readPdfContent(String url,int expectedTotalpages,int totalRows,int totalRowsPerPage) throws IOException {
+
+		URL pdfUrl = new URL(url);
+		InputStream in = pdfUrl.openStream();
+		BufferedInputStream bf = new BufferedInputStream(in);
+		PDDocument doc = PDDocument.load(bf);
+		int numberOfPagesPDF = getPageCount(doc);
+		System.out.println("The total number of pages in PDF " + numberOfPagesPDF);
+		int totalpagesPDFFormatted = totalRows/28;
+		int rem = totalRows%28;
+		if(rem>0)
+			totalpagesPDFFormatted++;
+		System.out.println("totalpagesPDFFormatted " + totalpagesPDFFormatted);
+		Assert.assertEquals(numberOfPagesPDF,totalpagesPDFFormatted);
+		// Number of rows in PDF document can be changed. For now it is 28
+		if(totalRows > 28)
+			Assert.assertEquals(totalpagesPDFFormatted > 1,true);
+		if(totalRowsPerPage<25)
+			Assert.assertEquals(expectedTotalpages==totalpagesPDFFormatted,true);
+		else if(totalRowsPerPage>=25 && totalRowsPerPage<=28)
+			Assert.assertEquals(expectedTotalpages>totalpagesPDFFormatted,true); 
+		else
+			Assert.assertEquals(expectedTotalpages<totalpagesPDFFormatted,true);
+		String content = new PDFTextStripper().getText(doc);
+		doc.close();
+
+		return content;
+	}
+	
+	public int getPageCount(PDDocument doc) {
+		// get the total number of pages in the pdf document
+		int pageCount = doc.getNumberOfPages();
+		return pageCount;
+
+	}
+	
+	public String getCurrentMonth() {
+		String[] monthName = {"January", "February",
+                "March", "April", "May", "June", "July",
+                "August", "September", "October", "November",
+                "December"};
+
+        Calendar cal = Calendar.getInstance();
+        String month = monthName[cal.get(Calendar.MONTH)];
+		return month;
+
+	}
+	
+public void applyFilter(String filterData) throws InterruptedException {
+		
+		uc.inputfield("cssSelector", filterTextBox, filterData);
+		
+	}
+
+public void clearFilter() throws InterruptedException {
+	
+	uc.clickfield("xpath",clearFilterButton );
+	
+}
+
+public String getModalPDFName() throws InterruptedException, IOException {
+	
+	String detailsTextModalUI = uc.text("cssSelector", detailsTextModal);
+	String repairTextModalUI = uc.text("cssSelector", repairTextModal);
+	String combinedModaltext = detailsTextModalUI + " " + repairTextModalUI;
+	
+	HashSet<String> a1 = cleanCurrentDirectoryAndGetPdfFile("modal");
+	String pdfUrl = "file:///C:/PDF/" + a1.toString().replaceAll("\\,|\\[|\\]|\\s", "");
+	System.out.println(pdfUrl);
+	String pdfContent=verifyContentInPDf(pdfUrl,1,1,1);
+	String firstRowPDF = pdfContent.substring(pdfContent.indexOf("$ Repair")+10, pdfContent.indexOf('.')+3);
+	System.out.println("firstRowPDF: " + firstRowPDF);
+	System.out.println("modal Details: " + combinedModaltext);
+	Assert.assertEquals(firstRowPDF,combinedModaltext);
+	String pdfFileName = "";
+	for (String ele : a1) {
+		pdfFileName = ele;
+    }
+	return pdfFileName;
+	
+}
+
+public HashSet<String> cleanCurrentDirectoryAndGetPdfFile(String exportButtonType) throws InterruptedException, IOException {
+	
+	FileUtils.cleanDirectory(new File("C:\\PDF")); 
+	
+	clickExportPDFButton(exportButtonType);
+	Thread.sleep(3000);
+	HashSet<String> a1 = new HashSet<>();
+	a1 = isFileDownloaded("C:\\PDF", ".pdf");
+	System.out.println(a1);
+	return a1;
+	
+}
+
+public void clickExportPDFButton(String exportButtonType) throws InterruptedException {
+	switch (exportButtonType.toLowerCase()) {
+	
+	case "mainpage" : 	
+		uc.clickfield("xpath", exportPDFPage,0);
+	break;
+	
+	case "modal" : 	
+		uc.clickfield("xpath", exportPDFPage,1);
+	break;
+	
+	}
+}
+
 	
 }
