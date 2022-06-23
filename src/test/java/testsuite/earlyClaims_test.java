@@ -17,7 +17,7 @@ import pageActions.earlyClaimsAction;
 import pageActions.loginAction;
 import pageActions.verticalMenuAction;
 
-public class earlyClaims_Test extends earlyClaimsAction{
+public class earlyClaims_test extends earlyClaimsAction{
 
 	loginAction lo = new loginAction();
 	verticalMenuAction vo = new verticalMenuAction();

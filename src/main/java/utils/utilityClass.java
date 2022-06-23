@@ -124,7 +124,7 @@ public class utilityClass extends baseClass{
 		getDriver().findElement(By.xpath(fieldname)).click();
 		break;
 		
-		case "cssselector" : getDriver().findElement(By.name(fieldname)).isDisplayed();
+		case "cssselector" : getDriver().findElement(By.cssSelector(fieldname)).isDisplayed();
 		getDriver().findElement(By.cssSelector(fieldname)).click();
 		break;
 		
