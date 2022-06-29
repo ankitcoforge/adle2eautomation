@@ -46,6 +46,13 @@ public class verticalMenuAction extends verticalMenupo{
 
 	}
 	
+	public void navigatetoLeftMenu(String heading) throws InterruptedException {
+		Thread.sleep(4000);
+		driver.switchTo().activeElement();
+		event.getfield("a", heading).click();
+
+	}
+	
 	public String getTitle() {
 		return (event.text("cssSelector", "header > div >h3"));
 	}

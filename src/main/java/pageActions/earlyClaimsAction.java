@@ -118,6 +118,8 @@ public class earlyClaimsAction extends earlyClaimspo {
 		Assert.assertEquals(getFirstRowData.get("VIN").length(), 6);
 		Assert.assertEquals(getFirstRowData.get("").equals("View Details"), true);
 		
+		System.out.println(allTableData);
+		
 		return allTableData;
 		}
 	
@@ -409,6 +411,11 @@ public void clearFilter() throws InterruptedException {
 	
 }
 
+public String getToastMessageText() {
+	
+	return uc.toastMessage();
+	
+}
 public String getModalPDFName() throws InterruptedException, IOException {
 	
 	String detailsTextModalUI = uc.text("cssSelector", detailsTextModal);
@@ -455,8 +462,24 @@ public void clickExportPDFButton(String exportButtonType) throws InterruptedExce
 		uc.clickfield("xpath", exportPDFPage,1);
 	break;
 	
+	case "mainpagexls" : 	
+		uc.clickfield("xpath", exportXlsPage,0);
+	break;
+	
+	case "modalxls" : 	
+		uc.clickfield("xpath", exportXlsPage,1);
+	break;
+	
 	}
 }
 
+public boolean toastMessageDisplay() {
+	try {
+		driver.findElement(By.cssSelector("div[role='alertdialog']"));
+		return true;
+    } catch (org.openqa.selenium.NoSuchElementException e) {
+        return false;
+    }
+}
 	
 }

@@ -68,11 +68,13 @@ public class pdfAction extends contractpo {
 		event.clickfield("cssSelector", gc.checkbox, 1);
 		event.clickfield("xpath", gc.genrateContractButton);
 		Thread.sleep(4000);
-		String text1 = event.text("cssSelector", successMessage);
-		Assert.assertEquals(text1, "You have successfully generated a contract!");
+//		String text1 = event.text("cssSelector", successMessage);
+//		Assert.assertEquals(text1, "You have successfully generated a contract!");
 		HashSet<String> b = new HashSet<>();
+		System.out.println(System.getProperty("user.dir") + "\\PDF");
 		b = isFileDownloaded( System.getProperty("user.dir") + "\\PDF", ".pdf");
-		driver.findElements(By.cssSelector("span[class='mat-button-wrapper']")).get(1).click();
+		driver.findElement(By.xpath("//span[contains(text(),\"View / Print Contract\")]//..")).click();
+		//driver.findElements(By.cssSelector("span[class='mat-button-wrapper']")).get(1).click();
 		Thread.sleep(3000);
 		HashSet<String> a1 = new HashSet<>();
 		a1 = isFileDownloaded( System.getProperty("user.dir") + "\\PDF", ".pdf");

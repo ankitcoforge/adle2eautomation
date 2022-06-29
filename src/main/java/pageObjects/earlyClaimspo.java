@@ -34,6 +34,5 @@ public class earlyClaimspo extends baseClass{
 	public String roleTypeId = "button > span.usertype";
 	public String filterTextBox = "input[placeholder='Search']";
 	public String clearFilterButton = "//span[text()='Clear Filters']";
+	public String exportXlsPage = "//button[text()='Export xls' and @class ='btn__exp']";
 }
-
-

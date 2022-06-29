@@ -9,6 +9,7 @@
 			<class name="testsuite.login1_test"/>
 			<class name="testsuite.screenTitle_test"/>
 			<class name="testsuite.erate_test"/>
+			<class name="testsuite.toolBox_test"/>
 			<class name="testsuite.contract_test"/>
 			<class name="testsuite.quote_test"/>
 			<class name="testsuite.generateContract_test"/>
@@ -16,6 +17,7 @@
 			<class name="testsuite.validatePDF_test"/> 
 			<class name="testsuite.twoProgramContract"/>
 			<class name="testsuite.earlyClaims_test"/>
+
 			
 		</classes>
 	</test>

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -41,6 +42,16 @@ public class earlyClaims_test extends earlyClaimsAction{
         };
     }
 	
+	@DataProvider(name="login3")
+    public Object[][] getData3() {
+        return new Object[][] {
+        	{prop.getProperty("username"),prop.getProperty("password"),prop.getProperty("roleType"),"mainpage"},
+        	{prop.getProperty("username"),prop.getProperty("password"),prop.getProperty("roleType"),"modal"},
+        	{prop.getProperty("username"),prop.getProperty("password"),prop.getProperty("roleType"),"mainpageXls"},
+        	{prop.getProperty("username"),prop.getProperty("password"),prop.getProperty("roleType"),"modalXls"},
+        };
+    }
+	
 	/*************login to the application
 	 * @throws InterruptedException *********************/
 	@BeforeClass
@@ -49,8 +60,9 @@ public class earlyClaims_test extends earlyClaimsAction{
 	}
 	
 	/*****************Dropdown related test case***************/
-	//@Test(priority = 1, dataProvider = "login1")
+	@Test(priority = 1, dataProvider = "login1")
     public void dropdownDetails(String user, String pass, String roleType) throws InterruptedException {
+		try {
 		System.out.println("dropdownDetails " + roleType);
 		lo.login(user, pass);
 		Thread.sleep(3000);
@@ -59,13 +71,18 @@ public class earlyClaims_test extends earlyClaimsAction{
 		lo.logout();
 		Thread.sleep(1000);
 		System.out.println("dropdownDetails end" + roleType);
+		} catch (Exception e) {
+			System.out.println("********FAIL***********" +  "dropdownDetails " + roleType);
+			Assert.assertEquals(true,false );
+		}
 		   
 	}
 	
 	
 	/*************Grid related testcase*********************/
-	//@Test (priority = 2, dataProvider = "login1")
+	@Test (priority = 2, dataProvider = "login1")
     public void gridDetails(String user, String pass, String roleType) throws InterruptedException {
+		try {
 		System.out.println("gridDetails " + roleType);
 		lo.login(user, pass);
 		Thread.sleep(2000);
@@ -77,10 +94,15 @@ public class earlyClaims_test extends earlyClaimsAction{
 		checkFooterPagination(allTableData.size());
 		lo.logout();	
 		System.out.println("gridDetails end" + roleType);
+		} catch (Exception e) {
+			System.out.println("********FAIL***********" +  "gridDetails " + roleType);
+			Assert.assertEquals(true,false );
+		}
 	}
 	
-	//@Test (priority = 3, dataProvider = "login1")
+	@Test (priority = 3, dataProvider = "login1")
     public void modalDetails(String user, String pass, String roleType) throws InterruptedException {
+		try {
 		System.out.println("modalDetails " + roleType);
 		lo.login(user, pass);
 		Thread.sleep(2000);
@@ -95,10 +117,15 @@ public class earlyClaims_test extends earlyClaimsAction{
 		clickCloseButton("CloseButton");
 		lo.logout();
 		System.out.println("modalDetails end" + roleType);
+		} catch (Exception e) {
+		System.out.println("********FAIL***********" +  "modalDetails " + roleType);
+		Assert.assertEquals(true,false );
+	}
 	}
 	
-	//@Test (priority = 4, dataProvider = "login2")
+	@Test (priority = 4, dataProvider = "login2")
     public void modalCloseFilters(String user, String pass, String roleType,String closeModalType) throws InterruptedException {
+		try {
 		System.out.println("modalCloseFilters " + roleType);
 		System.out.println(closeModalType);
 		String dropDownOption = "60 days";
@@ -132,10 +159,15 @@ public class earlyClaims_test extends earlyClaimsAction{
 		
 		lo.logout();
 		System.out.println("modalCloseFilters end" + roleType);
+		} catch (Exception e) {
+			System.out.println("********FAIL***********" +  "modalCloseFilters " + roleType);
+			Assert.assertEquals(true,false );
+		}
 	}
     
-   @Test (priority = 5, dataProvider = "login1")
+    @Test (priority = 5, dataProvider = "login1")
     public void verifyExportPDFCompleteData(String user, String pass, String roleType) throws InterruptedException {
+		try {
 		System.out.println("verifyExportPDFCompleteData " + roleType);
 		lo.login(user, pass);
 		Thread.sleep(2000);
@@ -157,9 +189,13 @@ public class earlyClaims_test extends earlyClaimsAction{
 		}
 		lo.logout();
 		System.out.println("verifyExportPDFCompleteData end " + roleType);
+		} catch (Exception e) {
+			System.out.println("********FAIL***********" +  "verifyExportPDFCompleteData " + roleType);
+			Assert.assertEquals(true,false );
+		}
 	}
     
-  @Test (priority = 6, dataProvider = "login1")
+	@Test (priority = 6, dataProvider = "login1")
     public void verifyExportPDFFilteredData(String user, String pass, String roleType) throws InterruptedException {
 		System.out.println("verifyExportPDFFilteredData " + roleType);
 		lo.login(user, pass);
@@ -181,6 +217,7 @@ public class earlyClaims_test extends earlyClaimsAction{
 			} catch (InterruptedException | IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				System.out.println("********FAIL***********" +  "verifyExportPDFFilteredData " + roleType);
 				Assert.assertEquals(true,false );
 			}
 		}
@@ -208,6 +245,7 @@ public class earlyClaims_test extends earlyClaimsAction{
 			} catch (InterruptedException | IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				System.out.println("********FAIL***********" +  "verifyExportPDFModal " + roleType);
 				Assert.assertEquals(true,false );
 			}
 		}
@@ -216,4 +254,42 @@ public class earlyClaims_test extends earlyClaimsAction{
 		System.out.println("verifyExportPDFModal end" + roleType);
 	}
 
+	 @Test (priority = 8, dataProvider = "login3")
+	    public void verifyToastMessage(String user, String pass, String roleType,String exportType) throws InterruptedException {
+			System.out.println("verifyToastMessage " + roleType + " " + exportType);
+			lo.login(user, pass);
+			driver.manage().timeouts().implicitlyWait(2,TimeUnit.SECONDS) ;
+			vo.navigatetoLeftMenu("Reports", "Early Claims");
+			HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
+			if(allTableData.size() > 0) {
+				try {
+					if(exportType.contains("modal")) {
+						clickOnViewDetailsFirstRow();
+						System.out.println("Modal is opened");
+					}		
+					HashSet<String> a1 = cleanCurrentDirectoryAndGetPdfFile(exportType);
+					boolean toastMessageDisplayed = toastMessageDisplay();
+					System.out.println("toastMessage is displayed: " + toastMessageDisplayed);
+					String toastMsgActual = getToastMessageText();
+					String toastMsgExp ="Please note - Your file will be shown at the bottom of the browser and will be automatically saved into your Downloads folder.";
+					System.out.println("toastMsgActual: " + toastMsgActual );
+					Assert.assertEquals(toastMsgActual,toastMsgExp);
+					if(exportType.contains("modal")) {
+						clickCloseButton("CloseButton");
+						System.out.println("Modal is closed");
+					}
+					Thread.sleep(7000);
+					toastMessageDisplayed = toastMessageDisplay();
+					System.out.println("toastMessage is displayed: " + toastMessageDisplayed);
+					Assert.assertEquals(toastMessageDisplayed,false );
+					lo.logout();
+					System.out.println("verifyToastMessage end " + roleType + " " + exportType);
+				} catch (InterruptedException | IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					System.out.println("********FAIL***********" +  "verifyExportPDFModal " + roleType);
+					Assert.assertEquals(true,false );
+				}
+			}
+		}
 }

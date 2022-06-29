@@ -1,6 +1,8 @@
 package utils;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Properties;
@@ -12,6 +14,7 @@ import java.util.logging.SimpleFormatter;
 
 import javax.imageio.ImageIO;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -39,6 +42,13 @@ public class baseClass {
 	public void beforeSuite(ITestContext context) {
 
 		init();
+		File directory = new File(System.getProperty("user.dir") + "\\PDF");
+		try {
+			FileUtils.cleanDirectory(directory);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@BeforeTest
