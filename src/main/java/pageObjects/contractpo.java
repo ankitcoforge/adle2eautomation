@@ -30,5 +30,15 @@ public class contractpo extends baseClass{
 	public String zipcode = "//label[contains(text(),'Zip Code')]//..//..//div//input";
 	public String address = "//label[contains(text(),'Address')]//..//..//div//input";
 	public String phoneno = "//label[contains(text(),'Phone Number')]//..//..//div//input";
+	public String noVin = "adl-checkbox[label=\"No VIN\"]";
+	public String state = "adl-select[label=\"State\"]";
+	public String mandatoryState = "adl-select[label=\"State\"] >div > label >span";
+	public String dropdownState = "ng-select-container";
+	public String businessUseCheckbox = "adl-checkbox[label=\"Business Use\"] >div >mat-checkbox > label >div >input[type=\"checkbox\"]";
+	public String vinTextbox = "adl-text-input[label=\"VIN\"] >div >div >input";
+	public String mileage = "adl-text-input[label=\"Mileage\"] >div >div >input";
+	public String getProductsButton = "button[type=\"submit\"]";
+	public String programCheckbox = "div[class=\"programs__checkboxes col-12 grid ng-star-inserted\"] >adl-checkbox";
+	
 	
 }

@@ -92,6 +92,21 @@ public class baseTest extends welcomeAction {
 		
 		Assert.assertEquals(imageShown(), true);
 	}
+	
+	@Test(priority = 8)
+	public void verify_aul_logo_7078() {
+		
+		Assert.assertEquals(logo(), "https://qa.adl.aulcorp.com/login");
+		
+	}
+	
+	@Test(priority = 9)
+	public void verify_aul_logo_resetpassword_7080_7081_7082() {
+		
+		
+		Assert.assertEquals(resetPasswordlogo(), "https://qa.adl.aulcorp.com/login");
+		
+	}
 
 
 }

@@ -13,5 +13,6 @@ public class welcomepo extends baseClass{
     public String forgotPassword = "div[class ='forgot-password']";
     public String forgetPasswordText = ".links-container > p";
     public String image = "div[class=\"public-main__bg\"]";
+    public String aul = "a >img";
     
 }

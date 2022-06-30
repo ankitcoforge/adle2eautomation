@@ -58,6 +58,18 @@ public class welcomeAction extends welcomepo{
 		return (uc.element("cssSelector",image).isDisplayed());
 	}
 
+	public String logo() {
+		uc.clickfield("cssSelector", aul);
+		return(driver.getCurrentUrl());
+	}
+	
+	public String resetPasswordlogo() {
+
+		uc.element("cssSelector", forgotPassword).isDisplayed();
+		uc.clickfield("cssSelector", forgetPasswordText);
+		uc.clickfield("cssSelector", aul);
+		return(driver.getCurrentUrl());
+	}
 
 
 

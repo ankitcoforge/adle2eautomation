@@ -14,34 +14,34 @@ public class erateAction extends contractpo{
 	 utilityClass event = new utilityClass();
 	 
 	 public boolean qc() {
-		 return driver.findElement(By.cssSelector("adl-text-input[label='Quick Code']")).isDisplayed();
+		 return driver.findElement(By.cssSelector(qc)).isDisplayed();
 	 }
 	 
 	 public boolean noVin() {
-		 return driver.findElement(By.cssSelector("adl-checkbox[label=\"No VIN\"]")).isDisplayed();
+		 return driver.findElement(By.cssSelector(noVin)).isDisplayed();
 	 }
 	 
 	 public boolean state() {
-		 return driver.findElement(By.cssSelector("adl-select[label=\"State\"]")).isDisplayed();
+		 return driver.findElement(By.cssSelector(state)).isDisplayed();
 	 }
 	 
 	 public boolean mandatory() {
-		 return driver.findElement(By.cssSelector("adl-select[label=\"State\"] >div > label >span")).isDisplayed();
+		 return driver.findElement(By.cssSelector(mandatoryState)).isDisplayed();
 	 }
 	 
 	 public boolean dropdown() {
-		 return driver.findElement(By.className("ng-select-container")).isDisplayed();
+		 return driver.findElement(By.className(dropdownState)).isDisplayed();
 	 }
 	 
 	 public boolean businessUse() {
-		 return driver.findElement(By.cssSelector("adl-checkbox[label=\"Business Use\"] >div >mat-checkbox > label >div >input[type=\"checkbox\"]")).isDisplayed();
+		 return driver.findElement(By.cssSelector(businessUseCheckbox)).isDisplayed();
 	 }
 	 
 	 public int programListed() {
-		 driver.findElement(By.cssSelector("adl-text-input[label=\"VIN\"] >div >div >input")).sendKeys("5XYZUDLB7DG006717");
-		 driver.findElement(By.cssSelector("adl-text-input[label=\"Mileage\"] >div >div >input")).sendKeys("1234");
-		 driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
-		 List<WebElement> program = driver.findElements(By.cssSelector("div[class=\"programs__checkboxes col-12 grid ng-star-inserted\"] >adl-checkbox"));
+		 event.inputfield("cssSelector", vinTextbox,"5XYZUDLB7DG006717");
+		 event.inputfield("cssSelector", mileage, "1234");
+		 event.clickfield("cssSelector", getProductsButton );
+		 List<WebElement> program = driver.findElements(By.cssSelector(programCheckbox));
 		 return program.size();
 	 }
 }
