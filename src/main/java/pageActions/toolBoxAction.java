@@ -22,21 +22,20 @@ import pageObjects.toolBoxpo;
 import utils.utilityClass;
 
 public class toolBoxAction extends toolBoxpo {
-	
-	 utilityClass event = new utilityClass();
+
+	utilityClass event = new utilityClass();
 
 	public String verifyTitle() {
 
 		sleepWaitFunction(2000);
-		return(event.text("xpath",TBTitle));
-		
+		return (event.text("xpath", TBTitle));
 
 	}
-	
+
 	public String toolboxLocation() {
-		
+
 		sleepWaitFunction(4000);
-		return(event.text("xpath", "//*[contains(text(),'Help')]//preceding::a[contains(text(),'Toolbox')]"));
+		return (event.text("xpath", "//*[contains(text(),'Help')]//preceding::a[contains(text(),'Toolbox')]"));
 	}
 
 	public void clickAction(String element) {
@@ -54,13 +53,13 @@ public class toolBoxAction extends toolBoxpo {
 		}
 	}
 
-	public void verifyForms(String element1) {
+	public void verifyForms(String element1, String roleType) {
 
 		clickAction(element1);
 
 		String FormTabName = driver.findElement(By.xpath(element1)).getText();
 		try {
-			VerifyPDF(FormTabName);
+			VerifyPDF(FormTabName, roleType);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -97,14 +96,48 @@ public class toolBoxAction extends toolBoxpo {
 		return false;
 	}
 
-	public void VerifyPDF(String FormName) throws IOException {
+	public void VerifyPDF(String FormName, String roleType) throws IOException {
 
 		int NoOfForms = 0;
+
+		Set<String> setOfKey1;
 
 		String PDFName;
 		WebElement PDFFile;
 
 		switch (FormName) {
+		
+		case "Agent Toolbox":
+
+			LinkedHashMap<String, String> AgentToolBoxFormName = new LinkedHashMap<String, String>();
+
+			AgentToolBoxFormName.put(TBAulCorpContactListPDF, "AUL_Contact_List.pdf");
+
+			Set<String> setOfKey = AgentToolBoxFormName.keySet();
+
+			for (String key : setOfKey) {
+
+				PDFName = driver.findElement(By.xpath(key)).getText();
+
+				PDFFile = driver.findElement(By.xpath(key));
+
+				if (PDFFile.isDisplayed()) {
+
+					DownloadPDF(key);
+					sleepWaitFunction(4000);
+
+					try {
+						isFileDownloaded(System.getProperty("user.dir") + "\\PDF", AgentToolBoxFormName.get(key));
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						System.out.println(e);
+					}
+
+				}
+				sleepWaitFunction(2000);
+			}
+
+			break;
 
 		case "Dealer Toolbox":
 
@@ -112,9 +145,9 @@ public class toolBoxAction extends toolBoxpo {
 
 			DealerToolBoxFormName.put(TBAulCorpContactListPDF, "AUL_Contact_List.pdf");
 
-			Set<String> setOfKey = DealerToolBoxFormName.keySet();
+			Set<String> setOfKey4 = DealerToolBoxFormName.keySet();
 
-			for (String key : setOfKey) {
+			for (String key : setOfKey4) {
 
 				PDFName = driver.findElement(By.xpath(key)).getText();
 
@@ -140,7 +173,10 @@ public class toolBoxAction extends toolBoxpo {
 
 		case "Forms Library":
 
+			LinkedHashMap<String, String> RoleTypeToolBox;
+
 			LinkedHashMap<String, String> DealerToolBoxFormName1 = new LinkedHashMap<String, String>();
+			LinkedHashMap<String, String> AgentToolBoxFormName1 = new LinkedHashMap<String, String>();
 
 			DealerToolBoxFormName1.put(TBContractCancellationFormPDF, "Contract_Cancellation_Form.pdf");
 			DealerToolBoxFormName1.put(TBContractRemittanceReportPDF, "Contract_Remittance_Report.pdf");
@@ -150,55 +186,68 @@ public class toolBoxAction extends toolBoxpo {
 			DealerToolBoxFormName1.put(TBServiceDepartmentGuidelinesPDF, "Service_Department_Guidelines.pdf");
 			DealerToolBoxFormName1.put(TBVehicleInspectionReport, "Vehicle_Inspection_Sheet.pdf");
 
-//			DealerToolBoxFormName1.put(TBACHAgreementForm, "ACH_Agreement.pdf");
-//			DealerToolBoxFormName1.put(TBAULGAPLenderAgreementPacketForm, "AUL_GAP_Lender_Agreement_Packet.pdf");
-//			DealerToolBoxFormName1.put(TBChecklistWithAccountManagementForm,
-//					"Checklist_with_Account_Mangement_Form.pdf");
-//			DealerToolBoxFormName1.put(TBClassicTrakAncillaryDealerAgreement,
-//					"ClassicTrak_Ancillary_Dealer_Agreement.pdf");
-//			DealerToolBoxFormName1.put(TBCreditCardRewardsAgreementPacket, "Credit_Card_Rewards_Agreement_Packet.pdf");
-//			DealerToolBoxFormName1.put(TBDealerAgreementPacket, "Dealer_Agreement_Packet.pdf");
-//			DealerToolBoxFormName1.put(TBDealerPassThroughAgreement, "Dealer_Pass_Through_Agreement.pdf");
-//
-//			DealerToolBoxFormName1.put(TBEssentialsAddendum, "Essentials_Addendum.pdf");
-//			DealerToolBoxFormName1.put(TBFloridaDealerAgreementPacket, "Florida_Dealer_Agreement_Packet.pdf");
-//			DealerToolBoxFormName1.put(TBLimitedWarrantyDealerAgreement, "Limited_Warranty_Dealer_Agreement.pdf");
-//			DealerToolBoxFormName1.put(TBPowertrainProgramAddendum, "Powertrain_Program_Addendum.pdf");
+			AgentToolBoxFormName1.put(TBContractCancellationFormPDF, "Contract_Cancellation_Form.pdf");
+			AgentToolBoxFormName1.put(TBContractRemittanceReportPDF, "Contract_Remittance_Report.pdf");
+			AgentToolBoxFormName1.put(TBContractRenewalGuidelinesPDF, "Contract_Renewal_Guidelines.pdf");
+			AgentToolBoxFormName1.put(TBContractTransferFormsPDF, "Contract_Transfer_Form.pdf");
+			AgentToolBoxFormName1.put(TBContractUpgradeFormPDF, "Contract_Upgrade_Form.pdf");
+			AgentToolBoxFormName1.put(TBServiceDepartmentGuidelinesPDF, "Service_Department_Guidelines.pdf");
+			AgentToolBoxFormName1.put(TBVehicleInspectionReport, "Vehicle_Inspection_Sheet.pdf");
 
-			Set<String> setOfKey1 = DealerToolBoxFormName1.keySet();
+			AgentToolBoxFormName1.put(TBACHAgreementForm, "ACH_Agreement.pdf");
+			AgentToolBoxFormName1.put(TBAULGAPLenderAgreementPacketForm, "AUL_GAP_Lender_Agreement_Packet.pdf");
+			AgentToolBoxFormName1.put(TBChecklistWithAccountManagementForm,
+					"Checklist_with_Account_Mangement_Form.pdf");
+			AgentToolBoxFormName1.put(TBClassicTrakAncillaryDealerAgreement,
+					"ClassicTrak_Ancillary_Dealer_Agreement.pdf");
+			AgentToolBoxFormName1.put(TBCreditCardRewardsAgreementPacket, "Credit_Card_Rewards_Agreement_Packet.pdf");
+			AgentToolBoxFormName1.put(TBDealerAgreementPacket, "Dealer_Agreement_Packet.pdf");
+			AgentToolBoxFormName1.put(TBDealerPassThroughAgreement, "Dealer_Pass_Through_Agreement.pdf");
+
+			AgentToolBoxFormName1.put(TBEssentialsAddendum, "Essentials_Addendum.pdf");
+			AgentToolBoxFormName1.put(TBFloridaDealerAgreementPacket, "Florida_Dealer_Agreement_Packet.pdf");
+			AgentToolBoxFormName1.put(TBLimitedWarrantyDealerAgreement, "Limited_Warranty_Dealer_Agreement.pdf");
+			AgentToolBoxFormName1.put(TBPowertrainProgramAddendum, "Powertrain_Program_Addendum.pdf");
+
+			if (roleType == "Agent") {
+
+				RoleTypeToolBox = AgentToolBoxFormName1;
+				setOfKey1 = AgentToolBoxFormName1.keySet();
+
+			} else {
+
+				RoleTypeToolBox = DealerToolBoxFormName1;
+				setOfKey1 = DealerToolBoxFormName1.keySet();
+
+			}
 
 			for (String key1 : setOfKey1) {
 
 				boolean flag = false;
 
-				try {
+				PDFFile = driver.findElement(By.xpath(key1));
 
-					PDFFile = driver.findElement(By.xpath(key1));
+				sleepWaitFunction(4000);
 
-					flag = driver.findElement(By.xpath(key1)).isDisplayed();
+				flag = driver.findElement(By.xpath(key1)).isDisplayed();
 
-					if (flag) {
+				
+				Assert.assertEquals(flag, true, RoleTypeToolBox.get(key1) + " is not displayed.");
 
-						PDFName = driver.findElement(By.xpath(key1)).getText();
+				if (flag) {
 
-						DownloadPDF(key1);
+					PDFName = driver.findElement(By.xpath(key1)).getText();
 
-						try {
-							isFileDownloaded(System.getProperty("user.dir") + "\\PDF", DealerToolBoxFormName1.get(key1));
-						} catch (Exception e) {
+					DownloadPDF(key1);
 
-							System.out.println(DealerToolBoxFormName1.get(key1) + " File is not Present");
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
+					boolean fileDownloadflag = isFileDownloaded(System.getProperty("user.dir") + "\\PDF",
+							RoleTypeToolBox.get(key1));
 
-					}
-					sleepWaitFunction(4000);
-
-				} catch (Exception e) {
-					System.out.println("PDF is not Present.");
+					Assert.assertEquals(fileDownloadflag, true, RoleTypeToolBox.get(key1) + "File is not Present.");
 
 				}
+				sleepWaitFunction(4000);
+
 
 			}
 
@@ -206,7 +255,10 @@ public class toolBoxAction extends toolBoxpo {
 
 		case "Marketing Material":
 
+			LinkedHashMap<String, String> RoleTypeToolBox2;
+
 			LinkedHashMap<String, String> DealerToolBoxFormName2 = new LinkedHashMap<String, String>();
+			LinkedHashMap<String, String> AgentToolBoxFormName2 = new LinkedHashMap<String, String>();
 
 			DealerToolBoxFormName2.put(TBActivationReportAndDashboardJobAidReport,
 					"Activations_Report_and_Dashboard_job_Aid.pdf");
@@ -230,36 +282,82 @@ public class toolBoxAction extends toolBoxpo {
 			DealerToolBoxFormName2.put(TBTrademarkLicenseAgreementAndStyleGuide,
 					"Trademark_License_Agreement_and_Style_Guide.pdf");
 
-			Set<String> setOfKey2 = DealerToolBoxFormName2.keySet();
+			AgentToolBoxFormName2.put(TBActivationReportAndDashboardJobAidReport,
+					"Activations_Report_and_Dashboard_job_Aid.pdf");
+			AgentToolBoxFormName2.put(TBCancellationRmitAndUnremitJobAidReport,
+					"Cancellations_Remit_and_Unremit_Job_Aid.pdf");
+			AgentToolBoxFormName2.put(TBContractSearchJobAidReport, "Contract_Search_Job_Aid.pdf");
+			AgentToolBoxFormName2.put(TBEarlyClaimsJobAidReport, "Early_Claims_Job_Aid.pdf");
+			AgentToolBoxFormName2.put(TBMyAccountStatementAndActurialStatementsJobAidReport,
+					"My_Account_Statement_Actuarial_Statements_Job_Aid.pdf");
+			AgentToolBoxFormName2.put(TBUnpaidContractTrainingManualForm, "Unpaid_Contracts_Training_Manual.pdf");
+			AgentToolBoxFormName2.put(TBAUNContractForm, "AUN-E-Contract.pdf");
+			AgentToolBoxFormName2.put(TBES2ContractForm, "ES2-E-Contract.pdf");
+			AgentToolBoxFormName2.put(TBFI2ContractForm, "FI2-E-Contract.pdf");
+			AgentToolBoxFormName2.put(TBLimitedWarrantyForm, "Limited_Warranty_E-Contract.pdf");
+			AgentToolBoxFormName2.put(TBNSEContractForm, "NSE-E-Contract.pdf");
+			AgentToolBoxFormName2.put(TBPTPContractForm, "PTP-E-Contract.pdf");
+			AgentToolBoxFormName2.put(TBSNIContractForm, "SNI-E-Contract.pdf");
+			AgentToolBoxFormName2.put(TBSNLContractForm, "SNL-E-Contract.pdf");
+			AgentToolBoxFormName2.put(TBES2SPContractForm, "ES2_SP_E-Contract.pdf");
+			AgentToolBoxFormName2.put(TBFI2SPContractForm, "FI2_SP_E-Contract.pdf");
+			AgentToolBoxFormName2.put(TBTrademarkLicenseAgreementAndStyleGuide,
+					"Trademark_License_Agreement_and_Style_Guide.pdf");
 
-			for (String key2 : setOfKey2) {
+			if (roleType == "Agent") {
 
-				PDFName = driver.findElement(By.xpath(key2)).getText();
+				RoleTypeToolBox2 = AgentToolBoxFormName2;
+				setOfKey1 = AgentToolBoxFormName2.keySet();
 
-				PDFFile = driver.findElement(By.xpath(key2));
+			} else {
 
-				if (PDFFile.isDisplayed()) {
-					windowScroll();
+				RoleTypeToolBox2 = DealerToolBoxFormName2;
+				setOfKey1 = DealerToolBoxFormName2.keySet();
 
-					DownloadPDF(key2);
+			}
+			
+			for (String key1 : setOfKey1) {
 
-					try {
-						isFileDownloaded(System.getProperty("user.dir") + "\\PDF", DealerToolBoxFormName2.get(key2));
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						System.out.println(e);
-					}
+				boolean flag = false;
+
+
+
+				PDFFile = driver.findElement(By.xpath(key1));
+
+				sleepWaitFunction(4000);
+
+				flag = driver.findElement(By.xpath(key1)).isDisplayed();
+
+				
+				Assert.assertEquals(flag, true, RoleTypeToolBox2.get(key1) + " is not displayed.");
+
+				if (flag) {
+
+					PDFName = driver.findElement(By.xpath(key1)).getText();
+
+					DownloadPDF(key1);
+
+					boolean fileDownloadflag = isFileDownloaded(System.getProperty("user.dir") + "\\PDF",
+							RoleTypeToolBox2.get(key1));
+
+					Assert.assertEquals(fileDownloadflag, true, RoleTypeToolBox2.get(key1) + "File is not Present.");
 
 				}
 				sleepWaitFunction(4000);
+				windowScroll();
+
 
 			}
+		
 
 			break;
 
 		case "Payment Plan Partners":
+			
+			LinkedHashMap<String, String> RoleTypeToolBox3;
 
 			LinkedHashMap<String, String> DealerToolBoxFormName3 = new LinkedHashMap<String, String>();
+			LinkedHashMap<String, String> AgentToolBoxFormName3 = new LinkedHashMap<String, String>();
 
 			DealerToolBoxFormName3.put(TBSPPProcedureGuide, "SPP_TrManual.pdf");
 			DealerToolBoxFormName3.put(TBZEROPlanProgramAccountingOfficeTraining,
@@ -268,38 +366,64 @@ public class toolBoxAction extends toolBoxpo {
 			DealerToolBoxFormName3.put(TBZEROPlanProgramOverview, "Zero_Plan_Program_Overview.pdf");
 			DealerToolBoxFormName3.put(TBZEROPlanProgramRetailerOverview, "ZERO_Plan_Program_Retailer_Overview.pdf");
 
+			AgentToolBoxFormName3.put(TBSPPProcedureGuide, "SPP_TrManual.pdf");
+			AgentToolBoxFormName3.put(TBZEROPlanProgramAccountingOfficeTraining,
+					"ZERO_Plan_Program_Accounting_Office_Training.pdf");
+			AgentToolBoxFormName3.put(TBZEROPlanProgramDealerTraining, "ZERO_Plan_Program_Dealer_Training.pdf");
+			AgentToolBoxFormName3.put(TBZEROPlanProgramOverview, "Zero_Plan_Program_Overview.pdf");
+			AgentToolBoxFormName3.put(TBZEROPlanProgramRetailerOverview, "ZERO_Plan_Program_Retailer_Overview.pdf");
+
 //			DealerToolBoxFormName3.put(TBSPPDealerAgreement, "SPP_Dealer_Agreement.pdf");
 //			DealerToolBoxFormName3.put(TBSPPWebTrainingManual, "SPP_TrManual.pdf");
 //			DealerToolBoxFormName3.put(TBEnrollmentPacketFranchiseNew, "SPP_TrManual.pdf");
 //			DealerToolBoxFormName3.put(TBEnrollmentPacketIndependentUsed, "Enrollment_Packet_Independent_Used.pdf");
 //			DealerToolBoxFormName3.put(TBZEROPlanProgramAgentTraining, "ZERO_Plan_Program_Agent_Training.pdf");
+			
+			if (roleType == "Agent") {
 
-			Set<String> setOfKey3 = DealerToolBoxFormName3.keySet();
+				RoleTypeToolBox3 = AgentToolBoxFormName3;
+				setOfKey1 = AgentToolBoxFormName3.keySet();
 
-			for (String key3 : setOfKey3) {
+			} else {
 
-				PDFName = driver.findElement(By.xpath(key3)).getText();
+				RoleTypeToolBox3 = DealerToolBoxFormName3;
+				setOfKey1 = DealerToolBoxFormName3.keySet();
 
-				PDFFile = driver.findElement(By.xpath(key3));
+			}
+			
+			for (String key1 : setOfKey1) {
 
-				if (PDFFile.isDisplayed()) {
+				boolean flag = false;
 
-					DownloadPDF(key3);
+//				try {
 
-					try {
-						isFileDownloaded(System.getProperty("user.dir") + "\\PDF", DealerToolBoxFormName3.get(key3));
-					} catch (Exception e) {
-						
-						System.out.println(e);
-					}
+				PDFFile = driver.findElement(By.xpath(key1));
+
+				sleepWaitFunction(4000);
+
+				flag = driver.findElement(By.xpath(key1)).isDisplayed();
+
+				
+				Assert.assertEquals(flag, true, RoleTypeToolBox3.get(key1) + " is not displayed.");
+
+				if (flag) {
+
+					PDFName = driver.findElement(By.xpath(key1)).getText();
+
+					DownloadPDF(key1);
+
+					boolean fileDownloadflag = isFileDownloaded(System.getProperty("user.dir") + "\\PDF",
+							RoleTypeToolBox3.get(key1));
+
+					Assert.assertEquals(fileDownloadflag, true, RoleTypeToolBox3.get(key1) + "File is not Present.");
 
 				}
 				sleepWaitFunction(4000);
 
+
 			}
 
 			break;
-
 		}
 
 	}
@@ -319,7 +443,7 @@ public class toolBoxAction extends toolBoxpo {
 	}
 
 	public static int getPageCount(PDDocument doc) {
-		
+
 		int pageCount = doc.getNumberOfPages();
 		return pageCount;
 

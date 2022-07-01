@@ -16,7 +16,7 @@
 			<class name="testsuite.impersonateContract"/>
 			<class name="testsuite.validatePDF_test"/> 
 			<class name="testsuite.twoProgramContract"/>
-			<class name="testsuite.earlyClaims_test"/>
+			
 
 			
 		</classes>

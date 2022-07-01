@@ -56,7 +56,6 @@ public class createContractAction extends contractpo{
 			String[] program = header.split(" • ");
 			String programCode = program[0];
 			String programName = program[1];
-			//String price = event.text("cssSelector", table,0);
 			event.inputfield("cssSelector", contract, "10000", 0);
 			if(!(searchData1.get("program").contains("Limited Warranty"))) {
 				event.clickfield("xpath", businessUse);
@@ -64,7 +63,8 @@ public class createContractAction extends contractpo{
 			List <WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
 			if(a.size() == 1) {
 				driver.findElement(By.cssSelector(inServiceDateTextBox)).click();
-				driver.findElement(By.cssSelector("td[aria-label=\"June 1, 2022\"]")).click();
+				System.out.println("td[aria-label='" + getDate() + "']");
+				driver.findElement(By.cssSelector("td[aria-label='" + getDate() + "']")).click();
 			}
 			driver.findElements(By.cssSelector(textbox)).get(14).clear();
 			event.inputfield("cssSelector", textbox, "20130", 14);

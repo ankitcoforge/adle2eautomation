@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Properties;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -339,5 +341,14 @@ public class baseClass {
 		}
 		return searchData;
 	}
+	
+	/* Return today date*/
+	public String getDate() {
+        Calendar calendar = Calendar.getInstance();
+        String month = calendar.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault());
+        int day = calendar.get(calendar.DAY_OF_MONTH);
+        int year = calendar.get(calendar.YEAR);
+        return(month+" "+day+","+" "+year);
+    }
 
 }

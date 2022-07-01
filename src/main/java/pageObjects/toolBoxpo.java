@@ -13,6 +13,7 @@ public class toolBoxpo extends baseClass {
 	public String TBTitle = "//h3[contains(text(),\"Toolbox\")]";
 	public String TBDealerPDF1 = "//a[contains(text(),\"AUL Corp Contact List\")]";
 	public String TBDealerTab = "//*[contains(text(),\" Dealer Toolbox \")]";
+	public String TBAgentTab ="//*[contains(text(),\" Agent Toolbox \")]";
 	public String TBFormsLibraryTab = "//*[contains(text(),\" Forms Library \")]";
 	public String TBMarketingMaterialTab = "//*[contains(text(),' Marketing Material ')]";
 	public String TBPaymentPlanPartnersTab = "//*[contains(text(),\" Payment Plan Partners \")]";
