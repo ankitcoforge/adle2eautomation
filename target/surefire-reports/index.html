@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-ADL_Regression_Suite">
+              <span class="suite-name border-passed">ADL Regression Suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-ADL_Regression_Suite">
+                    <span>C:\AUL\Workspace\ADL\testng.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-ADL_Regression_Suite">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-ADL_Regression_Suite">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-ADL_Regression_Suite">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-ADL_Regression_Suite">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-ADL_Regression_Suite">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-ADL_Regression_Suite">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">19 methods,   19 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-ADL_Regression_Suite" class="hide-methods passed suite-ADL_Regression_Suite"> (hide)</a> <!-- hide-methods passed suite-ADL_Regression_Suite -->
+                      <a href="#" panel-name="suite-ADL_Regression_Suite" class="show-methods passed suite-ADL_Regression_Suite"> (show)</a> <!-- show-methods passed suite-ADL_Regression_Suite -->
+                    </span>
+                    <div class="method-list-content passed suite-ADL_Regression_Suite">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-ADL_Regression_Suite" title="testsuite.baseTest" hash-for-method="VerifyForgotPassword_Loginastext_27238_27254_27220_27255_27237_27166">VerifyForgotPassword_Loginastext_27238_27254_27220_27255_27237_27166</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-ADL_Regression_Suite" title="testsuite.baseTest" hash-for-method="VerifyGAPPortallinkfunctionality_27233_27259_27229">VerifyGAPPortallinkfunctionality_27233_27259_27229</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-ADL_Regression_Suite" title="testsuite.baseTest" hash-for-method="VerifyLocationPrivacyPolicyLink_27224_27239_27254">VerifyLocationPrivacyPolicyLink_27224_27239_27254</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-ADL_Regression_Suite" title="testsuite.baseTest" hash-for-method="VerifyRememberMyPasswordLocation_27214">VerifyRememberMyPasswordLocation_27214</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-ADL_Regression_Suite" title="testsuite.baseTest" hash-for-method="VerifyWelcomeTextOnTheADLUILoginPage_27248_27244_27110">VerifyWelcomeTextOnTheADLUILoginPage_27248_27244_27110</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-ADL_Regression_Suite" title="testsuite.baseTest" hash-for-method="Verify_image_on_the_right_side_of_the_login_page_27225">Verify_image_on_the_right_side_of_the_login_page_27225</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-ADL_Regression_Suite" title="testsuite.baseTest" hash-for-method="VerifyeClaimsPortalforRepairFacilitieslink_27228_27231_27261">VerifyeClaimsPortalforRepairFacilitieslink_27228_27231_27261</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-ADL_Regression_Suite" title="testsuite.loginValidation_test" hash-for-method="emptyLogin">emptyLogin</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-ADL_Regression_Suite" title="testsuite.loginValidation_test" hash-for-method="emptyLoginPassword">emptyLoginPassword</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-ADL_Regression_Suite" title="testsuite.loginValidation_test" hash-for-method="emptyLoginUsername">emptyLoginUsername</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-ADL_Regression_Suite" title="testsuite.loginValidation_test" hash-for-method="incorrectCredential">incorrectCredential</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-ADL_Regression_Suite" title="testsuite.loginValidation_test" hash-for-method="incorrectpasswordCredential">incorrectpasswordCredential</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-ADL_Regression_Suite" title="testsuite.loginValidation_test" hash-for-method="incorrectusernameCredential">incorrectusernameCredential</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-ADL_Regression_Suite" title="testsuite.login1_test" hash-for-method="loggedIn(coforgeadmin, TAdmin54!)">loggedIn(coforgeadmin, TAdmin54!)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-ADL_Regression_Suite" title="testsuite.login1_test" hash-for-method="loggedIn(Dealer7032823, 4558600)">loggedIn(Dealer7032823, 4558600)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-ADL_Regression_Suite" title="testsuite.login1_test" hash-for-method="loggedIn(Agent110, Since1996)">loggedIn(Agent110, Since1996)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-ADL_Regression_Suite" title="testsuite.baseTest" hash-for-method="verify_aul_logo_7078">verify_aul_logo_7078</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-ADL_Regression_Suite" title="testsuite.baseTest" hash-for-method="verify_aul_logo_resetpassword_7080_7081_7082">verify_aul_logo_resetpassword_7080_7081_7082</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-ADL_Regression_Suite" title="testsuite.login1_test" hash-for-method="welcomePage">welcomePage</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-ADL_Regression_Suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-ADL_Regression_Suite" class="panel ADL_Regression_Suite">
+          <div class="suite-ADL_Regression_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">testsuite.baseTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyForgotPassword_Loginastext_27238_27254_27220_27255_27237_27166">
+                  </a> <!-- VerifyForgotPassword_Loginastext_27238_27254_27220_27255_27237_27166 -->
+                  <span class="method-name">VerifyForgotPassword_Loginastext_27238_27254_27220_27255_27237_27166</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyGAPPortallinkfunctionality_27233_27259_27229">
+                  </a> <!-- VerifyGAPPortallinkfunctionality_27233_27259_27229 -->
+                  <span class="method-name">VerifyGAPPortallinkfunctionality_27233_27259_27229</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyLocationPrivacyPolicyLink_27224_27239_27254">
+                  </a> <!-- VerifyLocationPrivacyPolicyLink_27224_27239_27254 -->
+                  <span class="method-name">VerifyLocationPrivacyPolicyLink_27224_27239_27254</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyRememberMyPasswordLocation_27214">
+                  </a> <!-- VerifyRememberMyPasswordLocation_27214 -->
+                  <span class="method-name">VerifyRememberMyPasswordLocation_27214</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyWelcomeTextOnTheADLUILoginPage_27248_27244_27110">
+                  </a> <!-- VerifyWelcomeTextOnTheADLUILoginPage_27248_27244_27110 -->
+                  <span class="method-name">VerifyWelcomeTextOnTheADLUILoginPage_27248_27244_27110</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Verify_image_on_the_right_side_of_the_login_page_27225">
+                  </a> <!-- Verify_image_on_the_right_side_of_the_login_page_27225 -->
+                  <span class="method-name">Verify_image_on_the_right_side_of_the_login_page_27225</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyeClaimsPortalforRepairFacilitieslink_27228_27231_27261">
+                  </a> <!-- VerifyeClaimsPortalforRepairFacilitieslink_27228_27231_27261 -->
+                  <span class="method-name">VerifyeClaimsPortalforRepairFacilitieslink_27228_27231_27261</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verify_aul_logo_7078">
+                  </a> <!-- verify_aul_logo_7078 -->
+                  <span class="method-name">verify_aul_logo_7078</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verify_aul_logo_resetpassword_7080_7081_7082">
+                  </a> <!-- verify_aul_logo_resetpassword_7080_7081_7082 -->
+                  <span class="method-name">verify_aul_logo_resetpassword_7080_7081_7082</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-ADL_Regression_Suite-class-passed -->
+          <div class="suite-ADL_Regression_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">testsuite.login1_test</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="loggedIn(coforgeadmin, TAdmin54!)">
+                  </a> <!-- loggedIn(coforgeadmin, TAdmin54!) -->
+                  <span class="method-name">loggedIn</span>
+                  <span class="parameters">(coforgeadmin, TAdmin54!)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="loggedIn(Dealer7032823, 4558600)">
+                  </a> <!-- loggedIn(Dealer7032823, 4558600) -->
+                  <span class="method-name">loggedIn</span>
+                  <span class="parameters">(Dealer7032823, 4558600)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="loggedIn(Agent110, Since1996)">
+                  </a> <!-- loggedIn(Agent110, Since1996) -->
+                  <span class="method-name">loggedIn</span>
+                  <span class="parameters">(Agent110, Since1996)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="welcomePage">
+                  </a> <!-- welcomePage -->
+                  <span class="method-name">welcomePage</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-ADL_Regression_Suite-class-passed -->
+          <div class="suite-ADL_Regression_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">testsuite.loginValidation_test</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="emptyLogin">
+                  </a> <!-- emptyLogin -->
+                  <span class="method-name">emptyLogin</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="emptyLoginPassword">
+                  </a> <!-- emptyLoginPassword -->
+                  <span class="method-name">emptyLoginPassword</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="emptyLoginUsername">
+                  </a> <!-- emptyLoginUsername -->
+                  <span class="method-name">emptyLoginUsername</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="incorrectCredential">
+                  </a> <!-- incorrectCredential -->
+                  <span class="method-name">incorrectCredential</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="incorrectpasswordCredential">
+                  </a> <!-- incorrectpasswordCredential -->
+                  <span class="method-name">incorrectpasswordCredential</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="incorrectusernameCredential">
+                  </a> <!-- incorrectusernameCredential -->
+                  <span class="method-name">incorrectusernameCredential</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-ADL_Regression_Suite-class-passed -->
+        </div> <!-- panel ADL_Regression_Suite -->
+        <div panel-name="test-xml-ADL_Regression_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\AUL\Workspace\ADL\testng.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite verbose=&quot;0&quot; name=&quot;ADL Regression Suite&quot; parallel=&quot;none&quot;&gt;
+  &lt;parameter name=&quot;testng.metrics.report.logo&quot; value=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Coforge-Logo.png/800px-Coforge-Logo.png&quot;/&gt;
+  &lt;test name=&quot;ADL&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;testsuite.baseTest&quot;/&gt;
+      &lt;class name=&quot;testsuite.loginValidation_test&quot;/&gt;
+      &lt;class name=&quot;testsuite.login1_test&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- ADL --&gt;
+&lt;/suite&gt; &lt;!-- ADL Regression Suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-ADL_Regression_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for ADL Regression Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">ADL (3 classes)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-ADL_Regression_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for ADL Regression Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-ADL_Regression_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for ADL Regression Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_ADL_Regression_Suite');
+function tableData_ADL_Regression_Suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(19);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'loggedIn')
+data.setCell(0, 2, 'testsuite.login1_test')
+data.setCell(0, 3, 10465);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'loggedIn')
+data.setCell(1, 2, 'testsuite.login1_test')
+data.setCell(1, 3, 9668);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'loggedIn')
+data.setCell(2, 2, 'testsuite.login1_test')
+data.setCell(2, 3, 9662);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'emptyLogin')
+data.setCell(3, 2, 'testsuite.loginValidation_test')
+data.setCell(3, 3, 1583);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'emptyLoginPassword')
+data.setCell(4, 2, 'testsuite.loginValidation_test')
+data.setCell(4, 3, 847);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'incorrectCredential')
+data.setCell(5, 2, 'testsuite.loginValidation_test')
+data.setCell(5, 3, 740);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'incorrectpasswordCredential')
+data.setCell(6, 2, 'testsuite.loginValidation_test')
+data.setCell(6, 3, 706);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'incorrectusernameCredential')
+data.setCell(7, 2, 'testsuite.loginValidation_test')
+data.setCell(7, 3, 671);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'emptyLoginUsername')
+data.setCell(8, 2, 'testsuite.loginValidation_test')
+data.setCell(8, 3, 607);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'verify_aul_logo_resetpassword_7080_7081_7082')
+data.setCell(9, 2, 'testsuite.baseTest')
+data.setCell(9, 3, 436);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'verify_aul_logo_7078')
+data.setCell(10, 2, 'testsuite.baseTest')
+data.setCell(10, 3, 374);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'welcomePage')
+data.setCell(11, 2, 'testsuite.login1_test')
+data.setCell(11, 3, 196);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'VerifyRememberMyPasswordLocation_27214')
+data.setCell(12, 2, 'testsuite.baseTest')
+data.setCell(12, 3, 174);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'VerifyeClaimsPortalforRepairFacilitieslink_27228_27231_27261')
+data.setCell(13, 2, 'testsuite.baseTest')
+data.setCell(13, 3, 170);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'VerifyLocationPrivacyPolicyLink_27224_27239_27254')
+data.setCell(14, 2, 'testsuite.baseTest')
+data.setCell(14, 3, 109);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'VerifyWelcomeTextOnTheADLUILoginPage_27248_27244_27110')
+data.setCell(15, 2, 'testsuite.baseTest')
+data.setCell(15, 3, 82);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'VerifyForgotPassword_Loginastext_27238_27254_27220_27255_27237_27166')
+data.setCell(16, 2, 'testsuite.baseTest')
+data.setCell(16, 3, 76);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'VerifyGAPPortallinkfunctionality_27233_27259_27229')
+data.setCell(17, 2, 'testsuite.baseTest')
+data.setCell(17, 3, 72);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'Verify_image_on_the_right_side_of_the_login_page_27225')
+data.setCell(18, 2, 'testsuite.baseTest')
+data.setCell(18, 3, 36);
+window.suiteTableData['ADL_Regression_Suite']= { tableData: data, tableDiv: 'times-div-ADL_Regression_Suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 36 seconds</span>
+              <div id="times-div-ADL_Regression_Suite">
+              </div> <!-- times-div-ADL_Regression_Suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-ADL_Regression_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for ADL Regression Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-ADL_Regression_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">8 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">testsuite.login1_test</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">beforeSuite</span>
+                <br/>
+                <span class="ignored-method-name">afterSuite</span>
+                <br/>
+                <span class="ignored-method-name">afterTestMethod</span>
+                <br/>
+                <span class="ignored-method-name">beforTestMethod</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">testsuite.loginValidation_test</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">beforeSuite</span>
+                <br/>
+                <span class="ignored-method-name">afterSuite</span>
+                <br/>
+                <span class="ignored-method-name">afterTestMethod</span>
+                <br/>
+                <span class="ignored-method-name">beforTestMethod</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-ADL_Regression_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">testsuite.baseTest</div> <!-- chronological-class-name -->
+              <div class="configuration-suite before">
+                <span class="method-name">beforeSuite(org.testng.TestRunner@46cb98a3)</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-suite before -->
+              <div class="configuration-test before">
+                <span class="method-name">beforTestMethod(org.testng.TestRunner@46cb98a3)</span>
+                <span class="method-start">17 ms</span>
+              </div> <!-- configuration-test before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">testsuite.loginValidation_test</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">emptyLogin</span>
+                <span class="method-start">3262 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">teardown(org.testng.TestRunner@46cb98a3)</span>
+                <span class="method-start">4846 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">emptyLoginPassword</span>
+                <span class="method-start">5721 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">teardown(org.testng.TestRunner@46cb98a3)</span>
+                <span class="method-start">6568 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">emptyLoginUsername</span>
+                <span class="method-start">7092 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">teardown(org.testng.TestRunner@46cb98a3)</span>
+                <span class="method-start">7700 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">incorrectCredential</span>
+                <span class="method-start">8248 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">teardown(org.testng.TestRunner@46cb98a3)</span>
+                <span class="method-start">8988 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">incorrectpasswordCredential</span>
+                <span class="method-start">9512 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">teardown(org.testng.TestRunner@46cb98a3)</span>
+                <span class="method-start">10218 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">incorrectusernameCredential</span>
+                <span class="method-start">10752 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">teardown(org.testng.TestRunner@46cb98a3)</span>
+                <span class="method-start">11423 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">testsuite.baseTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">welcome</span>
+                <span class="method-start">11932 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">VerifyeClaimsPortalforRepairFacilitieslink_27228_27231_27261</span>
+                <span class="method-start">12150 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">teardown(org.testng.TestRunner@46cb98a3)</span>
+                <span class="method-start">12320 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">testsuite.login1_test</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">welcomePage</span>
+                <span class="method-start">12924 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">teardown(org.testng.TestRunner@46cb98a3)</span>
+                <span class="method-start">13120 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">testsuite.baseTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">VerifyRememberMyPasswordLocation_27214</span>
+                <span class="method-start">13837 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">teardown(org.testng.TestRunner@46cb98a3)</span>
+                <span class="method-start">14011 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">testsuite.login1_test</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">loggedIn(Dealer7032823, 4558600)</span>
+                <span class="method-start">14490 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">teardown(org.testng.TestRunner@46cb98a3)</span>
+                <span class="method-start">24956 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">loggedIn(Agent110, Since1996)</span>
+                <span class="method-start">25399 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">teardown(org.testng.TestRunner@46cb98a3)</span>
+                <span class="method-start">35067 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">loggedIn(coforgeadmin, TAdmin54!)</span>
+                <span class="method-start">35422 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">teardown(org.testng.TestRunner@46cb98a3)</span>
+                <span class="method-start">45085 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">testsuite.baseTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">VerifyLocationPrivacyPolicyLink_27224_27239_27254</span>
+                <span class="method-start">45459 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">teardown(org.testng.TestRunner@46cb98a3)</span>
+                <span class="method-start">45569 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">VerifyWelcomeTextOnTheADLUILoginPage_27248_27244_27110</span>
+                <span class="method-start">46068 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">teardown(org.testng.TestRunner@46cb98a3)</span>
+                <span class="method-start">46151 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">VerifyGAPPortallinkfunctionality_27233_27259_27229</span>
+                <span class="method-start">46643 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">teardown(org.testng.TestRunner@46cb98a3)</span>
+                <span class="method-start">46715 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">VerifyForgotPassword_Loginastext_27238_27254_27220_27255_27237_27166</span>
+                <span class="method-start">47203 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">teardown(org.testng.TestRunner@46cb98a3)</span>
+                <span class="method-start">47280 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Verify_image_on_the_right_side_of_the_login_page_27225</span>
+                <span class="method-start">47753 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">teardown(org.testng.TestRunner@46cb98a3)</span>
+                <span class="method-start">47790 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">verify_aul_logo_7078</span>
+                <span class="method-start">48267 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">teardown(org.testng.TestRunner@46cb98a3)</span>
+                <span class="method-start">48641 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">verify_aul_logo_resetpassword_7080_7081_7082</span>
+                <span class="method-start">49504 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">teardown(org.testng.TestRunner@46cb98a3)</span>
+                <span class="method-start">49940 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-test after">
+                <span class="method-name">afterTestMethod(org.testng.TestRunner@46cb98a3)</span>
+                <span class="method-start">50815 ms</span>
+              </div> <!-- configuration-test after -->
+              <div class="configuration-suite after">
+                <span class="method-name">afterSuite(org.testng.TestRunner@46cb98a3)</span>
+                <span class="method-start">51021 ms</span>
+              </div> <!-- configuration-suite after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>

@@ -101,7 +101,7 @@ public class baseTest extends welcomeAction {
 	}
 	
 	@Test(priority = 9)
-	public void verify_aul_logo_resetpassword_7080_7081_7082() {
+	public void verify_aul_logo_resetpassword_7080() {
 		
 		
 		Assert.assertEquals(resetPasswordlogo(), "https://qa.adl.aulcorp.com/login");

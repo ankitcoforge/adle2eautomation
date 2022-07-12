@@ -36,6 +36,8 @@ public class createContractAction extends contractpo{
 		 * @throws InterruptedException ****************************************/
 		public void createContract(String[] inputArray) throws InterruptedException {
 
+			
+			try {
 			HashMap<String, String> searchData1 = new HashMap<String, String>();
 			searchData1 = contractData(inputArray);
 			event.inputfield("cssSelector", textbox, searchData1.get("Firstname"), 0);
@@ -85,7 +87,14 @@ public class createContractAction extends contractpo{
 			Thread.sleep(5000);
 			String text1 = event.text("cssSelector", successMessage);
 			Assert.assertEquals(text1, "You have successfully generated a contract!");
-			event.clickfield("xpath", newQuotelink);					
+			event.clickfield("xpath", newQuotelink);
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+				System.out.println("Test Case failed ");
+				e.getCause();
+				Assert.fail();
+			}
 		}
 		
 		public void verifyContentInPDf(String url, String program) {

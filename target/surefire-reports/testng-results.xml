@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="19" passed="19">
+  <reporter-output>
+  </reporter-output>
+  <suite name="ADL Regression Suite" duration-ms="50990" started-at="2022-07-11T18:24:32Z" finished-at="2022-07-11T18:25:23Z">
+    <groups>
+    </groups>
+    <test name="ADL" duration-ms="50990" started-at="2022-07-11T18:24:32Z" finished-at="2022-07-11T18:25:23Z">
+      <class name="testsuite.login1_test">
+        <test-method status="PASS" signature="welcomePage()[pri:0, instance:testsuite.login1_test@2b6faea6]" name="welcomePage" duration-ms="196" started-at="2022-07-11T11:24:45Z" finished-at="2022-07-11T11:24:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- welcomePage -->
+        <test-method status="PASS" signature="teardown(org.testng.ITestContext)[pri:0, instance:testsuite.login1_test@2b6faea6]" name="teardown" is-config="true" duration-ms="716" started-at="2022-07-11T11:24:45Z" finished-at="2022-07-11T11:24:46Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@46cb98a3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="loggedIn(java.lang.String, java.lang.String)[pri:0, instance:testsuite.login1_test@2b6faea6]" name="loggedIn" duration-ms="10465" started-at="2022-07-11T11:24:46Z" data-provider="login1" finished-at="2022-07-11T11:24:57Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Dealer7032823]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[4558600]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loggedIn -->
+        <test-method status="PASS" signature="teardown(org.testng.ITestContext)[pri:0, instance:testsuite.login1_test@2b6faea6]" name="teardown" is-config="true" duration-ms="443" started-at="2022-07-11T11:24:57Z" finished-at="2022-07-11T11:24:57Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@46cb98a3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="loggedIn(java.lang.String, java.lang.String)[pri:0, instance:testsuite.login1_test@2b6faea6]" name="loggedIn" duration-ms="9668" started-at="2022-07-11T11:24:57Z" data-provider="login1" finished-at="2022-07-11T11:25:07Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Agent110]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Since1996]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loggedIn -->
+        <test-method status="PASS" signature="teardown(org.testng.ITestContext)[pri:0, instance:testsuite.login1_test@2b6faea6]" name="teardown" is-config="true" duration-ms="355" started-at="2022-07-11T11:25:07Z" finished-at="2022-07-11T11:25:07Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@46cb98a3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="loggedIn(java.lang.String, java.lang.String)[pri:0, instance:testsuite.login1_test@2b6faea6]" name="loggedIn" duration-ms="9662" started-at="2022-07-11T11:25:07Z" data-provider="login1" finished-at="2022-07-11T11:25:17Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[coforgeadmin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[TAdmin54!]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loggedIn -->
+        <test-method status="PASS" signature="teardown(org.testng.ITestContext)[pri:0, instance:testsuite.login1_test@2b6faea6]" name="teardown" is-config="true" duration-ms="374" started-at="2022-07-11T11:25:17Z" finished-at="2022-07-11T11:25:17Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@46cb98a3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- testsuite.login1_test -->
+      <class name="testsuite.baseTest">
+        <test-method status="PASS" signature="beforeSuite(org.testng.ITestContext)[pri:0, instance:testsuite.baseTest@1ffe63b9]" name="beforeSuite" is-config="true" duration-ms="17" started-at="2022-07-11T11:24:32Z" finished-at="2022-07-11T11:24:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@46cb98a3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method status="PASS" signature="beforTestMethod(org.testng.ITestContext)[pri:0, instance:testsuite.baseTest@1ffe63b9]" name="beforTestMethod" is-config="true" duration-ms="3237" started-at="2022-07-11T11:24:32Z" finished-at="2022-07-11T11:24:35Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@46cb98a3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforTestMethod -->
+        <test-method status="PASS" signature="welcome()[pri:0, instance:testsuite.baseTest@1ffe63b9]" name="welcome" is-config="true" duration-ms="217" started-at="2022-07-11T11:24:44Z" finished-at="2022-07-11T11:24:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- welcome -->
+        <test-method status="PASS" signature="VerifyeClaimsPortalforRepairFacilitieslink_27228_27231_27261()[pri:0, instance:testsuite.baseTest@1ffe63b9]" name="VerifyeClaimsPortalforRepairFacilitieslink_27228_27231_27261" duration-ms="170" started-at="2022-07-11T11:24:44Z" finished-at="2022-07-11T11:24:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyeClaimsPortalforRepairFacilitieslink_27228_27231_27261 -->
+        <test-method status="PASS" signature="teardown(org.testng.ITestContext)[pri:0, instance:testsuite.baseTest@1ffe63b9]" name="teardown" is-config="true" duration-ms="604" started-at="2022-07-11T11:24:44Z" finished-at="2022-07-11T11:24:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@46cb98a3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="VerifyRememberMyPasswordLocation_27214()[pri:0, instance:testsuite.baseTest@1ffe63b9]" name="VerifyRememberMyPasswordLocation_27214" duration-ms="174" started-at="2022-07-11T11:24:46Z" finished-at="2022-07-11T11:24:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyRememberMyPasswordLocation_27214 -->
+        <test-method status="PASS" signature="teardown(org.testng.ITestContext)[pri:0, instance:testsuite.baseTest@1ffe63b9]" name="teardown" is-config="true" duration-ms="478" started-at="2022-07-11T11:24:46Z" finished-at="2022-07-11T11:24:46Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@46cb98a3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="VerifyLocationPrivacyPolicyLink_27224_27239_27254()[pri:0, instance:testsuite.baseTest@1ffe63b9]" name="VerifyLocationPrivacyPolicyLink_27224_27239_27254" duration-ms="109" started-at="2022-07-11T11:25:17Z" finished-at="2022-07-11T11:25:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyLocationPrivacyPolicyLink_27224_27239_27254 -->
+        <test-method status="PASS" signature="teardown(org.testng.ITestContext)[pri:0, instance:testsuite.baseTest@1ffe63b9]" name="teardown" is-config="true" duration-ms="498" started-at="2022-07-11T11:25:17Z" finished-at="2022-07-11T11:25:18Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@46cb98a3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="VerifyWelcomeTextOnTheADLUILoginPage_27248_27244_27110()[pri:0, instance:testsuite.baseTest@1ffe63b9]" name="VerifyWelcomeTextOnTheADLUILoginPage_27248_27244_27110" duration-ms="82" started-at="2022-07-11T11:25:18Z" finished-at="2022-07-11T11:25:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyWelcomeTextOnTheADLUILoginPage_27248_27244_27110 -->
+        <test-method status="PASS" signature="teardown(org.testng.ITestContext)[pri:0, instance:testsuite.baseTest@1ffe63b9]" name="teardown" is-config="true" duration-ms="492" started-at="2022-07-11T11:25:18Z" finished-at="2022-07-11T11:25:18Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@46cb98a3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="VerifyGAPPortallinkfunctionality_27233_27259_27229()[pri:0, instance:testsuite.baseTest@1ffe63b9]" name="VerifyGAPPortallinkfunctionality_27233_27259_27229" duration-ms="72" started-at="2022-07-11T11:25:18Z" finished-at="2022-07-11T11:25:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyGAPPortallinkfunctionality_27233_27259_27229 -->
+        <test-method status="PASS" signature="teardown(org.testng.ITestContext)[pri:0, instance:testsuite.baseTest@1ffe63b9]" name="teardown" is-config="true" duration-ms="488" started-at="2022-07-11T11:25:19Z" finished-at="2022-07-11T11:25:19Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@46cb98a3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="VerifyForgotPassword_Loginastext_27238_27254_27220_27255_27237_27166()[pri:0, instance:testsuite.baseTest@1ffe63b9]" name="VerifyForgotPassword_Loginastext_27238_27254_27220_27255_27237_27166" duration-ms="76" started-at="2022-07-11T11:25:19Z" finished-at="2022-07-11T11:25:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyForgotPassword_Loginastext_27238_27254_27220_27255_27237_27166 -->
+        <test-method status="PASS" signature="teardown(org.testng.ITestContext)[pri:0, instance:testsuite.baseTest@1ffe63b9]" name="teardown" is-config="true" duration-ms="473" started-at="2022-07-11T11:25:19Z" finished-at="2022-07-11T11:25:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@46cb98a3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="Verify_image_on_the_right_side_of_the_login_page_27225()[pri:0, instance:testsuite.baseTest@1ffe63b9]" name="Verify_image_on_the_right_side_of_the_login_page_27225" duration-ms="36" started-at="2022-07-11T11:25:20Z" finished-at="2022-07-11T11:25:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Verify_image_on_the_right_side_of_the_login_page_27225 -->
+        <test-method status="PASS" signature="teardown(org.testng.ITestContext)[pri:0, instance:testsuite.baseTest@1ffe63b9]" name="teardown" is-config="true" duration-ms="477" started-at="2022-07-11T11:25:20Z" finished-at="2022-07-11T11:25:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@46cb98a3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="verify_aul_logo_7078()[pri:0, instance:testsuite.baseTest@1ffe63b9]" name="verify_aul_logo_7078" duration-ms="374" started-at="2022-07-11T11:25:20Z" finished-at="2022-07-11T11:25:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_aul_logo_7078 -->
+        <test-method status="PASS" signature="teardown(org.testng.ITestContext)[pri:0, instance:testsuite.baseTest@1ffe63b9]" name="teardown" is-config="true" duration-ms="863" started-at="2022-07-11T11:25:20Z" finished-at="2022-07-11T11:25:21Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@46cb98a3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="verify_aul_logo_resetpassword_7080_7081_7082()[pri:0, instance:testsuite.baseTest@1ffe63b9]" name="verify_aul_logo_resetpassword_7080_7081_7082" duration-ms="436" started-at="2022-07-11T11:25:21Z" finished-at="2022-07-11T11:25:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_aul_logo_resetpassword_7080_7081_7082 -->
+        <test-method status="PASS" signature="teardown(org.testng.ITestContext)[pri:0, instance:testsuite.baseTest@1ffe63b9]" name="teardown" is-config="true" duration-ms="874" started-at="2022-07-11T11:25:22Z" finished-at="2022-07-11T11:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@46cb98a3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="afterTestMethod(org.testng.ITestContext)[pri:0, instance:testsuite.baseTest@1ffe63b9]" name="afterTestMethod" is-config="true" duration-ms="192" started-at="2022-07-11T11:25:23Z" finished-at="2022-07-11T11:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@46cb98a3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTestMethod -->
+        <test-method status="PASS" signature="afterSuite(org.testng.ITestContext)[pri:0, instance:testsuite.baseTest@1ffe63b9]" name="afterSuite" is-config="true" duration-ms="0" started-at="2022-07-11T11:25:23Z" finished-at="2022-07-11T11:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@46cb98a3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- testsuite.baseTest -->
+      <class name="testsuite.loginValidation_test">
+        <test-method status="PASS" signature="emptyLogin()[pri:0, instance:testsuite.loginValidation_test@778d1062]" name="emptyLogin" duration-ms="1583" started-at="2022-07-11T11:24:35Z" finished-at="2022-07-11T11:24:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- emptyLogin -->
+        <test-method status="PASS" signature="teardown(org.testng.ITestContext)[pri:0, instance:testsuite.loginValidation_test@778d1062]" name="teardown" is-config="true" duration-ms="875" started-at="2022-07-11T11:24:37Z" finished-at="2022-07-11T11:24:38Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@46cb98a3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="emptyLoginPassword()[pri:0, instance:testsuite.loginValidation_test@778d1062]" name="emptyLoginPassword" duration-ms="847" started-at="2022-07-11T11:24:38Z" finished-at="2022-07-11T11:24:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- emptyLoginPassword -->
+        <test-method status="PASS" signature="teardown(org.testng.ITestContext)[pri:0, instance:testsuite.loginValidation_test@778d1062]" name="teardown" is-config="true" duration-ms="524" started-at="2022-07-11T11:24:38Z" finished-at="2022-07-11T11:24:39Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@46cb98a3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="emptyLoginUsername()[pri:0, instance:testsuite.loginValidation_test@778d1062]" name="emptyLoginUsername" duration-ms="607" started-at="2022-07-11T11:24:39Z" finished-at="2022-07-11T11:24:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- emptyLoginUsername -->
+        <test-method status="PASS" signature="teardown(org.testng.ITestContext)[pri:0, instance:testsuite.loginValidation_test@778d1062]" name="teardown" is-config="true" duration-ms="548" started-at="2022-07-11T11:24:40Z" finished-at="2022-07-11T11:24:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@46cb98a3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="incorrectCredential()[pri:0, instance:testsuite.loginValidation_test@778d1062]" name="incorrectCredential" duration-ms="740" started-at="2022-07-11T11:24:40Z" finished-at="2022-07-11T11:24:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- incorrectCredential -->
+        <test-method status="PASS" signature="teardown(org.testng.ITestContext)[pri:0, instance:testsuite.loginValidation_test@778d1062]" name="teardown" is-config="true" duration-ms="524" started-at="2022-07-11T11:24:41Z" finished-at="2022-07-11T11:24:41Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@46cb98a3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="incorrectpasswordCredential()[pri:0, instance:testsuite.loginValidation_test@778d1062]" name="incorrectpasswordCredential" duration-ms="706" started-at="2022-07-11T11:24:41Z" finished-at="2022-07-11T11:24:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- incorrectpasswordCredential -->
+        <test-method status="PASS" signature="teardown(org.testng.ITestContext)[pri:0, instance:testsuite.loginValidation_test@778d1062]" name="teardown" is-config="true" duration-ms="533" started-at="2022-07-11T11:24:42Z" finished-at="2022-07-11T11:24:43Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@46cb98a3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="incorrectusernameCredential()[pri:0, instance:testsuite.loginValidation_test@778d1062]" name="incorrectusernameCredential" duration-ms="671" started-at="2022-07-11T11:24:43Z" finished-at="2022-07-11T11:24:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- incorrectusernameCredential -->
+        <test-method status="PASS" signature="teardown(org.testng.ITestContext)[pri:0, instance:testsuite.loginValidation_test@778d1062]" name="teardown" is-config="true" duration-ms="509" started-at="2022-07-11T11:24:43Z" finished-at="2022-07-11T11:24:44Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@46cb98a3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- testsuite.loginValidation_test -->
+    </test> <!-- ADL -->
+  </suite> <!-- ADL Regression Suite -->
+</testng-results>

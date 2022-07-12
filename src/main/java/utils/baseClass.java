@@ -3,9 +3,12 @@ package utils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
 import java.util.Scanner;
@@ -39,6 +42,16 @@ public class baseClass {
 
 	public static WebDriver driver;
 	public static Properties prop;
+	/** Static variable ssPath - screenshot folder location */
+	public static String screenshotPath = "";
+	/**
+	 * Static variable screenShota - list of all screenshots associated with single
+	 * test
+	 */
+	public static List<String> screenShots;
+	/** Static variable windriver - contains driver instance */
+	@SuppressWarnings("rawtypes")
+	public static WebDriver windowsDriver;
 
 	@BeforeSuite
 	public void beforeSuite(ITestContext context) {
@@ -51,14 +64,26 @@ public class baseClass {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 
 	@BeforeTest
 	public void beforTestMethod(ITestContext context) {
-
+		
+		String path1 = System.getProperty("user.dir") + context.getName();
+		System.out.println(path1);
+		createscreenshotfolder(path1);
 		getDriver();
+		
 	}
 
+	@AfterMethod(alwaysRun = true)
+	public void teardown(ITestContext context){
+		String testName = context.getCurrentXmlTest().getName();
+		takeScreenshot(testName);
+	}
+	
+	
 	@AfterTest
 	public void afterTestMethod(ITestContext context) {
 
@@ -83,6 +108,23 @@ public class baseClass {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}
+	}
+	
+	/**
+	 * Creates the report screenshot folder inside report folder under
+	 * createReportFolder
+	 */
+	public void createscreenshotfolder(String path) {
+		//// screenshot folder to be created in current runing directory
+		//// generate time stamp for unique path and name
+		System.out.println(path);
+		String screenshotFolder = "screenshots";
+		screenshotPath = path + "\\" + screenshotFolder;
+		File file = new File(screenshotPath);
+		//// check if directory exist
+		if (!file.exists()) {
+			file.mkdir();
 		}
 	}
 
@@ -350,5 +392,23 @@ public class baseClass {
         int year = calendar.get(calendar.YEAR);
         return(month+" "+day+","+" "+year);
     }
+	
+	/**
+	 * Common function to take screenshot
+	 */
+	public void takeScreenshot(String testname) {
+		try { //// runtime get time of execution
+			String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+			
+			//// file path
+			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+			String abc = testname + "\\" + timeStamp + ".png";
+			FileUtils.copyFile(scrFile, new File(abc), false);
+			// addWaterMarkOnImages("TC01", new File(abc), new File(abc));
+			//// attach file in path
+			screenShots.add(abc);
+		} catch (Exception e) { // TODO: handle exception
+		}
+	}
 
 }

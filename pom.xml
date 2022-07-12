@@ -5,10 +5,11 @@
 	<groupId>ADL</groupId>
 	<artifactId>ADL</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>ADL Automation</name>
+	<url>http://maven.apache.org</url>
 	<build>
 		<plugins>
-
-
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -20,6 +21,17 @@
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<fork>true</fork>
+					<executable>C:\Program Files\Java\jdk1.8.0_261\bin\javac</executable>
+				</configuration>
+			</plugin>
+			
 		</plugins>
 	</build>
 
@@ -34,7 +46,7 @@
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
 			<version>6.8</version>
-			<scope>test</scope>
+			<scope>compile</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.relevantcodes/extentreports -->
 		<dependency>
@@ -68,8 +80,13 @@
        <groupId>commons-io</groupId>
        <artifactId>commons-io</artifactId>
        <version>2.6</version>
+       
 </dependency>
-		
+		<dependency>
+  <groupId>com.github.adiralashiva8</groupId>
+  <artifactId>testng-metrics</artifactId>
+  <version>1.6</version>
+</dependency>
 
 	</dependencies>
 
