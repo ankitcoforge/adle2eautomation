@@ -8,6 +8,7 @@ import java.time.Duration;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
@@ -36,9 +37,11 @@ import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
+import com.google.common.io.Files;
 
 
-public class baseClass {
+
+public class baseClass extends pdfUtils{
 
 	public static WebDriver driver;
 	public static Properties prop;
@@ -49,9 +52,7 @@ public class baseClass {
 	 * test
 	 */
 	public static List<String> screenShots;
-	/** Static variable windriver - contains driver instance */
-	@SuppressWarnings("rawtypes")
-	public static WebDriver windowsDriver;
+	
 
 	@BeforeSuite
 	public void beforeSuite(ITestContext context) {
@@ -70,18 +71,19 @@ public class baseClass {
 	@BeforeTest
 	public void beforTestMethod(ITestContext context) {
 		
-		String path1 = System.getProperty("user.dir") + context.getName();
+		String path1 = System.getProperty("user.dir");
 		System.out.println(path1);
 		createscreenshotfolder(path1);
 		getDriver();
 		
 	}
 
-	@AfterMethod(alwaysRun = true)
-	public void teardown(ITestContext context){
-		String testName = context.getCurrentXmlTest().getName();
-		takeScreenshot(testName);
-	}
+//	@AfterMethod(alwaysRun = true)
+//	public void teardown(ITestContext context){
+//		String testName = context.getName();
+//		System.out.println(testName);
+//		takeScreenshot(testName);
+//	}
 	
 	
 	@AfterTest
@@ -118,7 +120,7 @@ public class baseClass {
 	public void createscreenshotfolder(String path) {
 		//// screenshot folder to be created in current runing directory
 		//// generate time stamp for unique path and name
-		System.out.println(path);
+		
 		String screenshotFolder = "screenshots";
 		screenshotPath = path + "\\" + screenshotFolder;
 		File file = new File(screenshotPath);
@@ -396,19 +398,38 @@ public class baseClass {
 	/**
 	 * Common function to take screenshot
 	 */
-	public void takeScreenshot(String testname) {
+	public void takeScreenshot(String testname, File path) {
 		try { //// runtime get time of execution
 			String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 			
 			//// file path
 			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			String abc = testname + "\\" + timeStamp + ".png";
+			String abc = path + "\\" + testname + timeStamp + ".png";
 			FileUtils.copyFile(scrFile, new File(abc), false);
 			// addWaterMarkOnImages("TC01", new File(abc), new File(abc));
 			//// attach file in path
 			screenShots.add(abc);
+			
+			
 		} catch (Exception e) { // TODO: handle exception
 		}
 	}
+	
+	public HashSet <String> isFileDownloaded(String downloadPath, String fileName) {
+
+	    String pathnames[] = null;
+	    File dir = new File(downloadPath);
+	 // Populates the array with names of files and directories
+        pathnames = dir.list();
+        // For each pathname in the pathnames array
+        HashSet <String> a = new HashSet<> ();
+        
+        for (String pathname : pathnames) {
+            // Print the names of files and directories
+            a.add(pathname);
+        }
+       
+        return a;
+    }
 
 }

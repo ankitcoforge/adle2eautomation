@@ -12,6 +12,7 @@ public class contractpo extends baseClass{
 	public String getProducts = "//span[contains(text(),'Get Products')]";
 	public String selectProgram = "//mat-checkbox/label/div";
 	public String table = "adl-rates-table > table >tbody > tr:nth-child(1) > td:nth-child(2)";
+	public String datepicker = "adl-text-input[label='In-Service Date'] >div :nth-child(2) >input";
 	public String contract = "div.text-field__input.secure.text-field__input--prefix > input";
 	public String checkbox = "//mat-checkbox";
 	public String button = "//button";

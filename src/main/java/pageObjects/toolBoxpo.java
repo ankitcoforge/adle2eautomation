@@ -11,6 +11,7 @@ import utils.baseClass;
 public class toolBoxpo extends baseClass {
 
 	public String TBTitle = "//h3[contains(text(),\"Toolbox\")]";
+	public String toolBoxLocation = "//*[contains(text(),'Help')]//preceding::a[contains(text(),'Toolbox')]";
 	public String TBDealerPDF1 = "//a[contains(text(),\"AUL Corp Contact List\")]";
 	public String TBDealerTab = "//*[contains(text(),\" Dealer Toolbox \")]";
 	public String TBAgentTab ="//*[contains(text(),\" Agent Toolbox \")]";

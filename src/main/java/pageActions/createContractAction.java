@@ -97,67 +97,12 @@ public class createContractAction extends contractpo{
 			}
 		}
 		
-		public void verifyContentInPDf(String url, String program) {
-			//specify the url of the pdf file
-			try {
-				String pdfContent = readPdfContent(url);
-				if(program.contains("Sentinel")) {
-					Assert.assertTrue(pdfContent.contains("Sentinel"));
-				}
-				else {
-					Assert.assertTrue(pdfContent.contains("AUL"));
-				}
-				
-			} catch (MalformedURLException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		public static  String readPdfContent(String url) throws IOException {
-			
-			URL pdfUrl = new URL(url);
-			InputStream in = pdfUrl.openStream();
-			BufferedInputStream bf = new BufferedInputStream(in);
-			PDDocument doc = PDDocument.load(bf);
-			int numberOfPages = getPageCount(doc);
-			System.out.println("The total number of pages "+numberOfPages);
-			String content = new PDFTextStripper().getText(doc);
-			doc.close();
-		
-		return content;
-	}
-		
-		public static int getPageCount(PDDocument doc) {
-			//get the total number of pages in the pdf document
-			int pageCount = doc.getNumberOfPages();
-			return pageCount;
-			
-		}
-		
 		public void programSelect(String programName) {
 				getDriver().findElement(By.xpath(programfirstname + programName + programlastname)).isDisplayed();
 				getDriver().findElement(By.xpath(programfirstname + programName + programlastname + "/preceding-sibling::div")).click();
 			
 		}
 		
-		public HashSet <String> isFileDownloaded(String downloadPath, String fileName) {
-//			boolean flag = false;
-		    String pathnames[] = null;
-		    File dir = new File(downloadPath);
-		 // Populates the array with names of files and directories
-	        pathnames = dir.list();
-	        // For each pathname in the pathnames array
-	        HashSet <String> a = new HashSet<> ();
-	        
-	        for (String pathname : pathnames) {
-	            // Print the names of files and directories
-	            a.add(pathname);
-	        }
-	       
-	        return a;
-	    }
 
 		public boolean calculatePrice() {
 			String covPrice = event.text("xpath", table, 1);

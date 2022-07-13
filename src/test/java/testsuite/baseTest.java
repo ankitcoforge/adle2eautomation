@@ -1,7 +1,5 @@
 package testsuite;
 
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
@@ -33,7 +31,7 @@ import pageObjects.welcomepo;
 import utils.baseClass;
 import utils.utilityClass;
 
-
+@Listeners(utils.listnerlogs.class)
 public class baseTest extends welcomeAction {
 
 	baseClass b = new baseClass();
@@ -107,6 +105,7 @@ public class baseTest extends welcomeAction {
 		Assert.assertEquals(resetPasswordlogo(), "https://qa.adl.aulcorp.com/login");
 		
 	}
+
 
 
 }

@@ -35,7 +35,7 @@ public class toolBoxAction extends toolBoxpo {
 	public String toolboxLocation() {
 
 		sleepWaitFunction(4000);
-		return (event.text("xpath", "//*[contains(text(),'Help')]//preceding::a[contains(text(),'Toolbox')]"));
+		return (event.text("xpath",toolBoxLocation));
 	}
 
 	public void clickAction(String element) {
@@ -75,7 +75,7 @@ public class toolBoxAction extends toolBoxpo {
 
 	}
 
-	public boolean isFileDownloaded(String downloadPath, String fileName) throws IOException {
+	public boolean isFileDownloadedtoolbox(String downloadPath, String fileName) throws IOException {
 		File dir = new File(downloadPath);
 		File[] dirContents = dir.listFiles();
 		String url = "file:///" + downloadPath + "\\" + fileName;
@@ -240,7 +240,7 @@ public class toolBoxAction extends toolBoxpo {
 
 					DownloadPDF(key1);
 
-					boolean fileDownloadflag = isFileDownloaded(System.getProperty("user.dir") + "\\PDF",
+					boolean fileDownloadflag = isFileDownloadedtoolbox(System.getProperty("user.dir") + "\\PDF",
 							RoleTypeToolBox.get(key1));
 
 					Assert.assertEquals(fileDownloadflag, true, RoleTypeToolBox.get(key1) + "File is not Present.");
@@ -337,7 +337,7 @@ public class toolBoxAction extends toolBoxpo {
 
 					DownloadPDF(key1);
 
-					boolean fileDownloadflag = isFileDownloaded(System.getProperty("user.dir") + "\\PDF",
+					boolean fileDownloadflag = isFileDownloadedtoolbox(System.getProperty("user.dir") + "\\PDF",
 							RoleTypeToolBox2.get(key1));
 
 					Assert.assertEquals(fileDownloadflag, true, RoleTypeToolBox2.get(key1) + "File is not Present.");
@@ -412,7 +412,7 @@ public class toolBoxAction extends toolBoxpo {
 
 					DownloadPDF(key1);
 
-					boolean fileDownloadflag = isFileDownloaded(System.getProperty("user.dir") + "\\PDF",
+					boolean fileDownloadflag = isFileDownloadedtoolbox(System.getProperty("user.dir") + "\\PDF",
 							RoleTypeToolBox3.get(key1));
 
 					Assert.assertEquals(fileDownloadflag, true, RoleTypeToolBox3.get(key1) + "File is not Present.");
@@ -425,27 +425,6 @@ public class toolBoxAction extends toolBoxpo {
 
 			break;
 		}
-
-	}
-
-	public static String readPdfContent(String url) throws IOException {
-
-		URL pdfUrl = new URL(url);
-		InputStream in = pdfUrl.openStream();
-		BufferedInputStream bf = new BufferedInputStream(in);
-		PDDocument doc = PDDocument.load(bf);
-		int numberOfPages = getPageCount(doc);
-		System.out.println("The total number of pages " + numberOfPages);
-		String content = new PDFTextStripper().getText(doc);
-		doc.close();
-
-		return content;
-	}
-
-	public static int getPageCount(PDDocument doc) {
-
-		int pageCount = doc.getNumberOfPages();
-		return pageCount;
 
 	}
 

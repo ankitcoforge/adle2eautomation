@@ -35,7 +35,6 @@ public class earlyClaimsAction extends earlyClaimspo {
 		Assert.assertEquals(getDropdownTitle(), "Claims on contracts recently sold.");
 		Assert.assertEquals(getDropdownDefaultValue(), "30 days");
 		uc.clickfield("cssSelector", dropdown);
-		//Thread.sleep(1000);
 		driver.manage().timeouts().implicitlyWait(2,TimeUnit.SECONDS) ;
 		List<String> expectedValue = new ArrayList<String>(Arrays.asList("30 days", "60 days", "90 days"));
 		Assert.assertEquals(expectedValue.equals(uc.getTextValuesForObject("cssSelector", dropdownOptions)), true);
@@ -281,7 +280,7 @@ public class earlyClaimsAction extends earlyClaimspo {
 		int totalRowsPerPage = allTableData.size();
 		
 		HashSet<String> a1 = cleanCurrentDirectoryAndGetPdfFile("mainPage");
-		String pdfUrl = "file:///C:/PDF/" + a1.toString().replaceAll("\\,|\\[|\\]|\\s", "");
+		String pdfUrl =  "file:///" +  System.getProperty("user.dir") + "\\PDF\\" + a1.toString().replaceAll("\\,|\\[|\\]|\\s", "");
 		System.out.println(pdfUrl);
 		uc.scrollDown();
 		
@@ -423,7 +422,7 @@ public String getModalPDFName() throws InterruptedException, IOException {
 	String combinedModaltext = detailsTextModalUI + " " + repairTextModalUI;
 	
 	HashSet<String> a1 = cleanCurrentDirectoryAndGetPdfFile("modal");
-	String pdfUrl = "file:///C:/PDF/" + a1.toString().replaceAll("\\,|\\[|\\]|\\s", "");
+	String pdfUrl =  "file:///" +  System.getProperty("user.dir") + "\\PDF\\" + a1.toString().replaceAll("\\,|\\[|\\]|\\s", "");
 	System.out.println(pdfUrl);
 	String pdfContent=verifyContentInPDf(pdfUrl,1,1,1);
 	String firstRowPDF = pdfContent.substring(pdfContent.indexOf("$ Repair")+10, pdfContent.indexOf('.')+3);
@@ -440,12 +439,12 @@ public String getModalPDFName() throws InterruptedException, IOException {
 
 public HashSet<String> cleanCurrentDirectoryAndGetPdfFile(String exportButtonType) throws InterruptedException, IOException {
 	
-	FileUtils.cleanDirectory(new File("C:\\PDF")); 
+	FileUtils.cleanDirectory(new File(System.getProperty("user.dir") + "\\PDF")); 
 	
 	clickExportPDFButton(exportButtonType);
 	Thread.sleep(3000);
 	HashSet<String> a1 = new HashSet<>();
-	a1 = isFileDownloaded("C:\\PDF", ".pdf");
+	a1 = isFileDownloaded(System.getProperty("user.dir") + "\\PDF", ".pdf");
 	System.out.println(a1);
 	return a1;
 	
