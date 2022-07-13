@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Regression">
+<suite name="ADL Regression Suite">
+<parameter name="testng.metrics.report.logo" value = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Coforge-Logo.png/800px-Coforge-Logo.png"/>
 	
 	<test name="ADL">
 		<classes>
@@ -9,15 +10,16 @@
 			<class name="testsuite.login1_test"/>
 			<class name="testsuite.screenTitle_test"/>
 			<class name="testsuite.erate_test"/>
-			<class name="testsuite.toolBox_test"/>
+			
 			<class name="testsuite.contract_test"/>
 			<class name="testsuite.quote_test"/>
 			<class name="testsuite.generateContract_test"/>
 			<class name="testsuite.impersonateContract"/>
 			<class name="testsuite.validatePDF_test"/> 
 			<class name="testsuite.twoProgramContract"/>
+			<class name="testsuite.earlyClaims_test"/>
+			<class name="testsuite.toolBox_test"/>
 			
-
 			
 		</classes>
 	</test>
