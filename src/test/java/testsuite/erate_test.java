@@ -1,10 +1,12 @@
 package testsuite;
 
 import org.openqa.selenium.By;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import pageActions.erateAction;
@@ -12,6 +14,8 @@ import pageActions.loginAction;
 import pageActions.verticalMenuAction;
 import pageObjects.loginpo;
 import pageObjects.verticalMenupo;
+
+@Listeners(utils.listnerlogs.class)
 
 public class erate_test extends erateAction {
 

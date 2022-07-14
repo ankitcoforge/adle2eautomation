@@ -4,12 +4,13 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import pageActions.loginAction;
 import pageActions.notificationAction;
 import pageActions.verticalMenuAction;
-
+@Listeners(utils.listnerlogs.class)
 public class notification_test extends notificationAction{
 
 	loginAction lo = new loginAction();

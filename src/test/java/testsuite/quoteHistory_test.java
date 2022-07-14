@@ -8,12 +8,13 @@ import org.openqa.selenium.support.ui.Sleeper;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import pageActions.quoteHistoryAction;
 import pageActions.loginAction;
 import pageActions.verticalMenuAction;
-
+@Listeners(utils.listnerlogs.class)
 public class quoteHistory_test extends quoteHistoryAction {
 
 	loginAction lo = new loginAction();

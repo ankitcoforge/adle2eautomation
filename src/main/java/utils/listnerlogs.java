@@ -12,7 +12,7 @@ public class listnerlogs extends baseClass implements ITestListener
     @Override		
     public void onFinish(ITestContext Result) 	
     {		
-    	 		
+    	System.out.println(Result.getName()+" test case finished");	 		
     }		
 
     @Override		

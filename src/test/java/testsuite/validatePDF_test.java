@@ -2,13 +2,14 @@ package testsuite;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import pageActions.createContractAction;
 import pageActions.loginAction;
 import pageActions.pdfAction;
 import pageActions.verticalMenuAction;
-
+@Listeners(utils.listnerlogs.class)
 public class validatePDF_test extends pdfAction{
 	
 	loginAction lo = new loginAction();

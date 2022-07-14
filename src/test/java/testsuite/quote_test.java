@@ -4,12 +4,13 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import pageActions.createQuoteAction;
 import pageActions.loginAction;
 import pageActions.verticalMenuAction;
-
+@Listeners(utils.listnerlogs.class)
 
 public class quote_test extends createQuoteAction{
 

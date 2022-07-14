@@ -23,7 +23,7 @@ public class twoProgramContractAction extends contractpo{
 	 * 
 	 * @throws InterruptedException
 	 ****************************************/
-	public void createContract(String[] inputArray) throws InterruptedException {
+	public void createTwoContract(String[] inputArray) throws InterruptedException {
 
 		HashMap<String, String> searchData2 = new HashMap<String, String>();
 		searchData2 = twoContractData(inputArray);
@@ -36,30 +36,36 @@ public class twoProgramContractAction extends contractpo{
 		js.executeScript("window.scrollTo(0, 1000)");
 		ca.programSelect(searchData2.get("programs"));
 		Thread.sleep(3000);
+		js.executeScript("window.scrollTo(0, 1050)");
 		ca.programSelect(searchData2.get("program2"));
-		Thread.sleep(9000);
+		Thread.sleep(5000);
 		event.clickfield("cssSelector", table, 0);
 		int flag =0;
-		js.executeScript("window.scrollTo(0, 1200)");
+		js.executeScript("window.scrollTo(0, 2200)");
 		if (!(searchData2.get("programs").contains("Limited Warranty"))) {
 		event.clickfield("xpath", businessUse, flag);
 		flag++;
 		}
-		js.executeScript("window.scrollTo(0, 1800)");
+		js.executeScript("window.scrollTo(0, 2400)");
 		event.clickfield("cssSelector", table, 1);
 		if (!(searchData2.get("program2").contains("Limited Warranty"))) {
 			event.clickfield("xpath", businessUse, flag);
 			flag++;
 			}
 
-		List<WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
-		if (a.size() == 1) {
-			driver.findElement(By.cssSelector(inServiceDateTextBox)).click();
-			driver.findElement(By.cssSelector("td[aria-label=\"June 1, 2022\"]")).click();
+		js.executeScript("window.scrollTo(0, 2550)");
+		List <WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
+		if(a.size() == 1) {
+			String a1  = driver.findElement(By.cssSelector("adl-text-input[label='In-Service Date'] >div  >div + div")).getAttribute("class");
+			if(!(a1.contains("disabled"))) {
+				driver.findElement(By.cssSelector(inServiceDateTextBox)).click();
+				System.out.println("td[aria-label='" + getDate() + "']");
+				driver.findElement(By.cssSelector("td[aria-label='" + getDate() + "']")).click();
+			}
+			
 		}
-
+		
 		event.inputfield("cssSelector", contract, "10000", 0);
-		js.executeScript("window.scrollTo(0, 2200)");
 		event.clearfield("xpath", zipcode);
 		event.inputfield("xpath", zipcode, "20130");
 		event.clearfield("xpath", address);

@@ -7,11 +7,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import pageActions.bannnerAction;
 import pageActions.loginAction;
-
+@Listeners(utils.listnerlogs.class)
 public class loginBanner_test extends bannnerAction {
 
 	

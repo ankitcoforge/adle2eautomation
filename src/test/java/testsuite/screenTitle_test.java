@@ -5,12 +5,13 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import pageActions.loginAction;
 import pageActions.verticalMenuAction;
 import pageObjects.verticalMenupo;
-
+@Listeners(utils.listnerlogs.class)
 public class screenTitle_test extends verticalMenupo{
 	
 	

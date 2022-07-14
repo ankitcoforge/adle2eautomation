@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.io.File;
@@ -19,7 +20,7 @@ import org.apache.commons.io.FileUtils;
 import pageActions.loginAction;
 import pageActions.toolBoxAction;
 import pageActions.verticalMenuAction;
-
+@Listeners(utils.listnerlogs.class)
 public class toolBox_test extends toolBoxAction {
 
 	loginAction lo = new loginAction();

@@ -4,13 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import pageActions.createContractAction;
 import pageActions.impersonateAction;
 import pageActions.loginAction;
 import pageActions.verticalMenuAction;
-
+@Listeners(utils.listnerlogs.class)
 public class impersonateContract extends createContractAction {
 
 	loginAction lo = new loginAction();

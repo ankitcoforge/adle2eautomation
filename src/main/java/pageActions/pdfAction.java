@@ -43,14 +43,19 @@ public class pdfAction extends contractpo {
 		ca.programSelect(searchData1.get("program"));
 		event.clickfield("cssSelector", table, 0);
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
-		js.executeScript("window.scrollTo(0, 1800)");
+		js.executeScript("window.scrollTo(0, 2400)");
 		if (!(searchData1.get("program").contains("Limited Warranty"))) {
 			event.clickfield("xpath", businessUse);
 		}
-		List<WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
-		if (a.size() == 1) {
-			driver.findElement(By.cssSelector(inServiceDateTextBox)).click();
-			driver.findElement(By.cssSelector("td[aria-label=\"June 1, 2022\"]")).click();
+		List <WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
+		if(a.size() == 1) {
+			String a1  = driver.findElement(By.cssSelector("adl-text-input[label='In-Service Date'] >div  >div + div")).getAttribute("class");
+			if(!(a1.contains("disabled"))) {
+				driver.findElement(By.cssSelector(inServiceDateTextBox)).click();
+				System.out.println("td[aria-label='" + getDate() + "']");
+				driver.findElement(By.cssSelector("td[aria-label='" + getDate() + "']")).click();
+			}
+			
 		}
 		js.executeScript("window.scrollTo(0, 2000)");
 		event.inputfield("cssSelector", contract, "10000", 0);

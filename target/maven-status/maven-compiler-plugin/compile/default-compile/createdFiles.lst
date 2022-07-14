@@ -9,7 +9,9 @@ pageActions\loginAction.class
 pageObjects\loginpo.class
 pageObjects\verticalMenupo.class
 utils\utilityClass.class
+utils\listnerlogs.class
 pageObjects\bannerpo.class
+utils\pdfUtils.class
 pageActions\erateAction.class
 pageActions\earlyClaimsAction.class
 utils\baseClass.class

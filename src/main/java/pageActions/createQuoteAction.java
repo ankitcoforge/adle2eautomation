@@ -41,8 +41,13 @@ public class createQuoteAction extends baseClass{
 		}
 		List <WebElement> a = driver.findElements(By.cssSelector(co.inServiceDate));
 		if(a.size() == 1) {
-			driver.findElement(By.cssSelector(co.inServiceDateTextBox)).click();
-			driver.findElement(By.cssSelector("td[aria-label=\"June 1, 2022\"]")).click();
+			String a1  = driver.findElement(By.cssSelector("adl-text-input[label='In-Service Date'] >div  >div + div")).getAttribute("class");
+			if(!(a1.contains("disabled"))) {
+				driver.findElement(By.cssSelector(co.inServiceDateTextBox)).click();
+				System.out.println("td[aria-label='" + getDate() + "']");
+				driver.findElement(By.cssSelector("td[aria-label='" + getDate() + "']")).click();
+			}
+			
 		}
 		driver.findElements(By.cssSelector(co.textbox)).get(14).clear();
 		event.inputfield("cssSelector", co.textbox, "20130", 14);

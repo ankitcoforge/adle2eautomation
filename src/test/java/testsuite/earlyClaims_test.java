@@ -1,6 +1,8 @@
 package testsuite;
 
 import java.io.IOException;
+
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -12,12 +14,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import pageActions.earlyClaimsAction;
 import pageActions.loginAction;
 import pageActions.verticalMenuAction;
 
+
+@Listeners(utils.listnerlogs.class)
 public class earlyClaims_test extends earlyClaimsAction{
 
 	loginAction lo = new loginAction();

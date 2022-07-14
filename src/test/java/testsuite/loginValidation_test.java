@@ -2,11 +2,12 @@ package testsuite;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import pageActions.loginAction;
 import utils.baseClass;
-
+@Listeners(utils.listnerlogs.class)
 public class loginValidation_test extends baseClass {
 
 	loginAction la = new loginAction();

@@ -2,13 +2,14 @@ package testsuite;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import pageActions.createContractAction;
 import pageActions.loginAction;
 import pageActions.twoProgramContractAction;
 import pageActions.verticalMenuAction;
-
+@Listeners(utils.listnerlogs.class)
 public class twoProgramContract extends twoProgramContractAction {
 
 	loginAction lo = new loginAction();
@@ -27,9 +28,9 @@ public class twoProgramContract extends twoProgramContractAction {
 	
 	/*****************Contract creation test case***************/
 	@Test(priority = 1, dataProvider ="test2")
-    public void createContract1(String[] inputArray) throws InterruptedException {
+    public void createtwoContract(String[] inputArray) throws InterruptedException {
 			
-		createContract(inputArray);
+		createTwoContract(inputArray);
 	   
 	}
 	

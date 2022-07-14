@@ -2,12 +2,13 @@ package testsuite;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import pageActions.createContractAction;
 import pageActions.loginAction;
 import pageActions.verticalMenuAction;
-
+@Listeners(utils.listnerlogs.class)
 public class generateContract_test extends createContractAction{
 	
 	loginAction lo = new loginAction();

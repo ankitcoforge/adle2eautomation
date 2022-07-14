@@ -64,9 +64,13 @@ public class createContractAction extends contractpo{
 			}
 			List <WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
 			if(a.size() == 1) {
-				driver.findElement(By.cssSelector(inServiceDateTextBox)).click();
-				System.out.println("td[aria-label='" + getDate() + "']");
-				driver.findElement(By.cssSelector("td[aria-label='" + getDate() + "']")).click();
+				String a1  = driver.findElement(By.cssSelector("adl-text-input[label='In-Service Date'] >div  >div + div")).getAttribute("class");
+				if(!(a1.contains("disabled"))) {
+					driver.findElement(By.cssSelector(inServiceDateTextBox)).click();
+					System.out.println("td[aria-label='" + getDate() + "']");
+					driver.findElement(By.cssSelector("td[aria-label='" + getDate() + "']")).click();
+				}
+				
 			}
 			driver.findElements(By.cssSelector(textbox)).get(14).clear();
 			event.inputfield("cssSelector", textbox, "20130", 14);
