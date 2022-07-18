@@ -24,7 +24,7 @@ public class singleContractAction extends contractpo{
 		event.inputfield("cssSelector", textbox, "Single", 0);
 		event.inputfield("cssSelector", textbox, "Test", 1);
 		event.inputfield("cssSelector", textbox, "1234", 5);
-		event.inputfield("cssSelector", textbox, "", 6);
+		event.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 6);
 		event.clickfield("xpath", getProducts);
 		co.programSelect("Limited Warranty - OCW");
 		event.clickfield("cssSelector", table, 0);
