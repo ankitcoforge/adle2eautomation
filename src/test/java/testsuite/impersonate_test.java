@@ -13,7 +13,7 @@ import utils.utilityClass;
 
 @Listeners(utils.listnerlogs.class)
 
-public class impersonatetest extends impersonateAction {
+public class impersonate_test extends impersonateAction {
 
 	loginAction lo = new loginAction();
 	verticalMenuAction vo = new verticalMenuAction();
