@@ -19,7 +19,7 @@ public class verticalMenuAction extends verticalMenupo{
 	 * @throws InterruptedException *******************************/
 	public void navigatetoContract() throws InterruptedException {
 
-		Thread.sleep(4000);
+		Thread.sleep(5000);
 		driver.switchTo().activeElement();
 		event.clickfield("xpath", erate);
 		event.clickfield("xpath", contract );

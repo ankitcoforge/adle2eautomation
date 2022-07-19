@@ -6,6 +6,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import pageActions.createContractAction;
+import pageActions.leaseContractAction;
 import pageActions.loginAction;
 import pageActions.singleContractAction;
 import pageActions.verticalMenuAction;
@@ -16,6 +17,7 @@ public class contract_test extends createContractAction {
 	loginAction lo = new loginAction();
 	verticalMenuAction vo = new verticalMenuAction();
 	singleContractAction sa = new singleContractAction();
+	leaseContractAction la = new leaseContractAction();
 	
 	/*************login to the application
 	 * @throws InterruptedException *********************/
@@ -36,8 +38,15 @@ public class contract_test extends createContractAction {
 		}
 		
 	
+	@Test(priority = 2)
+	 public void leaseContract1() throws InterruptedException {
+			
+			la.leaseContract();
+			    
+		}
+	
 	/*****************Contract creation test case***************/
-	@Test(priority = 2, dataProvider ="test1")
+	@Test(priority = 3, dataProvider ="test1")
     public void createContract1(String[] inputArray) throws InterruptedException {
 		
 		
