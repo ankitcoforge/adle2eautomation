@@ -12,6 +12,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import java.io.BufferedInputStream;
@@ -51,10 +52,14 @@ public class createContractAction extends contractpo {
 			JavascriptExecutor js = ((JavascriptExecutor) driver);
 			programSelect(searchData1.get("program"));
 			if ((searchData1.get("program").contains("Absolute Reserve Care Lease"))) {
-				js.executeScript("window.scrollTo(0, 2000)");
-				Assert.assertEquals(driver.findElements(By.cssSelector("span[class =\"lease-term\"]")).size(), 2);
-				driver.findElements(By.cssSelector("span[class =\"lease-term\"]")).get(0).click();
-				driver.findElements(By.cssSelector("span[class =\"lease-term\"]")).get(1).click();
+				js.executeScript("window.scrollTo(0, 2200)");
+				Assert.assertEquals(driver.findElements(By.cssSelector("adl-lease-term >div >div> span")).get(0).getText(), "Lease Term Months:");
+				Assert.assertEquals(driver.findElements(By.cssSelector("adl-lease-term >div >div> span")).get(1).getText(), "Lease Term Miles:");
+				driver.findElement(By.cssSelector("adl-select[placeholder=\"Select Months\"]>ng-select")).click();
+				driver.findElement(By.cssSelector(".ng-dropdown-panel-items > div > div")).click();
+				driver.findElement(By.cssSelector("adl-select[placeholder=\"Select Miles\"]>ng-select")).click();
+				driver.findElement(By.cssSelector(".ng-dropdown-panel-items > div > div")).click();
+				Assert.assertEquals(driver.findElement(By.cssSelector("adl-warning-message >div > p>span")).getText(), "Please select the rate in the table.");
 			}
 			event.clickfield("cssSelector", table, 0);
 			String header = event.text("cssSelector", programNameCode);
@@ -62,7 +67,7 @@ public class createContractAction extends contractpo {
 			String programCode = program[0];
 			String programName = program[1];
 			event.inputfield("cssSelector", contract, "10000", 0);
-			if (!(searchData1.get("program").contains("Limited Warranty"))) {
+			if (!((searchData1.get("program").contains("Limited Warranty")) || (searchData1.get("program").contains("Absolute Reserve Care Lease"))) ) {
 				event.clickfield("xpath", businessUse);
 			}
 			List<WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
@@ -72,11 +77,11 @@ public class createContractAction extends contractpo {
 						.getAttribute("class");
 				if (!(a1.contains("disabled"))) {
 					driver.findElement(By.cssSelector(inServiceDateTextBox)).click();
-					System.out.println("td[aria-label='" + getDate() + "']");
 					driver.findElement(By.cssSelector("td[aria-label='" + getDate() + "']")).click();
 				}
 
 			}
+			js.executeScript("window.scrollTo(0, 2500)");
 			driver.findElements(By.cssSelector(textbox)).get(14).clear();
 			event.inputfield("cssSelector", textbox, "20130", 14);
 			driver.findElements(By.cssSelector(textbox)).get(13).clear();
