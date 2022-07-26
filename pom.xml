@@ -31,7 +31,7 @@
 					<executable>C:\Program Files\Java\jdk1.8.0_261\bin\javac</executable>
 				</configuration>
 			</plugin>
-			
+
 		</plugins>
 	</build>
 
@@ -53,6 +53,11 @@
 			<groupId>com.relevantcodes</groupId>
 			<artifactId>extentreports</artifactId>
 			<version>2.41.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<version>6.1.0.jre8</version>
 		</dependency>
 		<!-- more dependencies ... -->
 		<dependency>
@@ -77,16 +82,16 @@
 			<version>2.0.26</version>
 		</dependency>
 		<dependency>
-       <groupId>commons-io</groupId>
-       <artifactId>commons-io</artifactId>
-       <version>2.6</version>
-       
-</dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.6</version>
+
+		</dependency>
 		<dependency>
-  <groupId>com.github.adiralashiva8</groupId>
-  <artifactId>testng-metrics</artifactId>
-  <version>1.6</version>
-</dependency>
+			<groupId>com.github.adiralashiva8</groupId>
+			<artifactId>testng-metrics</artifactId>
+			<version>1.6</version>
+		</dependency>
 
 	</dependencies>
 

@@ -10,9 +10,10 @@
 			<class name="testsuite.login1_test"/>
 			<class name="testsuite.screenTitle_test"/>
 			<class name="testsuite.erate_test"/>
-			
+			<class name="testsuite.impersonate_test"/>
 			<class name="testsuite.contract_test"/>
 			<class name="testsuite.quote_test"/>
+			<class name="testsuite.printQuote_test"/>
 			<class name="testsuite.generateContract_test"/>
 			<class name="testsuite.impersonateContract"/>
 			<class name="testsuite.validatePDF_test"/> 
