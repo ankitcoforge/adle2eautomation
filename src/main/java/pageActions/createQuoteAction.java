@@ -19,9 +19,62 @@ public class createQuoteAction extends baseClass{
 
 	utilityClass event = new utilityClass();
 	createContractAction co = new createContractAction();
+    quoteContractSuccessAction qc = new quoteContractSuccessAction();
+    verticalMenuAction vo = new verticalMenuAction();
+
 	
 	/*************page object for Save quote page is declared ********************/
 	String savequote = "//span[contains(text(),'Save Quote')]";
+	
+public void printQuote() throws InterruptedException {
+
+		
+		try {
+		event.inputfield("cssSelector", co.textbox, "Single", 0);
+		event.inputfield("cssSelector", co.textbox, "Test", 1);
+		event.inputfield("cssSelector", co.textbox, "1234", 5);
+		event.inputfield("cssSelector", co.textbox, "5J6RW2H89NA004619", 6);
+		event.clickfield("xpath", co.getProducts);
+		co.programSelect("Limited Warranty - OCW");
+		event.clickfield("cssSelector", co.table, 0);
+		event.inputfield("cssSelector", co.contract, "10000", 0);
+		List <WebElement> a = driver.findElements(By.cssSelector(co.inServiceDate));
+		if(a.size() == 1) {
+			String a1  = driver.findElement(By.cssSelector("adl-text-input[label='In-Service Date'] >div  >div + div")).getAttribute("class");
+			if(!(a1.contains("disabled"))) {
+				driver.findElement(By.cssSelector(co.inServiceDateTextBox)).click();
+				System.out.println("td[aria-label='" + getDate() + "']");
+				driver.findElement(By.cssSelector("td[aria-label='" + getDate() + "']")).click();
+			}
+			
+		}
+		driver.findElements(By.cssSelector(co.textbox)).get(14).clear();
+		event.inputfield("cssSelector", co.textbox, "20130", 14);
+		driver.findElements(By.cssSelector(co.textbox)).get(13).clear();
+		event.inputfield("cssSelector", co.textbox, "Address", 13);
+		Thread.sleep(2000);
+		event.clearfield("cssSelector", co.phone);
+		event.inputfield("cssSelector", co.phone, "1234567890");
+		event.clickfield("xpath", savequote);
+		Thread.sleep(5000);
+		String text1 = event.text("cssSelector", co.successMessage);
+		Assert.assertEquals(driver.getCurrentUrl(), "https://qa.adl.aulcorp.com/portal/rate/rate-contract");
+		Assert.assertEquals(qc.closeButton(), "close");
+		Assert.assertEquals(qc.viewPrintButton(), "View / Print Quote");
+		Assert.assertEquals(qc.goToQuotePagelink(), "Go to Quote Page");
+		Assert.assertEquals(qc.startNewQuotelink(), "Start New Quote");
+		event.clickfield("cssSelector",qc.goToQuotePage);
+		Assert.assertEquals(driver.getCurrentUrl(), "https://qa.adl.aulcorp.com/portal/rate/quote-history");
+		vo.navigatetoLeftMenu("Rate/Contract");
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("Test Case failed ");
+			e.getCause();
+			Assert.fail();
+		}
+	}
+
 	
 	/************************Create contract 
 	 * @throws InterruptedException ****************************************/

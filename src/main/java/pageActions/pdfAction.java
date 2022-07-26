@@ -40,11 +40,18 @@ public class pdfAction extends contractpo {
 		event.inputfield("cssSelector", textbox, searchData1.get("Mileage"), 5);
 		event.inputfield("cssSelector", textbox, searchData1.get("Vin"), 6);
 		event.clickfield("xpath", getProducts);
-		ca.programSelect(searchData1.get("program"));
-		event.clickfield("cssSelector", table, 0);
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		ca.programSelect(searchData1.get("program"));
+		if ((searchData1.get("program").contains("Absolute Reserve Care Lease"))) {
+			js.executeScript("window.scrollTo(0, 2200)");
+			driver.findElement(By.cssSelector("adl-select[placeholder=\"Select Months\"]>ng-select")).click();
+			driver.findElement(By.cssSelector(".ng-dropdown-panel-items > div > div")).click();
+			driver.findElement(By.cssSelector("adl-select[placeholder=\"Select Miles\"]>ng-select")).click();
+			driver.findElement(By.cssSelector(".ng-dropdown-panel-items > div > div")).click();
+		}
+		event.clickfield("cssSelector", table, 0);
 		js.executeScript("window.scrollTo(0, 2400)");
-		if (!(searchData1.get("program").contains("Limited Warranty"))) {
+		if (!((searchData1.get("program").contains("Limited Warranty")) || (searchData1.get("program").contains("Absolute Reserve Care Lease"))) ) {
 			event.clickfield("xpath", businessUse);
 		}
 		List <WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
@@ -73,11 +80,10 @@ public class pdfAction extends contractpo {
 		event.clickfield("cssSelector", gc.checkbox, 1);
 		event.clickfield("xpath", gc.genrateContractButton);
 		Thread.sleep(4000);
-//		String text1 = event.text("cssSelector", successMessage);
-//		Assert.assertEquals(text1, "You have successfully generated a contract!");
 		HashSet<String> b = new HashSet<>();
 		b = isFileDownloaded( System.getProperty("user.dir") + "\\PDF", ".pdf");
-		driver.findElement(By.xpath("//span[contains(text(),\"View / Print Contract\")]//..")).click();
+		event.clickfield("cssSelector", ".notification__container__actions > button");
+//		driver.findElement(By.xpath("//span[contains(text(),\"View / Print Contract\")]//..")).click();
 		Thread.sleep(3000);
 		HashSet<String> a1 = new HashSet<>();
 		a1 = isFileDownloaded( System.getProperty("user.dir") + "\\PDF", ".pdf");
@@ -85,6 +91,9 @@ public class pdfAction extends contractpo {
 		String pdfUrl = "file:///" +  System.getProperty("user.dir") + "\\PDF\\" + a1.toString().replaceAll("\\,|\\[|\\]|\\s", "");
 		String pdfUrl1 = pdfUrl.replace("\\", "/");
 		verifyContentInPDf(pdfUrl1, searchData1.get("program"));
+		verifyContentInPDf(pdfUrl1, searchData1.get("Firstname"));
+		verifyContentInPDf(pdfUrl1, searchData1.get("Lastname"));
+		verifyContentInPDf(pdfUrl1, searchData1.get("Vin"));
 		b.addAll(a1);
 		event.clickfield("xpath", newQuotelink);
 

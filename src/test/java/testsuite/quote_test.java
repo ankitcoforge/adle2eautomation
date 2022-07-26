@@ -28,7 +28,15 @@ public class quote_test extends createQuoteAction{
 	}
 	
 	/********************quote creation test case****************/
-	@Test(priority = 1, dataProvider ="test1")
+	@Test(priority = 1)
+    public void createQuote1() throws InterruptedException {
+		
+		printQuote();		
+	    
+	}
+	
+	/********************quote creation test case****************/
+	@Test(priority = 2, dataProvider ="test1")
     public void createQuote1(String [] inputArray) throws InterruptedException {
 		
 		

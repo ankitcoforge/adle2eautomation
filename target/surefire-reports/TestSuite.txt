@@ -1,21 +1,21 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 162, Failures: 55, Errors: 0, Skipped: 83, Time elapsed: 1,557.756 s <<< FAILURE! - in TestSuite
-testsuite.erate_test.login  Time elapsed: 7.541 s  <<< FAILURE!
+Tests run: 172, Failures: 73, Errors: 0, Skipped: 92, Time elapsed: 2,211.769 s <<< FAILURE! - in TestSuite
+testsuite.erate_test.login  Time elapsed: 9.584 s  <<< FAILURE!
 org.openqa.selenium.ElementClickInterceptedException: 
-element click intercepted: Element <button _ngcontent-ubs-c290="" mattreenodetoggle="" class="ng-tns-c290-1 mat-tree-node level-1 ng-star-inserted">...</button> is not clickable at point (140, 230). Other element would receive the click: <div _ngcontent-ubs-c107="" class="overlay ng-tns-c107-2 ng-trigger ng-trigger-fadeIn ng-star-inserted" style="background-color: rgba(255, 255, 255, 0.5); z-index: 99999; position: fixed; opacity: 1;">...</div>
+element click intercepted: Element <button _ngcontent-jqp-c290="" mattreenodetoggle="" class="ng-tns-c290-1 mat-tree-node level-1 ng-star-inserted">...</button> is not clickable at point (140, 230). Other element would receive the click: <div _ngcontent-jqp-c107="" class="overlay ng-tns-c107-2 ng-trigger ng-trigger-fadeIn ng-star-inserted" style="background-color: rgba(255, 255, 255, 0.5); z-index: 99999; position: fixed; opacity: 1;">...</div>
   (Session info: chrome=97.0.4692.99)
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, clickElement {id=f50b35c4-e6fc-4084-abb1-830e44a91d37}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (42cc9c6fb5d84ba2ae0c3caf9a2ec843)] -> xpath: //button[contains(text(),'E-Rate')]]
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.erate_test.login(erate_test.java:31)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, clickElement {id=c0768b4b-51b1-49c4-88f6-df1ecd40c04e}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (b487f5b659eef5f4b058dcdc6a7601f3)] -> xpath: //button[contains(text(),'E-Rate')]]
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.erate_test.login(erate_test.java:35)
 
-testsuite.baseTest.VerifyeClaimsPortalforRepairFacilitieslink_27228_27231_27261  Time elapsed: 30.273 s  <<< FAILURE!
+testsuite.baseTest.VerifyeClaimsPortalforRepairFacilitieslink_27228_27231_27261  Time elapsed: 30.267 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"[text="eClaims Portal for Repair Facilities"]"}
   (Session info: chrome=97.0.4692.99)
@@ -23,12 +23,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=[text="eClaims Portal for Repair Facilities"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=[text="eClaims Portal for Repair Facilities"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
 	at testsuite.baseTest.VerifyeClaimsPortalforRepairFacilitieslink_27228_27231_27261(baseTest.java:48)
 
-testsuite.screenTitle_test.screenTitle[E-Rate, Rate/Contract](1)  Time elapsed: 30.455 s  <<< FAILURE!
+testsuite.screenTitle_test.screenTitle[E-Rate, Rate/Contract](1)  Time elapsed: 30.251 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -36,12 +36,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.screenTitle_test.screenTitle(screenTitle_test.java:74)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.screenTitle_test.screenTitle(screenTitle_test.java:75)
 
-testsuite.screenTitle_test.screenTitle[E-Rate, Quote History](2)  Time elapsed: 30.22 s  <<< FAILURE!
+testsuite.screenTitle_test.screenTitle[E-Rate, Quote History](2)  Time elapsed: 30.243 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -49,12 +49,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.screenTitle_test.screenTitle(screenTitle_test.java:74)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.screenTitle_test.screenTitle(screenTitle_test.java:75)
 
-testsuite.screenTitle_test.screenTitle[Contracts, Contract Search](3)  Time elapsed: 30.235 s  <<< FAILURE!
+testsuite.screenTitle_test.screenTitle[Contracts, Contract Search](3)  Time elapsed: 30.2 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -62,12 +62,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.screenTitle_test.screenTitle(screenTitle_test.java:74)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.screenTitle_test.screenTitle(screenTitle_test.java:75)
 
-testsuite.screenTitle_test.screenTitle[Contracts, SPP](4)  Time elapsed: 30.255 s  <<< FAILURE!
+testsuite.screenTitle_test.screenTitle[Contracts, SPP](4)  Time elapsed: 30.236 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -75,12 +75,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.screenTitle_test.screenTitle(screenTitle_test.java:74)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.screenTitle_test.screenTitle(screenTitle_test.java:75)
 
-testsuite.screenTitle_test.screenTitle[Cancellations, Cancellation Quote](5)  Time elapsed: 30.256 s  <<< FAILURE!
+testsuite.screenTitle_test.screenTitle[Cancellations, Cancellation Quote](5)  Time elapsed: 30.306 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -88,12 +88,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.screenTitle_test.screenTitle(screenTitle_test.java:74)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.screenTitle_test.screenTitle(screenTitle_test.java:75)
 
-testsuite.screenTitle_test.screenTitle[Cancellations, Cancellation History](6)  Time elapsed: 30.24 s  <<< FAILURE!
+testsuite.screenTitle_test.screenTitle[Cancellations, Cancellation History](6)  Time elapsed: 30.227 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -101,12 +101,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.screenTitle_test.screenTitle(screenTitle_test.java:74)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.screenTitle_test.screenTitle(screenTitle_test.java:75)
 
-testsuite.screenTitle_test.screenTitle[Reports, My Account Statements](7)  Time elapsed: 30.239 s  <<< FAILURE!
+testsuite.screenTitle_test.screenTitle[Reports, My Account Statements](7)  Time elapsed: 30.243 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -114,12 +114,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.screenTitle_test.screenTitle(screenTitle_test.java:74)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.screenTitle_test.screenTitle(screenTitle_test.java:75)
 
-testsuite.screenTitle_test.screenTitle[Reports, Early Claims](8)  Time elapsed: 30.224 s  <<< FAILURE!
+testsuite.screenTitle_test.screenTitle[Reports, Early Claims](8)  Time elapsed: 30.258 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -127,12 +127,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.screenTitle_test.screenTitle(screenTitle_test.java:74)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.screenTitle_test.screenTitle(screenTitle_test.java:75)
 
-testsuite.screenTitle_test.screenTitle[Reports, Cancellations](9)  Time elapsed: 30.226 s  <<< FAILURE!
+testsuite.screenTitle_test.screenTitle[Reports, Cancellations](9)  Time elapsed: 30.267 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -140,12 +140,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.screenTitle_test.screenTitle(screenTitle_test.java:74)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.screenTitle_test.screenTitle(screenTitle_test.java:75)
 
-testsuite.screenTitle_test.screenTitle[Reports, Claims History](10)  Time elapsed: 30.206 s  <<< FAILURE!
+testsuite.screenTitle_test.screenTitle[Reports, Claims History](10)  Time elapsed: 30.298 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -153,12 +153,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.screenTitle_test.screenTitle(screenTitle_test.java:74)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.screenTitle_test.screenTitle(screenTitle_test.java:75)
 
-testsuite.screenTitle_test.screenTitle[Reports, Actuarials](11)  Time elapsed: 30.254 s  <<< FAILURE!
+testsuite.screenTitle_test.screenTitle[Reports, Actuarials](11)  Time elapsed: 30.311 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -166,12 +166,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.screenTitle_test.screenTitle(screenTitle_test.java:74)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.screenTitle_test.screenTitle(screenTitle_test.java:75)
 
-testsuite.contract_test.login  Time elapsed: 60.745 s  <<< FAILURE!
+testsuite.impersonate_test.login  Time elapsed: 61.175 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -179,12 +179,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.contract_test.login(contract_test.java:30)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.impersonate_test.login(impersonate_test.java:31)
 
-testsuite.quote_test.login  Time elapsed: 30.804 s  <<< FAILURE!
+testsuite.contract_test.login  Time elapsed: 30.871 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -192,12 +192,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.quote_test.login(quote_test.java:25)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.contract_test.login(contract_test.java:28)
 
-testsuite.generateContract_test.login  Time elapsed: 30.389 s  <<< FAILURE!
+testsuite.quote_test.login  Time elapsed: 30.827 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -205,12 +205,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.generateContract_test.login(generateContract_test.java:22)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.quote_test.login(quote_test.java:26)
 
-testsuite.impersonateContract.login  Time elapsed: 30.469 s  <<< FAILURE!
+testsuite.generateContract_test.login  Time elapsed: 30.912 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -218,12 +218,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.impersonateContract.login(impersonateContract.java:26)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.generateContract_test.login(generateContract_test.java:23)
 
-testsuite.validatePDF_test.login  Time elapsed: 30.41 s  <<< FAILURE!
+testsuite.impersonateContract.login  Time elapsed: 30.84 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -231,12 +231,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.validatePDF_test.login(validatePDF_test.java:23)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.impersonateContract.login(impersonateContract.java:27)
 
-testsuite.twoProgramContract.login  Time elapsed: 30.722 s  <<< FAILURE!
+testsuite.validatePDF_test.login  Time elapsed: 30.943 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -244,28 +244,41 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.twoProgramContract.login(twoProgramContract.java:23)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.validatePDF_test.login(validatePDF_test.java:24)
 
-testsuite.earlyClaims_test.dropdownDetails[Dealer7032823, 4558600, dealer](1)  Time elapsed: 30.406 s  <<< FAILURE!
+testsuite.twoProgramContract.login  Time elapsed: 30.837 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
+  (Session info: chrome=97.0.4692.99)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.twoProgramContract.login(twoProgramContract.java:24)
+
+testsuite.earlyClaims_test.dropdownDetails[Dealer7032823, 4558600, dealer](1)  Time elapsed: 30.229 s  <<< FAILURE!
 java.lang.AssertionError: expected [false] but found [true]
-	at testsuite.earlyClaims_test.dropdownDetails(earlyClaims_test.java:76)
+	at testsuite.earlyClaims_test.dropdownDetails(earlyClaims_test.java:81)
 
-testsuite.earlyClaims_test.dropdownDetails[Agent110, Since1996, agent](2)  Time elapsed: 30.252 s  <<< FAILURE!
+testsuite.earlyClaims_test.dropdownDetails[Agent110, Since1996, agent](2)  Time elapsed: 30.226 s  <<< FAILURE!
 java.lang.AssertionError: expected [false] but found [true]
-	at testsuite.earlyClaims_test.dropdownDetails(earlyClaims_test.java:76)
+	at testsuite.earlyClaims_test.dropdownDetails(earlyClaims_test.java:81)
 
-testsuite.earlyClaims_test.dropdownDetails[f30, spp1, lender](3)  Time elapsed: 30.232 s  <<< FAILURE!
+testsuite.earlyClaims_test.dropdownDetails[f30, spp1, lender](3)  Time elapsed: 30.255 s  <<< FAILURE!
 java.lang.AssertionError: expected [false] but found [true]
-	at testsuite.earlyClaims_test.dropdownDetails(earlyClaims_test.java:76)
+	at testsuite.earlyClaims_test.dropdownDetails(earlyClaims_test.java:81)
 
-testsuite.earlyClaims_test.dropdownDetails[sgrace, Police0201, dealeremp](4)  Time elapsed: 30.225 s  <<< FAILURE!
+testsuite.earlyClaims_test.dropdownDetails[sgrace, Police0201, dealeremp](4)  Time elapsed: 30.215 s  <<< FAILURE!
 java.lang.AssertionError: expected [false] but found [true]
-	at testsuite.earlyClaims_test.dropdownDetails(earlyClaims_test.java:76)
+	at testsuite.earlyClaims_test.dropdownDetails(earlyClaims_test.java:81)
 
-testsuite.toolBox_test.VerifyTabAndPDFForms[Dealer7032823, 4558600, Dealer](1)  Time elapsed: 30.28 s  <<< FAILURE!
+testsuite.toolBox_test.VerifyTabAndPDFForms[Dealer7032823, 4558600, Dealer](1)  Time elapsed: 30.232 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -273,12 +286,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.toolBox_test.VerifyTabAndPDFForms(toolBox_test.java:49)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.toolBox_test.VerifyTabAndPDFForms(toolBox_test.java:50)
 
-testsuite.toolBox_test.VerifyTabAndPDFForms[Agent110, Since1996, Agent](2)  Time elapsed: 30.219 s  <<< FAILURE!
+testsuite.toolBox_test.VerifyTabAndPDFForms[Agent110, Since1996, Agent](2)  Time elapsed: 30.24 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -286,12 +299,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.toolBox_test.VerifyTabAndPDFForms(toolBox_test.java:49)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.toolBox_test.VerifyTabAndPDFForms(toolBox_test.java:50)
 
-testsuite.baseTest.VerifyRememberMyPasswordLocation_27214  Time elapsed: 30.258 s  <<< FAILURE!
+testsuite.baseTest.VerifyRememberMyPasswordLocation_27214  Time elapsed: 30.22 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"span[class="mat-checkbox-label"] > span"}
   (Session info: chrome=97.0.4692.99)
@@ -299,12 +312,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=span[class="mat-checkbox-label"] > span}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=span[class="mat-checkbox-label"] > span}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
 	at testsuite.baseTest.VerifyRememberMyPasswordLocation_27214(baseTest.java:55)
 
-testsuite.login1_test.loggedIn[Dealer7032823, 4558600](1)  Time elapsed: 30.241 s  <<< FAILURE!
+testsuite.login1_test.loggedIn[Dealer7032823, 4558600](1)  Time elapsed: 30.215 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -312,12 +325,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.login1_test.loggedIn(login1_test.java:41)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.login1_test.loggedIn(login1_test.java:42)
 
-testsuite.login1_test.loggedIn[Agent110, Since1996](2)  Time elapsed: 30.25 s  <<< FAILURE!
+testsuite.login1_test.loggedIn[Agent110, Since1996](2)  Time elapsed: 30.272 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -325,12 +338,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.login1_test.loggedIn(login1_test.java:41)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.login1_test.loggedIn(login1_test.java:42)
 
-testsuite.login1_test.loggedIn[coforgeadmin, TAdmin54!](3)  Time elapsed: 30.25 s  <<< FAILURE!
+testsuite.login1_test.loggedIn[coforgeadmin, TAdmin54!](3)  Time elapsed: 30.227 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -338,12 +351,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.login1_test.loggedIn(login1_test.java:41)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.login1_test.loggedIn(login1_test.java:42)
 
-testsuite.screenTitle_test.screenAgentTitle[E-Rate, Rate/Contract](1)  Time elapsed: 30.203 s  <<< FAILURE!
+testsuite.screenTitle_test.screenAgentTitle[E-Rate, Rate/Contract](1)  Time elapsed: 30.245 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -351,10 +364,10 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.screenTitle_test.screenAgentTitle(screenTitle_test.java:84)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.screenTitle_test.screenAgentTitle(screenTitle_test.java:85)
 
 testsuite.screenTitle_test.screenAgentTitle[E-Rate, Quote History](2)  Time elapsed: 30.213 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
@@ -364,12 +377,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.screenTitle_test.screenAgentTitle(screenTitle_test.java:84)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.screenTitle_test.screenAgentTitle(screenTitle_test.java:85)
 
-testsuite.screenTitle_test.screenAgentTitle[Contracts, Contract Search](3)  Time elapsed: 30.259 s  <<< FAILURE!
+testsuite.screenTitle_test.screenAgentTitle[Contracts, Contract Search](3)  Time elapsed: 30.238 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -377,12 +390,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.screenTitle_test.screenAgentTitle(screenTitle_test.java:84)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.screenTitle_test.screenAgentTitle(screenTitle_test.java:85)
 
-testsuite.screenTitle_test.screenAgentTitle[Reports, My Account Statements](4)  Time elapsed: 30.235 s  <<< FAILURE!
+testsuite.screenTitle_test.screenAgentTitle[Reports, My Account Statements](4)  Time elapsed: 30.239 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -390,12 +403,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.screenTitle_test.screenAgentTitle(screenTitle_test.java:84)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.screenTitle_test.screenAgentTitle(screenTitle_test.java:85)
 
-testsuite.screenTitle_test.screenAgentTitle[Reports, Early Claims](5)  Time elapsed: 30.222 s  <<< FAILURE!
+testsuite.screenTitle_test.screenAgentTitle[Reports, Early Claims](5)  Time elapsed: 30.221 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -403,12 +416,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.screenTitle_test.screenAgentTitle(screenTitle_test.java:84)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.screenTitle_test.screenAgentTitle(screenTitle_test.java:85)
 
-testsuite.screenTitle_test.screenAgentTitle[Reports, Cancellations](6)  Time elapsed: 30.226 s  <<< FAILURE!
+testsuite.screenTitle_test.screenAgentTitle[Reports, Cancellations](6)  Time elapsed: 30.24 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -416,12 +429,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.screenTitle_test.screenAgentTitle(screenTitle_test.java:84)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.screenTitle_test.screenAgentTitle(screenTitle_test.java:85)
 
-testsuite.screenTitle_test.screenAgentTitle[Reports, Claims History](7)  Time elapsed: 30.237 s  <<< FAILURE!
+testsuite.screenTitle_test.screenAgentTitle[Reports, Claims History](7)  Time elapsed: 30.258 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -429,24 +442,146 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.screenTitle_test.screenAgentTitle(screenTitle_test.java:84)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.screenTitle_test.screenAgentTitle(screenTitle_test.java:85)
 
-testsuite.earlyClaims_test.verifyExportPDFCompleteData[Agent110, Since1996, agent](2)  Time elapsed: 17.426 s  <<< FAILURE!
+testsuite.screenTitle_test.screenAgentTitle[Reports, Actuarials](8)  Time elapsed: 30.247 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
+  (Session info: chrome=97.0.4692.99)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.screenTitle_test.screenAgentTitle(screenTitle_test.java:85)
+
+testsuite.screenTitle_test.screenAgentTitle[Reports, Agent Sales Report](9)  Time elapsed: 30.262 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
+  (Session info: chrome=97.0.4692.99)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.screenTitle_test.screenAgentTitle(screenTitle_test.java:85)
+
+testsuite.screenTitle_test.screenAgentTitle[Dealer Settings, Impersonate](10)  Time elapsed: 30.221 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
+  (Session info: chrome=97.0.4692.99)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.screenTitle_test.screenAgentTitle(screenTitle_test.java:85)
+
+testsuite.earlyClaims_test.gridDetails[Dealer7032823, 4558600, dealer](1)  Time elapsed: 30.231 s  <<< FAILURE!
 java.lang.AssertionError: expected [false] but found [true]
-	at testsuite.earlyClaims_test.verifyExportPDFCompleteData(earlyClaims_test.java:187)
+	at testsuite.earlyClaims_test.gridDetails(earlyClaims_test.java:104)
 
-testsuite.earlyClaims_test.verifyExportPDFCompleteData[f30, spp1, lender](3)  Time elapsed: 2.207 s  <<< FAILURE!
+testsuite.earlyClaims_test.gridDetails[Agent110, Since1996, agent](2)  Time elapsed: 30.198 s  <<< FAILURE!
 java.lang.AssertionError: expected [false] but found [true]
-	at testsuite.earlyClaims_test.verifyExportPDFCompleteData(earlyClaims_test.java:194)
+	at testsuite.earlyClaims_test.gridDetails(earlyClaims_test.java:104)
 
-testsuite.earlyClaims_test.verifyExportPDFCompleteData[sgrace, Police0201, dealeremp](4)  Time elapsed: 2.255 s  <<< FAILURE!
+testsuite.earlyClaims_test.gridDetails[f30, spp1, lender](3)  Time elapsed: 30.237 s  <<< FAILURE!
 java.lang.AssertionError: expected [false] but found [true]
-	at testsuite.earlyClaims_test.verifyExportPDFCompleteData(earlyClaims_test.java:194)
+	at testsuite.earlyClaims_test.gridDetails(earlyClaims_test.java:104)
 
-testsuite.baseTest.VerifyForgotPassword_Loginastext_27238_27254_27220_27255_27237_27166  Time elapsed: 2.223 s  <<< FAILURE!
+testsuite.earlyClaims_test.gridDetails[sgrace, Police0201, dealeremp](4)  Time elapsed: 30.238 s  <<< FAILURE!
+java.lang.AssertionError: expected [false] but found [true]
+	at testsuite.earlyClaims_test.gridDetails(earlyClaims_test.java:104)
+
+testsuite.baseTest.VerifyLocationPrivacyPolicyLink_27224_27239_27254  Time elapsed: 30.215 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"div[class="login-form__footer"] > p"}
+  (Session info: chrome=97.0.4692.99)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=div[class="login-form__footer"] > p}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.baseTest.VerifyLocationPrivacyPolicyLink_27224_27239_27254(baseTest.java:63)
+
+testsuite.earlyClaims_test.modalDetails[Dealer7032823, 4558600, dealer](1)  Time elapsed: 30.268 s  <<< FAILURE!
+java.lang.AssertionError: expected [false] but found [true]
+	at testsuite.earlyClaims_test.modalDetails(earlyClaims_test.java:127)
+
+testsuite.earlyClaims_test.modalDetails[Agent110, Since1996, agent](2)  Time elapsed: 30.224 s  <<< FAILURE!
+java.lang.AssertionError: expected [false] but found [true]
+	at testsuite.earlyClaims_test.modalDetails(earlyClaims_test.java:127)
+
+testsuite.earlyClaims_test.modalDetails[f30, spp1, lender](3)  Time elapsed: 30.252 s  <<< FAILURE!
+java.lang.AssertionError: expected [false] but found [true]
+	at testsuite.earlyClaims_test.modalDetails(earlyClaims_test.java:127)
+
+testsuite.earlyClaims_test.modalDetails[sgrace, Police0201, dealeremp](4)  Time elapsed: 30.275 s  <<< FAILURE!
+java.lang.AssertionError: expected [false] but found [true]
+	at testsuite.earlyClaims_test.modalDetails(earlyClaims_test.java:127)
+
+testsuite.baseTest.VerifyWelcomeTextOnTheADLUILoginPage_27248_27244_27110  Time elapsed: 30.247 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"span[class="login-title__break"]"}
+  (Session info: chrome=97.0.4692.99)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=span[class="login-title__break"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.baseTest.VerifyWelcomeTextOnTheADLUILoginPage_27248_27244_27110(baseTest.java:69)
+
+testsuite.earlyClaims_test.modalCloseFilters[Dealer7032823, 4558600, dealer, XIcon](1)  Time elapsed: 30.191 s  <<< FAILURE!
+java.lang.AssertionError: expected [false] but found [true]
+	at testsuite.earlyClaims_test.modalCloseFilters(earlyClaims_test.java:169)
+
+testsuite.earlyClaims_test.modalCloseFilters[Dealer7032823, 4558600, dealer, CloseButton](2)  Time elapsed: 30.22 s  <<< FAILURE!
+java.lang.AssertionError: expected [false] but found [true]
+	at testsuite.earlyClaims_test.modalCloseFilters(earlyClaims_test.java:169)
+
+testsuite.baseTest.VerifyGAPPortallinkfunctionality_27233_27259_27229  Time elapsed: 30.205 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"[text='GAP Portal']"}
+  (Session info: chrome=97.0.4692.99)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=[text='GAP Portal']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.baseTest.VerifyGAPPortallinkfunctionality_27233_27259_27229(baseTest.java:76)
+
+testsuite.earlyClaims_test.verifyExportPDFCompleteData[Dealer7032823, 4558600, dealer](1)  Time elapsed: 30.266 s  <<< FAILURE!
+java.lang.AssertionError: expected [false] but found [true]
+	at testsuite.earlyClaims_test.verifyExportPDFCompleteData(earlyClaims_test.java:199)
+
+testsuite.earlyClaims_test.verifyExportPDFCompleteData[Agent110, Since1996, agent](2)  Time elapsed: 30.222 s  <<< FAILURE!
+java.lang.AssertionError: expected [false] but found [true]
+	at testsuite.earlyClaims_test.verifyExportPDFCompleteData(earlyClaims_test.java:199)
+
+testsuite.earlyClaims_test.verifyExportPDFCompleteData[f30, spp1, lender](3)  Time elapsed: 30.244 s  <<< FAILURE!
+java.lang.AssertionError: expected [false] but found [true]
+	at testsuite.earlyClaims_test.verifyExportPDFCompleteData(earlyClaims_test.java:199)
+
+testsuite.earlyClaims_test.verifyExportPDFCompleteData[sgrace, Police0201, dealeremp](4)  Time elapsed: 30.236 s  <<< FAILURE!
+java.lang.AssertionError: expected [false] but found [true]
+	at testsuite.earlyClaims_test.verifyExportPDFCompleteData(earlyClaims_test.java:199)
+
+testsuite.baseTest.VerifyForgotPassword_Loginastext_27238_27254_27220_27255_27237_27166  Time elapsed: 30.247 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"div[class ='forgot-password']"}
   (Session info: chrome=97.0.4692.99)
@@ -454,12 +589,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=div[class ='forgot-password']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=div[class ='forgot-password']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
 	at testsuite.baseTest.VerifyForgotPassword_Loginastext_27238_27254_27220_27255_27237_27166(baseTest.java:84)
 
-testsuite.earlyClaims_test.verifyExportPDFFilteredData[Dealer7032823, 4558600, dealer](1)  Time elapsed: 2.224 s  <<< FAILURE!
+testsuite.earlyClaims_test.verifyExportPDFFilteredData[Dealer7032823, 4558600, dealer](1)  Time elapsed: 30.232 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -467,12 +602,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.earlyClaims_test.verifyExportPDFFilteredData(earlyClaims_test.java:201)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.earlyClaims_test.verifyExportPDFFilteredData(earlyClaims_test.java:206)
 
-testsuite.earlyClaims_test.verifyExportPDFFilteredData[Agent110, Since1996, agent](2)  Time elapsed: 2.25 s  <<< FAILURE!
+testsuite.earlyClaims_test.verifyExportPDFFilteredData[Agent110, Since1996, agent](2)  Time elapsed: 30.22 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -480,12 +615,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.earlyClaims_test.verifyExportPDFFilteredData(earlyClaims_test.java:201)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.earlyClaims_test.verifyExportPDFFilteredData(earlyClaims_test.java:206)
 
-testsuite.earlyClaims_test.verifyExportPDFFilteredData[f30, spp1, lender](3)  Time elapsed: 2.215 s  <<< FAILURE!
+testsuite.earlyClaims_test.verifyExportPDFFilteredData[f30, spp1, lender](3)  Time elapsed: 30.251 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -493,12 +628,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.earlyClaims_test.verifyExportPDFFilteredData(earlyClaims_test.java:201)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.earlyClaims_test.verifyExportPDFFilteredData(earlyClaims_test.java:206)
 
-testsuite.earlyClaims_test.verifyExportPDFFilteredData[sgrace, Police0201, dealeremp](4)  Time elapsed: 2.216 s  <<< FAILURE!
+testsuite.earlyClaims_test.verifyExportPDFFilteredData[sgrace, Police0201, dealeremp](4)  Time elapsed: 30.242 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -506,12 +641,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.earlyClaims_test.verifyExportPDFFilteredData(earlyClaims_test.java:201)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.earlyClaims_test.verifyExportPDFFilteredData(earlyClaims_test.java:206)
 
-testsuite.baseTest.Verify_image_on_the_right_side_of_the_login_page_27225  Time elapsed: 2.235 s  <<< FAILURE!
+testsuite.baseTest.Verify_image_on_the_right_side_of_the_login_page_27225  Time elapsed: 30.198 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"div[class="public-main__bg"]"}
   (Session info: chrome=97.0.4692.99)
@@ -519,12 +654,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=div[class="public-main__bg"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=div[class="public-main__bg"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
 	at testsuite.baseTest.Verify_image_on_the_right_side_of_the_login_page_27225(baseTest.java:91)
 
-testsuite.earlyClaims_test.verifyExportPDFModal[Dealer7032823, 4558600, dealer](1)  Time elapsed: 2.235 s  <<< FAILURE!
+testsuite.earlyClaims_test.verifyExportPDFModal[Dealer7032823, 4558600, dealer](1)  Time elapsed: 30.252 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -532,12 +667,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.earlyClaims_test.verifyExportPDFModal(earlyClaims_test.java:231)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.earlyClaims_test.verifyExportPDFModal(earlyClaims_test.java:236)
 
-testsuite.earlyClaims_test.verifyExportPDFModal[Agent110, Since1996, agent](2)  Time elapsed: 2.212 s  <<< FAILURE!
+testsuite.earlyClaims_test.verifyExportPDFModal[Agent110, Since1996, agent](2)  Time elapsed: 30.24 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -545,12 +680,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.earlyClaims_test.verifyExportPDFModal(earlyClaims_test.java:231)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.earlyClaims_test.verifyExportPDFModal(earlyClaims_test.java:236)
 
-testsuite.earlyClaims_test.verifyExportPDFModal[f30, spp1, lender](3)  Time elapsed: 2.206 s  <<< FAILURE!
+testsuite.earlyClaims_test.verifyExportPDFModal[f30, spp1, lender](3)  Time elapsed: 30.232 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -558,12 +693,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.earlyClaims_test.verifyExportPDFModal(earlyClaims_test.java:231)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.earlyClaims_test.verifyExportPDFModal(earlyClaims_test.java:236)
 
-testsuite.earlyClaims_test.verifyExportPDFModal[sgrace, Police0201, dealeremp](4)  Time elapsed: 2.209 s  <<< FAILURE!
+testsuite.earlyClaims_test.verifyExportPDFModal[sgrace, Police0201, dealeremp](4)  Time elapsed: 30.226 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -571,12 +706,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.earlyClaims_test.verifyExportPDFModal(earlyClaims_test.java:231)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.earlyClaims_test.verifyExportPDFModal(earlyClaims_test.java:236)
 
-testsuite.baseTest.verify_aul_logo_7078  Time elapsed: 2.219 s  <<< FAILURE!
+testsuite.baseTest.verify_aul_logo_7078  Time elapsed: 30.262 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"a >img"}
   (Session info: chrome=97.0.4692.99)
@@ -584,12 +719,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=a >img}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=a >img}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
 	at testsuite.baseTest.verify_aul_logo_7078(baseTest.java:97)
 
-testsuite.earlyClaims_test.verifyToastMessage[Dealer7032823, 4558600, dealer, mainpage](1)  Time elapsed: 2.263 s  <<< FAILURE!
+testsuite.earlyClaims_test.verifyToastMessage[Dealer7032823, 4558600, dealer, mainpage](1)  Time elapsed: 30.252 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -597,12 +732,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.earlyClaims_test.verifyToastMessage(earlyClaims_test.java:260)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.earlyClaims_test.verifyToastMessage(earlyClaims_test.java:265)
 
-testsuite.earlyClaims_test.verifyToastMessage[Dealer7032823, 4558600, dealer, modal](2)  Time elapsed: 2.26 s  <<< FAILURE!
+testsuite.earlyClaims_test.verifyToastMessage[Dealer7032823, 4558600, dealer, modal](2)  Time elapsed: 30.231 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -610,12 +745,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.earlyClaims_test.verifyToastMessage(earlyClaims_test.java:260)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.earlyClaims_test.verifyToastMessage(earlyClaims_test.java:265)
 
-testsuite.earlyClaims_test.verifyToastMessage[Dealer7032823, 4558600, dealer, mainpageXls](3)  Time elapsed: 2.274 s  <<< FAILURE!
+testsuite.earlyClaims_test.verifyToastMessage[Dealer7032823, 4558600, dealer, mainpageXls](3)  Time elapsed: 30.216 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -623,12 +758,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.earlyClaims_test.verifyToastMessage(earlyClaims_test.java:260)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.earlyClaims_test.verifyToastMessage(earlyClaims_test.java:265)
 
-testsuite.earlyClaims_test.verifyToastMessage[Dealer7032823, 4558600, dealer, modalXls](4)  Time elapsed: 2.207 s  <<< FAILURE!
+testsuite.earlyClaims_test.verifyToastMessage[Dealer7032823, 4558600, dealer, modalXls](4)  Time elapsed: 30.226 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
   (Session info: chrome=97.0.4692.99)
@@ -636,12 +771,12 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
-	at testsuite.earlyClaims_test.verifyToastMessage(earlyClaims_test.java:260)
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
+	at testsuite.earlyClaims_test.verifyToastMessage(earlyClaims_test.java:265)
 
-testsuite.baseTest.verify_aul_logo_resetpassword_7080  Time elapsed: 2.219 s  <<< FAILURE!
+testsuite.baseTest.verify_aul_logo_resetpassword_7080  Time elapsed: 30.25 s  <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"div[class ='forgot-password']"}
   (Session info: chrome=97.0.4692.99)
@@ -649,8 +784,8 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.0.0', revision: '3a21814679'
 System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [42cc9c6fb5d84ba2ae0c3caf9a2ec843, findElement {using=css selector, value=div[class ='forgot-password']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:51181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51181/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 42cc9c6fb5d84ba2ae0c3caf9a2ec843
+Command: [b487f5b659eef5f4b058dcdc6a7601f3, findElement {using=css selector, value=div[class ='forgot-password']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:57405}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57405/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b487f5b659eef5f4b058dcdc6a7601f3
 	at testsuite.baseTest.verify_aul_logo_resetpassword_7080(baseTest.java:105)
 

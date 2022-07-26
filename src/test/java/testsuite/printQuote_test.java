@@ -31,6 +31,14 @@ public class printQuote_test extends printQuoteAction{
 	    
 	}
 	
+	/*****************Contract creation test case***************/
+	@Test(priority = 2, dataProvider ="test1")
+    public void createContract1(String[] inputArray) throws InterruptedException {
+			
+		validateQuotePDF(inputArray);
+	    
+	}
+	
 	/***************logout to the application
 	 * @throws InterruptedException ********************/
 	@AfterClass
