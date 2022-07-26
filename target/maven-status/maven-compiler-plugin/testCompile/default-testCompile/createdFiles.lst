@@ -4,7 +4,9 @@ testsuite\login1_test.class
 testsuite\pricingform_test.class
 testsuite\quoteHistory_test.class
 testsuite\screenTitle_test.class
+testsuite\impersonate_test.class
 testsuite\loginValidation_test.class
+testsuite\WebContractsByDealer_test.class
 testsuite\generateContract_test.class
 testsuite\notification_test.class
 testsuite\erate_test.class

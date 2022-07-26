@@ -1,19 +1,15 @@
 package testsuite;
 
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import pageActions.createQuoteAction;
 import pageActions.loginAction;
+import pageActions.printQuoteAction;
 import pageActions.verticalMenuAction;
-@Listeners(utils.listnerlogs.class)
 
-public class quote_test extends createQuoteAction{
-
+public class printQuote_test extends printQuoteAction{
+	
 	loginAction lo = new loginAction();
 	verticalMenuAction vo = new verticalMenuAction();
 	
@@ -35,13 +31,11 @@ public class quote_test extends createQuoteAction{
 	    
 	}
 	
-	/********************quote creation test case****************/
+	/*****************Contract creation test case***************/
 	@Test(priority = 2, dataProvider ="test1")
-    public void createQuote1(String [] inputArray) throws InterruptedException {
-		
-		
-		createQuote(inputArray);
-		
+    public void createContract1(String[] inputArray) throws InterruptedException {
+			
+		validateQuotePDF(inputArray);
 	    
 	}
 	

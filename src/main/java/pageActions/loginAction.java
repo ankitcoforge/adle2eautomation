@@ -3,12 +3,14 @@ package pageActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
+import pageObjects.impersonatepo;
 import pageObjects.loginpo;
 import utils.utilityClass;
 
 public class loginAction extends loginpo {
 	
 	utilityClass event = new utilityClass();
+	impersonatepo io = new impersonatepo ();
 	
 	/****** Title of the webpage ******/
 	public String getTitle() {
@@ -104,8 +106,8 @@ public class loginAction extends loginpo {
 		
 		Thread.sleep(9000);
 		driver.switchTo().defaultContent();
-		driver.findElement(By.cssSelector("adl-header > header > div > div > button > mat-icon")).isDisplayed();
-		driver.findElement(By.cssSelector("adl-header > header > div > div > button > mat-icon")).click();
+		driver.findElement(By.cssSelector(io.logoutArrow)).isDisplayed();
+		driver.findElement(By.cssSelector(io.logoutArrow)).click();
 		event.clickfield("xpath", logout);
 	}
 
