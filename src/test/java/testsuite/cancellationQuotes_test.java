@@ -40,6 +40,7 @@ public class cancellationQuotes_test extends cancellationQuotesAction {
 
 			// save data in map
 			dbMap = dc.returnAllData(rs);
+			System.out.println("dbmap-------"+dbMap);
 			navigate();
 			lo.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			vo.navigatetoimpersonate();

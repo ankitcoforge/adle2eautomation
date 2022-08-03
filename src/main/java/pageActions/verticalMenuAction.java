@@ -46,11 +46,17 @@ public class verticalMenuAction extends verticalMenupo{
 
 	}
 	
-	public void navigatetoLeftMenu(String heading) throws InterruptedException {
+	public void navigatetoLeftMenu(String subheading) throws InterruptedException {
 		Thread.sleep(6000);
 		driver.switchTo().activeElement();
-		event.getfield("a", heading).click();
+		event.getfield("a", subheading).click();
 
+	}
+
+	public void navigatetoLeftMainMenu(String heading) throws InterruptedException {
+		Thread.sleep(6000);
+		driver.switchTo().activeElement();
+		event.getfield("button", heading).click();
 	}
 	
 	public String getTitle() {

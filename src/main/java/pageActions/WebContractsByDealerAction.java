@@ -1,4 +1,6 @@
 package pageActions;
+import java.sql.ResultSet;
+
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -6,8 +8,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
+
 import pageObjects.WebContractsByDealerPO;
+import utils.Database_Connectivity;
 import utils.utilityClass;
+@Listeners(utils.listnerlogs.class)
 
 
 public class WebContractsByDealerAction extends WebContractsByDealerPO{
@@ -15,6 +21,7 @@ public class WebContractsByDealerAction extends WebContractsByDealerPO{
 		verticalMenuAction verticalMenu=new verticalMenuAction();
 		utilityClass utils= new utilityClass();
 		loginAction login = new loginAction();
+		Database_Connectivity dc = new Database_Connectivity();
 		
 		public WebElement webContractsInMenu() throws InterruptedException{
 			  WebElement WebContractsMenu = utils.getfield("a", "Web Contracts by Dealer");
@@ -74,6 +81,12 @@ public class WebContractsByDealerAction extends WebContractsByDealerPO{
 		 return elemntInfirstGrid;
 		 }
 		 
+		 public WebElement getBorderOfElement(String name) {
+			 String firstGrid = "//adl-text-input[@placeholder='" + name + "']//div[@class='text-field__input secure']";
+			 WebElement elemntInfirstGrid = driver.findElement(By.xpath(firstGrid));
+			 return elemntInfirstGrid;
+			 }
+		 
 		 public WebElement getArrowForwardBtn() {
 			    WebElement arrowForwardButton = driver.findElement(By.xpath(arrowForwardBtn));
 				return arrowForwardButton;	
@@ -121,27 +134,97 @@ public class WebContractsByDealerAction extends WebContractsByDealerPO{
 			  return restoreButtons;
 			 }
 		
-		 public List<WebElement> getEditStatusMsg() {
-			  List<WebElement> editButtons = driver.findElements(By.xpath(editStatusMsg));
+		 public List<WebElement> getEditStatusTxt() {
+			  List<WebElement> editButtons = driver.findElements(By.xpath(editStatusTxt));
 			  return editButtons;
 			 }
-		 public List<WebElement> getRestoreContractMsg() {
-			  List<WebElement> restoreContractMessage = driver.findElements(By.xpath(restoreContractMsg));
+		 
+		 public List<WebElement> getRestoreContractTxt() {
+			  List<WebElement> restoreButtns = driver.findElements(By.xpath(restoreContractTxt));
+			  return restoreButtns;
+			 }
+		 
+		 public WebElement getEditConfirmationMsg() {
+			  WebElement editConfirmationtxt = driver.findElement(By.cssSelector(editConfirmationMsg));
+			  return editConfirmationtxt;
+			 }
+		 
+		 public WebElement getConfirmationYesBtn() {
+			  WebElement confirmationYesBtn = driver.findElement(By.cssSelector(editConfirmationYesBtn));
+			  return confirmationYesBtn;
+			 }
+		 
+		 public WebElement getConfirmationNoBtn() {
+			  WebElement confirmationNoBtn = driver.findElement(By.cssSelector(editConfirmationNoBtn));
+			  return confirmationNoBtn;
+			 }
+		 
+		 
+		 public WebElement getIconClose() {
+			  WebElement iconCloseBtn = driver.findElement(By.xpath(iconClose));
+			  return iconCloseBtn;
+			 }
+		 
+		 
+		 public WebElement getRestoreContractMsg() {
+			  WebElement restoreContractMessage = driver.findElement(By.xpath(restoreContractMsg));
 			  return restoreContractMessage;
 			 }
 		 
+		 public WebElement getEditContractPopup() {
+			  WebElement editContractsPopup = driver.findElement(By.cssSelector(editContractPopup));
+			  return editContractsPopup;
+			 }
+		 
+		 public WebElement getRestoreContractPopup() {
+			  WebElement restoreContractsPopup = driver.findElement(By.cssSelector(restoreContractPopup));
+			  return restoreContractsPopup;
+			 }
 		 
 		 
-		 public void getGridArrowBtn(String name) {
+		 
+		 public WebElement getGridArrowBtn(String name) {
 			 List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
 			  List<WebElement> gridArrowBtns = driver.findElements(By.cssSelector(gridArrowBttn));
+			  WebElement arrowbtn=null;
 			  for (int i = 0; i <= allHeaderNames.size()-1; i++) {
 				  if(allHeaderNames.get(i).equals(name))
 				  {
-						gridArrowBtns.get(i+1).click();
+						arrowbtn=gridArrowBtns.get(i);
 					}
 			}
+			  return arrowbtn;
 			 }
+		 
+		 public WebElement getInvalidLastNametxt() {
+			    WebElement lastNameInvalidTxt = driver.findElement(By.xpath(invalidLastNametxt));
+				return lastNameInvalidTxt;	
+		 }
+		 
+		 public WebElement getInvalidVINtxt() {
+			    WebElement txtInvalidVIN = driver.findElement(By.xpath(invalidVINtxt));
+				return txtInvalidVIN;	
+		 }
+		 
+		 public WebElement getNoRecordstxt() {
+			    WebElement txtNoRecord = driver.findElement(By.xpath(noRecordstxt));
+				return txtNoRecord;	
+		 }
+		 
+		 public WebElement getAtleastOneRecordtxt() {
+			    WebElement atleastOneRecordtxt = driver.findElement(By.xpath(enterAtleastOneRecordtxt));
+				return atleastOneRecordtxt;	
+		 }
+		 
+		 public List<String> getRowLoc() {
+			 List<String> rowLoactor = utils.getTextValuesForObject("cssSelector", rowLoc);
+             return rowLoactor;
+		 }
+		 
+		 public List<String> getAllHeaderNames() {
+			 List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
+             return allHeaderNames;
+		 }
 		 
 			public HashMap<Integer, HashMap<String, String>> checkGridBodyDetails() {
 				List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
@@ -164,9 +247,30 @@ public class WebContractsByDealerAction extends WebContractsByDealerPO{
 						String specificRowColLoc = "td:nth-of-type(" + j + ")>adl-table-cells>div>span:nth-of-type(2)";
 					
 						String cellValue = "";
-						
 							cellValue = utils.element("cssSelector", specificRowLoc + ">" + specificRowColLoc).getText();
 
+						eachRowData.put(allHeaderNames.get(j-1), cellValue);
+					}
+					allTableData.put(i, eachRowData);
+				}
+				System.out.println("Complete Grid data: " + allTableData);
+				utils.scrollUp();	
+				return allTableData;
+				}
+			
+			public HashMap<Integer, HashMap<String, WebElement>> getElementsFromGridBody() {
+				List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
+				HashMap<Integer, HashMap<String, WebElement>> allTableData = new HashMap<Integer, HashMap<String, WebElement>>();
+				List<WebElement> allRowsEle = utils.getElementsList("cssSelector", rowLoc);
+				for (int i = 1; i <= allRowsEle.size(); i++) {
+					if (i == 10) 	
+						utils.scrollDown();
+					String specificRowLoc = "table>tbody>tr:nth-of-type(" + i + ")";
+					LinkedHashMap<String, WebElement> eachRowData = new LinkedHashMap<>();
+					for (int j = 1; j < allHeaderNames.size() - 1; j++) {
+						String specificRowColLoc = "td:nth-of-type(" + j + ")>adl-table-cells>div>span:nth-of-type(2)";
+						WebElement cellValue = null;
+							cellValue = utils.element("cssSelector", specificRowLoc + ">" + specificRowColLoc);
 						eachRowData.put(allHeaderNames.get(j-1), cellValue);
 					}
 					allTableData.put(i, eachRowData);
@@ -187,13 +291,94 @@ public class WebContractsByDealerAction extends WebContractsByDealerPO{
 							String value = getRowData.get("Status");
 					if(value.contains("DELETED"))
 							{
-								action.moveToElement(getRestoreBtns().get(i)).perform();
-								Assert.assertTrue(getRestoreContractMsg().get(1).isDisplayed());
+								action.moveToElement(getEditRestorBtns(i)).perform();
+								Assert.assertTrue(getRestoreBtns().get(1).isDisplayed());
 							}
 							break;
 						}
 			 }
 			 }
+			 
+			 public String getValueFromStatus(String STATUS,String HeaderName) {
+				HashMap<Integer, HashMap<String, String>> allTableData2 = checkGridBodyDetails();
+				String value = null;
+				for (int i = 1; i < getRowLoc().size(); i++) {
+					  if(allTableData2.get(i).get("Status").equals(STATUS))
+					  {
+						  value = allTableData2.get(i).get(HeaderName);
+						break;
+					  }
+				     }
+				return value;
+			 }
+			 
+			 public WebElement getEditRestorBtns(int row) {
+	       					String specificRowLoc = "table>tbody>tr:nth-of-type(" + row + ")";
+  							String specificRowColLoc = "td:nth-of-type(11)>adl-table-cells>div";
+  							WebElement  element = utils.element("cssSelector", specificRowLoc + ">" + specificRowColLoc);
+					return element;
+					}
+			 
+			 public List<WebElement> getEditRestoreElementsVisibility(int row) {
+					String specificRowLoc = "table>tbody>tr:nth-of-type(" + row + ")";
+					String specificRowColLoc = "td:nth-of-type(11)>adl-table-cells>div>div:nth-of-type(1)>i";
+					List<WebElement>  elements = utils.getElementsList("cssSelector", specificRowLoc + ">" + specificRowColLoc);
+			return elements;
+			}
+			 
+				public HashMap<Integer, HashMap<String, String>> getDataFromDB(String Status) throws Exception  {
+					HashMap<Integer, HashMap<String, String>> dbMap = new HashMap<Integer, HashMap<String, String>>();
+					try {
+						dc.aulDBConnect();
+						ResultSet rs = dc.stmt.executeQuery(
+						"Select TOP 1 VIN, CERT, LAST_NAME, STATUS FROM [DBO].[WEB_CONTRACTS] where STATUS =  '" + Status + " '");
+						dbMap = dc.returnAllData(rs);
+						return dbMap;
+					} catch (Exception e) {
+						throw e;
+					} finally {
+						dc.closeConnection();
+					}
+					
+				}
+				
+				
+				public HashMap<Integer, HashMap<String, String>> getDealerFromDB() throws Exception  {
+					HashMap<Integer, HashMap<String, String>> dbMap = new HashMap<Integer, HashMap<String, String>>();
+					try {
+						dc.aulDBConnect();
+						ResultSet rs = dc.stmt.executeQuery(
+						"select TOP 1 DEALER_ID FROM WEB_CONTRACTS GROUP BY DEALER_ID having COUNT (DEALER_ID) =10;");
+						dbMap = dc.returnAllData(rs);
+						return dbMap;
+					} catch (Exception e) {
+						throw e;
+					} finally {
+						dc.closeConnection();
+					}
+					
+				}
+				
+				public HashMap<Integer, HashMap<String, String>> getDataFromDBForAllTypesStatus() throws Exception  {
+					HashMap<Integer, HashMap<String, String>> dbMap = new HashMap<Integer, HashMap<String, String>>();
+					try {
+						dc.aulDBConnect();
+						ResultSet rs = dc.stmt.executeQuery(
+								"SELECT STATUS FROM WEB_CONTRACTS "
+								+ "WHERE cert = (SELECT top 1 cert FROM [DBO].[WEB_CONTRACTS] where status = 'entered' order by date_created desc) or "
+								+ "cert = (SELECT top 1 cert FROM [DBO].[WEB_CONTRACTS] where status = 'deleted' order by date_created desc) or "
+								+ "cert = (SELECT top 1 cert FROM [DBO].[WEB_CONTRACTS] where status = 'Quote' order by date_created desc) or "
+								+ "cert = (SELECT top 1 cert FROM [DBO].[WEB_CONTRACTS] where status = 'Remitted' order by date_created desc) or "
+								+ "cert = (SELECT top 1 cert FROM [DBO].[WEB_CONTRACTS] where status = 'Processed' order by date_created desc)");
+						dbMap = dc.returnAllData(rs);
+						return dbMap;
+					} catch (Exception e) {
+						throw e;
+					} finally {
+						dc.closeConnection();
+					}
+					
+				}
 }
 
 

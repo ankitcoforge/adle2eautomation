@@ -27,6 +27,7 @@ public class loginAction extends loginpo {
 		driver.findElement(By.cssSelector("input[placeholder=\"Enter your password\"]")).isDisplayed();
 	    driver.findElement(By.cssSelector("input[placeholder=\"Enter your password\"]")).sendKeys(password);
 	    driver.findElement(By.cssSelector("button[type='submit']")).click();
+	    Thread.sleep(2000);
 	    driver.findElement(By.cssSelector("[class=\"title-bar\"] >h3")).isDisplayed();
 		String header1 = driver.findElement(By.cssSelector("[class=\"title-bar\"] >h3")).getText();
 		return header1;
