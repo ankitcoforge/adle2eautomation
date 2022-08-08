@@ -1,9 +1,12 @@
 package pageActions;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import pageObjects.LateralMenupo;
 
@@ -69,4 +72,17 @@ public class LateralMenuAction extends LateralMenupo{
 			 WebElement logo=driver.findElement(By.xpath(aulLogo));	
 			 return logo;
 		 }
+		
+		public void verifyContentInPDfForLateralMenuOptions(String url, String program) {
+			//specify the url of the pdf file
+			try {
+				String pdfContent = readPdfContent(url);
+					Assert.assertTrue(pdfContent.contains(program));
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
 }
