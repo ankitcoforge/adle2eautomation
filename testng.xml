@@ -10,6 +10,8 @@
 			<class name="testsuite.login1_test"/>
 			<class name="testsuite.screenTitle_test"/>
 			<class name="testsuite.erate_test"/>
+			<class name="testsuite.LateralMenu_test"/>
+			<class name="testsuite.WebContractByDealer_test"/>
 			<class name="testsuite.impersonate_test"/>
 			<class name="testsuite.contract_test"/>
 			<class name="testsuite.quote_test"/>
@@ -20,7 +22,7 @@
 			<class name="testsuite.twoProgramContract"/>
 			<class name="testsuite.earlyClaims_test"/>
 			<class name="testsuite.toolBox_test"/>
-			
+			<class name="testsuite.cancellationQuotes_test"/>
 			
 		</classes>
 	</test>
