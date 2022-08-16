@@ -3,15 +3,15 @@
 <suite name="ADL Regression Suite">
 <parameter name="testng.metrics.report.logo" value = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Coforge-Logo.png/800px-Coforge-Logo.png"/>
 	
-	<test name="ADL">
+	<test name="ADL" group-by-instances="true">
 		<classes>
-			<class name="testsuite.baseTest" />
+		    <class name="testsuite.baseTest" />
 			<class name="testsuite.loginValidation_test"/>
 			<class name="testsuite.login1_test"/>
 			<class name="testsuite.screenTitle_test"/>
 			<class name="testsuite.erate_test"/>
-			<class name="testsuite.LateralMenu_test"/>
-			<class name="testsuite.WebContractByDealer_test"/>
+			<class name="testsuite.LateraMenu_test"/>
+			<class name="testsuite.WebContractsByDealer_test"/>
 			<class name="testsuite.impersonate_test"/>
 			<class name="testsuite.contract_test"/>
 			<class name="testsuite.quote_test"/>
@@ -26,6 +26,4 @@
 			
 		</classes>
 	</test>
-	
-	
 </suite>
