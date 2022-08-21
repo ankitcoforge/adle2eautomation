@@ -1,23 +1,26 @@
-C:\ADL Automation Git\adle2eautomation\src\test\java\testsuite\twoProgramContract.java
-C:\ADL Automation Git\adle2eautomation\src\test\java\testsuite\printQuote_test.java
-C:\ADL Automation Git\adle2eautomation\src\test\java\testsuite\impersonate_test.java
-C:\ADL Automation Git\adle2eautomation\src\test\java\testsuite\loginBanner_test.java
-C:\ADL Automation Git\adle2eautomation\src\test\java\testsuite\quote_test.java
-C:\ADL Automation Git\adle2eautomation\src\test\java\testsuite\validatePDF_test.java
-C:\ADL Automation Git\adle2eautomation\src\test\java\testsuite\login1_test.java
-C:\ADL Automation Git\adle2eautomation\src\test\java\testsuite\quoteHistory_test.java
-C:\ADL Automation Git\adle2eautomation\src\test\java\testsuite\baseTest.java
-C:\ADL Automation Git\adle2eautomation\src\test\java\testsuite\erate_test.java
-C:\ADL Automation Git\adle2eautomation\src\test\java\testsuite\screenTitle_test.java
-C:\ADL Automation Git\adle2eautomation\src\test\java\testsuite\notification_test.java
-C:\ADL Automation Git\adle2eautomation\src\test\java\testsuite\toolBox_test.java
-C:\ADL Automation Git\adle2eautomation\src\test\java\testsuite\WebContractsByDealer_test.java
-C:\ADL Automation Git\adle2eautomation\src\test\java\testsuite\contract_test.java
-C:\ADL Automation Git\adle2eautomation\src\test\java\testsuite\impersonateContract.java
-C:\ADL Automation Git\adle2eautomation\src\test\java\testsuite\cancellationQuote.java
-C:\ADL Automation Git\adle2eautomation\src\test\java\testsuite\generateContract_test.java
-C:\ADL Automation Git\adle2eautomation\src\test\java\testsuite\pricingform_test.java
-C:\ADL Automation Git\adle2eautomation\src\test\java\testsuite\earlyClaims_test.java
-C:\ADL Automation Git\adle2eautomation\src\test\java\testsuite\cancellationQuotes_test.java
-C:\ADL Automation Git\adle2eautomation\src\test\java\testsuite\loginValidation_test.java
-C:\ADL Automation Git\adle2eautomation\src\test\java\testsuite\ERateContract_test.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\cancellationQuote.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\LateraMenu_test.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\toolBox_test.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\pricingform_test.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\notification_test.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\erate_test.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\cancellationQuotes_test.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\quoteHistory_test.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\loginValidation_test.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\WebContractsByDealer_test.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\twoProgramContract.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\impersonate_test.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\loginBanner_test.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\ERateContract_test.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\login1_test.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\generateContract_test.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\baseTest.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\printQuote_test.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\screenTitle_test.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\contractSearch_test.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\contract_test.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\quote_test.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\earlyClaims_test.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\cancellationHistory_test.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\validatePDF_test.java
+C:\AUL\Workspace\ADL\src\test\java\testsuite\impersonateContract.java

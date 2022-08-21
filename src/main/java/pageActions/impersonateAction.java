@@ -45,6 +45,7 @@ public class impersonateAction extends impersonatepo {
 	public List <String> loginImpersonate() {
 		
 		List<String> a = new ArrayList();
+		System.out.println(driver.findElements(By.cssSelector(".mat-menu-trigger >span")));
 		for(int i =0; i < driver.findElements(By.cssSelector(".mat-menu-trigger >span")).size(); i++)
 		a.add(event.text("cssSelector", ".mat-menu-trigger >span",i));
 		return a;
@@ -79,7 +80,6 @@ public class impersonateAction extends impersonatepo {
     	 
     	driver.findElement(By.cssSelector(logoutArrow)).isDisplayed();
  		driver.findElement(By.cssSelector(logoutArrow)).click();
-
 		return (event.text("cssSelector", impersonate));
 		
 	}

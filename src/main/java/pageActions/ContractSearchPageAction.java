@@ -1,20 +1,22 @@
 package pageActions;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import pageObjects.ContractSearchPagepo;
 import utils.utilityClass;
 
 public class ContractSearchPageAction extends ContractSearchPagepo {
-	
-	verticalMenuAction verticalMenu=new verticalMenuAction();
-	utilityClass utils= new utilityClass();
-	loginAction login = new loginAction(); 
-	
+
+	verticalMenuAction verticalMenu = new verticalMenuAction();
+	utilityClass utils = new utilityClass();
+	loginAction login = new loginAction();
+
 	public HashMap<Integer, HashMap<String, String>> checkGridBodyDetails() {
 		List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
 		System.out.println("allHeaderNames: " + allHeaderNames);
@@ -23,8 +25,8 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 		List<WebElement> allRows = utils.getElementsList("cssSelector", rowLoc);
 		System.out.println("No of rows in grid: " + allRows.size());
 		for (int i = 1; i <= allRows.size(); i++) {
-			if (i == 10) 	
-			utils.scrollDown();
+			if (i == 10)
+				utils.scrollDown();
 			// Getting specific row with each iteration
 			String specificRowLoc = "table>tbody>tr:nth-of-type(" + i + ")";
 			LinkedHashMap<String, String> eachRowData = new LinkedHashMap<>();
@@ -32,14 +34,97 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 				String specificRowColLoc = "td:nth-of-type(" + j + ")>adl-table-cells>div>span:nth-of-type(2)";
 				String cellValue = "";
 				cellValue = utils.element("cssSelector", specificRowLoc + ">" + specificRowColLoc).getText();
-				eachRowData.put(allHeaderNames.get(j-1), cellValue);
+				eachRowData.put(allHeaderNames.get(j - 1), cellValue);
 			}
 			allTableData.put(i, eachRowData);
 		}
 		System.out.println("Complete Grid data: " + allTableData);
-		utils.scrollUp();	
+		utils.scrollUp();
 		return allTableData;
+	}
+
+	public HashMap<Integer, HashMap<String, String>> uiTableData() {
+
+		HashMap<Integer, HashMap<String, String>> uiData = new HashMap<Integer, HashMap<String, String>>();
+		HashMap<String, String> map = new HashMap<String, String>();
+		int length = driver.findElements(By.xpath(row)).size();
+		for (int i = 0; i < length; i++) {
+			int x = i + 1;
+			String xpath1 = "//*[@id=\"contract_search\"]/tbody/tr[" + x + "]/td//span[2]//../span[1]";
+			String xpath2 = "//*[@id=\"contract_search\"]/tbody/tr[" + x + "]/td//span[2]";
+			for (int j = 0; j < 12; j++) {
+
+				String header = driver.findElements(By.xpath(xpath1)).get(j).getAttribute("textContent");
+				String value = driver.findElements(By.xpath(xpath2)).get(j).getText();
+				map.put(header, value);
+			}
+			uiData.put(i, map);
+		}
+		return (uiData);
+
+	}
+
+	public List<String> tableHeader() {
+		List header = new ArrayList();
+		int length = driver.findElements(By.cssSelector(".ui-table-thead >adl-table-header >tr >th")).size();
+		for (int i = 0; i < length; i++) {
+			header.add(
+					driver.findElements(By.cssSelector(".ui-table-thead >adl-table-header >tr >th")).get(i).getText());
 		}
 
+		return (header);
+	}
+
+	public HashMap<Integer, String> editReContractlink() {
+
+		HashMap<Integer, String> uilink = new HashMap<Integer, String>();
+		int length = driver.findElements(By.xpath(row)).size();
+		for (int i = 0; i < length; i++) {
+			int x = i + 1;
+
+			String xpath2 = "//*[@id='contract_search']/tbody/tr[" + x + "]/td//a";
+			String value = driver.findElements(By.xpath(xpath2)).get(1).getText();
+			uilink.put(i, value);
+
+		}
+		return (uilink);
+
+	}
+
+	public HashMap<Integer, String> reContractlink() {
+
+		HashMap<Integer, String> relink = new HashMap<Integer, String>();
+		int length = driver.findElements(By.xpath(row)).size();
+		for (int i = 0; i < length; i++) {
+			int x = i + 1;
+
+			String xpath2 = "//*[@id='contract_search']/tbody/tr[" + x + "]/td//a";
+			String value = driver.findElements(By.xpath(xpath2)).get(2).getText();
+			relink.put(i, value);
+
+		}
+		return (relink);
+
+	}
+
+	public String editContracturl() {
+
+		driver.findElements(By.xpath("//*[@id='contract_search']/tbody/tr[1]/td//a")).get(1).click();
+		return driver.getCurrentUrl();
+	}
+
+	public String reContracturl() {
+
+		driver.findElements(By.xpath("//*[@id='contract_search']/tbody/tr[1]/td//a")).get(2).click();
+		return driver.getCurrentUrl();
+	}
+
+	public void filterStatus(String status) {
+
+		utils.clickfield("cssSelector", "div.ui-multiselect-trigger");
+		String a = "p-multiselectitem>[aria-label='" + status + "'] >div";
+		utils.clickfield("cssSelector", a);
+		utils.clickfield("cssSelector", "thead.ui-table-thead");
+	}
 
 }

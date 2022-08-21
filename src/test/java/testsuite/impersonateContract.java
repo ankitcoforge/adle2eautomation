@@ -35,11 +35,8 @@ public class impersonateContract extends createContractAction {
 	@Test(priority = 1, dataProvider ="test1")
     public void createContract1(String[] inputArray) throws InterruptedException {
 		
-		
 		createContract(inputArray);
 		
-		
-	    
 	}
 	
 	/***************logout to the application

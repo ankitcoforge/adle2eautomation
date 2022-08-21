@@ -31,7 +31,7 @@ public class cobuyerContractAction extends contractpo{
 		event.inputfield("cssSelector", contract, "10000", 0);
 		List <WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
 		if(a.size() == 1) {
-			String a1  = driver.findElement(By.cssSelector(inServiceDate1)).getAttribute("class");
+			String a1  = driver.findElement(By.cssSelector("adl-text-input[label='In-Service Date'] >div  >div + div")).getAttribute("class");
 			if(!(a1.contains("disabled"))) {
 				driver.findElement(By.cssSelector(inServiceDateTextBox)).click();
 				System.out.println("td[aria-label='" + getDate() + "']");
@@ -46,7 +46,7 @@ public class cobuyerContractAction extends contractpo{
 		Thread.sleep(2000);
 		event.clearfield("cssSelector", phone);
 		event.inputfield("cssSelector", phone, "1234567890");
-		event.clickfield("cssSelector", coBuyercheckbox);
+		event.clickfield("cssSelector", coBuyer);
 		event.inputfield("cssSelector", fieldbyLabelName("First Name"), "CoBuyerFirstName",2);
 		event.inputfield("cssSelector", fieldbyLabelName("Last Name"), "CoBuyerFirstName",2);
 		event.inputfield("cssSelector", fieldbyLabelName("Zip Code"), "20301", 1);
@@ -54,8 +54,6 @@ public class cobuyerContractAction extends contractpo{
 		Thread.sleep(2000);
 		event.clearfield("cssSelector", fieldbyLabelName("Phone Number"),1);
 		event.inputfield("cssSelector", fieldbyLabelName("Phone Number"),"1234567890",1);
-		
-		
 		event.clickfield("xpath", generateContract);
 		getDriver().findElement(By.xpath(gc.generateContractHeading)).isDisplayed();
 		Thread.sleep(2000);

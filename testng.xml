@@ -1,29 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="ADL Regression Suite">
+<suite name="ADL Regression Suite" >
 <parameter name="testng.metrics.report.logo" value = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Coforge-Logo.png/800px-Coforge-Logo.png"/>
 	
-	<test name="ADL" group-by-instances="true">
+	<test name="ADL Contract Test Suite" group-by-instances="true">
 		<classes>
-		    <class name="testsuite.baseTest" />
+			<class name="testsuite.contract_test"/>
+			<class name="testsuite.quote_test"/>
+			<class name="testsuite.generateContract_test"/>
+			<class name="testsuite.impersonateContract"/>
+			<class name="testsuite.twoProgramContract"/>
+			<class name="testsuite.printQuote_test"/>
+			<class name="testsuite.validatePDF_test"/>
+		</classes>
+	</test>
+	<test name="ADL Validation Test Suite" group-by-instances="true">
+		<classes>
+			<class name="testsuite.baseTest" />
 			<class name="testsuite.loginValidation_test"/>
 			<class name="testsuite.login1_test"/>
+			<class name="testsuite.contractSearch_test"/>
 			<class name="testsuite.screenTitle_test"/>
 			<class name="testsuite.erate_test"/>
 			<class name="testsuite.LateraMenu_test"/>
-			<class name="testsuite.WebContractsByDealer_test"/>
 			<class name="testsuite.impersonate_test"/>
-			<class name="testsuite.contract_test"/>
-			<class name="testsuite.quote_test"/>
-			<class name="testsuite.printQuote_test"/>
-			<class name="testsuite.generateContract_test"/>
-			<class name="testsuite.impersonateContract"/>
-			<class name="testsuite.validatePDF_test"/> 
-			<class name="testsuite.twoProgramContract"/>
-			<class name="testsuite.earlyClaims_test"/>
-			<class name="testsuite.toolBox_test"/>
-			<class name="testsuite.cancellationQuotes_test"/>
-			
 		</classes>
+	</test>
+	<test name="ADL Cancellation Quote Test Suite" group-by-instances="true">
+		<classes>
+			<class name="testsuite.cancellationHistory_test" />
+			<class name="testsuite.cancellationQuotes_test"/>
+			<class name="testsuite.ERateContract_test"/>
+			<class name="testsuite.quoteHistory_test"/>
+			<class name="testsuite.WebContractsByDealer_test"/>
+		</classes>
+		
 	</test>
 </suite>

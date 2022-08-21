@@ -14,13 +14,12 @@ public class singleContractAction extends contractpo{
     utilityClass event = new utilityClass();
     generateContractAction gc = new generateContractAction();
     createContractAction co = new createContractAction();
+    loginAction lo = new loginAction();
 
 	/************************Create contract 
 	 * @throws InterruptedException ****************************************/
 	public void singleContract() throws InterruptedException {
 
-		
-		try {
 		event.inputfield("cssSelector", textbox, "Single", 0);
 		event.inputfield("cssSelector", textbox, "Test", 1);
 		event.inputfield("cssSelector", textbox, "1234", 5);
@@ -57,11 +56,4 @@ public class singleContractAction extends contractpo{
 		Assert.assertEquals(text1, "You have successfully generated a contract!");
 		event.clickfield("xpath", newQuotelink);
 		}
-		catch(Exception e) {
-			e.printStackTrace();
-			System.out.println("Test Case failed ");
-			e.getCause();
-			Assert.fail();
-		}
-	}
 }

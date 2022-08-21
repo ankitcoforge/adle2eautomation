@@ -27,12 +27,9 @@ public class generateContract_test extends createContractAction{
 	
 	/*****************Contract creation test case***************/
 	@Test(priority = 1, dataProvider ="test1")
-    public void createContract1(String[] inputArray) throws InterruptedException {
+    public void generateContract(String[] inputArray) throws InterruptedException {
 		
-		
-		createContract(inputArray);
-		
-		
+		createContract(inputArray);	
 	    
 	}
 	

@@ -19,7 +19,7 @@ public class printQuote_test extends printQuoteAction{
 	public void login() throws InterruptedException {
 		
 		navigate();
-		lo.login("dvidesdealer", "4558600");
+		lo.login(prop.getProperty("username1"), prop.getProperty("password"));
 		vo.navigatetoContract();
 	}
 	

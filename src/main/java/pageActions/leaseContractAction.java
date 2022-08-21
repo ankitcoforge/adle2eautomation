@@ -36,16 +36,16 @@ public class leaseContractAction extends contractpo {
 		event.clickfield("cssSelector", table, 0);
 		event.inputfield("cssSelector", contract, "10000", 0);
 		List<WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
-		if (a.size() == 1) {
-			String a1 = driver.findElement(By.cssSelector("adl-text-input[label='In-Service Date'] >div  >div + div"))
-					.getAttribute("class");
-			if (!(a1.contains("disabled"))) {
-				driver.findElement(By.cssSelector(inServiceDateTextBox)).click();
-				System.out.println("td[aria-label='" + getDate() + "']");
-				driver.findElement(By.cssSelector("td[aria-label='" + getDate() + "']")).click();
-			}
-
-		}
+//		if (a.size() == 1) {
+//			String a1 = driver.findElement(By.cssSelector("adl-text-input[label='In-Service Date'] >div  >div + div"))
+//					.getAttribute("class");
+//			if (!(a1.contains("disabled"))) {
+//				driver.findElement(By.cssSelector(inServiceDateTextBox)).click();
+//				System.out.println("td[aria-label='" + getDate() + "']");
+//				driver.findElement(By.cssSelector("td[aria-label='" + getDate() + "']")).click();
+//			}
+//
+//		}
 		driver.findElements(By.cssSelector(textbox)).get(14).clear();
 		event.inputfield("cssSelector", textbox, "20130", 14);
 		driver.findElements(By.cssSelector(textbox)).get(13).clear();

@@ -40,6 +40,11 @@ public class contractpo extends baseClass{
 	public String mileage = "adl-text-input[label=\"Mileage\"] >div >div >input";
 	public String getProductsButton = "button[type=\"submit\"]";
 	public String programCheckbox = "div[class=\"programs__checkboxes col-12 grid ng-star-inserted\"] >adl-checkbox";
+	public String coBuyer = ".customer__hascobuyer >adl-checkbox > div > mat-checkbox >label> div > input[type='checkbox']";
+	public String fieldbyLabelName(String label) {
+		
+		return "adl-text-input[label =\"" + label + "\"]>div >div:nth-child(2) >input";
+	}
 	
 	
 }

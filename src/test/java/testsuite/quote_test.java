@@ -2,8 +2,11 @@ package testsuite;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -19,16 +22,16 @@ public class quote_test extends createQuoteAction{
 	
 	/*************login to the application
 	 * @throws InterruptedException *********************/
-	@BeforeClass()
+	@BeforeClass
 	public void login() throws InterruptedException {
 		
 		navigate();
-		lo.login("dvidesdealer", "4558600");
+		lo.login(prop.getProperty("username1"), prop.getProperty("password"));
 		vo.navigatetoContract();
 	}
 	
 	/********************quote creation test case****************/
-	@Test(priority = 1)
+	@Test(priority = 5)
     public void createQuote1() throws InterruptedException {
 		
 		printQuote();		
@@ -36,7 +39,7 @@ public class quote_test extends createQuoteAction{
 	}
 	
 	/********************quote creation test case****************/
-	@Test(priority = 2, dataProvider ="test1")
+	@Test(priority = 6, dataProvider ="test1")
     public void createQuote1(String [] inputArray) throws InterruptedException {
 		
 		

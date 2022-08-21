@@ -22,6 +22,7 @@ public class loginAction extends loginpo {
 	 * @throws InterruptedException *****************************************/
 	public String login(String username, String password) throws InterruptedException {
 		
+		
 		driver.findElement(By.cssSelector("input[placeholder=\"Enter your username\"]")).isDisplayed();
 		driver.findElement(By.cssSelector("input[placeholder=\"Enter your username\"]")).sendKeys(username);
 		driver.findElement(By.cssSelector("input[placeholder=\"Enter your password\"]")).isDisplayed();
@@ -78,8 +79,9 @@ public class loginAction extends loginpo {
 	
 	/***********************Login to ADL page 
 	 * @throws InterruptedException *****************************************/
-	public String login(String username, String password, String roleType) {
+	public String loginr(String username, String password, String roleType) {
 		
+		System.out.println("Hello world1");
 		event.inputfield("xpath", userpass, username, 0);
 		event.inputfield("xpath", userpass, password, 1);
 		event.clickfield("xpath", submit, 1);
@@ -105,7 +107,7 @@ public class loginAction extends loginpo {
 		 * @throws InterruptedException ***************************************/
 	public void logout() throws InterruptedException{
 		
-		Thread.sleep(9000);
+		Thread.sleep(11000);
 		driver.switchTo().defaultContent();
 		driver.findElement(By.cssSelector(io.logoutArrow)).isDisplayed();
 		driver.findElement(By.cssSelector(io.logoutArrow)).click();
