@@ -111,7 +111,7 @@ public class loginAction extends loginpo {
 		driver.switchTo().defaultContent();
 		driver.findElement(By.cssSelector(io.logoutArrow)).isDisplayed();
 		driver.findElement(By.cssSelector(io.logoutArrow)).click();
-		event.clickfield("xpath", logout);
+		event.clickfield("cssSelector", io.logout);
 	}
 
 }

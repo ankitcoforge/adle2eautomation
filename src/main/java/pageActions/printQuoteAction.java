@@ -113,26 +113,21 @@ public class printQuoteAction extends contractpo{
 		Thread.sleep(2000);
 		event.clearfield("cssSelector", phone);
 		event.inputfield("cssSelector", phone, "1234567890");
-		event.clickfield("xpath", savequote);
-		String text1 = event.text("cssSelector", successMessage);
-		Thread.sleep(4000);
 		HashSet<String> b = new HashSet<>();
 		b = isFileDownloaded( System.getProperty("user.dir") + "\\PDF", ".pdf");
-		event.clickfield("cssSelector", ".notification__container__actions > button");
-//		driver.findElement(By.xpath("//span[contains(text(),\"View / Print Contract\")]//..")).click();
-		Thread.sleep(3000);
+		System.out.println(b);
+		event.clickfield("xpath", savequote);
+//		String text1 = event.text("cssSelector", successMessage);
+		Thread.sleep(4000);
+		//event.clickfield("cssSelector", goToQuote);
 		HashSet<String> a1 = new HashSet<>();
 		a1 = isFileDownloaded( System.getProperty("user.dir") + "\\PDF", ".pdf");
 		a1.removeAll(b);
 		String pdfUrl = "file:///" +  System.getProperty("user.dir") + "\\PDF\\" + a1.toString().replaceAll("\\,|\\[|\\]|\\s", "");
 		String pdfUrl1 = pdfUrl.replace("\\", "/");
-		verifyContentInPDf(pdfUrl1, searchData1.get("Online Service Contract Quote"));
-		verifyContentInPDf(pdfUrl1, searchData1.get("program"));
-		verifyContentInPDf(pdfUrl1, searchData1.get("Firstname"));
-		verifyContentInPDf(pdfUrl, searchData1.get("Lastname"));
-		verifyContentInPDf(pdfUrl1, searchData1.get("Vin"));
+		verifyContentInPDf(pdfUrl1, "Online Service Contract Quote");
 		b.addAll(a1);
-		event.clickfield("xpath", newQuotelink);
+		event.clickfield("cssSelector", goToQuote);
 
 	}
 

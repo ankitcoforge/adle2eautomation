@@ -41,6 +41,8 @@ public class contractpo extends baseClass{
 	public String getProductsButton = "button[type=\"submit\"]";
 	public String programCheckbox = "div[class=\"programs__checkboxes col-12 grid ng-star-inserted\"] >adl-checkbox";
 	public String coBuyer = ".customer__hascobuyer >adl-checkbox > div > mat-checkbox >label> div > input[type='checkbox']";
+	public String goToQuote = ".notification__container__actions > a:nth-child(3)";
+	
 	public String fieldbyLabelName(String label) {
 		
 		return "adl-text-input[label =\"" + label + "\"]>div >div:nth-child(2) >input";

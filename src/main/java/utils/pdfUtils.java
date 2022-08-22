@@ -16,12 +16,13 @@ public class pdfUtils {
 		//specify the url of the pdf file
 		try {
 			String pdfContent = readPdfContent(url);
-			if(program.contains("Sentinel")) {
-				Assert.assertTrue(pdfContent.contains("Sentinel"));
-			}
-			else {
-				Assert.assertTrue(pdfContent.contains("AUL"));
-			}
+//			if(program.contains("Sentinel")) {
+//				Assert.assertTrue(pdfContent.contains("Sentinel"));
+//			}
+//			else {
+//				Assert.assertTrue(pdfContent.contains("AUL"));
+//			}
+			Assert.assertTrue(pdfContent.contains(program));
 			
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -40,7 +41,7 @@ public class pdfUtils {
 		System.out.println("The total number of pages "+numberOfPages);
 		String content = new PDFTextStripper().getText(doc);
 		doc.close();
-	
+	    System.out.println(content);
 	return content;
 }
 	
