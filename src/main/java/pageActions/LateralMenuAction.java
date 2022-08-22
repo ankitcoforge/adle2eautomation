@@ -13,8 +13,8 @@ import pageObjects.LateralMenupo;
 public class LateralMenuAction extends LateralMenupo{
 	
 	 public WebElement getTitle() {
-		 WebElement webContractTitle=driver.findElement(By.xpath(title));	
-		 return webContractTitle;
+		 WebElement welcomeTitle=driver.findElement(By.xpath(title));	
+		 return welcomeTitle;
 	 }
 	 
 	 public WebElement getLateralMenu() {
@@ -71,6 +71,21 @@ public class LateralMenuAction extends LateralMenupo{
 		public WebElement getAULlogo() {
 			 WebElement logo=driver.findElement(By.xpath(aulLogo));	
 			 return logo;
+		 }
+		
+		public WebElement getcontractSearchPageTitle() {
+			 WebElement contractSearch=driver.findElement(By.xpath(contractSearchTitle));	
+			 return contractSearch;
+		 }
+		
+		public WebElement getDashboardTitle() {
+			 WebElement dashboardTitleInPage=driver.findElement(By.xpath(dashboardTitle));	
+			 return dashboardTitleInPage;
+		 }
+		
+		public WebElement getGenerateQuoteTxt() {
+			 WebElement generateQuoteTitle=driver.findElement(By.xpath(generateQuoteTxt));	
+			 return generateQuoteTitle;
 		 }
 		
 		public void verifyContentInPDfForLateralMenuOptions(String url, String program) {

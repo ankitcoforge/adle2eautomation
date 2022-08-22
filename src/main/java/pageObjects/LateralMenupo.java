@@ -15,5 +15,7 @@ public class LateralMenupo extends baseClass{
 	public String aulLogo = "//img[@alt='AUL Logo']";
 	public String cancellationQuoteTitle = "//h3[text()='Cancellation Quote']";
 	public String cancellationHistoryTitle = "//h3[text()='Cancellation History']";
-
+	public String contractSearchTitle = "//h3[text()='Contract Search']";
+	public String dashboardTitle = "//h3[text()='Dashboard']";
+	public String generateQuoteTxt = "//h3[text()='To Generate a Quote Sign In as a Dealer']";
 }

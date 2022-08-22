@@ -3,6 +3,8 @@ package testsuite;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
+
 import org.openqa.selenium.support.Color;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -14,6 +16,7 @@ import org.testng.annotations.Test;
 import pageActions.LateralMenuAction;
 import pageActions.loginAction;
 import pageActions.verticalMenuAction;
+import pageObjects.impersonatepo;
 import utils.utilityClass;
 
 public class LateraMenu_test extends LateralMenuAction {
@@ -21,6 +24,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	loginAction login = new loginAction();
 	verticalMenuAction verticalMenu = new verticalMenuAction();
 	utilityClass utils = new utilityClass();
+	impersonatepo io = new impersonatepo ();
 
 	@BeforeMethod
 	public void login() throws InterruptedException {
@@ -981,9 +985,846 @@ public class LateraMenu_test extends LateralMenuAction {
 			Assert.assertTrue(list.contains("Help"));
 	}
 	
+	@Test(priority = 56)
+	public void verifyErateOptionPagesAsSubAgent_6916() throws InterruptedException  {
+		login.login(prop.getProperty("subagentUsername"), prop.getProperty("subagentPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		verticalMenu.navigatetoLeftMainMenu("E-Rate");
+		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
+		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Quote History"));
+		verticalMenu.navigatetoLeftMenu("Rate/Contract");
+		Thread.sleep(2000);
+		Assert.assertTrue(getRateContractTitle().isDisplayed());
+		Assert.assertTrue(driver.getCurrentUrl().contains("/rate/rate-contract"));
+		verticalMenu.navigatetoLeftMenu("Quote History");
+		Thread.sleep(2000);
+		Assert.assertTrue(getQuoteHistoryTitle().isDisplayed());
+		Assert.assertTrue(driver.getCurrentUrl().contains("/rate/quote-history"));
+	}
+	
+	@Test(priority = 57)
+	public void verifyDashboardByDefaultAsSubAgent_6917() throws InterruptedException  {
+		login.login(prop.getProperty("subagentUsername"), prop.getProperty("subagentPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getLateralMenuItems2().get(0).getText(),"Dashboard");
+		String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
+		String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
+		String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
+		Assert.assertEquals(dashBoardHighlighterColorInHexa, expectedOrangeColorInHexa ,"Dashboard highlighted by default");
+	}
+	
+	@Test(priority = 58)
+	public void verifyPrimaryLevelMenuCollapseByDoubleClickAsSubAgent_6919() throws InterruptedException {
+		login.login(prop.getProperty("subagentUsername"), prop.getProperty("subagentPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		verticalMenu.navigatetoLeftMainMenu("E-Rate");
+		Assert.assertEquals(getLaterMenuSubItems().size(), 2);
+		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
+		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Quote History"));
+		verticalMenu.navigatetoLeftMainMenu("E-Rate");
+		Assert.assertEquals(getLaterMenuSubItems().size(), 0);
+	}
+	
+	@Test(priority = 59)
+	public void verifyMenuClosesByClickingDiffOptionAsSubAgent_6920() throws InterruptedException {
+		login.login(prop.getProperty("subagentUsername"), prop.getProperty("subagentPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		verticalMenu.navigatetoLeftMainMenu("E-Rate");
+		String[] eRateArrowBefore = getMenu("button", "E-Rate").getText().split("E-Rate");
+		String eRateArrowTxtBefore = eRateArrowBefore[1].trim();
+		Assert.assertEquals(eRateArrowTxtBefore,"expand_more","Options are opened");
+		Assert.assertEquals(getLaterMenuSubItems().size(), 2);
+		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
+		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Quote History"));
+		verticalMenu.navigatetoLeftMainMenu("Agency Settings");
+		String[] eRateArrowAftr = getMenu("button", "E-Rate").getText().split("E-Rate");
+		String eRateArrowTxtAftr = eRateArrowAftr[1].trim();
+		Assert.assertEquals(eRateArrowTxtAftr,"chevron_right","Options are closed");
+		Assert.assertEquals(getLaterMenuSubItems().size(), 2);
+	}
+	
+	@Test(priority = 60)
+	public void verifyMenuEelementsAsSubAgent_6921() throws InterruptedException {
+		 login.login(prop.getProperty("subagentUsername"), prop.getProperty("subagentPassword"));
+		 Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		 String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
+		 String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
+		 String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
+		 Assert.assertEquals(dashBoardHighlighterColorInHexa, expectedOrangeColorInHexa ,"Dashboard highlighted by default");
+		 Assert.assertTrue(getAULlogo().isDisplayed());
+		 Assert.assertTrue(getLateralMenu().isDisplayed());
+		}
+	
+	@Test(priority = 61)
+	public void verifyPrimaryMenuHighlightedWhenClickedAsSubAgent_6922() throws InterruptedException {
+		 login.login(prop.getProperty("subagentUsername"), prop.getProperty("subagentPassword"));
+		 Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		 verticalMenu.navigatetoLeftMainMenu("E-Rate");
+		 String color = getMenu("button", "E-Rate").getCssValue("background-color");
+		 String eRateColorInHexa=Color.fromString(color).asHex();
+		 String expectedColorInHexa=prop.getProperty("whiteColorInHexaForm");
+		 Assert.assertEquals(eRateColorInHexa, expectedColorInHexa);
+	}
 	
 	
+	@Test(priority = 62)
+	public void verifyMenuOptionClosedByDefaultAsSubAgent_6924() throws InterruptedException {
+		 login.login(prop.getProperty("subagentUsername"), prop.getProperty("subagentPassword"));
+		 Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		 String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
+		 String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
+		 String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
+		 Assert.assertEquals(dashBoardHighlighterColorInHexa, expectedOrangeColorInHexa ,"Dashboard highlighted by default");
+		 String[] eRateArrow = getMenu("button", "E-Rate").getText().split("E-Rate");
+		 String eRateArrowTxt = eRateArrow[1].trim();
+		 Assert.assertEquals(eRateArrowTxt,"chevron_right","Options are closed and not expanded");
+		 String[] reportsArrw = getMenu("button", "Reports").getText().split("Reports");
+		 String reportsArrwTxt = reportsArrw[1].trim();
+		 Assert.assertEquals(reportsArrwTxt,"chevron_right","Options are closed and not expanded");
+		 String[] dealerSettingsArrw = getMenu("button", "Dealer Settings").getText().split("Dealer Settings");
+		 String dealerSettingsArrwTxt = dealerSettingsArrw[1].trim();
+		 Assert.assertEquals(dealerSettingsArrwTxt,"chevron_right","Options are closed and not expanded");
+		 String[] agencySettingsArrw = getMenu("button", "Agency Settings").getText().split("Agency Settings");
+		 String agencySettingsArrwTxt = agencySettingsArrw[1].trim();
+		 Assert.assertEquals(agencySettingsArrwTxt,"chevron_right","Options are closed and not expanded");
+		 String toolbox = getMenu("a", "Toolbox").getText();
+		 Assert.assertFalse(toolbox.contains("chevron_right"),"options are closed by default");
+		 String[] helpArrw = getMenu("button", "Help").getText().split("Help");
+		 String helpArrwTxt = helpArrw[1].trim();
+		 Assert.assertEquals(helpArrwTxt,"chevron_right","Options are closed and not expanded");
+	}
+	
+	@Test(priority = 63)
+	public void verifyErateOptionsAsSubAgent_6929() throws InterruptedException  {
+		login.login(prop.getProperty("subagentUsername"), prop.getProperty("subagentPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		verticalMenu.navigatetoLeftMainMenu("E-Rate");
+		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
+		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Quote History"));
+	}
+	
+	@Test(priority = 64)
+	public void verifyHelpMenuOptionsAsSubAgent_6936() throws InterruptedException {
+		login.login(prop.getProperty("subagentUsername"), prop.getProperty("subagentPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		verticalMenu.navigatetoLeftMainMenu("Help");
+		ArrayList<String> list = new ArrayList<String>();
+		for(int i=0; i<getLaterMenuSubItems().size(); i++) {
+			String submenuItem = getLaterMenuSubItems().get(i).getText();
+			list.add(submenuItem);
+		}
+			Assert.assertTrue(list.contains("Web Training Manual for E-Contracting"));
+			Assert.assertTrue(list.contains("Web Training Manual for Remittance"));
+			Assert.assertTrue(list.contains("Web Training Manual for SPP"));
+			Assert.assertTrue(list.contains("Web Training Manual for ACH Remit"));
+	}
+	
+	@Test(priority = 65)
+	public void verifyHelpMenuOptionPagesAsSubAgent_6937() throws InterruptedException, IOException {
+		login.login(prop.getProperty("subagentUsername"), prop.getProperty("subagentPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		verticalMenu.navigatetoLeftMainMenu("Help");
+		ArrayList<String> list = new ArrayList<String>();
+		for(int i=0; i<getLaterMenuSubItems().size(); i++) {
+			String submenuItem = getLaterMenuSubItems().get(i).getText();
+			list.add(submenuItem);
+		}
+			Assert.assertTrue(list.contains("Web Training Manual for E-Contracting"));
+			Assert.assertTrue(list.contains("Web Training Manual for Remittance"));
+			Assert.assertTrue(list.contains("Web Training Manual for SPP"));
+			Assert.assertTrue(list.contains("Web Training Manual for ACH Remit"));
+			verticalMenu.navigatetoLeftMenu("Web Training Manual for E-Contracting");
+			String eContractingUrl="https://qa.secure.aulcorp.com/PDFFiles/EContracting_TrManual.pdf";
+			verifyContentInPDfForLateralMenuOptions(eContractingUrl,"Agent Dealer Lender Portal");
+			verticalMenu.navigatetoLeftMenu("Web Training Manual for Remittance");
+			String remittanceUrl="https://qa.secure.aulcorp.com/PDFFiles/Remittance_TrManual.pdf";
+			verifyContentInPDfForLateralMenuOptions(remittanceUrl,"Agent Dealer Lender Portal");
+			verticalMenu.navigatetoLeftMenu("Web Training Manual for SPP");
+			String sppUrl="https://qa.secure.aulcorp.com/PDFFiles/SPP_TrManual.pdf";
+			verifyContentInPDfForLateralMenuOptions(sppUrl,"PAYMENT PLAN PROGRAM");
+			verticalMenu.navigatetoLeftMenu("Web Training Manual for ACH Remit");
+			String achRemiturl="https://qa.secure.aulcorp.com/PDFFiles/ACH-RemitTrManual.pdf";
+			verifyContentInPDfForLateralMenuOptions(achRemiturl,"Agent Dealer Lender Portal");
+			Assert.assertTrue(getTitle().isDisplayed(),"Current page is still displayed");
+	}
+	
+	@Test(priority = 66)
+	public void verifyAvailableOptionsAsLender_6946() throws InterruptedException {
+		login.login(prop.getProperty("lenderusername"), prop.getProperty("lenderpassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		String dashBoard = getLateralMenuItems2().get(0).getText();
+		String toolbox = getLateralMenuItems2().get(1).getText();
+		ArrayList<String> list = new ArrayList<String>();
+		for(int i=0; i<getLateralMenuItems1().size(); i++) {
+			String[] menuItem = getLateralMenuItems1().get(i).getText().split("chevron_right");
+			list.add(menuItem[0].trim());
+			list.add(toolbox);
+			list.add(dashBoard);
+		}
+		    Assert.assertTrue(list.contains("Dashboard"));
+			Assert.assertTrue(list.contains("E-Rate"));
+			Assert.assertTrue(list.contains("Contracts"));
+			Assert.assertTrue(list.contains("Cancellations"));
+			Assert.assertTrue(list.contains("Reports"));
+			Assert.assertTrue(list.contains("My Settings"));
+			Assert.assertTrue(list.contains("Toolbox"));
+			Assert.assertTrue(list.contains("Help"));
+	}
+	
+	@Test(priority = 67)
+	public void verifyERateOptionsAsLender_6947() throws InterruptedException  {
+		login.login(prop.getProperty("lenderusername"), prop.getProperty("lenderpassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		verticalMenu.navigatetoLeftMainMenu("E-Rate");
+		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
+		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Quote History"));
+	}
+	
+	@Test(priority = 68)
+	public void verifyContractOptionsAsLender_6948() throws InterruptedException  {
+		login.login(prop.getProperty("lenderusername"), prop.getProperty("lenderpassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		verticalMenu.navigatetoLeftMainMenu("Contracts");
+		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Contract Search"));
+		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Remit AUL VSC/LW"));
+		Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Edit Remit AUL VSC/LW"));
+	}
+	
+	@Test(priority = 69)
+	public void verifyHelpMenuOptionsAsLender_6951() throws InterruptedException {
+		login.login(prop.getProperty("lenderusername"), prop.getProperty("lenderpassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		verticalMenu.navigatetoLeftMainMenu("Help");
+		ArrayList<String> list = new ArrayList<String>();
+		for(int i=0; i<getLaterMenuSubItems().size(); i++) {
+			String submenuItem = getLaterMenuSubItems().get(i).getText();
+			list.add(submenuItem);
+		}
+			Assert.assertTrue(list.contains("Web Training Manual for E-Contracting"));
+			Assert.assertTrue(list.contains("Web Training Manual for Remittance"));
+			Assert.assertTrue(list.contains("Web Training Manual for SPP"));
+			Assert.assertTrue(list.contains("Web Training Manual for ACH Remit"));
+	}
+	
+	@Test(priority = 70)
+	public void verifyErateOptionPagesAsLender_6953() throws InterruptedException  {
+		login.login(prop.getProperty("lenderusername"), prop.getProperty("lenderpassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		verticalMenu.navigatetoLeftMainMenu("E-Rate");
+		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
+		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Quote History"));
+		verticalMenu.navigatetoLeftMenu("Rate/Contract");
+		Thread.sleep(2000);
+		Assert.assertTrue(getRateContractTitle().isDisplayed());
+		Assert.assertTrue(driver.getCurrentUrl().contains("/rate/rate-contract"));
+		verticalMenu.navigatetoLeftMenu("Quote History");
+		Thread.sleep(2000);
+		Assert.assertTrue(getQuoteHistoryTitle().isDisplayed());
+		Assert.assertTrue(driver.getCurrentUrl().contains("/rate/quote-history"));
+	}
+	
+	
+	@Test(priority = 71)
+	public void verifyContractOptionPageAsLender_6954() throws InterruptedException  {
+		login.login(prop.getProperty("lenderusername"), prop.getProperty("lenderpassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		verticalMenu.navigatetoLeftMainMenu("Contracts");
+		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Contract Search"));
+		verticalMenu.navigatetoLeftMenu("Contract Search");
+		Thread.sleep(2000);
+		Assert.assertTrue(getcontractSearchPageTitle().isDisplayed());
+		Assert.assertTrue(driver.getCurrentUrl().contains("/contracts/contract-search"));
+	}
+	
+	@Test(priority = 72)
+	public void verifyHelpMenuOptionPagesAsLender_6957() throws InterruptedException, IOException {
+		login.login(prop.getProperty("lenderusername"), prop.getProperty("lenderpassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		verticalMenu.navigatetoLeftMainMenu("Help");
+		ArrayList<String> list = new ArrayList<String>();
+		for(int i=0; i<getLaterMenuSubItems().size(); i++) {
+			String submenuItem = getLaterMenuSubItems().get(i).getText();
+			list.add(submenuItem);
+		}
+			Assert.assertTrue(list.contains("Web Training Manual for E-Contracting"));
+			Assert.assertTrue(list.contains("Web Training Manual for Remittance"));
+			Assert.assertTrue(list.contains("Web Training Manual for SPP"));
+			Assert.assertTrue(list.contains("Web Training Manual for ACH Remit"));
+			verticalMenu.navigatetoLeftMenu("Web Training Manual for E-Contracting");
+			String eContractingUrl="https://qa.secure.aulcorp.com/PDFFiles/EContracting_TrManual.pdf";
+			verifyContentInPDfForLateralMenuOptions(eContractingUrl,"Agent Dealer Lender Portal");
+			verticalMenu.navigatetoLeftMenu("Web Training Manual for Remittance");
+			String remittanceUrl="https://qa.secure.aulcorp.com/PDFFiles/Remittance_TrManual.pdf";
+			verifyContentInPDfForLateralMenuOptions(remittanceUrl,"Agent Dealer Lender Portal");
+			verticalMenu.navigatetoLeftMenu("Web Training Manual for SPP");
+			String sppUrl="https://qa.secure.aulcorp.com/PDFFiles/SPP_TrManual.pdf";
+			verifyContentInPDfForLateralMenuOptions(sppUrl,"PAYMENT PLAN PROGRAM");
+			verticalMenu.navigatetoLeftMenu("Web Training Manual for ACH Remit");
+			String achRemiturl="https://qa.secure.aulcorp.com/PDFFiles/ACH-RemitTrManual.pdf";
+			verifyContentInPDfForLateralMenuOptions(achRemiturl,"Agent Dealer Lender Portal");
+			Assert.assertTrue(getTitle().isDisplayed(),"Current page is still displayed");
+	}
+	
+	@Test(priority = 73)
+	public void verifyPrimaryLevelMenuCollapseByDoubleClickAsLender_6959() throws InterruptedException {
+		login.login(prop.getProperty("lenderusername"), prop.getProperty("lenderpassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		verticalMenu.navigatetoLeftMainMenu("E-Rate");
+		Assert.assertEquals(getLaterMenuSubItems().size(), 2);
+		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
+		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Quote History"));
+		verticalMenu.navigatetoLeftMainMenu("E-Rate");
+		Assert.assertEquals(getLaterMenuSubItems().size(), 0);
+		 Assert.assertTrue(getTitle().isDisplayed());
+		 String[] erateArrow = getMenu("button", "E-Rate").getText().split("E-Rate");
+		 String erateArrowTxt = erateArrow[1].trim();
+		 Assert.assertEquals(erateArrowTxt,"chevron_right","Arrow has changed from down to right");
+	}
+	
+	@Test(priority = 74)
+	public void verifyMenuClosesByClickingDiffOptionAsLender_6960() throws InterruptedException {
+		login.login(prop.getProperty("lenderusername"), prop.getProperty("lenderpassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		verticalMenu.navigatetoLeftMainMenu("E-Rate");
+		String[] eRateArrowBefore = getMenu("button", "E-Rate").getText().split("E-Rate");
+		String eRateArrowTxtBefore = eRateArrowBefore[1].trim();
+		Assert.assertEquals(eRateArrowTxtBefore,"expand_more","Options are opened");
+		Assert.assertEquals(getLaterMenuSubItems().size(), 2);
+		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
+		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Quote History"));
+		verticalMenu.navigatetoLeftMainMenu("Contracts");
+		Assert.assertEquals(getLaterMenuSubItems().size(), 3);
+		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Contract Search"));
+		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Remit AUL VSC/LW"));
+		Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Edit Remit AUL VSC/LW"));
+		String[] eRateArrowAftr = getMenu("button", "E-Rate").getText().split("E-Rate");
+		String eRateArrowTxtAftr = eRateArrowAftr[1].trim();
+		Assert.assertEquals(eRateArrowTxtAftr,"chevron_right","Options are closed and arrow changed from down to right");
+	}
+	
+	
+	@Test(priority = 75)
+	public void verifyMenuEelementsAsLender_6961() throws InterruptedException {
+		 login.login(prop.getProperty("lenderusername"), prop.getProperty("lenderpassword"));
+		 Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		 String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
+		 String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
+		 String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
+		 Assert.assertEquals(dashBoardHighlighterColorInHexa, expectedOrangeColorInHexa ,"Dashboard highlighted by default");
+		 Assert.assertTrue(getAULlogo().isDisplayed());
+		 Assert.assertTrue(getLateralMenu().isDisplayed());
+		}
+	
+	@Test(priority = 76)
+	public void verifyMenuOptionClosedByDefaultAsLender_6963() throws InterruptedException {
+		login.login(prop.getProperty("lenderusername"), prop.getProperty("lenderpassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		 String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
+		 String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
+		 String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
+		 Assert.assertEquals(dashBoardHighlighterColorInHexa, expectedOrangeColorInHexa ,"Dashboard highlighted by default");
+		 String[] eRateArrow = getMenu("button", "E-Rate").getText().split("E-Rate");
+		 String eRateArrowTxt = eRateArrow[1].trim();
+		 Assert.assertEquals(eRateArrowTxt,"chevron_right","Options are closed and not expanded");
+		 String[] contractsArrw = getMenu("button", "Contracts").getText().split("Contracts");
+		 String contractsArrwTxt = contractsArrw[1].trim();
+		 Assert.assertEquals(contractsArrwTxt,"chevron_right","Options are closed and not expanded");
+		 String[] cancellationsArrw = getMenu("button", "Cancellations").getText().split("Cancellations");
+		 String cancellationsArrwTxt = cancellationsArrw[1].trim();
+		 Assert.assertEquals(cancellationsArrwTxt,"chevron_right","Options are closed and not expanded");
+		 String[] reportsArrw = getMenu("button", "Reports").getText().split("Reports");
+		 String reportsArrwTxt = reportsArrw[1].trim();
+		 Assert.assertEquals(reportsArrwTxt,"chevron_right","Options are closed and not expanded");
+		 String[] mySettingsArrw = getMenu("button", "My Settings").getText().split("My Settings");
+		 String mySettingsArrwTxt = mySettingsArrw[1].trim();
+		 Assert.assertEquals(mySettingsArrwTxt,"chevron_right","Options are closed and not expanded");
+		 String toolbox = getMenu("a", "Toolbox").getText();
+		 Assert.assertFalse(toolbox.contains("chevron_right"),"options are closed by default");
+		 String[] helpArrw = getMenu("button", "Help").getText().split("Help");
+		 String helpArrwTxt = helpArrw[1].trim();
+		 Assert.assertEquals(helpArrwTxt,"chevron_right","Options are closed and not expanded");
+	}
+	
+	@Test(priority = 77)
+	public void verifyClickOnPrimaryLevelMenuAsLender_6964() throws InterruptedException {
+		login.login(prop.getProperty("lenderusername"), prop.getProperty("lenderpassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		
+		String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
+		String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
+		String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
+		Assert.assertEquals(dashBoardHighlighterColorInHexa, expectedOrangeColorInHexa ,"Dashboard highlighted by default");
+		
+		verticalMenu.navigatetoLeftMainMenu("E-Rate");
+		Assert.assertEquals(getLaterMenuSubItems().size(), 2);
+		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
+		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Quote History"));
+		Assert.assertTrue(getTitle().isDisplayed());
+		String[] erateArrw = getMenu("button", "E-Rate").getText().split("E-Rate");
+		String erateArrwTxt = erateArrw[1].trim();
+		Assert.assertEquals(erateArrwTxt,"expand_more","Arrow has changed from right to down");
+	}
+	
+	@Test(priority = 78)
+	public void verifyDashboardHighlightedByDefaultForLenderEmp_6984() throws InterruptedException  {
+		login.login(prop.getProperty("lenderEmpUsername"), prop.getProperty("lenderEmpPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		Assert.assertEquals(getLateralMenuItems2().get(0).getText(),"Dashboard");
+		String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
+		String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
+		String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
+		Assert.assertEquals(dashBoardHighlighterColorInHexa, expectedOrangeColorInHexa ,"Dashboard highlighted by default");
+	}
+	
+	@Test(priority = 79)
+	public void verifyAvailableOptionsAsLenderEmp_6985() throws InterruptedException {
+		login.login(prop.getProperty("lenderEmpUsername"), prop.getProperty("lenderEmpPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		String dashBoard = getLateralMenuItems2().get(0).getText();
+		String toolbox = getLateralMenuItems2().get(1).getText();
+		ArrayList<String> list = new ArrayList<String>();
+		for(int i=0; i<getLateralMenuItems1().size(); i++) {
+			String[] menuItem = getLateralMenuItems1().get(i).getText().split("chevron_right");
+			list.add(menuItem[0].trim());
+			list.add(toolbox);
+			list.add(dashBoard);
+		}
+		    Assert.assertTrue(list.contains("Dashboard"));
+			Assert.assertTrue(list.contains("E-Rate"));
+			Assert.assertTrue(list.contains("Contracts"));
+			Assert.assertTrue(list.contains("Cancellations"));
+			Assert.assertTrue(list.contains("Reports"));
+			Assert.assertTrue(list.contains("My Settings"));
+			Assert.assertTrue(list.contains("Toolbox"));
+			Assert.assertTrue(list.contains("Help"));
+	}
+	
+	@Test(priority = 80)
+	public void verifyERateOptionsAsLenderEmp_6986() throws InterruptedException  {
+		login.login(prop.getProperty("lenderEmpUsername"), prop.getProperty("lenderEmpPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		verticalMenu.navigatetoLeftMainMenu("E-Rate");
+		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
+		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Quote History"));
+	}
+	
+	@Test(priority = 81)
+	public void verifyContractOptionsAsLenderEmp_6987() throws InterruptedException  {
+		login.login(prop.getProperty("lenderEmpUsername"), prop.getProperty("lenderEmpPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		verticalMenu.navigatetoLeftMainMenu("Contracts");
+		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Contract Search"));
+		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Remit AUL VSC/LW"));
+		Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Edit Remit AUL VSC/LW"));
+	}
+	
+	@Test(priority = 82)
+	public void verifyHelpMenuOptionsAsLenderEmp_6990() throws InterruptedException {
+		login.login(prop.getProperty("lenderEmpUsername"), prop.getProperty("lenderEmpPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		verticalMenu.navigatetoLeftMainMenu("Help");
+		ArrayList<String> list = new ArrayList<String>();
+		for(int i=0; i<getLaterMenuSubItems().size(); i++) {
+			String submenuItem = getLaterMenuSubItems().get(i).getText();
+			list.add(submenuItem);
+		}
+			Assert.assertTrue(list.contains("Web Training Manual for E-Contracting"));
+			Assert.assertTrue(list.contains("Web Training Manual for Remittance"));
+			Assert.assertTrue(list.contains("Web Training Manual for SPP"));
+			Assert.assertTrue(list.contains("Web Training Manual for ACH Remit"));
+	}
+	
+	@Test(priority = 83)
+	public void verifyErateOptionPagesAsLenderEmp_6991() throws InterruptedException  {
+		login.login(prop.getProperty("lenderEmpUsername"), prop.getProperty("lenderEmpPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		verticalMenu.navigatetoLeftMainMenu("E-Rate");
+		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
+		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Quote History"));
+		verticalMenu.navigatetoLeftMenu("Rate/Contract");
+		Thread.sleep(2000);
+		Assert.assertTrue(getRateContractTitle().isDisplayed());
+		Assert.assertTrue(driver.getCurrentUrl().contains("/rate/rate-contract"));
+		verticalMenu.navigatetoLeftMenu("Quote History");
+		Thread.sleep(2000);
+		Assert.assertTrue(getQuoteHistoryTitle().isDisplayed());
+		Assert.assertTrue(driver.getCurrentUrl().contains("/rate/quote-history"));
+	}
+	
+	
+	
+	@Test(priority = 84)
+	public void verifyHelpMenuOptionPagesAsLenderEmp_6997() throws InterruptedException, IOException {
+		login.login(prop.getProperty("lenderEmpUsername"), prop.getProperty("lenderEmpPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		verticalMenu.navigatetoLeftMainMenu("Help");
+		ArrayList<String> list = new ArrayList<String>();
+		for(int i=0; i<getLaterMenuSubItems().size(); i++) {
+			String submenuItem = getLaterMenuSubItems().get(i).getText();
+			list.add(submenuItem);
+		}
+			Assert.assertTrue(list.contains("Web Training Manual for E-Contracting"));
+			Assert.assertTrue(list.contains("Web Training Manual for Remittance"));
+			Assert.assertTrue(list.contains("Web Training Manual for SPP"));
+			Assert.assertTrue(list.contains("Web Training Manual for ACH Remit"));
+			verticalMenu.navigatetoLeftMenu("Web Training Manual for E-Contracting");
+			String eContractingUrl="https://qa.secure.aulcorp.com/PDFFiles/EContracting_TrManual.pdf";
+			verifyContentInPDfForLateralMenuOptions(eContractingUrl,"Agent Dealer Lender Portal");
+			verticalMenu.navigatetoLeftMenu("Web Training Manual for Remittance");
+			String remittanceUrl="https://qa.secure.aulcorp.com/PDFFiles/Remittance_TrManual.pdf";
+			verifyContentInPDfForLateralMenuOptions(remittanceUrl,"Agent Dealer Lender Portal");
+			verticalMenu.navigatetoLeftMenu("Web Training Manual for SPP");
+			String sppUrl="https://qa.secure.aulcorp.com/PDFFiles/SPP_TrManual.pdf";
+			verifyContentInPDfForLateralMenuOptions(sppUrl,"PAYMENT PLAN PROGRAM");
+			verticalMenu.navigatetoLeftMenu("Web Training Manual for ACH Remit");
+			String achRemiturl="https://qa.secure.aulcorp.com/PDFFiles/ACH-RemitTrManual.pdf";
+			verifyContentInPDfForLateralMenuOptions(achRemiturl,"Agent Dealer Lender Portal");
+			Assert.assertTrue(getTitle().isDisplayed(),"Current page is still displayed");
+	}
+	
+	@Test(priority = 85)
+	public void verifyPrimaryLevelMenuCollapseByDoubleClickAsLenderEmp_7002() throws InterruptedException {
+		login.login(prop.getProperty("lenderEmpUsername"), prop.getProperty("lenderEmpPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		verticalMenu.navigatetoLeftMainMenu("E-Rate");
+		Assert.assertEquals(getLaterMenuSubItems().size(), 2);
+		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
+		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Quote History"));
+		verticalMenu.navigatetoLeftMainMenu("E-Rate");
+		Assert.assertEquals(getLaterMenuSubItems().size(), 0);
+		 Assert.assertTrue(getTitle().isDisplayed());
+		 String[] erateArrow = getMenu("button", "E-Rate").getText().split("E-Rate");
+		 String erateArrowTxt = erateArrow[1].trim();
+		 Assert.assertEquals(erateArrowTxt,"chevron_right","Arrow has changed from down to right");
+	}
+	
+	@Test(priority = 86)
+	public void verifyMenuClosesByClickingDiffOptionAsLenderEmp_7003() throws InterruptedException {
+		login.login(prop.getProperty("lenderEmpUsername"), prop.getProperty("lenderEmpPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		verticalMenu.navigatetoLeftMainMenu("E-Rate");
+		String[] eRateArrowBefore = getMenu("button", "E-Rate").getText().split("E-Rate");
+		String eRateArrowTxtBefore = eRateArrowBefore[1].trim();
+		Assert.assertEquals(eRateArrowTxtBefore,"expand_more","Options are opened");
+		Assert.assertEquals(getLaterMenuSubItems().size(), 2);
+		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
+		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Quote History"));
+		verticalMenu.navigatetoLeftMainMenu("Contracts");
+		Assert.assertEquals(getLaterMenuSubItems().size(), 3);
+		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Contract Search"));
+		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Remit AUL VSC/LW"));
+		Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Edit Remit AUL VSC/LW"));
+		String[] eRateArrowAftr = getMenu("button", "E-Rate").getText().split("E-Rate");
+		String eRateArrowTxtAftr = eRateArrowAftr[1].trim();
+		Assert.assertEquals(eRateArrowTxtAftr,"chevron_right","Options are closed and arrow changed from down to right");
+	}
+	
+	
+	@Test(priority = 87)
+	public void verifyMenuEelementsAsLenderEmp_7005() throws InterruptedException {
+		 login.login(prop.getProperty("lenderEmpUsername"), prop.getProperty("lenderEmpPassword"));
+		 Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		 String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
+		 String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
+		 String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
+		 Assert.assertEquals(dashBoardHighlighterColorInHexa, expectedOrangeColorInHexa ,"Dashboard highlighted by default");
+		 Assert.assertTrue(getAULlogo().isDisplayed());
+		 Assert.assertTrue(getLateralMenu().isDisplayed());
+		}
+	
+	@Test(priority = 88)
+	public void verifyMenuOptionClosedByDefaultAsLenderEmp_7006() throws InterruptedException {
+		 login.login(prop.getProperty("lenderEmpUsername"), prop.getProperty("lenderEmpPassword"));
+		 Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		 String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
+		 String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
+		 String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
+		 Assert.assertEquals(dashBoardHighlighterColorInHexa, expectedOrangeColorInHexa ,"Dashboard highlighted by default");
+		 String[] eRateArrow = getMenu("button", "E-Rate").getText().split("E-Rate");
+		 String eRateArrowTxt = eRateArrow[1].trim();
+		 Assert.assertEquals(eRateArrowTxt,"chevron_right","Options are closed and not expanded");
+		 String[] contractsArrw = getMenu("button", "Contracts").getText().split("Contracts");
+		 String contractsArrwTxt = contractsArrw[1].trim();
+		 Assert.assertEquals(contractsArrwTxt,"chevron_right","Options are closed and not expanded");
+		 String[] cancellationsArrw = getMenu("button", "Cancellations").getText().split("Cancellations");
+		 String cancellationsArrwTxt = cancellationsArrw[1].trim();
+		 Assert.assertEquals(cancellationsArrwTxt,"chevron_right","Options are closed and not expanded");
+		 String[] reportsArrw = getMenu("button", "Reports").getText().split("Reports");
+		 String reportsArrwTxt = reportsArrw[1].trim();
+		 Assert.assertEquals(reportsArrwTxt,"chevron_right","Options are closed and not expanded");
+		 String[] mySettingsArrw = getMenu("button", "My Settings").getText().split("My Settings");
+		 String mySettingsArrwTxt = mySettingsArrw[1].trim();
+		 Assert.assertEquals(mySettingsArrwTxt,"chevron_right","Options are closed and not expanded");
+		 String toolbox = getMenu("a", "Toolbox").getText();
+		 Assert.assertFalse(toolbox.contains("chevron_right"),"options are closed by default");
+		 String[] helpArrw = getMenu("button", "Help").getText().split("Help");
+		 String helpArrwTxt = helpArrw[1].trim();
+		 Assert.assertEquals(helpArrwTxt,"chevron_right","Options are closed and not expanded");
+	}
+	
+	@Test(priority = 89)
+	public void verifyClickOnPrimaryLevelMenuAsLenderEmp_7007() throws InterruptedException {
+		login.login(prop.getProperty("lenderEmpUsername"), prop.getProperty("lenderEmpPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		
+		String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
+		String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
+		String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
+		Assert.assertEquals(dashBoardHighlighterColorInHexa, expectedOrangeColorInHexa ,"Dashboard highlighted by default");
+		
+		verticalMenu.navigatetoLeftMainMenu("E-Rate");
+		Assert.assertEquals(getLaterMenuSubItems().size(), 2);
+		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
+		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Quote History"));
+		Assert.assertTrue(getTitle().isDisplayed());
+		String[] erateArrw = getMenu("button", "E-Rate").getText().split("E-Rate");
+		String erateArrwTxt = erateArrw[1].trim();
+		Assert.assertEquals(erateArrwTxt,"expand_more","Arrow has changed from right to down");
+	}
+	
+	@Test(priority = 90)
+	public void verifySignInAndSignOutAccessUsingURLAsAgent_7123() throws InterruptedException {
+		login.login(prop.getProperty("lenderEmpUsername"), prop.getProperty("lenderEmpPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		driver.get(prop.getProperty("signOutURL"));
+		Assert.assertTrue(getDashboardTitle().isDisplayed());
+		
+	}
+	
+	@Test(priority = 91)
+	public void verifySignInAndSignOutAccessUsingURLAsSubAgent_7124() throws InterruptedException {
+		login.login(prop.getProperty("subagentUsername"), prop.getProperty("subagentPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		driver.get(prop.getProperty("signOutURL"));
+		Assert.assertTrue(getDashboardTitle().isDisplayed());
+		
+	}
+	
+	@Test(priority = 92)
+	public void verifySignInAndSignOutAccessUsingURLAsLender_7125() throws InterruptedException {
+		login.login(prop.getProperty("lenderusername"), prop.getProperty("lenderpassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		driver.get(prop.getProperty("signOutURL"));
+		Assert.assertTrue(getDashboardTitle().isDisplayed());
+	}
+	
+	@Test(priority = 93)
+	public void verifySignInAndSignOutAccessUsingURLAsLenderEmpUser_7125() throws InterruptedException {
+		login.login(prop.getProperty("lenderEmpUsername"), prop.getProperty("lenderEmpPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		driver.get(prop.getProperty("signOutURL"));
+		Assert.assertTrue(getDashboardTitle().isDisplayed());
+	}
+	
+	@Test(priority = 94)
+	public void verifyDashboardOptionLinkFunctionalityForDealerGroupUser_15750() throws InterruptedException {
+		login.login(prop.getProperty("dealerGroupUserName"), prop.getProperty("dealerGroupPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		getLateralMenuItems2().get(0).click();
+		Assert.assertTrue(driver.getCurrentUrl().contains("adl.aulcorp.com/portal"));
+	}
+	
+	@Test(priority = 95)
+	public void verifyRateOrContractMenuOptionLinkForDealerGroupUser_15753() throws InterruptedException {
+		login.login(prop.getProperty("dealerGroupUserName"), prop.getProperty("dealerGroupPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		Assert.assertTrue(getGenerateQuoteTxt().getText().equals("To Generate a Quote Sign In as a Dealer"));
+	}
+	
+	
+	
+	@Test(priority = 96)
+	public void verifyContractsOptionInMenuForDealerGroupUser_15755() throws InterruptedException {
+		login.login(prop.getProperty("dealerGroupUserName"), prop.getProperty("dealerGroupPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		verticalMenu.navigatetoLeftMainMenu("Contracts");
+		ArrayList<String> list = new ArrayList<String>();
+		for(int i=0; i<getLaterMenuSubItems().size(); i++) {
+			String subItem = getLaterMenuSubItems().get(i).getText();
+			list.add(subItem.trim());
+		}
+			Assert.assertTrue(list.contains("Contract Search"));
+	}
+	
+	
+	@Test(priority = 97)
+	public void verifyContractsOptionLinkInMenuForDealerGroupUser_15758() throws InterruptedException {
+		login.login(prop.getProperty("dealerGroupUserName"), prop.getProperty("dealerGroupPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
+		Assert.assertTrue(driver.getCurrentUrl().contains("qa.adl.aulcorp.com/portal/contracts/contract-search"));
+	}
+	
+	@Test(priority = 98)
+	public void verifyRemitGAPmenuOptionForDealerGroupUser_15790() throws InterruptedException {
+		login.login(prop.getProperty("dealerGroupUserName"), prop.getProperty("dealerGroupPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		verticalMenu.navigatetoLeftMainMenu("Contracts");
+		ArrayList<String> list = new ArrayList<String>();
+		for(int i=0; i<getLaterMenuSubItems().size(); i++) {
+			String subItem = getLaterMenuSubItems().get(i).getText();
+			list.add(subItem.trim());
+		}
+			Assert.assertTrue(list.contains("Remit GAP"));
+	}
+	
+	
+	@Test(priority = 99)
+	public void verifyRemitGAPmenuOptionLinkForDealerGroupUser_15794() throws InterruptedException {
+		login.login(prop.getProperty("dealerGroupUserName"), prop.getProperty("dealerGroupPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit GAP");
+		ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
+		String currentWindow= windowHandles.get(1);
+		driver.switchTo().window(currentWindow);
+		Assert.assertTrue(driver.getCurrentUrl().contains("scsautoexpress.com/scs.dap.aul/UserLogin.aspx"));
+		driver.close();
+		String baseWindow= windowHandles.get(0);
+		driver.switchTo().window(baseWindow);
+	}
+	
+	@Test(priority = 100)
+	public void verifyRemitAncillarymenuOptionLinkForDealerGroupUser_15797() throws InterruptedException {
+		login.login(prop.getProperty("dealerGroupUserName"), prop.getProperty("dealerGroupPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Ancillary");
+		ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
+		String currentWindow= windowHandles.get(1);
+		driver.switchTo().window(currentWindow);
+		Assert.assertTrue(driver.getCurrentUrl().contains("portal.vehicleadminservices.com/Account/LogOn?ReturnUrl=%2fProducer%2fContract"));
+		driver.close();
+		String baseWindow= windowHandles.get(0);
+		driver.switchTo().window(baseWindow);
+	}
 
+	@Test(priority = 101)
+	public void verifyRemitAncillarymenuOptionForDealerGroupUser_15798() throws InterruptedException {
+		login.login(prop.getProperty("dealerGroupUserName"), prop.getProperty("dealerGroupPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		verticalMenu.navigatetoLeftMainMenu("Contracts");
+		ArrayList<String> list = new ArrayList<String>();
+		for(int i=0; i<getLaterMenuSubItems().size(); i++) {
+			String subItem = getLaterMenuSubItems().get(i).getText();
+			list.add(subItem.trim());
+		}
+			Assert.assertTrue(list.contains("Remit Ancillary"));
+	}
+	
+	@Test(priority = 102)
+	public void verifyStatementsOptionInMenuForDealerGroupUser_15801() throws InterruptedException {
+		login.login(prop.getProperty("dealerGroupUserName"), prop.getProperty("dealerGroupPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		verticalMenu.navigatetoLeftMainMenu("Reports");
+		ArrayList<String> list = new ArrayList<String>();
+		for(int i=0; i<getLaterMenuSubItems().size(); i++) {
+			String subItem = getLaterMenuSubItems().get(i).getText();
+			list.add(subItem.trim());
+		}
+			Assert.assertTrue(list.contains("Statements"));
+	}
+	
+	@Test(priority = 103)
+	public void verifyStatementsOptionLinkInMenuForDealerGroupUser_15802() throws InterruptedException {
+		login.login(prop.getProperty("dealerGroupUserName"), prop.getProperty("dealerGroupPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		verticalMenu.navigatetoLeftMenu("Reports", "Statements");
+		Assert.assertTrue(driver.getCurrentUrl().contains("qa.adl.aulcorp.com/portal/reports/statements"));
+		Thread.sleep(10000);
+	}
+	
+	@Test(priority = 104)
+	public void verifyImpersonateOptionInMenuForDealerGroupUser_15812() throws InterruptedException {
+		login.login(prop.getProperty("dealerGroupUserName"), prop.getProperty("dealerGroupPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		verticalMenu.navigatetoLeftMainMenu("My Settings");
+		ArrayList<String> list = new ArrayList<String>();
+		for(int i=0; i<getLaterMenuSubItems().size(); i++) {
+			String subItem = getLaterMenuSubItems().get(i).getText();
+			list.add(subItem.trim());
+		}
+			Assert.assertTrue(list.contains("Impersonate"));
+	}
+	
+	@Test(priority = 105)
+	public void verifyIssueNewRegistrationOptionLinkForDealerGroupUser_15813() throws InterruptedException {
+		login.login(prop.getProperty("dealerGroupUserName"), prop.getProperty("dealerGroupPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		verticalMenu.navigatetoLeftMenu("My Settings", "Issue New User Registration");
+		Assert.assertTrue(driver.getCurrentUrl().contains("qa.adl.aulcorp.com/portal/my-settings/issue-new-user"));
+	}
+	
+	@Test(priority = 106)
+	public void verifyIssueNewRegistrationOptionInMenuForDealerGroupUser_15815() throws InterruptedException {
+		login.login(prop.getProperty("dealerGroupUserName"), prop.getProperty("dealerGroupPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		verticalMenu.navigatetoLeftMainMenu("My Settings");
+		ArrayList<String> list = new ArrayList<String>();
+		for(int i=0; i<getLaterMenuSubItems().size(); i++) {
+			String subItem = getLaterMenuSubItems().get(i).getText();
+			list.add(subItem.trim());
+		}
+			Assert.assertTrue(list.contains("Issue New User Registration"));
+	}
+	
+	@Test(priority = 107)
+	public void verifyPreferencesOptionInMenuForDealerGroupUser_15816() throws InterruptedException {
+		login.login(prop.getProperty("dealerGroupUserName"), prop.getProperty("dealerGroupPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		verticalMenu.navigatetoLeftMainMenu("My Settings");
+		ArrayList<String> list = new ArrayList<String>();
+		for(int i=0; i<getLaterMenuSubItems().size(); i++) {
+			String subItem = getLaterMenuSubItems().get(i).getText();
+			list.add(subItem.trim());
+		}
+			Assert.assertTrue(list.contains("Preferences"));
+	}
+	
+	
+	//Aftr method getting Failed due to page load As page is having error
+	@Test(priority = 108)
+	public void verifyPreferencesOptionLinkForDealerGroupUser_15817() throws InterruptedException {
+		login.login(prop.getProperty("dealerGroupUserName"), prop.getProperty("dealerGroupPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		verticalMenu.navigatetoLeftMenu("My Settings", "Preferences");
+		Thread.sleep(10000);
+		Assert.assertTrue(driver.getCurrentUrl().contains("qa.adl.aulcorp.com/portal/my-settings/preferences"));
+	}
+	
+	
+	@Test(priority = 109)
+	public void verifyDashboardOptionForDealerGroupUser_15738() throws InterruptedException {
+		login.login(prop.getProperty("dealerGroupUserName"), prop.getProperty("dealerGroupPassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertTrue(getLateralMenu().isDisplayed());
+		Assert.assertEquals(getLateralMenuItems2().get(0).getText(),"Dashboard");
+	}
+	
+	
 	@AfterMethod
 	public void close() throws InterruptedException {
 		login.logout();
