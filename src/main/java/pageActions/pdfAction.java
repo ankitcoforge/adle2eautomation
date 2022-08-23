@@ -44,10 +44,10 @@ public class pdfAction extends contractpo {
 		ca.programSelect(searchData1.get("program"));
 		if ((searchData1.get("program").contains("Absolute Reserve Care Lease"))) {
 			js.executeScript("window.scrollTo(0, 2200)");
-			driver.findElement(By.cssSelector("adl-select[placeholder=\"Select Months\"]>ng-select")).click();
-			driver.findElement(By.cssSelector(".ng-dropdown-panel-items > div > div")).click();
-			driver.findElement(By.cssSelector("adl-select[placeholder=\"Select Miles\"]>ng-select")).click();
-			driver.findElement(By.cssSelector(".ng-dropdown-panel-items > div > div")).click();
+			driver.findElement(By.cssSelector(monthDropdown)).click();
+			driver.findElement(By.cssSelector(optionFirst)).click();
+			driver.findElement(By.cssSelector(milesDropdown)).click();
+			driver.findElement(By.cssSelector(optionFirst)).click();
 		}
 		event.clickfield("cssSelector", table, 0);
 		js.executeScript("window.scrollTo(0, 2400)");
@@ -75,7 +75,6 @@ public class pdfAction extends contractpo {
 		event.inputfield("cssSelector", phone, "1234567890");
 		event.clickfield("xpath", generateContract);
 		getDriver().findElement(By.xpath(gc.generateContractHeading)).isDisplayed();
-		Thread.sleep(2000);
 		event.clickfield("cssSelector", gc.checkbox, 0);
 		event.clickfield("cssSelector", gc.checkbox, 1);
 		event.clickfield("xpath", gc.genrateContractButton);
@@ -83,74 +82,16 @@ public class pdfAction extends contractpo {
 		HashSet<String> b = new HashSet<>();
 		b = isFileDownloaded( System.getProperty("user.dir") + "\\PDF", ".pdf");
 		event.clickfield("cssSelector", ".notification__container__actions > button");
-//		driver.findElement(By.xpath("//span[contains(text(),\"View / Print Contract\")]//..")).click();
+		event.clickfield("xpath", newQuotelink);
 		Thread.sleep(3000);
 		HashSet<String> a1 = new HashSet<>();
 		a1 = isFileDownloaded( System.getProperty("user.dir") + "\\PDF", ".pdf");
 		a1.removeAll(b);
 		String pdfUrl = "file:///" +  System.getProperty("user.dir") + "\\PDF\\" + a1.toString().replaceAll("\\,|\\[|\\]|\\s", "");
 		String pdfUrl1 = pdfUrl.replace("\\", "/");
-		verifyContentInPDf(pdfUrl1, searchData1.get("program"));
-		verifyContentInPDf(pdfUrl1, searchData1.get("Firstname"));
-		verifyContentInPDf(pdfUrl1, searchData1.get("Lastname"));
-		verifyContentInPDf(pdfUrl1, searchData1.get("Vin"));
+		verifyContentInPDf(pdfUrl1, "AUL");
 		b.addAll(a1);
-		event.clickfield("xpath", newQuotelink);
 
 	}
-
-//	public void verifyContentInPDf(String url, String program) {
-//		// specify the url of the pdf file
-//		try {
-//			String pdfContent = readPdfContent(url);
-//			if (program.contains("Sentinel")) {
-//				Assert.assertTrue(pdfContent.contains("Sentinel"));
-//			} else {
-//				Assert.assertTrue(pdfContent.contains("AUL"));
-//			}
-//
-//		} catch (MalformedURLException e) {
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//	}
-
-//	public static String readPdfContent(String url) throws IOException {
-//
-//		URL pdfUrl = new URL(url);
-//		InputStream in = pdfUrl.openStream();
-//		BufferedInputStream bf = new BufferedInputStream(in);
-//		PDDocument doc = PDDocument.load(bf);
-//		int numberOfPages = getPageCount(doc);
-//		System.out.println("The total number of pages " + numberOfPages);
-//		String content = new PDFTextStripper().getText(doc);
-//		doc.close();
-//
-//		return content;
-//	}
-//
-//	public int getPageCount(PDDocument doc) {
-//		// get the total number of pages in the pdf document
-//		int pageCount = doc.getNumberOfPages();
-//		return pageCount;
-//
-//	}
-
-//	public HashSet<String> isFileDownloaded(String downloadPath, String fileName) {
-////			boolean flag = false;
-//		String pathnames[] = null;
-//		File dir = new File(downloadPath);
-//		// Populates the array with names of files and directories
-//		pathnames = dir.list();
-//		// For each pathname in the pathnames array
-//		HashSet<String> a = new HashSet<>();
-//
-//		for (String pathname : pathnames) {
-//			// Print the names of files and directories
-//			a.add(pathname);
-//		}
-//		return a;
-//	}
 
 }

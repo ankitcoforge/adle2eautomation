@@ -42,7 +42,7 @@ public class contractSearch_test extends ContractSearchPageAction{
 
 		
 		@Test
-        public void pageredirection_15087_15228_15229_20716() throws InterruptedException {
+        public void pageredirection_15087_15228_15229_20716_21114() throws InterruptedException {
 			
 			
 			filterStatus("Entered");
@@ -54,12 +54,13 @@ public class contractSearch_test extends ContractSearchPageAction{
 		}
 		
 		@Test
-		public void headerVerification_20969() throws InterruptedException {
+		public void headerVerification_20969_20761() throws InterruptedException {
 			
 //			verticalMenu.navigatetoLeftMenu("Contracts","Contract Search");
 			ArrayList list = new ArrayList<> ();
 			list.addAll(Arrays.asList("","Select", "Status", "Remit Date", "CC Reward ID", "Contract", "VIN", "Program", "Lienholder", "Last Name", "Sale Date", "Processed Date", "Retail Price", "AUL Cost", "Cert Form", "Remit Form","" ,"" ,"" ));
 		    Assert.assertEquals(tableHeader(),list);
+		    Assert.assertEquals(dropDownValue(), "Customize");
 	         
 		}
 		
@@ -83,6 +84,39 @@ public class contractSearch_test extends ContractSearchPageAction{
 		    Assert.assertFalse(tableHeader().equals("Edit"));
 		      
 		}
+		
+		
+		@Test
+		public void expandContract_21098_21100() throws InterruptedException {
+			
+
+			expandRecord();
+			Assert.assertTrue(driver.findElement(By.cssSelector("td >.tr-expansible__container")).isDisplayed());
+			ArrayList heading =  new ArrayList<>(Arrays.asList(
+					"Year:", "Make:", "Model:", "Odometer Miles:", "Coverage:", "Remit No.:", "Class:", "Deductible:", "Disappearing Deductible:", "In-Service Date:", "Created By:", "Term:", "One Ton:", "Turbo:", "Seals & Gaskets:", "Four-All Wheel Drive:", "Diesel:", "Warranty Remaining:", "Lift Kit:", "Business Use:"));
+			Assert.assertEquals(details(), heading);
+			collapseRecord();
+		}
+		
+
+		@Test
+		public void expandTwoContract_21106() throws InterruptedException {
+			
+
+			expandTwoRecord();
+			Assert.assertTrue(driver.findElements(By.cssSelector("td >.tr-expansible__container")).get(0).isDisplayed());
+			Assert.assertTrue(driver.findElements(By.cssSelector("td >.tr-expansible__container")).get(1).isDisplayed());
+			collapseTwoRecord();
+		}
+		
+		@Test
+		public void delete_21111_21120() throws InterruptedException {
+			
+             Assert.assertEquals(deleteLink().getText(), "Delete");
+             Assert.assertTrue(deleteAttribute().getAttribute("class").contains("toolbar__delete--disabled"));
+			
+		}
+
 		
 		@Test
 		public void recordNumber_20731_20736() throws InterruptedException {

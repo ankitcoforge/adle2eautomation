@@ -11,4 +11,8 @@ public class ContractSearchPagepo extends baseClass{
 	public String searchBoxesBelowHeadersInGrid = "thead > adl-table-header > tr:nth-child(2) > td>div>div>input";
 	public String selectStatus = "thead > adl-table-header > tr:nth-child(2) > td>div>div>p-multiselect";
 	public String enteredStatusChkbox = "//li[@aria-label='Entered']/div/div/span";
+	public String dropdownValue = "span.ng-value-label";
+	public String details = ".tr-expansible__col-group__title > b";
+	
+	
 }

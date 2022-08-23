@@ -23,7 +23,6 @@ public class validatePDF_test extends pdfAction{
 		navigate();
 		lo.login(prop.getProperty("username1"),prop.getProperty("password"));
 		vo.navigatetoContract();
-		
 	}
 	
 	/*****************Contract creation test case***************/

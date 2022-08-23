@@ -42,6 +42,9 @@ public class contractpo extends baseClass{
 	public String programCheckbox = "div[class=\"programs__checkboxes col-12 grid ng-star-inserted\"] >adl-checkbox";
 	public String coBuyer = ".customer__hascobuyer >adl-checkbox > div > mat-checkbox >label> div > input[type='checkbox']";
 	public String goToQuote = ".notification__container__actions > a:nth-child(3)";
+	public String monthDropdown = "adl-select[placeholder=\"Select Months\"]>ng-select";
+	public String milesDropdown = "adl-select[placeholder=\"Select Miles\"]>ng-select";
+	public String optionFirst = ".ng-dropdown-panel-items > div > div";
 	
 	public String fieldbyLabelName(String label) {
 		

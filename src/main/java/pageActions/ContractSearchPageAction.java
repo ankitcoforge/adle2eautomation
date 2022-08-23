@@ -135,61 +135,107 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 		List<WebElement> allRows = utils.getElementsList("cssSelector", rowLoc);
 		System.out.println("No of rows in grid: " + allRows.size());
 		for (int i = 1; i <= allRows.size(); i++) {
-			if (i == 10) 	
-			utils.scrollDown();
+			if (i == 10)
+				utils.scrollDown();
 			// Getting specific row with each iteration
 			String specificRowLoc = "table>tbody>tr:nth-of-type(" + i + ")";
 			LinkedHashMap<String, WebElement> eachRowData = new LinkedHashMap<>();
 			for (int j = 3; j < allHeaderNames.size() - 4; j++) {
 				String specificRowColLoc = "td:nth-of-type(" + j + ")>adl-table-cells>div>span:nth-of-type(2)";
-				 WebElement cellValue = utils.element("cssSelector", specificRowLoc + ">" + specificRowColLoc);
-				eachRowData.put(allHeaderNames.get(j-1), cellValue);
+				WebElement cellValue = utils.element("cssSelector", specificRowLoc + ">" + specificRowColLoc);
+				eachRowData.put(allHeaderNames.get(j - 1), cellValue);
 			}
 			allTableData.put(i, eachRowData);
 		}
 		System.out.println("Complete Grid data: " + allTableData);
-		utils.scrollUp();	
+		utils.scrollUp();
 		return allTableData;
-		}
-	
-	
+	}
+
 	public WebElement selectStatusCheckBoxInGrid(int row) {
-			    utils.scrollDown();
-			    String specificRowLoc = "table>tbody>tr:nth-of-type(" + row + ")";
-				String specificRowColLoc = "td:nth-of-type(2)>adl-table-cells>div>mat-checkbox>label>div";
-				WebElement statusCheckBox = utils.element("cssSelector", specificRowLoc + ">" + specificRowColLoc);
-				return statusCheckBox;
-		}
-	
-	
-	 public WebElement getEditLink(int row) {
+		utils.scrollDown();
+		String specificRowLoc = "table>tbody>tr:nth-of-type(" + row + ")";
+		String specificRowColLoc = "td:nth-of-type(2)>adl-table-cells>div>mat-checkbox>label>div";
+		WebElement statusCheckBox = utils.element("cssSelector", specificRowLoc + ">" + specificRowColLoc);
+		return statusCheckBox;
+	}
+
+	public WebElement getEditLink(int row) {
 		String specificRowLoc = "table>tbody>tr:nth-of-type(" + row + ")";
 		String specificRowColLoc = "td:nth-of-type(17)>adl-table-cells>div>a";
-		WebElement  editLinkElement = utils.element("cssSelector", specificRowLoc + ">" + specificRowColLoc);
-        return editLinkElement;
-    }
-	 
-	 
-	 public HashMap<String, WebElement> getSearchBoxesInGrid() {
-		 utils.scrollDown();
-		 HashMap<String, WebElement>  map = new HashMap<String, WebElement> ();
-		 List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
-		 List<WebElement> searchBoxesInGrid = driver.findElements(By.cssSelector(searchBoxesBelowHeadersInGrid));
-		  for (int j = 1; j <= allHeaderNames.size() - 13; j++) {
-			  map.put(allHeaderNames.get(j+4), searchBoxesInGrid.get(j));
-		  }
-         return map;
-	 }
-	 
-	 
-	 public WebElement getSelectStatus() {
-		 WebElement status=driver.findElement(By.cssSelector(selectStatus));	
-		 return status;
-	 }
-	 
+		WebElement editLinkElement = utils.element("cssSelector", specificRowLoc + ">" + specificRowColLoc);
+		return editLinkElement;
+	}
 
-	 public WebElement getEnteredStatusChkbox() {
-		 WebElement chkboxEnteredStatus=driver.findElement(By.xpath(enteredStatusChkbox));	
-		 return chkboxEnteredStatus;
-	 }
+	public HashMap<String, WebElement> getSearchBoxesInGrid() {
+		utils.scrollDown();
+		HashMap<String, WebElement> map = new HashMap<String, WebElement>();
+		List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
+		List<WebElement> searchBoxesInGrid = driver.findElements(By.cssSelector(searchBoxesBelowHeadersInGrid));
+		for (int j = 1; j <= allHeaderNames.size() - 13; j++) {
+			map.put(allHeaderNames.get(j + 4), searchBoxesInGrid.get(j));
+		}
+		return map;
+	}
+
+	public WebElement getSelectStatus() {
+		WebElement status = driver.findElement(By.cssSelector(selectStatus));
+		return status;
+	}
+
+	public WebElement getEnteredStatusChkbox() {
+		WebElement chkboxEnteredStatus = driver.findElement(By.xpath(enteredStatusChkbox));
+		return chkboxEnteredStatus;
+	}
+
+	public String dropDownValue() {
+
+		return utils.text("cssSelector", dropdownValue);
+	}
+
+	public ArrayList<String> details() {
+
+		int length = driver.findElements(By.cssSelector(details)).size();
+		ArrayList a = new ArrayList();
+		for (int i = 0; i < length; i++) {
+
+			a.add(driver.findElements(By.cssSelector(details)).get(i).getText());
+		}
+
+		System.out.println(a);
+		return a;
+	}
+
+	public void expandRecord() {
+
+		utils.clickfield("cssSelector", "i.pi-chevron-right", 0);
+	}
+	
+	public WebElement deleteLink() {
+		
+		return utils.element("cssSelector", ".toolbar__delete >a");
+	}
+	
+	public WebElement deleteAttribute() {
+		
+		return utils.element("cssSelector", ".toolbar__delete");
+	}
+
+	public void expandTwoRecord() {
+
+		utils.clickfield("cssSelector", "i.pi-chevron-right", 1);
+		utils.clickfield("cssSelector", "i.pi-chevron-right", 0);
+	}
+	
+	public void collapseTwoRecord() {
+
+		utils.clickfield("cssSelector", "i.pi-chevron-down", 1);
+		utils.clickfield("cssSelector", "i.pi-chevron-down", 0);
+	}
+
+
+	public void collapseRecord() {
+
+		utils.clickfield("cssSelector", "i.pi-chevron-down", 0);
+	}
 }
