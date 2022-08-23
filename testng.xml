@@ -33,6 +33,7 @@
 			<class name="testsuite.ERateContract_test"/>
 			<class name="testsuite.quoteHistory_test"/>
 			<class name="testsuite.WebContractsByDealer_test"/>
+			<class name="testsuite.EditContract_test"/>
 		</classes>
 		
 	</test>
