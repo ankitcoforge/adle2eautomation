@@ -48,6 +48,14 @@ public class contract_test extends createContractAction {
 
 	}
 
+	@Test(priority = 1)
+	public void listbContract1() throws InterruptedException {
+
+		sa.singleContract("Bank of America");
+
+	}
+
+	
 	@Test(priority = 2)
 	public void leaseContract1() throws InterruptedException {
 
