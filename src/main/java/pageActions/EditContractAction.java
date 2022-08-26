@@ -54,6 +54,11 @@ public class EditContractAction extends EditContractpo {
 		 return leinholderList;
 	 }
 	 
+	 public List<WebElement> getLienholderlistwithBackground() {
+		 List<WebElement> leinholderList = driver.findElements(By.cssSelector(lienholderlistwithBackground));	
+		 return leinholderList;
+	 }
+	 
 	 public List<WebElement> getContarctInfoTxtFields1() {
 		  List<WebElement> contarctInfo = driver.findElements(By.xpath(contarctInfoTxtFields1));	
 		 return contarctInfo;
@@ -67,6 +72,21 @@ public class EditContractAction extends EditContractpo {
 	 public WebElement getCobuyerChkbox() {
 		 WebElement coBuyerCheckbox=driver.findElement(By.xpath(coBuyerChkbox));	
 		 return coBuyerCheckbox;
+	 }
+	 
+	 public WebElement getCoBuyerChkboxField() {
+		 WebElement coBuyerCheckbox=driver.findElement(By.xpath(coBuyerChkboxField));	
+		 return coBuyerCheckbox;
+	 }
+	 
+	 public WebElement getVehiclePurchaseTxtfield() {
+		 WebElement vehiclePurchaseTxtfield=driver.findElement(By.cssSelector(vehiclePurchaseTxtField));	
+		 return vehiclePurchaseTxtfield;
+	 }
+	 
+	 public WebElement getContactRetailPriceTxtField() {
+		 WebElement contactRetailPriceTxt=driver.findElement(By.cssSelector(contactRetailPriceTxtField));	
+		 return contactRetailPriceTxt;
 	 }
 	 
 	 public List<WebElement> getCoustomerInfoFields() {
@@ -95,12 +115,17 @@ public class EditContractAction extends EditContractpo {
 	 }
 	 
 	 
-			 public HashMap<Integer, HashMap<String, String>> getDataFromDB(String contactNum,String dealer) throws Exception  {
+	 public WebElement getInvalidLienholderTxt() {
+		 WebElement invalidLienholder=driver.findElement(By.xpath(invalidLienholderTxt));	
+		 return invalidLienholder;
+	 }
+	 
+			public HashMap<Integer, HashMap<String, String>> getDataFromDB(String contactNum) throws Exception  {
 			HashMap<Integer, HashMap<String, String>> dbMap = new HashMap<Integer, HashMap<String, String>>();
 			try {
 				dc.aulDBConnect();
 				ResultSet rs = dc.stmt.executeQuery(
-				"EXEC [adl].[SP_GET_CONTRACTS]  @cert = '" +contactNum+ "' , @dealer_role_identifier = '" + dealer + "'");
+						"Select *  from [dbo].[WEB_CONTRACTS] as wc inner join [dbo].[web_contracts_extended] as we on wc.id =we.web_contracts_id where wc.CERT = '" + contactNum + "';");
 				dbMap = dc.returnAllData(rs);
 				return dbMap;
 			} catch (Exception e) {
