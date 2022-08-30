@@ -11,7 +11,7 @@ public class impersonatepo extends baseClass{
     public String tableFirstRow = "ctl00_mainContent_ASPxGridViewUsers_cell0_11_ASPxButtonImpersonate";
     public String logoutArrow  = "adl-header > header > div > div > button > mat-icon";
     public String impersonate = "div [role='menu'] > div > ul >li >button";
-    public String logout = "ul > li > button";
+    public String logout = "//button[text()='Logout']";
     
 	
 	
