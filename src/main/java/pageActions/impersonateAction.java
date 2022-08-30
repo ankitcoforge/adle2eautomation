@@ -55,9 +55,7 @@ public class impersonateAction extends impersonatepo {
 
 	public String roleImpersonate() {
 		
-
-		return event.text("cssSelector", ".mat-menu-trigger > div >span.usertype");
-		 		
+		return event.text("cssSelector", ".mat-menu-trigger > div >span.usertype");	 		
 	}
 	
 	public String endImpersonate(String role, String roleId) throws InterruptedException {
