@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import pageObjects.contractpo;
+import utils.Randomizer;
 import utils.utilityClass;
 
 public class singleContractAction extends contractpo{
@@ -15,6 +16,7 @@ public class singleContractAction extends contractpo{
     generateContractAction gc = new generateContractAction();
     createContractAction co = new createContractAction();
     loginAction lo = new loginAction();
+    Randomizer randomizer=new Randomizer();
 
 	/************************Create contract 
 	 * @throws InterruptedException ****************************************/
@@ -22,10 +24,10 @@ public class singleContractAction extends contractpo{
 
 		event.inputfield("cssSelector", textbox, "Single", 0);
 		event.inputfield("cssSelector", textbox, "Test", 1);
-		event.inputfield("cssSelector", textbox, "1234", 5);
+		event.inputfield("cssSelector", textbox, randomizer.getMilage(), 5);
 		event.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 6);
 		event.clickfield("xpath", getProducts);
-		co.programSelect("Limited Warranty - OCW");
+		co.programSelect("Limited Warranty");
 		event.clickfield("cssSelector", table, 0);
 		event.inputfield("cssSelector", contract, "10000", 0);
 		List <WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
@@ -51,7 +53,7 @@ public class singleContractAction extends contractpo{
 		event.clickfield("cssSelector", gc.checkbox, 0);
 		event.clickfield("cssSelector", gc.checkbox, 1);
 		event.clickfield("xpath", gc.genrateContractButton);
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		String text1 = event.text("cssSelector", successMessage);
 		Assert.assertEquals(text1, "You have successfully generated a contract!");
 		event.clickfield("xpath", newQuotelink);
@@ -66,7 +68,7 @@ public class singleContractAction extends contractpo{
 		event.inputfield("cssSelector", textbox, "1234", 5);
 		event.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 6);
 		event.clickfield("xpath", getProducts);
-		co.programSelect("Limited Warranty - OCW");
+		co.programSelect(" Limited Warranty - RAW ");
 		event.clickfield("cssSelector", table, 0);
 		event.inputfield("cssSelector", contract, "10000", 0);
 		List <WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
@@ -97,5 +99,4 @@ public class singleContractAction extends contractpo{
 		Assert.assertEquals(text1, "You have successfully generated a contract!");
 		event.clickfield("xpath", newQuotelink);
 		}
-
 }

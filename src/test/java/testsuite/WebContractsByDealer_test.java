@@ -11,9 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -93,20 +91,18 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
 		getElementInFirstGrid("Dealer ID").sendKeys(prop.getProperty("roleid"));
 		getArrowForwardBtn().click();
-		Thread.sleep(2000);
+		Thread.sleep(10000);
 		Assert.assertTrue(getContractsGrid().isDisplayed());
 		utils.scrollDown();
 		Assert.assertTrue(getRowsPerPage().isDisplayed());
 		getRowsPerPageDropdownbtn().click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 			String perPage25 = getRowsPerPageDropdownlist().get(0).getText();
 			String perPage50 = getRowsPerPageDropdownlist().get(1).getText();
 			String perPage100 = getRowsPerPageDropdownlist().get(2).getText();
-			System.out.println(getRowsPerPageDropdownlist().get(0).getText());
 			Assert.assertTrue(perPage25.equals("25"), "25 is displayed in dropdown");
 			Assert.assertTrue(perPage50.equals("50"), "50 is displayed in dropdown");
 			Assert.assertTrue(perPage100.equals("100"), "100 is displayed in dropdown");
-		
 	}
 
 	@Test(priority = 7)
@@ -118,10 +114,13 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		getArrowForwardBtn().click();
 		Thread.sleep(2000);
 		Assert.assertTrue(getContractsGrid().isDisplayed());
+		utils.scrollDown();
+		getRowsPerPage().isDisplayed();
 		getRowsPerPageDropdownbtn().click();
-		String NoOfRowsToSelect = getRowsPerPageDropdownlist().get(1).getText();
+		Thread.sleep(10000);
+		String NoOfRowsToSelect = getRowsPerPageDropdownlist().get(1).getAttribute("value");
 		getRowsPerPageDropdownlist().get(1).click();
-		String NoOfRowsSelected = getRowsPerPageSelected().getText();
+		String NoOfRowsSelected = getRowsPerPageSelected().getAttribute("value");
 		Assert.assertEquals(NoOfRowsToSelect, NoOfRowsSelected);
 	}
 
@@ -134,6 +133,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		getArrowForwardBtn().click();
 		Thread.sleep(2000);
 		utils.scrollDown();
+		getRowsPerPage().isDisplayed();
 		getRowsPerPageDropdownbtn().click();
 		getRowsPerPageDropdownlist().get(0).click();
 		getPageNo("2").click();
@@ -151,6 +151,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		getArrowForwardBtn().click();
 		Thread.sleep(2000);
 		utils.scrollDown();
+		getRowsPerPage().isDisplayed();
 		getRowsPerPageDropdownbtn().click();
 		getRowsPerPageDropdownlist().get(0).click();
 		Assert.assertTrue(getTotalPagesDisplayed() == 5, "five pages are displayed at a time");
@@ -187,13 +188,10 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		}
 		getGridArrowBtn("Status").click();
 		verifyRestoreMsgFromRestoreIcon();
-		
-		
 	}
 
 	@Test(priority = 12)
 	public void verifyNavigationUsingTabs_27340() throws InterruptedException {
-		navigate();
 		login.login(prop.getProperty("username1"),prop.getProperty("password"));
 		verticalMenu.navigatetoContract();
 		singleContract.singleContract();
@@ -210,7 +208,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		getElementInFirstGrid("Last 6 of VIN").sendKeys(Keys.TAB);
 		getArrowForwardBtn().click();
 		Assert.assertTrue(getSpinner().isDisplayed(),"Spinner is displayed");
-		Thread.sleep(2000);
+		Thread.sleep(10000);
 		Assert.assertTrue(getContractsGrid().isDisplayed(),"Navigation Working Correctly");
 		HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
         String VINnumFromGrid = allTableData.get(1).get("VIN");
@@ -219,7 +217,6 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 	
 	@Test(priority = 13)
 	public void verifySearchForContractNumAndContractHoldrLastName_27341() throws InterruptedException {
-		navigate();
 		login.login(prop.getProperty("username1"),prop.getProperty("password"));
 		verticalMenu.navigatetoContract();
 		singleContract.singleContract();
@@ -250,7 +247,6 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 	
 	@Test(priority = 14)
 	public void verifySearchForContractNumber_27345() throws InterruptedException {
-		navigate();
 		login.login(prop.getProperty("username1"),prop.getProperty("password"));
 		verticalMenu.navigatetoContract();
 		singleContract.singleContract();
@@ -473,7 +469,6 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		
 		@Test(priority = 27)
 		public void verifyVINContractNumbSearch_27563() throws InterruptedException {
-			navigate();
 			login.login(prop.getProperty("username1"),prop.getProperty("password"));
 			verticalMenu.navigatetoContract();
 			singleContract.singleContract();
@@ -538,7 +533,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 			Assert.assertTrue(getArrowForwardBtn().isDisplayed());
 			getArrowForwardBtn().click();
 			Assert.assertTrue(getSpinner().isDisplayed(),"Spinner is displayed");
-			Thread.sleep(2000);
+			Thread.sleep(10000);
 			HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
 			String ContractHolderLastNameGrid = allTableData.get(1).get("Last Name");
 			Assert.assertTrue(ContractHolderLastNameGrid.equalsIgnoreCase(contractHolderLastName),"Contract Holder Last Name Records are matching");
@@ -572,7 +567,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 			Assert.assertTrue(getArrowForwardBtn().isDisplayed());
 			getArrowForwardBtn().click();
 			Assert.assertTrue(getSpinner().isDisplayed(),"Spinner is displayed");
-			Thread.sleep(2000);
+			Thread.sleep(10000);
 			HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
 			String ContractHolderLastNameGrid = allTableData.get(1).get("Last Name");
 			Assert.assertTrue(ContractHolderLastNameGrid.equalsIgnoreCase(contractHolderLastName),"Contract Holder Last Name Records are matching");
@@ -621,7 +616,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		
 		@Test(priority = 32)
 		public void verifyContractNumDealerIDSearch_27583() throws InterruptedException {
-			navigate();
+			//navigate();
 			login.login(prop.getProperty("username1"),prop.getProperty("password"));
 			verticalMenu.navigatetoContract();
 			singleContract.singleContract();
@@ -982,7 +977,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 			Assert.assertTrue(getArrowForwardBtn().isDisplayed());
 			getArrowForwardBtn().click();
 			Assert.assertTrue(getSpinner().isDisplayed(),"Spinner is displayed");
-			Thread.sleep(2000);
+			Thread.sleep(10000);
 			HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
 			String ContractHolderLastNameGrid = allTableData.get(1).get("Last Name");
 			Assert.assertTrue(ContractHolderLastNameGrid.equalsIgnoreCase(contractHolderLastName),"Contract Holder Last Name Records are matching");
@@ -1228,7 +1223,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		}
 		
 		@Test(priority = 48)
-		public void verifyRestoreIconWhenChangedToEntered_27338() throws Exception {
+		public void verifySortingColoumns_27338() throws Exception {
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Reports", "Web Contracts by Dealer");
 			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
