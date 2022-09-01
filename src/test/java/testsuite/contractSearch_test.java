@@ -63,7 +63,7 @@ public class contractSearch_test extends ContractSearchPageAction{
 		}
 		
 		@Test
-		public void headerVerification_20969_20761() throws InterruptedException {
+		public void headerVerification_20969_20761_21279() throws InterruptedException {
 			
 //			verticalMenu.navigatetoLeftMenu("Contracts","Contract Search");
 			ArrayList list = new ArrayList<> ();
@@ -74,7 +74,7 @@ public class contractSearch_test extends ContractSearchPageAction{
 		}
 		
 		@Test
-        public void reContractLink_20719_21141_21143() throws InterruptedException {
+        public void reContractLink_20719_21141_21143_21257_21286() throws InterruptedException {
 			
 //			verticalMenu.navigatetoLeftMenu("Contracts","Contract Search");
 			Assert.assertEquals(calenderLabel().get(0).getText(), "From");
@@ -99,6 +99,18 @@ public class contractSearch_test extends ContractSearchPageAction{
 			System.out.println(sortColumn(8));
 			Assert.assertEquals(sortColumn(8),l);
 			
+		}
+		
+		@Test
+		public void initialSorting_21281_21233() {
+			
+			List firstlist = new ArrayList();
+			firstlist = columnlist(6);
+			filterStatus("Entered");
+			clearFilter().click();
+			List laterlist = new ArrayList();
+			laterlist = columnlist(6);
+			Assert.assertEquals(laterlist, firstlist);
 		}
 		
 		@Test
@@ -188,8 +200,7 @@ public class contractSearch_test extends ContractSearchPageAction{
 		
 		@Test
 		public void expandContract_21098_21100() throws InterruptedException {
-			
-
+		
 			expandRecord();
 			Assert.assertTrue(driver.findElement(By.cssSelector("td >.tr-expansible__container")).isDisplayed());
 			ArrayList heading =  new ArrayList<>(Arrays.asList(
@@ -233,7 +244,7 @@ public class contractSearch_test extends ContractSearchPageAction{
 
 		
 		@Test
-		public void recordNumber_20731_20736() throws InterruptedException {
+		public void recordNumber_20731_20736_21270_21278() throws InterruptedException {
 			
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			//Scroll down till the bottom of the page
@@ -269,18 +280,22 @@ public class contractSearch_test extends ContractSearchPageAction{
 			Assert.assertEquals(a1.toString(), filenameFormat(30,"pdf"));
 			String pdfUrl = "file:///" +  System.getProperty("user.dir") + "\\PDF\\" + a1.toString().replaceAll("\\,|\\[|\\]|\\s", "");
 			String pdfUrl1 = pdfUrl.replace("\\", "/");
-			String statefirstRow = driver.findElement(By.xpath("//*[@id=\"contract_search\"]/tbody/tr[1]/td[3]/adl-table-cells/div/span[2]")).getText();
-			String contractfirstRow = driver.findElement(By.xpath("//*[@id=\"contract_search\"]/tbody/tr[1]/td[6]/adl-table-cells/div/span[2]")).getText();
-			verifyContentInPDf(pdfUrl1, statefirstRow);
-			verifyContentInPDf(pdfUrl1, contractfirstRow);
-			String xpathLastrow = "//*[@id='contract_search']/tbody/tr[" + length() + "]/td[3]/adl-table-cells/div/span[2]";
-			String statelastRow = driver.findElement(By.xpath(xpathLastrow)).getText();
-			String xpathLastrow1 = "//*[@id='contract_search']/tbody/tr[" + length() + "]/td[6]/adl-table-cells/div/span[2]";
-			String contractlastRow = driver.findElement(By.xpath(xpathLastrow1)).getText();
+			verifyContentInPDf(pdfUrl1, statefirstRow());
+			verifyContentInPDf(pdfUrl1, contractfirstRow());
+			String statelastRow = driver.findElement(By.xpath(xpathLastrow("3"))).getText();
+			String contractlastRow = driver.findElement(By.xpath(xpathLastrow("6"))).getText();
 			verifyContentInPDf(pdfUrl1, statelastRow);
 			verifyContentInPDf(pdfUrl1, contractlastRow);
 	    }
 		
+		@Test
+		public void downloadCert() {
+			
+			certfirstRow();
+			Assert.assertTrue(driver.findElement(By.cssSelector(".toast-success")).getText().contains( "Please note - Your file will be shown at the bottom of the browser and will be automatically saved into your Downloads folder."));
+			Assert.assertTrue(driver.findElement(By.cssSelector(".toast-success")).getText().contains( "If your form does not display in a new window, please check your browser settings and turn off the pop-up blocker if it is on."));
+			
+		}
 		
 		@Test
 	    public void downloadXLSFile_21204_21206() throws InterruptedException {
@@ -297,30 +312,125 @@ public class contractSearch_test extends ContractSearchPageAction{
 	    }
 		
 		@Test
-	    public void searchBar_21228_21251() throws InterruptedException {
+	    public void searchBar_21228_21240_21269() throws InterruptedException {
 	    	
 			Assert.assertEquals(searchbar().getAttribute("placeholder"), "Search");
 			Assert.assertEquals(searchbar().getAttribute("maxlength"), "50");
-			String contractfirstRow = driver.findElement(By.xpath("//*[@id=\"contract_search\"]/tbody/tr[1]/td[6]/adl-table-cells/div/span[2]")).getText();
 			searchbar().sendKeys("$%^#");
 			Assert.assertEquals(noResult(), "There are no records to display");
 			clearFilter().click();
-			searchbar().sendKeys(contractfirstRow);
+			searchbar().sendKeys(contractfirstRow());
 			Thread.sleep(5000);
 			Assert.assertEquals(length(), 1);
 			clearFilter().click();
-			String statefirstRow = driver.findElement(By.xpath("//*[@id=\"contract_search\"]/tbody/tr[1]/td[3]/adl-table-cells/div/span[2]")).getText();
-			filterStatus(statefirstRow);
+			filterStatus(statefirstRow());
 			Thread.sleep(5000);
 			int k = length();
 			clearFilter().click();
-			searchbar().sendKeys(statefirstRow);
+			searchbar().sendKeys(statefirstRow());
 			Thread.sleep(5000);
 			Assert.assertEquals(length(), k);
-
 	    }
 		
+		@Test
+		 public void searchBarVin_21241() throws InterruptedException {
+		    	
+				clearFilter().click();
+				searchbar().sendKeys(vinfirstRow());
+				Thread.sleep(5000);
+				List a = columnlist(7);
+				for(int i=0;i <a.size(); i++) {
+					Assert.assertEquals(a.get(i), vinfirstRow());
+				}
+		    }
 		
+		
+		
+		@Test
+		 public void searchBarProgram_21242() throws InterruptedException {
+		    	
+				clearFilter().click();
+				searchbar().sendKeys(programfirstRow());
+				Thread.sleep(5000);
+				List a = columnlist(8);
+				for(int i=0;i <a.size(); i++) {
+					Assert.assertEquals(a.get(i), programfirstRow());
+				}
+		    }
+		
+		
+		@Test
+		 public void searchBarLastname_21243() throws InterruptedException {
+		    	
+				clearFilter().click();
+				searchbar().sendKeys(lastnamefirstRow());
+				Thread.sleep(5000);
+				List a = columnlist(10);
+				for(int i=0;i <a.size(); i++) {
+					Assert.assertTrue(a.get(i).toString().contains(lastnamefirstRow()));
+				}
+		    }
+		
+		@Test
+		 public void searchBarSaleDate_21244() throws InterruptedException {
+		    	
+				clearFilter().click();
+				searchbar().sendKeys(saledatefirstRow());
+				Thread.sleep(5000);
+				List a = columnlist(11);
+				for(int i=0;i <a.size(); i++) {
+					Assert.assertEquals(a.get(i), saledatefirstRow());
+				}
+		    }
+		
+		@Test
+		 public void searchBarMake_21249() throws InterruptedException {
+		    	
+				clearFilter().click();
+				expandRecord();
+				searchbar().sendKeys(make());
+				Thread.sleep(5000);
+				int l = length();
+			    Assert.assertTrue(l >=1);
+				
+		    }
+		
+		@Test
+		 public void searchBarModel_21250() throws InterruptedException {
+		    	
+				clearFilter().click();
+				expandRecord();
+				searchbar().sendKeys(model());
+				Thread.sleep(5000);
+				int l = length();
+			    Assert.assertTrue(l >=1);
+				
+		    }
+
+		
+		@Test
+		 public void searchBarRetailPrice_21246() throws InterruptedException {
+		    	
+				clearFilter().click();
+				searchbar().sendKeys(retaildatefirstRow());
+				Thread.sleep(5000);
+				List a = columnlist(13);
+				for(int i=0;i <a.size(); i++) {
+					Assert.assertTrue(a.get(i).toString().contains(retaildatefirstRow()));
+				}
+		    }
+		
+		@Test
+		 public void searchBarAULCost_21247() throws InterruptedException {
+		    	
+				clearFilter().click();
+				searchbar().sendKeys(aulcostfirstRow());
+				Thread.sleep(5000);
+				List a = columnlist(14);
+				for(int i=0;i <a.size(); i++) {
+					Assert.assertTrue(a.get(i).toString().contains(aulcostfirstRow()));
+				}
+		    }
 		
 		@Test
 		public void defaultRecordNumber_20733_20732() throws InterruptedException {

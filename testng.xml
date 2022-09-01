@@ -20,6 +20,7 @@
 			<class name="testsuite.loginValidation_test"/>
 			<class name="testsuite.login1_test"/>
 			<class name="testsuite.contractSearch_test"/>
+			<class name="testsuite.contractSearchRole_test"/>
 			<class name="testsuite.screenTitle_test"/>
 			<class name="testsuite.erate_test"/>
 			<class name="testsuite.LateraMenu_test"/>

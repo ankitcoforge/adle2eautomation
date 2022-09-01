@@ -1,6 +1,7 @@
 package pageObjects;
 
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 
@@ -39,5 +40,7 @@ public class ContractSearchPagepo extends baseClass{
 	public String searchBox = "input.global-search__input";
 	public String empty = "tr >td.empty";
 	public String clearFilterButton = "span.clear-filters";
+	public String makeValue = "//b[contains(text(),'Make')]//..//..//div[2]//span";
+	public String modelValue = "//b[contains(text(),'Model')]//..//..//div[2]//span";
 	
 }

@@ -99,7 +99,7 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 		int length = driver.findElements(By.xpath(row)).size();
 		for (int i = 0; i < length; i++) {
 			int x = i + 1;
-            String xpath2 = "//*[@id='contract_search']/tbody/tr[" + x + "]/td//a";
+			String xpath2 = "//*[@id='contract_search']/tbody/tr[" + x + "]/td//a";
 			String value = driver.findElements(By.xpath(xpath2)).get(3).getText();
 			relink.put(i, value);
 		}
@@ -193,6 +193,11 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 		return utils.text("cssSelector", dropdownValue);
 	}
 
+	public String xpathLastrow(String a) {
+
+		return "//*[@id='contract_search']/tbody/tr[" + length() + "]/td[" + a + "]/adl-table-cells/div/span[2]";
+	}
+
 	public ArrayList<String> details() {
 
 		int length = driver.findElements(By.cssSelector(details)).size();
@@ -251,6 +256,84 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 		return utils.element("cssSelector", yesButton);
 	}
 
+	public String statefirstRow() {
+
+		return driver
+				.findElement(By.xpath("//*[@id=\"contract_search\"]/tbody/tr[1]/td[3]/adl-table-cells/div/span[2]"))
+				.getText();
+	}
+
+	public String contractfirstRow() {
+
+		return driver
+				.findElement(By.xpath("//*[@id=\"contract_search\"]/tbody/tr[1]/td[6]/adl-table-cells/div/span[2]"))
+				.getText();
+	}
+
+	public String vinfirstRow() {
+
+		return driver
+				.findElement(By.xpath("//*[@id=\"contract_search\"]/tbody/tr[1]/td[7]/adl-table-cells/div/span[2]"))
+				.getText();
+	}
+	
+	public String programfirstRow() {
+
+		return driver
+				.findElement(By.xpath("//*[@id=\"contract_search\"]/tbody/tr[1]/td[8]/adl-table-cells/div/span[2]"))
+				.getText();
+	}
+	
+	public String lastnamefirstRow() {
+
+		return driver
+				.findElement(By.xpath("//*[@id=\"contract_search\"]/tbody/tr[1]/td[10]/adl-table-cells/div/span[2]"))
+				.getText();
+	}
+	
+	public String saledatefirstRow() {
+
+		return driver
+				.findElement(By.xpath("//*[@id=\"contract_search\"]/tbody/tr[1]/td[11]/adl-table-cells/div/span[2]"))
+				.getText();
+	}
+
+	public String make() {
+
+		return utils.text("xpath", makeValue);
+	}
+
+	public String model() {
+
+		return utils.text("xpath", modelValue);
+	}
+
+	public String retaildatefirstRow() {
+
+		String a = driver
+				.findElement(By.xpath("//*[@id=\"contract_search\"]/tbody/tr[1]/td[13]/adl-table-cells/div/span[2]"))
+				.getText();
+		String b = a.replace("$", "");
+		String c = b.replace(".00", "");
+		return c;
+	}
+	
+	public void certfirstRow() {
+
+		driver.findElement(By.xpath("//*[@id=\"contract_search\"]/tbody/tr[1]/td[15]/adl-table-cells/div/div")).click();
+	}
+	
+	
+	public String  aulcostfirstRow() {
+
+		String a = driver
+				.findElement(By.xpath("//*[@id=\"contract_search\"]/tbody/tr[1]/td[14]/adl-table-cells/div/span[2]"))
+				.getText();
+		String b = a.replace("$", "");
+		String c = b.replace(".00", "");
+		return c;
+	}
+
 	public WebElement modelBoxNo() {
 
 		return utils.element("cssSelector", noButton);
@@ -289,7 +372,7 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 
 	public List<String> columnlist(int rowno) {
 
-		List <String> program = new ArrayList<String>();
+		List<String> program = new ArrayList<String>();
 		for (int i = 0; i < driver.findElements(By.xpath(row)).size(); i++) {
 			int j = i + 1;
 			program.add(driver.findElement(By.xpath(
@@ -308,13 +391,13 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 			String a = (driver.findElement(By.xpath(
 					"//*[@id='contract_search']/tbody/tr[" + j + "]/td[" + rowno + "]/adl-table-cells/div/span[2]"))
 					.getText());
-			if(a.length() > 0) {
+			if (a.length() > 0) {
 				String b = a.substring(1);
 				String c = b.replace(",", "");
 				Double price = Double.parseDouble(c);
 				program.add(price);
 			}
-			
+
 		}
 		return program;
 	}
@@ -331,7 +414,9 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 
 		driver.findElement(By.xpath("//*[@id=\"contract_search\"]/thead/adl-table-header/tr[1]/th[" + rowno + "]"))
 				.click();
-		return driver.findElement(By.xpath("//*[@id=\"contract_search\"]/thead/adl-table-header/tr[1]/th[" + rowno + "]")).getCssValue("color");
+		return driver
+				.findElement(By.xpath("//*[@id=\"contract_search\"]/thead/adl-table-header/tr[1]/th[" + rowno + "]"))
+				.getCssValue("color");
 
 	}
 
@@ -345,14 +430,14 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 		return columnlist(rowno);
 
 	}
-	
+
 	public void downloadPDF() {
-		
+
 		utils.clickfield("cssSelector", exportPDF);
 	}
-	
+
 	public void downloadXLS() {
-		
+
 		utils.clickfield("cssSelector", exportXLS);
 	}
 
@@ -363,49 +448,50 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 		return price(rowno);
 
 	}
-	
+
 	public String filenameFormat(int day, String type) {
-		
+
 		String fileName = new String();
 		LocalDate localDate = LocalDate.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
 		System.out.println(localDate.format(formatter));
 		LocalDate thirty = localDate.minusDays(day);
 		System.out.println(thirty.format(formatter));
-		String dealer =utils.text("cssSelector", "button >span.usertype");
+		String dealer = utils.text("cssSelector", "button >span.usertype");
 		String roleId[] = dealer.split(" ");
-		if(type == "pdf") {
-			 fileName = "[Contracts-" + thirty.format(formatter) + "-" + localDate.format(formatter) + "-" +  roleId[1] + ".pdf]";
-		}
-		else 
-			 fileName = "[Contracts-" + thirty.format(formatter) + "-" + localDate.format(formatter) + "-" +  roleId[1] + ".xlsx]";
+		if (type == "pdf") {
+			fileName = "[Contracts-" + thirty.format(formatter) + "-" + localDate.format(formatter) + "-" + roleId[1]
+					+ ".pdf]";
+		} else
+			fileName = "[Contracts-" + thirty.format(formatter) + "-" + localDate.format(formatter) + "-" + roleId[1]
+					+ ".xlsx]";
 		return fileName;
 	}
-	
-	public WebElement searchbar () {
-		
+
+	public WebElement searchbar() {
+
 		return driver.findElement(By.cssSelector(searchBox));
-		
+
 	}
-	
+
 	public void changefilter() {
-		
+
 		utils.clickfield("cssSelector", filterbox);
 		utils.clickfield("cssSelctor", ".ng-option[role=\"option\"]", 3);
 	}
-	
+
 	public String noResult() {
-		
+
 		return utils.text("cssSelector", empty);
 	}
-	
+
 	public WebElement clearFilter() {
-		
+
 		return utils.element("cssSelector", clearFilterButton);
 	}
-	
+
 	public int length() {
-		
+
 		return driver.findElements(By.xpath("//*[@id=\"contract_search\"]/tbody/tr")).size();
 	}
 }
