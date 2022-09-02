@@ -28,7 +28,7 @@ public class twoProgramContract extends twoProgramContractAction {
 	
 	/*****************Contract creation test case***************/
 	@Test(priority = 1, dataProvider ="test2")
-    public void createtwoContract(String[] inputArray) throws InterruptedException {
+    public void multipleProductSelection_10669_10733_10734_10747_10748(String[] inputArray) throws InterruptedException {
 			
 		createTwoContract(inputArray);
 	   

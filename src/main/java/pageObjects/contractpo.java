@@ -1,5 +1,7 @@
 package pageObjects;
 
+import org.openqa.selenium.By;
+
 import utils.baseClass;
 
 public class contractpo extends baseClass{
@@ -12,6 +14,7 @@ public class contractpo extends baseClass{
 	public String getProducts = "//span[contains(text(),'Get Products')]";
 	public String selectProgram = "//mat-checkbox/label/div";
 	public String table = "adl-rates-table > table >tbody > tr:nth-child(1) > td:nth-child(2)";
+	public String tableborder = "adl-rates-table > table >tbody > tr:nth-child(1) > td:nth-child(2)> div";
 	public String datepicker = "adl-text-input[label='In-Service Date'] >div :nth-child(2) >input";
 	public String contract = "div.text-field__input.secure.text-field__input--prefix > input";
 	public String checkbox = "//mat-checkbox";
@@ -45,11 +48,20 @@ public class contractpo extends baseClass{
 	public String monthDropdown = "adl-select[placeholder=\"Select Months\"]>ng-select";
 	public String milesDropdown = "adl-select[placeholder=\"Select Miles\"]>ng-select";
 	public String optionFirst = ".ng-dropdown-panel-items > div > div";
+	public String contractNo = "div input[disabled][maxlength='16']";
+	public String overideContractNo = "adl-checkbox[label =\"Override Contract Number\"]";
+	public String retailPrice = "adl-text-input[label =\"Contract Retail Price\"]";
+	public String vehiclePurchasePrice = "adl-text-input[label =\"Vehicle Purchase Price\"]";
+	public String totalFooter = "div.total__price";
 	
 	public String fieldbyLabelName(String label) {
 		
 		return "adl-text-input[label =\"" + label + "\"]>div >div:nth-child(2) >input";
 	}
 	
+	public int length(String field) {
+		
+		return driver.findElements(By.cssSelector(field)).size();
+	}
 	
 }

@@ -1,11 +1,15 @@
 package pageActions;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.Color;
 import org.testng.Assert;
 
 import pageObjects.contractpo;
@@ -40,8 +44,8 @@ public class twoProgramContractAction extends contractpo {
 			ca.programSelect(searchData2.get("program2"));
 			Thread.sleep(3000);
 			event.clickfield("cssSelector", table, 0);
-//			js.executeScript("window.scrollTo(0, 1800)");
-//			event.clickfield("cssSelector", table, 1);
+			String borderColorFirst = driver.findElements(By.cssSelector(tableborder)).get(0).getCssValue("border-color");
+			Assert.assertEquals(Color.fromString(borderColorFirst).asHex(), prop.getProperty("orangeColorInHexaForm"));
 			int flag = 0;
 			js.executeScript("window.scrollTo(0, 2200)");
 			if (!(searchData2.get("programs").contains("Limited Warranty"))) {
@@ -50,30 +54,17 @@ public class twoProgramContractAction extends contractpo {
 					flag++;
 					}
 			}
+			event.inputfield("cssSelector", fieldbyLabelName("Deal Number"), "12345");
 			js.executeScript("window.scrollTo(0, 2400)");
 			event.clickfield("cssSelector", table, 1);
+			String borderColorSecond = driver.findElements(By.cssSelector(tableborder)).get(1).getCssValue("border-color");
+			Assert.assertEquals(Color.fromString(borderColorSecond).asHex(), prop.getProperty("orangeColorInHexaForm"));
 			if (!(searchData2.get("program2").contains("Limited Warranty"))) {
 				if(!(searchData2.get("program2").contains("Unlimited Time - AUN"))) {
 				event.clickfield("xpath", businessUse, flag);
 				flag++;
 				}
 			}
-//			js.executeScript("window.scrollTo(0, 2000)");
-//			List<WebElement> ba1 = driver.findElements(By.cssSelector("p[class='card__label']"));
-//			if(ba1.size()!=0) {
-//				System.out.println(ba1.size());
-//			for(int i = 0; i< ba1.size(); i++) {
-//				System.out.println(ba1.get(i).getText());
-//			if(ba1.get(i).getText().equals("Business Use")){
-//				ba1.get(i).click();
-//			}
-//			}
-//			}
-			//js.executeScript("window.scrollTo(0, 2200)");
-			//System.out.println(searchData2.get("programs"));
-			//businessSelection(searchData2.get("programs"), flag);
-			//js.executeScript("window.scrollTo(0, 2300)");		
-			//businessSelection(searchData2.get("program2"), flag);
 			List<WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
 			if (a.size() == 1) {
 				String a1 = driver
@@ -86,15 +77,34 @@ public class twoProgramContractAction extends contractpo {
 				}
 
 			}
-
+			String dealValue = driver.findElement(By.cssSelector(fieldbyLabelName("Deal Number"))).getDomProperty("value");
+			Assert.assertEquals(dealValue, "12345");
+			Assert.assertEquals(length(vehiclePurchasePrice), 1);
 			event.inputfield("cssSelector", contract, "10000", 0);
+			Assert.assertEquals(length(contractNo), 2);
+			Assert.assertEquals(length(overideContractNo), 2);
+			Assert.assertEquals(length(retailPrice), 2);
+			String a2 = driver.findElements(By.cssSelector(fieldbyLabelName("Contract Retail Price"))).get(0).getDomProperty("value");
+			String a3 = driver.findElements(By.cssSelector(fieldbyLabelName("Contract Retail Price"))).get(1).getDomProperty("value");
+		    String a4 = a2.replace(",","");
+		    double t1 = Double.parseDouble(a4);
+		    String a5 = a3.replace(",","");
+		    double t2 = Double.parseDouble(a5);
+		    double total = t1 + t2;
+		    
 			event.clearfield("xpath", zipcode);
 			event.inputfield("xpath", zipcode, "20130");
+			String fullTotal = event.text("cssSelector", totalFooter);
+			String updateTotal = fullTotal.replace("Total: $", "");
+			String t = updateTotal.replace(",","");
+			System.out.println(t);
+			Assert.assertEquals(total, Double.parseDouble(t));
 			event.clearfield("xpath", address);
 			event.inputfield("xpath", address, "Address");
 			Thread.sleep(2000);
 			event.clearfield("xpath", phoneno);
 			event.inputfield("xpath", phoneno, "1234567890");
+			
 			event.clickfield("xpath", generateContract);
 			Thread.sleep(2000);
 			event.clickfield("cssSelector", gc.checkbox, 0);
