@@ -14,6 +14,7 @@ public class EditContractpo extends baseClass{
 	public String coustomerInfoTxtFields = "//adl-customer-information-form/section/div[1]/div/adl-text-input/div/div[2]/input";
 	public String coustomerInfoHighlighter = "//adl-customer-information-form/section/div[1]/div/adl-text-input/div/div[2]";
 	public String lienholderTxtField = "//adl-typeahead/adl-text-input/div/div[2]/input";
+	public String lienholderTxtFieldForNotOnTheLink = "//input[@placeholder='Enter Lienholder Name']";
 	public String lienholderlist = "mat-option>span>span";
 	public String lienholderlistwithBackground = "[role=listbox]>mat-option";
 	public String btnCancel = "//span[text()='Cancel']";
@@ -24,4 +25,6 @@ public class EditContractpo extends baseClass{
 	public String goToContractsPageLink = "//a[text()='Go to Contracts Page']";
 	public String rowLoc = "table>tbody>tr";
 	public String invalidLienholderTxt = "//span[text()='Invalid Lienholder']";
+	public String notOnTheListLink = "//a[text()=' Not on the list ']";
+	public String showLienholderListLink = "//a[text()=' Show lienholder list ']";
 }
