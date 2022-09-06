@@ -38,7 +38,7 @@ public class EditContract_test extends EditContractAction {
 
 	@Test(priority = 1)
 	public void verifyEditContractTitlePage_11620() throws InterruptedException {
-		login.login(prop.getProperty("username"), prop.getProperty("password"));
+		login.login(prop.getProperty("username11"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 	    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 	    Thread.sleep(1000);
@@ -62,7 +62,7 @@ public class EditContract_test extends EditContractAction {
 	
 	@Test(priority = 2)
 	public void verifyElementsInEditContractPage_11621() throws InterruptedException {
-		login.login(prop.getProperty("username"), prop.getProperty("password"));
+		login.login(prop.getProperty("username11"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 	    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 	    Thread.sleep(1000);
@@ -108,7 +108,7 @@ public class EditContract_test extends EditContractAction {
 	
 	@Test(priority = 3)
 	public void verifyURLInEditContractPage_11622() throws InterruptedException {
-		login.login(prop.getProperty("username"), prop.getProperty("password"));
+		login.login(prop.getProperty("username1"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 	    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 	    Thread.sleep(1000);
@@ -133,7 +133,7 @@ public class EditContract_test extends EditContractAction {
 	
 	@Test(priority = 4)
 	public void verifyNavigationUsingKeyboard_11625() throws InterruptedException {
-		login.login(prop.getProperty("username"), prop.getProperty("password"));
+		login.login(prop.getProperty("username1"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 	    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 	    Thread.sleep(1000);
@@ -179,7 +179,7 @@ public class EditContract_test extends EditContractAction {
 	
 	@Test(priority = 5)
 	public void verifyEnabledCloseBtnInEditContractPage_11626() throws InterruptedException {
-		login.login(prop.getProperty("username"), prop.getProperty("password"));
+		login.login(prop.getProperty("username1"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 	    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 	    Thread.sleep(1000);
@@ -204,7 +204,7 @@ public class EditContract_test extends EditContractAction {
 	
 	@Test(priority = 6)
 	public void verifyEnabledSaveBtnInEditContractPage_11627() throws InterruptedException {
-		login.login(prop.getProperty("username"), prop.getProperty("password"));
+		login.login(prop.getProperty("username1"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 	    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 	    Thread.sleep(1000);
@@ -229,7 +229,7 @@ public class EditContract_test extends EditContractAction {
 	
 	@Test(priority = 7)
 	public void verifyCobuyerFieldNotRequiredForEditContract_11630() throws InterruptedException {
-		login.login(prop.getProperty("username"), prop.getProperty("password"));
+		login.login(prop.getProperty("username1"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 	    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 	    Thread.sleep(1000);
@@ -260,7 +260,7 @@ public class EditContract_test extends EditContractAction {
 	
 	@Test(priority = 8)
 	public void verifyCobuyerInfoIsLoaded_11631() throws InterruptedException {
-		login.login(prop.getProperty("username"), prop.getProperty("password"));
+		login.login(prop.getProperty("username1"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 	    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 	    Thread.sleep(1000);
@@ -294,7 +294,7 @@ public class EditContract_test extends EditContractAction {
 	
 	@Test(priority = 9)
 	public void verifyCobuyerInfoIsNotLoaded_11632() throws InterruptedException {
-		login.login(prop.getProperty("username"), prop.getProperty("password"));
+		login.login(prop.getProperty("username1"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 	    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 	    Thread.sleep(1000);
@@ -319,7 +319,7 @@ public class EditContract_test extends EditContractAction {
 	
 	@Test(priority = 10)
 	public void verifyCoustmerInfoElementsLoadedInEditContractPage_11633() throws InterruptedException {
-		login.login(prop.getProperty("username"), prop.getProperty("password"));
+		login.login(prop.getProperty("username1"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 	    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 	    Thread.sleep(1000);
@@ -353,8 +353,8 @@ public class EditContract_test extends EditContractAction {
 	}
 	
 	@Test(priority = 11)
-	public void verifyEditFunctionalityByUpdatingCobuyerandCustomer_11638() throws Exception {
-		login.login(prop.getProperty("username"), prop.getProperty("password"));
+	public void verifyEditFunctionalityByUpdatingCobuyerandCustomer_11638_12595_15513_15517_15518_15519_15520() throws Exception {
+		login.login(prop.getProperty("username1"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 	    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 	    Thread.sleep(1000);
@@ -376,9 +376,9 @@ public class EditContract_test extends EditContractAction {
 	    getLienholderTxtField().clear();
 	    getLienholderTxtField().sendKeys("a");
 	    Thread.sleep(2000);
-	    String eneterdValue = getLeinholderList().get(0).getText();
+	    String lienholderEneterdValue = getLeinholderList().get(0).getText();
 	    getLeinholderList().get(0).click();
-	    Assert.assertEquals(getLienholderTxtField().getAttribute("value"), eneterdValue);
+	    Assert.assertEquals(getLienholderTxtField().getAttribute("value"), lienholderEneterdValue);
 	    
 	    String dealNo = "34159";
 	    getContarctInfoTxtFields1().get(0).clear();
@@ -485,6 +485,7 @@ public class EditContract_test extends EditContractAction {
 				}
 	    }	 
 	    utils.scrollDown();
+	    Assert.assertTrue(getLienholderTxtField().getAttribute("value").equalsIgnoreCase(lienholderEneterdValue));
 	    Assert.assertTrue(getContarctInfoTxtFields1().get(0).getAttribute("value").equalsIgnoreCase(dealNo));
 	    Assert.assertTrue(getCoustomerInfoFields().get(0).getAttribute("value").equalsIgnoreCase(firstName));
 	    Assert.assertTrue(getCoustomerInfoFields().get(3).getAttribute("value").equalsIgnoreCase(zipCode));
@@ -503,7 +504,7 @@ public class EditContract_test extends EditContractAction {
 
 	@Test(priority = 12)
 	public void verifyEditFunctionalityByUpdatingCustomerInfo_11639() throws Exception {
-		login.login(prop.getProperty("username"), prop.getProperty("password"));
+		login.login(prop.getProperty("username1"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 	    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 	    Thread.sleep(1000);
@@ -612,7 +613,7 @@ public class EditContract_test extends EditContractAction {
 	
 	@Test(priority = 13)
 	public void verifyEditFunctionalityByUpdatingCoBuyerInfo_11640() throws Exception {
-		login.login(prop.getProperty("username"), prop.getProperty("password"));
+		login.login(prop.getProperty("username1"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 	    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 	    Thread.sleep(1000);
@@ -689,8 +690,8 @@ public class EditContract_test extends EditContractAction {
 	}
 	
 	@Test(priority = 14)
-	public void verifyLienholderTypeAheadFunctionalityInBList_11675() throws Exception {
-		login.login(prop.getProperty("username"), prop.getProperty("password"));
+	public void verifyLienholderTypeAheadFunctionalityInBList_11675_15370() throws Exception {
+		login.login(prop.getProperty("username1"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 		verticalMenu.navigatetoContract();
 		singleContract.singleContract("Bank of America");
@@ -713,18 +714,18 @@ public class EditContract_test extends EditContractAction {
 	    }
 	    Assert.assertTrue(getEditContractPagetitle().isDisplayed());
 	    getLienholderTxtField().clear();
-	    getLienholderTxtField().sendKeys("B");
+	    getLienholderTxtField().sendKeys("Bank");
 	    Thread.sleep(2000);
-	    Assert.assertTrue(getLienholderTxtField().getAttribute("value").equalsIgnoreCase("B"));
+	    Assert.assertTrue(getLienholderTxtField().getAttribute("value").equalsIgnoreCase("Bank"));
 	    for(int i=0;i<5;i++)
 	    {
-	    getLeinholderList().get(i).toString().startsWith("B");
+	    getLeinholderList().get(i).toString().startsWith("Bank");
 	    }
 	}
 	
 	@Test(priority = 15)
 	public void verifyLienholderOptionSelectionInBList_11676() throws Exception {
-		login.login(prop.getProperty("username"), prop.getProperty("password"));
+		login.login(prop.getProperty("username1"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 	    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 	    Thread.sleep(1000);
@@ -745,12 +746,12 @@ public class EditContract_test extends EditContractAction {
 	    }
 	    Assert.assertTrue(getEditContractPagetitle().isDisplayed());
 	    getLienholderTxtField().clear();
-	    getLienholderTxtField().sendKeys("B");
+	    getLienholderTxtField().sendKeys("Bank");
 	    Thread.sleep(2000);
-	    Assert.assertTrue(getLienholderTxtField().getAttribute("value").equalsIgnoreCase("B"));
+	    Assert.assertTrue(getLienholderTxtField().getAttribute("value").equalsIgnoreCase("Bank"));
 	    for(int i=0;i<5;i++)
 	    {
-	    getLeinholderList().get(i).toString().startsWith("B");
+	    getLeinholderList().get(i).toString().startsWith("Bank");
 	    }
 	    String selectedLienholder = getLeinholderList().get(1).getText();
 	    getLeinholderList().get(1).click();
@@ -758,8 +759,8 @@ public class EditContract_test extends EditContractAction {
 	}
 	
 	@Test(priority = 16)
-	public void verifyLienholderNavigationWithKeyboardInBList_11677() throws Exception {
-		login.login(prop.getProperty("username"), prop.getProperty("password"));
+	public void verifyLienholderNavigationWithKeyboardInBList_11677_15372() throws Exception {
+		login.login(prop.getProperty("username1"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 	    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 	    Thread.sleep(1000);
@@ -780,12 +781,12 @@ public class EditContract_test extends EditContractAction {
 	    }
 	    Assert.assertTrue(getEditContractPagetitle().isDisplayed());
 	    getLienholderTxtField().clear();
-	    getLienholderTxtField().sendKeys("B");
+	    getLienholderTxtField().sendKeys("Bank");
 	    Thread.sleep(2000);
-	    Assert.assertTrue(getLienholderTxtField().getAttribute("value").equalsIgnoreCase("B"));
+	    Assert.assertTrue(getLienholderTxtField().getAttribute("value").equalsIgnoreCase("Bank"));
 	    for(int i=0;i<5;i++)
 	    {
-	    getLeinholderList().get(i).toString().startsWith("B");
+	    getLeinholderList().get(i).toString().startsWith("Bank");
 	    }
 	    getLienholderTxtField().sendKeys(Keys.ARROW_DOWN);
 		getLienholderTxtField().sendKeys(Keys.ARROW_DOWN);
@@ -798,7 +799,7 @@ public class EditContract_test extends EditContractAction {
 
 	@Test(priority = 17)
 	public void verifyLienholderOptionselectionWithKeyboardInBlist_11678() throws Exception {
-		login.login(prop.getProperty("username"), prop.getProperty("password"));
+		login.login(prop.getProperty("username1"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 	    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 	    Thread.sleep(1000);
@@ -819,12 +820,12 @@ public class EditContract_test extends EditContractAction {
 	    }
 	    Assert.assertTrue(getEditContractPagetitle().isDisplayed());
 	    getLienholderTxtField().clear();
-	    getLienholderTxtField().sendKeys("B");
+	    getLienholderTxtField().sendKeys("Bank");
 	    Thread.sleep(2000);
-	    Assert.assertTrue(getLienholderTxtField().getAttribute("value").equalsIgnoreCase("B"));
+	    Assert.assertTrue(getLienholderTxtField().getAttribute("value").equalsIgnoreCase("Bank"));
 	    for(int i=0;i<5;i++)
 	    {
-	    getLeinholderList().get(i).toString().startsWith("B");
+	    getLeinholderList().get(i).toString().startsWith("Bank");
 	    }
 	    String eneterdValue = getLeinholderList().get(0).getText();
 	    getLienholderTxtField().sendKeys(Keys.ARROW_DOWN);
@@ -835,7 +836,7 @@ public class EditContract_test extends EditContractAction {
 	
 	@Test(priority = 18)
 	public void verifyInvalidMsgOnLienholderForInvalidTxt_11757() throws Exception {
-		login.login(prop.getProperty("username"), prop.getProperty("password"));
+		login.login(prop.getProperty("username1"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 	    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 	    Thread.sleep(1000);
@@ -864,7 +865,7 @@ public class EditContract_test extends EditContractAction {
 	
 	@Test(priority = 19)
 	public void verifyLienholderdeletionInBlist_11758() throws Exception {
-		login.login(prop.getProperty("username"), prop.getProperty("password"));
+		login.login(prop.getProperty("username1"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 	    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 	    Thread.sleep(1000);
@@ -885,12 +886,12 @@ public class EditContract_test extends EditContractAction {
 	    }
 	    Assert.assertTrue(getEditContractPagetitle().isDisplayed());
 	    getLienholderTxtField().clear();
-	    getLienholderTxtField().sendKeys("B");
+	    getLienholderTxtField().sendKeys("Bank");
 	    Thread.sleep(2000);
-	    Assert.assertTrue(getLienholderTxtField().getAttribute("value").equalsIgnoreCase("B"));
+	    Assert.assertTrue(getLienholderTxtField().getAttribute("value").equalsIgnoreCase("Bank"));
 	    for(int i=0;i<5;i++)
 	    {
-	    getLeinholderList().get(i).toString().startsWith("B");
+	    getLeinholderList().get(i).toString().startsWith("Bank");
 	    }
 	    String eneterdValue = getLeinholderList().get(0).getText();
 	    getLienholderTxtField().sendKeys(Keys.ARROW_DOWN);
@@ -904,7 +905,7 @@ public class EditContract_test extends EditContractAction {
 	
 	@Test(priority = 20)
 	public void verifyLienholderOptionselectionInBlist_12583() throws Exception {
-		login.login(prop.getProperty("username"), prop.getProperty("password"));
+		login.login(prop.getProperty("username1"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 	    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 	    Thread.sleep(1000);
@@ -925,12 +926,12 @@ public class EditContract_test extends EditContractAction {
 	    }
 	    Assert.assertTrue(getEditContractPagetitle().isDisplayed());
 	    getLienholderTxtField().clear();
-	    getLienholderTxtField().sendKeys("B");
+	    getLienholderTxtField().sendKeys("Bank");
 	    Thread.sleep(2000);
-	    Assert.assertTrue(getLienholderTxtField().getAttribute("value").equalsIgnoreCase("B"));
+	    Assert.assertTrue(getLienholderTxtField().getAttribute("value").equalsIgnoreCase("Bank"));
 	    for(int i=0;i<5;i++)
 	    {
-	    getLeinholderList().get(i).toString().startsWith("B");
+	    getLeinholderList().get(i).toString().startsWith("Bank");
 	    }
 	    String eneterdValue = getLeinholderList().get(0).getText();
 	    getLeinholderList().get(0).click();
@@ -939,7 +940,7 @@ public class EditContract_test extends EditContractAction {
 	
 	@Test(priority = 21)
 	public void verifyLienholderOptionselectionWithKeyboardInBlist_12585() throws Exception {
-		login.login(prop.getProperty("username"), prop.getProperty("password"));
+		login.login(prop.getProperty("username1"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 	    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 	    Thread.sleep(1000);
@@ -947,7 +948,7 @@ public class EditContract_test extends EditContractAction {
 	    utils.scrollDown();
 	    HashMap<Integer, HashMap<String, String>> allTableData = contractSearchPage.checkGridBodyDetails();
 	    contractSearchPage.getSelectStatus().click();
-	    contractSearchPage.getEnteredStatusChkbox().click();
+	    contractSearchPage.getEnteredStatusChkbox().click();                                                                                                      
 	    String contractNumber = allTableData.get(1).get("Contract");
 		utils.scrollDown();
 	    contractSearchPage.getSearchBoxesInGrid().get("Contract").sendKeys(contractNumber);
@@ -955,17 +956,17 @@ public class EditContract_test extends EditContractAction {
 	    HashMap<Integer, HashMap<String, String>> allTableData2 = contractSearchPage.checkGridBodyDetails();
 		String contractNumber2 = allTableData2.get(1).get("Contract");
 	    if(contractNumber.equals(contractNumber2)) {
-	    contractSearchPage.selectStatusCheckBoxInGrid(1).click();
+	    //contractSearchPage.selectStatusCheckBoxInGrid(1).click();
 	    contractSearchPage.getEditLink(1).click();
 	    }
 	    Assert.assertTrue(getEditContractPagetitle().isDisplayed());
 	    getLienholderTxtField().clear();
-	    getLienholderTxtField().sendKeys("B");
+	    getLienholderTxtField().sendKeys("Bank");
 	    Thread.sleep(2000);
-	    Assert.assertTrue(getLienholderTxtField().getAttribute("value").equalsIgnoreCase("B"));
+	    Assert.assertTrue(getLienholderTxtField().getAttribute("value").equalsIgnoreCase("Bank"));
 	    for(int i=0;i<5;i++)
 	    {
-	    getLeinholderList().get(i).toString().startsWith("B");
+	    getLeinholderList().get(i).toString().startsWith("Bank");
 	    }
 	    String eneterdValue = getLeinholderList().get(0).getText();
 	    getLienholderTxtField().sendKeys(Keys.ARROW_DOWN);
@@ -974,41 +975,10 @@ public class EditContract_test extends EditContractAction {
 	    Assert.assertEquals(getLienholderTxtField().getAttribute("value"), eneterdValue);
 	}
 	
+	   
 	    @Test(priority = 22)
-		public void verifyLienholderTypeAheadFunctionalityInBList_12587() throws Exception {
-	    	login.login(prop.getProperty("username"), prop.getProperty("password"));
-			Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
-		    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
-		    Thread.sleep(1000);
-		    Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
-		    utils.scrollDown();
-		    HashMap<Integer, HashMap<String, String>> allTableData = contractSearchPage.checkGridBodyDetails();
-		    contractSearchPage.getSelectStatus().click();
-		    contractSearchPage.getEnteredStatusChkbox().click();
-		    String contractNumber = allTableData.get(1).get("Contract");
-			utils.scrollDown();
-		    contractSearchPage.getSearchBoxesInGrid().get("Contract").sendKeys(contractNumber);
-		    Thread.sleep(1000);
-		    HashMap<Integer, HashMap<String, String>> allTableData2 = contractSearchPage.checkGridBodyDetails();
-			String contractNumber2 = allTableData2.get(1).get("Contract");
-		    if(contractNumber.equals(contractNumber2)) {
-		    contractSearchPage.selectStatusCheckBoxInGrid(1).click();
-		    contractSearchPage.getEditLink(1).click();
-		    }
-		    Assert.assertTrue(getEditContractPagetitle().isDisplayed());
-		    getLienholderTxtField().clear();
-		    getLienholderTxtField().sendKeys("B");
-		    Thread.sleep(2000);
-		    Assert.assertTrue(getLienholderTxtField().getAttribute("value").equalsIgnoreCase("B"));
-		    for(int i=0;i<5;i++)
-		    {
-		    getLeinholderList().get(i).toString().startsWith("B");
-		    }
-		}
-	    
-	    @Test(priority = 23)
 		public void verifyInvalidMsgOnLienholderWithInvalidCharacter_12590() throws Exception {
-			login.login(prop.getProperty("username"), prop.getProperty("password"));
+			login.login(prop.getProperty("username1"), prop.getProperty("password"));
 			Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 		    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		    Thread.sleep(1000);
@@ -1034,9 +1004,9 @@ public class EditContract_test extends EditContractAction {
 		    Assert.assertTrue(getInvalidLienholderTxt().isDisplayed());
 		}
 		
-	    @Test(priority = 24)
-		public void verifyBListLienholderDoesntConvertAListLienholder_12594() throws Exception {
-	    	login.login(prop.getProperty("username"), prop.getProperty("password"));
+	    @Test(priority = 23)
+		public void verifyBListLienholderDoesntConvertAListLienholder_12594_12610_12587() throws Exception {
+	    	login.login(prop.getProperty("username1"), prop.getProperty("password"));
 			Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 			verticalMenu.navigatetoContract();
 			singleContract.singleContract("Bank of America");
@@ -1059,15 +1029,15 @@ public class EditContract_test extends EditContractAction {
 		    }
 		    Assert.assertTrue(getEditContractPagetitle().isDisplayed());
 		    getLienholderTxtField().clear();
-		    getLienholderTxtField().sendKeys("B");
+		    getLienholderTxtField().sendKeys("Bank");
 		    Thread.sleep(2000);
-		    
+		    Assert.assertTrue(getLienholderTxtField().getAttribute("value").equalsIgnoreCase("Bank"));
 		    for(int i=0;i<5;i++)
 		    {
-		    getLeinholderList().get(i).toString().startsWith("B");
+		    getLeinholderList().get(i).toString().startsWith("Bank");
 		    }
 		    getLienholderTxtField().clear();
-		    getLienholderTxtField().sendKeys("United Auto Acceptance");
+		    getLienholderTxtField().sendKeys("SPP");
 		    getCoustomerInfoFields().get(5).clear();
 		    getCoustomerInfoFields().get(5).sendKeys("abc@gmail.com");
 		    getCoustomerInfoFields().get(6).clear();
@@ -1101,163 +1071,12 @@ public class EditContract_test extends EditContractAction {
 		    Assert.assertTrue(getLienholderTxtField().getAttribute("value").equalsIgnoreCase(eneterdValue));
 		}
 
-	    @Test(priority = 25)
-		public void verifyEditFunctionalityIsWorkingProperly_12595() throws Exception {
-	    	login.login(prop.getProperty("username"), prop.getProperty("password"));
+	    @Test(priority = 24)
+		public void verifyLienHolderEmptyAndIsntWantToSelectAList_12597_12613_15382_15437() throws Exception {
+	    	login.login(prop.getProperty("username1"), prop.getProperty("password"));
 			Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 			verticalMenu.navigatetoContract();
-			singleContract.singleContract("Bank of America");
-		    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
-		    Thread.sleep(1000);
-		    Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
-		    utils.scrollDown();
-		    HashMap<Integer, HashMap<String, String>> allTableData = contractSearchPage.checkGridBodyDetails();
-		    contractSearchPage.filterStatus("Entered");
-		    String contractNumber = allTableData.get(1).get("Contract");
-			utils.scrollDown();
-		    contractSearchPage.getSearchBoxesInGrid().get("Contract").sendKeys(contractNumber);
-		    Thread.sleep(1000);
-		    HashMap<Integer, HashMap<String, String>> allTableData2 = contractSearchPage.checkGridBodyDetails();
-			String contractNumber2 = allTableData2.get(1).get("Contract");
-		    if(contractNumber.equals(contractNumber2)) {
-		    contractSearchPage.selectStatusCheckBoxInGrid(1).click();
-		    contractSearchPage.getEditLink(1).click();
-		    }
-		    Assert.assertTrue(getEditContractPagetitle().isDisplayed());
-		    getLienholderTxtField().clear();
-		    getLienholderTxtField().sendKeys("a");
-		    Thread.sleep(2000);
-		    String eneterdValue = getLeinholderList().get(0).getText();
-		    getLeinholderList().get(0).click();
-		    Assert.assertEquals(getLienholderTxtField().getAttribute("value"), eneterdValue);
-		    
-		    String dealNo = "34159";
-		    getContarctInfoTxtFields1().get(0).clear();
-		    getContarctInfoTxtFields1().get(0).sendKeys(dealNo);
-		    Assert.assertEquals(getContarctInfoTxtFields1().get(0).getAttribute("value"),dealNo);
-		    
-		    String vehiclePurchasePrice = "100";
-		    getContarctInfoTxtFields1().get(0).sendKeys(Keys.TAB);
-		    getVehiclePurchaseTxtfield().sendKeys(Keys.BACK_SPACE);
-		    getVehiclePurchaseTxtfield().sendKeys(Keys.BACK_SPACE);
-		    getVehiclePurchaseTxtfield().sendKeys(Keys.BACK_SPACE);
-		    getVehiclePurchaseTxtfield().sendKeys(Keys.BACK_SPACE);
-		    getVehiclePurchaseTxtfield().sendKeys(Keys.BACK_SPACE);
-		    getVehiclePurchaseTxtfield().sendKeys(Keys.BACK_SPACE);
-		    getVehiclePurchaseTxtfield().sendKeys(vehiclePurchasePrice);
-		    Assert.assertEquals(getVehiclePurchaseTxtfield().getAttribute("value"),vehiclePurchasePrice);
-		    Thread.sleep(0);
-		    
-		    String contractRetailPrice = "10";
-		    getVehiclePurchaseTxtfield().sendKeys(Keys.TAB);
-		    getContactRetailPriceTxtField().sendKeys(Keys.BACK_SPACE);
-		    getContactRetailPriceTxtField().sendKeys(Keys.BACK_SPACE);
-		    getContactRetailPriceTxtField().sendKeys(Keys.BACK_SPACE);
-		    getContactRetailPriceTxtField().sendKeys(Keys.BACK_SPACE);
-		    getContactRetailPriceTxtField().sendKeys(Keys.BACK_SPACE);
-		    getContactRetailPriceTxtField().sendKeys(Keys.BACK_SPACE);
-		    getContactRetailPriceTxtField().sendKeys(contractRetailPrice);
-		    Assert.assertEquals(getContactRetailPriceTxtField().getAttribute("value"),contractRetailPrice);
-		    
-		    String firstName = "Test";
-		    getCoustomerInfoFields().get(0).clear();
-		    getCoustomerInfoFields().get(0).sendKeys(firstName);
-		    Assert.assertEquals(getCoustomerInfoFields().get(0).getAttribute("value"),firstName);
-		    String lastName= "one";
-		    getCoustomerInfoFields().get(1).clear();
-		    getCoustomerInfoFields().get(1).sendKeys(lastName);
-		    Assert.assertEquals(getCoustomerInfoFields().get(1).getAttribute("value"),lastName);
-		    String address = "Texas";
-		    getCoustomerInfoFields().get(2).clear();
-		    getCoustomerInfoFields().get(2).sendKeys(address);
-		    Assert.assertEquals(getCoustomerInfoFields().get(2).getAttribute("value"),address);
-		    String  zipCode= "36666";
-		    getCoustomerInfoFields().get(3).clear();
-		    getCoustomerInfoFields().get(3).sendKeys(zipCode);
-		    Assert.assertEquals(getCoustomerInfoFields().get(3).getAttribute("value"),zipCode);
-		    String  city= "Dallas";
-		    getCoustomerInfoFields().get(4).clear();
-		    getCoustomerInfoFields().get(4).sendKeys(city);
-		    Assert.assertEquals(getCoustomerInfoFields().get(4).getAttribute("value"),city);
-		    String  email= "abc@gmail.com";
-		    getCoustomerInfoFields().get(5).clear();
-		    getCoustomerInfoFields().get(5).sendKeys(email);
-		    Assert.assertEquals(getCoustomerInfoFields().get(5).getAttribute("value"),email);
-		    String  phno= "0000000000";
-		    String phnNoInFormat="(000) 000-0000";
-		    getCoustomerInfoFields().get(6).clear();
-		    getCoustomerInfoFields().get(6).sendKeys(phno);
-		    Assert.assertEquals(getCoustomerInfoFields().get(6).getAttribute("value"),phnNoInFormat);
-		    if(getCobuyerChkbox().getAttribute("aria-checked").equals("false"))
-		    {
-		    	getCoBuyerChkboxField().click();
-		    }
-		    String cobuyerFirstName = "Test1";
-		    getCoustomerInfoFields().get(7).clear();
-		    getCoustomerInfoFields().get(7).sendKeys(cobuyerFirstName);
-		    Assert.assertEquals(getCoustomerInfoFields().get(7).getAttribute("value"),cobuyerFirstName);
-		    String cobuyerLastName = "one1";
-		    getCoustomerInfoFields().get(8).clear();
-		    getCoustomerInfoFields().get(8).sendKeys(cobuyerLastName);
-		    Assert.assertEquals(getCoustomerInfoFields().get(8).getAttribute("value"),cobuyerLastName);
-		    String cobuyerAddress = "Texas1";
-		    getCoustomerInfoFields().get(9).clear();
-		    getCoustomerInfoFields().get(9).sendKeys(cobuyerAddress);
-		    Assert.assertEquals(getCoustomerInfoFields().get(9).getAttribute("value"),cobuyerAddress);
-		    String cobuyerZipCode = "36666";
-		    getCoustomerInfoFields().get(10).clear();
-		    getCoustomerInfoFields().get(10).sendKeys(cobuyerZipCode);
-		    Assert.assertEquals(getCoustomerInfoFields().get(10).getAttribute("value"),cobuyerZipCode);
-		    String cobuyerCity = "Dallas1";
-		    getCoustomerInfoFields().get(11).clear();
-		    getCoustomerInfoFields().get(11).sendKeys(cobuyerCity);
-		    Assert.assertEquals(getCoustomerInfoFields().get(11).getAttribute("value"),cobuyerCity);
-		    String cobuyerEmail = "def@gmail.com";
-		    getCoustomerInfoFields().get(12).clear();
-		    getCoustomerInfoFields().get(12).sendKeys(cobuyerEmail);
-		    Assert.assertEquals(getCoustomerInfoFields().get(12).getAttribute("value"),cobuyerEmail);
-		    String cobuyerPhnNo = "1112223333";
-		    String cobuyerPhnNoInFormat = "(111) 222-3333";
-		    getCoustomerInfoFields().get(13).clear();
-		    getCoustomerInfoFields().get(13).sendKeys(cobuyerPhnNo);
-		    Assert.assertEquals(getCoustomerInfoFields().get(13).getAttribute("value"),cobuyerPhnNoInFormat);
-		    utils.scrollDown();
-		    getBtnSave().click();
-		    getDriver().switchTo().defaultContent();
-		    Assert.assertTrue(getContractSubmittedSuccessTxt().isDisplayed());
-		    getGoToContractsPageLink().click();
-		    for (int i = 1; i <= getRowLoc().size(); i++) {
-				String contract = allTableData.get(i).get("Contract");
-				  if(contract.equals(contractNumber))
-				  {
-					 contractSearchPage.selectStatusCheckBoxInGrid(i).click();
-					 contractSearchPage.getEditLink(i).click();
-					 break;
-					}
-		    }	 
-		    utils.scrollDown();
-		    Assert.assertTrue(getContarctInfoTxtFields1().get(0).getAttribute("value").equalsIgnoreCase(dealNo));
-		    Assert.assertTrue(getCoustomerInfoFields().get(0).getAttribute("value").equalsIgnoreCase(firstName));
-		    Assert.assertTrue(getCoustomerInfoFields().get(3).getAttribute("value").equalsIgnoreCase(zipCode));
-		    Assert.assertTrue(getCoustomerInfoFields().get(6).getAttribute("value").equalsIgnoreCase(phnNoInFormat));
-		    Assert.assertEquals(getCoustomerInfoFields().get(7).getAttribute("value"),cobuyerFirstName);
-		    Assert.assertEquals(getCoustomerInfoFields().get(11).getAttribute("value"),cobuyerCity);
-		    Assert.assertEquals(getCoustomerInfoFields().get(13).getAttribute("value"),cobuyerPhnNoInFormat);
-		    
-		    Assert.assertTrue(getDataFromDB(contractNumber).get(1).get("FIRST_NAME").equalsIgnoreCase(firstName));
-		    Assert.assertTrue(getDataFromDB(contractNumber).get(1).get("ZIP").equalsIgnoreCase(zipCode));
-		    Assert.assertTrue(getDataFromDB(contractNumber).get(1).get("PHONE").equalsIgnoreCase(phno));
-		    Assert.assertTrue(getDataFromDB(contractNumber).get(1).get("COOWNER_FIRSTNAME").equalsIgnoreCase(cobuyerFirstName));
-		    Assert.assertTrue(getDataFromDB(contractNumber).get(1).get("COOWNER_CITY").equalsIgnoreCase(cobuyerCity));
-		    Assert.assertTrue(getDataFromDB(contractNumber).get(1).get("COOWNER_PHONE").equalsIgnoreCase(cobuyerPhnNo));
-		}
-
-	    @Test(priority = 26)
-		public void verifyBListLienholderDoesntConvertAListLienholder_12610() throws Exception {
-	    	login.login(prop.getProperty("username"), prop.getProperty("password"));
-			Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
-			verticalMenu.navigatetoContract();
-			singleContract.singleContract("Bank of America");
+			singleContract.singleContract();
 		    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		    Thread.sleep(1000);
 		    Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -1277,18 +1096,7 @@ public class EditContract_test extends EditContractAction {
 		    }
 		    Assert.assertTrue(getEditContractPagetitle().isDisplayed());
 		    getLienholderTxtField().clear();
-		    getLienholderTxtField().sendKeys("B");
-		    Thread.sleep(2000);
-		    
-		    for(int i=0;i<5;i++)
-		    {
-		    getLeinholderList().get(i).toString().startsWith("B");
-		    }
-		    getLienholderTxtField().clear();
-		    getLienholderTxtField().sendKeys("United Auto Acceptance");
-		    String eneterdValue = getLeinholderList().get(0).getText();
-		    getLeinholderList().get(0).click();
-		    Assert.assertEquals(getLienholderTxtField().getAttribute("value"),eneterdValue);
+		    getLienholderTxtField().sendKeys("SPP");
 		    getCoustomerInfoFields().get(5).clear();
 		    getCoustomerInfoFields().get(5).sendKeys("abc@gmail.com");
 		    getCoustomerInfoFields().get(6).clear();
@@ -1298,11 +1106,22 @@ public class EditContract_test extends EditContractAction {
 		    utils.scrollUp();
 		    Thread.sleep(1000);
 		    Assert.assertTrue(getInvalidLienholderTxt().isDisplayed());
-		}
+		    getLienholderTxtField().clear();
+		    getLienholderTxtField().sendKeys("Bank");
+		    Thread.sleep(2000);
+		    Assert.assertTrue(getLienholderTxtField().getAttribute("value").equalsIgnoreCase("Bank"));
+		    for(int i=0;i<5;i++)
+		    {
+		    getLeinholderList().get(i).toString().startsWith("Bank");
+		    }
+		    String eneterdValue = getLeinholderList().get(0).getText();
+		    getLeinholderList().get(0).click();
+		    Assert.assertEquals(getLienholderTxtField().getAttribute("value"), eneterdValue);
+	    }
 	    
-	    @Test(priority = 27)
-		public void verifyEditFunctionalityByUpdatingCobuyerandCustomer_11362() throws Exception {
-	    	login.login(prop.getProperty("username"), prop.getProperty("password"));
+	    @Test(priority = 25)
+	    public void verifyContractInfoSectionLoadsValidValues_15362() throws Exception {
+	    	login.login(prop.getProperty("username1"), prop.getProperty("password"));
 			Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 			verticalMenu.navigatetoContract();
 			singleContract.singleContract();
@@ -1335,7 +1154,158 @@ public class EditContract_test extends EditContractAction {
 		    Assert.assertEquals(getContactRetailPriceTxtField().getAttribute("value"),"210.00");
 	    }
 	    
-		
+	    @Test(priority = 26)
+		public void verifyLienHolderFieldUnderStaticInfoSection_15368() throws Exception {
+	    	login.login(prop.getProperty("username1"), prop.getProperty("password"));
+			Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+			verticalMenu.navigatetoContract();
+			singleContract.singleContract();
+		    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
+		    Thread.sleep(1000);
+		    Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
+		    utils.scrollDown();
+		    HashMap<Integer, HashMap<String, String>> allTableData = contractSearchPage.checkGridBodyDetails();
+		    contractSearchPage.getSelectStatus().click();
+		    contractSearchPage.getEnteredStatusChkbox().click();
+		    String contractNumber = allTableData.get(1).get("Contract");
+			utils.scrollDown();
+		    contractSearchPage.getSearchBoxesInGrid().get("Contract").sendKeys(contractNumber);
+		    Thread.sleep(1000);
+		    HashMap<Integer, HashMap<String, String>> allTableData2 = contractSearchPage.checkGridBodyDetails();
+			String contractNumber2 = allTableData2.get(1).get("Contract");
+		    if(contractNumber.equals(contractNumber2)) {
+		    contractSearchPage.selectStatusCheckBoxInGrid(1).click();
+		    contractSearchPage.getEditLink(1).click();
+		    }
+		    Assert.assertTrue(getNotOnTheListLink().isDisplayed());
+	    }
+	    
+	        @Test(priority = 27)
+	  		public void verifyLienHolderEditFuctionality_15375() throws Exception {
+	  	    	login.login(prop.getProperty("username1"), prop.getProperty("password"));
+	  			Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+	  		    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
+	  		    Thread.sleep(1000);
+	  		    Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
+	  		    utils.scrollDown();
+	  		    HashMap<Integer, HashMap<String, String>> allTableData = contractSearchPage.checkGridBodyDetails();
+	  		    contractSearchPage.getSelectStatus().click();
+	  		    contractSearchPage.getEnteredStatusChkbox().click();
+	  		    String contractNumber = allTableData.get(1).get("Contract");
+	  			utils.scrollDown();
+	  		    contractSearchPage.getSearchBoxesInGrid().get("Contract").sendKeys(contractNumber);
+	  		    Thread.sleep(1000);
+	  		    HashMap<Integer, HashMap<String, String>> allTableData2 = contractSearchPage.checkGridBodyDetails();
+	  			String contractNumber2 = allTableData2.get(1).get("Contract");
+	  		    if(contractNumber.equals(contractNumber2)) {
+	  		    contractSearchPage.selectStatusCheckBoxInGrid(1).click();
+	  		    contractSearchPage.getEditLink(1).click();
+	  		    }
+	  		   getLienholderTxtField().clear();
+	  	       getLienholderTxtField().sendKeys("Bank of America");
+	  	       Thread.sleep(2000);
+	  	       String eneterdValue = getLeinholderList().get(0).getText();
+	  	       getLeinholderList().get(0).click();
+	  	       Assert.assertEquals(getLienholderTxtField().getAttribute("value"), eneterdValue);
+	  	       getBtnSave().click();
+	  	       Assert.assertTrue(getDataFromDB(contractNumber).get(1).get("LIENHOLDER").equalsIgnoreCase(eneterdValue));
+	  	    }
+	  		
+	        @Test(priority = 28)
+	  		public void verifyLienHolderAfterSelectingNotOnTheLink_15379_15396_15436() throws Exception {
+	        	login.login(prop.getProperty("username1"), prop.getProperty("password"));
+	    		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+	    		verticalMenu.navigatetoContract();
+	    		singleContract.singleContract();
+	    	    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
+	  		    Thread.sleep(1000);
+	  		    Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
+	  		    utils.scrollDown();
+	  		    HashMap<Integer, HashMap<String, String>> allTableData = contractSearchPage.checkGridBodyDetails();
+	  		    contractSearchPage.getSelectStatus().click();
+	  		    contractSearchPage.getEnteredStatusChkbox().click();
+	  		    String contractNumber = allTableData.get(1).get("Contract");
+	  			utils.scrollDown();
+	  		    contractSearchPage.getSearchBoxesInGrid().get("Contract").sendKeys(contractNumber);
+	  		    Thread.sleep(1000);
+	  		    HashMap<Integer, HashMap<String, String>> allTableData2 = contractSearchPage.checkGridBodyDetails();
+	  			String contractNumber2 = allTableData2.get(1).get("Contract");
+	  		    if(contractNumber.equals(contractNumber2)) {
+	  		    contractSearchPage.selectStatusCheckBoxInGrid(1).click();
+	  		    contractSearchPage.getEditLink(1).click();
+	  		    }
+	  		   Thread.sleep(2000);
+	  		   Assert.assertTrue(getLienholderTxtField().isDisplayed());
+	  		   getLienholderTxtField().click();
+	  		   Assert.assertTrue(getLienholderTxtField().getAttribute("placeholder").equals("Type & Select a Lienholder"));
+	  		   getNotOnTheListLink().isDisplayed();
+	  		   getNotOnTheListLink().click();
+	  		   Thread.sleep(2000);
+	  		   getLienholderTxtFieldForNotOnTheLink().clear();
+	  		   getLienholderTxtFieldForNotOnTheLink().sendKeys("@!#$");
+	  	       Assert.assertEquals(getLienholderTxtFieldForNotOnTheLink().getAttribute("value"),"@!#$" );
+	  	       Assert.assertTrue(getShowLienholderListLink().isDisplayed());
+	  	       Assert.assertTrue(getLeinholderList().size() == 0);
+	  	       getBtnSave().click();
+	 	       getDriver().switchTo().defaultContent();
+	 	       Assert.assertTrue(getContractSubmittedSuccessTxt().isDisplayed(),"System allows the character");
+	        }
+	        
+	        @Test(priority = 29)
+	  		public void verifySaveCancelAndPageRedirection_15510_15511_15512() throws Exception {
+	  	    	login.login(prop.getProperty("username1"), prop.getProperty("password"));
+	  			Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+	  		    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
+	  		    Thread.sleep(1000);
+	  		    Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
+	  		    utils.scrollDown();
+	  		    HashMap<Integer, HashMap<String, String>> allTableData = contractSearchPage.checkGridBodyDetails();
+	  		    contractSearchPage.getSelectStatus().click();
+	  		    contractSearchPage.getEnteredStatusChkbox().click();
+	  		    String contractNumber = allTableData.get(1).get("Contract");
+	  			utils.scrollDown();
+	  		    contractSearchPage.getSearchBoxesInGrid().get("Contract").sendKeys(contractNumber);
+	  		    Thread.sleep(1000);
+	  		    HashMap<Integer, HashMap<String, String>> allTableData2 = contractSearchPage.checkGridBodyDetails();
+	  			String contractNumber2 = allTableData2.get(1).get("Contract");
+	  		    if(contractNumber.equals(contractNumber2)) {
+	  		    contractSearchPage.selectStatusCheckBoxInGrid(1).click();
+	  		    contractSearchPage.getEditLink(1).click();
+	  		    }
+	  		    Assert.assertTrue(getEditContractPagetitle().isDisplayed());
+	  		    Assert.assertTrue(getBtnSave().isDisplayed());
+	  		    Assert.assertTrue(getBtnCancel().isDisplayed());
+	  		    getBtnCancel().click();
+	  		    Thread.sleep(2000);
+	  		    Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
+	        }
+	        
+//	        @Test(priority = 30)
+//	  		public void verify() throws Exception {
+//	  	    	login.login(prop.getProperty("username1"), prop.getProperty("password"));
+//	  			Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+//	  		    verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
+//	  		    Thread.sleep(1000);
+//	  		    Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
+//	  		    utils.scrollDown();
+//	  		    HashMap<Integer, HashMap<String, String>> allTableData = contractSearchPage.checkGridBodyDetails();
+//	  		    contractSearchPage.getSelectStatus().click();
+//	  		    contractSearchPage.getEnteredStatusChkbox().click();
+//	  		    String contractNumber = allTableData.get(1).get("Contract");
+//	  			utils.scrollDown();
+//	  		    contractSearchPage.getSearchBoxesInGrid().get("Contract").sendKeys(contractNumber);
+//	  		    Thread.sleep(1000);
+//	  		    HashMap<Integer, HashMap<String, String>> allTableData2 = contractSearchPage.checkGridBodyDetails();
+//	  			String contractNumber2 = allTableData2.get(1).get("Contract");
+//	  		    if(contractNumber.equals(contractNumber2)) {
+//	  		    contractSearchPage.selectStatusCheckBoxInGrid(1).click();
+//	  		    contractSearchPage.getEditLink(1).click();
+//	  		    }
+//	  		    Assert.assertTrue(getEditContractPagetitle().isDisplayed());
+//	  		   
+//	        }
+	  		
+	  	    
 	@AfterMethod
 	public void close() throws InterruptedException {
 		login.logout();

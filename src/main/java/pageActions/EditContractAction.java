@@ -49,6 +49,12 @@ public class EditContractAction extends EditContractpo {
 	 }
 	 
 	 
+	 public WebElement getLienholderTxtFieldForNotOnTheLink() {
+		 WebElement lienholder=driver.findElement(By.xpath(lienholderTxtFieldForNotOnTheLink));	
+		 return lienholder;
+	 }
+	 
+	 
 	 public List<WebElement> getLeinholderList() {
 		 List<WebElement> leinholderList = driver.findElements(By.cssSelector(lienholderlist));	
 		 return leinholderList;
@@ -120,6 +126,16 @@ public class EditContractAction extends EditContractpo {
 		 return invalidLienholder;
 	 }
 	 
+	 public WebElement getNotOnTheListLink() {
+		 WebElement notOnTheList=driver.findElement(By.xpath(notOnTheListLink));	
+		 return notOnTheList;
+	 }
+	 
+	 public WebElement getShowLienholderListLink() {
+		 WebElement showLienholderList=driver.findElement(By.xpath(showLienholderListLink));	
+		 return showLienholderList;
+	 }
+	 
 			public HashMap<Integer, HashMap<String, String>> getDataFromDB(String contactNum) throws Exception  {
 			HashMap<Integer, HashMap<String, String>> dbMap = new HashMap<Integer, HashMap<String, String>>();
 			try {
@@ -127,6 +143,7 @@ public class EditContractAction extends EditContractpo {
 				ResultSet rs = dc.stmt.executeQuery(
 						"Select *  from [dbo].[WEB_CONTRACTS] as wc inner join [dbo].[web_contracts_extended] as we on wc.id =we.web_contracts_id where wc.CERT = '" + contactNum + "';");
 				dbMap = dc.returnAllData(rs);
+				System.out.println(dbMap);
 				return dbMap;
 			} catch (Exception e) {
 				throw e;
