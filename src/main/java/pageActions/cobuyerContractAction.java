@@ -39,6 +39,7 @@ public class cobuyerContractAction extends contractpo{
 			}
 			
 		}
+		Assert.assertEquals(addGapLabel(), "Add GAP");
 		driver.findElements(By.cssSelector(textbox)).get(14).clear();
 		event.inputfield("cssSelector", textbox, "20130", 14);
 		driver.findElements(By.cssSelector(textbox)).get(13).clear();

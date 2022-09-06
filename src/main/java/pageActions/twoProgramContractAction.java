@@ -91,7 +91,7 @@ public class twoProgramContractAction extends contractpo {
 		    String a5 = a3.replace(",","");
 		    double t2 = Double.parseDouble(a5);
 		    double total = t1 + t2;
-		    
+		    Assert.assertEquals(addGapLabel(), "Add GAP");
 			event.clearfield("xpath", zipcode);
 			event.inputfield("xpath", zipcode, "20130");
 			String fullTotal = event.text("cssSelector", totalFooter);

@@ -28,7 +28,6 @@ import org.testng.annotations.Test;
 
 import pageActions.ContractSearchPageAction;
 import pageActions.LateralMenuAction;
-import pageActions.contractSearchAction;
 import pageActions.loginAction;
 import pageActions.verticalMenuAction;
 import utils.utilityClass;

@@ -46,7 +46,6 @@ public class dashBoardBanner_test extends bannnerAction {
 			la.login(prop.getProperty("username"), prop.getProperty("password"));
 			driver.switchTo().defaultContent();
 			Assert.assertTrue(textSetUp.contains(dashBoardBannerElement().getText()));
-
 		} catch (Exception e) {
 
 		} finally {

@@ -50,9 +50,25 @@ public class contractpo extends baseClass{
 	public String optionFirst = ".ng-dropdown-panel-items > div > div";
 	public String contractNo = "div input[disabled][maxlength='16']";
 	public String overideContractNo = "adl-checkbox[label =\"Override Contract Number\"]";
+	public String overideContractNoCheckbox = "adl-checkbox[label =\"Override Contract Number\"] >div > mat-checkbox >label > div";
 	public String retailPrice = "adl-text-input[label =\"Contract Retail Price\"]";
+	public String retailPriceTextBox = "adl-text-input[label =\"Contract Retail Price\"] > div > div:nth-child(2) >input";
 	public String vehiclePurchasePrice = "adl-text-input[label =\"Vehicle Purchase Price\"]";
 	public String totalFooter = "div.total__price";
+	public String required = ".error-anchor >span";
+	public String inServicefield = "adl-text-input[label='In-Service Date'] >div  >div + div";
+	public String warningMessage = "adl-warning-message >div > p>span";
+	public String addGap = "div.gap__title >adl-checkbox";
+	public String noSurcharges = "adl-checkbox[label= \"No Surcharges\"] > div >mat-checkbox > label >div";
+	public String inServiceTextBox = "adl-text-input[label =\"In-Service Date\"] >div >div:nth-child(2) >input";
+	public String sppNext = ".grid >div:nth-child(4) >button";
+	
+	
+	public String fieldlength() {
+		
+		return driver.findElement(By.cssSelector(inServiceTextBox)).getAttribute("maxlength");
+	}
+	
 	
 	public String fieldbyLabelName(String label) {
 		
@@ -64,4 +80,13 @@ public class contractpo extends baseClass{
 		return driver.findElements(By.cssSelector(field)).size();
 	}
 	
+	public String warningTextMesssage() {
+		
+		return driver.findElement(By.cssSelector(warningMessage)).getText();
+	}
+	
+	public String addGapLabel() {
+		
+		return driver.findElement(By.cssSelector(addGap)).getAttribute("label");
+	}
 }

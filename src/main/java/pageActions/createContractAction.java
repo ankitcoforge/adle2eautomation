@@ -59,7 +59,7 @@ public class createContractAction extends contractpo {
 				driver.findElement(By.cssSelector(".ng-dropdown-panel-items > div > div")).click();
 				driver.findElement(By.cssSelector("adl-select[placeholder=\"Select Miles\"]>ng-select")).click();
 				driver.findElement(By.cssSelector(".ng-dropdown-panel-items > div > div")).click();
-				Assert.assertEquals(driver.findElement(By.cssSelector("adl-warning-message >div > p>span")).getText(), "Please select the rate in the table.");
+				Assert.assertEquals(warningTextMesssage(), "Please select the rate in the table.");
 			}
 			event.clickfield("cssSelector", table, 0);
 			String header = event.text("cssSelector", programNameCode);
@@ -73,7 +73,7 @@ public class createContractAction extends contractpo {
 			List<WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
 			if (a.size() == 1) {
 				String a1 = driver
-						.findElement(By.cssSelector("adl-text-input[label='In-Service Date'] >div  >div + div"))
+						.findElement(By.cssSelector(inServicefield))
 						.getAttribute("class");
 				if (!(a1.contains("disabled"))) {
 					driver.findElement(By.cssSelector(inServiceDateTextBox)).click();
@@ -81,6 +81,7 @@ public class createContractAction extends contractpo {
 				}
 
 			}
+			Assert.assertEquals(addGapLabel(), "Add GAP");
 			js.executeScript("window.scrollTo(0, 2500)");
 			driver.findElements(By.cssSelector(textbox)).get(14).clear();
 			event.inputfield("cssSelector", textbox, "20130", 14);
