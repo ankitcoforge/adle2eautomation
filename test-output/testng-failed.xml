@@ -1,41 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Regression]">
-  <test thread-count="5" name="ADL(failed)">
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="none" name="Failed suite [Default suite]">
+  <test parallel="none" name="Default test(failed)">
     <classes>
-      <class name="testsuite.screenTitle_test">
+      <class name="testsuite.EditContract_test">
         <methods>
-          <include name="afterSuite"/>
           <include name="beforeSuite"/>
-          <include name="close"/>
-          <include name="afterTestMethod"/>
-          <include name="screenAgentTitle" invocation-numbers="9 10"/>
-          <include name="login"/>
-          <include name="beforTestMethod"/>
-        </methods>
-      </class> <!-- testsuite.screenTitle_test -->
-      <class name="testsuite.erate_test">
-        <methods>
           <include name="afterSuite"/>
-          <include name="beforeSuite"/>
-          <include name="quickcode"/>
-          <include name="close"/>
-          <include name="afterTestMethod"/>
-          <include name="login"/>
-          <include name="beforTestMethod"/>
-        </methods>
-      </class> <!-- testsuite.erate_test -->
-      <class name="testsuite.quote_test">
-        <methods>
-          <include name="afterSuite"/>
-          <include name="close"/>
-          <include name="beforeSuite"/>
-          <include name="createQuote1" invocation-numbers="0"/>
-          <include name="login"/>
+          <include name="verifyInvalidMsgOnTxtFields"/>
           <include name="afterTestMethod"/>
           <include name="beforTestMethod"/>
+          <include name="close"/>
+          <include name="login"/>
         </methods>
-      </class> <!-- testsuite.quote_test -->
+      </class> <!-- testsuite.EditContract_test -->
     </classes>
-  </test> <!-- ADL(failed) -->
-</suite> <!-- Failed suite [Regression] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

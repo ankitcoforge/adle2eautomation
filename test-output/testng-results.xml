@@ -1,1109 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="2" failed="3" ignored="24" total="68" passed="39">
+<testng-results total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Regression" duration-ms="462296" started-at="2022-05-06T10:42:08 PDT" finished-at="2022-05-06T10:49:50 PDT">
+  <suite started-at="2022-09-06T08:21:45Z" name="Default suite" finished-at="2022-09-06T08:24:19Z" duration-ms="154024">
     <groups>
     </groups>
-    <test name="ADL" duration-ms="462296" started-at="2022-05-06T10:42:08 PDT" finished-at="2022-05-06T10:49:50 PDT">
-      <class name="testsuite.erate_test">
-        <test-method status="FAIL" signature="login()[pri:0, instance:testsuite.erate_test@4c762604]" name="login" is-config="true" duration-ms="15496" started-at="2022-05-06T10:48:09 PDT" finished-at="2022-05-06T10:48:25 PDT">
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
-  (Session info: chrome=97.0.4692.99)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: '4.0.0', revision: '3a21814679'
-System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [0c321f8cd241ceeaf18196890b26d55b, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:56864}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56864/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 0c321f8cd241ceeaf18196890b26d55b]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
-  (Session info: chrome=97.0.4692.99)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: '4.0.0', revision: '3a21814679'
-System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [0c321f8cd241ceeaf18196890b26d55b, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:56864}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56864/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 0c321f8cd241ceeaf18196890b26d55b
-at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
-at pageActions.loginAction.login(loginAction.java:23)
-at testsuite.erate_test.login(erate_test.java:30)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.lang.reflect.Method.invoke(Method.java:498)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
-at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:385)
-at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:321)
-at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:176)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:122)
-at java.util.ArrayList.forEach(ArrayList.java:1259)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login -->
-        <test-method status="SKIP" signature="quickcode()[pri:0, instance:testsuite.erate_test@4c762604]" name="quickcode" duration-ms="0" started-at="2022-05-06T10:48:25 PDT" finished-at="2022-05-06T10:48:25 PDT">
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
-  (Session info: chrome=97.0.4692.99)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: '4.0.0', revision: '3a21814679'
-System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [0c321f8cd241ceeaf18196890b26d55b, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:56864}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56864/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 0c321f8cd241ceeaf18196890b26d55b]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
-  (Session info: chrome=97.0.4692.99)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: '4.0.0', revision: '3a21814679'
-System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [0c321f8cd241ceeaf18196890b26d55b, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:56864}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56864/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 0c321f8cd241ceeaf18196890b26d55b
-at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
-at pageActions.loginAction.login(loginAction.java:23)
-at testsuite.erate_test.login(erate_test.java:30)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.lang.reflect.Method.invoke(Method.java:498)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
-at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:385)
-at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:321)
-at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:176)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:122)
-at java.util.ArrayList.forEach(ArrayList.java:1259)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quickcode -->
-        <test-method status="SKIP" signature="close()[pri:0, instance:testsuite.erate_test@4c762604]" name="close" is-config="true" duration-ms="-1651859305268" started-at="2022-05-06T10:48:25 PDT" finished-at="1969-12-31T16:00:00 PST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- close -->
-      </class> <!-- testsuite.erate_test -->
-      <class name="testsuite.contract_test">
-        <test-method status="PASS" signature="login()[pri:0, instance:testsuite.contract_test@2641e737]" name="login" is-config="true" duration-ms="5796" started-at="2022-05-06T10:48:25 PDT" finished-at="2022-05-06T10:48:31 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login -->
-        <test-method status="PASS" signature="createContract1([Ljava.lang.String;)[pri:1, instance:testsuite.contract_test@2641e737]" name="createContract1" duration-ms="24270" started-at="2022-05-06T10:48:32 PDT" data-provider="test1" finished-at="2022-05-06T10:48:56 PDT">
+    <test started-at="2022-09-06T08:21:45Z" name="Default test" finished-at="2022-09-06T08:24:19Z" duration-ms="154024">
+      <class name="testsuite.EditContract_test">
+        <test-method is-config="true" signature="beforeSuite(org.testng.ITestContext)[pri:0, instance:testsuite.EditContract_test@77128536]" started-at="2022-09-06T01:21:45Z" name="beforeSuite" finished-at="2022-09-06T01:21:45Z" duration-ms="25" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[Ljava.lang.String;@14d36bb2]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createContract1 -->
-        <test-method status="PASS" signature="createContract1([Ljava.lang.String;)[pri:1, instance:testsuite.contract_test@2641e737]" name="createContract1" duration-ms="23706" started-at="2022-05-06T10:48:56 PDT" data-provider="test1" finished-at="2022-05-06T10:49:19 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[Ljava.lang.String;@432448]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createContract1 -->
-        <test-method status="PASS" signature="close()[pri:0, instance:testsuite.contract_test@2641e737]" name="close" is-config="true" duration-ms="9246" started-at="2022-05-06T10:49:19 PDT" finished-at="2022-05-06T10:49:29 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- close -->
-      </class> <!-- testsuite.contract_test -->
-      <class name="testsuite.login1_test">
-        <test-method status="PASS" signature="welcomePage()[pri:1, instance:testsuite.login1_test@77846d2c]" name="welcomePage" duration-ms="231" started-at="2022-05-06T10:42:17 PDT" finished-at="2022-05-06T10:42:18 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- welcomePage -->
-        <test-method status="PASS" signature="loggedIn(java.lang.String,java.lang.String)[pri:2, instance:testsuite.login1_test@77846d2c]" name="loggedIn" duration-ms="10770" started-at="2022-05-06T10:42:18 PDT" data-provider="login1" finished-at="2022-05-06T10:42:28 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Dealer7032823]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[4558600]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loggedIn -->
-        <test-method status="PASS" signature="loggedIn(java.lang.String,java.lang.String)[pri:2, instance:testsuite.login1_test@77846d2c]" name="loggedIn" duration-ms="10039" started-at="2022-05-06T10:42:28 PDT" data-provider="login1" finished-at="2022-05-06T10:42:39 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Agent110]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Since1996]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loggedIn -->
-        <test-method status="PASS" signature="loggedIn(java.lang.String,java.lang.String)[pri:2, instance:testsuite.login1_test@77846d2c]" name="loggedIn" duration-ms="10054" started-at="2022-05-06T10:42:39 PDT" data-provider="login1" finished-at="2022-05-06T10:42:49 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[coforgeadmin]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[TAdmin54!]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loggedIn -->
-      </class> <!-- testsuite.login1_test -->
-      <class name="testsuite.screenTitle_test">
-        <test-method status="PASS" signature="login()[pri:0, instance:testsuite.screenTitle_test@548ad73b]" name="login" is-config="true" duration-ms="846" started-at="2022-05-06T10:42:49 PDT" finished-at="2022-05-06T10:42:49 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login -->
-        <test-method status="PASS" signature="screenTitle(java.lang.String,java.lang.String)[pri:1, instance:testsuite.screenTitle_test@548ad73b]" name="screenTitle" duration-ms="14401" started-at="2022-05-06T10:42:49 PDT" data-provider="Dealer" finished-at="2022-05-06T10:43:04 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[E-Rate]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Rate/Contract]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- screenTitle -->
-        <test-method status="PASS" signature="screenTitle(java.lang.String,java.lang.String)[pri:1, instance:testsuite.screenTitle_test@548ad73b]" name="screenTitle" duration-ms="14198" started-at="2022-05-06T10:43:04 PDT" data-provider="Dealer" finished-at="2022-05-06T10:43:18 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[E-Rate]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Quote History]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- screenTitle -->
-        <test-method status="PASS" signature="screenTitle(java.lang.String,java.lang.String)[pri:1, instance:testsuite.screenTitle_test@548ad73b]" name="screenTitle" duration-ms="14165" started-at="2022-05-06T10:43:18 PDT" data-provider="Dealer" finished-at="2022-05-06T10:43:32 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Contracts]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Contract Search]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- screenTitle -->
-        <test-method status="PASS" signature="screenTitle(java.lang.String,java.lang.String)[pri:1, instance:testsuite.screenTitle_test@548ad73b]" name="screenTitle" duration-ms="14193" started-at="2022-05-06T10:43:32 PDT" data-provider="Dealer" finished-at="2022-05-06T10:43:46 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Contracts]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[SPP]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- screenTitle -->
-        <test-method status="PASS" signature="screenTitle(java.lang.String,java.lang.String)[pri:1, instance:testsuite.screenTitle_test@548ad73b]" name="screenTitle" duration-ms="14246" started-at="2022-05-06T10:43:46 PDT" data-provider="Dealer" finished-at="2022-05-06T10:44:01 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Cancellations]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Cancellation Quote]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- screenTitle -->
-        <test-method status="PASS" signature="screenTitle(java.lang.String,java.lang.String)[pri:1, instance:testsuite.screenTitle_test@548ad73b]" name="screenTitle" duration-ms="14081" started-at="2022-05-06T10:44:01 PDT" data-provider="Dealer" finished-at="2022-05-06T10:44:15 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Cancellations]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Cancellation History]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- screenTitle -->
-        <test-method status="PASS" signature="screenTitle(java.lang.String,java.lang.String)[pri:1, instance:testsuite.screenTitle_test@548ad73b]" name="screenTitle" duration-ms="14492" started-at="2022-05-06T10:44:15 PDT" data-provider="Dealer" finished-at="2022-05-06T10:44:29 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Reports]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[My Account Statements]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- screenTitle -->
-        <test-method status="PASS" signature="screenTitle(java.lang.String,java.lang.String)[pri:1, instance:testsuite.screenTitle_test@548ad73b]" name="screenTitle" duration-ms="14182" started-at="2022-05-06T10:44:29 PDT" data-provider="Dealer" finished-at="2022-05-06T10:44:43 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Reports]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Early Claims]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- screenTitle -->
-        <test-method status="PASS" signature="screenTitle(java.lang.String,java.lang.String)[pri:1, instance:testsuite.screenTitle_test@548ad73b]" name="screenTitle" duration-ms="14140" started-at="2022-05-06T10:44:43 PDT" data-provider="Dealer" finished-at="2022-05-06T10:44:58 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Reports]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Cancellations]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- screenTitle -->
-        <test-method status="PASS" signature="screenTitle(java.lang.String,java.lang.String)[pri:1, instance:testsuite.screenTitle_test@548ad73b]" name="screenTitle" duration-ms="14732" started-at="2022-05-06T10:44:58 PDT" data-provider="Dealer" finished-at="2022-05-06T10:45:12 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Reports]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Claims History]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- screenTitle -->
-        <test-method status="PASS" signature="screenTitle(java.lang.String,java.lang.String)[pri:1, instance:testsuite.screenTitle_test@548ad73b]" name="screenTitle" duration-ms="14189" started-at="2022-05-06T10:45:12 PDT" data-provider="Dealer" finished-at="2022-05-06T10:45:26 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Reports]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Actuarials]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- screenTitle -->
-        <test-method status="PASS" signature="screenAgentTitle(java.lang.String,java.lang.String)[pri:2, instance:testsuite.screenTitle_test@548ad73b]" name="screenAgentTitle" duration-ms="14062" started-at="2022-05-06T10:45:26 PDT" data-provider="Agent" finished-at="2022-05-06T10:45:41 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[E-Rate]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Rate/Contract]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- screenAgentTitle -->
-        <test-method status="PASS" signature="screenAgentTitle(java.lang.String,java.lang.String)[pri:2, instance:testsuite.screenTitle_test@548ad73b]" name="screenAgentTitle" duration-ms="14094" started-at="2022-05-06T10:45:41 PDT" data-provider="Agent" finished-at="2022-05-06T10:45:55 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[E-Rate]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Quote History]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- screenAgentTitle -->
-        <test-method status="PASS" signature="screenAgentTitle(java.lang.String,java.lang.String)[pri:2, instance:testsuite.screenTitle_test@548ad73b]" name="screenAgentTitle" duration-ms="14346" started-at="2022-05-06T10:45:55 PDT" data-provider="Agent" finished-at="2022-05-06T10:46:09 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Contracts]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Contract Search]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- screenAgentTitle -->
-        <test-method status="PASS" signature="screenAgentTitle(java.lang.String,java.lang.String)[pri:2, instance:testsuite.screenTitle_test@548ad73b]" name="screenAgentTitle" duration-ms="14178" started-at="2022-05-06T10:46:09 PDT" data-provider="Agent" finished-at="2022-05-06T10:46:23 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Reports]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[My Account Statements]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- screenAgentTitle -->
-        <test-method status="PASS" signature="screenAgentTitle(java.lang.String,java.lang.String)[pri:2, instance:testsuite.screenTitle_test@548ad73b]" name="screenAgentTitle" duration-ms="14089" started-at="2022-05-06T10:46:23 PDT" data-provider="Agent" finished-at="2022-05-06T10:46:37 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Reports]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Early Claims]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- screenAgentTitle -->
-        <test-method status="PASS" signature="screenAgentTitle(java.lang.String,java.lang.String)[pri:2, instance:testsuite.screenTitle_test@548ad73b]" name="screenAgentTitle" duration-ms="14061" started-at="2022-05-06T10:46:37 PDT" data-provider="Agent" finished-at="2022-05-06T10:46:51 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Reports]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Cancellations]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- screenAgentTitle -->
-        <test-method status="PASS" signature="screenAgentTitle(java.lang.String,java.lang.String)[pri:2, instance:testsuite.screenTitle_test@548ad73b]" name="screenAgentTitle" duration-ms="14249" started-at="2022-05-06T10:46:51 PDT" data-provider="Agent" finished-at="2022-05-06T10:47:06 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Reports]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Claims History]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- screenAgentTitle -->
-        <test-method status="PASS" signature="screenAgentTitle(java.lang.String,java.lang.String)[pri:2, instance:testsuite.screenTitle_test@548ad73b]" name="screenAgentTitle" duration-ms="14220" started-at="2022-05-06T10:47:06 PDT" data-provider="Agent" finished-at="2022-05-06T10:47:20 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Reports]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Actuarials]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- screenAgentTitle -->
-        <test-method status="PASS" signature="screenAgentTitle(java.lang.String,java.lang.String)[pri:2, instance:testsuite.screenTitle_test@548ad73b]" name="screenAgentTitle" duration-ms="14350" started-at="2022-05-06T10:47:20 PDT" data-provider="Agent" finished-at="2022-05-06T10:47:34 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Reports]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Agent Sales Report]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- screenAgentTitle -->
-        <test-method status="FAIL" signature="screenAgentTitle(java.lang.String,java.lang.String)[pri:2, instance:testsuite.screenTitle_test@548ad73b]" name="screenAgentTitle" duration-ms="20096" started-at="2022-05-06T10:47:34 PDT" data-provider="Agent" finished-at="2022-05-06T10:47:54 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Dealer Settings]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Manage my Dealer Pricing]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//a[contains(text(),'Manage my Dealer Pricing')]"}
-  (Session info: chrome=97.0.4692.99)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: '4.0.0', revision: '3a21814679'
-System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [0c321f8cd241ceeaf18196890b26d55b, findElement {using=xpath, value=//a[contains(text(),'Manage my Dealer Pricing')]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:56864}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56864/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 0c321f8cd241ceeaf18196890b26d55b]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//a[contains(text(),'Manage my Dealer Pricing')]"}
-  (Session info: chrome=97.0.4692.99)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: '4.0.0', revision: '3a21814679'
-System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [0c321f8cd241ceeaf18196890b26d55b, findElement {using=xpath, value=//a[contains(text(),'Manage my Dealer Pricing')]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:56864}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56864/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 0c321f8cd241ceeaf18196890b26d55b
-at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
-at utils.utilityClass.getfield(utilityClass.java:260)
-at pageActions.verticalMenuAction.navigatetoLeftMenu(verticalMenuAction.java:30)
-at testsuite.screenTitle_test.screenAgentTitle(screenTitle_test.java:86)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.lang.reflect.Method.invoke(Method.java:498)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.util.ArrayList.forEach(ArrayList.java:1259)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- screenAgentTitle -->
-        <test-method status="FAIL" signature="screenAgentTitle(java.lang.String,java.lang.String)[pri:2, instance:testsuite.screenTitle_test@548ad73b]" name="screenAgentTitle" duration-ms="15008" started-at="2022-05-06T10:47:54 PDT" data-provider="Agent" finished-at="2022-05-06T10:48:09 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Dealer Settings]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Impersonate]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
-  (Session info: chrome=97.0.4692.99)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: '4.0.0', revision: '3a21814679'
-System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [0c321f8cd241ceeaf18196890b26d55b, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:56864}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56864/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 0c321f8cd241ceeaf18196890b26d55b]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
-  (Session info: chrome=97.0.4692.99)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: '4.0.0', revision: '3a21814679'
-System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [0c321f8cd241ceeaf18196890b26d55b, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:56864}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56864/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 0c321f8cd241ceeaf18196890b26d55b
-at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
-at pageActions.loginAction.login(loginAction.java:23)
-at testsuite.screenTitle_test.screenAgentTitle(screenTitle_test.java:85)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.lang.reflect.Method.invoke(Method.java:498)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.util.ArrayList.forEach(ArrayList.java:1259)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- screenAgentTitle -->
-        <test-method status="PASS" signature="close()[pri:0, instance:testsuite.screenTitle_test@548ad73b]" name="close" is-config="true" duration-ms="0" started-at="2022-05-06T10:48:09 PDT" finished-at="2022-05-06T10:48:09 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- close -->
-      </class> <!-- testsuite.screenTitle_test -->
-      <class name="testsuite.baseTest">
-        <test-method status="PASS" signature="beforeSuite(org.testng.ITestContext)[pri:0, instance:testsuite.baseTest@954b04f]" name="beforeSuite" is-config="true" duration-ms="9" started-at="2022-05-06T10:42:08 PDT" finished-at="2022-05-06T10:42:08 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@75345e47]]>
+                <![CDATA[org.testng.TestRunner@664083f6]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="beforTestMethod(org.testng.ITestContext)[pri:0, instance:testsuite.baseTest@954b04f]" name="beforTestMethod" is-config="true" duration-ms="2505" started-at="2022-05-06T10:42:08 PDT" finished-at="2022-05-06T10:42:10 PDT">
+        <test-method is-config="true" signature="beforTestMethod(org.testng.ITestContext)[pri:0, instance:testsuite.EditContract_test@77128536]" started-at="2022-09-06T01:21:45Z" name="beforTestMethod" finished-at="2022-09-06T01:21:47Z" duration-ms="2366" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@75345e47]]>
+                <![CDATA[org.testng.TestRunner@664083f6]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforTestMethod -->
-        <test-method status="PASS" signature="welcome()[pri:0, instance:testsuite.baseTest@954b04f]" name="welcome" is-config="true" duration-ms="1371" started-at="2022-05-06T10:42:10 PDT" finished-at="2022-05-06T10:42:11 PDT">
+        <test-method is-config="true" signature="login()[pri:0, instance:testsuite.EditContract_test@77128536]" started-at="2022-09-06T01:21:47Z" name="login" finished-at="2022-09-06T01:21:49Z" duration-ms="1829" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- welcome -->
-        <test-method status="PASS" signature="VerifyeClaimsPortalforRepairFacilitieslink_27228_27231_27261()[pri:1, instance:testsuite.baseTest@954b04f]" name="VerifyeClaimsPortalforRepairFacilitieslink_27228_27231_27261" duration-ms="199" started-at="2022-05-06T10:42:11 PDT" finished-at="2022-05-06T10:42:12 PDT">
+        </test-method> <!-- login -->
+        <test-method signature="verifyInvalidMsgOnTxtFields()[pri:0, instance:testsuite.EditContract_test@77128536]" started-at="2022-09-06T01:21:49Z" name="verifyInvalidMsgOnTxtFields" finished-at="2022-09-06T01:24:06Z" duration-ms="136480" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//span[text()='Required']"}
+  (Session info: chrome=97.0.4692.99)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'AUL-DEV-05', ip: '10.0.5.65', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.3'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [7924bb03fa93ad41ceb6fa5c1e22239f, findElement {using=xpath, value=//span[text()='Required']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\DIVYAS~1.TEL\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:58211}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:58211/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 7924bb03fa93ad41ceb6fa5c1e22239f]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//span[text()='Required']"}
+  (Session info: chrome=97.0.4692.99)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'AUL-DEV-05', ip: '10.0.5.65', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.3'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [7924bb03fa93ad41ceb6fa5c1e22239f, findElement {using=xpath, value=//span[text()='Required']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\DIVYAS~1.TEL\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:58211}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:58211/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 7924bb03fa93ad41ceb6fa5c1e22239f
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
+	at pageActions.EditContractAction.getRequiredErrorMsg(EditContractAction.java:140)
+	at testsuite.EditContract_test.verifyInvalidMsgOnTxtFields(EditContract_test.java:1483)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyeClaimsPortalforRepairFacilitieslink_27228_27231_27261 -->
-        <test-method status="PASS" signature="VerifyRememberMyPasswordLocation_27214()[pri:2, instance:testsuite.baseTest@954b04f]" name="VerifyRememberMyPasswordLocation_27214" duration-ms="262" started-at="2022-05-06T10:42:12 PDT" finished-at="2022-05-06T10:42:12 PDT">
+        </test-method> <!-- verifyInvalidMsgOnTxtFields -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testsuite.EditContract_test@77128536]" started-at="2022-09-06T01:24:06Z" name="close" finished-at="2022-09-06T01:24:17Z" duration-ms="11259" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyRememberMyPasswordLocation_27214 -->
-        <test-method status="PASS" signature="VerifyLocationPrivacyPolicyLink_27224_27239_27254()[pri:3, instance:testsuite.baseTest@954b04f]" name="VerifyLocationPrivacyPolicyLink_27224_27239_27254" duration-ms="84" started-at="2022-05-06T10:42:12 PDT" finished-at="2022-05-06T10:42:12 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyLocationPrivacyPolicyLink_27224_27239_27254 -->
-        <test-method status="PASS" signature="VerifyWelcomeTextOnTheADLUILoginPage_27248_27244_27110()[pri:4, instance:testsuite.baseTest@954b04f]" name="VerifyWelcomeTextOnTheADLUILoginPage_27248_27244_27110" duration-ms="90" started-at="2022-05-06T10:42:12 PDT" finished-at="2022-05-06T10:42:12 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyWelcomeTextOnTheADLUILoginPage_27248_27244_27110 -->
-        <test-method status="PASS" signature="VerifyGAPPortallinkfunctionality_27233_27259_27229()[pri:5, instance:testsuite.baseTest@954b04f]" name="VerifyGAPPortallinkfunctionality_27233_27259_27229" duration-ms="103" started-at="2022-05-06T10:42:12 PDT" finished-at="2022-05-06T10:42:12 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyGAPPortallinkfunctionality_27233_27259_27229 -->
-        <test-method status="PASS" signature="VerifyForgotPassword_Loginastext_27238_27254_27220_27255_27237_27166()[pri:6, instance:testsuite.baseTest@954b04f]" name="VerifyForgotPassword_Loginastext_27238_27254_27220_27255_27237_27166" duration-ms="79" started-at="2022-05-06T10:42:12 PDT" finished-at="2022-05-06T10:42:12 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyForgotPassword_Loginastext_27238_27254_27220_27255_27237_27166 -->
-        <test-method status="PASS" signature="Verify_image_on_the_right_side_of_the_login_page_27225()[pri:7, instance:testsuite.baseTest@954b04f]" name="Verify_image_on_the_right_side_of_the_login_page_27225" duration-ms="35" started-at="2022-05-06T10:42:12 PDT" finished-at="2022-05-06T10:42:12 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Verify_image_on_the_right_side_of_the_login_page_27225 -->
-        <test-method status="PASS" signature="afterTestMethod(org.testng.ITestContext)[pri:0, instance:testsuite.baseTest@954b04f]" name="afterTestMethod" is-config="true" duration-ms="376" started-at="2022-05-06T10:49:50 PDT" finished-at="2022-05-06T10:49:50 PDT">
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="afterTestMethod(org.testng.ITestContext)[pri:0, instance:testsuite.EditContract_test@77128536]" started-at="2022-09-06T01:24:17Z" name="afterTestMethod" finished-at="2022-09-06T01:24:19Z" duration-ms="2061" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@75345e47]]>
+                <![CDATA[org.testng.TestRunner@664083f6]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTestMethod -->
-        <test-method status="PASS" signature="afterSuite(org.testng.ITestContext)[pri:0, instance:testsuite.baseTest@954b04f]" name="afterSuite" is-config="true" duration-ms="0" started-at="2022-05-06T10:49:50 PDT" finished-at="2022-05-06T10:49:50 PDT">
+        <test-method is-config="true" signature="afterSuite(org.testng.ITestContext)[pri:0, instance:testsuite.EditContract_test@77128536]" started-at="2022-09-06T01:24:19Z" name="afterSuite" finished-at="2022-09-06T01:24:19Z" duration-ms="3" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@75345e47]]>
+                <![CDATA[org.testng.TestRunner@664083f6]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
-      </class> <!-- testsuite.baseTest -->
-      <class name="testsuite.loginValidation_test">
-        <test-method status="PASS" signature="emptyLogin()[pri:0, instance:testsuite.loginValidation_test@4cf4d528]" name="emptyLogin" duration-ms="662" started-at="2022-05-06T10:42:12 PDT" finished-at="2022-05-06T10:42:13 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- emptyLogin -->
-        <test-method status="PASS" signature="emptyLoginPassword()[pri:0, instance:testsuite.loginValidation_test@4cf4d528]" name="emptyLoginPassword" duration-ms="612" started-at="2022-05-06T10:42:13 PDT" finished-at="2022-05-06T10:42:14 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- emptyLoginPassword -->
-        <test-method status="PASS" signature="emptyLoginUsername()[pri:0, instance:testsuite.loginValidation_test@4cf4d528]" name="emptyLoginUsername" duration-ms="506" started-at="2022-05-06T10:42:14 PDT" finished-at="2022-05-06T10:42:14 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- emptyLoginUsername -->
-        <test-method status="PASS" signature="incorrectCredential()[pri:0, instance:testsuite.loginValidation_test@4cf4d528]" name="incorrectCredential" duration-ms="653" started-at="2022-05-06T10:42:14 PDT" finished-at="2022-05-06T10:42:15 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- incorrectCredential -->
-        <test-method status="PASS" signature="incorrectpasswordCredential()[pri:0, instance:testsuite.loginValidation_test@4cf4d528]" name="incorrectpasswordCredential" duration-ms="1979" started-at="2022-05-06T10:42:15 PDT" finished-at="2022-05-06T10:42:17 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- incorrectpasswordCredential -->
-        <test-method status="PASS" signature="incorrectusernameCredential()[pri:0, instance:testsuite.loginValidation_test@4cf4d528]" name="incorrectusernameCredential" duration-ms="685" started-at="2022-05-06T10:42:17 PDT" finished-at="2022-05-06T10:42:17 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- incorrectusernameCredential -->
-      </class> <!-- testsuite.loginValidation_test -->
-      <class name="testsuite.quote_test">
-        <test-method status="PASS" signature="login()[pri:0, instance:testsuite.quote_test@727803de]" name="login" is-config="true" duration-ms="5184" started-at="2022-05-06T10:49:29 PDT" finished-at="2022-05-06T10:49:34 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login -->
-        <test-method status="FAIL" signature="createQuote1([Ljava.lang.String;)[pri:1, instance:testsuite.quote_test@727803de]" name="createQuote1" duration-ms="37" started-at="2022-05-06T10:49:34 PDT" data-provider="test1" finished-at="2022-05-06T10:49:34 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[Ljava.lang.String;@560be8c0]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.InvalidSelectorException">
-            <message>
-              <![CDATA[invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=97.0.4692.99)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#invalid_selector_exception
-Build info: version: '4.0.0', revision: '3a21814679'
-System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [0c321f8cd241ceeaf18196890b26d55b, findElement {using=name, value=//span[contains(text(),'Get Products')]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:56864}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56864/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 0c321f8cd241ceeaf18196890b26d55b]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.InvalidSelectorException: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=97.0.4692.99)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#invalid_selector_exception
-Build info: version: '4.0.0', revision: '3a21814679'
-System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [0c321f8cd241ceeaf18196890b26d55b, findElement {using=name, value=//span[contains(text(),'Get Products')]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:56864}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56864/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 0c321f8cd241ceeaf18196890b26d55b
-at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:66)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
-at utils.utilityClass.element(utilityClass.java:245)
-at pageActions.createQuoteAction.createQuote(createQuoteAction.java:27)
-at testsuite.quote_test.createQuote1(quote_test.java:33)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.lang.reflect.Method.invoke(Method.java:498)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.util.ArrayList.forEach(ArrayList.java:1259)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.InvalidSelectorException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createQuote1 -->
-        <test-method status="FAIL" signature="login()[pri:0, instance:testsuite.quote_test@727803de]" name="login" is-config="true" duration-ms="15465" started-at="2022-05-06T10:49:34 PDT" finished-at="2022-05-06T10:49:49 PDT">
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
-  (Session info: chrome=97.0.4692.99)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: '4.0.0', revision: '3a21814679'
-System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [0c321f8cd241ceeaf18196890b26d55b, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:56864}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56864/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 0c321f8cd241ceeaf18196890b26d55b]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
-  (Session info: chrome=97.0.4692.99)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: '4.0.0', revision: '3a21814679'
-System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [0c321f8cd241ceeaf18196890b26d55b, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:56864}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56864/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 0c321f8cd241ceeaf18196890b26d55b
-at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
-at pageActions.loginAction.login(loginAction.java:23)
-at testsuite.quote_test.login(quote_test.java:24)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.lang.reflect.Method.invoke(Method.java:498)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
-at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:385)
-at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:321)
-at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:700)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:527)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.util.ArrayList.forEach(ArrayList.java:1259)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login -->
-        <test-method status="SKIP" signature="createQuote1([Ljava.lang.String;)[pri:1, instance:testsuite.quote_test@727803de]" name="createQuote1" duration-ms="0" started-at="2022-05-06T10:49:49 PDT" data-provider="test1" finished-at="2022-05-06T10:49:49 PDT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[Ljava.lang.String;@4452e13c]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
-  (Session info: chrome=97.0.4692.99)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: '4.0.0', revision: '3a21814679'
-System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [0c321f8cd241ceeaf18196890b26d55b, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:56864}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56864/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 0c321f8cd241ceeaf18196890b26d55b]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"input[placeholder="Enter your username"]"}
-  (Session info: chrome=97.0.4692.99)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: '4.0.0', revision: '3a21814679'
-System info: host: 'AUL-DEV-03', ip: '10.0.5.63', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [0c321f8cd241ceeaf18196890b26d55b, findElement {using=css selector, value=input[placeholder="Enter your username"]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\ANKIT~1.SRI\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:56864}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56864/devtoo..., se:cdpVersion: 97.0.4692.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 0c321f8cd241ceeaf18196890b26d55b
-at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
-at pageActions.loginAction.login(loginAction.java:23)
-at testsuite.quote_test.login(quote_test.java:24)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.lang.reflect.Method.invoke(Method.java:498)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
-at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:385)
-at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:321)
-at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:700)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:527)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.util.ArrayList.forEach(ArrayList.java:1259)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createQuote1 -->
-        <test-method status="SKIP" signature="close()[pri:0, instance:testsuite.quote_test@727803de]" name="close" is-config="true" duration-ms="-1651859390002" started-at="2022-05-06T10:49:50 PDT" finished-at="1969-12-31T16:00:00 PST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- close -->
-      </class> <!-- testsuite.quote_test -->
-    </test> <!-- ADL -->
-  </suite> <!-- Regression -->
+      </class> <!-- testsuite.EditContract_test -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
