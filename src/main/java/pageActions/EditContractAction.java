@@ -1,11 +1,14 @@
 package pageActions;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import pageObjects.EditContractpo;
 import utils.Database_Connectivity;
@@ -24,6 +27,12 @@ public class EditContractAction extends EditContractpo {
 	 public WebElement getContractSearchPagetitle() {
 		 WebElement contractSearchtitle=driver.findElement(By.xpath(contractSearchPagetitle));	
 		 return contractSearchtitle;
+	 }
+	 
+	 
+	 public WebElement getRateOrContractPageTitle() {
+		 WebElement rateOrContractPage=driver.findElement(By.xpath(rateOrContractPageTitle));	
+		 return rateOrContractPage;
 	 }
 	 
 	 public WebElement getEditContractPagetitle() {
@@ -49,8 +58,8 @@ public class EditContractAction extends EditContractpo {
 	 }
 	 
 	 
-	 public WebElement getLienholderTxtFieldForNotOnTheLink() {
-		 WebElement lienholder=driver.findElement(By.xpath(lienholderTxtFieldForNotOnTheLink));	
+	 public WebElement getLienholderTxtFieldForShowLienholderList() {
+		 WebElement lienholder=driver.findElement(By.xpath(lienholderTxtFieldForShowLienholderList));	
 		 return lienholder;
 	 }
 	 
@@ -136,6 +145,53 @@ public class EditContractAction extends EditContractpo {
 		 return showLienholderList;
 	 }
 	 
+	 public WebElement getRequiredErrorMsg() {
+		 WebElement requiredError=driver.findElement(By.xpath(requiredErrorMsg));	
+		 return requiredError;
+	 }
+	 
+	 public WebElement getInvalidFormatErrorMsg() {
+		 WebElement invalidFormatError=driver.findElement(By.xpath(invalidFormatErrorMsg));	
+		 return invalidFormatError;
+	 }
+	 
+		 public WebElement getSuccessMessage() {
+			 WebElement successMess=driver.findElement(By.cssSelector(successMessage));	
+			 return successMess;
+		 }
+		 
+		 public WebElement getBtnViewOrPrintContract() {
+			 WebElement btnViewOrPrintContr=driver.findElement(By.xpath(btnViewOrPrintContract));	
+			 return btnViewOrPrintContr;
+		 }
+		 
+		 public WebElement getStartNewQuote() {
+			 WebElement goToQuoteLink=driver.findElement(By.cssSelector(goToQuote));	
+			 return goToQuoteLink;
+		 }
+		 
+		 public WebElement getIconCheckMark() {
+			 WebElement iconCheckorTick=driver.findElement(By.xpath(iconCheckMark));	
+			 return iconCheckorTick;
+		 }
+		 
+		 public WebElement getIconClose() {
+			 WebElement closeMark =driver.findElement(By.xpath(iconClose));	
+			 return closeMark;
+		 }
+	 
+	 public void verifyContentInPDf(String url, String program) {
+			//specify the url of the pdf file
+			try {
+				String pdfContent = readPdfContent(url);
+					Assert.assertTrue(pdfContent.contains(program));
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	 
 			public HashMap<Integer, HashMap<String, String>> getDataFromDB(String contactNum) throws Exception  {
 			HashMap<Integer, HashMap<String, String>> dbMap = new HashMap<Integer, HashMap<String, String>>();
 			try {
@@ -150,6 +206,7 @@ public class EditContractAction extends EditContractpo {
 			} finally {
 				dc.closeConnection();
 			}
+			
 			
 		}
 	 
