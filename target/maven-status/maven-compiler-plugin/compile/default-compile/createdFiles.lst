@@ -16,6 +16,7 @@ pageActions\bannnerAction.class
 pageActions\twoProgramContractAction.class
 pageObjects\LateralMenupo.class
 pageObjects\cancellationQuotespo.class
+pageObjects\EditContractpo.class
 pageActions\leaseContractAction.class
 pageActions\toolBoxAction.class
 pageObjects\earlyClaimspo.class
@@ -31,6 +32,7 @@ utils\utilityClass.class
 utils\listnerlogs.class
 pageObjects\bannerpo.class
 utils\pdfUtils.class
+utils\Randomizer.class
 pageActions\erateAction.class
 pageObjects\quoteContractSuccesspo.class
 pageObjects\cancellationHistorypo.class
@@ -45,5 +47,6 @@ pageActions\pdfAction.class
 pageObjects\welcomepo.class
 pageObjects\impersonatepo.class
 pageActions\contractSearchAction.class
+pageActions\EditContractAction.class
 pageActions\verticalMenuAction.class
 pageObjects\toolBoxpo.class

@@ -41,6 +41,8 @@ public class login1_test extends baseClass {
 		
 		String header = la.login(user, pass);
 		Assert.assertEquals(header, "Dashboard");
+		driver.get(prop.getProperty("messageSetup"));
+		Assert.assertEquals(header, "Dashboard");
 		la.logout();
 		
 	}

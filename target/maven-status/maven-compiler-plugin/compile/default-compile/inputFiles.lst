@@ -34,6 +34,7 @@ C:\AUL\Workspace\ADL\src\main\java\pageObjects\loginpo.java
 C:\AUL\Workspace\ADL\src\main\java\pageActions\cancellationHistoryAction.java
 C:\AUL\Workspace\ADL\src\main\java\pageActions\loginAction.java
 C:\AUL\Workspace\ADL\src\main\java\utils\baseClass.java
+C:\AUL\Workspace\ADL\src\main\java\utils\Randomizer.java
 C:\AUL\Workspace\ADL\src\main\java\utils\pdfUtils.java
 C:\AUL\Workspace\ADL\src\main\java\pageActions\impersonateAction.java
 C:\AUL\Workspace\ADL\src\main\java\pageActions\createContractAction.java
@@ -42,8 +43,10 @@ C:\AUL\Workspace\ADL\src\main\java\pageObjects\contractpo.java
 C:\AUL\Workspace\ADL\src\main\java\pageActions\ContractSearchPageAction.java
 C:\AUL\Workspace\ADL\src\main\java\pageActions\welcomeAction.java
 C:\AUL\Workspace\ADL\src\main\java\pageObjects\WebContractsByDealerPO.java
+C:\AUL\Workspace\ADL\src\main\java\pageObjects\EditContractpo.java
 C:\AUL\Workspace\ADL\src\main\java\pageObjects\LateralMenupo.java
 C:\AUL\Workspace\ADL\src\main\java\pageActions\toolBoxAction.java
+C:\AUL\Workspace\ADL\src\main\java\pageActions\EditContractAction.java
 C:\AUL\Workspace\ADL\src\main\java\pageActions\notificationAction.java
 C:\AUL\Workspace\ADL\src\main\java\pageObjects\verticalMenupo.java
 C:\AUL\Workspace\ADL\src\main\java\pageObjects\toolBoxpo.java

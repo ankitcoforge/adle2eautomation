@@ -2,6 +2,7 @@ testsuite\earlyClaims_test.class
 testsuite\pricingform_test.class
 testsuite\screenTitle_test.class
 testsuite\contractSearch_test.class
+testsuite\EditContract_test.class
 testsuite\cancellationQuote.class
 testsuite\LateraMenu_test.class
 testsuite\toolBox_test.class

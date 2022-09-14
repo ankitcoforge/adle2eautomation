@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 import junit.framework.Assert;
 import pageActions.impersonateAction;
 import pageActions.loginAction;
+import pageActions.messageSetupAction;
 import pageActions.verticalMenuAction;
 import utils.utilityClass;
 
@@ -23,6 +24,7 @@ public class impersonate_test extends impersonateAction {
 	loginAction lo = new loginAction();
 	verticalMenuAction vo = new verticalMenuAction();
 	utilityClass event = new utilityClass();
+	messageSetupAction ms = new messageSetupAction();
 
 	
 	@BeforeClass
@@ -38,6 +40,8 @@ public class impersonate_test extends impersonateAction {
 
 		Assert.assertEquals(loginImpersonate().get(0), "coforgeadmin");
 		Assert.assertEquals(loginImpersonate().get(1), "AULadmin");
+		driver.get(prop.getProperty("messageSetup"));
+		Assert.assertEquals(ms.heading(), "Message Setup");
 
 	}
 

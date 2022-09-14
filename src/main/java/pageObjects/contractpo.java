@@ -12,6 +12,7 @@ public class contractpo extends baseClass{
 	public String successMessage = "div.notification__container__message > span";
 	public String textbox = "adl-text-input > div > div.text-field__input.secure > input";
 	public String getProducts = "//span[contains(text(),'Get Products')]";
+	public String editProducts = "//span[contains(text(),'Edit Search')]";
 	public String selectProgram = "//mat-checkbox/label/div";
 	public String table = "adl-rates-table > table >tbody > tr:nth-child(1) > td:nth-child(2)";
 	public String tableborder = "adl-rates-table > table >tbody > tr:nth-child(1) > td:nth-child(2)> div";
@@ -62,7 +63,25 @@ public class contractpo extends baseClass{
 	public String noSurcharges = "adl-checkbox[label= \"No Surcharges\"] > div >mat-checkbox > label >div";
 	public String inServiceTextBox = "adl-text-input[label =\"In-Service Date\"] >div >div:nth-child(2) >input";
 	public String sppNext = ".grid >div:nth-child(4) >button";
+	public String gapCheckbox = "div.gap__title >adl-checkbox > div >mat-checkbox > label > div";
+	public String getGapButton = ".gap__button > button > span";
+	public String lienHolder = "[label =\"Lienholder\"]>adl-text-input >div >div:nth-child(2) >input";
+	public String lienholderOption ="div[role='listbox']>mat-option";
+	public String partner = "div[role='listbox']>mat-option>span>.option__suffix";
+	public String notInTheList = "div > a";
+	public String labelDealNumber = "adl-text-input[label=\"Deal Number\"]";
+	public String labelVPP = "adl-text-input[label=\"Vehicle Purchase Price\"]";
+	public String labelCRP = "adl-text-input[label=\"Contract Retail Price\"]";
+	public String slideToggle = "adl-slide-toggle";
+	public String saveQuoteButton = "//span[contains(text(),'Save Quote')]//..";
+	public String printQuoteButton = "//span[contains(text(),'Print Quote')]//..";
+	public String warningLabel =".warning__label";
+	public String headerMarkUp = "div.header__markup > span";
 	
+	public void checkGAP() {
+		
+	      driver.findElement(By.cssSelector(gapCheckbox)).click();
+	}
 	
 	public String fieldlength() {
 		
@@ -88,5 +107,10 @@ public class contractpo extends baseClass{
 	public String addGapLabel() {
 		
 		return driver.findElement(By.cssSelector(addGap)).getAttribute("label");
+	}
+	
+	public String getGapRateButton() {
+		
+		return driver.findElement(By.cssSelector(getGapButton)).getText();
 	}
 }
