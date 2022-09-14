@@ -13,6 +13,7 @@
 			<class name="testsuite.twoProgramContract"/>
 			<class name="testsuite.printQuote_test"/>
 			<class name="testsuite.validatePDF_test"/>
+			<class name= "testsuite.leinholderField_test"/>
 		</classes>
 	</test>
 	<test name="ADL Validation Test Suite" group-by-instances="true">
