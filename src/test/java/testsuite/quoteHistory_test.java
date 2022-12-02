@@ -35,7 +35,7 @@ public class quoteHistory_test extends quoteHistoryAction {
 	@DataProvider(name = "Login_details")
 	public Object[][] loginOnRoleType() {
 
-		return new Object[][] { { "Dealer7032823", "4558600" } };
+		return new Object[][] { { "Dealer7032823", "Test@1234" } };
 	}
 
 	@Test(priority = 1, dataProvider = "Login_details")

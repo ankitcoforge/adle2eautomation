@@ -31,7 +31,7 @@ public class quote_test extends createQuoteAction{
 	}
 	
 	/********************quote creation test case****************/
-	@Test(priority = 5)
+	@Test(priority = 1)
     public void createQuote1() throws InterruptedException {
 		
 		printQuote();		
@@ -39,7 +39,7 @@ public class quote_test extends createQuoteAction{
 	}
 	
 	/********************quote creation test case****************/
-	@Test(priority = 6, dataProvider ="test1")
+	@Test(priority = 2, dataProvider ="test1")
     public void createQuote1(String [] inputArray) throws InterruptedException {
 		
 		

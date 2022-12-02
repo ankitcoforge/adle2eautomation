@@ -22,7 +22,6 @@ public class screenTitle_test extends verticalMenupo{
         	{"E-Rate","Rate/Contract"},
         	{"E-Rate","Quote History"},
         	{"Contracts","Contract Search"},
-        	{"Contracts","SPP"},
         	{"Cancellations", "Cancellation Quote"},
         	{"Cancellations", "Cancellation History"},
         	{"Reports", "My Account Statements"},

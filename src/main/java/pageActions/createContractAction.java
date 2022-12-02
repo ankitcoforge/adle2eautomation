@@ -67,7 +67,8 @@ public class createContractAction extends contractpo {
 			String programCode = program[0];
 			String programName = program[1];
 			event.inputfield("cssSelector", contract, "10000", 0);
-			if (!((searchData1.get("program").contains("Limited Warranty")) || (searchData1.get("program").contains("Absolute Reserve Care Lease"))) ) {
+			if (!((searchData1.get("program").contains("Limited Warranty")) || (searchData1.get("program").contains("Absolute Reserve Care Lease")) ||  (searchData1.get("program").contains("Absolute Lifetime Powertrain Warranty")))  ) {
+				System.out.println("Inside");
 				event.clickfield("xpath", businessUse);
 			}
 			List<WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
@@ -83,6 +84,7 @@ public class createContractAction extends contractpo {
 			}
 			Assert.assertEquals(addGapLabel(), "Add GAP");
 			js.executeScript("window.scrollTo(0, 2500)");
+			System.out.println("Hello world");
 			driver.findElements(By.cssSelector(textbox)).get(14).clear();
 			event.inputfield("cssSelector", textbox, "20130", 14);
 			driver.findElements(By.cssSelector(textbox)).get(13).clear();

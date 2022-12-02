@@ -77,6 +77,10 @@ public class contractpo extends baseClass{
 	public String printQuoteButton = "//span[contains(text(),'Print Quote')]//..";
 	public String warningLabel =".warning__label";
 	public String headerMarkUp = "div.header__markup > span";
+	public String noVIN  = "//span[contains(text(),'No VIN')]//../div";
+	public String year = "input[placeholder=\"Type & Select\"]";
+	public String make  ="adl-typeahead[label='Make'] >adl-text-input > div>div >input";
+	public String wdfield = "//span[contains(text(),'AWD/4WD')]//../div";
 	
 	public void checkGAP() {
 		
@@ -92,6 +96,11 @@ public class contractpo extends baseClass{
 	public String fieldbyLabelName(String label) {
 		
 		return "adl-text-input[label =\"" + label + "\"]>div >div:nth-child(2) >input";
+	}
+	
+	public String typeaheadbyLabelName(String label) {
+		
+		return "adl-typeahead[label='" + label + "'] >adl-text-input > div> div >input";
 	}
 	
 	public int length(String field) {

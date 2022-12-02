@@ -21,7 +21,7 @@ public class twoProgramContract extends twoProgramContractAction {
 	public void login() throws InterruptedException {
 		
 		navigate();
-		lo.login("dvidesdealer", "4558600");
+		lo.login("dvidesdealer", "Test@1234");
 		vo.navigatetoContract();
 		
 	}
