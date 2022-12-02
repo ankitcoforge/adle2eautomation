@@ -39,6 +39,7 @@ public class login1_test extends baseClass {
 	@Test (priority = 2, dataProvider = "login1")
     public void loggedIn(String user, String pass) throws InterruptedException {
 		
+		navigate();
 		String header = la.login(user, pass);
 		Assert.assertEquals(header, "Dashboard");
 		driver.get(prop.getProperty("messageSetup"));

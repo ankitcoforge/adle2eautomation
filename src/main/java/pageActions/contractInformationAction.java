@@ -27,7 +27,9 @@ public class contractInformationAction extends contractpo {
 		lo.login(prop.getProperty("username1"), prop.getProperty("password"));
 		vo.navigatetoLeftMenu("E-Rate", "Rate/Contract");
 		event.inputfield("cssSelector", textbox, "Single", 0);
+		Assert.assertEquals(driver.findElement(By.cssSelector(fieldbyLabelName("First Name"))).getAttribute("maxlength"), "40");
 		event.inputfield("cssSelector", textbox, "Test", 1);
+		Assert.assertEquals(driver.findElement(By.cssSelector(fieldbyLabelName("Last Name"))).getAttribute("maxlength"), "40");
 		event.clickfield("xpath", getProducts);
 		Assert.assertEquals(requiredCount(),2);
 		event.inputfield("cssSelector", textbox, randomizer.getMilage(), 5);

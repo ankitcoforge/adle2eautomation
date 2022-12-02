@@ -58,13 +58,13 @@ public void printQuote() throws InterruptedException {
 		event.clickfield("xpath", savequote);
 		Thread.sleep(5000);
 		String text1 = event.text("cssSelector", co.successMessage);
-		Assert.assertEquals(driver.getCurrentUrl(), "https://qa.adl.aulcorp.com/portal/rate/rate-contract");
+		Assert.assertEquals(driver.getCurrentUrl(), "https://qa2.adl.aulcorp.com/portal/rate/rate-contract");
 		Assert.assertEquals(qc.closeButton(), "close");
 		Assert.assertEquals(qc.viewPrintButton(), "View / Print Quote");
 		Assert.assertEquals(qc.goToQuotePagelink(), "Go to Quote Page");
 		Assert.assertEquals(qc.startNewQuotelink(), "Start New Quote");
 		event.clickfield("cssSelector",qc.goToQuotePage);
-		Assert.assertEquals(driver.getCurrentUrl(), "https://qa.adl.aulcorp.com/portal/rate/quote-history");
+		Assert.assertEquals(driver.getCurrentUrl(), "https://qa2.adl.aulcorp.com/portal/rate/quote-history");
 		vo.navigatetoLeftMenu("Rate/Contract");
 		}
 		catch(Exception e) {
@@ -101,7 +101,7 @@ public void printQuote() throws InterruptedException {
 		event.clickfield("cssSelector", co.table, 0);
 		String price = event.text("cssSelector", co.table,0);
 		event.inputfield("cssSelector", co.contract, "10000", 0);
-		if(!(searchData1.get("program").contains("Limited Warranty") || (searchData1.get("program").contains("Absolute Reserve Care Lease"))) ){
+		if(!(searchData1.get("program").contains("Limited Warranty") || (searchData1.get("program").contains("Absolute Reserve Care Lease")) ||  (searchData1.get("program").contains("Absolute Lifetime Powertrain Warranty"))) ){
 			event.clickfield("xpath", co.businessUse);
 		}
 		List <WebElement> a = driver.findElements(By.cssSelector(co.inServiceDate));

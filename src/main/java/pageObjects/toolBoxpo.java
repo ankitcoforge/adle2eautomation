@@ -15,11 +15,11 @@ public class toolBoxpo extends baseClass {
 	public String TBDealerPDF1 = "//a[contains(text(),\"AUL Corp Contact List\")]";
 	public String TBDealerTab = "//*[contains(text(),\" Dealer Toolbox \")]";
 	public String TBAgentTab ="//*[contains(text(),\" Agent Toolbox \")]";
-	public String TBFormsLibraryTab = "//*[contains(text(),\" Forms Library \")]";
+	public String TBFormsLibraryTab = "//span[contains(text(),'Forms Library')]";
 	public String TBMarketingMaterialTab = "//*[contains(text(),' Marketing Material ')]";
 	public String TBPaymentPlanPartnersTab = "//*[contains(text(),\" Payment Plan Partners \")]";
 	public String TBAulCorpContactListPDF = "//a[contains(text(),\"AUL Corp Contact List\")]";
-	public String TBContractCancellationFormPDF = "//a[contains(text(),\"Contract Cancellation Form\")]";
+	public String TBContractCancellationFormPDF = "//a[contains(text(),\"Contract Cancellation Forms\")]";
 	public String TBContractRemittanceReportPDF = "//a[contains(text(),\"Contract Remittance Report\")]";
 	public String TBContractRenewalGuidelinesPDF = "//a[contains(text(),\"Contract Renewal Guidelines\")]";
 	public String TBContractTransferFormsPDF = "//a[contains(text(),\"Contract Transfer Forms\")]";

@@ -41,6 +41,7 @@ public class twoProgramContractAction extends contractpo {
 			ca.programSelect(searchData2.get("programs"));
 			Thread.sleep(3000);
 			js.executeScript("window.scrollTo(0, 900)");
+			System.out.println(searchData2.get("program2"));
 			ca.programSelect(searchData2.get("program2"));
 			Thread.sleep(3000);
 			event.clickfield("cssSelector", table, 0);
