@@ -1,7 +1,7 @@
 FailScreenshot/
 PassScreenshot/
-test-output/
-target/
+test-output/**
+target/**
 .classpath
 .settings/
 .loadpath
