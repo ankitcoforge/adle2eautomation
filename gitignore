@@ -1,0 +1,7 @@
+FailScreenshot/
+PassScreenshot/
+test-output/**
+target/**
+.classpath
+.settings/
+.loadpath
