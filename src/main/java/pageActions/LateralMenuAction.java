@@ -100,4 +100,9 @@ public class LateralMenuAction extends LateralMenupo{
 			}
 		}
 		
+		public WebElement getImpersonatedPageRoledID() {
+			 WebElement impersonatedRole=driver.findElement(By.xpath(impersonatedRoleid));	
+			 return impersonatedRole;
+		 }
+		
 }
