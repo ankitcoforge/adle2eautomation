@@ -32,7 +32,7 @@ public class verticalMenuAction extends verticalMenupo{
 
 		Thread.sleep(4000);
 		driver.switchTo().activeElement();
-		event.clickfield("xpath", reports);
+		event.clickfield("xpath", accountManagement);
 		event.clickfield("xpath", impersonate);
 
 	}
@@ -63,6 +63,12 @@ public class verticalMenuAction extends verticalMenupo{
 		return (event.text("cssSelector", "header > div >h3"));
 	}
 	
+	public void navigateToMileageAndAgeException() throws InterruptedException {
+		Thread.sleep(4000);
+		driver.switchTo().activeElement();
+		event.clickfield("xpath", accountManagement);
+		event.clickfield("xpath", milaegeAndAgeExceptions);
+	}
 	
 }
 

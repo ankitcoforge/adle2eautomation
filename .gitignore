@@ -1,1 +1,11 @@
+<<<<<<< HEAD
 /target/
+=======
+FailScreenshot/
+PassScreenshot/
+test-output/**
+target/**
+.classpath
+.settings/
+.loadpath
+>>>>>>> 0316b6ada5b3f5649b38222a97b7fbe6d035cb0a

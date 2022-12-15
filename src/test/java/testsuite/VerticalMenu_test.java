@@ -28,7 +28,7 @@ public class VerticalMenu_test extends LateralMenuAction {
 	}
 	
 	@Test(priority = 1)
-	public void verifyLateralMenuOptionsForAgent_30209_30214_30238() throws InterruptedException {
+	public void verifyLateralMenuOptionsForAgent_30209_30214_30238_32342_30314_32343() throws InterruptedException {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 		String toolbox = getLateralMenuItems2().get(1).getText();
@@ -65,6 +65,22 @@ public class VerticalMenu_test extends LateralMenuAction {
 			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Web Traning Manual for Remittance"));
 			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Web Training Manual for SPP"));
 			Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("Web Training Manual for ACH-Remit"));
+			
+			verticalMenu.navigatetoLeftMainMenu("Dealer Settings");
+			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Activity Tracker"));
+			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Manage Pricing Preferences"));
+			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Manage VSC - GAP Preferences"));
+			Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("Manage My Dealer Packs"));
+			
+			verticalMenu.navigatetoLeftMainMenu("Agency Settings");
+			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Manage Users"));
+			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Assign Dealer to Sub-Agents"));
+			
+			verticalMenu.navigatetoLeftMainMenu("E-Rate");
+			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
+			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Quote History"));
+			
+			
 			
 	}
 	
@@ -132,7 +148,7 @@ public class VerticalMenu_test extends LateralMenuAction {
 	}
 	
 	@Test(priority = 3)
-	public void verifyLateralMenuOptionsForLender_30212_30217_30239_30241_30244_30320() throws InterruptedException {
+	public void verifyLateralMenuOptionsForLender_30212_30217_30239_30241_30244_30320_30316() throws InterruptedException {
 		login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 		String toolbox = getLateralMenuItems2().get(1).getText();
@@ -183,6 +199,12 @@ public class VerticalMenu_test extends LateralMenuAction {
 			verticalMenu.navigatetoLeftMainMenu("E-Rate");
 			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
 			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Quote History"));
+			
+			verticalMenu.navigatetoLeftMainMenu("Help");
+			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Web Training Manual for E-Contracting"));
+			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Web Traning Manual for Remittance"));
+			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Web Training Manual for SPP"));
+			Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("Web Training Manual for ACH-Remit"));
 	}
 	
 	
@@ -287,8 +309,6 @@ public class VerticalMenu_test extends LateralMenuAction {
 		
 		verticalMenu.navigatetoLeftMainMenu("My Settings");
 		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Manage My Profile"));
-		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Manage My Pricing Preferences"));
-		Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Manage VSC - GAP Preferences"));
 		
 		verticalMenu.navigatetoLeftMainMenu("Help");
 		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Web Training Manual for E-Contracting"));
@@ -305,7 +325,7 @@ public class VerticalMenu_test extends LateralMenuAction {
 	}
 	
 	@Test(priority = 6)
-	public void verifyMenuOptionsForLenderEmp_30268_30309_30289_30295_30304_30321() throws InterruptedException {
+	public void verifyMenuOptionsForLenderEmp_30268_30309_30289_30295_30304_30321_30312() throws InterruptedException {
 		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
@@ -345,13 +365,19 @@ public class VerticalMenu_test extends LateralMenuAction {
 			
 			verticalMenu.navigatetoLeftMainMenu("My Settings");
 			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Manage My Profile"));
-			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Issue New User Registration"));
-			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Manage My Pricing Preferences"));
-			Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("Manage VSC - GAP Preferences"));
 			
 			verticalMenu.navigatetoLeftMainMenu("E-Rate");
 			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
 			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Quote History"));
+			
+			verticalMenu.navigatetoLeftMainMenu("Report");
+			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Unpaid Contracts"));
+			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Activations"));
+			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Cancellations"));
+			Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("My Account Statements"));
+			Assert.assertTrue(getLaterMenuSubItems().get(4).getText().contains("Claims History"));
+			Assert.assertTrue(getLaterMenuSubItems().get(5).getText().contains("Actuarials"));
+			Assert.assertTrue(getLaterMenuSubItems().get(6).getText().contains("Early Claims"));
 	}
 	
 	@Test(priority = 7)
@@ -407,7 +433,7 @@ public class VerticalMenu_test extends LateralMenuAction {
 	
 	@Test(priority = 8)
 	public void verifyMenuOptionsForDealerGrpEmp_30288_30294_30299_30308_30319() throws InterruptedException {
-		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
+		login.login(prop.getProperty("dealergrpempAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		String toolbox = getLateralMenuItems2().get(1).getText();
@@ -450,26 +476,178 @@ public class VerticalMenu_test extends LateralMenuAction {
 		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Quote History"));
 	}
 
-	@Test(priority = 9)
-	public void verifyImpersonationPage_30782() throws InterruptedException {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+//	@Test(priority = 9)
+//	public void verifyImpersonationPage_30782() throws InterruptedException {
+//		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+//		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+//		verticalMenu.navigatetoimpersonate();
+//		impersonate.impersonateUser("Dealer", "28771");
+//		Assert.assertTrue(getImpersonatedPageRoledID().getText().equals("28771"),"Impersonated Successfully");
+//	}
+//	
+//	@Test(priority = 10)
+//	public void verifyNewUserPopup_30783() throws InterruptedException {
+//		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+//		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+//		verticalMenu.navigatetoimpersonate();
+//		impersonateUser("Dealer", "28771");
+//		getNewuserBtn().click();
+//		Assert.assertTrue(getNewuserPopupHeader().isDisplayed());
+//	}
+//	
+//	@Test(priority = 11)
+//	public void verifyNewExceptionBtnActivated_30784() throws InterruptedException {
+//		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+//		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+//		verticalMenu.navigateToMileageAndAgeException();
+//		
+//		Assert.assertTrue(getNewuserBtn().isEnabled());
+//		
+//	}
+	
+	@Test(priority = 12)
+	public void verifyDashboardReportsforDealer_32243() throws InterruptedException {
+		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
-		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("Dealer", "28771");
-		Assert.assertTrue(getImpersonatedPageRoledID().getText().equals("28771"),"Impersonated Successfully");
+		verticalMenu.navigatetoLeftMainMenu("Report");
+			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Unpaid Contracts"));
+			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Activations"));
+			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Cancellations"));
+			Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("My Account Statements"));
+			Assert.assertTrue(getLaterMenuSubItems().get(4).getText().contains("Claims History"));
+			Assert.assertTrue(getLaterMenuSubItems().get(5).getText().contains("Actuarials"));
+			Assert.assertTrue(getLaterMenuSubItems().get(6).getText().contains("Early Claims"));
+		verticalMenu.navigatetoLeftMenu("Dashboard");
+		utils.scrollDown();
+		Assert.assertTrue(getDashboardPageReports("Unpaid Contracts").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Activations").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Cancellations").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("My Account Statements").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Actuarials").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Early Claims").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Contract Search").isDisplayed());
+	}
+
+	
+	@Test(priority = 13)
+	public void verifyDashboardReportsforAgent_32244() throws InterruptedException {
+		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		verticalMenu.navigatetoLeftMainMenu("Report");
+		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("My Commissions"));
+		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Unpaid Contracts"));
+		Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Activations"));
+		Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("Cancellations"));
+		Assert.assertTrue(getLaterMenuSubItems().get(4).getText().contains("My Account Statements"));
+		Assert.assertTrue(getLaterMenuSubItems().get(5).getText().contains("Claims History"));
+		Assert.assertTrue(getLaterMenuSubItems().get(6).getText().contains("Actuarials"));
+		Assert.assertTrue(getLaterMenuSubItems().get(7).getText().contains("Early Claims"));
+		verticalMenu.navigatetoLeftMenu("Dashboard");
+		utils.scrollDown();
+		//Assert.assertTrue(getDashboardPageReports("My Commissions").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Unpaid Contracts").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Activations").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Cancellations").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("My Account Statements").isDisplayed());
+		//Assert.assertTrue(getDashboardPageReports("Actuarials").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Early Claims").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Contract Search").isDisplayed());
+	}
+
+	@Test(priority = 14)
+	public void verifyDashboardReportsforLender_32245() throws InterruptedException {
+		login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		verticalMenu.navigatetoLeftMainMenu("Report");
+		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Unpaid Contracts"));
+		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Activations"));
+		Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Cancellations"));
+		Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("My Account Statements"));
+		Assert.assertTrue(getLaterMenuSubItems().get(4).getText().contains("Claims History"));
+		Assert.assertTrue(getLaterMenuSubItems().get(5).getText().contains("Actuarials"));
+		Assert.assertTrue(getLaterMenuSubItems().get(6).getText().contains("Early Claims"));
+		verticalMenu.navigatetoLeftMenu("Dashboard");
+		utils.scrollDown();
+		Assert.assertTrue(getDashboardPageReports("Unpaid Contracts").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Activations").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Cancellations").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("My Account Statements").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Actuarials").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Early Claims").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Contract Search").isDisplayed());
+	}
+
+	@Test(priority = 15)
+	public void verifyDashboardReportsforSubAgent_32253() throws InterruptedException {
+		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		verticalMenu.navigatetoLeftMainMenu("Report");
+		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("My Commissions"));
+		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Unpaid Contracts"));
+		Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Activations"));
+		Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("Cancellations"));
+		Assert.assertTrue(getLaterMenuSubItems().get(4).getText().contains("My Account Statements"));
+		Assert.assertTrue(getLaterMenuSubItems().get(5).getText().contains("Claims History"));
+		Assert.assertTrue(getLaterMenuSubItems().get(6).getText().contains("Actuarials"));
+		Assert.assertTrue(getLaterMenuSubItems().get(7).getText().contains("Early Claims"));
+		verticalMenu.navigatetoLeftMenu("Dashboard");
+		utils.scrollDown();
+		//Assert.assertTrue(getDashboardPageReports("My Commissions").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Unpaid Contracts").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Activations").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Cancellations").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("My Account Statements").isDisplayed());
+	//	Assert.assertTrue(getDashboardPageReports("Actuarials").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Early Claims").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Contract Search").isDisplayed());
 	}
 	
-	@Test(priority = 10)
-	public void verifyNewUserPopup_() throws InterruptedException {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+	@Test(priority = 16)
+	public void verifyDashboardReportsforDealerEmp_32254() throws InterruptedException {
+		login.login(prop.getProperty("dealerempAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
-		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("Dealer", "28771");
-		Assert.assertTrue(getImpersonatedPageRoledID().getText().equals("28771"),"Impersonated Successfully");
-		
+		verticalMenu.navigatetoLeftMainMenu("Report");
+		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Unpaid Contracts"));
+		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Activations"));
+		Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Cancellations"));
+		Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("My Account Statements"));
+		Assert.assertTrue(getLaterMenuSubItems().get(4).getText().contains("Claims History"));
+		Assert.assertTrue(getLaterMenuSubItems().get(5).getText().contains("Actuarials"));
+		Assert.assertTrue(getLaterMenuSubItems().get(6).getText().contains("Early Claims"));
+		verticalMenu.navigatetoLeftMenu("Dashboard");
+		utils.scrollDown();
+		Assert.assertTrue(getDashboardPageReports("Unpaid Contracts").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Activations").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Cancellations").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("My Account Statements").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Actuarials").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Early Claims").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Contract Search").isDisplayed());
 	}
 	
-	
+	@Test(priority = 17)
+	public void verifyDashboardReportsforLenderEmp_32255() throws InterruptedException {
+		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		verticalMenu.navigatetoLeftMainMenu("Report");
+		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Unpaid Contracts"));
+		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Activations"));
+		Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Cancellations"));
+		Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("My Account Statements"));
+		Assert.assertTrue(getLaterMenuSubItems().get(4).getText().contains("Claims History"));
+		Assert.assertTrue(getLaterMenuSubItems().get(5).getText().contains("Actuarials"));
+		Assert.assertTrue(getLaterMenuSubItems().get(6).getText().contains("Early Claims"));
+		verticalMenu.navigatetoLeftMenu("Dashboard");
+		utils.scrollDown();
+		Assert.assertTrue(getDashboardPageReports("Unpaid Contracts").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Activations").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Cancellations").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("My Account Statements").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Actuarials").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Early Claims").isDisplayed());
+		Assert.assertTrue(getDashboardPageReports("Contract Search").isDisplayed());
+	}
+
 	
 	 @AfterMethod(alwaysRun=true)
 	    public void close() throws InterruptedException {
