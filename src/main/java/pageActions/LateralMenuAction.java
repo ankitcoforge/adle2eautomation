@@ -5,12 +5,18 @@ import java.net.MalformedURLException;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import pageObjects.LateralMenupo;
+import utils.utilityClass;
 
 public class LateralMenuAction extends LateralMenupo{
+	
+	utilityClass utils = new utilityClass();
 	
 	 public WebElement getTitle() {
 		 WebElement welcomeTitle=driver.findElement(By.xpath(title));	
@@ -98,6 +104,84 @@ public class LateralMenuAction extends LateralMenupo{
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		}
+		
+		public WebElement getImpersonatedPageRoledID() {
+			 WebElement impersonatedRole=driver.findElement(By.xpath(impersonatedRoleid));	
+			 return impersonatedRole;
+		 }
+		
+		public void impersonateUser(String role, String roleid) throws InterruptedException {
+			
+				
+				 WebElement selectRole= getDriver().findElement(By.xpath(roleDropdown));
+				 selectRole.click();
+//				 Actions action=new Actions(driver);
+//				 action.moveToElement(selectRole).click().build().perform();
+				
+				 List<WebElement> list = getDriver().findElements(By.xpath(roleDropdownList));
+				 for(int i=0;i<list.size();i++) {
+					switch (role) {
+					
+					case "Dealer" : list.get(i).getText().equals("Dealer");
+					list.get(i).click();
+					break;
+					
+					case "DealerEmp" : list.get(i).getText().equals("DealerEmp");
+					list.get(i).click();
+					break;
+					
+					case "Agent" : list.get(i).getText().equals("Agent");
+					list.get(i).click();
+					break;
+					
+					case "SubAgent" : list.get(i).getText().equals("SubAgent");
+					list.get(i).click();
+					break;
+					
+					case "Lender" : list.get(i).getText().equals("Lender");
+					list.get(i).click();
+					break;
+					
+					case "LenderEmp" : list.get(i).getText().equals("LenderEmp");
+					list.get(i).click();
+					break;
+					
+					case "DealerGroup" : list.get(i).getText().equals("DealerGroup");
+					list.get(i).click();
+					break;
+					
+					case "DealerGrpEmp" : list.get(i).getText().equals("DealerGrpEmp");
+					list.get(i).click();
+					break;
+					
+					case "AULadmin" : list.get(i).getText().equals("AULadmin");
+					list.get(i).click();
+					break;
+					}
+				 }
+				
+		}
+		
+		public WebElement getNewuserBtn() {
+			 WebElement newuser=driver.findElement(By.xpath(newuserBtn));	
+			 return newuser;
+		 }
+		
+		 public WebElement getNewExceptionBtn() {
+			 WebElement newException=driver.findElement(By.xpath(newExceptionBtn));	
+			 return newException;
+		 }
+		
+		public WebElement getNewuserPopupHeader() {
+			 WebElement newuser=driver.findElement(By.xpath(newuserPopupHeader));	
+			 return newuser;
+		 }
+		
+		public WebElement getDashboardPageReports(String subheading) throws InterruptedException {
+			driver.switchTo().activeElement();
+			WebElement ele = utils.getfield("h4", subheading);
+            return ele;
 		}
 		
 }
