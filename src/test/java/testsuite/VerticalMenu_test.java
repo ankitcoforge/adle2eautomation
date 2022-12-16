@@ -1,7 +1,10 @@
 package testsuite;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -11,7 +14,6 @@ import pageActions.LateralMenuAction;
 import pageActions.impersonateAction;
 import pageActions.loginAction;
 import pageActions.verticalMenuAction;
-import pageObjects.impersonatepo;
 import utils.utilityClass;
 
 public class VerticalMenu_test extends LateralMenuAction {
@@ -374,7 +376,6 @@ public class VerticalMenu_test extends LateralMenuAction {
 			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Unpaid Contracts"));
 			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Activations"));
 			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Cancellations"));
-			Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("My Account Statements"));
 			Assert.assertTrue(getLaterMenuSubItems().get(4).getText().contains("Claims History"));
 			Assert.assertTrue(getLaterMenuSubItems().get(5).getText().contains("Actuarials"));
 			Assert.assertTrue(getLaterMenuSubItems().get(6).getText().contains("Early Claims"));
@@ -476,34 +477,39 @@ public class VerticalMenu_test extends LateralMenuAction {
 		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Quote History"));
 	}
 
-//	@Test(priority = 9)
-//	public void verifyImpersonationPage_30782() throws InterruptedException {
-//		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-//		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
-//		verticalMenu.navigatetoimpersonate();
-//		impersonate.impersonateUser("Dealer", "28771");
-//		Assert.assertTrue(getImpersonatedPageRoledID().getText().equals("28771"),"Impersonated Successfully");
-//	}
-//	
-//	@Test(priority = 10)
-//	public void verifyNewUserPopup_30783() throws InterruptedException {
-//		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-//		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
-//		verticalMenu.navigatetoimpersonate();
-//		impersonateUser("Dealer", "28771");
-//		getNewuserBtn().click();
-//		Assert.assertTrue(getNewuserPopupHeader().isDisplayed());
-//	}
-//	
-//	@Test(priority = 11)
-//	public void verifyNewExceptionBtnActivated_30784() throws InterruptedException {
-//		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-//		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
-//		verticalMenu.navigateToMileageAndAgeException();
-//		
-//		Assert.assertTrue(getNewuserBtn().isEnabled());
-//		
-//	}
+	@Test(priority = 9)
+	public void verifyImpersonationPage_30782() throws InterruptedException {
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		verticalMenu.navigatetoimpersonate();
+		impersonate.impersonateUser("Dealer", "28771");
+		Assert.assertTrue(impersonate.getImpersonatedPageRoledID().equals("28771"),"Impersonated Successfully");
+	}
+
+	@Test(priority = 10)
+	public void verifyNewUserPopup_30783() throws InterruptedException {
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		verticalMenu.navigatetoimpersonate();
+		impersonate.getUsers("Dealer", "28771");
+		getNewuserBtn().click();
+		Thread.sleep(1000);
+		Assert.assertTrue(getNewuserPopupHeader().isDisplayed());
+		Thread.sleep(1000);
+		getNewUserBtnClose().click();
+	}
+	
+
+	
+	@Test(priority = 11)
+	public void verifyNewExceptionBtnActivated_30784() throws InterruptedException {
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		verticalMenu.navigateToMileageAndAgeException();
+		impersonate.getUsers("Dealer", "28771");
+		Assert.assertTrue(getNewuserBtn().isEnabled());
+		
+	}
 	
 	@Test(priority = 12)
 	public void verifyDashboardReportsforDealer_32243() throws InterruptedException {

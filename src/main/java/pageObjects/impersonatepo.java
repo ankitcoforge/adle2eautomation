@@ -4,14 +4,34 @@ import utils.baseClass;
 
 public class impersonatepo extends baseClass{
 	
-	public String role1 = "ctl00_mainContent_TextBoxRoleIdentifier";
-	public String roleDropdown = "ctl00_mainContent_DropDownListRoleType";
-    public String roleId = "#cnt table #container table tbody tr input";
-    public String button = "ctl00_mainContent_ButtonGetUsers";
-    public String tableFirstRow = "ctl00_mainContent_ASPxGridViewUsers_cell0_11_ASPxButtonImpersonate";
+	public String title = "//b[text()='Welcome to your AUL ADL Portal!']";
+	public String roleDropdown = "//ng-select[@role='listbox']";
+	public String roleDropdownList = "//div[@class='scrollable-content']/div";
+    public String roleId = "//input[@placeholder='Please enter the Role ID / Account Name']";
+    public String getusersButton = "//span[text()='Get Users']";
+    public String tableFirstRow = "(//i[@title='Impersonate'])[1]";
+    public String impersonateList = "//i[@title='Impersonate']";
     public String logoutArrow  = "adl-header > header > div > div > button > mat-icon";
     public String impersonate = "div [role='menu'] > div > ul >li >button";
     public String logout = "//button[text()='Logout']";
+    
+    public String headerLoc = "thead > adl-table-header > tr:nth-child(1) > th[role='columnheader']";
+	public String rowLoc = "table>tbody>tr";
+	public String btnYes = "(//button[@color='primary']/span)[2]";
+	public String roleType = "//strong[text()='Role Type: ']";
+	public String accountName = "//strong[text()='Account Name: ']";
+	public String userName = "//strong[text()='Username: ']";
+	public String firstname = "//adl-text-input[@label='First Name']/div/div/input";
+	public String lastname = "//adl-text-input[@label='Last Name']/div/div/input";
+	public String email = "//adl-text-input[@label='Email']/div/div/input";
+	public String btnUpdate = "//span[text()='Update']";
+	public String iconClose = "//mat-icon[text()='close']";
+	public String btnSubmit = "//span[text()='Submit']";
+	public String resendInvitationConfirmMsg = "//div[contains(text(),'Invitation has been sent')]";
+	public String selectDealerTogenerateContract = "//input[@placeholder='Type or Select Dealer Name']";
+	public String btnSignIn = "//span[text()='Sign In']";
+	public String dealerRoleid = "//span[contains(text(),'Dealer:')]";
+	
     
 	
 	

@@ -106,62 +106,9 @@ public class LateralMenuAction extends LateralMenupo{
 			}
 		}
 		
-		public WebElement getImpersonatedPageRoledID() {
-			 WebElement impersonatedRole=driver.findElement(By.xpath(impersonatedRoleid));	
-			 return impersonatedRole;
-		 }
 		
-		public void impersonateUser(String role, String roleid) throws InterruptedException {
-			
-				
-				 WebElement selectRole= getDriver().findElement(By.xpath(roleDropdown));
-				 selectRole.click();
-//				 Actions action=new Actions(driver);
-//				 action.moveToElement(selectRole).click().build().perform();
-				
-				 List<WebElement> list = getDriver().findElements(By.xpath(roleDropdownList));
-				 for(int i=0;i<list.size();i++) {
-					switch (role) {
-					
-					case "Dealer" : list.get(i).getText().equals("Dealer");
-					list.get(i).click();
-					break;
-					
-					case "DealerEmp" : list.get(i).getText().equals("DealerEmp");
-					list.get(i).click();
-					break;
-					
-					case "Agent" : list.get(i).getText().equals("Agent");
-					list.get(i).click();
-					break;
-					
-					case "SubAgent" : list.get(i).getText().equals("SubAgent");
-					list.get(i).click();
-					break;
-					
-					case "Lender" : list.get(i).getText().equals("Lender");
-					list.get(i).click();
-					break;
-					
-					case "LenderEmp" : list.get(i).getText().equals("LenderEmp");
-					list.get(i).click();
-					break;
-					
-					case "DealerGroup" : list.get(i).getText().equals("DealerGroup");
-					list.get(i).click();
-					break;
-					
-					case "DealerGrpEmp" : list.get(i).getText().equals("DealerGrpEmp");
-					list.get(i).click();
-					break;
-					
-					case "AULadmin" : list.get(i).getText().equals("AULadmin");
-					list.get(i).click();
-					break;
-					}
-				 }
-				
-		}
+		
+		
 		
 		public WebElement getNewuserBtn() {
 			 WebElement newuser=driver.findElement(By.xpath(newuserBtn));	
@@ -175,6 +122,11 @@ public class LateralMenuAction extends LateralMenupo{
 		
 		public WebElement getNewuserPopupHeader() {
 			 WebElement newuser=driver.findElement(By.xpath(newuserPopupHeader));	
+			 return newuser;
+		 }
+		
+		public WebElement getNewUserBtnClose() {
+			 WebElement newuser=driver.findElement(By.xpath(newuserBtnClose));	
 			 return newuser;
 		 }
 		

@@ -19,10 +19,9 @@ public class LateralMenupo extends baseClass{
 	public String contractSearchTitle = "//h3[text()='Contract Search']";
 	public String dashboardTitle = "//h3[text()='Dashboard']";
 	public String generateQuoteTxt = "//h3[text()='To Generate a Quote Sign In as a Dealer']";
-	public String impersonatedRoleid = "//span[contains(text(),'28771')]";
-	public String roleDropdown = "//ng-select[@role='listbox']";
-	public String roleDropdownList = "//div[@class='scrollable-content']/div";
+	
 	public String newuserPopupHeader = "//h3[text()='New User Registration']";
+	public String newuserBtnClose = "//button[@aria-label='Close']/span";
 	public String newExceptionBtn = "//span[text()=' + New exception ']";
 	public String newuserBtn = "//span[text()=' + New user ']";
 	
