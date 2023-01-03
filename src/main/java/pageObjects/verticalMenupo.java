@@ -14,6 +14,9 @@ public class verticalMenupo extends baseClass {
 	public String reports = "//button[contains(text(),'Report')]";
 	public String accountManagement = "//button[contains(text(),'Account Management')]";
 	public String milaegeAndAgeExceptions = "//a[contains(text(),'Mileage & Age Exceptions')]";
+	public String arrowbtnAtRightTop = "//mat-icon[@class='mat-icon notranslate dropdown__icon material-icons mat-icon-no-color']";
+	public String impersonateAtRightTop = "(//ul[@class='ng-tns-c306-36']/li)[1]";
+	public String arrowOptionsList = "//ul[@class='ng-tns-c306-36']/li/button";
 	
 	 		
 

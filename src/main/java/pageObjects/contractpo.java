@@ -1,6 +1,7 @@
 package pageObjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import utils.baseClass;
 
@@ -81,6 +82,13 @@ public class contractpo extends baseClass{
 	public String year = "input[placeholder=\"Type & Select\"]";
 	public String make  ="adl-typeahead[label='Make'] >adl-text-input > div>div >input";
 	public String wdfield = "//span[contains(text(),'AWD/4WD')]//../div";
+	public String selectDealerTogenerateContract = "//input[@placeholder='Type or Select Dealer Name']";
+	public String btnSignIn = "//span[text()='Sign In']";
+	
+	public WebElement getBtnSignIn() {
+		WebElement ele = driver.findElement(By.xpath(btnSignIn));	
+		 return ele; 
+	 }
 	
 	public void checkGAP() {
 		

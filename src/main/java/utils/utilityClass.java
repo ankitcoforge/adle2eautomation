@@ -319,5 +319,10 @@ public class utilityClass extends baseClass{
  			driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL, Keys.PAGE_DOWN);
  		}
  		
+ 		 public WebElement getTitle(String heading) {
+ 			 WebElement welcomeTitle=getfield("h3", heading);
+ 			 return welcomeTitle;
+ 		 }
+ 		
 }
 

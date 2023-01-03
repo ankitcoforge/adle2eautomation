@@ -1,5 +1,7 @@
 package pageActions;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -69,6 +71,21 @@ public class verticalMenuAction extends verticalMenupo{
 		event.clickfield("xpath", accountManagement);
 		event.clickfield("xpath", milaegeAndAgeExceptions);
 	}
+	
+//	public void navigatetoimpersonateFromRightTop() throws InterruptedException {
+//		event.clickfield("xpath", arrowbtnAtRightTop);
+//		Thread.sleep(2000);
+//		driver.switchTo().activeElement();
+//		System.out.println("list is"+getArrowOptionsList().get(1).getText());
+//		
+//		Thread.sleep(4000);
+//		//event.clickfield("xpath", impersonateAtRightTop);
+//	}
+//	
+//	 public List<WebElement> getArrowOptionsList() {
+//		  List<WebElement> list = driver.findElements(By.xpath(arrowOptionsList));	
+//		 return list; 
+//	 }
 	
 }
 

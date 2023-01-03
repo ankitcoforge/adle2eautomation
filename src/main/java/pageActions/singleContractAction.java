@@ -3,6 +3,7 @@ package pageActions;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
@@ -109,4 +110,15 @@ public class singleContractAction extends contractpo{
 		Assert.assertEquals(text1, "You have successfully generated a contract!");
 		event.clickfield("xpath", newQuotelink);
 		}
+	
+	public void getSelectDealerTogenerateContract(String dealer) throws InterruptedException {
+		WebElement ele = driver.findElement(By.xpath(selectDealerTogenerateContract));	
+		ele.click();
+		ele.sendKeys(dealer);
+		ele.sendKeys(Keys.ARROW_DOWN);
+		ele.sendKeys(Keys.ENTER);
+		System.out.println("dealer name------------"+ele.getText());
+		getBtnSignIn().click();
+		Thread.sleep(2000);
+	 }
 }
