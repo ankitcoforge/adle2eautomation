@@ -15,9 +15,7 @@ import pageActions.verticalMenuAction;
 import utils.utilityClass;
 
 public class contractSearchRole_test extends ContractSearchPageAction{
-
 	
-
 	loginAction login = new loginAction();
 	verticalMenuAction verticalMenu = new verticalMenuAction();
 	utilityClass utils = new utilityClass();

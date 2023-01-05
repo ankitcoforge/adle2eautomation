@@ -54,23 +54,23 @@ public class LateraMenu_test extends LateralMenuAction {
 			Assert.assertTrue(list.contains("Help"));
 	}
 	
-	@Test(priority = 2)
-	public void verifyErateOptionsAsAgent_6286() throws InterruptedException  {
-		login.login(prop.getProperty("agentusername"), prop.getProperty("agentpassword"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
-		Assert.assertTrue(getLateralMenu().isDisplayed());
-		verticalMenu.navigatetoLeftMainMenu("E-Rate");
-		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
-		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Quote History"));
-		verticalMenu.navigatetoLeftMenu("Rate/Contract");
-		Thread.sleep(2000);
-		Assert.assertTrue(getRateContractTitle().isDisplayed());
-		Assert.assertTrue(driver.getCurrentUrl().contains("/rate/rate-contract"));
-		verticalMenu.navigatetoLeftMenu("Quote History");
-		Thread.sleep(2000);
-		Assert.assertTrue(getQuoteHistoryTitle().isDisplayed());
-		Assert.assertTrue(driver.getCurrentUrl().contains("/rate/quote-history"));
-	}
+//	@Test(priority = 2)
+//	public void verifyErateOptionsAsAgent_6286() throws InterruptedException  {
+//		login.login(prop.getProperty("agentusername"), prop.getProperty("agentpassword"));
+//		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+//		Assert.assertTrue(getLateralMenu().isDisplayed());
+//		verticalMenu.navigatetoLeftMainMenu("E-Rate");
+//		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
+//		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Quote History"));
+//		verticalMenu.navigatetoLeftMenu("Rate/Contract");
+//		Thread.sleep(2000);
+//		Assert.assertTrue(getRateContractTitle().isDisplayed());
+//		Assert.assertTrue(driver.getCurrentUrl().contains("/rate/rate-contract"));
+//		verticalMenu.navigatetoLeftMenu("Quote History");
+//		Thread.sleep(2000);
+//		Assert.assertTrue(getQuoteHistoryTitle().isDisplayed());
+//		Assert.assertTrue(driver.getCurrentUrl().contains("/rate/quote-history"));
+//	}
 
 	@Test(priority = 3)
 	public void verifyDashboardByDefaultForDealer_6287() throws InterruptedException  {

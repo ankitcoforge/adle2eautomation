@@ -20,6 +20,8 @@ public class contractInformation_test extends contractInformationAction{
 	public void login() throws InterruptedException {
 
 		navigate();
+		lo.login(prop.getProperty("username1"), prop.getProperty("password"));
+		vo.navigatetoLeftMenu("E-Rate", "Rate/Contract");
 
 	}
 
@@ -62,7 +64,7 @@ public class contractInformation_test extends contractInformationAction{
 	@AfterClass
 	public void close() throws InterruptedException {
 
-		
+		lo.logout();	
 	}
 
 }

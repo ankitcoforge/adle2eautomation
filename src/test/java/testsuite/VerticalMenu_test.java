@@ -69,15 +69,16 @@ public class VerticalMenu_test extends LateralMenuAction {
 			Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("Web Training Manual for ACH-Remit"));
 			
 			verticalMenu.navigatetoLeftMainMenu("Dealer Settings");
-			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Activity Tracker"));
-			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Manage Pricing Preferences"));
-			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Manage VSC - GAP Preferences"));
-			Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("Manage My Dealer Packs"));
+			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Manage Dealers"));
+			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Activity Tracker"));
+			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Manage Pricing Preferences"));
+			Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("Manage VSC - GAP Preferences"));
+			Assert.assertTrue(getLaterMenuSubItems().get(4).getText().contains("Manage My Dealer Packs"));
 			
 			verticalMenu.navigatetoLeftMainMenu("Agency Settings");
 			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Manage Users"));
-			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Assign Dealer to Sub-Agents"));
-			
+			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Assign Dealers to Sub-Agents"));
+
 			verticalMenu.navigatetoLeftMainMenu("E-Rate");
 			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
 			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Quote History"));

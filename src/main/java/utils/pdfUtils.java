@@ -16,7 +16,6 @@ public class pdfUtils {
 		// specify the url of the pdf file
 		try {
 			String pdfContent = readPdfContent(url);
-			System.out.println(pdfContent);
 			Assert.assertTrue(pdfContent.contains(program));
 
 		} catch (MalformedURLException e) {

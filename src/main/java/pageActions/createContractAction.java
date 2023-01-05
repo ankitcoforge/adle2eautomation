@@ -67,8 +67,7 @@ public class createContractAction extends contractpo {
 			String programCode = program[0];
 			String programName = program[1];
 			event.inputfield("cssSelector", contract, "10000", 0);
-			if (!((searchData1.get("program").contains("Limited Warranty")) || (searchData1.get("program").contains("Absolute Reserve Care Lease")) ||  (searchData1.get("program").contains("Absolute Lifetime Powertrain Warranty")))  ) {
-				System.out.println("Inside");
+			if (!((searchData1.get("program").contains("Limited Warranty")) || (searchData1.get("program").contains("Absolute Reserve Care Lease")) ||  (searchData1.get("program").contains("Absolute Lifetime Powertrain Warranty")) || (searchData1.get("program").contains("Absolute Certified Warranty")))  ) {
 				event.clickfield("xpath", businessUse);
 			}
 			List<WebElement> a = driver.findElements(By.cssSelector(inServiceDate));

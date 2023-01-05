@@ -57,7 +57,7 @@ public class contractSearch_test extends ContractSearchPageAction{
 			for(int i =0; i<editReContractlink().size(); i++ ) {
 				Assert.assertEquals(editReContractlink().get(i), "Edit");
 			}
-		    Assert.assertEquals(editContracturl(), "https://qa.adl.aulcorp.com/portal/contracts/edit-contract");
+		    Assert.assertEquals(editContracturl(), "https://qa2.adl.aulcorp.com/portal/contracts/edit-contract");
 		    driver.navigate().back();
 		}
 		
@@ -84,7 +84,7 @@ public class contractSearch_test extends ContractSearchPageAction{
 			for(int i =0; i<reContractlink().size(); i++ ) {
 				Assert.assertEquals(reContractlink().get(i), "Re-Contract");
 			}
-		    Assert.assertEquals(reContracturl(), "https://qa.adl.aulcorp.com/portal/rate/rate-contract");
+		    Assert.assertEquals(reContracturl(), "https://qa2.adl.aulcorp.com/portal/rate/rate-contract");
 		    driver.navigate().back();
 		}
 				
@@ -227,16 +227,16 @@ public class contractSearch_test extends ContractSearchPageAction{
              filterStatus("Entered");
              selectCheckbox(2);
              Assert.assertTrue(deleteAttribute().getAttribute("class").contains("toolbar__delete"));
-             Assert.assertEquals(itemsSelected(), "1 items selected");
+             Assert.assertEquals(itemsSelected(), "1 item(s) selected");
              clickDelete();
              Assert.assertEquals(modelBoxYes().getText(), "Yes");
              Assert.assertEquals(modelBoxNo().getText(), "No");
              Assert.assertEquals(modelBoxText().getText(), "Are you sure you want to delete this 1 contract?");
              modelBoxClose().click();
-             Assert.assertEquals(itemsSelected(), "1 items selected");
+             Assert.assertEquals(itemsSelected(), "1 item(s) selected");
              clickDelete();
              modelBoxNo().click();
-             Assert.assertEquals(itemsSelected(), "1 items selected");
+             Assert.assertEquals(itemsSelected(), "1 item(s) selected");
              Assert.assertEquals(mainHeading(), 
             		 "The following table below displays all the contracts within the selected date parameters above. You can search for information related to any of the contracts below. Example: Dealer Name, last 6 of VIN, Make, Model, Lienholder.");
 		}

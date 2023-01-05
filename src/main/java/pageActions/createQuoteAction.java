@@ -101,7 +101,7 @@ public void printQuote() throws InterruptedException {
 		event.clickfield("cssSelector", co.table, 0);
 		String price = event.text("cssSelector", co.table,0);
 		event.inputfield("cssSelector", co.contract, "10000", 0);
-		if(!(searchData1.get("program").contains("Limited Warranty") || (searchData1.get("program").contains("Absolute Reserve Care Lease")) ||  (searchData1.get("program").contains("Absolute Lifetime Powertrain Warranty"))) ){
+		if(!(searchData1.get("program").contains("Limited Warranty") || (searchData1.get("program").contains("Absolute Reserve Care Lease")) ||  (searchData1.get("program").contains("Absolute Lifetime Powertrain Warranty")) ||  (searchData1.get("program").contains("Absolute Certified Warranty"))) ){
 			event.clickfield("xpath", co.businessUse);
 		}
 		List <WebElement> a = driver.findElements(By.cssSelector(co.inServiceDate));

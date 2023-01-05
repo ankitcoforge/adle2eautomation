@@ -52,7 +52,7 @@ public class contractpo extends baseClass{
 	public String optionFirst = ".ng-dropdown-panel-items > div > div";
 	public String contractNo = "div input[disabled][maxlength='16']";
 	public String overideContractNo = "adl-checkbox[label =\"Override Contract Number\"]";
-	public String overideContractNoCheckbox = "adl-checkbox[label =\"Override Contract Number\"] >div > mat-checkbox >label > div";
+	public String overideContractNoCheckbox = "adl-checkbox[label ='Override Contract Number'] >div > mat-checkbox >label > div";
 	public String retailPrice = "adl-text-input[label =\"Contract Retail Price\"]";
 	public String retailPriceTextBox = "adl-text-input[label =\"Contract Retail Price\"] > div > div:nth-child(2) >input";
 	public String vehiclePurchasePrice = "adl-text-input[label =\"Vehicle Purchase Price\"]";

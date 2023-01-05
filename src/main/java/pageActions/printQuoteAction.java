@@ -91,7 +91,7 @@ public class printQuoteAction extends contractpo{
 		}
 		event.clickfield("cssSelector", table, 0);
 		js.executeScript("window.scrollTo(0, 2400)");
-		if (!((searchData1.get("program").contains("Limited Warranty")) || (searchData1.get("program").contains("Absolute Reserve Care Lease")) ||  (searchData1.get("program").contains("Absolute Lifetime Powertrain Warranty"))) ) {
+		if (!((searchData1.get("program").contains("Limited Warranty")) || (searchData1.get("program").contains("Absolute Reserve Care Lease")) ||  (searchData1.get("program").contains("Absolute Lifetime Powertrain Warranty")) || (searchData1.get("program").contains("Absolute Certified Warranty")))  ) {
 			event.clickfield("xpath", businessUse);
 		}
 		List <WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
