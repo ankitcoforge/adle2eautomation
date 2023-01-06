@@ -117,7 +117,6 @@ public class singleContractAction extends contractpo{
 		ele.sendKeys(dealer);
 		ele.sendKeys(Keys.ARROW_DOWN);
 		ele.sendKeys(Keys.ENTER);
-		System.out.println("dealer name------------"+ele.getText());
 		getBtnSignIn().click();
 		Thread.sleep(2000);
 	 }

@@ -277,7 +277,6 @@ public class EmployeePacksAction extends EmployeePackspo{
 		utils.scrollDown();
 		getPackAmount().sendKeys(packAmount);
 		getBtnSave().click();
-		//Assert.assertTrue(getSuccessMsg().isDisplayed());
 	 }
 	 
 	 public void editPack(String program,String packAmount) throws InterruptedException {
