@@ -89,9 +89,6 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 		EmplPacks.getArrow().click();
 		EmplPacks.selectProgram();
 		Thread.sleep(10000);
-//		String a = getMarkupTxts().get(0).getText();
-//		System.out.println("txt isss-"+a);
-//		Thread.sleep(3000);
 		getBtnsmarkup().get(1).click();
 		Assert.assertTrue(getMarkupAmountPercentSign().getText().equals("%"),"% sign is shown if percent is selected");
 		getBtnsmarkup().get(0).click();
@@ -161,7 +158,7 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage My Pricing Preferences").isDisplayed());
 		System.out.println("size--"+EmplPacks.getRows().size());
-		if(EmplPacks.getRows().size() > 0)
+		if (!EmplPacks.getNoRecordsInGrid().getText().contains("Please select a dealer to display records")) 
 		{
 		getSelectAllCheckBox().click();
 		EmplPacks.getDeleteLink().click();
@@ -209,7 +206,7 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage My Pricing Preferences").isDisplayed());
 		System.out.println("size--"+EmplPacks.getRows().size());
-		if(EmplPacks.getRows().size() > 0 )
+		if (!EmplPacks.getNoRecordsInGrid().getText().contains("Please select a dealer to display records")) 
 		{
 		getSelectAllCheckBox().click();
 		EmplPacks.getDeleteLink().click();
@@ -245,7 +242,7 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 		int vehiclePriceBeforeAfter = EmplPacks.getVehiclePriceForLender(programCode);
 		System.out.println("vehicle Price after------"+vehiclePriceBeforeAfter);
 		Assert.assertEquals(vehiclePriceBeforeAfter, (vehiclePriceBefore + markupAmount));
-		singleContract();
+		singleContractForLender();
 	}
 	
 	@Test(priority = 8)
@@ -279,7 +276,7 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage My Pricing Preferences").isDisplayed());
 		System.out.println("size--"+EmplPacks.getRows().size());
-		if(EmplPacks.getRows().size() > 0 )
+		if (!EmplPacks.getNoRecordsInGrid().getText().contains("Please select a dealer to display records")) 
 		{
 		getSelectAllCheckBox().click();
 		EmplPacks.getDeleteLink().click();
@@ -315,7 +312,7 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 		int vehiclePriceBeforeAfter = EmplPacks.getVehiclePriceForLender(programCode);
 		System.out.println("vehicle Price after------"+vehiclePriceBeforeAfter);
 		Assert.assertEquals(vehiclePriceBeforeAfter, (vehiclePriceBefore + markupAmount));
-		singleContract();
+		singleContractForLender();
 	}
 	
 	
@@ -328,7 +325,7 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage My Pricing Preferences").isDisplayed());
 		System.out.println("size--"+EmplPacks.getRows().size());
-		if(EmplPacks.getRows().size() > 0)
+		if (!EmplPacks.getNoRecordsInGrid().getText().contains("Please select a dealer to display records")) 
 		{
 		getSelectAllCheckBox().click();
 		EmplPacks.getDeleteLink().click();
@@ -375,7 +372,7 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 		Assert.assertTrue(utils.getTitle("Manage Pricing Preferences").isDisplayed());
 		EmplPacks.selectDealerName("Angel Motors Inc");
 		Thread.sleep(2000);
-		if(EmplPacks.getRows().size() > 1)
+		if (!EmplPacks.getNoRecordsInGrid().getText().contains("Please select a dealer to display records")) 
 		{
 		getSelectAllCheckBox().click();
 		EmplPacks.getDeleteLink().click();
@@ -402,7 +399,7 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 		Assert.assertTrue(utils.getTitle("Manage Pricing Preferences").isDisplayed());
 		EmplPacks.selectDealerName("Angel Motors Inc");
 		Thread.sleep(2000);
-		if(EmplPacks.getRows().size() > 1)
+		if (!EmplPacks.getNoRecordsInGrid().getText().contains("Please select a dealer to display records")) 
 		{
 		getSelectAllCheckBox().click();
 		EmplPacks.getDeleteLink().click();
@@ -431,7 +428,7 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 		Assert.assertTrue(utils.getTitle("Manage Pricing Preferences").isDisplayed());
 		EmplPacks.selectDealerName("Angel Motors Inc");
 		Thread.sleep(2000);
-		if(EmplPacks.getRows().size() > 1 )
+		if (!getNoRecordsInGrid().getText().contains("Please select a dealer to display records")) 
 		{
 		getSelectAllCheckBox().click();
 		EmplPacks.getDeleteLink().click();

@@ -76,6 +76,12 @@ public class PricingPreerencesAction extends PricingPreferencesPO{
 		 return selectAll;
 	 }
 	 
+	 public WebElement getNoRecordsInGrid() {
+		  WebElement rows = driver.findElement(By.cssSelector(noRecordsInGrid));	
+		 return rows; 
+	 }
+	 
+	 
 	 public String singleContract() throws InterruptedException {
 		 Thread.sleep(2000);
 		 
@@ -84,6 +90,57 @@ public class PricingPreerencesAction extends PricingPreferencesPO{
 			utils.scrollDown();
 			utils.inputfield("cssSelector", textbox, "22723", 7);
 			utils.inputfield("cssSelector", contract, "10000", 0);
+			Thread.sleep(1000);
+			//utils.clickfield("xpath", noSurchargesChkbx);
+			utils.clickfield("xpath", liftkit);
+			//utils.clickfield("xpath", businessUse);
+			String contractNumber = driver.findElement(By.cssSelector(contractNo)).getDomProperty("value");
+			System.out.println("Contract Number is:"+contractNumber);
+			
+			List <WebElement> a = driver.findElements(By.cssSelector(contractNew.inServiceDate));
+			if(a.size() == 1) {
+				String a1  = driver.findElement(By.cssSelector(contractNew.inServicefield)).getAttribute("class");
+				if(!(a1.contains("disabled"))) {
+					driver.findElement(By.cssSelector(contractNew.inServiceDateTextBox)).click();
+					driver.findElement(By.cssSelector("td[aria-label='" + getDate() + "']")).click();
+				}
+				
+			}
+			//Assert.assertEquals(contractNew.addGapLabel(), "Add GAP");
+
+			driver.findElements(By.cssSelector(pincode)).get(0).clear();
+			utils.inputfield("cssSelector", pincode, "20130", 0);
+			driver.findElements(By.cssSelector(address)).get(0).clear();
+			utils.inputfield("cssSelector", address, "Address", 0);
+			driver.findElements(By.cssSelector(email)).get(0).clear();
+			utils.inputfield("cssSelector", email, "test@gmail.com", 0);
+			Thread.sleep(2000);
+			utils.clearfield("cssSelector", contractNew.phone);
+			utils.inputfield("cssSelector", contractNew.phone, "1234567890");
+			utils.clickfield("xpath", contractNew.generateContract);
+			getDriver().findElement(By.xpath(gc.generateContractHeading)).isDisplayed();
+			Thread.sleep(2000);
+			utils.clickfield("cssSelector", gc.checkbox, 0);
+			utils.clickfield("cssSelector", gc.checkbox, 1);
+			utils.clickfield("xpath", gc.genrateContractButton);
+			Thread.sleep(10000);
+			String text1 = utils.text("cssSelector", contractNew.successMessage);
+			Assert.assertEquals(text1, "You have successfully generated a contract!");
+			utils.clickfield("xpath", contractNew.newQuotelink);
+			return contractNumber;
+			}
+
+	 
+	 public String singleContractForLender() throws InterruptedException {
+		 Thread.sleep(2000);
+		 
+			utils.clickfield("cssSelector", table, 0);
+			Thread.sleep(5000);
+			utils.scrollDown();
+			utils.inputfield("cssSelector", textbox, "22723", 7);
+			utils.inputfield("cssSelector", contract, "10000", 0);
+			Thread.sleep(1000);
+			//utils.clickfield("xpath", liftkit);
 			utils.clickfield("xpath", businessUse);
 			String contractNumber = driver.findElement(By.cssSelector(contractNo)).getDomProperty("value");
 			System.out.println("Contract Number is:"+contractNumber);
@@ -120,6 +177,6 @@ public class PricingPreerencesAction extends PricingPreferencesPO{
 			utils.clickfield("xpath", contractNew.newQuotelink);
 			return contractNumber;
 			}
-	 
+
 
 }

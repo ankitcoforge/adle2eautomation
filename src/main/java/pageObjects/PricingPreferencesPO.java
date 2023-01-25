@@ -18,10 +18,13 @@ public class PricingPreferencesPO extends baseClass{
 	public String textbox = "adl-text-input > div > div.text-field__input.secure > input";
 	public String contract = "div.text-field__input.secure.text-field__input--prefix > input";
 	public String contractNo = "div input[disabled][maxlength='16']";
-	public String businessUse = "//p[contains(text(),'Business Use')]";
+	public String noSurchargesChkbx = "//label[@for='mat-checkbox-111-input']/div";
+	public String businessUse = "//p[contains(text(),'Business Use')]/../..";
+	public String liftkit = "//p[contains(text(),'Lift Kit')]";
 	public String address = "adl-text-input[label='Address'] > div > div.text-field__input.secure > input";
 	public String pincode = "adl-text-input[label='Zip Code'] > div > div.text-field__input.secure > input";
 	public String lastname = "adl-text-input[label='Last Name'] > div > div.text-field__input.secure > input";
 	public String email = "adl-text-input[label='Email'] > div > div.text-field__input.secure > input";
+	public String noRecordsInGrid = "table>tbody>tr>td";
 
 }

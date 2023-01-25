@@ -60,7 +60,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		Thread.sleep(2000);
 		Assert.assertTrue(getDealerPacksPageTitle().isDisplayed());
 
-		if (getRows().size() > 1) {
+		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
 			preferences.getSelectAllCheckBox().click();
 			getDeleteLink().click();
 			getBtnYes().click();
@@ -86,9 +86,17 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Packs");
 		Thread.sleep(2000);
 		Assert.assertTrue(getDealerPacksPageTitle().isDisplayed());
-		if (getRows().size() > 1) {
+		if (getNoRecordsInGrid().getText().contains("There are no records to display")) {
+			createNewPack("RSE","150");
+		}
+		else {
+			preferences.getSelectAllCheckBox().click();
+			getDeleteLink().click();
+			getBtnYes().click();
+			Thread.sleep(2000);
+			createNewPack("RSE","150");
+		}
 			HashMap<Integer, HashMap<String, WebElement>> allTableData = checkGridBodyDetails();
-			HashMap<Integer, HashMap<String, String>> allTableDataTxt = checkGridBodyDetailsTxt();
 			Thread.sleep(2000);
 			allTableData.get(1).get("Edit").click();
 			Thread.sleep(2000);
@@ -101,13 +109,14 @@ public class EmployeePacks_test extends EmployeePacksAction {
 			Thread.sleep(2000);
 			verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Packs");
 			Thread.sleep(10000);
+			HashMap<Integer, HashMap<String, String>> allTableDataTxt = checkGridBodyDetailsTxt();
 			String packAmountInGrid = allTableDataTxt.get(1).get("Pack Amount");
 			NumberFormat format = NumberFormat.getCurrencyInstance();
 			Number number = format.parse(packAmountInGrid);
 			String packAmountInGridValue = number.toString();
 			Assert.assertTrue(packAmountEdited.equals(packAmountInGridValue));
-		}
-	}
+			}
+	
 
 	@Test(priority = 4)
 	public void verifySearchBoxes_32002() throws Exception {
@@ -166,7 +175,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Packs");
 		Thread.sleep(2000);
-		if (getRows().size() > 0) {
+		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
 			preferences.getSelectAllCheckBox().click();
 			getDeleteLink().click();
 			getBtnYes().click();
@@ -204,7 +213,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Lender Packs");
 		Thread.sleep(2000);
-		if (getRows().size() > 0) {
+		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
 			preferences.getSelectAllCheckBox().click();
 			getDeleteLink().click();
 			getBtnYes().click();
@@ -242,7 +251,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage My Dealer Packs");
 		selectDealerName("Angel Motors Inc");
 		Thread.sleep(2000);
-		if (getRows().size() > 0) {
+		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
 			preferences.getSelectAllCheckBox().click();
 			getDeleteLink().click();
 			getBtnYes().click();
@@ -280,7 +289,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage My Dealer Packs");
 		selectDealerName("Angel Motors Inc");
 		Thread.sleep(2000);
-		if (getRows().size() > 0) {
+		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
 			preferences.getSelectAllCheckBox().click();
 			getDeleteLink().click();
 			getBtnYes().click();
@@ -317,7 +326,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Packs");
 		Thread.sleep(2000);
 		
-		if (getRows().size() > 0) {
+		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
 			preferences.getSelectAllCheckBox().click();
 			getDeleteLink().click();
 			getBtnYes().click();
@@ -330,24 +339,6 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		getDeleteLink().click();
 		getBtnYes().click();
 		}
-		
-		
-//		Assert.assertTrue(getDealerPacksPageTitle().isDisplayed());
-//		HashMap<Integer, HashMap<String, String>> allTableDataTxt = checkGridBodyDetailsTxt();
-//		Thread.sleep(2000);
-//		String programCode = allTableDataTxt.get(1).get("Program Code");
-//		System.out.println("code is--------" + programCode);
-//		getSelectCheckBoxes().get(0).click();
-//		getDeleteLink().click();
-//		getBtnYes().click();
-//		Thread.sleep(2000);
-//		driver.navigate().refresh();
-//		Thread.sleep(2000);
-//		HashMap<Integer, HashMap<String, String>> allTableDataTxtNew = checkGridBodyDetailsTxt();
-//		if (!((getRows().size()) == 0)) {
-//			Assert.assertFalse(allTableDataTxtNew.get(1).get("Program Code").equals(programCode));
-//			;
-//		}
 
 	}
 

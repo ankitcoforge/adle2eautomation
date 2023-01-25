@@ -16,6 +16,7 @@ public class EmployeePackspo extends baseClass{
 	public String ConfirmationMsg = "//div[contains(text(),'saved successfully')]";
 	 public String headerLoc = "thead > adl-table-header > tr:nth-child(1) > th[role='columnheader']";
 	public String rowLoc = "table>tbody>tr";
+	public String noRecordsInGrid = "table>tbody>tr>td";
 	public String searchBoxesBelowHeadersInGrid = "thead > adl-table-header > tr:nth-child(2) > td>div>div>input";
 	public String selectCheckBox="td:nth-of-type(1)>adl-table-cells>div>mat-checkbox>label>div";
 	public String deleteLink="//a[text()='Delete']";

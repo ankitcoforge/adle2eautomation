@@ -120,6 +120,11 @@ public class EmployeePacksAction extends EmployeePackspo{
 		 return rows; 
 	 }
 	 
+	 public WebElement getNoRecordsInGrid() {
+		  WebElement rows = driver.findElement(By.cssSelector(noRecordsInGrid));	
+		 return rows; 
+	 }
+	 
 	 public HashMap<Integer, HashMap<String, WebElement>> checkGridBodyDetails() {
 			List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
 			System.out.println("allHeaderNames: " + allHeaderNames);
@@ -240,7 +245,7 @@ public class EmployeePacksAction extends EmployeePackspo{
 	 public Integer getVehiclePriceForLender(String vehicleProgram) throws ParseException {
 	 utils.inputfield("cssSelector", textbox, "Single", 0);
 	 utils.inputfield("cssSelector", textbox, "Test", 1);
-	 utils.inputfield("cssSelector", textbox, randomizer.getMilage(), 4);
+	 utils.inputfield("cssSelector", textbox, "100", 4);
 	 utils.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 5);
 	 utils.clickfield("xpath", getProducts);
 	 co.programSelect(vehicleProgram);
