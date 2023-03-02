@@ -3,16 +3,13 @@ package testsuite;
 import java.text.NumberFormat;
 import java.util.HashMap;
 
-import org.apache.poi.util.SystemOutLogger;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import pageActions.EmployeePacksAction;
-import pageActions.PricingPreerencesAction;
+import pageActions.PricingPreferencesAction;
 import pageActions.WebMileageExceptionAction;
 import pageActions.impersonateAction;
 import pageActions.loginAction;
@@ -29,7 +26,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	impersonateAction impersonate = new impersonateAction();
 	singleContractAction contract = new singleContractAction();
 	EmployeePacksAction gridPacks = new EmployeePacksAction();
-	PricingPreerencesAction preferences = new PricingPreerencesAction();
+	PricingPreferencesAction preferences = new PricingPreferencesAction();
 	
 
 	@BeforeClass(alwaysRun = true)

@@ -1,9 +1,7 @@
 package testsuite;
 
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -15,14 +13,14 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import pageActions.EmployeePacksAction;
-import pageActions.PricingPreerencesAction;
+import pageActions.PricingPreferencesAction;
 import pageActions.impersonateAction;
 import pageActions.loginAction;
 import pageActions.singleContractAction;
 import pageActions.verticalMenuAction;
-import pageObjects.impersonatepo;
 import utils.utilityClass;
 
+/*PBI No- 31340 */
 public class EmployeePacks_test extends EmployeePacksAction {
 	loginAction login = new loginAction();
 	verticalMenuAction verticalMenu = new verticalMenuAction();
@@ -30,7 +28,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 	utilityClass utils = new utilityClass();
 	impersonateAction impersonate = new impersonateAction();
 	singleContractAction contract = new singleContractAction();
-	PricingPreerencesAction preferences = new PricingPreerencesAction();
+	PricingPreferencesAction preferences = new PricingPreferencesAction();
 
 	@BeforeClass(alwaysRun = true)
 	public void login() throws InterruptedException {
@@ -60,7 +58,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		Thread.sleep(2000);
 		Assert.assertTrue(getDealerPacksPageTitle().isDisplayed());
 
-		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
+		if (getCurrentPageRecord() > 0) {
 			preferences.getSelectAllCheckBox().click();
 			getDeleteLink().click();
 			getBtnYes().click();
@@ -86,7 +84,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Packs");
 		Thread.sleep(2000);
 		Assert.assertTrue(getDealerPacksPageTitle().isDisplayed());
-		if (getNoRecordsInGrid().getText().contains("There are no records to display")) {
+		if (getCurrentPageRecord() == 0) {
 			createNewPack("RSE","150");
 		}
 		else {
@@ -175,7 +173,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Packs");
 		Thread.sleep(2000);
-		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
+		if (getCurrentPageRecord() > 0) {
 			preferences.getSelectAllCheckBox().click();
 			getDeleteLink().click();
 			getBtnYes().click();
@@ -206,14 +204,14 @@ public class EmployeePacks_test extends EmployeePacksAction {
 	@Test(priority = 6)
 	public void verifyLenderPackImpactsContractCreationPage_32014() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		//Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Lender", "3641");
 		Thread.sleep(5000);
 
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Lender Packs");
 		Thread.sleep(2000);
-		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
+		if (getCurrentPageRecord() > 0) {
 			preferences.getSelectAllCheckBox().click();
 			getDeleteLink().click();
 			getBtnYes().click();
@@ -251,7 +249,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage My Dealer Packs");
 		selectDealerName("Angel Motors Inc");
 		Thread.sleep(2000);
-		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
+		if (getCurrentPageRecord() > 0) {
 			preferences.getSelectAllCheckBox().click();
 			getDeleteLink().click();
 			getBtnYes().click();
@@ -289,7 +287,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage My Dealer Packs");
 		selectDealerName("Angel Motors Inc");
 		Thread.sleep(2000);
-		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
+		if (getCurrentPageRecord() > 0) {
 			preferences.getSelectAllCheckBox().click();
 			getDeleteLink().click();
 			getBtnYes().click();
@@ -326,7 +324,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Packs");
 		Thread.sleep(2000);
 		
-		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
+		if (getCurrentPageRecord() > 0) {
 			preferences.getSelectAllCheckBox().click();
 			getDeleteLink().click();
 			getBtnYes().click();

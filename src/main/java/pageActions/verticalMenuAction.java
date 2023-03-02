@@ -70,6 +70,7 @@ public class verticalMenuAction extends verticalMenupo{
 		driver.switchTo().activeElement();
 		event.clickfield("xpath", accountManagement);
 		event.clickfield("xpath", milaegeAndAgeExceptions);
+		Thread.sleep(4000);
 	}
 	
 //	public void navigatetoimpersonateFromRightTop() throws InterruptedException {

@@ -17,6 +17,7 @@ public class EmployeePackspo extends baseClass{
 	 public String headerLoc = "thead > adl-table-header > tr:nth-child(1) > th[role='columnheader']";
 	public String rowLoc = "table>tbody>tr";
 	public String noRecordsInGrid = "table>tbody>tr>td";
+	public String currentPageRecord = "//span[@class='ui-paginator-current ng-star-inserted']";
 	public String searchBoxesBelowHeadersInGrid = "thead > adl-table-header > tr:nth-child(2) > td>div>div>input";
 	public String selectCheckBox="td:nth-of-type(1)>adl-table-cells>div>mat-checkbox>label>div";
 	public String deleteLink="//a[text()='Delete']";
@@ -29,5 +30,6 @@ public class EmployeePackspo extends baseClass{
 	public String packArrow = "//span[@class='ng-arrow-wrapper']";
 	public String selectDealerNamearrow = "//mat-icon[text()='arrow_drop_down']";
 	public String selectDealerNameDropdownList = "//mat-option[@role='option']/span/span";
+	public String close = "//mat-icon[text()='close']";
 }
 

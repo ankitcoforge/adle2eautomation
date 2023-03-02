@@ -9,7 +9,7 @@ public class PricingPreferencesPO extends baseClass{
 	public String roleDropdownList = "//div[@class='scrollable-content']/div/span";
 	public String markupTxts = "//div[@class='mat-radio-label-content']";
 	//public String markupRadioBtn = "//div[@class='mat-radio-container']/input";
-	public String btnsmarkup = "mat-radio-button";
+	public String btnsmarkup = "mat-radio-group>mat-radio-button";
 	public String markupAmountDollarSign = "//div[@class='text-field__input secure text-field__input--prefix']/span/span/mat-icon";
 	public String markupAmountPercentSign = "//span[@class='suffix mat-icon-button suffix--text ng-star-inserted']/span";
 	public String markupAmountTxtFld = "//div[@class='text-field__input secure text-field__input--prefix']/input";
@@ -21,6 +21,7 @@ public class PricingPreferencesPO extends baseClass{
 	public String noSurchargesChkbx = "//label[@for='mat-checkbox-111-input']/div";
 	public String businessUse = "//p[contains(text(),'Business Use')]/../..";
 	public String liftkit = "//p[contains(text(),'Lift Kit')]";
+	public String liftkitSelectionStatus = "//p[contains(text(),'Lift Kit')]/../..";
 	public String address = "adl-text-input[label='Address'] > div > div.text-field__input.secure > input";
 	public String pincode = "adl-text-input[label='Zip Code'] > div > div.text-field__input.secure > input";
 	public String lastname = "adl-text-input[label='Last Name'] > div > div.text-field__input.secure > input";

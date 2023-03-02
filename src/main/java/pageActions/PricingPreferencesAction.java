@@ -4,6 +4,7 @@ import java.text.NumberFormat;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -12,7 +13,7 @@ import org.testng.Assert;
 import pageObjects.PricingPreferencesPO;
 import utils.utilityClass;
 
-public class PricingPreerencesAction extends PricingPreferencesPO{
+public class PricingPreferencesAction extends PricingPreferencesPO{
 	loginAction login = new loginAction();
 	verticalMenuAction verticalMenu = new verticalMenuAction();
 	
@@ -20,6 +21,7 @@ public class PricingPreerencesAction extends PricingPreferencesPO{
 	impersonateAction impersonate = new impersonateAction ();
 	singleContractAction contractNew =new singleContractAction();
 	generateContractAction gc = new generateContractAction();
+	pageActions.ManageVSC_GAPpreferencesAction ManageVSCGAP=new pageActions.ManageVSC_GAPpreferencesAction();
 	
 	 public WebElement getPortalTitle() {
 		 WebElement welcomeTitle=driver.findElement(By.xpath(portalTitle));	
@@ -81,6 +83,15 @@ public class PricingPreerencesAction extends PricingPreferencesPO{
 		 return rows; 
 	 }
 	 
+	 public WebElement getLiftKit() {
+		  WebElement rows = driver.findElement(By.xpath(liftkit));	
+		 return rows; 
+	 }
+	 
+	 public WebElement getLiftKitStatus() {
+		  WebElement rows = driver.findElement(By.xpath(liftkitSelectionStatus));	
+		 return rows; 
+	 }
 	 
 	 public String singleContract() throws InterruptedException {
 		 Thread.sleep(2000);
@@ -92,7 +103,12 @@ public class PricingPreerencesAction extends PricingPreferencesPO{
 			utils.inputfield("cssSelector", contract, "10000", 0);
 			Thread.sleep(1000);
 			//utils.clickfield("xpath", noSurchargesChkbx);
-			utils.clickfield("xpath", liftkit);
+			JavascriptExecutor js=(JavascriptExecutor)driver;
+			if(!getLiftKitStatus().isSelected()) {
+			js.executeScript("arguments[0].scrollIntoView();", getLiftKit());
+			js.executeScript("arguments[0].click();", getLiftKit());
+			}
+			//utils.clickfield("xpath", liftkit);
 			//utils.clickfield("xpath", businessUse);
 			String contractNumber = driver.findElement(By.cssSelector(contractNo)).getDomProperty("value");
 			System.out.println("Contract Number is:"+contractNumber);

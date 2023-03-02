@@ -22,17 +22,18 @@ public class singleContractAction extends contractpo{
 	/************************Create contract 
 	 * @throws InterruptedException ****************************************/
 	public String singleContract() throws InterruptedException {
-
+		String contractNumber = null;
+try {
 		event.inputfield("cssSelector", textbox, "Single", 0);
 		event.inputfield("cssSelector", textbox, "Test", 1);
 		event.inputfield("cssSelector", textbox, randomizer.getMilage(), 5);
-		event.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 6);
+		event.inputfield("cssSelector", textbox, "5FNRL6H27NB019645", 6);
 		event.clickfield("xpath", getProducts);
 		co.programSelect("Limited Warranty");
 		event.clickfield("cssSelector", table, 0);
 		event.inputfield("cssSelector", textbox, "22723", 7);
 		event.inputfield("cssSelector", contract, "10000", 0);
-		String contractNumber = driver.findElement(By.cssSelector(contractNo)).getDomProperty("value");
+		 contractNumber = driver.findElement(By.cssSelector(contractNo)).getDomProperty("value");
 		System.out.println("Contract Number is:"+contractNumber);
 		
 		List <WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
@@ -66,7 +67,11 @@ public class singleContractAction extends contractpo{
 		String text1 = event.text("cssSelector", successMessage);
 		Assert.assertEquals(text1, "You have successfully generated a contract!");
 		event.clickfield("xpath", newQuotelink);
-		return contractNumber;
+}
+catch (Exception e) {
+	e.printStackTrace();
+}
+return contractNumber;
 		}
 	
 	public void singleContract(String listb) throws InterruptedException {

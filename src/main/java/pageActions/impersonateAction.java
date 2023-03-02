@@ -108,7 +108,26 @@ public class impersonateAction extends impersonatepo {
 			}
 		 }
 		event.clickfield("xpath", getusersButton);
-		Thread.sleep(2000);
+		Thread.sleep(10000);
+	}
+	
+	public void getUsersThroughArrowBtn(String role,String roleid) throws InterruptedException {
+		event.clickfield("xpath", roleDropdownInAccountManagementPage);
+		 List<WebElement> list = getDriver().findElements(By.xpath(roleDropdownList));
+		 for(int i=0;i<list.size();i++) {
+			String text = list.get(i).getText();
+			 
+			if(text.equals(role))
+			{
+				list.get(i).click();
+				break;
+			}
+		 }
+				event.inputfield("xpath", roleIdInAccountManagementPage, roleid);
+				List<WebElement> list2 = getDriver().findElements(By.xpath(roleDropdownList));
+						list2.get(0).click();
+		event.clickfield("xpath", getArrowBtn);
+		Thread.sleep(10000);
 	}
 	
 	public HashMap<Integer, HashMap<String, WebElement>> checkGridForEditDelLock() {

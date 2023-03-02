@@ -35,6 +35,11 @@ public class EmployeePacksAction extends EmployeePackspo{
 		 WebElement welcomeTitle=driver.findElement(By.xpath(dealerPackstitle));	
 		 return welcomeTitle;
 	 }
+	 
+	 public WebElement getBtnClose() {
+			WebElement ele = driver.findElement(By.xpath(close));
+			return ele;
+		}
 
 	 public WebElement getBtnNewPack() {
 		 WebElement newPack=driver.findElement(By.xpath(btnNewPack));	
@@ -124,6 +129,16 @@ public class EmployeePacksAction extends EmployeePackspo{
 		  WebElement rows = driver.findElement(By.cssSelector(noRecordsInGrid));	
 		 return rows; 
 	 }
+	 
+	 public int getCurrentPageRecord() throws InterruptedException {
+		 //driver.navigate().refresh();
+		 Thread.sleep(5000);
+		 WebElement currentPageRecords = driver.findElement(By.xpath(currentPageRecord));
+		 String[] currentPage = currentPageRecords.getText().split(" ");
+		 int currentPageRecord = Integer.parseInt(currentPage[1]);
+		 return currentPageRecord;			 
+		 }
+	 
 	 
 	 public HashMap<Integer, HashMap<String, WebElement>> checkGridBodyDetails() {
 			List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);

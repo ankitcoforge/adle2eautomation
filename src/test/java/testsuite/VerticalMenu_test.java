@@ -76,8 +76,8 @@ public class VerticalMenu_test extends LateralMenuAction {
 			Assert.assertTrue(getLaterMenuSubItems().get(4).getText().contains("Manage My Dealer Packs"));
 			
 			verticalMenu.navigatetoLeftMainMenu("Agency Settings");
-			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Manage Users"));
-			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Assign Dealers to Sub-Agents"));
+			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Manage Users"));
+			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Assign Dealers to Sub-Agents"));
 
 			verticalMenu.navigatetoLeftMainMenu("E-Rate");
 			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
@@ -193,11 +193,11 @@ public class VerticalMenu_test extends LateralMenuAction {
 			
 			verticalMenu.navigatetoLeftMainMenu("My Settings");
 			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Manage My Profile"));
-			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Manage My Lender Employees"));
-			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Issue New User Registration"));
-			Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("Manage My Pricing Preferences"));
-			Assert.assertTrue(getLaterMenuSubItems().get(4).getText().contains("Manage VSC - GAP Preferences"));
-			Assert.assertTrue(getLaterMenuSubItems().get(5).getText().contains("Manage My Lender Packs"));
+			//Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Manage My Lender Employees"));
+			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Issue New User Registration"));
+			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Manage My Pricing Preferences"));
+			Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("Manage VSC - GAP Preferences"));
+			Assert.assertTrue(getLaterMenuSubItems().get(4).getText().contains("Manage My Lender Packs"));
 			
 			verticalMenu.navigatetoLeftMainMenu("E-Rate");
 			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
@@ -235,13 +235,13 @@ public class VerticalMenu_test extends LateralMenuAction {
 			Assert.assertTrue(list.contains("Help"));
 			
 			verticalMenu.navigatetoLeftMainMenu("Dealer Settings");
-			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Activity Tracker"));
-			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Manage Pricing Preferences"));
-			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Manage VSC - GAP Preferences"));
-			Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("Manage My Dealer Packs"));
+			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Activity Tracker"));
+			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Manage Pricing Preferences"));
+			Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("Manage VSC - GAP Preferences"));
+			Assert.assertTrue(getLaterMenuSubItems().get(4).getText().contains("Manage My Dealer Packs"));
 			
 			verticalMenu.navigatetoLeftMainMenu("Agency Settings");
-			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Manage Users"));
+			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Manage My Profile"));
 			
 			verticalMenu.navigatetoLeftMainMenu("Contracts");
 			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Contract Search"));
@@ -507,8 +507,8 @@ public class VerticalMenu_test extends LateralMenuAction {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 		verticalMenu.navigateToMileageAndAgeException();
-		impersonate.getUsers("Dealer", "28771");
-		Assert.assertTrue(getNewuserBtn().isEnabled());
+		impersonate.getUsersThroughArrowBtn("Dealer", "28771");
+		Assert.assertTrue(getNewExceptionBtn().isEnabled());
 		
 	}
 	

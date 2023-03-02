@@ -2,23 +2,22 @@ package testsuite;
 
 import java.util.HashMap;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import pageActions.EmployeePacksAction;
-import pageActions.PricingPreerencesAction;
+import pageActions.PricingPreferencesAction;
 import pageActions.impersonateAction;
 import pageActions.loginAction;
 import pageActions.singleContractAction;
 import pageActions.verticalMenuAction;
-import pageObjects.PricingPreferencesPO;
 import utils.utilityClass;
 
-public class PricingPreferences_test extends PricingPreerencesAction {
+/* PBI NO - 27420 -Divyasree */
+public class PricingPreferences_test extends PricingPreferencesAction {
 	
 	loginAction login = new loginAction();
 	verticalMenuAction verticalMenu = new verticalMenuAction();
@@ -27,12 +26,14 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 	impersonateAction impersonate = new impersonateAction ();
 	singleContractAction contract =new singleContractAction();
 	EmployeePacksAction EmplPacks =new EmployeePacksAction();
+	pageActions.ManageVSC_GAPpreferencesAction ManageVSCGAP=new pageActions.ManageVSC_GAPpreferencesAction();
 
 	@BeforeClass(alwaysRun=true)
 	public void login() throws InterruptedException {
 		navigate();
 		Assert.assertEquals(login.getTitle(), "AUL Corp.");
 	}
+	
 	
 	@Test(priority = 1)
 	public void verifyPricingPreferencesPage_31666() throws Exception {
@@ -43,7 +44,6 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage My Pricing Preferences").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "New markup").isEnabled());
-		HashMap<Integer, HashMap<String, String>> grid = EmplPacks.checkGridBodyDetailsTxt();
 		getAllHeaderNames().contains("Program");
 		getAllHeaderNames().contains("Program Code");
 		getAllHeaderNames().contains("Prog Markup Eff.Date");
@@ -106,10 +106,17 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage My Pricing Preferences").isDisplayed());
+		if (EmplPacks.getCurrentPageRecord() > 0) 
+		{
+		getSelectAllCheckBox().click();
+		EmplPacks.getDeleteLink().click();
+		EmplPacks.getBtnYes().click();
+		Thread.sleep(2000);
+		}
 		utils.getfield("span", "New markup").click();
 		Thread.sleep(3000);
 		EmplPacks.getArrow().click();
-		EmplPacks.selectProgram();
+		EmplPacks.selectProgramNew("RNL");
 		Thread.sleep(2000);
 		getBtnsmarkup().get(0).click();
 		getBtnsmarkup().get(2).click();
@@ -119,7 +126,7 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 		Assert.assertTrue(getMarkupAmountTxtFld().size() == 4);
 		getBtnsmarkup().get(4).click();
 		Thread.sleep(2000);
-		Assert.assertTrue(getMarkupAmountTxtFld().size() == 3);
+		Assert.assertTrue(getMarkupAmountTxtFld().size() == 4);
 		getBtnsmarkup().get(5).click();
 		Thread.sleep(2000);
 		Assert.assertTrue(getMarkupAmountTxtFld().size() == 18);
@@ -158,7 +165,7 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage My Pricing Preferences").isDisplayed());
 		System.out.println("size--"+EmplPacks.getRows().size());
-		if (!EmplPacks.getNoRecordsInGrid().getText().contains("Please select a dealer to display records")) 
+		if (EmplPacks.getCurrentPageRecord() > 0)
 		{
 		getSelectAllCheckBox().click();
 		EmplPacks.getDeleteLink().click();
@@ -172,7 +179,7 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 		int markupAmount =Integer.parseInt(priceTobeEnteredInStringFormat);
 		
 		verticalMenu.navigatetoContract();
-		 int vehiclePriceBefore = EmplPacks.getVehiclePrice(programCode);
+		int vehiclePriceBefore = EmplPacks.getVehiclePrice(programCode);
 		System.out.println("vehicle Price before------"+vehiclePriceBefore);
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
@@ -206,7 +213,7 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage My Pricing Preferences").isDisplayed());
 		System.out.println("size--"+EmplPacks.getRows().size());
-		if (!EmplPacks.getNoRecordsInGrid().getText().contains("Please select a dealer to display records")) 
+		if (EmplPacks.getCurrentPageRecord() > 0)
 		{
 		getSelectAllCheckBox().click();
 		EmplPacks.getDeleteLink().click();
@@ -248,6 +255,7 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 	@Test(priority = 8)
 	public void verifySaveBtnForLender_31674() throws Exception {
 		login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
+		Thread.sleep(2000);
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
@@ -258,8 +266,8 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 		EmplPacks.getArrow().click();
 		EmplPacks.selectProgram();
 		Thread.sleep(2000);
-		getBtnsmarkup().get(0).click();
-		getBtnsmarkup().get(2).click();
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollTo(0, 2500)");
 		Thread.sleep(2000);
 		getMarkupAmountTxtFld().get(0).sendKeys("100");
 		utils.getfield("span", "Save").click();
@@ -276,7 +284,7 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage My Pricing Preferences").isDisplayed());
 		System.out.println("size--"+EmplPacks.getRows().size());
-		if (!EmplPacks.getNoRecordsInGrid().getText().contains("Please select a dealer to display records")) 
+		if (EmplPacks.getCurrentPageRecord() > 0)
 		{
 		getSelectAllCheckBox().click();
 		EmplPacks.getDeleteLink().click();
@@ -320,12 +328,13 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 	@Test(priority = 10)
 	public void verifyMarkupWithContractForDealerEmp_31687() throws Exception {
 		login.login(prop.getProperty("dealerempAutomation"), prop.getProperty("password"));
+		Thread.sleep(2000);
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage My Pricing Preferences").isDisplayed());
 		System.out.println("size--"+EmplPacks.getRows().size());
-		if (!EmplPacks.getNoRecordsInGrid().getText().contains("Please select a dealer to display records")) 
+		if (EmplPacks.getCurrentPageRecord() > 0)
 		{
 		getSelectAllCheckBox().click();
 		EmplPacks.getDeleteLink().click();
@@ -365,6 +374,7 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 	@Test(priority = 11)
 	public void verifyProgramsInMarkupPageForAgent_31688() throws Exception {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
+		Thread.sleep(2000);
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Pricing Preferences");
@@ -372,7 +382,7 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 		Assert.assertTrue(utils.getTitle("Manage Pricing Preferences").isDisplayed());
 		EmplPacks.selectDealerName("Angel Motors Inc");
 		Thread.sleep(2000);
-		if (!EmplPacks.getNoRecordsInGrid().getText().contains("Please select a dealer to display records")) 
+		if (EmplPacks.getCurrentPageRecord() > 0)
 		{
 		getSelectAllCheckBox().click();
 		EmplPacks.getDeleteLink().click();
@@ -392,6 +402,7 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 	@Test(priority = 12)
 	public void verifySaveBtnForAgent_31689() throws Exception {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
+		Thread.sleep(2000);
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Pricing Preferences");
@@ -399,7 +410,7 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 		Assert.assertTrue(utils.getTitle("Manage Pricing Preferences").isDisplayed());
 		EmplPacks.selectDealerName("Angel Motors Inc");
 		Thread.sleep(2000);
-		if (!EmplPacks.getNoRecordsInGrid().getText().contains("Please select a dealer to display records")) 
+		if (EmplPacks.getCurrentPageRecord() > 0)
 		{
 		getSelectAllCheckBox().click();
 		EmplPacks.getDeleteLink().click();
@@ -421,6 +432,7 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 	@Test(priority = 13)
 	public void verifyMarkupWithContractForAgent_31673_31690() throws Exception {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
+		Thread.sleep(2000);
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Pricing Preferences");
@@ -428,7 +440,7 @@ public class PricingPreferences_test extends PricingPreerencesAction {
 		Assert.assertTrue(utils.getTitle("Manage Pricing Preferences").isDisplayed());
 		EmplPacks.selectDealerName("Angel Motors Inc");
 		Thread.sleep(2000);
-		if (!getNoRecordsInGrid().getText().contains("Please select a dealer to display records")) 
+		if (EmplPacks.getCurrentPageRecord() > 0)
 		{
 		getSelectAllCheckBox().click();
 		EmplPacks.getDeleteLink().click();

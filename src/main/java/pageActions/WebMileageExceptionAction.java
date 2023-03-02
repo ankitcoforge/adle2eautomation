@@ -23,8 +23,10 @@ public class WebMileageExceptionAction extends WebMileageExceptionpo{
 	   Randomizer randomizer=new Randomizer();
 	   createContractAction co = new createContractAction();
 	   impersonatepo io = new impersonatepo();
+	   ManageVSC_GAPpreferencesAction manageVSCGAP = new ManageVSC_GAPpreferencesAction();
 	
 	 public WebElement getPortalTitle() {
+		// manageVSCGAP.getBtnClose().click();
 		 WebElement welcomeTitle=driver.findElement(By.xpath(portalTitle));	
 		 return welcomeTitle;
 	 }
@@ -314,12 +316,13 @@ public HashMap<String, WebElement> getSearchBoxesForModifiedBy() {
 			Thread.sleep(2000);
 		 }
 		
-		 public void getProducts(String VIN, String Mileage) throws ParseException {
+		 public void getProducts(String VIN, String Mileage) throws ParseException, InterruptedException {
 			 utils.inputfield("cssSelector", textbox, "Single", 0);
 			 utils.inputfield("cssSelector", textbox, "Test", 1);
 			 utils.inputfield("cssSelector", textbox, Mileage, 5);
 			 utils.inputfield("cssSelector", textbox, VIN, 6);
 			 utils.clickfield("xpath", getProducts);
+			 Thread.sleep(2000);
 			 }
 		 
 		 public void getProductsForLender(String VIN, String Mileage) throws ParseException {
