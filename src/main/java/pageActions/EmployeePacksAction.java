@@ -16,6 +16,7 @@ import org.testng.Assert;
 
 import pageObjects.EmployeePackspo;
 import pageObjects.impersonatepo;
+import utils.CalenderUtils;
 import utils.Randomizer;
 import utils.utilityClass;
 
@@ -25,6 +26,7 @@ public class EmployeePacksAction extends EmployeePackspo{
 	   Randomizer randomizer=new Randomizer();
 	   createContractAction co = new createContractAction();
 	   impersonatepo io = new impersonatepo();
+	   CalenderUtils calenderUtils= new CalenderUtils();
 	
 	 public WebElement getPortalTitle() {
 		 WebElement welcomeTitle=driver.findElement(By.xpath(portalTitle));	
@@ -175,7 +177,7 @@ public class EmployeePacksAction extends EmployeePackspo{
 				// Getting specific row with each iteration
 				String specificRowLoc = "table>tbody>tr:nth-of-type(" + i + ")";
 				LinkedHashMap<String, String> eachRowData = new LinkedHashMap<>();
-				for (int j = 2; j <= 7; j++) {
+				for (int j = 2; j <= 8; j++) {
 					String specificRowColLoc = "td:nth-of-type(" + j + ")>adl-table-cells>div>span:nth-of-type(2)";
 					 String cellValue = utils.text("cssSelector", specificRowLoc + ">" + specificRowColLoc);
 					eachRowData.put(allHeaderNames.get(j-1), cellValue);
@@ -298,6 +300,22 @@ public class EmployeePacksAction extends EmployeePackspo{
 		getPackAmount().sendKeys(packAmount);
 		getBtnSave().click();
 	 }
+	 
+	 public void createNewPackFutureDate(String program,String packAmount,int days) throws Exception {
+		 getBtnNewPack().click();
+			Thread.sleep(5000);
+			WebDriverWait wait = new WebDriverWait(driver,30);
+			wait.until(ExpectedConditions.visibilityOf(getPopup()));
+		    getArrow().click();
+			selectProgramNew(program);
+			utils.scrollDown();
+			getPackAmount().sendKeys(packAmount);
+			utils.clickfield("xpath", calenderUtils.calenderInPopup);
+			String selectedDate = calenderUtils.getCurrentDate(days,"MMM/dd/yyyy");
+			System.out.println("Selected Date-"+selectedDate);
+			calenderUtils.selectDate(selectedDate,"MMM/dd/yyyy");
+			getBtnSave().click();
+		 }
 	 
 	 public void editPack(String program,String packAmount) throws InterruptedException {
      Thread.sleep(2000);

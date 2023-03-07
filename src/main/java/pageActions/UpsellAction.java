@@ -152,5 +152,13 @@ public class UpsellAction extends UpsellPo{
 				Assert.assertTrue(xlsxUrl1.contains("xlsx"));
 				b.addAll(a1);
 			 }
+		 
+		 
+		 public WebElement getEditBtn(int row) {
+       					String specificRowLoc = "table>tbody>tr:nth-of-type(" + row + ")";
+							String specificRowColLoc = "td:nth-of-type(6)>adl-table-cells>div";
+							WebElement  element = utils.element("cssSelector", specificRowLoc + ">" + specificRowColLoc);
+				return element;
+				}
 	 
 }

@@ -1,8 +1,12 @@
 package testsuite;
 
 import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -15,7 +19,10 @@ import pageActions.impersonateAction;
 import pageActions.loginAction;
 import pageActions.singleContractAction;
 import pageActions.verticalMenuAction;
+import utils.CalenderUtils;
 import utils.utilityClass;
+
+/* 30505 Divyasree */
 
 public class WebMileageException_test extends WebMileageExceptionAction{
 
@@ -27,6 +34,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	singleContractAction contract = new singleContractAction();
 	EmployeePacksAction gridPacks = new EmployeePacksAction();
 	PricingPreferencesAction preferences = new PricingPreferencesAction();
+	CalenderUtils calenderUtils= new CalenderUtils();
 	
 
 	@BeforeClass(alwaysRun = true)
@@ -195,7 +203,6 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 		getBtnSave().click();
 	}
 	
-	//create exceptions first
 	@Test(priority = 4)
 	public void verifyDeleteFuctionality_31276_31277() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
@@ -555,7 +562,79 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 		getProductsForLender("5FNRL6H27NB019645","101");
 		getPrograms("UF3");
 	}
+	
+	@Test(priority = 15)
+	public void verifyEffectiveDateFeild_31279() throws Exception {
+		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Thread.sleep(2000);
+		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
+		Thread.sleep(2000);
+		Assert.assertTrue(utils.getTitle("Mileage & Age Exceptions").isDisplayed());
+		Thread.sleep(2000);
+		enterRoleAndRoleID("Dealer","34159");
+		Thread.sleep(3000);
+		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
+			preferences.getSelectAllCheckBox().click();
+			gridPacks.getDeleteLink().click();
+			gridPacks.getBtnYes().click();
+			Thread.sleep(2000);
+		}
+			//selectProgramNew("Essentials");;
+			String selectedDate = createNewExceptionWithDate("Essentials",0);
+		utils.clickfield("xpath", calenderUtils.calenderTxtbox);
+		calenderUtils.selectDate(selectedDate,"MMM/dd/yyyy");
+		HashMap<Integer, HashMap<String, String>> allTableDataTxt = checkGridBodyDetailsTxt();
+		String effectiveDateInGrid = allTableDataTxt.get(1).get("Prog Eff.Date");
+		String formattedDateInGrid = calenderUtils.covertDateFromOneFormatToOther(effectiveDateInGrid,"MM/dd/yyyy","MMM/dd/yyyy");
+		Assert.assertTrue(selectedDate.equalsIgnoreCase(formattedDateInGrid));
+	}
 
+	@Test(priority = 16)
+	public void verifySortingAndUnsortingDate_31278_31280() throws Exception {
+		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Thread.sleep(2000);
+		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
+		Thread.sleep(2000);
+		Assert.assertTrue(utils.getTitle("Mileage & Age Exceptions").isDisplayed());
+		Thread.sleep(2000);
+		enterRoleAndRoleID("Dealer","28771");
+		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
+			preferences.getSelectAllCheckBox().click();
+			gridPacks.getDeleteLink().click();
+			gridPacks.getBtnYes().click();
+			gridPacks.getDeletedConfirmationMsg().isDisplayed();
+			Thread.sleep(2000);
+		}
+		createNewExceptionWithDate("RNL",0);
+		createNewExceptionWithDate("UA3",3);
+		getGridArrowBtn("Prog Eff.Date").click();
+		HashMap<Integer, HashMap<String, String>> allTableDataTxt = checkGridBodyDetailsTxt();
+		ArrayList<String> dateList = new ArrayList<String>();
+		for (int i = 1; i <= getRowLoc().size(); i++) {
+			String date = allTableDataTxt.get(i).get("Prog Eff.Date");
+			dateList.add(date);
+		}
+		ArrayList<String> dateListBeforeSort = dateList;
+		System.out.println(dateListBeforeSort);
+		Collections.sort(dateList);
+		System.out.println(dateList);
+		Assert.assertEquals(dateListBeforeSort,dateList);
+		Thread.sleep(2000);
+		
+		getGridArrowBtn("Prog Eff.Date").click();
+		HashMap<Integer, HashMap<String, String>> allTableDataTxtOnArrowClick2 = checkGridBodyDetailsTxt();
+		ArrayList<String> dateListOnArrowClick2 = new ArrayList<String>();
+		for (int i = 1; i <= getRowLoc().size(); i++) {
+			String date = allTableDataTxtOnArrowClick2.get(i).get("Prog Eff.Date");
+			dateListOnArrowClick2.add(date);
+		}
+		System.out.println(dateListOnArrowClick2);
+		Collections.reverse(dateList);
+		System.out.println(dateList);
+		Assert.assertTrue(dateListOnArrowClick2.equals(dateList));
+	}
 	
 	
 

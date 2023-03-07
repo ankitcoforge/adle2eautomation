@@ -188,7 +188,7 @@ public class WebContractsByDealerAction extends WebContractsByDealerPO{
 			  List<WebElement> gridArrowBtns = driver.findElements(By.cssSelector(gridArrowBttn));
 			  WebElement arrowbtn=null;
 			  for (int i = 0; i <= allHeaderNames.size()-1; i++) {
-				  if(allHeaderNames.get(i).equals(name))
+				  if(allHeaderNames.get(i).contains(name))
 				  {
 						arrowbtn=gridArrowBtns.get(i);
 					}

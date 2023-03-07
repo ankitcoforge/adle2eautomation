@@ -14,6 +14,7 @@ import org.testng.Assert;
 
 import pageObjects.WebMileageExceptionpo;
 import pageObjects.impersonatepo;
+import utils.CalenderUtils;
 import utils.Randomizer;
 import utils.utilityClass;
 
@@ -24,6 +25,7 @@ public class WebMileageExceptionAction extends WebMileageExceptionpo{
 	   createContractAction co = new createContractAction();
 	   impersonatepo io = new impersonatepo();
 	   ManageVSC_GAPpreferencesAction manageVSCGAP = new ManageVSC_GAPpreferencesAction();
+	   CalenderUtils calenderUtils= new CalenderUtils();
 	
 	 public WebElement getPortalTitle() {
 		// manageVSCGAP.getBtnClose().click();
@@ -282,6 +284,29 @@ public HashMap<String, WebElement> getSearchBoxesForModifiedBy() {
 			Thread.sleep(2000);
 		 }
 	 
+	 public String createNewExceptionWithDate(String program,int days) throws Exception {
+		 getNewExceptionBtn().click();
+			Thread.sleep(5000);
+		    getArrow().click();
+			selectProgramNew(program);
+			utils.scrollDown();
+			getMileageAndAgeFeilds().get(0).clear();
+			getMileageAndAgeFeilds().get(0).sendKeys("100");
+			getMileageAndAgeFeilds().get(1).clear();
+			getMileageAndAgeFeilds().get(1).sendKeys("1000");
+			getMileageAndAgeFeilds().get(2).clear();
+			getMileageAndAgeFeilds().get(2).sendKeys("1");
+			getMileageAndAgeFeilds().get(3).clear();
+			getMileageAndAgeFeilds().get(3).sendKeys("12");
+			utils.clickfield("xpath", calenderUtils.calenderInPopup);
+			String selectedDate = calenderUtils.getCurrentDate(days,"MMM/dd/yyyy");
+			System.out.println("Selected Date-"+selectedDate);
+			calenderUtils.selectDate(selectedDate,"MMM/dd/yyyy");
+			getBtnSave().click();
+			Thread.sleep(2000);
+			return selectedDate;
+		 }
+	 
 	 
 	 
 	 public void selectProgramAndentertMileage(String program,String From,String To) throws InterruptedException {
@@ -341,5 +366,19 @@ public HashMap<String, WebElement> getSearchBoxesForModifiedBy() {
 				 }
 		 }
 	 
+		 public WebElement getGridArrowBtn(String name) {
+			 List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
+			  List<WebElement> gridArrowBtns = driver.findElements(By.cssSelector(gridArrowBttn));
+			  WebElement arrowbtn=null;
+			  System.out.println("headers size-"+allHeaderNames.size());
+			  for (int i = 1; i <= allHeaderNames.size()-1; i++) {
+				  if(allHeaderNames.get(i).contains(name))
+				  {
+						arrowbtn=gridArrowBtns.get(i-1);
+					}
+			}
+			  return arrowbtn;
+			 }
+
 	
 }

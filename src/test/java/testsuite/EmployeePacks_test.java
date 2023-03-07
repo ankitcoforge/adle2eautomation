@@ -1,6 +1,10 @@
 package testsuite;
 
+import java.text.DateFormat;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 import org.openqa.selenium.Keys;
@@ -18,12 +22,14 @@ import pageActions.impersonateAction;
 import pageActions.loginAction;
 import pageActions.singleContractAction;
 import pageActions.verticalMenuAction;
+import utils.CalenderUtils;
 import utils.utilityClass;
 
 /*PBI No- 31340 */
 public class EmployeePacks_test extends EmployeePacksAction {
 	loginAction login = new loginAction();
 	verticalMenuAction verticalMenu = new verticalMenuAction();
+	CalenderUtils calenderUtils= new CalenderUtils();
 
 	utilityClass utils = new utilityClass();
 	impersonateAction impersonate = new impersonateAction();
@@ -123,6 +129,18 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Packs");
 		Thread.sleep(2000);
 		Assert.assertTrue(getDealerPacksPageTitle().isDisplayed());
+		
+		if (getCurrentPageRecord() == 0) {
+			getBtnNewPack().click();
+			Thread.sleep(5000);
+			WebDriverWait wait = new WebDriverWait(driver, 30);
+			wait.until(ExpectedConditions.visibilityOf(getPopup()));
+			getArrow().click();
+			selectProgram();
+			getPackAmount().sendKeys("100");
+			getBtnSave().click();
+			Thread.sleep(2000);
+		}
 
 		HashMap<Integer, HashMap<String, WebElement>> allTableData = checkGridBodyDetails();
 		HashMap<Integer, HashMap<String, String>> allTableDataTxt = checkGridBodyDetailsTxt();
@@ -164,6 +182,16 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		}
 		getSearchBoxesFromPackAmount().get("Modified By").sendKeys(Keys.BACK_SPACE);
 		Thread.sleep(2000);
+		
+		String dateInGrid = allTableDataTxt.get(1).get("Effective Date");
+		System.out.println("Date in grid"+dateInGrid);
+		utils.clickfield("xpath", calenderUtils.calenderTxtbox);
+		calenderUtils.selectDate(dateInGrid,"MM/dd/yyyy");
+		Thread.sleep(2000);
+		
+		HashMap<Integer, HashMap<String, String>> allTableDataTxtNew = checkGridBodyDetailsTxt();
+		String effectiveDateInGrid = allTableDataTxtNew.get(1).get("Effective Date");
+		Assert.assertTrue(dateInGrid.equalsIgnoreCase(effectiveDateInGrid));
 	}
 
 	@Test(priority = 5)
@@ -337,8 +365,199 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		getDeleteLink().click();
 		getBtnYes().click();
 		}
-
 	}
+//		@Test(priority = 10)
+//		public void verifyEffectiveDateFeild_() throws Exception {
+//			login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
+//			Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+//			verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Packs");
+//			Thread.sleep(2000);
+//			Assert.assertTrue(getDealerPacksPageTitle().isDisplayed());
+//
+//			if (getCurrentPageRecord() > 0) {
+//				preferences.getSelectAllCheckBox().click();
+//				getDeleteLink().click();
+//				getBtnYes().click();
+//				Thread.sleep(2000);
+//			}
+//			getBtnNewPack().click();
+//			Thread.sleep(5000);
+//			WebDriverWait wait = new WebDriverWait(driver, 30);
+//			wait.until(ExpectedConditions.visibilityOf(getPopup()));
+//			getArrow().click();
+//			selectProgram();
+//			getPackAmount().sendKeys("100");
+//			utils.clickfield("xpath", calenderUtils.calenderInPopup);
+//			String selectedDate = calenderUtils.getCurrentDate(0,"MMM/dd/yyyy");
+//			System.out.println("Selected Date-"+selectedDate);
+//			calenderUtils.selectDate(selectedDate,"MMM/dd/yyyy");
+//			getBtnSave().click();
+//			Thread.sleep(2000);
+//			Assert.assertTrue(getSuccessMsg().isDisplayed());
+//			utils.clickfield("xpath", calenderUtils.calenderTxtbox);
+//			calenderUtils.selectDate(selectedDate,"MMM/dd/yyyy");
+//			
+//			HashMap<Integer, HashMap<String, String>> allTableDataTxt = checkGridBodyDetailsTxt();
+//			String effectiveDateInGrid = allTableDataTxt.get(1).get("Effective Date");
+//			String formattedDateInGrid = calenderUtils.covertDateFromOneFormatToOther(effectiveDateInGrid,"MM/dd/yyyy","MMM/dd/yyyy");
+//			Assert.assertTrue(selectedDate.equalsIgnoreCase(formattedDateInGrid));
+//		}
+	
+	
+	@Test(priority = 10)
+	public void verifyDealerPackDoesnotImpactsContractCreationPageThroughAgentLogin_32032() throws Exception {
+		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Thread.sleep(5000);
+
+		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage My Dealer Packs");
+		selectDealerName("Angel Motors Inc");
+		Thread.sleep(2000);
+		if (getCurrentPageRecord() > 0) {
+			preferences.getSelectAllCheckBox().click();
+			getDeleteLink().click();
+			getBtnYes().click();
+			Thread.sleep(2000);
+		}
+
+		// data
+		String programCode = prop.getProperty("agentProgramCode");
+		String program = prop.getProperty("agentProgram");
+		String priceTobeEnteredInStringFormat = "100";
+		int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
+
+		verticalMenu.navigatetoContract();
+		contract.getSelectDealerTogenerateContract("Angel Motors Inc");
+		int vehiclePriceBefore = getVehiclePrice(programCode);
+		System.out.println("vehicle Price before------" + vehiclePriceBefore);
+
+		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage My Dealer Packs");
+		selectDealerName("Angel Motors Inc");
+		Thread.sleep(2000);
+		createNewPackFutureDate(programCode, priceTobeEnteredInStringFormat,5);
+
+		verticalMenu.navigatetoContract();
+		Thread.sleep(2000);
+		int vehiclePriceBeforeAfter = getVehiclePrice(programCode);
+		System.out.println("vehicle Price after------" + vehiclePriceBeforeAfter);
+		Assert.assertEquals(vehiclePriceBeforeAfter, vehiclePriceBefore);
+	}
+	
+	@Test(priority = 11)
+	public void verifyDealerPackDoesnotImpactsContractCreationPageForFutureDate_32132() throws Exception {
+		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+
+		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Packs");
+		Thread.sleep(2000);
+		if (getCurrentPageRecord() > 0) {
+			preferences.getSelectAllCheckBox().click();
+			getDeleteLink().click();
+			getBtnYes().click();
+			Thread.sleep(2000);
+		}
+
+		// data
+		String programCode = prop.getProperty("dealerProgramCode");
+		String program = prop.getProperty("dealerProgram");
+		String priceTobeEnteredInStringFormat = "100";
+		//int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
+
+		verticalMenu.navigatetoContract();
+		int vehiclePriceBefore = getVehiclePrice(programCode);
+		System.out.println("vehicle Price before------" + vehiclePriceBefore);
+
+		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Packs");
+		Thread.sleep(2000);
+		createNewPackFutureDate(program, priceTobeEnteredInStringFormat,3);
+
+		verticalMenu.navigatetoContract();
+		Thread.sleep(5000);
+		int vehiclePriceBeforeAfter = getVehiclePrice(programCode);
+		System.out.println("vehicle Price after------" + vehiclePriceBeforeAfter);
+		Assert.assertEquals(vehiclePriceBeforeAfter, vehiclePriceBefore);
+	}
+	
+	@Test(priority = 12)
+	public void verifyLenderPackDoesNotImpactsContractCreationPage_32133() throws Exception {
+		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		//Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		verticalMenu.navigatetoimpersonate();
+		impersonate.impersonateUser("Lender", "3641");
+		Thread.sleep(5000);
+
+		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Lender Packs");
+		Thread.sleep(2000);
+		if (getCurrentPageRecord() > 0) {
+			preferences.getSelectAllCheckBox().click();
+			getDeleteLink().click();
+			getBtnYes().click();
+			Thread.sleep(2000);
+		}
+
+		// data
+		String programCode = prop.getProperty("lenderProgramCode");
+		String program = prop.getProperty("lenderProgramCode");
+		String priceTobeEnteredInStringFormat = "120";
+		//int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
+		
+		verticalMenu.navigatetoContract();
+		contract.getSelectDealerTogenerateContract("#1 Auto Liquidators LLC");
+		int vehiclePriceBefore = getVehiclePriceForLender(programCode);
+		System.out.println("vehicle Price before------" + vehiclePriceBefore);
+		
+		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Lender Packs");
+		Thread.sleep(2000);
+		createNewPackFutureDate(program, priceTobeEnteredInStringFormat,2);
+		Thread.sleep(5000);
+		
+		verticalMenu.navigatetoContract();
+		int vehiclePriceBeforeAfter = getVehiclePriceForLender(programCode);
+		System.out.println("vehicle Price after------" + vehiclePriceBeforeAfter);
+		Assert.assertEquals(vehiclePriceBeforeAfter, vehiclePriceBefore);
+	}
+	
+	@Test(priority = 13)
+	public void verifyDealerPackDoesnotImpactsContractCreationPageThroughSubAgentLogin_32117() throws Exception {
+		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+
+		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage My Dealer Packs");
+		selectDealerName("Angel Motors Inc");
+		Thread.sleep(2000);
+		if (getCurrentPageRecord() > 0) {
+			preferences.getSelectAllCheckBox().click();
+			getDeleteLink().click();
+			getBtnYes().click();
+			Thread.sleep(2000);
+		}
+
+		// data
+		String programCode = prop.getProperty("agentProgramCode");
+		String program = prop.getProperty("agentProgram");
+		String priceTobeEnteredInStringFormat = "100";
+		int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
+
+		verticalMenu.navigatetoContract();
+		contract.getSelectDealerTogenerateContract("Angel Motors Inc");
+		int vehiclePriceBefore = getVehiclePrice(programCode);
+		System.out.println("vehicle Price before------" + vehiclePriceBefore);
+
+		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage My Dealer Packs");
+		selectDealerName("Angel Motors Inc");
+		Thread.sleep(2000);
+		createNewPackFutureDate(programCode, priceTobeEnteredInStringFormat,4);
+
+		verticalMenu.navigatetoContract();
+		Thread.sleep(2000);
+		int vehiclePriceBeforeAfter = getVehiclePrice(programCode);
+		System.out.println("vehicle Price after------" + vehiclePriceBeforeAfter);
+		Assert.assertEquals(vehiclePriceBeforeAfter, vehiclePriceBefore);
+	}
+
+
+
+
 
 	@AfterMethod(alwaysRun = true)
 	public void close() throws InterruptedException {

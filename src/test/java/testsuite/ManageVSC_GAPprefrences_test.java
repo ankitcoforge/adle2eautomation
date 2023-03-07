@@ -2,6 +2,7 @@ package testsuite;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 import org.openqa.selenium.JavascriptExecutor;
@@ -19,6 +20,7 @@ import pageActions.impersonateAction;
 import pageActions.loginAction;
 import pageActions.singleContractAction;
 import pageActions.verticalMenuAction;
+import utils.CalenderUtils;
 import utils.utilityClass;
 
 /* PBI No- 27421 */
@@ -33,6 +35,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	EmployeePacksAction grid = new EmployeePacksAction();
 	WebMileageExceptionAction wme = new WebMileageExceptionAction();
 	PricingPreferencesAction preferences = new PricingPreferencesAction();
+	CalenderUtils calenderUtils= new CalenderUtils();
 
 	@BeforeClass(alwaysRun = true)
 	public void login() throws InterruptedException {
@@ -850,8 +853,163 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 			
 			
 	}
-		
 	
+	@Test(priority = 18)
+	public void verifyDateFunctionality_31330() throws Exception {
+		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Thread.sleep(2000);
+		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
+		Thread.sleep(2000);
+		Assert.assertTrue(utils.getTitle("Manage VSC - GAP Preferences").isDisplayed());
+		Thread.sleep(2000);
+		String program = "FSL";
+		if (grid.getCurrentPageRecord() == 0) {
+			 createNewProgramWithDate(program,0);
+		}
+		Thread.sleep(2000);
+		HashMap<Integer, HashMap<String, String>> allTableDataTxt = grid.checkGridBodyDetailsTxt();
+		String dateInGrid = allTableDataTxt.get(1).get("Prog Eff.Date");
+		System.out.println("Date in grid"+dateInGrid);
+		utils.clickfield("xpath", calenderUtils.calenderTxtbox);
+		calenderUtils.selectDate(dateInGrid,"MM/dd/yyyy");
+		Thread.sleep(2000);
+		
+		HashMap<Integer, HashMap<String, String>> allTableDataTxtNew = checkGridBodyDetailsTxt();
+		String effectiveDateInGrid = allTableDataTxtNew.get(1).get("Prog Eff.Date");
+		Assert.assertTrue(dateInGrid.equalsIgnoreCase(effectiveDateInGrid));
+	}
+		
+	@Test(priority = 19)
+	public void verifySortingAndUnsortingDate_31336_31337() throws Exception {
+		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Thread.sleep(2000);
+		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
+		Thread.sleep(2000);
+		Assert.assertTrue(utils.getTitle("Manage VSC - GAP Preferences").isDisplayed());
+		Thread.sleep(2000);
+		String program = "FSL";
+		String program1 = "RSE";
+		if (grid.getCurrentPageRecord() > 0) {
+			preferences.getSelectAllCheckBox().click();
+			grid.getDeleteLink().click();
+			getBtnYes().click();
+			Thread.sleep(2000);
+		}
+		 createNewProgramWithDate(program,3);
+		 createNewProgramWithDate(program1,0);
+		Thread.sleep(10000);
+		wme.getGridArrowBtn("Prog Eff.Date").click();
+		HashMap<Integer, HashMap<String, String>> allTableDataTxt = checkGridBodyDetailsTxt();
+		ArrayList<String> dateList = new ArrayList<String>();
+		for (int i = 1; i <= getRowLoc().size(); i++) {
+			String date = allTableDataTxt.get(i).get("Prog Eff.Date");
+			dateList.add(date);
+		}
+		ArrayList<String> dateListBeforeSort = dateList;
+		System.out.println(dateListBeforeSort);
+		Collections.sort(dateList);
+		System.out.println(dateList);
+		Assert.assertEquals(dateListBeforeSort,dateList);
+		Thread.sleep(2000);
+		
+		wme.getGridArrowBtn("Prog Eff.Date").click();
+		HashMap<Integer, HashMap<String, String>> allTableDataTxtOnArrowClick2 = checkGridBodyDetailsTxt();
+		ArrayList<String> dateListOnArrowClick2 = new ArrayList<String>();
+		for (int i = 1; i <= getRowLoc().size(); i++) {
+			String date = allTableDataTxtOnArrowClick2.get(i).get("Prog Eff.Date");
+			dateListOnArrowClick2.add(date);
+		}
+		System.out.println(dateListOnArrowClick2);
+		Collections.reverse(dateList);
+		System.out.println(dateList);
+		Assert.assertTrue(dateListOnArrowClick2.equals(dateList));
+
+	}
+	
+	@Test(priority = 20)
+	public void verifyDateFunctionalyInEditPage_31419() throws Exception {
+		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Thread.sleep(2000);
+		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
+		Thread.sleep(2000);
+		Assert.assertTrue(utils.getTitle("Manage VSC - GAP Preferences").isDisplayed());
+		Thread.sleep(2000);
+		String program = "RSE";
+		if (grid.getCurrentPageRecord() == 0) {
+			createNewProgram(program);
+		}
+		HashMap<Integer, HashMap<String, WebElement>> allTableData = grid.checkGridBodyDetails();
+		allTableData.get(1).get("Edit").click();
+		Assert.assertTrue(getProgramTxt().isDisplayed());
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollTo(0, 3000)");
+		Thread.sleep(2000);
+		getChckboxesInPrfrncepage().get(11).click();
+		Thread.sleep(2000);
+		JavascriptExecutor js1=(JavascriptExecutor)driver;
+		js1.executeScript("window.scrollTo(0, 2000)");
+		Thread.sleep(2000);
+		utils.clickfield("xpath", calenderInPopup);
+		String futureDate = calenderUtils.getCurrentDate(3,"MMM/dd/yyyy");
+		System.out.println("Selected Date-"+futureDate);
+		calenderUtils.selectDate(futureDate,"MMM/dd/yyyy");
+		Thread.sleep(2000);
+		utils.clickfield("xpath", calenderInPopup);
+		String currentDate = calenderUtils.getCurrentDate(0,"MMM/dd/yyyy");
+		System.out.println("Current Date-"+currentDate);
+		calenderUtils.selectDate(currentDate,"MMM/dd/yyyy");
+		getBtnSave().click();
+		getBtnYes().click();
+		Thread.sleep(2000);
+		Assert.assertTrue(getRowLoc().get(0).isDisplayed(), "preferences Saved Successfully and back to grid page");
+	}
+	
+	
+	@Test(priority = 21)
+	public void verifyDateFunctionalyInNewPreferencePage_31430() throws Exception {
+		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Thread.sleep(2000);
+		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
+		Thread.sleep(2000);
+		Assert.assertTrue(utils.getTitle("Manage VSC - GAP Preferences").isDisplayed());
+		Thread.sleep(2000);
+		String program = "RSE";
+		if (grid.getCurrentPageRecord() > 0) {
+			preferences.getSelectAllCheckBox().click();
+			grid.getDeleteLink().click();
+			getBtnYes().click();
+			Thread.sleep(7000);
+		}
+		getNewPrfrncesBtn().click();
+		Thread.sleep(2000);
+		getArrow().click();
+		selectProgramNew(program);
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollTo(0, 3000)");
+		Thread.sleep(2000);
+		getChckboxesInPrfrncepage().get(11).click();
+		Thread.sleep(2000);
+		JavascriptExecutor js1=(JavascriptExecutor)driver;
+		js1.executeScript("window.scrollTo(0, 2000)");
+		Thread.sleep(2000);
+		utils.clickfield("xpath", calenderInPopup);
+		String futureDate = calenderUtils.getCurrentDate(3,"MMM/dd/yyyy");
+		System.out.println("Selected Date-"+futureDate);
+		calenderUtils.selectDate(futureDate,"MMM/dd/yyyy");
+		Thread.sleep(2000);
+		utils.clickfield("xpath", calenderInPopup);
+		String currentDate = calenderUtils.getCurrentDate(0,"MMM/dd/yyyy");
+		System.out.println("Current Date-"+currentDate);
+		calenderUtils.selectDate(currentDate,"MMM/dd/yyyy");
+		getBtnSave().click();
+		getBtnYes().click();
+		Thread.sleep(2000);
+		Assert.assertTrue(getRowLoc().get(0).isDisplayed(), "preferences Saved Successfully and back to grid page");
+	}
 
 	@AfterMethod(alwaysRun = true)
 	public void close() throws InterruptedException {

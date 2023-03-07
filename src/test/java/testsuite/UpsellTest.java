@@ -1,5 +1,9 @@
 package testsuite;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 import org.openqa.selenium.WebElement;
@@ -16,6 +20,7 @@ import pageActions.createContractAction;
 import pageActions.impersonateAction;
 import pageActions.loginAction;
 import pageActions.verticalMenuAction;
+import utils.CalenderUtils;
 import utils.utilityClass;
 
 /* PBI NO - 30926 -Divyasree */
@@ -28,6 +33,7 @@ public class UpsellTest extends UpsellAction {
 	LateralMenuAction lateralMenu = new LateralMenuAction();
 	EmployeePacksAction EmplPacks = new EmployeePacksAction();
 	createContractAction co = new createContractAction();
+	CalenderUtils calenderUtils= new CalenderUtils();
 
 	@BeforeClass(alwaysRun = true)
 	public void login() throws InterruptedException {
@@ -63,25 +69,24 @@ public class UpsellTest extends UpsellAction {
 		getElementsFromGridBody().get(1).get("Upsell Program").getText().contains(upsellProgram);
 	}
 
-//	@Test(priority = 2)
-//	public void verifyEditProgramInUpsell_32264() throws Exception {
-//		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
-//		Thread.sleep(3000);
-//		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-//		verticalMenu.navigatetoLeftMenu("Account Management", "Upsell Exceptions");
-//		Thread.sleep(2000);
-//		Assert.assertTrue(utils.getTitle("Upsell Exceptions").isDisplayed());
-//		utils.getfield("span", "+ New program").click();
-//		Thread.sleep(3000);
-//		utils.clickfield("xpath", programArrow);
-//		EmplPacks.selectProgramNew("ACW");
-//		Thread.sleep(2000);
-//		utils.clickfield("xpath", upsellProgramArrow);
-//		EmplPacks.selectProgramNew("ALP");
-//		utils.getfield("span", " Save ").click();
-//		Thread.sleep(2000);
-//		Assert.assertTrue(utils.getTitle("Upsell Exceptions").isDisplayed());
-//	}
+	@Test(priority = 2)
+	public void verifyEditProgramInUpsell_32264() throws Exception {
+		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		Thread.sleep(3000);
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		verticalMenu.navigatetoLeftMenu("Account Management", "Upsell Exceptions");
+		Thread.sleep(2000);
+		Assert.assertTrue(utils.getTitle("Upsell Exceptions").isDisplayed());
+		getEditBtn(1).click();
+		Thread.sleep(3000);
+		Assert.assertTrue(utils.getTitle("Edit").isDisplayed());
+		utils.clickfield("xpath", calenderInPopup);
+		String futureDate = calenderUtils.getCurrentDate(2,"MMM/dd/yyyy");
+		calenderUtils.selectDate(futureDate,"MMM/dd/yyyy");
+		utils.getfield("span", " Save ").click();
+		Thread.sleep(3000);
+		Assert.assertTrue(utils.getTitle("Upsell Exceptions").isDisplayed());
+	}
 
 	@Test(priority = 3)
 	public void verifyDeleteProgramUpsell_32265() throws Exception {
@@ -170,6 +175,8 @@ public class UpsellTest extends UpsellAction {
 		Thread.sleep(1000);
 		Assert.assertTrue(getWarningLabel().isDisplayed());
 	}
+	
+
 	
 	@AfterMethod(alwaysRun = true)
 	public void close() throws InterruptedException {

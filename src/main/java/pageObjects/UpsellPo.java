@@ -12,6 +12,7 @@ public class UpsellPo extends baseClass{
 	public String programTable="adl-rates-table > table >tbody > tr:nth-child(1) > td:nth-child(2)";
 	public String programTableNew="(//adl-rates-table/table/tbody/tr[1]/td[2])[2]";
 	public String upsellProgramTable="(//adl-rates-table/table/tbody/tr[1]/td[2])[1]";
+	
 			
 	
 	// grid
@@ -21,5 +22,7 @@ public class UpsellPo extends baseClass{
 		public String selectAllCheckBox = "thead > adl-table-header > tr:nth-child(2) > td>div>div>mat-checkbox>label>div";
 		public String selectCheckBoxAttribute="td:nth-of-type(1)>adl-table-cells>div>mat-checkbox>label>div>input";
 		public String selectCheckBox="td:nth-of-type(1)>adl-table-cells>div>mat-checkbox>label>div";
+		public String calenderTxtbox = "//*[contains(@class,'mat-form-field-infix ng-tns')]";
+		public String calenderInPopup = "(//mat-icon[text()='calendar_today'])[2]";
 		
 }

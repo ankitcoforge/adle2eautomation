@@ -16,7 +16,7 @@ public class WebMileageExceptionpo extends baseClass {
    	public String noRecordsInGrid = "table>tbody>tr>td";
    	public String rowLoc = "table>tbody>tr";
    	public String searchBoxesBelowHeadersInGrid = "thead > adl-table-header > tr:nth-child(2) > td>div>div>input";
-   	
+   	public String gridArrowBttn = "adl-table-header>tr>th>p-sorticon>i";
    	public String mileageAndAge = "//div[@class='text-field__input secure']/input";
    	public String saveBtn = "//span[text()=' Save ' ]";
    	public String cancelBtn ="//span[text()='Cancel']";

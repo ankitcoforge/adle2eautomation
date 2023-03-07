@@ -34,4 +34,5 @@ public class ManageVSC_GAPpreferencesPO extends baseClass {
 	public String deductibleArrow = "div.rate-option__deductibles>adl-select >ng-select > div.ng-select-container.ng-has-value";
 	public String arrow = "//span[@class='ng-arrow-wrapper']";
 	public String roleDropdownList = "//div[@class='scrollable-content']/div/span";
+	public String calenderInPopup = "//mat-icon[text()='calendar_today']";
 }

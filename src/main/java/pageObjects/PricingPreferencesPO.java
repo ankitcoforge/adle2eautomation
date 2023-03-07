@@ -27,5 +27,6 @@ public class PricingPreferencesPO extends baseClass{
 	public String lastname = "adl-text-input[label='Last Name'] > div > div.text-field__input.secure > input";
 	public String email = "adl-text-input[label='Email'] > div > div.text-field__input.secure > input";
 	public String noRecordsInGrid = "table>tbody>tr>td";
+	public String calenderInPopup = "(//mat-icon[text()='calendar_today'])[2]";
 
 }

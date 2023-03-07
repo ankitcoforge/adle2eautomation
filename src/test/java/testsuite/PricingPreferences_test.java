@@ -14,6 +14,7 @@ import pageActions.impersonateAction;
 import pageActions.loginAction;
 import pageActions.singleContractAction;
 import pageActions.verticalMenuAction;
+import utils.CalenderUtils;
 import utils.utilityClass;
 
 /* PBI NO - 27420 -Divyasree */
@@ -27,7 +28,8 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 	singleContractAction contract =new singleContractAction();
 	EmployeePacksAction EmplPacks =new EmployeePacksAction();
 	pageActions.ManageVSC_GAPpreferencesAction ManageVSCGAP=new pageActions.ManageVSC_GAPpreferencesAction();
-
+	CalenderUtils calenderUtils= new CalenderUtils();
+	
 	@BeforeClass(alwaysRun=true)
 	public void login() throws InterruptedException {
 		navigate();
@@ -479,7 +481,38 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		singleContract();
 	}
 	
-
+	@Test(priority = 14)
+	public void verifyMarkupByWithEffectiveDate_31670() throws Exception {
+		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Thread.sleep(2000);
+		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
+		Thread.sleep(2000);
+		Assert.assertTrue(utils.getTitle("Manage My Pricing Preferences").isDisplayed());
+		if (EmplPacks.getCurrentPageRecord() > 0) 
+		{
+		getSelectAllCheckBox().click();
+		EmplPacks.getDeleteLink().click();
+		EmplPacks.getBtnYes().click();
+		Thread.sleep(2000);
+		}
+		utils.getfield("span", "New markup").click();
+		Thread.sleep(3000);
+		EmplPacks.getArrow().click();
+		EmplPacks.selectProgramNew("RNL");
+		Thread.sleep(2000);
+		getBtnsmarkup().get(0).click();
+		getBtnsmarkup().get(2).click();
+		Thread.sleep(2000);
+		getMarkupAmountTxtFld().get(0).sendKeys("100");
+		utils.clickfield("xpath", calenderInPopup);
+		String futureDate = calenderUtils.getCurrentDate(2,"MMM/dd/yyyy");
+		calenderUtils.selectDate(futureDate,"MMM/dd/yyyy");
+		utils.getfield("span", "Save").click();
+		Thread.sleep(2000);
+		Assert.assertTrue(utils.getTitle("Manage My Pricing Preferences").isDisplayed());
+	}
+	
 	 @AfterMethod(alwaysRun=true)
 	    public void close() throws InterruptedException {
 	        login.logout();

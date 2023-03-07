@@ -6,10 +6,12 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import pageObjects.ManageVSC_GAPpreferencesPO;
+import utils.CalenderUtils;
 import utils.utilityClass;
 
 public class ManageVSC_GAPpreferencesAction extends ManageVSC_GAPpreferencesPO {
@@ -21,6 +23,7 @@ public class ManageVSC_GAPpreferencesAction extends ManageVSC_GAPpreferencesPO {
 	impersonateAction impersonate = new impersonateAction();
 	singleContractAction contractNew = new singleContractAction();
 	generateContractAction gc = new generateContractAction();
+	CalenderUtils calenderUtils= new CalenderUtils();
 
 	public WebElement getPortalTitle() {
 		WebElement welcomeTitle = driver.findElement(By.xpath(portalTitle));
@@ -216,6 +219,29 @@ public class ManageVSC_GAPpreferencesAction extends ManageVSC_GAPpreferencesPO {
 		getBtnSave().click();
 		getBtnYes().click();
 		Thread.sleep(2000);
+	}
+	
+	public String createNewProgramWithDate(String program,int days) throws Exception {
+		Thread.sleep(10000);
+		getNewPrfrncesBtn().click();
+		Thread.sleep(2000);
+		getArrow().click();
+		selectProgramNew(program);
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollTo(0, 7000)");
+		Thread.sleep(2000);
+		getChckboxesInPrfrncepage().get(11).click();
+		JavascriptExecutor js1=(JavascriptExecutor)driver;
+		js1.executeScript("window.scrollTo(0, 2000)");
+		Thread.sleep(2000);
+		utils.clickfield("xpath", calenderInPopup);
+		String selectedDate = calenderUtils.getCurrentDate(days,"MMM/dd/yyyy");
+		System.out.println("Selected Date-"+selectedDate);
+		calenderUtils.selectDate(selectedDate,"MMM/dd/yyyy");
+		getBtnSave().click();
+		getBtnYes().click();
+		Thread.sleep(2000);
+		return selectedDate;
 	}
 	
 	 public HashMap<Integer, HashMap<String,String >> checkGridBodyDetailsTxt() {
