@@ -218,6 +218,7 @@ public class RemitAUL_test extends RemitAULAction {
 		Assert.assertTrue(getSelectStatusCheckBoxInGrid(3).isSelected(), "Multiple Contract rows are selectable");
 	}
 
+	//collections bug
 	@Test(priority = 9)
 	public void verifySortingFunctionalityForColoumns_18980_18984_18986_18987_18988_18992()
 			throws InterruptedException {
