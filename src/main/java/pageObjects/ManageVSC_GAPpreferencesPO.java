@@ -15,7 +15,7 @@ public class ManageVSC_GAPpreferencesPO extends baseClass {
 	public String liftkitInContractpage = "//p[contains(text(),'Lift Kit')]";
 	public String termMileageMonthsInContractPage = "[class='cell']>span";
 	public String classes = "//span[contains(text(),'Class')]/..";
-	public String reserve = "//p[text()='Reserve']";
+	public String reserve = "//p[text()='RESERVE']";
 	public String ddRadioBtns = "label.mat-radio-label>div.mat-radio-container";
 	public String chckboxesInPrfrncepage = "div.mat-checkbox-inner-container";
 	public String chckboxesInPrfrncepageStatus = "div.mat-checkbox-inner-container>input";

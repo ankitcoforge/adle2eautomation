@@ -1,10 +1,6 @@
 package testsuite;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -22,11 +18,72 @@ public class VerticalMenu_test extends LateralMenuAction {
 	verticalMenuAction verticalMenu = new verticalMenuAction();
 	utilityClass utils = new utilityClass();
 	impersonateAction impersonate = new impersonateAction ();
+	Permissions_test permissions=new Permissions_test();
 
 	@BeforeClass(alwaysRun=true)
 	public void login() throws InterruptedException {
 		navigate();
 		Assert.assertEquals(login.getTitle(), "AUL Corp.");
+	}
+	
+	@Test(priority = 0)
+	public void precondition() throws InterruptedException {
+		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
+		Thread.sleep(3000);
+		verticalMenu.navigatetoLeftMenu("My Settings", "Issue New User Registration");
+		Thread.sleep(2000);
+		Assert.assertTrue(utils.getTitle("Issue New User Registration").isDisplayed());
+		String dealerEmp = prop.getProperty("dealerempAutomation");
+		utils.inputfield("cssselector", permissions.txtFieldNewUserRegistration, dealerEmp);
+		Thread.sleep(2000);
+		utils.clickfield("xpath", permissions.editBtn);
+		Thread.sleep(1000);
+		utils.clickfield("xpath", permissions.permissionsDropdownInPopup);
+		permissions.getPermissionListInPopup().get(12).click();
+		if (permissions.getSelectAllCheckBoxInPopup().getAttribute("aria-checked").equals("false")) {
+			permissions.getSelectAllCheckBoxInPopup().click();
+		}
+		utils.clickfield("xpath", permissions.saveBtn);
+		Thread.sleep(5000);
+		login.logout();
+		Thread.sleep(10000);
+		
+		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
+		Thread.sleep(3000);
+		verticalMenu.navigatetoLeftMenu("Agency Settings", "Manage Users");
+		Thread.sleep(2000);
+		String subAgent = prop.getProperty("subagentAutomation");
+		utils.inputfield("cssselector", permissions.txtFieldNewUserRegistration, subAgent);
+		Thread.sleep(2000);
+		utils.clickfield("xpath", permissions.editBtn);
+		Thread.sleep(1000);
+		utils.clickfield("xpath", permissions.permissionsDropdownInAgentPopup);
+		if (permissions.getSelectAllCheckBoxInPopup().getAttribute("aria-checked").equals("false")) {
+			permissions.getSelectAllCheckBoxInPopup().click();
+		}
+		Assert.assertTrue((permissions.getSelectAllCheckBoxInPopup().getAttribute("aria-checked").equals("true")));
+		utils.clickfield("xpath", permissions.saveBtn);
+		Thread.sleep(5000);
+		login.logout();
+		Thread.sleep(10000);
+		
+		login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
+		Thread.sleep(3000);
+		verticalMenu.navigatetoLeftMenu("Lender Settings", "Manage Agency Users");
+		Thread.sleep(2000);
+		String lenderEmp = prop.getProperty("lenderempAutomation");
+		utils.inputfield("cssselector", permissions.txtFieldNewUserRegistration, lenderEmp);
+		Thread.sleep(2000);
+		utils.clickfield("xpath", permissions.editBtn);
+		Thread.sleep(1000);
+		utils.clickfield("xpath", permissions.permissionsDropdownInAgentPopup);
+		permissions.getPermissionListInPopup().get(12).click();
+		if (permissions.getSelectAllCheckBoxInPopup().getAttribute("aria-checked").equals("false")) {
+			permissions.getSelectAllCheckBoxInPopup().click();
+		}
+		utils.clickfield("xpath", permissions.updateBtn);
+		Thread.sleep(5000);
+
 	}
 	
 	@Test(priority = 1)
@@ -235,6 +292,7 @@ public class VerticalMenu_test extends LateralMenuAction {
 			Assert.assertTrue(list.contains("Help"));
 			
 			verticalMenu.navigatetoLeftMainMenu("Dealer Settings");
+			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Manage Dealers"));
 			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Activity Tracker"));
 			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Manage Pricing Preferences"));
 			Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("Manage VSC - GAP Preferences"));
@@ -377,6 +435,7 @@ public class VerticalMenu_test extends LateralMenuAction {
 			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Unpaid Contracts"));
 			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Activations"));
 			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Cancellations"));
+			Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("My Account Statements"));
 			Assert.assertTrue(getLaterMenuSubItems().get(4).getText().contains("Claims History"));
 			Assert.assertTrue(getLaterMenuSubItems().get(5).getText().contains("Actuarials"));
 			Assert.assertTrue(getLaterMenuSubItems().get(6).getText().contains("Early Claims"));
@@ -655,6 +714,7 @@ public class VerticalMenu_test extends LateralMenuAction {
 		Assert.assertTrue(getDashboardPageReports("Contract Search").isDisplayed());
 	}
 
+	
 	
 	 @AfterMethod(alwaysRun=true)
 	    public void close() throws InterruptedException {

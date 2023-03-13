@@ -84,6 +84,8 @@ public class contractpo extends baseClass{
 	public String wdfield = "//span[contains(text(),'AWD/4WD')]//../div";
 	public String selectDealerTogenerateContract = "//input[@placeholder='Type or Select Dealer Name']";
 	public String btnSignIn = "//span[text()='Sign In']";
+	public String pincode = "adl-text-input[label='Zip Code'] > div > div.text-field__input.secure > input";
+	public String email = "adl-text-input[label='Email'] > div > div.text-field__input.secure > input";
 	
 	public WebElement getBtnSignIn() {
 		WebElement ele = driver.findElement(By.xpath(btnSignIn));	

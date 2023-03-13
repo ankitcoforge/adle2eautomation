@@ -210,6 +210,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		Assert.assertTrue(getElementInFirstGrid("Last 6 of VIN").isDisplayed());
 		String enterVIN=prop.getProperty("VIN");
 		getElementInFirstGrid("Last 6 of VIN").sendKeys(enterVIN);
+		Thread.sleep(2000);
 		getElementInFirstGrid("Last 6 of VIN").sendKeys(Keys.TAB);
 		getElementInFirstGrid("Last 6 of VIN").sendKeys(Keys.TAB);
 		getElementInFirstGrid("Last 6 of VIN").sendKeys(Keys.TAB);

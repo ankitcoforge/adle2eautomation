@@ -221,6 +221,24 @@ public class ManageVSC_GAPpreferencesAction extends ManageVSC_GAPpreferencesPO {
 		Thread.sleep(2000);
 	}
 	
+	 public void selectProgram() throws InterruptedException {
+		 Thread.sleep(5000);
+			 List<WebElement> list = getDriver().findElements(By.xpath(roleDropdownList));
+			 list.get(0).click();
+			 Thread.sleep(10000);
+		}
+	 
+	 public void createNewProgram() throws InterruptedException {
+			Thread.sleep(3000);
+			getNewPrfrncesBtn().click();
+			Thread.sleep(2000);
+			getArrow().click();
+			selectProgram();
+			getBtnSave().click();
+			getBtnYes().click();
+			Thread.sleep(2000);
+		}
+	
 	public String createNewProgramWithDate(String program,int days) throws Exception {
 		Thread.sleep(10000);
 		getNewPrfrncesBtn().click();

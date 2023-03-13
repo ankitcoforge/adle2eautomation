@@ -48,9 +48,9 @@ public class UpsellTest extends UpsellAction {
 		Thread.sleep(3000);
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Account Management", "Upsell Exceptions");
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		Assert.assertTrue(utils.getTitle("Upsell Exceptions").isDisplayed());
-		utils.getfield("span", "+ New program").click();
+		utils.getfield("span", "New program").click();
 		Thread.sleep(3000);
 		String program = "ACW";
 		String upsellProgram = "ALP";

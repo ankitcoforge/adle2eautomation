@@ -157,6 +157,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		Thread.sleep(2000);
 		getMarkupAmountTxtFld().get(0).sendKeys("100");
 		utils.getfield("span", "Save").click();
+		Thread.sleep(3000);
 	}
 	
 	@Test(priority = 6)
@@ -197,6 +198,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		Thread.sleep(2000);
 		getMarkupAmountTxtFld().get(0).sendKeys(priceTobeEnteredInStringFormat);
 		utils.getfield("span", "Save").click();
+		Thread.sleep(3000);
 		verticalMenu.navigatetoContract();
 		int vehiclePriceAfter = EmplPacks.getVehiclePrice(programCode);
 		System.out.println("vehicle Price after------"+vehiclePriceAfter);
@@ -247,6 +249,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		Thread.sleep(2000);
 		getMarkupAmountTxtFld().get(0).sendKeys(priceTobeEnteredInStringFormat);
 		utils.getfield("span", "Save").click();
+		Thread.sleep(3000);
 		verticalMenu.navigatetoContract();
 		int vehiclePriceBeforeAfter = EmplPacks.getVehiclePriceForLender(programCode);
 		System.out.println("vehicle Price after------"+vehiclePriceBeforeAfter);
@@ -263,6 +266,13 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage My Pricing Preferences").isDisplayed());
+		if (EmplPacks.getCurrentPageRecord() > 0)
+		{
+		getSelectAllCheckBox().click();
+		EmplPacks.getDeleteLink().click();
+		EmplPacks.getBtnYes().click();
+		Thread.sleep(2000);
+		}
 		utils.getfield("span", "New markup").click();
 		Thread.sleep(3000);
 		EmplPacks.getArrow().click();
@@ -273,6 +283,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		Thread.sleep(2000);
 		getMarkupAmountTxtFld().get(0).sendKeys("100");
 		utils.getfield("span", "Save").click();
+		Thread.sleep(5000);
 	}
 	
 	@Test(priority = 9)
@@ -318,6 +329,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		Thread.sleep(2000);
 		getMarkupAmountTxtFld().get(0).sendKeys(priceTobeEnteredInStringFormat);
 		utils.getfield("span", "Save").click();
+		Thread.sleep(3000);
 		verticalMenu.navigatetoContract();
 		int vehiclePriceBeforeAfter = EmplPacks.getVehiclePriceForLender(programCode);
 		System.out.println("vehicle Price after------"+vehiclePriceBeforeAfter);
@@ -366,6 +378,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		Thread.sleep(2000);
 		getMarkupAmountTxtFld().get(0).sendKeys(priceTobeEnteredInStringFormat);
 		utils.getfield("span", "Save").click();
+		Thread.sleep(3000);
 		verticalMenu.navigatetoContract();
 		int vehiclePriceAfter = EmplPacks.getVehiclePrice(programCode);
 		System.out.println("vehicle Price after------"+vehiclePriceAfter);
@@ -429,6 +442,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		Thread.sleep(2000);
 		getMarkupAmountTxtFld().get(0).sendKeys("100");
 		utils.getfield("span", "Save").click();
+		Thread.sleep(3000);
 	}
 	
 	@Test(priority = 13)
@@ -474,6 +488,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		Thread.sleep(2000);
 		getMarkupAmountTxtFld().get(0).sendKeys(priceTobeEnteredInStringFormat);
 		utils.getfield("span", "Save").click();
+		Thread.sleep(3000);
 		verticalMenu.navigatetoContract();
 		int vehiclePriceBeforeAfter = EmplPacks.getVehiclePrice(programCode);
 		System.out.println("vehicle Price after------"+vehiclePriceBeforeAfter);

@@ -65,16 +65,8 @@ public class EmployeePacksAction extends EmployeePackspo{
 	 
 	 public void selectProgram() throws InterruptedException {
 		 Thread.sleep(10000);
-//		WebElement roledrpDwn=driver.findElement(By.xpath(roleDropdown));	
-			//JavascriptExecutor jse = (JavascriptExecutor)driver;
-		//roledrpDwn.click();
-		  //  jse.executeScript("arguments[0].click();", roledrpDwn);
-//		getArrow().sendKeys(Keys.ARROW_DOWN);
-//		getArrow().sendKeys(Keys.ENTER);
 			 List<WebElement> list = getDriver().findElements(By.xpath(roleDropdownList));
 			 list.get(0).click();
-
-		
 		}
 	 
 	 public void selectDealerName(String dealer) throws InterruptedException {
@@ -178,6 +170,29 @@ public class EmployeePacksAction extends EmployeePackspo{
 				String specificRowLoc = "table>tbody>tr:nth-of-type(" + i + ")";
 				LinkedHashMap<String, String> eachRowData = new LinkedHashMap<>();
 				for (int j = 2; j <= 8; j++) {
+					String specificRowColLoc = "td:nth-of-type(" + j + ")>adl-table-cells>div>span:nth-of-type(2)";
+					 String cellValue = utils.text("cssSelector", specificRowLoc + ">" + specificRowColLoc);
+					eachRowData.put(allHeaderNames.get(j-1), cellValue);
+				}
+				allTableData.put(i, eachRowData);
+			}
+			System.out.println("Complete Grid data: " + allTableData);
+			utils.scrollUp();
+		    return allTableData;
+		}
+	 
+	 public HashMap<Integer, HashMap<String,String >> checkGridBodyDetailsTxt2() {
+			List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
+			System.out.println("allHeaderNames: " + allHeaderNames);
+			HashMap<Integer, HashMap<String, String>> allTableData = new HashMap<Integer, HashMap<String, String>>();
+			// Get total rows count
+			List<WebElement> allRows = utils.getElementsList("cssSelector", rowLoc);
+			System.out.println("No of rows in grid: " + allRows.size());
+			for (int i = 1; i <= allRows.size(); i++) {
+				// Getting specific row with each iteration
+				String specificRowLoc = "table>tbody>tr:nth-of-type(" + i + ")";
+				LinkedHashMap<String, String> eachRowData = new LinkedHashMap<>();
+				for (int j = 2; j <= 7; j++) {
 					String specificRowColLoc = "td:nth-of-type(" + j + ")>adl-table-cells>div>span:nth-of-type(2)";
 					 String cellValue = utils.text("cssSelector", specificRowLoc + ">" + specificRowColLoc);
 					eachRowData.put(allHeaderNames.get(j-1), cellValue);
@@ -299,6 +314,7 @@ public class EmployeePacksAction extends EmployeePackspo{
 		utils.scrollDown();
 		getPackAmount().sendKeys(packAmount);
 		getBtnSave().click();
+		Thread.sleep(5000);
 	 }
 	 
 	 public void createNewPackFutureDate(String program,String packAmount,int days) throws Exception {
@@ -315,6 +331,7 @@ public class EmployeePacksAction extends EmployeePackspo{
 			System.out.println("Selected Date-"+selectedDate);
 			calenderUtils.selectDate(selectedDate,"MMM/dd/yyyy");
 			getBtnSave().click();
+			Thread.sleep(5000);
 		 }
 	 
 	 public void editPack(String program,String packAmount) throws InterruptedException {

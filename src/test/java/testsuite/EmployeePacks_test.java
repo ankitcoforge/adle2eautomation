@@ -113,7 +113,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 			Thread.sleep(2000);
 			verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Packs");
 			Thread.sleep(10000);
-			HashMap<Integer, HashMap<String, String>> allTableDataTxt = checkGridBodyDetailsTxt();
+			HashMap<Integer, HashMap<String, String>> allTableDataTxt = checkGridBodyDetailsTxt2();
 			String packAmountInGrid = allTableDataTxt.get(1).get("Pack Amount");
 			NumberFormat format = NumberFormat.getCurrencyInstance();
 			Number number = format.parse(packAmountInGrid);
@@ -143,7 +143,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		}
 
 		HashMap<Integer, HashMap<String, WebElement>> allTableData = checkGridBodyDetails();
-		HashMap<Integer, HashMap<String, String>> allTableDataTxt = checkGridBodyDetailsTxt();
+		HashMap<Integer, HashMap<String, String>> allTableDataTxt = checkGridBodyDetailsTxt2();
 		String[] programFirstLetter = allTableData.get(1).get("Program").getText().split("");
 		getSearchBoxesInGrid().get("Program").sendKeys(programFirstLetter[0]);
 		Thread.sleep(2000);
@@ -189,7 +189,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		calenderUtils.selectDate(dateInGrid,"MM/dd/yyyy");
 		Thread.sleep(2000);
 		
-		HashMap<Integer, HashMap<String, String>> allTableDataTxtNew = checkGridBodyDetailsTxt();
+		HashMap<Integer, HashMap<String, String>> allTableDataTxtNew = checkGridBodyDetailsTxt2();
 		String effectiveDateInGrid = allTableDataTxtNew.get(1).get("Effective Date");
 		Assert.assertTrue(dateInGrid.equalsIgnoreCase(effectiveDateInGrid));
 	}
@@ -286,7 +286,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 
 		// data
 		String programCode = prop.getProperty("agentProgramCode");
-		String program = prop.getProperty("agentProgram");
+		//String program = prop.getProperty("agentProgram");
 		String priceTobeEnteredInStringFormat = "100";
 		int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
 
@@ -397,7 +397,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 //			utils.clickfield("xpath", calenderUtils.calenderTxtbox);
 //			calenderUtils.selectDate(selectedDate,"MMM/dd/yyyy");
 //			
-//			HashMap<Integer, HashMap<String, String>> allTableDataTxt = checkGridBodyDetailsTxt();
+//			HashMap<Integer, HashMap<String, String>> allTableDataTxt = checkGridBodyDetailsTxt2();
 //			String effectiveDateInGrid = allTableDataTxt.get(1).get("Effective Date");
 //			String formattedDateInGrid = calenderUtils.covertDateFromOneFormatToOther(effectiveDateInGrid,"MM/dd/yyyy","MMM/dd/yyyy");
 //			Assert.assertTrue(selectedDate.equalsIgnoreCase(formattedDateInGrid));
@@ -422,9 +422,9 @@ public class EmployeePacks_test extends EmployeePacksAction {
 
 		// data
 		String programCode = prop.getProperty("agentProgramCode");
-		String program = prop.getProperty("agentProgram");
+		//String program = prop.getProperty("agentProgram");
 		String priceTobeEnteredInStringFormat = "100";
-		int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
+		//int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
 
 		verticalMenu.navigatetoContract();
 		contract.getSelectDealerTogenerateContract("Angel Motors Inc");

@@ -158,22 +158,12 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage VSC - GAP Preferences").isDisplayed());
 		Thread.sleep(2000);
-		String program1 = "RSE";
-		String program2 = "RNL";
-		if (grid.getCurrentPageRecord() > 0) {
-			preferences.getSelectAllCheckBox().click();
-			grid.getDeleteLink().click();
-			getBtnYes().click();
-			Thread.sleep(2000);
-		}
+		createNewProgram();
 		Thread.sleep(3000);
-		createNewProgram(program1);
-		Thread.sleep(2000);
-		createNewProgram(program2);
-		Thread.sleep(2000);
-		
 		grid.getSelectCheckBoxes().get(0).click();
+		if (grid.getCurrentPageRecord() > 1) {
 		grid.getSelectCheckBoxes().get(1).click();
+		}
 		grid.getDeleteLink().click();
 		grid.getBtnYes().click();
 		Thread.sleep(2000);
@@ -685,10 +675,10 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 		verticalMenu.navigatetoContract();
 		wme.getProducts("5FNRL6H27NB019645", "100");
 		getPrograms(program);
-		Assert.assertTrue(getReserve().isDisplayed());
-		Assert.assertTrue(utils.getfield("p", "Powertrain").isDisplayed());
-		Assert.assertTrue(utils.getfield("p", "Sterling").isDisplayed());
-		Assert.assertTrue(utils.getfield("p", "Estate").isDisplayed());
+		Assert.assertTrue(utils.getfield("p", "RESERVE").isDisplayed());
+		Assert.assertTrue(utils.getfield("p", "POWERTRAIN").isDisplayed());
+		Assert.assertTrue(utils.getfield("p", "STERLING").isDisplayed());
+		Assert.assertTrue(utils.getfield("p", "ESTATE").isDisplayed());
 		Assert.assertTrue(getDeductibleTxtInContractPage().getText().contains("100"));
 	}
 	
@@ -767,16 +757,11 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 			Thread.sleep(2000);
 		}
 		createNewProgram(program);
-		
 		HashMap<Integer, HashMap<String, WebElement>> allTableData = grid.checkGridBodyDetails();
 		HashMap<Integer, HashMap<String, String>> allTableDataTxt = grid.checkGridBodyDetailsTxt();
-		
 			if (allTableDataTxt.get(1).get("Program Code").equals(program)) {
 				allTableData.get(1).get("Edit").click();
 			}
-		
-		
-		
 		for (int i = 0; i <= 1; i++) {
 		if (!getChckboxesInPrfrncepageStatus().get(i).isSelected()) {
 			getChckboxesInPrfrncepage().get(i).click();
@@ -789,9 +774,11 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 		Assert.assertTrue(getChckboxesInPrfrncepageStatus().get(0).getAttribute("aria-checked").equals("true"),"Lift kit is ON");
 		Assert.assertTrue(getChckboxesInPrfrncepageStatus().get(1).getAttribute("aria-checked").equals("true"),"S&G is ON");
 		Assert.assertTrue(getChckboxesInPrfrncepageStatus().get(2).getAttribute("aria-checked").equals("false"),"WR is OFF");
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollTo(0, 2500)");
 		getBtnSave().click();
 		getBtnYes().click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		HashMap<Integer, HashMap<String, String>> allTableDataTxtNew = grid.checkGridBodyDetailsTxt();
 		String liftKit = allTableDataTxtNew.get(1).get("Lift Kit");
 		String SG = allTableDataTxtNew.get(1).get("S&G");
