@@ -372,6 +372,9 @@ public class Permissions_test extends PermissionsAction {
 
 	@AfterMethod(alwaysRun = true)
 	public void close() throws InterruptedException {
-		login.logout();
+		try {
+			login.logout();
+			} catch (Exception e) {
+		}
 	}
 }

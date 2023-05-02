@@ -160,5 +160,10 @@ public class UpsellAction extends UpsellPo{
 							WebElement  element = utils.element("cssSelector", specificRowLoc + ">" + specificRowColLoc);
 				return element;
 				}
+		 
+		 public List<WebElement> getRows() {
+			  List<WebElement> rows = driver.findElements(By.cssSelector(rowLoc));	
+			 return rows; 
+		 }
 	 
 }

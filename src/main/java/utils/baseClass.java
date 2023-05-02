@@ -167,6 +167,7 @@ public class baseClass extends pdfUtils{
 			chromePrefs.put("download.default_directory", System.getProperty("user.dir") + "\\PDF");
 			ChromeOptions options = new ChromeOptions();
 			options.setExperimentalOption("prefs", chromePrefs);
+			options.addArguments("--remote-allow-origins=*");
 			driver = new ChromeDriver(options);
 		} else if (browser.equals("IE")) {
 			//Setting system properties of InternetExplorerDriver

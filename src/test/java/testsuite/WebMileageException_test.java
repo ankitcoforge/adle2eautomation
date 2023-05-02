@@ -477,17 +477,17 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 			Thread.sleep(2000);
 		}
 		getNewExceptionBtn().click();
-		selectProgramAndentertMileage("Essentials", "100", "1000");
+		selectProgramAndentertMileage("Essentials", "0", "0");
 		entertAge("0", "10");
 		getBtnSave().click();
-		Thread.sleep(4000);
+		Thread.sleep(10000);
 		
 		verticalMenu.navigatetoLeftMenu("Impersonate");
 		impersonate.impersonateUser("Dealer", dealerId);
 		Thread.sleep(5000);
 
 		verticalMenu.navigatetoContract();
-		getProducts("3VWSB81H8WM210368","101");
+		getProducts("5FNRL6H27NB019645","101");
 		getPrograms("Essentials");
 	}
 

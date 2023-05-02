@@ -87,11 +87,16 @@ public class impersonateAction extends impersonatepo {
 
  	
  	public String getImpersonatedPageRoledID() {
+ 		String txt = event.text("xpath", "//button[@class='mat-menu-trigger']/span");
+ 		System.out.println("imp id isssss:"+txt.split(" ")[1]);
+ 		 return txt.split(" ")[1];
+ 	 }
+ 	
+	public String getImpersonatedPageRoledID1() {
  		String txt = event.text("xpath", "(//div[@class='ng-star-inserted']/span)[2]");
  		System.out.println("imp id isssss:"+txt.split(" ")[1]);
  		 return txt.split(" ")[1];
- 		 
- 	 }
+ 		 	 }
  	public WebElement getImpersonatedPageDealerRoledID() {
  		return driver.findElement(By.xpath(dealerRoleid));
  	 }

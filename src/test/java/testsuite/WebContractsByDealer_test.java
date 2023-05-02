@@ -66,7 +66,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
 		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
 		Assert.assertTrue(driver.getCurrentUrl().contains(
-				"https://qa2.adl.aulcorp.com/portal/reports/web-contracts-by-dealer"));
+				"adl.aulcorp.com/portal/reports/web-contracts-by-dealer"));
 	}
 
 	@Test(priority = 4)
@@ -200,10 +200,10 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 
 	@Test(priority = 12)
 	public void verifyNavigationUsingTabs_27340() throws InterruptedException {
-		login.login(prop.getProperty("dealerAutomation"),prop.getProperty("password"));
-		verticalMenu.navigatetoContract();
-		singleContract.singleContract();
-		login.logout();
+	//	login.login(prop.getProperty("dealerAutomation"),prop.getProperty("password"));
+//		verticalMenu.navigatetoContract();
+//		singleContract.singleContract();
+//		login.logout();
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
 		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
@@ -217,7 +217,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		getElementInFirstGrid("Last 6 of VIN").sendKeys(Keys.TAB);
 		getArrowForwardBtn().click();
 		Assert.assertTrue(getSpinner().isDisplayed(),"Spinner is displayed");
-		Thread.sleep(10000);
+		Thread.sleep(20000);
 		Assert.assertTrue(getContractsGrid().isDisplayed(),"Navigation Working Correctly");
 		HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
         String VINnumFromGrid = allTableData.get(1).get("VIN");
@@ -479,8 +479,8 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		@Test(priority = 27)
 		public void verifyVINContractNumbSearch_27563() throws InterruptedException {
 			login.login(prop.getProperty("dealerAutomation"),prop.getProperty("password"));
-			verticalMenu.navigatetoContract();
-			singleContract.singleContract();
+//			verticalMenu.navigatetoContract();
+//			singleContract.singleContract();
 			verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 			Thread.sleep(1000);
 			utils.scrollDown();

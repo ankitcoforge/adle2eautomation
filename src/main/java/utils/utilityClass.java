@@ -246,7 +246,7 @@ public class utilityClass extends baseClass{
  		case "id" : getDriver().findElement(By.id(fieldname)).isDisplayed();
  		gText = getDriver().findElement(By.id(fieldname));
  		break;
- 		case "xpath" : getDriver().findElement(By.name(fieldname)).isDisplayed();
+ 		case "xpath" : getDriver().findElement(By.xpath(fieldname)).isDisplayed();
  		gText = getDriver().findElement(By.xpath(fieldname));
  		break;
  		case "cssselector" : getDriver().findElement(By.cssSelector(fieldname)).isDisplayed();

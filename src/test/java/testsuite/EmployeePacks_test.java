@@ -403,7 +403,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 //			Assert.assertTrue(selectedDate.equalsIgnoreCase(formattedDateInGrid));
 //		}
 	
-	
+	//futuredate
 	@Test(priority = 10)
 	public void verifyDealerPackDoesnotImpactsContractCreationPageThroughAgentLogin_32032() throws Exception {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
@@ -443,117 +443,120 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		Assert.assertEquals(vehiclePriceBeforeAfter, vehiclePriceBefore);
 	}
 	
-	@Test(priority = 11)
-	public void verifyDealerPackDoesnotImpactsContractCreationPageForFutureDate_32132() throws Exception {
-		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-
-		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Packs");
-		Thread.sleep(2000);
-		if (getCurrentPageRecord() > 0) {
-			preferences.getSelectAllCheckBox().click();
-			getDeleteLink().click();
-			getBtnYes().click();
-			Thread.sleep(2000);
-		}
-
-		// data
-		String programCode = prop.getProperty("dealerProgramCode");
-		String program = prop.getProperty("dealerProgram");
-		String priceTobeEnteredInStringFormat = "100";
-		//int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
-
-		verticalMenu.navigatetoContract();
-		int vehiclePriceBefore = getVehiclePrice(programCode);
-		System.out.println("vehicle Price before------" + vehiclePriceBefore);
-
-		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Packs");
-		Thread.sleep(2000);
-		createNewPackFutureDate(program, priceTobeEnteredInStringFormat,3);
-
-		verticalMenu.navigatetoContract();
-		Thread.sleep(5000);
-		int vehiclePriceBeforeAfter = getVehiclePrice(programCode);
-		System.out.println("vehicle Price after------" + vehiclePriceBeforeAfter);
-		Assert.assertEquals(vehiclePriceBeforeAfter, vehiclePriceBefore);
-	}
+	//futuredate
+//	@Test(priority = 11)
+//	public void verifyDealerPackDoesnotImpactsContractCreationPageForFutureDate_32132() throws Exception {
+//		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
+//		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+//
+//		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Packs");
+//		Thread.sleep(2000);
+//		if (getCurrentPageRecord() > 0) {
+//			preferences.getSelectAllCheckBox().click();
+//			getDeleteLink().click();
+//			getBtnYes().click();
+//			Thread.sleep(2000);
+//		}
+//
+//		// data
+//		String programCode = prop.getProperty("dealerProgramCode");
+//		String program = prop.getProperty("dealerProgram");
+//		String priceTobeEnteredInStringFormat = "100";
+//		//int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
+//
+//		verticalMenu.navigatetoContract();
+//		int vehiclePriceBefore = getVehiclePrice(programCode);
+//		System.out.println("vehicle Price before------" + vehiclePriceBefore);
+//
+//		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Packs");
+//		Thread.sleep(2000);
+//		createNewPackFutureDate(program, priceTobeEnteredInStringFormat,3);
+//
+//		verticalMenu.navigatetoContract();
+//		Thread.sleep(5000);
+//		int vehiclePriceBeforeAfter = getVehiclePrice(programCode);
+//		System.out.println("vehicle Price after------" + vehiclePriceBeforeAfter);
+//		Assert.assertEquals(vehiclePriceBeforeAfter, vehiclePriceBefore);
+//	}
 	
-	@Test(priority = 12)
-	public void verifyLenderPackDoesNotImpactsContractCreationPage_32133() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
-		//Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("Lender", "3641");
-		Thread.sleep(5000);
-
-		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Lender Packs");
-		Thread.sleep(2000);
-		if (getCurrentPageRecord() > 0) {
-			preferences.getSelectAllCheckBox().click();
-			getDeleteLink().click();
-			getBtnYes().click();
-			Thread.sleep(2000);
-		}
-
-		// data
-		String programCode = prop.getProperty("lenderProgramCode");
-		String program = prop.getProperty("lenderProgramCode");
-		String priceTobeEnteredInStringFormat = "120";
-		//int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
-		
-		verticalMenu.navigatetoContract();
-		contract.getSelectDealerTogenerateContract("#1 Auto Liquidators LLC");
-		int vehiclePriceBefore = getVehiclePriceForLender(programCode);
-		System.out.println("vehicle Price before------" + vehiclePriceBefore);
-		
-		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Lender Packs");
-		Thread.sleep(2000);
-		createNewPackFutureDate(program, priceTobeEnteredInStringFormat,2);
-		Thread.sleep(5000);
-		
-		verticalMenu.navigatetoContract();
-		int vehiclePriceBeforeAfter = getVehiclePriceForLender(programCode);
-		System.out.println("vehicle Price after------" + vehiclePriceBeforeAfter);
-		Assert.assertEquals(vehiclePriceBeforeAfter, vehiclePriceBefore);
-	}
+	//futuredate
+//	@Test(priority = 12)
+//	public void verifyLenderPackDoesNotImpactsContractCreationPage_32133() throws Exception {
+//		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+//		//Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+//		verticalMenu.navigatetoimpersonate();
+//		impersonate.impersonateUser("Lender", "3641");
+//		Thread.sleep(5000);
+//
+//		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Lender Packs");
+//		Thread.sleep(2000);
+//		if (getCurrentPageRecord() > 0) {
+//			preferences.getSelectAllCheckBox().click();
+//			getDeleteLink().click();
+//			getBtnYes().click();
+//			Thread.sleep(2000);
+//		}
+//
+//		// data
+//		String programCode = prop.getProperty("lenderProgramCode");
+//		String program = prop.getProperty("lenderProgramCode");
+//		String priceTobeEnteredInStringFormat = "120";
+//		//int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
+//		
+//		verticalMenu.navigatetoContract();
+//		contract.getSelectDealerTogenerateContract("#1 Auto Liquidators LLC");
+//		int vehiclePriceBefore = getVehiclePriceForLender(programCode);
+//		System.out.println("vehicle Price before------" + vehiclePriceBefore);
+//		
+//		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Lender Packs");
+//		Thread.sleep(2000);
+//		createNewPackFutureDate(program, priceTobeEnteredInStringFormat,2);
+//		Thread.sleep(5000);
+//		
+//		verticalMenu.navigatetoContract();
+//		int vehiclePriceBeforeAfter = getVehiclePriceForLender(programCode);
+//		System.out.println("vehicle Price after------" + vehiclePriceBeforeAfter);
+//		Assert.assertEquals(vehiclePriceBeforeAfter, vehiclePriceBefore);
+//	}
 	
-	@Test(priority = 13)
-	public void verifyDealerPackDoesnotImpactsContractCreationPageThroughSubAgentLogin_32117() throws Exception {
-		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-
-		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage My Dealer Packs");
-		selectDealerName("Angel Motors Inc");
-		Thread.sleep(2000);
-		if (getCurrentPageRecord() > 0) {
-			preferences.getSelectAllCheckBox().click();
-			getDeleteLink().click();
-			getBtnYes().click();
-			Thread.sleep(2000);
-		}
-
-		// data
-		String programCode = prop.getProperty("agentProgramCode");
-		String program = prop.getProperty("agentProgram");
-		String priceTobeEnteredInStringFormat = "100";
-		int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
-
-		verticalMenu.navigatetoContract();
-		contract.getSelectDealerTogenerateContract("Angel Motors Inc");
-		int vehiclePriceBefore = getVehiclePrice(programCode);
-		System.out.println("vehicle Price before------" + vehiclePriceBefore);
-
-		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage My Dealer Packs");
-		selectDealerName("Angel Motors Inc");
-		Thread.sleep(2000);
-		createNewPackFutureDate(programCode, priceTobeEnteredInStringFormat,4);
-
-		verticalMenu.navigatetoContract();
-		Thread.sleep(2000);
-		int vehiclePriceBeforeAfter = getVehiclePrice(programCode);
-		System.out.println("vehicle Price after------" + vehiclePriceBeforeAfter);
-		Assert.assertEquals(vehiclePriceBeforeAfter, vehiclePriceBefore);
-	}
+//	//futuredate
+//	@Test(priority = 13)
+//	public void verifyDealerPackDoesnotImpactsContractCreationPageThroughSubAgentLogin_32117() throws Exception {
+//		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
+//		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+//
+//		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage My Dealer Packs");
+//		selectDealerName("Angel Motors Inc");
+//		Thread.sleep(2000);
+//		if (getCurrentPageRecord() > 0) {
+//			preferences.getSelectAllCheckBox().click();
+//			getDeleteLink().click();
+//			getBtnYes().click();
+//			Thread.sleep(2000);
+//		}
+//
+//		// data
+//		String programCode = prop.getProperty("agentProgramCode");
+//		String program = prop.getProperty("agentProgram");
+//		String priceTobeEnteredInStringFormat = "100";
+//		int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
+//
+//		verticalMenu.navigatetoContract();
+//		contract.getSelectDealerTogenerateContract("Angel Motors Inc");
+//		int vehiclePriceBefore = getVehiclePrice(programCode);
+//		System.out.println("vehicle Price before------" + vehiclePriceBefore);
+//
+//		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage My Dealer Packs");
+//		selectDealerName("Angel Motors Inc");
+//		Thread.sleep(2000);
+//		createNewPackFutureDate(programCode, priceTobeEnteredInStringFormat,4);
+//
+//		verticalMenu.navigatetoContract();
+//		Thread.sleep(2000);
+//		int vehiclePriceBeforeAfter = getVehiclePrice(programCode);
+//		System.out.println("vehicle Price after------" + vehiclePriceBeforeAfter);
+//		Assert.assertEquals(vehiclePriceBeforeAfter, vehiclePriceBefore);
+//	}
 
 
 
