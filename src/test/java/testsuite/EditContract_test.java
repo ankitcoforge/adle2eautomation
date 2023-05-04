@@ -139,7 +139,7 @@ public class EditContract_test extends EditContractAction {
 			contractSearchPage.getEditLink(1).click();
 		}
 		Assert.assertTrue(getEditContractPagetitle().isDisplayed());
-		Assert.assertTrue(driver.getCurrentUrl().contains("qa2.adl.aulcorp.com/portal/contracts/edit-contract"));
+		Assert.assertTrue(driver.getCurrentUrl().contains("adl.aulcorp.com/portal/contracts/edit-contract"));
 	}
 
 	@Test(priority = 4)
@@ -1785,7 +1785,7 @@ public class EditContract_test extends EditContractAction {
 		Thread.sleep(1000);
 		Assert.assertTrue(getContractSearchPagetitle().isDisplayed());
 		Assert.assertTrue(
-				driver.getCurrentUrl().contains("qa2.adl.aulcorp.com/portal/contracts/contract-search"));
+				driver.getCurrentUrl().contains("adl.aulcorp.com/portal/contracts/contract-search"));
 	}
 
 	@Test(priority = 39)
@@ -1821,7 +1821,7 @@ public class EditContract_test extends EditContractAction {
 		getStartNewQuote().click();
 		Thread.sleep(1000);
 		Assert.assertTrue(getRateOrContractPageTitle().isDisplayed());
-		Assert.assertTrue(driver.getCurrentUrl().contains("qa2.adl.aulcorp.com/portal/rate/rate-contract"));
+		Assert.assertTrue(driver.getCurrentUrl().contains("adl.aulcorp.com/portal/rate/rate-contract"));
 	}
 
 	@Test(priority = 40)

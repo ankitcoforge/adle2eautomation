@@ -5,6 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import pageObjects.RemitAULpo;
@@ -13,10 +14,56 @@ import utils.utilityClass;
 public class RemitAULAction extends RemitAULpo{
 	
 	utilityClass utils= new utilityClass();
+	singleContractAction contract =new singleContractAction();
+	verticalMenuAction verticalMenu = new verticalMenuAction();
+	EditContractAction contractPage =new EditContractAction();
+	
 	
 	public WebElement getTitle() {
 		 WebElement welcomeTitle=driver.findElement(By.xpath(ADLwelcometitle));	
 		 return welcomeTitle;
+	 }
+	
+	public void createContract() throws InterruptedException {
+			verticalMenu.navigatetoContract();
+			contract.singleContract();
+			Thread.sleep(2000);
+			verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+			Thread.sleep(2000);
+			verticalMenu.navigatetoContract();
+			Thread.sleep(1000);
+			contract.singleContract();
+			Thread.sleep(2000);
+			verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+			Thread.sleep(2000);
+			verticalMenu.navigatetoContract();
+			Thread.sleep(1000);
+			contract.singleContract();
+			Thread.sleep(2000);
+		}
+	
+	public void getRemitContracts() throws InterruptedException {
+		getSelectAllCheckBox().click();
+		Thread.sleep(1000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		for (int i = 1; i <= 3; i++) {
+			if (getSelectStatusCheckBoxInGrid(i).isSelected()) {
+				js.executeScript("arguments[0].click();", getSelectStatusCheckBoxInGrid(i));
+			}
+		}
+		Thread.sleep(1000);
+		String remitPage = driver.getWindowHandle();
+		utils.clickfield("xpath", remitcontracts);
+		utils.clickfield("xpath", yesBtn);
+		Thread.sleep(3000);
+		driver.switchTo().window(remitPage);
+	}
+	
+	
+	
+	 public WebElement getNoRecordsInGrid() {
+		  WebElement rows = driver.findElement(By.cssSelector(noRecordsInGrid));	
+		 return rows; 
 	 }
 	
 	 public WebElement getRemitContractsTitle() {

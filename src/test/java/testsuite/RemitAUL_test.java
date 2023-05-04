@@ -43,6 +43,34 @@ public class RemitAUL_test extends RemitAULAction {
 		Assert.assertEquals(login.getTitle(), "AUL Corp.");
 	}
 
+
+	@Test(priority = 0)
+	public void preCond() throws InterruptedException {
+		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		Thread.sleep(2000);
+		if(getNoRecordsInGrid().getText().contains("There are no records to display"))
+				{
+			createContract();
+			}
+		else if (getRowLoc().size() > 3) {
+			getRemitContracts();
+		}
+	
+		login.logout();
+		Thread.sleep(2000);
+		login.login(prop.getProperty("dealerForPaymentDetails"), prop.getProperty("password"));
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		Thread.sleep(2000);
+		if(!getNoRecordsInGrid().getText().contains("There are no records to display") | getRowLoc().size() < 3) {
+			createContract();
+			}
+		else if (getRowLoc().size() > 3) {
+			getRemitContracts();
+		}
+		
+	}
+
 	@Test(priority = 1)
 	public void verifySelectContractsTabAndAndCheckDetailsTabForCheck_18801_18806_18807_18808()
 			throws InterruptedException {

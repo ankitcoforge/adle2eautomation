@@ -87,7 +87,7 @@ public class impersonateAction extends impersonatepo {
 
  	
  	public String getImpersonatedPageRoledID() {
- 		String txt = event.text("xpath", "//button[@class='mat-menu-trigger']/span");
+ 		String txt = event.text("xpath", "(//button[@class='mat-menu-trigger']/div/span)[2]");
  		System.out.println("imp id isssss:"+txt.split(" ")[1]);
  		 return txt.split(" ")[1];
  	 }

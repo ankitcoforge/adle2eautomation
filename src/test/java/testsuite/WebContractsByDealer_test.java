@@ -38,7 +38,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 	ContractSearchPageAction contractSearchPage=new ContractSearchPageAction();
 	Database_Connectivity dc = new Database_Connectivity();
 
-	@BeforeClass(alwaysRun=true)
+	@BeforeMethod(alwaysRun=true)
 	public void login() throws InterruptedException {
 		navigate();
 		Assert.assertEquals(login.getTitle(), "AUL Corp.");
@@ -75,7 +75,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
 		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
 		Assert.assertTrue(driver.getCurrentUrl().contains(
-				"https://qa2.adl.aulcorp.com/portal/reports/web-contracts-by-dealer"));
+				"adl.aulcorp.com/portal/reports/web-contracts-by-dealer"));
 		Assert.assertEquals(driver.getCurrentUrl().contains("aul"), true);
 	}
 
@@ -1400,6 +1400,11 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		
 		@AfterMethod(alwaysRun = true)
 		public void close() throws InterruptedException {
+			try {
 			login.logout();
+			}
+			catch (Exception e){
+				
+			}
 		}
 }

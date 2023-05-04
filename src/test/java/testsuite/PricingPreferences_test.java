@@ -542,7 +542,12 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 	
 	 @AfterMethod(alwaysRun=true)
 	    public void close() throws InterruptedException {
-	        login.logout();
+		 try {
+				login.logout();
+				} catch (Exception e) {
+					utils.getfield("mat-icon", "close").click();
+					login.logout();
+			}
 	    }
 
 }

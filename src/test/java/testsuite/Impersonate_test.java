@@ -20,7 +20,7 @@ import utils.utilityClass;
 
 @Listeners(utils.listnerlogs.class)
 
-public class impersonate_test extends impersonateAction {
+public class Impersonate_test extends impersonateAction {
 
 	loginAction login = new loginAction();
 	verticalMenuAction verticalMenu = new verticalMenuAction();
@@ -86,7 +86,10 @@ public class impersonate_test extends impersonateAction {
 
 	@AfterMethod(alwaysRun = true)
 	public void close() throws InterruptedException {
-		login.logout();
+		 try {
+				login.logout();
+				} catch (Exception e) {
+			}
 	}
 
 		

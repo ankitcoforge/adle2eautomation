@@ -43,4 +43,7 @@ public class RemitAULpo extends baseClass {
 	public String checkAmountValue="//span[text()='Check Amount: ']/b";
 	public String checkAmountFieldInCheckdetailsTab="[class='text-field__input secure text-field__input--prefix']>input";
 	public String calenderPlaceholder="[aria-haspopup='dialog']";
+	public String remitcontracts="//span[text()='Remit Contracts']";
+	public String yesBtn="//span[text()='Yes']";
+	public String noRecordsInGrid = "table>tbody>tr>td";
 }
