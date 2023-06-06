@@ -3,6 +3,7 @@ package testsuite;
 
 
 import java.util.ArrayList;
+
 import java.util.Collections;
 import java.util.HashMap;
 
@@ -13,10 +14,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -28,6 +26,8 @@ import pageActions.ContractSearchPageAction;
 import utils.Database_Connectivity;
 import utils.utilityClass;
 
+/* Divyasree */
+/* Tc's active = 46 , invalid/commented due to bug = 3 */
 
 @Listeners(utils.listnerlogs.class)
 public class WebContractsByDealer_test extends WebContractsByDealerAction {
@@ -479,13 +479,9 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		@Test(priority = 27)
 		public void verifyVINContractNumbSearch_27563() throws InterruptedException {
 			login.login(prop.getProperty("dealerAutomation"),prop.getProperty("password"));
-//			verticalMenu.navigatetoContract();
-//			singleContract.singleContract();
-			verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
+			verticalMenu.navigatetoContract();
+			String contractNumber = singleContract.singleContract();
 			Thread.sleep(1000);
-			utils.scrollDown();
-			HashMap<Integer, HashMap<String, String>> allTableDataContractSearchPage =contractSearchPage.checkGridBodyDetails();
-			String contractNumber = allTableDataContractSearchPage.get(1).get("Contract");
 			login.logout();
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
@@ -625,7 +621,6 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		
 		@Test(priority = 32)
 		public void verifyContractNumDealerIDSearch_27583() throws InterruptedException {
-			//navigate();
 			login.login(prop.getProperty("dealerAutomation"),prop.getProperty("password"));
 			verticalMenu.navigatetoContract();
 			singleContract.singleContract();
@@ -645,7 +640,6 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 			getElementInFirstGrid("Dealer ID").sendKeys(dealerID);
 			Assert.assertTrue(getArrowForwardBtn().isDisplayed());
 			getArrowForwardBtn().click();
-			//Assert.assertTrue(getSpinner().isDisplayed(),"Spinner is displayed");
 			Thread.sleep(2000);
 			HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
 			String contractNumberInGrid = allTableData.get(1).get("Contract Number");

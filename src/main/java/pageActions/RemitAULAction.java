@@ -32,14 +32,14 @@ public class RemitAULAction extends RemitAULpo{
 			Thread.sleep(2000);
 			verticalMenu.navigatetoContract();
 			Thread.sleep(1000);
-			contract.singleContract();
+			contract.singleContract("Bank of America");
 			Thread.sleep(2000);
-			verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
-			Thread.sleep(2000);
-			verticalMenu.navigatetoContract();
-			Thread.sleep(1000);
-			contract.singleContract();
-			Thread.sleep(2000);
+//			verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+//			Thread.sleep(2000);
+//			verticalMenu.navigatetoContract();
+//			Thread.sleep(1000);
+//			contract.singleContract();
+//			Thread.sleep(2000);
 		}
 	
 	public void getRemitContracts() throws InterruptedException {

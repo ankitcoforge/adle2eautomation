@@ -18,6 +18,8 @@ import utils.CalenderUtils;
 import utils.utilityClass;
 
 /* PBI NO - 27420 -Divyasree */
+/* Total Tc's = 14 */
+
 public class PricingPreferences_test extends PricingPreferencesAction {
 	
 	loginAction login = new loginAction();
@@ -295,10 +297,10 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 	
 	@Test(priority = 9)
 	public void verifyMarkupWithContractForLenderEmp_31686() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("LenderEmp", "3641");
+//		verticalMenu.navigatetoimpersonate();
+//		impersonate.impersonateUser("LenderEmp", "3641");
 		Thread.sleep(5000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);
@@ -545,7 +547,9 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		 try {
 				login.logout();
 				} catch (Exception e) {
+					if(utils.getfield("mat-icon", "close").isDisplayed()) {
 					utils.getfield("mat-icon", "close").click();
+					}
 					login.logout();
 			}
 	    }

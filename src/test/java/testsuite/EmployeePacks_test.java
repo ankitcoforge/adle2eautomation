@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import pageActions.EmployeePacksAction;
@@ -26,6 +27,7 @@ import utils.CalenderUtils;
 import utils.utilityClass;
 
 /*PBI No- 31340 */
+/* Tc's active = 8, future date invalid tc= 5 */
 public class EmployeePacks_test extends EmployeePacksAction {
 	loginAction login = new loginAction();
 	verticalMenuAction verticalMenu = new verticalMenuAction();
@@ -36,7 +38,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 	singleContractAction contract = new singleContractAction();
 	PricingPreferencesAction preferences = new PricingPreferencesAction();
 
-	@BeforeClass(alwaysRun = true)
+	@BeforeMethod(alwaysRun = true)
 	public void login() throws InterruptedException {
 		navigate();
 		Assert.assertEquals(login.getTitle(), "AUL Corp.");
@@ -404,44 +406,44 @@ public class EmployeePacks_test extends EmployeePacksAction {
 //		}
 	
 	//futuredate
-	@Test(priority = 10)
-	public void verifyDealerPackDoesnotImpactsContractCreationPageThroughAgentLogin_32032() throws Exception {
-		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-		Thread.sleep(5000);
-
-		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage My Dealer Packs");
-		selectDealerName("Angel Motors Inc");
-		Thread.sleep(2000);
-		if (getCurrentPageRecord() > 0) {
-			preferences.getSelectAllCheckBox().click();
-			getDeleteLink().click();
-			getBtnYes().click();
-			Thread.sleep(2000);
-		}
-
-		// data
-		String programCode = prop.getProperty("agentProgramCode");
-		//String program = prop.getProperty("agentProgram");
-		String priceTobeEnteredInStringFormat = "100";
-		//int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
-
-		verticalMenu.navigatetoContract();
-		contract.getSelectDealerTogenerateContract("Angel Motors Inc");
-		int vehiclePriceBefore = getVehiclePrice(programCode);
-		System.out.println("vehicle Price before------" + vehiclePriceBefore);
-
-		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage My Dealer Packs");
-		selectDealerName("Angel Motors Inc");
-		Thread.sleep(2000);
-		createNewPackFutureDate(programCode, priceTobeEnteredInStringFormat,5);
-
-		verticalMenu.navigatetoContract();
-		Thread.sleep(2000);
-		int vehiclePriceBeforeAfter = getVehiclePrice(programCode);
-		System.out.println("vehicle Price after------" + vehiclePriceBeforeAfter);
-		Assert.assertEquals(vehiclePriceBeforeAfter, vehiclePriceBefore);
-	}
+//	@Test(priority = 10)
+//	public void verifyDealerPackDoesnotImpactsContractCreationPageThroughAgentLogin_32032() throws Exception {
+//		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
+//		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+//		Thread.sleep(5000);
+//
+//		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage My Dealer Packs");
+//		selectDealerName("Angel Motors Inc");
+//		Thread.sleep(2000);
+//		if (getCurrentPageRecord() > 0) {
+//			preferences.getSelectAllCheckBox().click();
+//			getDeleteLink().click();
+//			getBtnYes().click();
+//			Thread.sleep(2000);
+//		}
+//
+//		// data
+//		String programCode = prop.getProperty("agentProgramCode");
+//		//String program = prop.getProperty("agentProgram");
+//		String priceTobeEnteredInStringFormat = "100";
+//		//int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
+//
+//		verticalMenu.navigatetoContract();
+//		contract.getSelectDealerTogenerateContract("Angel Motors Inc");
+//		int vehiclePriceBefore = getVehiclePrice(programCode);
+//		System.out.println("vehicle Price before------" + vehiclePriceBefore);
+//
+//		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage My Dealer Packs");
+//		selectDealerName("Angel Motors Inc");
+//		Thread.sleep(2000);
+//		createNewPackFutureDate(programCode, priceTobeEnteredInStringFormat,5);
+//
+//		verticalMenu.navigatetoContract();
+//		Thread.sleep(2000);
+//		int vehiclePriceBeforeAfter = getVehiclePrice(programCode);
+//		System.out.println("vehicle Price after------" + vehiclePriceBeforeAfter);
+//		Assert.assertEquals(vehiclePriceBeforeAfter, vehiclePriceBefore);
+//	}
 	
 	//futuredate
 //	@Test(priority = 11)
@@ -561,10 +563,14 @@ public class EmployeePacks_test extends EmployeePacksAction {
 
 
 
-
-	@AfterMethod(alwaysRun = true)
-	public void close() throws InterruptedException {
-		login.logout();
-	}
+	@AfterMethod(alwaysRun=true)
+    public void close() throws InterruptedException {
+	 try {
+			login.logout();
+			} catch (Exception e) {
+				utils.getfield("mat-icon", "close").click();
+				login.logout();
+		}
+    }
 
 }

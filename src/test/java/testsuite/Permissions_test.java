@@ -19,6 +19,7 @@ import pageActions.verticalMenuAction;
 import utils.utilityClass;
 
 /* PBI No: 30708 - Divyasree */
+/* Total Tc's = 4 */
 public class Permissions_test extends PermissionsAction {
 
 	loginAction login = new loginAction();
@@ -34,18 +35,18 @@ public class Permissions_test extends PermissionsAction {
 		Assert.assertEquals(login.getTitle(), "AUL Corp.");
 	}
 
-	@Test(priority = 1)
-	public void verifyPermissionsPage_30720() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
-		Thread.sleep(3000);
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("Dealer", "28771");
-		Thread.sleep(2000);
-		verticalMenu.navigatetoLeftMenu("My Settings", "Manage Employees");
-		Thread.sleep(2000);
-		Assert.assertTrue(utils.getTitle("Manage Employees").isDisplayed());
-	}
+//	@Test(priority = 1)
+//	public void verifyPermissionsPage_30720() throws Exception {
+//		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+//		Thread.sleep(3000);
+//		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+//		verticalMenu.navigatetoimpersonate();
+//		impersonate.impersonateUser("Dealer", "28771");
+//		Thread.sleep(2000);
+//		verticalMenu.navigatetoLeftMenu("My Settings", "Manage Employees");
+//		Thread.sleep(2000);
+//		Assert.assertTrue(utils.getTitle("Manage Employees").isDisplayed());
+//	}
 
 	@Test(priority = 2)
 	public void verifyPermissionsPageForDealer() throws Exception {

@@ -24,6 +24,7 @@ import utils.CalenderUtils;
 import utils.utilityClass;
 
 /* 30505 Divyasree */
+/* Total Tc's = 31 */
 
 public class WebMileageException_test extends WebMileageExceptionAction{
 

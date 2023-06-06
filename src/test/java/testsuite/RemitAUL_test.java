@@ -28,6 +28,9 @@ import pageActions.singleContractAction;
 import pageActions.verticalMenuAction;
 import utils.utilityClass;
 
+/* Divyasree */
+/* Total Tc's = 81 */
+
 public class RemitAUL_test extends RemitAULAction {
 	loginAction login = new loginAction();
 	verticalMenuAction verticalMenu = new verticalMenuAction();
@@ -49,7 +52,7 @@ public class RemitAUL_test extends RemitAULAction {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
 		Thread.sleep(2000);
-		if(getNoRecordsInGrid().getText().contains("There are no records to display"))
+		if(!getNoRecordsInGrid().getText().contains("There are no records to display"))
 				{
 			createContract();
 			}
@@ -88,7 +91,7 @@ public class RemitAUL_test extends RemitAULAction {
 		Assert.assertEquals(ActualcolorInHexaformatForSelectTab, expectedOrangeColorInHexa);
 
 		Assert.assertTrue((getCheckDetailsTab()).isDisplayed());
-		Assert.assertEquals((getCheckDetailsTabStatus()).getAttribute("class"), "tab--inactive tab--disabled");
+		Assert.assertEquals((getCheckDetailsTabStatus()).getAttribute("class"), "tab--inactive");
 	}
 
 	@Test(priority = 2)
@@ -803,7 +806,7 @@ public class RemitAUL_test extends RemitAULAction {
 		Assert.assertTrue(getCommentsTitleTxt().isDisplayed());
 		getPaymentDetailsCommentsBox().sendKeys("123ABC!");
 		Assert.assertTrue(getPaymentDetailsCommentsBox().getAttribute("value").equals("123ABC!"));
-		Assert.assertTrue(getPaymentDetailsCommentsBox().getAttribute("maxlength").equals("52"));
+		Assert.assertTrue(getPaymentDetailsCommentsBox().getAttribute("maxlength").equals("256"));
 		getPaymentDetailsCommentsBox().clear();
 		Assert.assertTrue(getPaymentDetailsCommentsBox().getAttribute("value").equals(""));
 	}
@@ -1743,10 +1746,12 @@ public class RemitAUL_test extends RemitAULAction {
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		utils.scrollDown();
 		Assert.assertTrue(getTotalDueTxt().isDisplayed(),"Fixed bar is displayed");
+		Thread.sleep(3000);
 		getSearchBoxesInGrid().get("Last Name").sendKeys("@");
-//		getElementsFromGridBody().get(1).get("Last Name").sendKeys("@");
 		Thread.sleep(1000);
 		Assert.assertTrue(getNoRecordsTxt().isDisplayed());
+		getSearchBoxesInGrid().get("Last Name").sendKeys(Keys.BACK_SPACE);
+		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", getSelectStatusCheckBoxInGrid(1));
 		getCheckDetailsTab().click();

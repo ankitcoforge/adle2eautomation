@@ -18,6 +18,9 @@ import pageActions.messageSetupAction;
 import pageActions.verticalMenuAction;
 import utils.utilityClass;
 
+/* Divyasree */
+/* Total Tc's = 4 */
+
 @Listeners(utils.listnerlogs.class)
 
 public class Impersonate_test extends impersonateAction {

@@ -100,7 +100,7 @@ public class toolBoxAction extends toolBoxpo {
 
 		int NoOfForms = 0;
 
-		Set<String> setOfKey1;
+		Set<String> setOfKey1 = null;
 
 		String PDFName;
 		WebElement PDFFile;
@@ -170,13 +170,47 @@ public class toolBoxAction extends toolBoxpo {
 			}
 
 			break;
+			
+		case "Lender Company Toolbox":
+
+			LinkedHashMap<String, String> LenderToolBoxFormName = new LinkedHashMap<String, String>();
+
+			LenderToolBoxFormName.put(TBAulCorpContactListPDF, "AUL_Contact_List.pdf");
+
+			Set<String> setOfKey5 = LenderToolBoxFormName.keySet();
+
+			for (String key : setOfKey5) {
+
+				PDFName = driver.findElement(By.xpath(key)).getText();
+
+				PDFFile = driver.findElement(By.xpath(key));
+
+				if (PDFFile.isDisplayed()) {
+
+					DownloadPDF(key);
+					sleepWaitFunction(4000);
+
+					try {
+						isFileDownloaded(System.getProperty("user.dir") + "\\PDF", LenderToolBoxFormName.get(key));
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						System.out.println(e);
+					}
+
+				}
+				sleepWaitFunction(2000);
+			}
+
+			break;
+
 
 		case "Forms Library":
 
-			LinkedHashMap<String, String> RoleTypeToolBox;
+			LinkedHashMap<String, String> RoleTypeToolBox = null;
 
 			LinkedHashMap<String, String> DealerToolBoxFormName1 = new LinkedHashMap<String, String>();
 			LinkedHashMap<String, String> AgentToolBoxFormName1 = new LinkedHashMap<String, String>();
+			LinkedHashMap<String, String> LenderToolBoxFormName1 = new LinkedHashMap<String, String>();
 
 			DealerToolBoxFormName1.put(TBContractCancellationFormPDF, "Contract_Cancellation_Form.pdf");
 			DealerToolBoxFormName1.put(TBContractRemittanceReportPDF, "Contract_Remittance_Report.pdf");
@@ -191,8 +225,9 @@ public class toolBoxAction extends toolBoxpo {
 			AgentToolBoxFormName1.put(TBContractRenewalGuidelinesPDF, "Contract_Renewal_Guidelines.pdf");
 			AgentToolBoxFormName1.put(TBContractTransferFormsPDF, "Contract_Transfer_Form.pdf");
 			AgentToolBoxFormName1.put(TBContractUpgradeFormPDF, "Contract_Upgrade_Form.pdf");
-			AgentToolBoxFormName1.put(TBServiceDepartmentGuidelinesPDF, "Service_Department_Guidelines.pdf");
 			AgentToolBoxFormName1.put(TBVehicleInspectionReport, "Vehicle_Inspection_Sheet.pdf");
+			AgentToolBoxFormName1.put(TBServiceDepartmentGuidelinesPDF, "Service_Department_Guidelines.pdf");
+			
 
 			AgentToolBoxFormName1.put(TBACHAgreementForm, "ACH_Agreement.pdf");
 			AgentToolBoxFormName1.put(TBAULGAPLenderAgreementPacketForm, "AUL_GAP_Lender_Agreement_Packet.pdf");
@@ -203,24 +238,53 @@ public class toolBoxAction extends toolBoxpo {
 			AgentToolBoxFormName1.put(TBCreditCardRewardsAgreementPacket, "Credit_Card_Rewards_Agreement_Packet.pdf");
 			AgentToolBoxFormName1.put(TBDealerAgreementPacket, "Dealer_Agreement_Packet.pdf");
 			AgentToolBoxFormName1.put(TBDealerPassThroughAgreement, "Dealer_Pass_Through_Agreement.pdf");
-
 			AgentToolBoxFormName1.put(TBEssentialsAddendum, "Essentials_Addendum.pdf");
 			AgentToolBoxFormName1.put(TBFloridaDealerAgreementPacket, "Florida_Dealer_Agreement_Packet.pdf");
 			AgentToolBoxFormName1.put(TBLimitedWarrantyDealerAgreement, "Limited_Warranty_Dealer_Agreement.pdf");
 			AgentToolBoxFormName1.put(TBPowertrainProgramAddendum, "Powertrain_Program_Addendum.pdf");
+			
+			LenderToolBoxFormName1.put(TBACHAgreementForm, "ACH_Agreement.pdf");
+			LenderToolBoxFormName1.put(TBAULGAPLenderAgreementPacketForm, "AUL_GAP_Lender_Agreement_Packet.pdf");
+			LenderToolBoxFormName1.put(TBChecklistWithAccountManagementForm,
+					"Checklist_with_Account_Mangement_Form.pdf");
+			LenderToolBoxFormName1.put(TBClassicTrakAncillaryDealerAgreement,
+					"ClassicTrak_Ancillary_Dealer_Agreement.pdf");
+			LenderToolBoxFormName1.put(TBCreditCardRewardsAgreementPacket, "Credit_Card_Rewards_Agreement_Packet.pdf");
+			LenderToolBoxFormName1.put(TBDealerAgreementPacket, "Dealer_Agreement_Packet.pdf");
+			LenderToolBoxFormName1.put(TBDealerPassThroughAgreement, "Dealer_Pass_Through_Agreement.pdf");
+			LenderToolBoxFormName1.put(TBEssentialsAddendum, "Essentials_Addendum.pdf");
+			LenderToolBoxFormName1.put(TBFloridaDealerAgreementPacket, "Florida_Dealer_Agreement_Packet.pdf");
+			LenderToolBoxFormName1.put(TBLimitedWarrantyDealerAgreement, "Limited_Warranty_Dealer_Agreement.pdf");
+			LenderToolBoxFormName1.put(TBPowertrainProgramAddendum, "Powertrain_Program_Addendum.pdf");
+			
+			LenderToolBoxFormName1.put(TBContractCancellationFormPDF, "Contract_Cancellation_Form.pdf");
+			LenderToolBoxFormName1.put(TBContractRemittanceReportPDF, "Contract_Remittance_Report.pdf");
+			LenderToolBoxFormName1.put(TBContractRenewalGuidelinesPDF, "Contract_Renewal_Guidelines.pdf");
+			LenderToolBoxFormName1.put(TBContractTransferFormsPDF, "Contract_Transfer_Form.pdf");
+			LenderToolBoxFormName1.put(TBContractUpgradeFormPDF, "Contract_Upgrade_Form.pdf");
+			LenderToolBoxFormName1.put(TBVehicleInspectionReport, "Vehicle_Inspection_Sheet.pdf");
+			LenderToolBoxFormName1.put(TBServiceDepartmentGuidelinesPDF, "Service_Department_Guidelines.pdf");
+			
 
 			if (roleType == "Agent") {
 
 				RoleTypeToolBox = AgentToolBoxFormName1;
 				setOfKey1 = AgentToolBoxFormName1.keySet();
 
-			} else {
+			} else if (roleType == "Dealer"){
 
 				RoleTypeToolBox = DealerToolBoxFormName1;
 				setOfKey1 = DealerToolBoxFormName1.keySet();
 
+			} else if (roleType == "Lender"){
+
+				RoleTypeToolBox = LenderToolBoxFormName1;
+				setOfKey1 = LenderToolBoxFormName1.keySet();
+
 			}
 
+
+			
 			for (String key1 : setOfKey1) {
 
 				boolean flag = false;
@@ -231,7 +295,7 @@ public class toolBoxAction extends toolBoxpo {
 
 				flag = driver.findElement(By.xpath(key1)).isDisplayed();
 
-				
+				System.out.println("RoleTypeToolBox.get(key1)---"+RoleTypeToolBox.get(key1));
 				Assert.assertEquals(flag, true, RoleTypeToolBox.get(key1) + " is not displayed.");
 
 				if (flag) {
@@ -255,10 +319,11 @@ public class toolBoxAction extends toolBoxpo {
 
 		case "Marketing Material":
 
-			LinkedHashMap<String, String> RoleTypeToolBox2;
+			LinkedHashMap<String, String> RoleTypeToolBox2 = null;;
 
 			LinkedHashMap<String, String> DealerToolBoxFormName2 = new LinkedHashMap<String, String>();
 			LinkedHashMap<String, String> AgentToolBoxFormName2 = new LinkedHashMap<String, String>();
+			LinkedHashMap<String, String> LenderToolBoxFormName2 = new LinkedHashMap<String, String>();
 
 			DealerToolBoxFormName2.put(TBActivationReportAndDashboardJobAidReport,
 					"Activations_Report_and_Dashboard_job_Aid.pdf");
@@ -272,7 +337,7 @@ public class toolBoxAction extends toolBoxpo {
 			DealerToolBoxFormName2.put(TBAUNContractForm, "AUN-E-Contract.pdf");
 			DealerToolBoxFormName2.put(TBES2ContractForm, "ES2-E-Contract.pdf");
 			DealerToolBoxFormName2.put(TBFI2ContractForm, "FI2-E-Contract.pdf");
-			DealerToolBoxFormName2.put(TBLimitedWarrantyForm, "Limited_Warranty_E-Contract.pdf");
+			DealerToolBoxFormName2.put(TBLimitedWarrantyForm1, "Limited_Warranty_E-Contract.pdf");
 			DealerToolBoxFormName2.put(TBNSEContractForm, "NSE-E-Contract.pdf");
 			DealerToolBoxFormName2.put(TBPTPContractForm, "PTP-E-Contract.pdf");
 			DealerToolBoxFormName2.put(TBSNIContractForm, "SNI-E-Contract.pdf");
@@ -294,7 +359,7 @@ public class toolBoxAction extends toolBoxpo {
 			AgentToolBoxFormName2.put(TBAUNContractForm, "AUN-E-Contract.pdf");
 			AgentToolBoxFormName2.put(TBES2ContractForm, "ES2-E-Contract.pdf");
 			AgentToolBoxFormName2.put(TBFI2ContractForm, "FI2-E-Contract.pdf");
-			AgentToolBoxFormName2.put(TBLimitedWarrantyForm, "Limited_Warranty_E-Contract.pdf");
+			AgentToolBoxFormName2.put(TBLimitedWarrantyForm1, "Limited_Warranty_E-Contract.pdf");
 			AgentToolBoxFormName2.put(TBNSEContractForm, "NSE-E-Contract.pdf");
 			AgentToolBoxFormName2.put(TBPTPContractForm, "PTP-E-Contract.pdf");
 			AgentToolBoxFormName2.put(TBSNIContractForm, "SNI-E-Contract.pdf");
@@ -303,18 +368,45 @@ public class toolBoxAction extends toolBoxpo {
 			AgentToolBoxFormName2.put(TBFI2SPContractForm, "FI2_SP_E-Contract.pdf");
 			AgentToolBoxFormName2.put(TBTrademarkLicenseAgreementAndStyleGuide,
 					"Trademark_License_Agreement_and_Style_Guide.pdf");
+			
+			LenderToolBoxFormName2.put(TBActivationReportAndDashboardJobAidReport,
+					"Activations_Report_and_Dashboard_job_Aid.pdf");
+			LenderToolBoxFormName2.put(TBCancellationRmitAndUnremitJobAidReport,
+					"Cancellations_Remit_and_Unremit_Job_Aid.pdf");
+			LenderToolBoxFormName2.put(TBContractSearchJobAidReport, "Contract_Search_Job_Aid.pdf");
+			LenderToolBoxFormName2.put(TBEarlyClaimsJobAidReport, "Early_Claims_Job_Aid.pdf");
+			LenderToolBoxFormName2.put(TBMyAccountStatementAndActurialStatementsJobAidReport,
+					"My_Account_Statement_Actuarial_Statements_Job_Aid.pdf");
+			LenderToolBoxFormName2.put(TBUnpaidContractTrainingManualForm, "Unpaid_Contracts_Training_Manual.pdf");
+			LenderToolBoxFormName2.put(TBAUNContractForm, "AUN-E-Contract.pdf");
+			LenderToolBoxFormName2.put(TBES2ContractForm, "ES2-E-Contract.pdf");
+			LenderToolBoxFormName2.put(TBFI2ContractForm, "FI2-E-Contract.pdf");
+			LenderToolBoxFormName2.put(TBLimitedWarrantyForm1, "Limited_Warranty_E-Contract.pdf");
+			LenderToolBoxFormName2.put(TBNSEContractForm, "NSE-E-Contract.pdf");
+			LenderToolBoxFormName2.put(TBPTPContractForm, "PTP-E-Contract.pdf");
+			LenderToolBoxFormName2.put(TBSNIContractForm, "SNI-E-Contract.pdf");
+			LenderToolBoxFormName2.put(TBSNLContractForm, "SNL-E-Contract.pdf");
+			LenderToolBoxFormName2.put(TBES2SPContractForm, "ES2_SP_E-Contract.pdf");
+			LenderToolBoxFormName2.put(TBFI2SPContractForm, "FI2_SP_E-Contract.pdf");
+			LenderToolBoxFormName2.put(TBTrademarkLicenseAgreementAndStyleGuide,
+					"Trademark_License_Agreement_and_Style_Guide.pdf");
 
 			if (roleType == "Agent") {
 
 				RoleTypeToolBox2 = AgentToolBoxFormName2;
 				setOfKey1 = AgentToolBoxFormName2.keySet();
 
-			} else {
+			} else if(roleType == "Dealer"){
 
 				RoleTypeToolBox2 = DealerToolBoxFormName2;
 				setOfKey1 = DealerToolBoxFormName2.keySet();
 
-			}
+			} else if(roleType == "Lender"){
+
+			RoleTypeToolBox2 = LenderToolBoxFormName2;
+			setOfKey1 = LenderToolBoxFormName2.keySet();
+
+		}
 			
 			for (String key1 : setOfKey1) {
 
@@ -328,7 +420,7 @@ public class toolBoxAction extends toolBoxpo {
 
 				flag = driver.findElement(By.xpath(key1)).isDisplayed();
 
-				
+				System.out.println("RoleTypeToolBox2.get(key1)---"+RoleTypeToolBox2.get(key1));
 				Assert.assertEquals(flag, true, RoleTypeToolBox2.get(key1) + " is not displayed.");
 
 				if (flag) {

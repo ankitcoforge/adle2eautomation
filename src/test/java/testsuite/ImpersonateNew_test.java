@@ -16,6 +16,9 @@ import pageActions.messageSetupAction;
 import pageActions.verticalMenuAction;
 import utils.utilityClass;
 
+/* Divyasree */
+/* Tc's active = 10 , invalid = 4 */
+
 public class ImpersonateNew_test extends impersonateAction{
 	loginAction login = new loginAction();
 	verticalMenuAction verticalMenu = new verticalMenuAction();

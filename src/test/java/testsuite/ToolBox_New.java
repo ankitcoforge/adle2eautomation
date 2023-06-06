@@ -3,25 +3,20 @@ package testsuite;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-import org.apache.commons.io.FileUtils;
 
 import pageActions.loginAction;
 import pageActions.toolBoxAction;
 import pageActions.verticalMenuAction;
 @Listeners(utils.listnerlogs.class)
-public class toolBox_test extends toolBoxAction {
+public class ToolBox_New  extends toolBoxAction {
 
 	loginAction lo = new loginAction();
 	verticalMenuAction vo = new verticalMenuAction();
@@ -41,9 +36,8 @@ public class toolBox_test extends toolBoxAction {
 	@DataProvider(name = "Login_details")
 	public Object[][] loginOnRoleType() {
 
-		return new Object[][] { { prop.getProperty("agentAutomation"), prop.getProperty("password"), "Agent" }};
-		//{ prop.getProperty("dealerAutomation"), prop.getProperty("password"), "Dealer" }
-		//, { "Agent110", "Since1996", "Agent" } , { "Agent110", "Since1996", "Agent" } };
+		return new Object[][] { { prop.getProperty("lenderAutomation"), prop.getProperty("password"), "Lender" }};
+		//,{ prop.getProperty("agentAutomation"), prop.getProperty("password"), "Agent" },{prop.getProperty("lenderAutomation"), prop.getProperty("password"), "Lender" }};
 	}
 
 	@Test(priority = 1, dataProvider = "Login_details")
@@ -51,7 +45,7 @@ public class toolBox_test extends toolBoxAction {
 
 		lo.login(username, password);
 
-		List<String> formsTab;
+		List<String> formsTab = null;
 
 		vo.navigatetoLeftMenu("Toolbox");
 
@@ -72,7 +66,7 @@ public class toolBox_test extends toolBoxAction {
 
 			formsTab = AgentformsTab;
 
-		} else {
+		} else if(roleType == "Dealer"){
 
 			List<String> DealerformsTab = new ArrayList<String>();
 
@@ -82,6 +76,15 @@ public class toolBox_test extends toolBoxAction {
 			DealerformsTab.add(TBPaymentPlanPartnersTab);
 
 			formsTab = DealerformsTab;
+			
+		}else if(roleType == "Lender") {
+			List<String> lenderformsTab = new ArrayList<String>();
+
+			lenderformsTab.add(TBLenderTab);
+			lenderformsTab.add(TBFormsLibraryTab);
+			lenderformsTab.add(TBMarketingMaterialTab);
+
+			formsTab = lenderformsTab;
 		}
 
 			int sizeForm = formsTab.size();
@@ -95,10 +98,25 @@ public class toolBox_test extends toolBoxAction {
 				if (element.isDisplayed()) {
 
 					String FormName = driver.findElement(By.xpath(formsTab.get(i))).getText();
+					System.out.println("FormNames-----"+FormName);
 
 					switch (FormName) {
 
 					case "Dealer Toolbox":
+
+						clickAction(formsTab.get(i));
+						verifyForms(formsTab.get(i), roleType);
+
+						break;
+						
+					case "Agent Toolbox":
+
+						clickAction(formsTab.get(i));
+						verifyForms(formsTab.get(i), roleType);
+
+						break;
+						
+					case "Lender Company Toolbox":
 
 						clickAction(formsTab.get(i));
 						verifyForms(formsTab.get(i), roleType);
@@ -131,11 +149,15 @@ public class toolBox_test extends toolBoxAction {
 			}
 		
 		sleepWaitFunction(4000);
-
-		lo.logout();
+try {
+		lo.logout();}
+catch (Exception e) {
+	
+}
 
 	}
 
 
 
 }
+

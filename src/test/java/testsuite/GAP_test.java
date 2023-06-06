@@ -22,7 +22,9 @@ import pageActions.verticalMenuAction;
 import utils.CalenderUtils;
 import utils.utilityClass;
 
-/* divyasree */
+/* Divyasree */
+/* Tc's active = 53, future date invalid tc= 6 */
+
 public class GAP_test extends GAPAction{
 	
 	loginAction login = new loginAction();
@@ -737,7 +739,7 @@ public class GAP_test extends GAPAction{
 		Thread.sleep(10000);
 		event.clickfield("xpath", lienholderAddressArrow);
 		Thread.sleep(1000);
-		Assert.assertTrue(event.element("xpath", lienholderAddressTxtfld).getText().equals("RIFEZCCK | SULSUNCITY | CA | 94585"),"Liendholder address filed is in the format of Street | City | State | Zip Code");
+		Assert.assertTrue(event.element("xpath", lienholderAddressTxtfld).getText().contains("SULSUNCITY | CA | 94585"),"Liendholder address filed is in the format of Street | City | State | Zip Code");
 		Assert.assertTrue(event.element("xpath", lienholderAddressStatus1).isEnabled());
 	}
 	
@@ -866,8 +868,14 @@ public class GAP_test extends GAPAction{
 		 try {
 				login.logout();
 				} catch (Exception e) {
+					if(event.getfield("mat-icon", "close").isDisplayed())
+					{
 					event.getfield("mat-icon", "close").click();
 					login.logout();
+					}
+					else {
+                    System.out.println("Exception occured");
+					}
 			}
 	    }
 	

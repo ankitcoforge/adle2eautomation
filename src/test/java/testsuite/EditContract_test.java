@@ -23,6 +23,8 @@ import pageActions.singleContractAction;
 import pageActions.verticalMenuAction;
 import utils.utilityClass;
 
+/* Divyasree */
+/* Total Tc's = 83 */
 public class EditContract_test extends EditContractAction {
 
 	loginAction login = new loginAction();
@@ -1636,28 +1638,20 @@ public class EditContract_test extends EditContractAction {
 	public void verifyCobuyerSectionWithoutFirstName_15638() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		verticalMenu.navigatetoContract();
+		String contractNum = cobuyerContract.coBuyerContract();
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
 		utils.scrollDown();
-		HashMap<Integer, HashMap<String, String>> allTableData = contractSearchPage.checkGridBodyDetails();
-		contractSearchPage.getSelectStatus().click();
-		contractSearchPage.getEnteredStatusChkbox().click();
-		String contractNumber = allTableData.get(1).get("Contract");
-		utils.scrollDown();
-		contractSearchPage.getSearchBoxesInGrid().get("Contract").sendKeys(contractNumber);
+		contractSearchPage.getSearchBoxesInGrid().get("Contract").sendKeys(contractNum);
 		Thread.sleep(1000);
-		HashMap<Integer, HashMap<String, String>> allTableData2 = contractSearchPage.checkGridBodyDetails();
-		String contractNumber2 = allTableData2.get(1).get("Contract");
-		if (contractNumber.equals(contractNumber2)) {
-			contractSearchPage.selectStatusCheckBoxInGrid(1).click();
-			contractSearchPage.getEditLink(1).click();
-		}
+		contractSearchPage.selectStatusCheckBoxInGrid(1).click();
+		contractSearchPage.getEditLink(1).click();
 		Assert.assertTrue(getEditContractPagetitle().isDisplayed());
 		Thread.sleep(2000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("arguments[0].scrollIntoView()", getCobuyerChkbox());
-		getCoBuyerChkboxField().click();
 		String zipCode = "20103";
 		getCoustomerInfoFields().get(10).clear();
 		getCoustomerInfoFields().get(10).sendKeys(zipCode);

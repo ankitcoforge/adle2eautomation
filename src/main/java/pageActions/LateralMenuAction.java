@@ -5,10 +5,7 @@ import java.net.MalformedURLException;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import pageObjects.LateralMenupo;
@@ -17,6 +14,10 @@ import utils.utilityClass;
 public class LateralMenuAction extends LateralMenupo{
 	
 	utilityClass utils = new utilityClass();
+	loginAction login = new loginAction();
+	verticalMenuAction verticalMenu = new verticalMenuAction();
+	impersonateAction impersonate = new impersonateAction ();
+	PermissionsAction permissions=new PermissionsAction();
 	
 	 public WebElement getTitle() {
 		 WebElement welcomeTitle=driver.findElement(By.xpath(title));	
@@ -135,6 +136,90 @@ public class LateralMenuAction extends LateralMenupo{
 			WebElement ele = utils.getfield("h4", subheading);
             return ele;
 		}
+		
+		public void getDefaultpermissionForDealerEmp() throws InterruptedException {
+			login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
+			Thread.sleep(3000);
+			verticalMenu.navigatetoLeftMenu("My Settings", "Issue New User Registration");
+			Thread.sleep(2000);
+			Assert.assertTrue(utils.getTitle("Issue New User Registration").isDisplayed());
+			String dealerEmp = prop.getProperty("dealerempAutomation");
+			utils.inputfield("cssselector", permissions.txtFieldNewUserRegistration, dealerEmp);
+			Thread.sleep(2000);
+			utils.clickfield("xpath", permissions.editBtn);
+			Thread.sleep(1000);
+			utils.clickfield("xpath", permissions.permissionsDropdownInPopup);
+			//permissions.getPermissionListInPopup().get(12).click();
+			if (permissions.getSelectAllCheckBoxInPopup().getAttribute("aria-checked").equals("false")) {
+				permissions.getSelectAllCheckBoxInPopup().click();
+			}
+			utils.clickfield("xpath", permissions.saveBtn);
+			Thread.sleep(5000);
+			login.logout();
+			Thread.sleep(10000);
+		}
+public void getDefaultpermissionForsubAgent() throws InterruptedException {
+	login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
+	Thread.sleep(3000);
+	verticalMenu.navigatetoLeftMenu("Agency Settings", "Manage Users");
+	Thread.sleep(2000);
+	String subAgent = prop.getProperty("subagentAutomation");
+	utils.inputfield("cssselector", permissions.txtFieldNewUserRegistration, subAgent);
+	Thread.sleep(2000);
+	utils.clickfield("xpath", permissions.editBtn);
+	Thread.sleep(1000);
+	utils.clickfield("xpath", permissions.permissionsDropdownInAgentPopup);
+	if (permissions.getSelectAllCheckBoxInPopup().getAttribute("aria-checked").equals("false")) {
+		permissions.getSelectAllCheckBoxInPopup().click();
+	}
+	Assert.assertTrue((permissions.getSelectAllCheckBoxInPopup().getAttribute("aria-checked").equals("true")));
+	utils.clickfield("xpath", permissions.saveBtn);
+	Thread.sleep(5000);
+	login.logout();
+	Thread.sleep(10000);
+	
+			
+		}
+public void getDefaultpermissionForLenderEmp() throws InterruptedException {
+	login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
+	Thread.sleep(3000);
+	verticalMenu.navigatetoLeftMenu("Lender Settings", "Manage Agency Users");
+	Thread.sleep(2000);
+	String lenderEmp = prop.getProperty("lenderempAutomation");
+	utils.inputfield("cssselector", permissions.txtFieldNewUserRegistration, lenderEmp);
+	Thread.sleep(5000);
+	utils.clickfield("xpath", permissions.editBtn);
+	Thread.sleep(2000);
+	utils.clickfield("xpath", permissions.permissionsDropdownInAgentPopup);
+	permissions.getPermissionListInPopup().get(12).click();
+	if (permissions.getSelectAllCheckBoxInPopup().getAttribute("aria-checked").equals("false")) {
+		permissions.getSelectAllCheckBoxInPopup().click();
+	}
+	utils.clickfield("xpath", permissions.updateBtn);
+	Thread.sleep(5000);
+	login.logout();
+	Thread.sleep(5000);
+}
+public void getDefaultpermissionForDealerGrpEmp() throws InterruptedException {
+	login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
+	Thread.sleep(3000);
+	verticalMenu.navigatetoLeftMenu("My Settings", "Issue New User Registration");
+	Thread.sleep(2000);
+	String dealergrpempAutomation = prop.getProperty("dealergrpempAutomation");
+	utils.inputfield("cssselector", permissions.txtFieldNewUserRegistration, dealergrpempAutomation);
+	Thread.sleep(2000);
+	utils.clickfield("xpath", permissions.editBtn);
+	Thread.sleep(2000);
+	utils.clickfield("xpath", permissions.permissionsDropdownInAgentPopup);
+	permissions.getPermissionListInPopup().get(12).click();
+	if (permissions.getSelectAllCheckBoxInPopup().getAttribute("aria-checked").equals("false")) {
+		permissions.getSelectAllCheckBoxInPopup().click();
+	}
+	utils.clickfield("xpath", permissions.saveBtn);
+	Thread.sleep(5000);
+	login.logout();
+	Thread.sleep(5000);
+}
 		
 		
 }

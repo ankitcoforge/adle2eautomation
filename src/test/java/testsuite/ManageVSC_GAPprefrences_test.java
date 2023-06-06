@@ -38,6 +38,8 @@ import utils.CalenderUtils;
 import utils.utilityClass;
 
 /* divyasree - PBI No- 27421 */
+/* Tc's active = 41, future date invalid tc= 1 */
+
 public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction {
 
 	loginAction login = new loginAction();
@@ -121,23 +123,24 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 		getSearchBoxesWithArrowSelection().get("S&G").click();
 		String status = "ON";
 		getStatus(status).click();
+		Thread.sleep(1000);
 		getSearchBoxesWithArrowSelection().get("S&G").click();
 		String sg = allTableDataTxt.get(1).get("S&G");
 		Assert.assertTrue(sg.contains(status));
 		// clearing the field
-		getSearchBoxesWithArrowSelection().get("S&G").click();
-		getStatus(status).click();
-		getSearchBoxesWithArrowSelection().get("S&G").click();
+//		getSearchBoxesWithArrowSelection().get("S&G").click();
+//		getStatus(status).click();
+//		getSearchBoxesWithArrowSelection().get("S&G").click();
 
 		getSearchBoxesWithArrowSelection().get("Warranty Remaining").click();
 		getStatus(status).click();
 		getSearchBoxesWithArrowSelection().get("Warranty Remaining").click();
 		String warrantyRemaining = allTableDataTxt.get(1).get("Warranty Remaining");
 		Assert.assertTrue(warrantyRemaining.contains(status));
-		// clearing the field
-		getSearchBoxesWithArrowSelection().get("Warranty Remaining").click();
-		getStatus(status).click();
-		getSearchBoxesWithArrowSelection().get("Warranty Remaining").click();
+//		// clearing the field
+//		getSearchBoxesWithArrowSelection().get("Warranty Remaining").click();
+//		getStatus(status).click();
+//		getSearchBoxesWithArrowSelection().get("Warranty Remaining").click();
 
 		getSearchBoxesWithArrowSelection().get("Lift Kit").click();
 		String statusOFF="OFF";
@@ -149,9 +152,9 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 		Assert.assertTrue(liftKit.contains(statusOFF));
 		Thread.sleep(2000);
 		// clearing the field
-		getSearchBoxesWithArrowSelection().get("Lift Kit").click();
-		getStatus(statusOFF).click();
-		getSearchBoxesWithArrowSelection().get("Lift Kit").click();
+//		getSearchBoxesWithArrowSelection().get("Lift Kit").click();
+//		getStatus(statusOFF).click();
+//		getSearchBoxesWithArrowSelection().get("Lift Kit").click();
 
 		String modifiedBy = allTableDataTxt.get(1).get("Modified By");
 		getSearchBoxModifiedBy().get("Modified By").sendKeys(modifiedBy);

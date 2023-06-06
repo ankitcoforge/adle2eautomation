@@ -24,6 +24,7 @@ import utils.CalenderUtils;
 import utils.utilityClass;
 
 /* PBI NO - 30926 -Divyasree */
+/* Total Tc's = 8 */
 public class UpsellTest extends UpsellAction {
 	loginAction login = new loginAction();
 	verticalMenuAction verticalMenu = new verticalMenuAction();
@@ -177,6 +178,14 @@ public class UpsellTest extends UpsellAction {
 	
 	@AfterMethod(alwaysRun = true)
 	public void close() throws InterruptedException {
-		login.logout();
-	}
+		 try {
+				login.logout();
+				} catch (Exception e) {
+					if(utils.getfield("mat-icon", "close").isDisplayed()) {
+					utils.getfield("mat-icon", "close").click();
+					}
+					login.logout();
+			}
+	    }
+
 }

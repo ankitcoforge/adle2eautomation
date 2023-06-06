@@ -74,7 +74,7 @@ public class EmployeePacksAction extends EmployeePackspo{
 		 utils.clickfield("xpath", selectDealerNamearrow);
 		 List<WebElement> list = getDriver().findElements(By.xpath(selectDealerNameDropdownList));
 		 
-	    for(int i=1;i<list.size();i++) {
+	    for(int i=0;i<list.size();i++) {
 		String text = list.get(i).getText();
 		System.out.println("Progms list is--"+text);
 		if(text.equals(dealer))
