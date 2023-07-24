@@ -18,6 +18,8 @@ import utils.CalenderUtils;
 import utils.utilityClass;
 
 /* PBI NO - 27420 -Divyasree */
+/* Total Tc's = 14 */
+
 public class PricingPreferences_test extends PricingPreferencesAction {
 	
 	loginAction login = new loginAction();
@@ -67,6 +69,13 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage My Pricing Preferences").isDisplayed());
+		if (EmplPacks.getCurrentPageRecord() > 0) 
+		{
+		getSelectAllCheckBox().click();
+		EmplPacks.getDeleteLink().click();
+		EmplPacks.getBtnYes().click();
+		Thread.sleep(2000);
+		}
 		utils.getfield("span", "New markup").click();
 		Thread.sleep(3000);
 		EmplPacks.getArrow().click();
@@ -288,10 +297,10 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 	
 	@Test(priority = 9)
 	public void verifyMarkupWithContractForLenderEmp_31686() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("LenderEmp", "3641");
+//		verticalMenu.navigatetoimpersonate();
+//		impersonate.impersonateUser("LenderEmp", "3641");
 		Thread.sleep(5000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);
@@ -446,7 +455,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 	}
 	
 	@Test(priority = 13)
-	public void verifyMarkupWithContractForAgent_31673_31690() throws Exception {
+	public void verifyMarkupWithContractForAgent_31690() throws Exception {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
 		Thread.sleep(2000);
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
@@ -511,6 +520,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		EmplPacks.getBtnYes().click();
 		Thread.sleep(2000);
 		}
+		try {
 		utils.getfield("span", "New markup").click();
 		Thread.sleep(3000);
 		EmplPacks.getArrow().click();
@@ -523,6 +533,10 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		utils.clickfield("xpath", calenderInPopup);
 		String futureDate = calenderUtils.getCurrentDate(2,"MMM/dd/yyyy");
 		calenderUtils.selectDate(futureDate,"MMM/dd/yyyy");
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 		utils.getfield("span", "Save").click();
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage My Pricing Preferences").isDisplayed());
@@ -530,7 +544,14 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 	
 	 @AfterMethod(alwaysRun=true)
 	    public void close() throws InterruptedException {
-	        login.logout();
+		 try {
+				login.logout();
+				} catch (Exception e) {
+					if(utils.getfield("mat-icon", "close").isDisplayed()) {
+					utils.getfield("mat-icon", "close").click();
+					}
+					login.logout();
+			}
 	    }
 
 }

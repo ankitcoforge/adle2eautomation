@@ -16,6 +16,9 @@ import pageActions.messageSetupAction;
 import pageActions.verticalMenuAction;
 import utils.utilityClass;
 
+/* Divyasree */
+/* Tc's active = 10 , invalid = 4 */
+
 public class ImpersonateNew_test extends impersonateAction{
 	loginAction login = new loginAction();
 	verticalMenuAction verticalMenu = new verticalMenuAction();
@@ -125,7 +128,7 @@ public class ImpersonateNew_test extends impersonateAction{
 	}
 	
 	@Test(priority = 9)
-	public void verify() throws Exception {
+	public void verifyImpersonatedIdsThroughAgent_31628() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 		verticalMenu.navigatetoimpersonate();
@@ -140,106 +143,100 @@ public class ImpersonateNew_test extends impersonateAction{
 	
 	
 	//impersonate action discussed with ankit
-	@Test(priority = 10)
-	public void verifyLockedFunctionality_31629() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
-		verticalMenu.navigatetoimpersonate();
-		impersonate.getUsers("Agent", "110");
-		Thread.sleep(2000);
-		HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
-		 HashMap<Integer, HashMap<String, WebElement>> tableDataForEditDelLock = checkGridForEditDelLock();
-		//System.out.println("status-----------"+allTableData.get(3).get("Registration Status"));
-		for(int i=1;i<getRows().size();i++){
-		if(allTableData.get(i).get("Registration Status").equals("Completed"))
-		{
-			tableDataForEditDelLock.get(i).get("Locked Out").click();
-			Thread.sleep(2000);
-			getBtnYes().click();
-			Thread.sleep(2000);
-			//Assert.assertTrue(tableDataForEditDelLock.get(i).get("Impersonate").isEnabled());
-			
-			tableDataForEditDelLock.get(i).get("Locked Out").click();
-			Thread.sleep(2000);
-			//Assert.assertFalse(tableDataForEditDelLock.get(i).get("Impersonate").isEnabled());
-			break;
-		}
-		}
-	}
+//	@Test(priority = 10)
+//	public void verifyLockedFunctionality_31629() throws Exception {
+//		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+//		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+//		verticalMenu.navigatetoimpersonate();
+//		impersonate.getUsers("Agent", "110");
+//		Thread.sleep(2000);
+//		HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
+//		 HashMap<Integer, HashMap<String, WebElement>> tableDataForEditDelLock = checkGridForEditDelLock();
+//		//System.out.println("status-----------"+allTableData.get(3).get("Registration Status"));
+//		for(int i=1;i<getRows().size();i++){
+//		if(allTableData.get(i).get("Registration Status").equals("Completed"))
+//		{
+//			tableDataForEditDelLock.get(i).get("Locked Out").click();
+//			Thread.sleep(2000);
+//			getBtnYes().click();
+//			Thread.sleep(3000);
+//			//Assert.assertTrue(tableDataForEditDelLock.get(i).get("Impersonate").isEnabled());
+//			tableDataForEditDelLock.get(i).get("Locked Out").click();
+//			Thread.sleep(2000);
+//			//Assert.assertFalse(tableDataForEditDelLock.get(i).get("Impersonate").isEnabled());
+//			break;
+//		}
+//		}
+//	}
 	
+	// can't be done now-discussed with ankit
+//	@Test(priority = 11)
+//	public void verifyEditFunctionality_31630() throws Exception {
+//		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+//		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+//		verticalMenu.navigatetoimpersonate();
+//		impersonate.getUsers("Agent", "110");
+//		Thread.sleep(2000);
+//		HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
+//		 HashMap<Integer, HashMap<String, WebElement>> tableDataForEditDelLock = checkGridForEditDelLock();
+//		 for(int i=1;i<getRows().size();i++){
+//		 if(allTableData.get(i).get("Registration Status").equals("Completed"))
+//			{
+//				tableDataForEditDelLock.get(i).get("Edit").click();
+//				Thread.sleep(2000);
+//				Assert.assertTrue(getRoletype().isDisplayed());
+//				Assert.assertTrue(getUserName().isDisplayed());
+//				Assert.assertTrue(getAccountName().isDisplayed());
+//				getEmail().clear();
+//				getEmail().sendKeys("Divyasree.T@coforge.com");
+//				getBtnUpdate().click();
+//				Thread.sleep(2000);
+//				 break;
+//			}
+//		
+//		 }
+//	}
 	
-	@Test(priority = 11)
-	public void verifyEditFunctionality_31630() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
-		verticalMenu.navigatetoimpersonate();
-		impersonate.getUsers("Agent", "110");
-		Thread.sleep(2000);
-		HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
-		 HashMap<Integer, HashMap<String, WebElement>> tableDataForEditDelLock = checkGridForEditDelLock();
-		 for(int i=1;i<getRows().size();i++){
-		 if(allTableData.get(i).get("Registration Status").equals("Completed"))
-			{
-				tableDataForEditDelLock.get(i).get("Edit").click();
-				Thread.sleep(2000);
-				Assert.assertTrue(getRoletype().isDisplayed());
-				Assert.assertTrue(getUserName().isDisplayed());
-				Assert.assertTrue(getAccountName().isDisplayed());
-				getFirstname().clear();
-				String firstnameEdited="abc";
-				getFirstname().sendKeys(firstname);
-				getLastname().clear();
-				getLastname().sendKeys("xyz");
-				getEmail().clear();
-				getEmail().sendKeys("Divyasree.T@coforge.com");
-				getBtnUpdate().click();
-				Thread.sleep(2000);
-				Assert.assertTrue((allTableData.get(i).get("First Name")).equals(firstnameEdited));
-				 break;
-			}
-		
-		 }
-	}
+	// can't be done now-discussed with ankit
+//	@Test(priority = 12)
+//	public void verifyDeleteFunctionality_31631() throws Exception {
+//		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+//		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+//		verticalMenu.navigatetoimpersonate();
+//		impersonate.getUsers("Agent", "110");
+//		Thread.sleep(2000);
+//		HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
+//		 HashMap<Integer, HashMap<String, WebElement>> tableDataForEditDelLock = checkGridForEditDelLock();
+//		 for(int i=1;i<getRows().size();i++){
+//		 if(allTableData.get(i).get("Registration Status").equals("Completed"))
+//			{
+//				tableDataForEditDelLock.get(i).get("Delete").click();
+//				getBtnYes().click();
+//				break;
+//			}
+//		 }
+//	}
 	
-	//create a user to delete if require
-	@Test(priority = 12)
-	public void verifyDeleteFunctionality_31631() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
-		verticalMenu.navigatetoimpersonate();
-		impersonate.getUsers("Agent", "110");
-		Thread.sleep(2000);
-		HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
-		 HashMap<Integer, HashMap<String, WebElement>> tableDataForEditDelLock = checkGridForEditDelLock();
-		 for(int i=1;i<getRows().size();i++){
-		 if(allTableData.get(i).get("Registration Status").equals("Completed"))
-			{
-				tableDataForEditDelLock.get(i).get("Delete").click();
-				getBtnYes().click();
-			}
-		 }
-	}
-	
-	@Test(priority = 13)
-	public void verifyResendInvitationLink_31632() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
-		verticalMenu.navigatetoimpersonate();
-		impersonate.getUsers("Agent", "11"
-				+ "0");
-		Thread.sleep(2000);
-		HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
-		 HashMap<Integer, HashMap<String, WebElement>> tableDataForEditDelLock = checkGridForEditDelLock();
-		 for(int i=1;i<getRows().size();i++){
-		 if(allTableData.get(i).get("Registration Status").equals("Pending"))
-			{
-				tableDataForEditDelLock.get(i).get("Resend Invitation").click();
-				getBtnSubmit().click();
-				Assert.assertTrue(getResendInvitationConfirmMsg().isDisplayed());
-				break;
-			}
-		 }
-	}
+	// can't be done now-discussed with ankit
+//	@Test(priority = 13)
+//	public void verifyResendInvitationLink_31632() throws Exception {
+//		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+//		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+//		verticalMenu.navigatetoimpersonate();
+//		impersonate.getUsers("Agent", "110");
+//		Thread.sleep(2000);
+//		HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
+//		 HashMap<Integer, HashMap<String, WebElement>> tableDataForEditDelLock = checkGridForEditDelLock();
+//		 for(int i=1;i<getRows().size();i++){
+//		 if(allTableData.get(i).get("Registration Status").equals("Pending"))
+//			{
+//				tableDataForEditDelLock.get(i).get("Resend Invitation").click();
+//				getBtnSubmit().click();
+//				Assert.assertTrue(getResendInvitationConfirmMsg().isDisplayed());
+//				break;
+//			}
+//		 }
+//	}
 	
 	@Test(priority = 14)
 	public void verifyImpersonateFunctionality_31633() throws Exception {
@@ -247,13 +244,18 @@ public class ImpersonateNew_test extends impersonateAction{
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Agent", "110");
-		Assert.assertTrue(impersonate.getImpersonatedPageRoledID().equals("110"),"Impersonated Successfully");
+		Assert.assertTrue(impersonate.getImpersonatedPageRoledID1().equals("110"),"Impersonated Successfully");
 	}
 	
 	
 	 @AfterMethod(alwaysRun=true)
 	    public void close() throws InterruptedException {
-	        login.logout();
+		 try {
+				login.logout();
+				} catch (Exception e) {
+					utils.getfield("mat-icon", "close").click();
+					login.logout();
+			}
 	    }
 
 

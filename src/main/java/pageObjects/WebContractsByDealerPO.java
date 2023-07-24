@@ -7,7 +7,7 @@ public class WebContractsByDealerPO extends baseClass{
 	public String WebContractstitle = "//h3[text()='Web Contracts by Dealer']";
 	public String adminRoleId="//span[text()='AULadmin2']";
 	public String rowsPerPage="p-paginator>div>p-dropdown>div";
-	public String rowsPerPageDropdownbtn="//p-dropdown//div[@role='button']";
+	public String rowsPerPageDropdownbtn="//p-dropdown//div[@role='button']/span";
 	public String rowsPerPageDropdownlist="ul> p-dropdownitem>li>span";
 	public String rowsPerPageSelected="p-paginator>div>p-dropdown>div>div:nth-of-type(2)>span";
 	public String reportsDropdownlist="ul>mat-nested-tree-node>li";

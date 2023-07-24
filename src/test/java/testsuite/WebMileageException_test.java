@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import pageActions.EmployeePacksAction;
@@ -23,6 +24,7 @@ import utils.CalenderUtils;
 import utils.utilityClass;
 
 /* 30505 Divyasree */
+/* Total Tc's = 31 */
 
 public class WebMileageException_test extends WebMileageExceptionAction{
 
@@ -37,7 +39,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	CalenderUtils calenderUtils= new CalenderUtils();
 	
 
-	@BeforeClass(alwaysRun = true)
+	@BeforeMethod(alwaysRun = true)
 	public void login() throws InterruptedException {
 		navigate();
 		Assert.assertEquals(login.getTitle(), "AUL Corp.");
@@ -347,6 +349,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 		getBtnCancel().click();
 	}
 	
+	//bug
 	@Test(priority = 9)
 	public void verifyExceptionWithDealerEmplContract_31391() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
@@ -368,7 +371,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 		}
 		getNewExceptionBtn().click();
 		selectProgramAndentertMileage("Essentials", "100", "1000");
-		entertAge("0", "10");
+		entertAge("0", "30");
 		getBtnSave().click();
 		Thread.sleep(2000);
 		
@@ -477,17 +480,17 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 			Thread.sleep(2000);
 		}
 		getNewExceptionBtn().click();
-		selectProgramAndentertMileage("Essentials", "100", "1000");
+		selectProgramAndentertMileage("Essentials", "0", "0");
 		entertAge("0", "10");
 		getBtnSave().click();
-		Thread.sleep(4000);
+		Thread.sleep(10000);
 		
 		verticalMenu.navigatetoLeftMenu("Impersonate");
 		impersonate.impersonateUser("Dealer", dealerId);
 		Thread.sleep(5000);
 
 		verticalMenu.navigatetoContract();
-		getProducts("3VWSB81H8WM210368","101");
+		getProducts("5FNRL6H27NB019645","0");
 		getPrograms("Essentials");
 	}
 
@@ -640,7 +643,12 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 
 	@AfterMethod(alwaysRun = true)
 	public void close() throws InterruptedException {
+		try {
 		login.logout();
+		}
+		catch (Exception e) {
+			
+		}
 	}
 
 	

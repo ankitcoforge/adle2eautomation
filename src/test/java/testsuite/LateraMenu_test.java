@@ -20,6 +20,8 @@ import pageActions.verticalMenuAction;
 import pageObjects.impersonatepo;
 import utils.utilityClass;
 
+/* divyasree */
+/* Ignore---lateral menu test cases are updated as vertical menu testcases */
 public class LateraMenu_test extends LateralMenuAction {
 	
 	loginAction login = new loginAction();

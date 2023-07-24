@@ -28,7 +28,7 @@ public class cobuyerContractAction extends contractpo{
 		event.inputfield("cssSelector", textbox, "1234", 5);
 		event.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 6);
 		event.clickfield("cssSelector", ".actions__submit >button");
-		co.programSelect("Limited Warranty - OCW");
+		co.programSelect("Limited Warranty");
 		event.clickfield("cssSelector", table, 0);
 		event.inputfield("cssSelector", contract, "10000", 0);
 		contractNumber = driver.findElement(By.cssSelector(contractNo)).getDomProperty("value");
@@ -92,7 +92,7 @@ public class cobuyerContractAction extends contractpo{
 		event.inputfield("cssSelector", textbox, "1234", 5);
 		event.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 6);
 		event.clickfield("cssSelector", ".actions__submit >button");
-		co.programSelect("Limited Warranty - OCW");
+		co.programSelect("Limited Warranty");
 		event.clickfield("cssSelector", table, 0);
 		event.inputfield("cssSelector", contract, "10000", 0);
 		contractNumber = driver.findElement(By.cssSelector(contractNo)).getDomProperty("value");

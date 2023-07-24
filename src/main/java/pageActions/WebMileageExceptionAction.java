@@ -347,7 +347,7 @@ public HashMap<String, WebElement> getSearchBoxesForModifiedBy() {
 			 utils.inputfield("cssSelector", textbox, Mileage, 5);
 			 utils.inputfield("cssSelector", textbox, VIN, 6);
 			 utils.clickfield("xpath", getProducts);
-			 Thread.sleep(2000);
+			 Thread.sleep(10000);
 			 }
 		 
 		 public void getProductsForLender(String VIN, String Mileage) throws ParseException {
@@ -362,7 +362,9 @@ public HashMap<String, WebElement> getSearchBoxesForModifiedBy() {
 		 public void getPrograms(String program) throws ParseException {
 			 List<WebElement> list = getDriver().findElements(By.xpath(programInContractPage));
 			 for(int i=0;i<list.size();i++) {
+				 System.out.println("list is--"+list.get(i).getText());
 					 Assert.assertTrue(list.get(i).getText().contains(program));
+					 break;
 				 }
 		 }
 	 

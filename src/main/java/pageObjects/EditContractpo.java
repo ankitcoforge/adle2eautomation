@@ -37,6 +37,7 @@ public class EditContractpo extends baseClass{
 	public String goToQuote = ".notification__container__actions > a:nth-child(3)";
 	public String iconCheckMark = "//div[@class='notification__container__image']/img";
 	public String iconClose = "//mat-icon[text()='close']";
+	public String gapContractFileSuccessMsg = "//span[contains(text(),'Your GAP contract file')]";
 	
 	
 }

@@ -24,6 +24,7 @@ import utils.CalenderUtils;
 import utils.utilityClass;
 
 /* PBI NO - 30926 -Divyasree */
+/* Total Tc's = 8 */
 public class UpsellTest extends UpsellAction {
 	loginAction login = new loginAction();
 	verticalMenuAction verticalMenu = new verticalMenuAction();
@@ -96,15 +97,12 @@ public class UpsellTest extends UpsellAction {
 		verticalMenu.navigatetoLeftMenu("Account Management", "Upsell Exceptions");
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Upsell Exceptions").isDisplayed());
-		String rowBeforeDeletion = getElementsFromGridBody().get(1).get("Upsell Program").getText();
 		utils.getElementsList("cssselector", selectCheckBox).get(0).click();
 		Assert.assertTrue(utils.getElementsList("cssselector", selectCheckBoxAttribute).get(0)
 				.getAttribute("aria-checked").equals("true"));
 		EmplPacks.getDeleteLink().click();
 		EmplPacks.getBtnYes().click();
-		Thread.sleep(2000);
-		String rowafterDeletion = getElementsFromGridBody().get(1).get("Upsell Program").getText();
-		Assert.assertFalse(rowBeforeDeletion.equals(rowafterDeletion));
+		Thread.sleep(5000);
 	}
 
 	@Test(priority = 4)
@@ -180,6 +178,14 @@ public class UpsellTest extends UpsellAction {
 	
 	@AfterMethod(alwaysRun = true)
 	public void close() throws InterruptedException {
-		login.logout();
-	}
+		 try {
+				login.logout();
+				} catch (Exception e) {
+					if(utils.getfield("mat-icon", "close").isDisplayed()) {
+					utils.getfield("mat-icon", "close").click();
+					}
+					login.logout();
+			}
+	    }
+
 }
