@@ -291,6 +291,7 @@ public class EmployeePacksAction extends EmployeePackspo{
 	 
 	 public Integer getVehiclePrice(String vehicleProgram) throws ParseException {
 		 utils.inputfield("cssSelector", textbox, "Single", 0);
+		 //utils.getfield("cssSelector", "textbox").clear();
 		 utils.inputfield("cssSelector", textbox, "Test", 1);
 		 utils.inputfield("cssSelector", textbox, randomizer.getMilage(), 5);
 		 utils.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 6);

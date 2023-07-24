@@ -53,6 +53,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Mileage & Age Exceptions").isDisplayed());
+		Thread.sleep(2000);
 		enterRoleAndRoleID("Dealer","#1 Auto Liquidators LLC (85860)");
 		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
 			System.out.println("Exceptions are present");

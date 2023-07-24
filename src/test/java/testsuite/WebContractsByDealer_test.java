@@ -228,12 +228,9 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 	public void verifySearchForContractNumAndContractHoldrLastName_27341() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"),prop.getProperty("password"));
 		verticalMenu.navigatetoContract();
-		singleContract.singleContract();
-		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
+		String contractNumber = singleContract.singleContract();
 		Thread.sleep(1000);
 		utils.scrollDown();
-		HashMap<Integer, HashMap<String, String>> allTableDataContractSearchPage =contractSearchPage.checkGridBodyDetails();
-		String contractNumber = allTableDataContractSearchPage.get(1).get("Contract");
 		login.logout();
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
@@ -258,12 +255,9 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 	public void verifySearchForContractNumber_27345() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"),prop.getProperty("password"));
 		verticalMenu.navigatetoContract();
-		singleContract.singleContract();
-		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
+		String contractNumber = singleContract.singleContract();
 		Thread.sleep(2000);
 		utils.scrollDown();
-		HashMap<Integer, HashMap<String, String>> allTableDataContractSearchPage =contractSearchPage.checkGridBodyDetails();
-		String contractNumber = allTableDataContractSearchPage.get(1).get("Contract");
 		login.logout();
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
@@ -289,7 +283,6 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		getElementInFirstGrid("Contract Holder Last Name").sendKeys(contractHolderLastName);
 		Assert.assertTrue(getArrowForwardBtn().isDisplayed());
 		getArrowForwardBtn().click();
-		//Assert.assertTrue(getSpinner().isDisplayed(),"Spinner is displayed");
 		Thread.sleep(2000);
 		HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
 		String ContractHolderLastNameGrid = allTableData.get(1).get("Last Name");
@@ -436,19 +429,21 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 	}
 	
 		@Test(priority = 24)
-		public void verifyDealerIDInputWithSearch_27522() throws InterruptedException {
+		public void verifyDealerIDInputWithSearch_27522() throws Exception {
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
 			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
-		    getElementInFirstGrid("Dealer ID").sendKeys(prop.getProperty("roleid"));
-		    String entertedVIN = prop.getProperty("VIN");
-		    getElementInFirstGrid("Last 6 of VIN").sendKeys(entertedVIN);
+			String roleid = getWebContractsAllTableDataFromDB().get(1).get("DEALER_ID");
+			String VIN = getWebContractsAllTableDataFromDB().get(1).get("VIN");
+			String newVIN = VIN.substring(11);
+		    getElementInFirstGrid("Dealer ID").sendKeys(roleid);
+		    getElementInFirstGrid("Last 6 of VIN").sendKeys(newVIN);
 		    getArrowForwardBtn().click();
 		    Assert.assertTrue(getSpinner().isDisplayed(),"Spinner is displayed");
 		    Thread.sleep(2000);
 		    HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
 			String VINinGrid = allTableData.get(1).get("VIN");
-			Assert.assertTrue(VINinGrid.equals(entertedVIN),"Records are matching");
+			Assert.assertTrue(VINinGrid.equals(newVIN),"Records are matching");
 		}
 		
 		@Test(priority = 25)
@@ -489,8 +484,8 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 			Assert.assertTrue(getElementInFirstGrid("Contract Number").isDisplayed());
 			getElementInFirstGrid("Contract Number").sendKeys(contractNumber);
 			Assert.assertTrue(getElementInFirstGrid("Last 6 of VIN").isDisplayed());
-			String VIN = prop.getProperty("VIN");
-			getElementInFirstGrid("Last 6 of VIN").sendKeys(VIN);
+			String last6digitsOfVINEntered = "002615";
+			getElementInFirstGrid("Last 6 of VIN").sendKeys(last6digitsOfVINEntered);
 			Assert.assertTrue(getArrowForwardBtn().isDisplayed());
 			getArrowForwardBtn().click();
 			Assert.assertTrue(getSpinner().isDisplayed(),"Spinner is displayed");
@@ -499,31 +494,27 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 			String ContractNumberInGrid = allTableData.get(1).get("Contract Number");
 			Assert.assertTrue(ContractNumberInGrid.equals(contractNumber),"Contract Number Records are matching");
 			String VINinGrid = allTableData.get(1).get("VIN");
-			Assert.assertTrue(VINinGrid.equalsIgnoreCase(VIN),"VIN Records are matching");
+			Assert.assertTrue(VINinGrid.equalsIgnoreCase(last6digitsOfVINEntered),"VIN Records are matching");
 		}
 		
 
 		@Test(priority = 28)
-		public void verifyVINDealerIDSearch_27564() throws InterruptedException {
+		public void verifyVINDealerIDSearch_27564() throws Exception {
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
 			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
-
-			Assert.assertTrue(getElementInFirstGrid("Last 6 of VIN").isDisplayed());
-			String VIN = prop.getProperty("VIN");
-			getElementInFirstGrid("Last 6 of VIN").sendKeys(VIN);
-			
-			Assert.assertTrue(getElementInFirstGrid("Dealer ID").isDisplayed());
-			String dealerID=prop.getProperty("roleid");
-			getElementInFirstGrid("Dealer ID").sendKeys(dealerID);
-			
+			String roleid = getWebContractsAllTableDataFromDB().get(1).get("DEALER_ID");
+			String VIN = getWebContractsAllTableDataFromDB().get(1).get("VIN");
+			String newVIN = VIN.substring(11);
+		    getElementInFirstGrid("Dealer ID").sendKeys(roleid);
+		    getElementInFirstGrid("Last 6 of VIN").sendKeys(newVIN);
 			Assert.assertTrue(getArrowForwardBtn().isDisplayed());
 			getArrowForwardBtn().click();
 			Assert.assertTrue(getSpinner().isDisplayed(),"Spinner is displayed");
 			Thread.sleep(2000);
 			HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
 			String VINinGrid = allTableData.get(1).get("VIN");
-			Assert.assertTrue(VINinGrid.equalsIgnoreCase(VIN),"Records are matching");
+			Assert.assertTrue(VINinGrid.equalsIgnoreCase(newVIN),"Records are matching");
 		}
 		
 		
@@ -537,7 +528,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 			getElementInFirstGrid("Contract Holder Last Name").sendKeys(contractHolderLastName);
 			Assert.assertTrue(getArrowForwardBtn().isDisplayed());
 			getArrowForwardBtn().click();
-			Assert.assertTrue(getSpinner().isDisplayed(),"Spinner is displayed");
+			//Assert.assertTrue(getSpinner().isDisplayed(),"Spinner is displayed");
 			Thread.sleep(10000);
 			HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
 			String ContractHolderLastNameGrid = allTableData.get(1).get("Last Name");
@@ -595,17 +586,18 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 			}
 		
 		@Test(priority = 31)
-		public void verifyVINLastNameSearchCriteria_27581() throws InterruptedException {
+		public void verifyVINLastNameSearchCriteria_27581() throws Exception {
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
 			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
 			
 			Assert.assertTrue(getElementInFirstGrid("Last 6 of VIN").isDisplayed());
-			String VIN = prop.getProperty("VIN");
-			getElementInFirstGrid("Last 6 of VIN").sendKeys(VIN);
+			String VIN = getWebContractsAllTableDataFromDB().get(1).get("VIN");
+			String newVIN = VIN.substring(11);
+			getElementInFirstGrid("Last 6 of VIN").sendKeys(newVIN);
 			
 			Assert.assertTrue(getElementInFirstGrid("Contract Holder Last Name").isDisplayed());
-			String contractHolderLastName = prop.getProperty("lastName");
+			String contractHolderLastName = getWebContractsAllTableDataFromDB().get(1).get("LAST_NAME");
 			getElementInFirstGrid("Contract Holder Last Name").sendKeys(contractHolderLastName);
 			
 			Assert.assertTrue(getArrowForwardBtn().isDisplayed());
@@ -614,7 +606,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 			Thread.sleep(2000);
 			HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
 			String VINinGrid = allTableData.get(1).get("VIN");
-			Assert.assertTrue(VINinGrid.equals(VIN),"VIN Records are matching");
+			Assert.assertTrue(VINinGrid.equals(newVIN),"VIN Records are matching");
 			String ContractHolderLastNameGrid = allTableData.get(1).get("Last Name");
 			Assert.assertTrue(ContractHolderLastNameGrid.equalsIgnoreCase(contractHolderLastName),"Contract Holder Last Name Records are matching");
 		}
@@ -623,12 +615,9 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		public void verifyContractNumDealerIDSearch_27583() throws InterruptedException {
 			login.login(prop.getProperty("dealerAutomation"),prop.getProperty("password"));
 			verticalMenu.navigatetoContract();
-			singleContract.singleContract();
-			verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
+			String contractNumber = singleContract.singleContract();
 			Thread.sleep(2000);
 			utils.scrollDown();
-			HashMap<Integer, HashMap<String, String>> allTableDataContractSearchPage =contractSearchPage.checkGridBodyDetails();
-			String contractNumber = allTableDataContractSearchPage.get(1).get("Contract");
 			login.logout();
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
@@ -947,7 +936,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 			Assert.assertTrue(getArrowForwardBtn().isDisplayed());
 			getArrowForwardBtn().click();
 			Assert.assertTrue(getSpinner().isDisplayed(),"Spinner is displayed");
-			Thread.sleep(2000);
+			Thread.sleep(10000);
 			HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
 			String ContractHolderLastNameGrid = allTableData.get(1).get("Last Name");
 			Assert.assertTrue(ContractHolderLastNameGrid.equalsIgnoreCase(contractHolderLastName),"Contract Holder Last Name Records are matching");

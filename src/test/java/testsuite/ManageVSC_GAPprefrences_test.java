@@ -108,20 +108,20 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 		Thread.sleep(2000);
 
 		String defaultDeductible = allTableDataTxt.get(1).get("Default Deductible");
-		NumberFormat format = NumberFormat.getCurrencyInstance();
+		NumberFormat format = NumberFormat.getIntegerInstance();
 		Number number = format.parse(defaultDeductible);
 		String DD = number.toString();
 		getSearchBoxesInGrid().get("Default Deductible").sendKeys(DD);
 		Thread.sleep(2000);
 		String defaultDeductibleInGrid = allTableDataTxt.get(1).get("Default Deductible");
-		NumberFormat formatGrid = NumberFormat.getCurrencyInstance();
+		NumberFormat formatGrid = NumberFormat.getIntegerInstance();
 		Number numberGrid = formatGrid.parse(defaultDeductibleInGrid);
 		Assert.assertTrue(number.toString().contains(numberGrid.toString()));
 		getSearchBoxesInGrid().get("Default Deductible").clear();
 		Thread.sleep(2000);
 
 		getSearchBoxesWithArrowSelection().get("S&G").click();
-		String status = "ON";
+		String status = "OFF";
 		getStatus(status).click();
 		Thread.sleep(1000);
 		getSearchBoxesWithArrowSelection().get("S&G").click();
