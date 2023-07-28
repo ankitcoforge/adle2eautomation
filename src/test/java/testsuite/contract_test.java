@@ -1,5 +1,6 @@
 package testsuite;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -36,7 +37,8 @@ public class contract_test extends createContractAction {
 
 		
 		navigate();
-		lo.login(prop.getProperty("username1"), prop.getProperty("password"));
+		lo.login("D22723", "Test1234");
+		getDriver().findElement(By.cssSelector("button[color=\"white-primary\"]")).click();
 		vo.navigatetoLeftMenu("E-Rate", "Rate/Contract");
 
 	}
@@ -45,17 +47,15 @@ public class contract_test extends createContractAction {
 	public void singleContract1() throws InterruptedException {
 
 		sa.singleContract();
-
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 2, dependsOnMethods = {"singleContract1"})
 	public void leinHolderContract1() throws InterruptedException {
 
 		sa.singleContract("Bank of America");
 
 	}
 
-	
 	@Test(priority = 3)
 	public void leaseContract1() throws InterruptedException {
 
@@ -63,28 +63,35 @@ public class contract_test extends createContractAction {
 
 	}
 
-	@Test(priority = 4)
+	@Test(priority = 4,  dependsOnMethods = {"singleContract1"})
 	public void coBuyerContract() throws InterruptedException {
 
 		cc.coBuyerContract();
 
 	}
 	
-	@Test(priority = 5)
-	public void singleContractForLender(String selectDealer) throws InterruptedException {
-
-		sa.singleContractForLender(selectDealer);
-
-	}
+//	@Test(priority = 5)
+//	public void singleContractForLender(String selectDealer) throws InterruptedException {
+//
+//		sa.singleContractForLender(selectDealer);
+//
+//	}
 	
 	
 	/***************** Contract creation test case ***************/
-	@Test(priority = 3, dataProvider = "test1")
+	@Test(priority = 5, dataProvider = "test1")
 	public void createContract1(String[] inputArray) throws InterruptedException {
 
 		createContract(inputArray);
 
 	}
+	
+//	@Test(priority = 6, dataProvider = "lendertest")
+//	public void singleContractlender(String[] inputArray) throws Exception {
+//
+//		createlenderContract(inputArray);
+//
+//	}
 
 	@AfterClass
 	public void close() throws InterruptedException {

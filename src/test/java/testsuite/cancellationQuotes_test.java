@@ -25,7 +25,7 @@ public class cancellationQuotes_test extends cancellationQuotesAction {
 	verticalMenuAction vo = new verticalMenuAction();
 	impersonateAction ia = new impersonateAction();
 	Database_Connectivity dc = new Database_Connectivity();
-
+	impersonateAction impersonate = new impersonateAction();
 
 	@Test(priority = 1)
 	public void cancellationsearchpage() throws Exception {
@@ -43,13 +43,14 @@ public class cancellationQuotes_test extends cancellationQuotesAction {
 			System.out.println("dbmap-------"+dbMap);
 			navigate();
 			lo.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-			vo.navigatetoimpersonate();
 			HashMap<String, String> data = dbMap.get(1);
 			String roleId = data.get("ROLE_IDENTIFIER");
-			ia.impersonateUser("Dealer", roleId);
+			//Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+			vo.navigatetoimpersonate();
+			impersonate.impersonateUser("Dealer", roleId);
 			vo.navigatetoLeftMenu("Cancellations", "Cancellation Quote");
 			Assert.assertEquals("Dealer: " + roleId, ia.roleImpersonate());
-			Assert.assertEquals("https://qa2.adl.aulcorp.com/portal/cancellations/cancel-quote", driver.getCurrentUrl());
+			Assert.assertEquals("https://qa.adl.aulcorp.com/portal/cancellations/cancel-quote", driver.getCurrentUrl());
 			Assert.assertEquals(validationMessage(), "Please enter at least one search criteria");
 			Assert.assertEquals(vo.getTitle(), "Cancellation Quote");
 			Assert.assertEquals(getFrontText(),
@@ -91,10 +92,10 @@ public class cancellationQuotes_test extends cancellationQuotesAction {
 			dbMap = dc.returnAllData(rs);
 			navigate();
 			lo.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-			vo.navigatetoimpersonate();
 			HashMap<String, String> data = dbMap.get(1);
 			String roleId = data.get("DEALER_ID");
-			ia.impersonateUser("Dealer", roleId);
+			vo.navigatetoimpersonate();
+			impersonate.impersonateUser("Dealer", roleId);
 			vo.navigatetoLeftMenu("Cancellations", "Cancellation Quote");
 			String contractno = data.get("CERT");
 			searchdata("Contract", contractno);

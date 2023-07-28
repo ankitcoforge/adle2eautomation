@@ -20,7 +20,7 @@ public class generateContract_test extends createContractAction{
 	public void login() throws InterruptedException {
 		
 		navigate();
-		lo.login(prop.getProperty("username1"),prop.getProperty("password"));
+		lo.login("shreya.agarwal@protective.com",prop.getProperty("password"));
 		vo.navigatetoContract();
 		
 	}
