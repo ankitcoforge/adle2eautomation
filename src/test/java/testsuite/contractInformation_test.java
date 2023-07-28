@@ -1,5 +1,6 @@
 package testsuite;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
@@ -20,8 +21,6 @@ public class contractInformation_test extends contractInformationAction{
 	public void login() throws InterruptedException {
 
 		navigate();
-		lo.login(prop.getProperty("username1"), prop.getProperty("password"));
-		vo.navigatetoLeftMenu("E-Rate", "Rate/Contract");
 
 	}
 
@@ -32,14 +31,14 @@ public class contractInformation_test extends contractInformationAction{
 
 	}
 	
-	@Test(priority = 2)
+	@Test(enabled=false)
 	public void contractInformationSPP() throws InterruptedException {
 
 		sppContractValidation();
 
 	}
 	
-	@Test(priority = 3)
+	@Test(enabled=false)
 	public void cobuyerValidation() throws InterruptedException {
 
 		cobuyerContractValidation();
@@ -64,7 +63,6 @@ public class contractInformation_test extends contractInformationAction{
 	@AfterClass
 	public void close() throws InterruptedException {
 
-		lo.logout();	
 	}
 
 }

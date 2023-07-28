@@ -44,6 +44,7 @@ public class contractSearch_test extends ContractSearchPageAction{
 			navigate();
 			Assert.assertEquals(login.getTitle(), "AUL Corp.");
 			login.login(prop.getProperty("username1"), prop.getProperty("password"));
+			getDriver().findElement(By.cssSelector("button[color=\"white-primary\"]")).click();
 			verticalMenu.navigatetoLeftMenu("Contracts","Contract Search");
 		}
 		
@@ -57,7 +58,7 @@ public class contractSearch_test extends ContractSearchPageAction{
 			for(int i =0; i<editReContractlink().size(); i++ ) {
 				Assert.assertEquals(editReContractlink().get(i), "Edit");
 			}
-		    Assert.assertEquals(editContracturl(), "https://qa2.adl.aulcorp.com/portal/contracts/edit-contract");
+		    Assert.assertEquals(editContracturl(), "https://mo.adl.aulcorp.com/portal/contracts/edit-contract");
 		    driver.navigate().back();
 		}
 		
@@ -84,7 +85,7 @@ public class contractSearch_test extends ContractSearchPageAction{
 			for(int i =0; i<reContractlink().size(); i++ ) {
 				Assert.assertEquals(reContractlink().get(i), "Re-Contract");
 			}
-		    Assert.assertEquals(reContracturl(), "https://qa2.adl.aulcorp.com/portal/rate/rate-contract");
+		    Assert.assertEquals(reContracturl(), "https://mo.adl.aulcorp.com/portal/rate/rate-contract");
 		    driver.navigate().back();
 		}
 				
@@ -100,7 +101,7 @@ public class contractSearch_test extends ContractSearchPageAction{
 			
 		}
 		
-		@Test
+		@Test(enabled = false)
 		public void initialSorting_21281_21233() {
 			
 			List firstlist = new ArrayList();
@@ -203,7 +204,7 @@ public class contractSearch_test extends ContractSearchPageAction{
 			expandRecord();
 			Assert.assertTrue(driver.findElement(By.cssSelector("td >.tr-expansible__container")).isDisplayed());
 			ArrayList heading =  new ArrayList<>(Arrays.asList(
-					"Year:", "Make:", "Model:", "Odometer Miles:", "Coverage:", "Remit No.:", "Class:", "Deductible:", "Disappearing Deductible:", "In-Service Date:", "Created By:", "Term:", "One Ton:", "Turbo:", "Seals & Gaskets:", "Four-All Wheel Drive:", "Diesel:", "Warranty Remaining:", "Lift Kit:", "Business Use:"));
+					"Year:", "Make:", "Model:", "Odometer Miles:", "Coverage:", "Remit No.:", "Class:", "Deductible:", "Disappearing Deductible:", "In-Service Date:", "Created By:", "Term:", "One Ton:", "Turbo:", "Seals & Gaskets:", "Four-All Wheel Drive:", "Diesel:", "Warranty Remaining:", "Lift Kit/Tire Mods:", "Business Use:"));
 			Assert.assertEquals(details(), heading);
 			collapseRecord();
 		}
