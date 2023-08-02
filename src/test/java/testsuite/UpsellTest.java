@@ -45,12 +45,13 @@ public class UpsellTest extends UpsellAction {
 	@Test(priority = 1)
 	public void verifyCreationOfNewProgramInUpsell_32263() throws Exception {
 		String admin = prop.getProperty("adminusername");
-		login.login(admin, prop.getProperty("password"));
+		login.login(admin, prop.getProperty("adminpassword"));
 		Thread.sleep(3000);
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Account Management", "Upsell Exceptions");
 		Thread.sleep(5000);
 		Assert.assertTrue(utils.getTitle("Upsell Exceptions").isDisplayed());
+		Thread.sleep(5000);
 		utils.getfield("span", "New program").click();
 		Thread.sleep(3000);
 		String program = "ACW";
@@ -72,7 +73,7 @@ public class UpsellTest extends UpsellAction {
 
 	@Test(priority = 2)
 	public void verifyEditProgramInUpsell_32264() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Thread.sleep(3000);
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Account Management", "Upsell Exceptions");
@@ -127,7 +128,7 @@ public class UpsellTest extends UpsellAction {
 	
 	@Test(priority = 5)
 	public void verifyExportPDF_32363_32364() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Thread.sleep(3000);
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Account Management", "Upsell Exceptions");
@@ -139,7 +140,7 @@ public class UpsellTest extends UpsellAction {
 	
 	@Test(priority = 6)
 	public void verifyUpsellProgramWithContractCreation_32211_32212_32213() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Thread.sleep(3000);
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Account Management", "Upsell Exceptions");
