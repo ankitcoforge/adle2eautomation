@@ -20,14 +20,13 @@ import utils.utilityClass;
 /* Divyasree */
 /* Total Tc's = 4 */
 
-@Listeners(utils.listnerlogs.class)
-
 public class Impersonate_test extends impersonateAction {
 
 	loginAction lo = new loginAction();
 	verticalMenuAction vo = new verticalMenuAction();
 	utilityClass event = new utilityClass();
 	messageSetupAction ms = new messageSetupAction();
+
 
 	
 	@BeforeClass
@@ -78,13 +77,11 @@ public class Impersonate_test extends impersonateAction {
 	 * @throws InterruptedException ********************/
 	@AfterClass
 	public void close() throws InterruptedException {
-		 try {
-				lo.logout();
-				} catch (Exception e) {
-			}
-	}
 
-
+ 
+		lo.logout();
+	    }
+		
 	}
 
 
