@@ -13,5 +13,9 @@
 			<class name="testsuite.printQuote_test"/>
 		</classes>
 	</test>
+<<<<<<< Updated upstream
 </suite>
 
+=======
+</suite>
+>>>>>>> Stashed changes
