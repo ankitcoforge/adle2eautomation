@@ -37,6 +37,7 @@ public class contractInformation_test extends contractInformationAction{
 		sppContractValidation();
 
 	}
+
 	
 	@Test(enabled=false)
 	public void cobuyerValidation() throws InterruptedException {
