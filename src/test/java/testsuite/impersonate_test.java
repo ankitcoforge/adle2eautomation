@@ -27,7 +27,6 @@ public class Impersonate_test extends impersonateAction {
 	utilityClass event = new utilityClass();
 	messageSetupAction ms = new messageSetupAction();
 
-
 	
 	@BeforeClass
 	public void login() throws InterruptedException {
