@@ -49,6 +49,7 @@ public class singleContractAction extends contractpo {
 			contractNumber = driver.findElement(By.cssSelector(contractNo)).getDomProperty("value");
 			System.out.println("Contract Number is:" + contractNumber);
 			inserviceDate();
+//			Assert.assertEquals(addGapLabel(), "Add GAP");
 			event.clearfield("cssSelector", Zipcode);
 			event.inputfield("cssSelector",Zipcode, "20130");
 			event.clearfield("cssSelector", Address);
