@@ -1,5 +1,5 @@
-FailScreenshot/
-PassScreenshot/
+FailScreenshot/*
+PassScreenshot/*
 test-output/**
 target/**
 .classpath
