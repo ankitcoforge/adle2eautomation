@@ -3,15 +3,14 @@
 <suite name="ADL Regression Suite" >
 <parameter name="testng.metrics.report.logo" value = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Coforge-Logo.png/800px-Coforge-Logo.png"/>
 
-	<test name="ADL Cancellation Quote Test Suite" group-by-instances="true">
+	
+	<test name="ADL Contract Test Suite" group-by-instances="true">
 		<classes>
-			<class name="testsuite.cancellationHistory_test" />
-			<class name="testsuite.cancellationQuotes_test"/>
-			<class name="testsuite.ERateContract_test"/>
-			<class name="testsuite.quoteHistory_test"/>
-			<class name="testsuite.WebContractsByDealer_test"/>
-			<class name="testsuite.EditContract_test"/>
+		    <class name="testsuite.contractInformation_test"/>
+			<class name="testsuite.contract_test"/>
+			<class name="testsuite.quote_test"/>
+			<class name="testsuite.generateContract_test"/>
+			<class name="testsuite.printQuote_test"/>
 		</classes>
-		
 	</test>
 </suite>
