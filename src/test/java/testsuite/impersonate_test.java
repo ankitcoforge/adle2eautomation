@@ -76,7 +76,10 @@ public class Impersonate_test extends impersonateAction {
 	 * @throws InterruptedException ********************/
 	@AfterClass
 	public void close() throws InterruptedException {
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
  
 		lo.logout();
 	    }
