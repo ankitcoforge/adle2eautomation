@@ -13,6 +13,5 @@
 			<class name="testsuite.printQuote_test"/>
 		</classes>
 	</test>
-
 </suite>
 
