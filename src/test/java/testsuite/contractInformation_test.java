@@ -31,22 +31,12 @@ public class contractInformation_test extends contractInformationAction{
 
 	}
 	
-<<<<<<< Updated upstream
 	@Test(enabled=false)
 	public void contractInformationSPP() throws InterruptedException {
 
 		sppContractValidation();
 
 	}
-
-=======
-//	@Test(priority = 2)
-//	public void contractInformationSPP() throws InterruptedException {
-//
-//		sppContractValidation();
-//
-//	}
->>>>>>> Stashed changes
 	
 	@Test(enabled=false)
 	public void cobuyerValidation() throws InterruptedException {

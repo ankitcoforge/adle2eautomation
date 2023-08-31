@@ -5,12 +5,7 @@ target/**
 .classpath
 .settings/
 .loadpath
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 chromedriver*
 config.properties
 testng.xml
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
