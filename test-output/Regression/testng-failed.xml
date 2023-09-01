@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Regression]">
+  <test thread-count="5" name="ADL(failed)">
+    <classes>
+      <class name="testsuite.twoProgramContract">
+        <methods>
+          <include name="afterSuite"/>
+          <include name="beforeSuite"/>
+          <include name="createContract1"/>
+          <include name="afterTestMethod"/>
+          <include name="close"/>
+          <include name="beforTestMethod"/>
+          <include name="login"/>
+        </methods>
+      </class> <!-- testsuite.twoProgramContract -->
+      <class name="testsuite.quote_test">
+        <methods>
+          <include name="afterSuite"/>
+          <include name="close"/>
+          <include name="beforeSuite"/>
+          <include name="createQuote1" invocation-numbers="5 6 7 8 9 10 11"/>
+          <include name="login"/>
+          <include name="afterTestMethod"/>
+          <include name="beforTestMethod"/>
+        </methods>
+      </class> <!-- testsuite.quote_test -->
+      <class name="testsuite.generateContract_test">
+        <methods>
+          <include name="afterSuite"/>
+          <include name="beforeSuite"/>
+          <include name="close"/>
+          <include name="afterTestMethod"/>
+          <include name="login"/>
+          <include name="createContract1"/>
+          <include name="beforTestMethod"/>
+        </methods>
+      </class> <!-- testsuite.generateContract_test -->
+      <class name="testsuite.contract_test">
+        <methods>
+          <include name="afterSuite"/>
+          <include name="beforeSuite"/>
+          <include name="createContract1" invocation-numbers="0 1 2 3 4 5 6 7 8 9 10 11"/>
+          <include name="close"/>
+          <include name="afterTestMethod"/>
+          <include name="login"/>
+          <include name="beforTestMethod"/>
+        </methods>
+      </class> <!-- testsuite.contract_test -->
+      <class name="testsuite.validatePDF_test">
+        <methods>
+          <include name="createContract1"/>
+          <include name="afterSuite"/>
+          <include name="login"/>
+          <include name="beforeSuite"/>
+          <include name="close"/>
+          <include name="afterTestMethod"/>
+          <include name="beforTestMethod"/>
+        </methods>
+      </class> <!-- testsuite.validatePDF_test -->
+      <class name="testsuite.toolBox_test">
+        <methods>
+          <include name="afterSuite"/>
+          <include name="beforeSuite"/>
+          <include name="VerifyTabAndPDFForms" invocation-numbers="0 1"/>
+          <include name="afterTestMethod"/>
+          <include name="login"/>
+          <include name="beforTestMethod"/>
+        </methods>
+      </class> <!-- testsuite.toolBox_test -->
+      <class name="testsuite.impersonateContract">
+        <methods>
+          <include name="afterSuite"/>
+          <include name="login"/>
+          <include name="close"/>
+          <include name="beforeSuite"/>
+          <include name="createContract1"/>
+          <include name="afterTestMethod"/>
+          <include name="beforTestMethod"/>
+        </methods>
+      </class> <!-- testsuite.impersonateContract -->
+    </classes>
+  </test> <!-- ADL(failed) -->
+</suite> <!-- Failed suite [Regression] -->

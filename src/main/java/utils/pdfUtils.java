@@ -15,8 +15,17 @@ public class pdfUtils {
 	public void verifyContentInPDf(String url, String program) {
 		// specify the url of the pdf file
 		try {
+			System.out.println(program);
+			System.out.println(url);
 			String pdfContent = readPdfContent(url);
 			Assert.assertTrue(pdfContent.contains(program));
+			if(program.contains("Sentinel")) {
+				Assert.assertTrue(pdfContent.contains("Sentinel"));
+			}
+			else {
+				
+				Assert.assertTrue(pdfContent.contains(program), "Text Not found" + program);
+			}
 
 		} catch (MalformedURLException e) {
 			e.printStackTrace();

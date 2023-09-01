@@ -117,9 +117,7 @@ public class printQuoteAction extends contractpo {
 			b.addAll(a1);
 			event.clickfield("cssSelector", goToQuote);
 
-		} catch (
-
-		Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Test Case failed ");
 			e.getCause();

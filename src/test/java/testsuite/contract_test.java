@@ -27,11 +27,6 @@ public class contract_test extends createContractAction {
 	leaseContractAction la = new leaseContractAction();
 	cobuyerContractAction cc = new cobuyerContractAction();
 
-	/*************
-	 * login to the application
-	 * 
-	 * @throws InterruptedException
-	 *********************/
 	@BeforeClass
 	public void login() throws InterruptedException {
 
@@ -76,22 +71,22 @@ public class contract_test extends createContractAction {
 //		sa.singleContractForLender(selectDealer);
 //
 //	}
-	
-	
-	/***************** Contract creation test case ***************/
-	@Test(priority = 5, dataProvider = "test1")
-	public void createContract1(String[] inputArray) throws InterruptedException {
+		
+	/*****************Contract creation test case***************/
+	@Test(priority = 4, dataProvider ="test1")
+    public void createContract1(String[] inputArray) throws InterruptedException {
+		
 
 		createContract(inputArray);
 
 	}
 	
-//	@Test(priority = 6, dataProvider = "lendertest")
-//	public void singleContractlender(String[] inputArray) throws Exception {
-//
-//		createlenderContract(inputArray);
-//
-//	}
+	@Test(priority = 6, dataProvider = "lendertest")
+	public void singleContractlender(String[] inputArray) throws Exception {
+
+		createlenderContract(inputArray);
+
+	}
 
 	@AfterClass
 	public void close() throws InterruptedException {

@@ -232,7 +232,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		utils.scrollDown();
-		HashMap<Integer, HashMap<String, String>> allTableDataContractSearchPage =contractSearchPage.checkGridBodyDetails();
+		HashMap<Integer, HashMap<String, String>> allTableDataContractSearchPage = contractSearchPage.checkGridBodyDetails();
 		String contractNumber = allTableDataContractSearchPage.get(1).get("Contract");
 		login.logout();
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));

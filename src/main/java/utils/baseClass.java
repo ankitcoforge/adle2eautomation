@@ -163,7 +163,8 @@ public class baseClass extends pdfUtils{
 			//ChromeOptions chromeOptions = new ChromeOptions();
 			//chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
 			HashMap<String,Object> chromePrefs = new HashMap<String, Object>();
-			chromePrefs.put("plugins.always_open_pdf_externally", true);
+			chromePrefs.put("plugins.always_open_pdf_externally", false);
+			chromePrefs.put("profile.default_content_settings.popups", 0);
 			chromePrefs.put("download.default_directory", System.getProperty("user.dir") + "\\PDF");
 			ChromeOptions options = new ChromeOptions();
 			options.setExperimentalOption("prefs", chromePrefs);

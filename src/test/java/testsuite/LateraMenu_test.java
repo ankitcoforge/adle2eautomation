@@ -372,6 +372,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	}
 	
 
+<<<<<<< Updated upstream
 	@Test(priority = 21)
 	public void verifyHelpMenuOptionsForDealer_6391() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));

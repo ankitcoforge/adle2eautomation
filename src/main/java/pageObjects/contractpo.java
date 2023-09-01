@@ -62,6 +62,7 @@ public class contractpo extends baseClass{
 	public String mileage = "adl-text-input[label=\"Mileage\"] >div >div >input";
 	public String getProductsButton = "button[type=\"submit\"]";
 	public String programCheckbox = "div[class=\"programs__checkboxes col-12 grid ng-star-inserted\"] >adl-checkbox";
+<<<<<<< Updated upstream
 	public String coBuyer = ".customer__hascobuyer >adl-checkbox > div > mat-checkbox >label> div > input[type='checkbox']";
 	public String goToQuote = ".notification__container__actions > a:nth-child(3)";
 	public String monthDropdown = "adl-select[placeholder=\"Select Months\"]>ng-select";
@@ -145,6 +146,13 @@ public class contractpo extends baseClass{
 	public int length(String field) {
 		
 		return driver.findElements(By.cssSelector(field)).size();
+=======
+	public String inServiceDate1 = "adl-text-input[label='In-Service Date'] >div  >div + div";
+	public String coBuyercheckbox = ".customer__hascobuyer > adl-checkbox >div >mat-checkbox >label > div";
+	public String fieldbyLabelName(String labelName) {
+		
+		return "[label=\"" + labelName + "\"] > div > div:nth-child(2) > input" ;
+>>>>>>> Stashed changes
 	}
 	
 	public String warningTextMesssage() {
