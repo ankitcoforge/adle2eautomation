@@ -40,8 +40,10 @@ public class singleContractAction extends contractpo {
 			event.inputfield("cssSelector", textbox, "Test", 1);
 			event.inputfield("cssSelector", textbox, "125001", 5);
 			event.inputfield("cssSelector", textbox, "1FM5K8GC2NGA00557", 6);
+			event.inputfield("cssSelector", textbox, randomizer.getMilage(), 5);
+			event.inputfield("cssSelector", textbox, "1HGCV1F12NA002615", 6);
 			event.clickfield("xpath", getProducts);
-			co.programSelect("Limited Warranty");
+			co.programSelect("New Vehicle");
 			event.clickfield("cssSelector", table, 0);
 			event.inputfield("cssSelector", textbox, "22723", 7);
 			selectOptionSurcharge();
@@ -56,6 +58,14 @@ public class singleContractAction extends contractpo {
 			event.inputfield("cssSelector",  Address, "Address");
 			event.clearfield("cssSelector",  Email);
 			event.inputfield("cssSelector",  Email, "test@gmail.com");
+			//Assert.assertEquals(addGapLabel(), "Add GAP");
+			event.clickfield("xpath", businessUse);
+			driver.findElements(By.cssSelector(textbox)).get(14).clear();
+			event.inputfield("cssSelector", textbox, "20130", 14);
+			driver.findElements(By.cssSelector(textbox)).get(13).clear();
+			event.inputfield("cssSelector", textbox, "Address", 13);
+			driver.findElements(By.cssSelector(textbox)).get(16).clear();
+			event.inputfield("cssSelector", textbox, "test@gmail.com", 16);
 			Thread.sleep(2000);
 			event.clearfield("cssSelector", phone);
 			event.inputfield("cssSelector", phone, "1234567890");
@@ -84,6 +94,9 @@ public class singleContractAction extends contractpo {
 		event.clickfield("cssSelector", "[role=listbox] > [role=option]");
 		event.inputfield("cssSelector", textbox, "125001", 5);
 		event.inputfield("cssSelector", textbox, "1FM5K8GC2NGA00557", 6);
+		event.inputfield("cssSelector", textbox, "1234", 5);
+//		event.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 6);
+		event.inputfield("cssSelector", textbox, "1HGCY2F55PA001395", 6);
 		event.clickfield("xpath", getProducts);
 		co.programSelect("Limited Warranty");
 		event.clickfield("cssSelector", table, 0);

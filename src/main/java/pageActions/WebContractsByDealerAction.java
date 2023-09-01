@@ -342,6 +342,22 @@ public class WebContractsByDealerAction extends WebContractsByDealerPO{
 					
 				}
 				
+				public HashMap<Integer, HashMap<String, String>> getWebContractsAllTableDataFromDB() throws Exception  {
+					HashMap<Integer, HashMap<String, String>> dbMap = new HashMap<Integer, HashMap<String, String>>();
+					try {
+						dc.aulDBConnect();
+						ResultSet rs = dc.stmt.executeQuery(
+						"Select DEALER_ID, VIN, CERT, LAST_NAME FROM [DBO].[WEB_CONTRACTS];");
+						dbMap = dc.returnAllData(rs);
+						return dbMap;
+					} catch (Exception e) {
+						throw e;
+					} finally {
+						dc.closeConnection();
+					}
+					
+				}
+				
 				
 				public HashMap<Integer, HashMap<String, String>> getDealerFromDB() throws Exception  {
 					HashMap<Integer, HashMap<String, String>> dbMap = new HashMap<Integer, HashMap<String, String>>();

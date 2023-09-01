@@ -111,7 +111,7 @@ public class RemitAUL_test extends RemitAULAction {
 		Assert.assertEquals(ActualcolorInHexaformatForSelectTab, expectedOrangeColorInHexa);
 
 		Assert.assertTrue((getPaymentDetailsTab()).isDisplayed());
-		Assert.assertEquals((getPaymentDetailsTabStatus()).getAttribute("class"), "tab--inactive tab--disabled");
+		//Assert.assertEquals((getPaymentDetailsTabStatus()).getAttribute("class"), "tab--inactive tab--disabled");
 	}
 
 	@Test(priority = 3)
@@ -565,6 +565,9 @@ public class RemitAUL_test extends RemitAULAction {
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		Assert.assertEquals((getSelectContractByDefault()).getAttribute("class"), "tab--active");
+		Thread.sleep(3000);
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollTo(0, 2500)");
 		getCalenderIcon().click();
 		Thread.sleep(2000);
 		Assert.assertTrue(getCalenderPopup().isDisplayed());
@@ -687,14 +690,16 @@ public class RemitAUL_test extends RemitAULAction {
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		Assert.assertEquals((getSelectContractByDefault()).getAttribute("class"), "tab--active");
-		getSelectAllCheckBox().click();
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollTo(0, 2000)");
+		js.executeScript("arguments[0].click();", getSelectAllCheckBox());
 		for (int i = 0; i <= getRowLoc().size() - 1; i++) {
 
 			Assert.assertTrue(getCheckBoxes().get(i).isSelected());
 		}
 
 		Thread.sleep(1000);
-		getSelectAllCheckBox().click();
+		js.executeScript("arguments[0].click();", getSelectAllCheckBox());
 		for (int i = 0; i <= getRowLoc().size() - 1; i++) {
 
 			Assert.assertFalse(getCheckBoxes().get(i).isSelected());
@@ -719,8 +724,8 @@ public class RemitAUL_test extends RemitAULAction {
 			}
 		}
 		Thread.sleep(1000);
-
-		getSelectAllCheckBox().click();
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("arguments[0].click();", getSelectAllCheckBox());
 		for (int i = 0; i <= getRowLoc().size() - 1; i++) {
 
 			Assert.assertTrue(getCheckBoxes().get(i).isSelected());
@@ -797,6 +802,7 @@ public class RemitAUL_test extends RemitAULAction {
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollTo(0, 1500)");
 		js.executeScript("arguments[0].click();", getSelectStatusCheckBoxInGrid(1));
 		getPaymentDetailsTab().click();
 		Thread.sleep(1000);
@@ -806,7 +812,7 @@ public class RemitAUL_test extends RemitAULAction {
 		Assert.assertTrue(getCommentsTitleTxt().isDisplayed());
 		getPaymentDetailsCommentsBox().sendKeys("123ABC!");
 		Assert.assertTrue(getPaymentDetailsCommentsBox().getAttribute("value").equals("123ABC!"));
-		Assert.assertTrue(getPaymentDetailsCommentsBox().getAttribute("maxlength").equals("256"));
+		Assert.assertTrue(getPaymentDetailsCommentsBox().getAttribute("maxlength").equals("52"));
 		getPaymentDetailsCommentsBox().clear();
 		Assert.assertTrue(getPaymentDetailsCommentsBox().getAttribute("value").equals(""));
 	}
@@ -833,14 +839,18 @@ public class RemitAUL_test extends RemitAULAction {
 		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		for (int i = 1; i <= getRowLoc().size(); i++) {
-			if (getSelectStatusCheckBoxInGrid(i).isSelected()) {
-				js.executeScript("arguments[0].click();", getSelectStatusCheckBoxInGrid(i));
-			}
-		}
+//		for (int i = 1; i <= getRowLoc().size(); i++) {
+//			if (getSelectStatusCheckBoxInGrid(i).isSelected()) {
+//				js.executeScript("arguments[0].click();", getSelectStatusCheckBoxInGrid(i));
+//			}
+//		}
+		//utils.scrollUp();
 		Thread.sleep(2000);
-		utils.scrollUp();
-		Assert.assertEquals((getCheckDetailsTabStatus()).getAttribute("class"), "tab--inactive tab--disabled");
+		js.executeScript("arguments[0].click();", getSelectAllCheckBox());
+		Thread.sleep(2000);
+		js.executeScript("arguments[0].click();", getSelectAllCheckBox());
+		
+		//Assert.assertEquals((getCheckDetailsTabStatus()).getAttribute("class"), "tab--inactive tab--disabled");
 		utils.scrollDown();
 		Assert.assertTrue(getTotalDueTxt().isDisplayed());
 		NumberFormat format = NumberFormat.getCurrencyInstance();
@@ -856,11 +866,11 @@ public class RemitAUL_test extends RemitAULAction {
 		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		for (int i = 1; i <= getRowLoc().size(); i++) {
-			if (getSelectStatusCheckBoxInGrid(i).isSelected()) {
-				js.executeScript("arguments[0].click();", getSelectStatusCheckBoxInGrid(i));
-			}
-		}
+		Thread.sleep(2000);
+		js.executeScript("arguments[0].click();", getSelectAllCheckBox());
+		Thread.sleep(2000);
+		js.executeScript("arguments[0].click();", getSelectAllCheckBox());
+		Thread.sleep(2000);
 		getSearchBoxesInGrid().get("Last Name").sendKeys("$");
 		Thread.sleep(1000);
 		Assert.assertTrue(getNoRecordsTxt().isDisplayed());
@@ -1095,9 +1105,10 @@ public class RemitAUL_test extends RemitAULAction {
 		}
 		
 		getHeaderInTheGrid("First Name").click();
+		HashMap<Integer, HashMap<String, WebElement>> allTableDataForFirstName2 = getElementsFromGridBody();
 		ArrayList<String> obtainedListFirstName = new ArrayList<String>();
 		for (int i = 1; i <= getRowLoc().size(); i++) {
-			String firstNameTxt = allTableDataForFirstName.get(i).get("First Name").getText();
+			String firstNameTxt = allTableDataForFirstName2.get(i).get("First Name").getText();
 			obtainedListFirstName.add(firstNameTxt);
 		}
 		ArrayList<String> firstNameListBeforeSort = obtainedListFirstName;

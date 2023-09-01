@@ -162,20 +162,22 @@ public class earlyClaimsAction extends earlyClaimspo {
 		
 	}
 	
+	@SuppressWarnings("unlikely-arg-type")
 	public void checkGridExpandFirstRow() throws InterruptedException {
 		uc.clickfield("cssSelector", expandContractDetails);
 		Thread.sleep(1000);
 		List<String> headerdetailsUI = uc.getTextValuesForObject("cssSelector", contractDetailsKey);
-		System.out.println("headerdetailsUI: " + headerdetailsUI);
+		System.out.print("headerdetailsUI: " + headerdetailsUI);
 		
 		List<String> headerdetailsExp = new ArrayList<String>(
-				Arrays.asList("Auto Details:", "Sale Date:", "Year:", "Mileage:", "Days to R.O.:","Days to Pay:", "Claim Date:", "Sale to Claim Days:", "Sale to Claim Miles:"));
-		
+				Arrays.asList("Auto Details:", "Sale Date:", "Year:", "Mileage:", "Days to R.O.:", "Days to Pay:", "Claim Date:", "Sale to Claim Days:", "Sale to Claim Miles:"));
+		System.out.println("array list--"+headerdetailsExp);
 		List<String> valuedetailsUI = uc.getTextValuesForObject("cssSelector", contractDetailsValue);
 		System.out.println("valuedetailsUI: " + valuedetailsUI);
-		System.out.println("headerdetailsUI: " + headerdetailsUI);
-		Assert.assertEquals(headerdetailsUI.equals(headerdetailsExp), true);
+		//System.out.println("headerdetailsUI: " + headerdetailsUI);
+		Assert.assertTrue(headerdetailsUI.equals(headerdetailsExp));
 		//Assert.assertEquals(valuedetailsUI.contains("") || valuedetailsUI.contains(null), false);
+		Thread.sleep(1000);
 		uc.clickfield("cssSelector", expandContractDetails);
 	}
 	
@@ -471,6 +473,29 @@ public void clickExportPDFButton(String exportButtonType) throws InterruptedExce
 	
 	}
 }
+
+
+//public void clickExportPDFButtonInViewDetails(String exportButtonType) throws InterruptedException {
+//	switch (exportButtonType.toLowerCase()) {
+//	
+//	case "mainpage" : 	
+//		uc.clickfield("xpath", exportPDFPage,1);
+//	break;
+//	
+//	case "modal" : 	
+//		uc.clickfield("xpath", exportPDFPage,1);
+//	break;
+//	
+//	case "mainpagexls" : 	
+//		uc.clickfield("xpath", exportXlsPage);
+//	break;
+//	
+//	case "modalxls" : 	
+//		uc.clickfield("xpath", exportXlsPage);
+//	break;
+//	
+//	}
+//}
 
 public boolean toastMessageDisplay() {
 	try {

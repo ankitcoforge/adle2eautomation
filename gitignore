@@ -5,3 +5,7 @@ target/**
 .classpath
 .settings/
 .loadpath
+<<<<<<< HEAD
+=======
+chromedriver*
+>>>>>>> 2b7206babdffd2be307a6bd063d6c0269e6cc16f

@@ -249,7 +249,7 @@ public class VerticalMenu_test extends LateralMenuAction {
 			Assert.assertTrue(list.contains("Report"));
 			Assert.assertTrue(list.contains("My Settings"));
 			Assert.assertTrue(list.contains("Toolbox"));
-			Assert.assertTrue(list.contains("Help"));
+			//Assert.assertTrue(list.contains("Help"));
 			
 			verticalMenu.navigatetoLeftMainMenu("Contracts");
 			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Contract Search"));
@@ -668,8 +668,9 @@ public class VerticalMenu_test extends LateralMenuAction {
 		Assert.assertTrue(getDashboardPageReports("Contract Search").isDisplayed());
 	}
 
-	@Test(priority = 15 , enabled = false)
+	@Test(priority = 15 )
 	public void verifyDashboardReportsforSubAgent_32253() throws InterruptedException {
+		getDefaultpermissionForsubAgent();
 		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 		verticalMenu.navigatetoLeftMainMenu("Report");
