@@ -35,7 +35,7 @@ public class contractInformation_test extends contractInformationAction{
 	@Test(priority = 2)
 	public void contractInformationSPP() throws InterruptedException {
 
-		sppContractValidation();
+		sppContractValidation("Service Drive - SDF");
 
 	}
 	

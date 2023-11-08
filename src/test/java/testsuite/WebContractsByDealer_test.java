@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
+import javax.sql.rowset.spi.XmlReader;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -24,6 +26,7 @@ import pageActions.singleContractAction;
 import pageActions.verticalMenuAction;
 import pageActions.ContractSearchPageAction;
 import utils.Database_Connectivity;
+import utils.XmlDataReader;
 import utils.utilityClass;
 
 /* Divyasree */
@@ -37,6 +40,8 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 	singleContractAction singleContract=new singleContractAction();
 	ContractSearchPageAction contractSearchPage=new ContractSearchPageAction();
 	Database_Connectivity dc = new Database_Connectivity();
+	XmlDataReader utilsDataReader= new XmlDataReader("UtilsData");
+	XmlDataReader webcontracts= new XmlDataReader("webcontractsData");
 
 	@BeforeMethod(alwaysRun=true)
 	public void login() throws InterruptedException {
@@ -48,43 +53,44 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 	public void verifyTitlePage_26894() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 	}
 
 	@Test(priority = 2)
 	public void verifyRoleId_26896() throws InterruptedException {
 		String username = prop.getProperty("adminusername");
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
-		Assert.assertEquals(getAdminRoleId(), username);
+		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
+		Assert.assertTrue(getAdminRoleId().equalsIgnoreCase(username));
 	}
 
 	@Test(priority = 3)
 	public void verifyURL_26899() throws InterruptedException {
+		
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 		Assert.assertTrue(driver.getCurrentUrl().contains(
-				"adl.aulcorp.com/portal/reports/web-contracts-by-dealer"));
+				webcontracts.getXMLData("webcontractsURL")));
 	}
 
 	@Test(priority = 4)
 	public void verifyURLinAUL_26900() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 		Assert.assertTrue(driver.getCurrentUrl().contains(
-				"adl.aulcorp.com/portal/reports/web-contracts-by-dealer"));
-		Assert.assertEquals(driver.getCurrentUrl().contains("aul"), true);
+				webcontracts.getXMLData("webcontractsURL")));
+		//Assert.assertEquals(utilsDataReader.getXMLData("aul"), true);
 	}
 
 	@Test(priority = 5)
     public void verifyNonAdminAccess_26904() throws InterruptedException {
-	login.login(prop.getProperty("dealerAutomation"),prop.getProperty("password"));
+	login.login(prop.getProperty("lenderusername"),prop.getProperty("password"));
 	leftMenu("Report");
 	for (int i = 0; i < getReportsDropdownlist().size(); i++) {
-			Assert.assertFalse(getReportsDropdownlist().get(i).getText().contains("Web Contracts by Dealer"));
+			Assert.assertFalse(getReportsDropdownlist().get(i).getText().contains(webcontracts.getXMLData("webcontractsTitle")));
 	}
 	}
 
@@ -92,12 +98,12 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 	public void verifyRowsPerPage_27164() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 		getElementInFirstGrid("Dealer ID").sendKeys(prop.getProperty("roleid"));
 		getArrowForwardBtn().click();
 		Thread.sleep(10000);
 		Assert.assertTrue(getContractsGrid().isDisplayed());
-		utils.scrollDown();
+		utils.scrollDownUsingJSE();
 		Assert.assertTrue(getRowsPerPage().isDisplayed());
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("window.scrollTo(0, 2500)");
@@ -106,16 +112,16 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 			String perPage25 = getRowsPerPageDropdownlist().get(0).getText();
 			String perPage50 = getRowsPerPageDropdownlist().get(1).getText();
 			String perPage100 = getRowsPerPageDropdownlist().get(2).getText();
-			Assert.assertTrue(perPage25.equals("25"), "25 is displayed in dropdown");
-			Assert.assertTrue(perPage50.equals("50"), "50 is displayed in dropdown");
-			Assert.assertTrue(perPage100.equals("100"), "100 is displayed in dropdown");
+			Assert.assertTrue(perPage25.equals(webcontracts.getXMLData("perPage25")), "25 is displayed in dropdown");
+			Assert.assertTrue(perPage50.equals(webcontracts.getXMLData("perPage50")), "50 is displayed in dropdown");
+			Assert.assertTrue(perPage100.equals(webcontracts.getXMLData("perPage100")), "100 is displayed in dropdown");
 	}
 
 	@Test(priority = 7)
 	public void verifyRowsPerPageSelected_27280() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 		getElementInFirstGrid("Dealer ID").sendKeys(prop.getProperty("roleid"));
 		getArrowForwardBtn().click();
 		Thread.sleep(2000);
@@ -134,7 +140,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 	public void verifyPageNumbers_27310() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 		getElementInFirstGrid("Dealer ID").sendKeys(prop.getProperty("roleid"));
 		getArrowForwardBtn().click();
 		Thread.sleep(2000);
@@ -142,34 +148,33 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		getRowsPerPage().isDisplayed();
 		getRowsPerPageDropdownbtn().click();
 		getRowsPerPageDropdownlist().get(0).click();
-		getPageNo("2").click();
-		Assert.assertTrue(getCurrentPageRecord() == 26, "Page 2 is displaying");
-		getPageNo("5").click();
-		Assert.assertTrue(getCurrentPageRecord() == 101, "Page 5 is displaying");
+		getPageNo(webcontracts.getXMLData("pageNo2")).click();
+		Assert.assertTrue(getCurrentPageRecord().equals(webcontracts.getXMLData("pageRecord26")), "Page 2 is displaying");
+		getPageNo(webcontracts.getXMLData("pageNo5")).click();
+		Assert.assertTrue(getCurrentPageRecord().equals(webcontracts.getXMLData("pageRecord101")), "Page 5 is displaying");
 	}
 
 	@Test(priority = 9)
 	public void verifyTotalPageNumbersPerPage_27326() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 		getElementInFirstGrid("Dealer ID").sendKeys(prop.getProperty("roleid"));
 		getArrowForwardBtn().click();
 		Thread.sleep(10000);
 		utils.scrollDown();
 		getRowsPerPage().isDisplayed();
-		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("window.scrollTo(0, 2500)");
+		utils.scrollDownUsingJSE();
 		getRowsPerPageDropdownbtn().click();
 		getRowsPerPageDropdownlist().get(0).click();
-		Assert.assertTrue(getTotalPagesDisplayed() == 5, "five pages are displayed at a time");
+		Assert.assertTrue(getTotalPagesDisplayed().toString().equals(webcontracts.getXMLData("pageNo5")), "five pages are displayed at a time");
 	}
 
 	@Test(priority = 10)
 	public void verifyTxt_27327() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 		Assert.assertTrue(getContractsGrid().isDisplayed());
 		Assert.assertTrue(getPlsMakeaSearchTxt().isDisplayed());
 	}
@@ -178,7 +183,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 	public void verifyUndoEditIcons_27329() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 		getElementInFirstGrid("Dealer ID").sendKeys(prop.getProperty("roleid"));
 		getArrowForwardBtn().click();
 		Thread.sleep(3000);
@@ -187,7 +192,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		Actions action = new Actions(driver);
 		for (int i = 1; i <= getRowLoc().size(); i++) {
 			String status = allTableData.get(i).get("Status");
-			  if(status.equals("ENTERED"))
+			  if(status.equals(webcontracts.getXMLData("statusEntered")))
 			  {
 		action.moveToElement(getEditRestorBtns(i)).perform();
 		Assert.assertTrue(getEditStatusTxt().get(1).isDisplayed());
@@ -206,7 +211,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 //		login.logout();
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 		Assert.assertTrue(getElementInFirstGrid("Last 6 of VIN").isDisplayed());
 		String enterVIN=prop.getProperty("VIN");
 		getElementInFirstGrid("Last 6 of VIN").sendKeys(enterVIN);
@@ -234,7 +239,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		login.logout();
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 		Assert.assertTrue(getElementInFirstGrid("Contract Number").isDisplayed());
 		getElementInFirstGrid("Contract Number").sendKeys(contractNumber);
 		Assert.assertTrue(getElementInFirstGrid("Contract Holder Last Name").isDisplayed());
@@ -261,7 +266,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		login.logout();
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 		Assert.assertTrue(getElementInFirstGrid("Contract Number").isDisplayed());
 		getElementInFirstGrid("Contract Number").sendKeys(contractNumber);
 		Assert.assertTrue(getArrowForwardBtn().isDisplayed());
@@ -277,7 +282,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 	public void verifySearchForContractHolderLastName_27346() throws InterruptedException{
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 		Assert.assertTrue(getElementInFirstGrid("Contract Holder Last Name").isDisplayed());
 		String contractHolderLastName = prop.getProperty("lastName");
 		getElementInFirstGrid("Contract Holder Last Name").sendKeys(contractHolderLastName);
@@ -293,7 +298,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 	public void verifyLastNameIvalidMsg_27363() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
         getElementInFirstGrid("Contract Holder Last Name").isDisplayed();
 		getElementInFirstGrid("Contract Holder Last Name").sendKeys("a");
 		getArrowForwardBtn().click();
@@ -308,7 +313,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 	public void verifySearchCriteriaForVIN_27364() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 		String VIN=prop.getProperty("VIN");
 		getElementInFirstGrid("Last 6 of VIN").sendKeys(VIN);
 		Assert.assertTrue(getArrowForwardBtn().isDisplayed());
@@ -324,45 +329,47 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 	public void verifyMaxLengthContractNumber_27368() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
-	    String ContractNumWith16Characters="KIKNA004619G22AB";
+		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
+	    String ContractNumWith16Characters=webcontracts.getXMLData("contractNumber");
 	    getElementInFirstGrid("Contract Number").sendKeys(ContractNumWith16Characters);
-		getElementInFirstGrid("Contract Number").sendKeys("DEF");
+		getElementInFirstGrid("Contract Number").sendKeys(webcontracts.getXMLData("code"));
 		String MaxtLengthforContractNum = getElementInFirstGrid("Contract Number").getAttribute("maxlength");
-	    Assert.assertEquals(MaxtLengthforContractNum, "16");
+		Assert.assertEquals(MaxtLengthforContractNum, webcontracts.getXMLData("maxlength"));
 	}
 	
 	@Test(priority = 19)
 	public void verifyMaxLengtLastName_27370() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
-	    String LastNameWith64Characters="qwertyuiopasdfghjklzxcvbnmqwrtyuiopasdghjklzxcvbnmqwertyuiopasdf";
+		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
+	    String LastNameWith64Characters=webcontracts.getXMLData("lastNemWith64Chars");
 	    getElementInFirstGrid("Contract Holder Last Name").sendKeys(LastNameWith64Characters);
-		getElementInFirstGrid("Contract Holder Last Name").sendKeys("DEF");
+		getElementInFirstGrid("Contract Holder Last Name").sendKeys(webcontracts.getXMLData("code"));
 		String MaxtLengthforContractNum = getElementInFirstGrid("Contract Holder Last Name").getAttribute("maxlength");
-	    Assert.assertEquals(MaxtLengthforContractNum, "64");
+		Assert.assertEquals(MaxtLengthforContractNum, webcontracts.getXMLData("maxlength64"));
 	}
 	
 	@Test(priority = 20)
 	public void verifyMaxMinLengthForVIN_27374() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
-	    String VINWith6Characters="467085";
+		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
+	    String VINWith6Characters=webcontracts.getXMLData("vin");
+	    System.out.println("VIN is-"+VINWith6Characters);
 	    getElementInFirstGrid("Last 6 of VIN").sendKeys(VINWith6Characters);
 	    getArrowForwardBtn().click();
 	    Thread.sleep(3000);
 	    getElementInFirstGrid("Last 6 of VIN").sendKeys(Keys.BACK_SPACE);
+	    Thread.sleep(2000);
 	    getArrowForwardBtn().click();
 	    String expectedRedColorInHexa = prop.getProperty("redColorInHexaForm");
 	    Assert.assertTrue(getInvalidVINtxt().isDisplayed());
 	    String borderColorOfElement = getInvalidVINtxt().getCssValue("color");
 		String ActualcolorInHexaformat = Color.fromString(borderColorOfElement).asHex();
 		Assert.assertEquals(ActualcolorInHexaformat, expectedRedColorInHexa);
-		getElementInFirstGrid("Last 6 of VIN").sendKeys("123");
+		getElementInFirstGrid("Last 6 of VIN").sendKeys(webcontracts.getXMLData("randomNO"));
 		String MaxtLengthforContractNum = getElementInFirstGrid("Last 6 of VIN").getAttribute("maxlength");
-	    Assert.assertEquals(MaxtLengthforContractNum, "6");
+	    Assert.assertEquals(MaxtLengthforContractNum, webcontracts.getXMLData("maxlengthVIN"));
 	}
 	
 	//invalid testcase-manual teststep written wrong
@@ -370,7 +377,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 //	public void verifyMaxMinLengthForDealerID_27375() throws InterruptedException {
 //		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 //		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-//		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+//		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 //	    String DealerIDWith9Characters="123456789";
 //	    getElementInFirstGrid("Dealer ID").sendKeys(DealerIDWith9Characters);
 //	    getArrowForwardBtn().click();
@@ -393,8 +400,8 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 	public void verifyNoRecordsMsg_27375() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
-	    String invalidContractNum="1234567891234567";
+		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
+	    String invalidContractNum=webcontracts.getXMLData("invalidContractNum");
 	    getElementInFirstGrid("Contract Number").sendKeys(invalidContractNum);
 	    getArrowForwardBtn().click();
 	    Thread.sleep(1000);
@@ -405,8 +412,8 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 	public void verifyInvalidVIN_27381() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
-		getElementInFirstGrid("Last 6 of VIN").sendKeys("123");
+		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
+		getElementInFirstGrid("Last 6 of VIN").sendKeys( webcontracts.getXMLData("randomNO"));
 	    getArrowForwardBtn().click();
 	    Thread.sleep(1000);
 	    String expectedRedColorInHexa = prop.getProperty("redColorInHexaForm");
@@ -421,7 +428,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 	public void verifyTypeOfFeildTableColoumns_27425() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 		getElementInFirstGrid("Dealer ID").sendKeys(prop.getProperty("roleid"));
 		getArrowForwardBtn().click();
 		Thread.sleep(2000);
@@ -432,7 +439,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		public void verifyDealerIDInputWithSearch_27522() throws Exception {
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 			String roleid = getWebContractsAllTableDataFromDB().get(1).get("DEALER_ID");
 			String VIN = getWebContractsAllTableDataFromDB().get(1).get("VIN");
 			String newVIN = VIN.substring(11);
@@ -450,9 +457,9 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		public void verifyInvalidVIN_27537() throws InterruptedException {
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
-			String InvalidVIN = "XXXXX1";
-			getElementInFirstGrid("Last 6 of VIN").sendKeys(InvalidVIN);
+			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
+			String invalidVIN =  webcontracts.getXMLData("invalidVIN");
+			getElementInFirstGrid("Last 6 of VIN").sendKeys(invalidVIN);
 			getArrowForwardBtn().click();
 		    Thread.sleep(1000);
 		    Assert.assertTrue(getNoRecordstxt().isDisplayed());
@@ -462,7 +469,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		public void verifyMsgWhenNoDataEntered_27540() throws InterruptedException {
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 			getArrowForwardBtn().click();
 			Assert.assertTrue(getAtleastOneRecordtxt().isDisplayed());
 			String expectedRedColorInHexa = prop.getProperty("redColorInHexaForm");
@@ -480,11 +487,11 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 			login.logout();
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 			Assert.assertTrue(getElementInFirstGrid("Contract Number").isDisplayed());
 			getElementInFirstGrid("Contract Number").sendKeys(contractNumber);
 			Assert.assertTrue(getElementInFirstGrid("Last 6 of VIN").isDisplayed());
-			String last6digitsOfVINEntered = "002615";
+			String last6digitsOfVINEntered = webcontracts.getXMLData("vin2");
 			getElementInFirstGrid("Last 6 of VIN").sendKeys(last6digitsOfVINEntered);
 			Assert.assertTrue(getArrowForwardBtn().isDisplayed());
 			getArrowForwardBtn().click();
@@ -502,7 +509,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		public void verifyVINDealerIDSearch_27564() throws Exception {
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 			String roleid = getWebContractsAllTableDataFromDB().get(1).get("DEALER_ID");
 			String VIN = getWebContractsAllTableDataFromDB().get(1).get("VIN");
 			String newVIN = VIN.substring(11);
@@ -522,9 +529,10 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		public void verifyConfirmationMsgWhenEnteredStatus_27566() throws Exception {
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+			String enteredStatus=webcontracts.getXMLData("statusEntered");
+			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 			Assert.assertTrue(getElementInFirstGrid("Contract Holder Last Name").isDisplayed());
-			String contractHolderLastName = getDataFromDB("ENTERED").get(1).get("LAST_NAME");
+			String contractHolderLastName = getDataFromDB(enteredStatus).get(1).get("LAST_NAME");
 			getElementInFirstGrid("Contract Holder Last Name").sendKeys(contractHolderLastName);
 			Assert.assertTrue(getArrowForwardBtn().isDisplayed());
 			getArrowForwardBtn().click();
@@ -536,7 +544,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 			Assert.assertTrue(getContractsGrid().isDisplayed());
 			for (int i = 1; i <= getRowLoc().size(); i++) {
 				String status = allTableData.get(i).get("Status");
-				  if(status.equals("ENTERED"))
+				  if(status.equals(enteredStatus))
 				  {
 					  String contractNum= allTableData.get(i).get("Contract Number");
 				      getEditRestorBtns(i).click();
@@ -556,9 +564,10 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		public void verifyNotificationMsg_27570() throws Exception {
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 			Assert.assertTrue(getElementInFirstGrid("Contract Holder Last Name").isDisplayed());
-			String contractHolderLastName = getDataFromDB("DELETED").get(1).get("LAST_NAME");
+			String statusDeleted=  webcontracts.getXMLData("statusDeleted");
+			String contractHolderLastName = getDataFromDB(statusDeleted).get(1).get("LAST_NAME");
 			getElementInFirstGrid("Contract Holder Last Name").sendKeys(contractHolderLastName);
 			Assert.assertTrue(getArrowForwardBtn().isDisplayed());
 			getArrowForwardBtn().click();
@@ -570,7 +579,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 			Assert.assertTrue(getContractsGrid().isDisplayed());
 			for (int i = 1; i <= getRowLoc().size(); i++) {
 				String status = allTableData.get(i).get("Status");
-				  if(status.equals("DELETED"))
+				  if(status.equals(statusDeleted))
 				  {
 					  String contractNum= allTableData.get(i).get("Contract Number");
 					  System.out.println(allTableData.get(i).get("Contract Number"));
@@ -589,7 +598,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		public void verifyVINLastNameSearchCriteria_27581() throws Exception {
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 			
 			Assert.assertTrue(getElementInFirstGrid("Last 6 of VIN").isDisplayed());
 			String VIN = getWebContractsAllTableDataFromDB().get(1).get("VIN");
@@ -621,7 +630,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 			login.logout();
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 			Assert.assertTrue(getElementInFirstGrid("Contract Number").isDisplayed());
 			getElementInFirstGrid("Contract Number").sendKeys(contractNumber);
 			Assert.assertTrue(getElementInFirstGrid("Dealer ID").isDisplayed());
@@ -639,7 +648,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		public void verifyDealerIdLastNameSearchCriteria_27584() throws InterruptedException {
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 			
 			Assert.assertTrue(getElementInFirstGrid("Dealer ID").isDisplayed());
 			String dealerID=prop.getProperty("roleid");
@@ -662,9 +671,10 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		public void verifyContractNotRestoredAfterXIcon_27587() throws Exception {
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 			Assert.assertTrue(getElementInFirstGrid("Contract Holder Last Name").isDisplayed());
-			String contractHolderLastName = getDataFromDB("DELETED").get(1).get("LAST_NAME");
+			String statusDeleted=  webcontracts.getXMLData("statusDeleted");
+			String contractHolderLastName = getDataFromDB(statusDeleted).get(1).get("LAST_NAME");
 			getElementInFirstGrid("Contract Holder Last Name").sendKeys(contractHolderLastName);
 			Assert.assertTrue(getArrowForwardBtn().isDisplayed());
 			getArrowForwardBtn().click();
@@ -677,7 +687,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 			String contractNum1 = null;
 			for (int i = 1; i <= getRowLoc().size(); i++) {
 				String status = allTableData.get(i).get("Status");
-				  if(status.equals("DELETED"))
+				  if(status.equals(statusDeleted))
 				  {
 					  contractNum1 = allTableData.get(i).get("Contract Number");
 					  getEditRestorBtns(i).click();
@@ -695,7 +705,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 				contractNum2 = allTableData2.get(i).get("Contract Number");
 				if(contractNum2.equalsIgnoreCase(contractNum1))
 				{
-					Assert.assertEquals(allTableData2.get(i).get("Status"), "DELETED","Contract is not restored");
+					Assert.assertEquals(allTableData2.get(i).get("Status"), statusDeleted,"Contract is not restored");
 				}
 			}
 		}
@@ -704,9 +714,10 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		public void verifyContractNotRestoredAfterNoBtn_27588() throws Exception {
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 			Assert.assertTrue(getElementInFirstGrid("Contract Holder Last Name").isDisplayed());
-			String contractHolderLastName = getDataFromDB("DELETED").get(1).get("LAST_NAME");
+			String statusDeleted=  webcontracts.getXMLData("statusDeleted");
+			String contractHolderLastName = getDataFromDB(statusDeleted).get(1).get("LAST_NAME");
 			getElementInFirstGrid("Contract Holder Last Name").sendKeys(contractHolderLastName);
 			Assert.assertTrue(getArrowForwardBtn().isDisplayed());
 			getArrowForwardBtn().click();
@@ -719,7 +730,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 			String contractNum1 = null;
 			for (int i = 1; i <= getRowLoc().size(); i++) {
 				String status = allTableData.get(i).get("Status");
-				  if(status.equals("DELETED"))
+				  if(status.equals(statusDeleted))
 				  {
 					  contractNum1 = allTableData.get(i).get("Contract Number");
 				      getEditRestorBtns(i).click();
@@ -736,7 +747,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 				contractNum2 = allTableData2.get(i).get("Contract Number");
 				if(contractNum2.equalsIgnoreCase(contractNum1))
 				{
-					Assert.assertEquals(allTableData2.get(i).get("Status"), "DELETED","record is not restored");
+					Assert.assertEquals(allTableData2.get(i).get("Status"), statusDeleted,"record is not restored");
 				}
 			}
 		}
@@ -745,9 +756,10 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		public void verifyContractNotRestoredAfterEscBtn_27589() throws Exception  {
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 			Assert.assertTrue(getElementInFirstGrid("Contract Holder Last Name").isDisplayed());
-			String contractHolderLastName = getDataFromDB("DELETED").get(1).get("LAST_NAME");
+			String statusDeleted=  webcontracts.getXMLData("statusDeleted");
+			String contractHolderLastName = getDataFromDB(statusDeleted).get(1).get("LAST_NAME");
 			getElementInFirstGrid("Contract Holder Last Name").sendKeys(contractHolderLastName);
 			Assert.assertTrue(getArrowForwardBtn().isDisplayed());
 			getArrowForwardBtn().click();
@@ -760,7 +772,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 			String contractNum1 = null;
 			for (int i = 1; i <= getRowLoc().size(); i++) {
 				String status = allTableData.get(i).get("Status");
-				  if(status.equals("DELETED"))
+				  if(status.equals(statusDeleted))
 				  {
 					  contractNum1 = allTableData.get(i).get("Contract Number");
 				      getEditRestorBtns(i).click();
@@ -779,7 +791,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 				contractNum2 = allTableData2.get(i).get("Contract Number");
 				if(contractNum2.equalsIgnoreCase(contractNum1))
 				{
-					Assert.assertEquals(allTableData2.get(i).get("Status"), "DELETED","Contract is not restored");
+					Assert.assertEquals(allTableData2.get(i).get("Status"), statusDeleted,"Contract is not restored");
 				}
 			}
 		}
@@ -788,9 +800,10 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		public void verifyRestoreIconEnabled_27591() throws Exception  {
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 			Assert.assertTrue(getElementInFirstGrid("Contract Holder Last Name").isDisplayed());
-			String contractHolderLastName = getDataFromDB("DELETED").get(1).get("LAST_NAME");
+			String statusDeleted=  webcontracts.getXMLData("statusDeleted");
+			String contractHolderLastName = getDataFromDB(statusDeleted).get(1).get("LAST_NAME");
 			getElementInFirstGrid("Contract Holder Last Name").sendKeys(contractHolderLastName);
 			Assert.assertTrue(getArrowForwardBtn().isDisplayed());
 			getArrowForwardBtn().click();
@@ -802,7 +815,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 			Assert.assertTrue(ContractHolderLastNameGrid.equalsIgnoreCase(contractHolderLastName),"Contract Holder Last Name Records are matching");
 			for (int i = 1; i <= getRowLoc().size(); i++) {
 				String status = allTableData.get(i).get("Status");
-				  if(status.equals("DELETED"))
+				  if(status.equals(statusDeleted))
 				  {
 					  Assert.assertTrue(getEditRestorBtns(i).isEnabled());
 				  }
@@ -814,9 +827,10 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		public void verifyRestoreIconStatus_27592() throws Exception  {
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 			Assert.assertTrue(getElementInFirstGrid("Contract Holder Last Name").isDisplayed());
-			String contractHolderLastName = getDataFromDB("DELETED").get(1).get("LAST_NAME");
+			String statusDeleted=  webcontracts.getXMLData("statusDeleted");
+			String contractHolderLastName = getDataFromDB(statusDeleted).get(1).get("LAST_NAME");
 			getElementInFirstGrid("Contract Holder Last Name").sendKeys(contractHolderLastName);
 			Assert.assertTrue(getArrowForwardBtn().isDisplayed());
 			getArrowForwardBtn().click();
@@ -828,10 +842,10 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 			Assert.assertTrue(ContractHolderLastNameGrid.equalsIgnoreCase(contractHolderLastName),"Contract Holder Last Name Records are matching");
 			for (int i = 1; i <= getRowLoc().size(); i++) {
 				String status = allTableData.get(i).get("Status");
-				  if(status.equals("DELETED"))
+				  if(status.equals(statusDeleted))
 				  {
 					  getEditRestorBtns(i).isEnabled();
-					  Assert.assertEquals(allTableData.get(i).get("Status"),"DELETED");
+					  Assert.assertEquals(allTableData.get(i).get("Status"),statusDeleted);
 				  }
 			}
 			
@@ -842,7 +856,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 //		public void verifyContractRestoredAfterYesBtn_27594() throws Exception {
 //			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 //			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-//			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+//			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 //			Assert.assertTrue(getElementInFirstGrid("Contract Holder Last Name").isDisplayed());
 //			String contractHolderLastName = getDataFromDB("DELETED").get(1).get("LAST_NAME");
 //			getElementInFirstGrid("Contract Holder Last Name").sendKeys(contractHolderLastName);
@@ -886,7 +900,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 //		public void verifyStatusFromDeletedToEntered_27599() throws Exception {
 //			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 //			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-//			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+//			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 //			Assert.assertTrue(getElementInFirstGrid("Contract Holder Last Name").isDisplayed());
 //			String contractHolderLastName = getDataFromDB("DELETED").get(1).get("LAST_NAME");
 //			getElementInFirstGrid("Contract Holder Last Name").sendKeys(contractHolderLastName);
@@ -929,7 +943,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		public void verifyConfirmationMsgWhenQuoteStatus_27619() throws Exception {
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 			Assert.assertTrue(getElementInFirstGrid("Contract Holder Last Name").isDisplayed());
 			String contractHolderLastName = getDataFromDB("QUOTE").get(1).get("LAST_NAME");
 			getElementInFirstGrid("Contract Holder Last Name").sendKeys(contractHolderLastName);
@@ -963,7 +977,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		public void verifyConfirmationMsgWhenRemittedStatus_27620() throws Exception {
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 			Assert.assertTrue(getElementInFirstGrid("Contract Holder Last Name").isDisplayed());
 			String contractHolderLastName = getDataFromDB("REMITTED").get(1).get("LAST_NAME");
 			getElementInFirstGrid("Contract Holder Last Name").sendKeys(contractHolderLastName);
@@ -996,9 +1010,10 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		public void verifyStatusNotChangedAfterNoBtn_27718() throws Exception {
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 			Assert.assertTrue(getElementInFirstGrid("Contract Holder Last Name").isDisplayed());
-			String contractHolderLastName = getDataFromDB("DELETED").get(1).get("LAST_NAME");
+			String statusDeleted=  webcontracts.getXMLData("statusDeleted");
+			String contractHolderLastName = getDataFromDB(statusDeleted).get(1).get("LAST_NAME");
 			getElementInFirstGrid("Contract Holder Last Name").sendKeys(contractHolderLastName);
 			Assert.assertTrue(getArrowForwardBtn().isDisplayed());
 			getArrowForwardBtn().click();
@@ -1011,7 +1026,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 			String contractNum1 = null;
 			for (int i = 1; i <= getRowLoc().size(); i++) {
 				String status = allTableData.get(i).get("Status");
-				  if(status.equals("DELETED"))
+				  if(status.equals(statusDeleted))
 				  {
 					  contractNum1 = allTableData.get(i).get("Contract Number");
 				      getEditRestorBtns(i).click();
@@ -1028,7 +1043,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 				contractNum2 = allTableData2.get(i).get("Contract Number");
 				if(contractNum2.equalsIgnoreCase(contractNum1))
 				{
-					Assert.assertEquals(allTableData2.get(i).get("Status"), "DELETED","record is same and Contract not changed its status");
+					Assert.assertEquals(allTableData2.get(i).get("Status"), statusDeleted,"record is same and Contract not changed its status");
 				}
 			}
 		}
@@ -1037,9 +1052,10 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		public void verifyStatusNotChangedAfterEscBtn_27720() throws Exception  {
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 			Assert.assertTrue(getElementInFirstGrid("Contract Holder Last Name").isDisplayed());
-			String contractHolderLastName = getDataFromDB("DELETED").get(1).get("LAST_NAME");
+			String statusDeleted=  webcontracts.getXMLData("statusDeleted");
+			String contractHolderLastName = getDataFromDB(statusDeleted).get(1).get("LAST_NAME");
 			getElementInFirstGrid("Contract Holder Last Name").sendKeys(contractHolderLastName);
 			Assert.assertTrue(getArrowForwardBtn().isDisplayed());
 			getArrowForwardBtn().click();
@@ -1052,7 +1068,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 			String contractNum1 = null;
 			for (int i = 1; i <= getRowLoc().size(); i++) {
 				String status = allTableData.get(i).get("Status");
-				  if(status.equals("DELETED"))
+				  if(status.equals(statusDeleted))
 				  {
 					  contractNum1 = allTableData.get(i).get("Contract Number");
 				      getEditRestorBtns(i).click();
@@ -1071,7 +1087,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 				contractNum2 = allTableData2.get(i).get("Contract Number");
 				if(contractNum2.equalsIgnoreCase(contractNum1))
 				{
-					Assert.assertEquals(allTableData2.get(i).get("Status"), "DELETED","record is same and Contract not changed its status");
+					Assert.assertEquals(allTableData2.get(i).get("Status"), statusDeleted,"record is same and Contract not changed its status");
 				}
 			}
 		}
@@ -1080,9 +1096,10 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		public void verifyStatusNotChangedAfterXIcon_27722() throws Exception  {
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 			Assert.assertTrue(getElementInFirstGrid("Contract Holder Last Name").isDisplayed());
-			String contractHolderLastName = getDataFromDB("DELETED").get(1).get("LAST_NAME");
+			String statusDeleted=  webcontracts.getXMLData("statusDeleted");
+			String contractHolderLastName = getDataFromDB(statusDeleted).get(1).get("LAST_NAME");
 			getElementInFirstGrid("Contract Holder Last Name").sendKeys(contractHolderLastName);
 			Assert.assertTrue(getArrowForwardBtn().isDisplayed());
 			getArrowForwardBtn().click();
@@ -1095,7 +1112,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 			String contractNum1 = null;
 			for (int i = 1; i <= getRowLoc().size(); i++) {
 				String status = allTableData.get(i).get("Status");
-				  if(status.equals("DELETED"))
+				  if(status.equals(statusDeleted))
 				  {
 					  contractNum1 = allTableData.get(i).get("Contract Number");
 				      getEditRestorBtns(i).click();
@@ -1113,7 +1130,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 				contractNum2 = allTableData2.get(i).get("Contract Number");
 				if(contractNum2.equalsIgnoreCase(contractNum1))
 				{
-					Assert.assertEquals(allTableData2.get(i).get("Status"), "DELETED","record is same and Contract not changed its status");
+					Assert.assertEquals(allTableData2.get(i).get("Status"), statusDeleted,"record is same and Contract not changed its status");
 				}
 			}
 		}
@@ -1122,7 +1139,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		public void verifyChangeInStatusAfterYesBtn_27715() throws Exception {
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 			Assert.assertTrue(getElementInFirstGrid("Contract Holder Last Name").isDisplayed());
 			String contractHolderLastName = getDataFromDB("ENTERED").get(1).get("LAST_NAME");
 			getElementInFirstGrid("Contract Holder Last Name").sendKeys(contractHolderLastName);
@@ -1171,7 +1188,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 //		public void verifyRestoreIconWhenChangedToEntered_27822() throws Exception {
 //			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 //			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-//			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+//			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 //			Assert.assertTrue(getElementInFirstGrid("Contract Holder Last Name").isDisplayed());
 //			String contractHolderLastName = getDataFromDB("DELETED").get(1).get("LAST_NAME");
 //			getElementInFirstGrid("Contract Holder Last Name").sendKeys(contractHolderLastName);
@@ -1219,7 +1236,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		public void verifySortingColoumns_27338() throws Exception {
 			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-			Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+			Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 			String dealer = getDealerFromDB().get(1).get("DEALER_ID");
 			getElementInFirstGrid("Dealer ID").sendKeys(dealer);
 			getArrowForwardBtn().click();
@@ -1283,9 +1300,14 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		public void verifyColorLabels_27328() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), "Web Contracts by Dealer");
+		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 		Assert.assertTrue(getElementInFirstGrid("Contract Holder Last Name").isDisplayed());
-		String lastNameForDeleted = getDataFromDB("DELETED").get(1).get("LAST_NAME");
+		String statusDeleted=  webcontracts.getXMLData("statusDeleted");
+		String statusEntered=  webcontracts.getXMLData("statusEntered");
+		String statusQuote=  webcontracts.getXMLData("statusQuote");
+		String statusRemitted=  webcontracts.getXMLData("statusremitted");
+		String statusProcessed=  webcontracts.getXMLData("statusProcessed");
+		String lastNameForDeleted = getDataFromDB(statusDeleted).get(1).get("LAST_NAME");
 		getElementInFirstGrid("Contract Holder Last Name").sendKeys(lastNameForDeleted);
 		getArrowForwardBtn().click();
 		Thread.sleep(5000);
@@ -1293,7 +1315,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		 HashMap<Integer, HashMap<String, WebElement>> gridDataForDeletedStatus = getElementsFromGridBody();
 		for (int i = 1; i <= getRowLoc().size(); i++) {
 			String status = gridDataForDeletedStatus.get(i).get("Status").getText();
-			  if(status.equals("DELETED"))
+			  if(status.equals(statusDeleted))
 			  {
 					String elementColor = gridDataForDeletedStatus.get(i).get("Status").getCssValue("background-color");
 					String ActualcolorInHexaformat = Color.fromString(elementColor).asHex();
@@ -1305,14 +1327,14 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		}
 		
 		getElementInFirstGrid("Contract Holder Last Name").clear();
-		String lastNameForEntered = getDataFromDB("ENTERED").get(1).get("LAST_NAME");
+		String lastNameForEntered = getDataFromDB(statusEntered).get(1).get("LAST_NAME");
 		getElementInFirstGrid("Contract Holder Last Name").sendKeys(lastNameForEntered);
 		getArrowForwardBtn().click();
 		Thread.sleep(5000);
 		 HashMap<Integer, HashMap<String, WebElement>> gridDataForEnteredStatus = getElementsFromGridBody();
 		for (int i = 1; i <= getRowLoc().size(); i++) {
 			String status = gridDataForEnteredStatus.get(i).get("Status").getText();
-			  if(status.equals("ENTERED"))
+			  if(status.equals(statusEntered))
 			  {
 					String elementColor = gridDataForEnteredStatus.get(i).get("Status").getCssValue("background-color");
 					String ActualcolorInHexaformat = Color.fromString(elementColor).asHex();
@@ -1324,14 +1346,14 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		}
 		
 		getElementInFirstGrid("Contract Holder Last Name").clear();
-		String lastNameForQuote = getDataFromDB("QUOTE").get(1).get("LAST_NAME");
+		String lastNameForQuote = getDataFromDB(statusQuote).get(1).get("LAST_NAME");
 		getElementInFirstGrid("Contract Holder Last Name").sendKeys(lastNameForQuote);
 		getArrowForwardBtn().click();
 		Thread.sleep(5000);
 		 HashMap<Integer, HashMap<String, WebElement>> gridDataForQuoteStatus = getElementsFromGridBody();
 		for (int i = 1; i <= getRowLoc().size(); i++) {
 			String status = gridDataForQuoteStatus.get(i).get("Status").getText();
-			  if(status.equals("QUOTE"))
+			  if(status.equals(statusQuote))
 			  {
 					String elementColor = gridDataForQuoteStatus.get(i).get("Status").getCssValue("background-color");
 					String ActualcolorInHexaformat = Color.fromString(elementColor).asHex();
@@ -1343,14 +1365,14 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		}
 		
 		getElementInFirstGrid("Contract Holder Last Name").clear();
-		String lastNameForRemitted = getDataFromDB("REMITTED").get(1).get("LAST_NAME");
+		String lastNameForRemitted = getDataFromDB(statusRemitted).get(1).get("LAST_NAME");
 		getElementInFirstGrid("Contract Holder Last Name").sendKeys(lastNameForRemitted);
 		getArrowForwardBtn().click();
 		Thread.sleep(5000);
 		 HashMap<Integer, HashMap<String, WebElement>> gridDataForRemittedStatus = getElementsFromGridBody();
 		for (int i = 1; i <= getRowLoc().size(); i++) {
 			String status = gridDataForRemittedStatus.get(i).get("Status").getText();
-			  if(status.equals("REMITTED"))
+			  if(status.equals(statusRemitted))
 			  {
 					String elementColor = gridDataForRemittedStatus.get(i).get("Status").getCssValue("background-color");
 					String ActualcolorInHexaformat = Color.fromString(elementColor).asHex();
@@ -1362,14 +1384,14 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		}
 		
 		getElementInFirstGrid("Contract Holder Last Name").clear();
-		String lastNameForProcessed = getDataFromDB("PROCESSED").get(1).get("LAST_NAME");
+		String lastNameForProcessed = getDataFromDB(statusProcessed).get(1).get("LAST_NAME");
 		getElementInFirstGrid("Contract Holder Last Name").sendKeys(lastNameForProcessed);
 		getArrowForwardBtn().click();
 		Thread.sleep(5000);
 		 HashMap<Integer, HashMap<String, WebElement>> gridDataForProcessedStatus = getElementsFromGridBody();
 		for (int i = 1; i <= getRowLoc().size(); i++) {
 			String status = gridDataForProcessedStatus.get(i).get("Status").getText();
-			  if(status.equals("PROCESSED"))
+			  if(status.equals(statusProcessed))
 			  {
 					String elementColor = gridDataForProcessedStatus.get(i).get("Status").getCssValue("background-color");
 					String ActualcolorInHexaformat = Color.fromString(elementColor).asHex();

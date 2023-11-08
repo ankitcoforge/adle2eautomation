@@ -216,6 +216,8 @@ public class ManageVSC_GAPpreferencesAction extends ManageVSC_GAPpreferencesPO {
 		Thread.sleep(2000);
 		getArrow().click();
 		selectProgramNew(program);
+//		utils.scrollDownUsingJSE();
+//		utils.clickUsingJSE(btnSave);
 		getBtnSave().click();
 		getBtnYes().click();
 		Thread.sleep(2000);

@@ -83,6 +83,7 @@ public class GAPAction extends GAPpo{
 			list.get(i).click();
 			break;
 		}
+	    Thread.sleep(1000);
 	 }
 	
 	public WebElement selectArrow(String txt) {

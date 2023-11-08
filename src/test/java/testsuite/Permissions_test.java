@@ -246,7 +246,7 @@ public class Permissions_test extends PermissionsAction {
 		login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
 		Thread.sleep(3000);
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Lender Settings", "Manage Agency Users");
+		verticalMenu.navigatetoLeftMenu("Lender Settings", "Manage Users");
 		Thread.sleep(2000);
 		String lenderEmp = prop.getProperty("lenderempAutomation");
 		utils.inputfield("cssselector", txtFieldNewUserRegistration, lenderEmp);
@@ -327,7 +327,7 @@ public class Permissions_test extends PermissionsAction {
 		Thread.sleep(10000);
 		login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
 		Thread.sleep(3000);
-		verticalMenu.navigatetoLeftMenu("Lender Settings", "Manage Agency Users");
+		verticalMenu.navigatetoLeftMenu("Lender Settings", "Manage Users");
 		Thread.sleep(2000);
 		utils.inputfield("cssselector", txtFieldNewUserRegistration, lenderEmp);
 		Thread.sleep(2000);

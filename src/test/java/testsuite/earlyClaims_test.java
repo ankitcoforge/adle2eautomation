@@ -223,6 +223,8 @@ public class earlyClaims_test extends earlyClaimsAction{
 				clearFilter();
 				System.out.println("expPdfName: " + expPdfName);
 				Assert.assertEquals(actPdfName,expPdfName );
+				lo.logout();
+				System.out.println("verifyExportPDFFilteredData end " + roleType);
 			} catch (InterruptedException | IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -230,8 +232,7 @@ public class earlyClaims_test extends earlyClaimsAction{
 //				Assert.assertEquals(true,false );
 			}
 		}
-		lo.logout();
-		System.out.println("verifyExportPDFFilteredData end " + roleType);
+		
 	}
     
 	@Test (priority = 7, dataProvider = "login1")
@@ -251,6 +252,8 @@ public class earlyClaims_test extends earlyClaimsAction{
 			System.out.println("expPdfName: " + expPdfName);
 			Assert.assertEquals(actPdfName,expPdfName );
 			clickCloseButton("CloseButton");
+			lo.logout();
+			System.out.println("verifyExportPDFModal end" + roleType);
 			} catch (InterruptedException | IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -259,8 +262,7 @@ public class earlyClaims_test extends earlyClaimsAction{
 			}
 		}
 		
-		lo.logout();
-		System.out.println("verifyExportPDFModal end" + roleType);
+		
 	}
 
 	 @Test (priority = 8, dataProvider = "login3")

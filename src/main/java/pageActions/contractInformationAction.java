@@ -235,7 +235,7 @@ public class contractInformationAction extends contractpo {
 
 	
 	
-	public void sppContractValidation() throws InterruptedException {
+	public void sppContractValidation(String program) throws InterruptedException {
 
 //		lo.login(prop.getProperty("username1"), prop.getProperty("password"));
 //		vo.navigatetoLeftMenu("E-Rate", "Rate/Contract");
@@ -246,7 +246,7 @@ public class contractInformationAction extends contractpo {
 		event.inputfield("cssSelector", textbox, "1234", 5);
 		event.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 6);
 		event.clickfield("xpath", getProducts);
-		co.programSelect("Service Drive - SDF");
+		co.programSelect(program);
 		event.clickfield("cssSelector", table, 0);
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		js.executeScript("window.scrollTo(0, 2500)");

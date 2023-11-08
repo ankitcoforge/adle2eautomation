@@ -7,6 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class utilityClass extends baseClass{
 	
@@ -330,10 +332,40 @@ public class utilityClass extends baseClass{
  			js.executeScript("window.scrollTo(0, -2500)");
  	 		}
  		
+ 		public void clickUsingJSE(String ele) {
+ 			JavascriptExecutor jse = (JavascriptExecutor) driver;
+ 			jse.executeScript("arguments[0].click()", driver.findElement(By.xpath(ele)));
+ 	 		}
+ 		
+ 		
  		 public WebElement getTitle(String heading) {
  			 WebElement welcomeTitle=getfield("h3", heading);
  			 return welcomeTitle;
  		 }
+ 		 
+ 		public void waitTillElementIsVisible(String ele) {
+ 			WebDriverWait wait = new WebDriverWait(driver,60);
+ 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ele)));
+ 		}
  		
+ 		public void waitTillElementIsVisibleCss(String ele) {
+ 			WebDriverWait wait = new WebDriverWait(driver,60);
+ 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(ele)));
+ 		}
+ 		
+ 		public void waitTillElementIsClickable(String ele) {
+ 			WebDriverWait wait = new WebDriverWait(driver,60);
+ 			wait.until(ExpectedConditions.elementToBeClickable(By.xpath(ele)));
+ 		}
+ 		
+ 		public void waituntillPageIsloaded() {
+ 			WebDriverWait wait = new WebDriverWait(driver,30);
+ 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//ngx-spinner/div")));
+ 		}
+
+ 		public void waituntillPageIsloaded(int time) {
+ 			WebDriverWait wait = new WebDriverWait(driver,time);
+ 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//ngx-spinner/div")));
+ 		}
 }
 

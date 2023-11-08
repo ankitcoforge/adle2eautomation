@@ -31,16 +31,10 @@ public class ActuarialReport_test extends ActuarialReportAction{
 	loginAction login = new loginAction();
 	verticalMenuAction verticalMenu = new verticalMenuAction();
 	impersonateAction impersonate = new impersonateAction();
-//	WebMileageExceptionAction wme = new WebMileageExceptionAction();
 	utilityClass utils = new utilityClass();
 	CalenderUtils calander = new CalenderUtils();
 	Permissions_test Permissions=new Permissions_test();
 	LateralMenuAction lateralMenu = new LateralMenuAction();
-//	GAP_test gap = new GAP_test();
-//	cobuyerContractAction cobuyerContract = new cobuyerContractAction();
-//	singleContractAction singleContractAction = new singleContractAction();
-//	createContractAction contract = new createContractAction();
-//	EditContract_test EditContract = new EditContract_test();
 
 	@BeforeMethod(alwaysRun = true)
 	public void login() throws InterruptedException {

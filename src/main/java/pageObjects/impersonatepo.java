@@ -7,10 +7,13 @@ public class impersonatepo extends baseClass{
 	public String title = "//b[text()='Welcome to your AUL ADL Portal!']";
 	public String roleDropdown = "//ng-select[@role='listbox']";
 	public String roleDropdownInAccountManagementPage = "(//ng-select[@role='listbox'])[1]";
+	public String roleDropdownForAccountName = "//input[@placeholder='Account Name']/..";
 	public String roleIdInAccountManagementPage = "//div[text()='Please enter the Role ID / Account Name']/../div[2]/input";
 	public String roleDropdownList = "//div[@class='scrollable-content']/div";
+	public String roleDropdownListForAccountName = "//span[@class='mat-option-text']";
+	public String roleDropdownListForDealer = "//mat-option[@role='option']/span/span";
     public String roleId = "//input[@placeholder='Please enter the Role ID / Account Name']";
-    public String getusersButton = "//span[text()='Get Users']";
+    public String getusersButton = "//span[text()=' Get Users ']";
     public String getArrowBtn = "//mat-icon[text()='arrow_forward']";
     public String tableFirstRow = "(//i[@title='Impersonate'])[1]";
     public String impersonateList = "//i[@title='Impersonate']";

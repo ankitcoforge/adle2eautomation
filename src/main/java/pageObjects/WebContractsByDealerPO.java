@@ -5,7 +5,7 @@ import utils.baseClass;
 public class WebContractsByDealerPO extends baseClass{
 	
 	public String WebContractstitle = "//h3[text()='Web Contracts by Dealer']";
-	public String adminRoleId="//span[text()='AULadmin2']";
+	public String adminRoleId="//span[contains(text(),'AULadmin')]/../span[1]";
 	public String rowsPerPage="p-paginator>div>p-dropdown>div";
 	public String rowsPerPageDropdownbtn="//p-dropdown//div[@role='button']/span";
 	public String rowsPerPageDropdownlist="ul> p-dropdownitem>li>span";

@@ -19,7 +19,7 @@ public class ManageVSC_GAPpreferencesPO extends baseClass {
 	public String ddRadioBtns = "label.mat-radio-label>div.mat-radio-container";
 	public String chckboxesInPrfrncepage = "div.mat-checkbox-inner-container";
 	public String chckboxesInPrfrncepageStatus = "div.mat-checkbox-inner-container>input";
-	public String btnSave = "//span[contains(text(),'Save')]";
+	public String btnSave = "//span[contains(text(),'Save')]/..";
 	public String btnCancel = "//span[contains(text(),'Cancel')]";
 	public String btnYes = "//span[contains(text(),'Yes')]";
 	public String btnNo = "//span[contains(text(),'No')]";

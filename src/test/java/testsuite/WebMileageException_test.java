@@ -66,7 +66,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	
 	@Test(priority = 2)
 	public void verifySearchBoxesInGrid_31268_31269_31270_31271_31272_31273_31379_31380_31274_31388() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
@@ -173,7 +173,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	
 	@Test(priority = 3)
 	public void verifyEditPage_31275_31395() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
@@ -208,7 +208,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	
 	@Test(priority = 4)
 	public void verifyDeleteFuctionality_31276_31277() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
@@ -242,7 +242,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	
 	@Test(priority = 5)
 	public void verifyCancelBtn_31384() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
@@ -275,7 +275,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	
 	@Test(priority = 6)
 	public void verifyPagination_31385() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
@@ -319,7 +319,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	
 	@Test(priority = 8)
 	public void verifyNewExceptionCancelBtn_31390() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
@@ -377,7 +377,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 		Thread.sleep(2000);
 		
 		login.logout();
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Thread.sleep(3000);
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("DealerEmp", dealerId);
@@ -586,7 +586,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 		}
 			//selectProgramNew("Essentials");;
 			String selectedDate = createNewExceptionWithDate("Essentials",0);
-		utils.clickfield("xpath", calenderUtils.calenderTxtbox);
+		utils.clickfield("xpath", calenderUtils.calenderIcon);
 		calenderUtils.selectDate(selectedDate,"MMM/dd/yyyy");
 		HashMap<Integer, HashMap<String, String>> allTableDataTxt = checkGridBodyDetailsTxt();
 		String effectiveDateInGrid = allTableDataTxt.get(1).get("Prog Eff.Date");

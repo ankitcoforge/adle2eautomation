@@ -217,12 +217,10 @@ public class GAP_test extends GAPAction{
 	@Test(priority = 3)
 	public void verifyADDGapbehaviourWhenCheckedAndUnchecked_10032() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
-		Thread.sleep(3000);
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Dealer", "28771");
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
-		Thread.sleep(2000);
 		wme.getProducts("5FNRL6H27NB019645", "100");
 		Assert.assertTrue(event.element("xpath", results).isDisplayed());
 		selectProgram("RNL");

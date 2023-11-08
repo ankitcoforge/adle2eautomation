@@ -128,6 +128,7 @@ public class singleContractAction extends contractpo {
 		ele.sendKeys(dealer);
 		ele.sendKeys(Keys.ARROW_DOWN);
 		ele.sendKeys(Keys.ENTER);
+		Thread.sleep(2000);
 		getBtnSignIn().click();
 		Thread.sleep(2000);
 	}

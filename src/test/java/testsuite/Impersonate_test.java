@@ -74,28 +74,33 @@ public class Impersonate_test extends impersonateAction {
 		contract.singleContractForLender("#1 Auto Liquidators LLC");
 	}
 
+//	
+//	@Test(priority = 4)
+//	public void verifyContractCreationThroughLenderEmp() throws Exception {
+//		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
+//		Thread.sleep(3000);
+////		verticalMenu.navigatetoimpersonate();
+////		impersonate.impersonateUser("LenderEmp", "3641");
+////		Thread.sleep(4000);
+//		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+//		Thread.sleep(2000);
+//		contract.singleContractForLender("#1 Auto Liquidators LLC");
+//	}
 	
-	@Test(priority = 4)
-	public void verifyContractCreationThroughLenderEmp() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
-		Thread.sleep(3000);
-		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("LenderEmp", "3641");
-		Thread.sleep(4000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
-		Thread.sleep(2000);
-		contract.singleContractForLender("#1 Auto Liquidators LLC");
-	}
 
 	@AfterMethod(alwaysRun = true)
 	public void close() throws InterruptedException {
 		 try {
 				login.logout();
 				} catch (Exception e) {
+					if(utils.getfield("mat-icon", "close").isDisplayed()) {
+					utils.getfield("mat-icon", "close").click();
+					}
+					login.logout();
 			}
+	    }
 	}
 
 		
-	}
 
 

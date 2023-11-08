@@ -7,17 +7,15 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 import pageObjects.EmployeePackspo;
-import pageObjects.impersonatepo;
+import pageObjects.NewUserRegistrationPo;
 import utils.CalenderUtils;
 import utils.Randomizer;
+import utils.XmlDataReader;
 import utils.utilityClass;
 
 public class EmployeePacksAction extends EmployeePackspo{
@@ -25,8 +23,14 @@ public class EmployeePacksAction extends EmployeePackspo{
 	utilityClass utils= new utilityClass();
 	   Randomizer randomizer=new Randomizer();
 	   createContractAction co = new createContractAction();
-	   impersonatepo io = new impersonatepo();
+	   impersonateAction io = new impersonateAction();
 	   CalenderUtils calenderUtils= new CalenderUtils();
+	   PricingPreferencesAction preferences = new PricingPreferencesAction();
+	   XmlDataReader UtilsDataReader = new XmlDataReader("UtilsData");
+	   NewUserRegistrationPo NewUserRegistrationPage= new NewUserRegistrationPo();
+	   ManageUserPageAction ManageUserPage=new ManageUserPageAction();
+	   LateralMenuAction VerticalMenu=new LateralMenuAction();
+	   
 	
 	 public WebElement getPortalTitle() {
 		 WebElement welcomeTitle=driver.findElement(By.xpath(portalTitle));	
@@ -35,6 +39,11 @@ public class EmployeePacksAction extends EmployeePackspo{
 
 	 public WebElement getDealerPacksPageTitle() {
 		 WebElement welcomeTitle=driver.findElement(By.xpath(dealerPackstitle));	
+		 return welcomeTitle;
+	 }
+	 
+	 public WebElement getlenderPackstitle() {
+		 WebElement welcomeTitle=driver.findElement(By.xpath(lenderPackstitle));	
 		 return welcomeTitle;
 	 }
 	 
@@ -372,4 +381,70 @@ public class EmployeePacksAction extends EmployeePackspo{
 		 WebElement welcomeTitle=utils.getfield("h3", heading);
 		 return welcomeTitle;
 	 }
+	 
+	 
+	 public void verfyNoExistingPacksPresent() throws InterruptedException {
+	 if (getCurrentPageRecord() > 0) {
+			preferences.getSelectAllCheckBox().click();
+			getDeleteLink().click();
+			getBtnYes().click();
+			Thread.sleep(2000);
+		}
+	 }
+	 
+//	 public void selectDealerInmanageUserPage() throws InterruptedException {
+//			utils.clickfield("xpath", selectDealerNamearrow);
+//			WebElement ele = driver.findElement(By.xpath(enterRole));
+//			ele.sendKeys(UtilsDataReader.getXMLData("dealer3"));
+//			List<WebElement> list = getDriver().findElements(By.xpath(roleDropdownListForDealer));
+//			list.get(0).click();
+//			utils.waitTillElementIsVisible(io.getusersButton);
+//			utils.clickfield("xpath", io.getusersButton);
+//		}
+	 
+	 public void selectDealerInManageUserPage() throws InterruptedException {
+     ManageUserPage.selectDealerInmanageUserPage(UtilsDataReader.getXMLData("dealer3"));
+     utils.waitTillElementIsVisible(io.tableFirstRow);
+	 }
+	 
+	 public void selectRoleTypeAndStatusCompleted(String roleType) throws InterruptedException {
+		 VerticalMenu.selectRoleType(roleType);
+		 utils.element("xpath", ManageUserPage.registrationStatusArrow).click();
+		 utils.element("xpath", ManageUserPage.completedCheckbox).click();
+		 utils.element("xpath", ManageUserPage.registrationStatusArrow).click();
+		 utils.waitTillElementIsVisible(io.tableFirstRow);
+	 }
+     
+     public void getEditPermissionsInManageUsersPage(String roleType,String status) throws InterruptedException {
+	 HashMap<Integer, HashMap<String, String>> allTableData = ManageUserPage.manageUsersPageGrid();
+	 HashMap<Integer, HashMap<String, WebElement>> tableDataForEditDelLock = io.checkGridForEditDelLock();
+//		for(int i=1;i<=io.getRows().size();i++){
+		if(allTableData.get(1).get("Role Type").equals(roleType) && allTableData.get(1).get("Registration Status").equals(status) )
+		{
+			tableDataForEditDelLock.get(1).get("Edit").click();
+	
+	 WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions
+				.visibilityOfAllElements(utils.getElementsList("xpath", NewUserRegistrationPage.permissionsArrow)));
+		utils.element("xpath", NewUserRegistrationPage.permissionsArrow).click();
+		utils.waituntillPageIsloaded();
+		if(utils.element("xpath", ManageUserPage.selectAllLink).getAttribute("aria-checked").equals("false")) {
+		utils.element("xpath", ManageUserPage.selectAllLink).click();
+		}
+		utils.element("xpath", ManageUserPage.closeInPermPopup).click();
+		utils.waitTillElementIsVisible( ManageUserPage.saveBtn);
+		utils.element("xpath", ManageUserPage.saveBtn).click();
+		utils.waituntillPageIsloaded();
+//		}
+		}
+}
+     
+     
+     public void getPermissionsForDealerEmp() throws InterruptedException {
+			VerticalMenu.getDefaultpermissionForDealerEmp();
+		}
+     
+     public void getPermissionsForLenderEmp() throws InterruptedException {
+			VerticalMenu.getDefaultpermissionForLenderEmp();
+		}
 }

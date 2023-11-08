@@ -2,10 +2,14 @@ package pageActions;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 import pageObjects.LateralMenupo;
@@ -183,7 +187,7 @@ public void getDefaultpermissionForsubAgent() throws InterruptedException {
 public void getDefaultpermissionForLenderEmp() throws InterruptedException {
 	login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
 	Thread.sleep(3000);
-	verticalMenu.navigatetoLeftMenu("Lender Settings", "Manage Agency Users");
+	verticalMenu.navigatetoLeftMenu("Lender Settings", "Manage Users");
 	Thread.sleep(2000);
 	String lenderEmp = prop.getProperty("lenderempAutomation");
 	utils.inputfield("cssselector", permissions.txtFieldNewUserRegistration, lenderEmp);
@@ -220,6 +224,121 @@ public void getDefaultpermissionForDealerGrpEmp() throws InterruptedException {
 	login.logout();
 	Thread.sleep(5000);
 }
-		
-		
+	
+public WebElement getEditUserPopup() {
+	  WebElement edituser = driver.findElement(By.xpath(editUserPopup));	
+	 return edituser;
+}
+
+public WebElement getdelConfirmationMsg() {
+	  WebElement delConfirmation = driver.findElement(By.xpath(delConfirmationMsg));	
+	 return delConfirmation;
+}
+
+public void verifyEditAndDelFunctionality() throws InterruptedException {
+HashMap<Integer, HashMap<String, WebElement>> editDel = impersonate.checkGridForEditDelLock();
+Assert.assertTrue(editDel.get(1).get("Edit").isEnabled());
+Assert.assertTrue(editDel.get(1).get("Delete").isEnabled());
+editDel.get(1).get("Edit").click();
+Thread.sleep(3000);
+Assert.assertTrue(getEditUserPopup().isDisplayed());
+Thread.sleep(3000);
+impersonate.getIconClose().click();
+editDel.get(1).get("Delete").click();
+Thread.sleep(2000);
+Assert.assertTrue(getdelConfirmationMsg().isDisplayed());
+impersonate.getIconClose().click();
+Thread.sleep(3000);
+
+}
+	
+public WebElement getRoleIDorAccountName() {
+	  WebElement ele = driver.findElement(By.xpath(roleId));	
+	 return ele;
+}
+
+
+public WebElement getRoleType1() {
+  WebElement ele = driver.findElement(By.xpath(roleType1));	
+ return ele;
+}
+
+public WebElement getRoleType() {
+	   List<WebElement> elements = driver.findElements(By.xpath(roleType));
+	WebElement ele = elements.get(0);
+	return ele;
+}
+
+public void selectRoleType(String roleType) throws InterruptedException {
+    Actions action=new Actions(driver);
+    action.moveToElement(getRoleType1()).click().build().perform();
+    Thread.sleep(2000);
+	 WebElement ele =driver.findElement(By.xpath("//li[@aria-label='"+roleType+"']/div/div/span"));
+	 ele.click();
+	 Thread.sleep(1000);
+	 action.moveToElement(getRoleType1()).click().build().perform();
+	 Thread.sleep(1000);
+}
+
+public void selectDropDown() throws InterruptedException {
+	 Thread.sleep(1000);
+	 List<WebElement> list = getDriver().findElements(By.xpath(roleDropdownList));
+	 
+   for(int i=0;i<list.size();i++) {
+		list.get(i).click();
+		break;
+	}
+   Thread.sleep(1000);
+   utils.clickfield("xpath", impersonate.getusersButton);
+	Thread.sleep(1000);
+}
+
+public List<WebElement> getEditStatusDisabled() throws InterruptedException {
+	 Thread.sleep(1000);
+	 List<WebElement> list = getDriver().findElements(By.xpath(EditStatusDisabled));
+	 return list;
+}
+
+public List<WebElement> getEditStatusEnabled() throws InterruptedException {
+	 Thread.sleep(1000);
+	 List<WebElement> list = getDriver().findElements(By.xpath(EditStatusEnabled));
+	 return list;
+}
+
+public List<WebElement> getDeleteStatus() throws InterruptedException {
+	 Thread.sleep(1000);
+	 List<WebElement> list = getDriver().findElements(By.xpath(deleteStatus));
+	 return list;
+}
+
+public HashMap<Integer, HashMap<String, WebElement>> checkGridForEditDelLock() {
+	List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", impersonate.headerLoc);
+	System.out.println("allHeaderNames: " + allHeaderNames);
+	HashMap<Integer, HashMap<String, WebElement>> allTableData = new HashMap<Integer, HashMap<String, WebElement>>();
+	// Get total rows count
+	List<WebElement> allRows = utils.getElementsList("cssSelector", impersonate.rowLoc);
+	System.out.println("No of rows in grid: " + allRows.size());
+	for (int i = 1; i <= allRows.size(); i++) {
+		if (i == 10)
+			utils.scrollDown();
+		// Getting specific row with each iteration
+		String specificRowLoc = "table>tbody>tr:nth-of-type(" + i + ")";
+		LinkedHashMap<String, WebElement> eachRowData = new LinkedHashMap<>();
+		for (int j = 3; j < allHeaderNames.size(); j++) {
+			String specificRowColLoc = "td:nth-of-type(" + j + ")>adl-table-cells>div";
+			WebElement cellValue = utils.element("cssSelector", specificRowLoc + ">" + specificRowColLoc);
+			eachRowData.put(allHeaderNames.get(j-1), cellValue);
+		}
+		allTableData.put(i, eachRowData);
+	}
+	System.out.println("Complete Grid data: " + allTableData);
+	utils.scrollUp();
+	return allTableData;
+}
+
+
+
+
+
+
 }

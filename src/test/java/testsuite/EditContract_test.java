@@ -127,14 +127,14 @@ public class EditContract_test extends EditContractAction {
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
 		utils.scrollDown();
-		HashMap<Integer, HashMap<String, String>> allTableData = contractSearchPage.checkGridBodyDetails();
+		HashMap<Integer, HashMap<String, String>> allTableData = contractSearchPage.checkGridBodyDetails1();
 		contractSearchPage.getSelectStatus().click();
 		contractSearchPage.getEnteredStatusChkbox().click();
 		String contractNumber = allTableData.get(1).get("Contract");
 		utils.scrollDown();
 		contractSearchPage.getSearchBoxesInGrid().get("Contract").sendKeys(contractNumber);
 		Thread.sleep(1000);
-		HashMap<Integer, HashMap<String, String>> allTableData2 = contractSearchPage.checkGridBodyDetails();
+		HashMap<Integer, HashMap<String, String>> allTableData2 = contractSearchPage.checkGridBodyDetails1();
 		String contractNumber2 = allTableData2.get(1).get("Contract");
 		if (contractNumber.equals(contractNumber2)) {
 			contractSearchPage.selectStatusCheckBoxInGrid(1).click();
@@ -472,7 +472,7 @@ public class EditContract_test extends EditContractAction {
 		utils.scrollDown();
 		getBtnSave().click();
 		Thread.sleep(2000);
-		String eContractingUrl = "blob:https://qa.adl.aulcorp.com/49b16c19-1e18-43a7-9c74-ad1922299679";
+		String eContractingUrl = "blob:https://qa2.adl.aulcorp.com/49b16c19-1e18-43a7-9c74-ad1922299679";
 		verifyContentInPDf(eContractingUrl, "AUL LIMITED WARRANTY");
 		Thread.sleep(2000);
 		getDriver().switchTo().defaultContent();
@@ -1740,7 +1740,7 @@ public class EditContract_test extends EditContractAction {
 		Thread.sleep(1000);
 		getBtnViewOrPrintContract().click();
 		Thread.sleep(1000);
-		String pdfURL = "blob:https://qa.adl.aulcorp.com/2de9b7e1-339f-4cd4-8829-b7a1e37ce0a2";
+		String pdfURL = "blob:https://qa2.adl.aulcorp.com/2de9b7e1-339f-4cd4-8829-b7a1e37ce0a2";
 		verifyContentInPDf(pdfURL, "aul");
 	}
 
@@ -1892,11 +1892,14 @@ public class EditContract_test extends EditContractAction {
 	@AfterMethod(alwaysRun=true)
 	public void close() throws InterruptedException {
 		try {
-		login.logout();
+			login.logout();
+		} catch (Exception e) {
+			if (utils.getfield("mat-icon", "close").isDisplayed()) {
+				utils.getfield("mat-icon", "close").click();
+			}
+			login.logout();
 		}
-		catch (Exception e){
-		}
-		}
+	}
 	
 
 }

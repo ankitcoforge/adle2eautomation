@@ -105,18 +105,19 @@ public class WebContractsByDealerAction extends WebContractsByDealerPO{
 		 
 		 
 		 
-		 public int getCurrentPageRecord() {
+		 public String getCurrentPageRecord() {
 			 WebElement currentPageRecords = driver.findElement(By.xpath(currentPageRecord));
 			 String[] currentPage = currentPageRecords.getText().split(" ");
-			 int currentPageRecord = Integer.parseInt(currentPage[1]);
-			 return currentPageRecord;			 
+			 //int currentPageRecord = Integer.parseInt(currentPage[1]);
+			 return currentPage[1];			 
 			 }
 		 
 		
-		 public int getTotalPagesDisplayed() {
+		 public String getTotalPagesDisplayed() {
 			  List<WebElement> totalNumOfPagesDisplayed = driver.findElements(By.xpath(totalPagesDisplayed));
 			 int totalPagesDisplayed= totalNumOfPagesDisplayed.size();
-			 return totalPagesDisplayed;
+			 String totalPagesDisplayedString = Integer.toString(totalPagesDisplayed);
+			 return totalPagesDisplayedString;
 			 }
 		 
 		 public WebElement getPlsMakeaSearchTxt() {

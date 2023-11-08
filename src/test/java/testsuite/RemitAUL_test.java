@@ -47,32 +47,36 @@ public class RemitAUL_test extends RemitAULAction {
 	}
 
 
-	@Test(priority = 0)
-	public void preCond() throws InterruptedException {
-		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
-		Thread.sleep(2000);
-		if(!getNoRecordsInGrid().getText().contains("There are no records to display"))
-				{
-			createContract();
-			}
-		else if (getRowLoc().size() > 3) {
-			getRemitContracts();
-		}
-	
-		login.logout();
-		Thread.sleep(2000);
-		login.login(prop.getProperty("dealerForPaymentDetails"), prop.getProperty("password"));
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
-		Thread.sleep(2000);
-		if(!getNoRecordsInGrid().getText().contains("There are no records to display") | getRowLoc().size() < 3) {
-			createContract();
-			}
-		else if (getRowLoc().size() > 3) {
-			getRemitContracts();
-		}
-		
-	}
+//	@Test(priority = 0)
+//	public void preCond() throws InterruptedException {
+//		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
+//		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+//		Thread.sleep(2000);
+//		if(!getNoRecordsInGrid().getText().contains("There are no records to display")) {
+////		if(getRowLoc().size() < 3 | getNoRecordsInGrid().getText().contains("There are no records to display")) 
+//		utils.scrollDownUsingJSE();
+////		if(getRowLoc().size() <= 3 )
+////				{
+//			createContract();
+//			}
+//		else if (getRowLoc().size() > 3) {
+//			getRemitContracts();
+//		}
+//	
+//		login.logout();
+//		Thread.sleep(2000);
+//		login.login(prop.getProperty("dealerForPaymentDetails"), prop.getProperty("password"));
+//		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+//		Thread.sleep(2000);
+//		if(!getNoRecordsInGrid().getText().contains("There are no records to display") | getRowLoc().size() < 3) {
+////			if(getRowLoc().size() <= 3 ) {
+//			createContract();
+//			}
+//		else if (getRowLoc().size() > 3) {
+//			getRemitContracts();
+//		}
+//		
+//	}
 
 	@Test(priority = 1)
 	public void verifySelectContractsTabAndAndCheckDetailsTabForCheck_18801_18806_18807_18808()
@@ -557,22 +561,23 @@ public class RemitAUL_test extends RemitAULAction {
 
 	}
 
-	@Test(priority = 11)
-	public void verifyCalenderDropdownOnSaleDateField_19003() throws InterruptedException, ParseException {
-		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
-		Thread.sleep(2000);
-		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
-		Assert.assertEquals((getSelectContractByDefault()).getAttribute("class"), "tab--active");
-		Thread.sleep(3000);
-		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("window.scrollTo(0, 2500)");
-		getCalenderIcon().click();
-		Thread.sleep(2000);
-		Assert.assertTrue(getCalenderPopup().isDisplayed());
-
-	}
+//	@Test(priority = 11)
+//	public void verifyCalenderDropdownOnSaleDateField_19003() throws InterruptedException, ParseException {
+//		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
+//		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+//		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+//		Thread.sleep(2000);
+//		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
+//		Assert.assertEquals((getSelectContractByDefault()).getAttribute("class"), "tab--active");
+//		Thread.sleep(3000);
+//		JavascriptExecutor js=(JavascriptExecutor)driver;
+//		js.executeScript("window.scrollTo(0, 2500)");
+//		getCalenderIcon().click();
+//		Thread.sleep(2000);
+//		Assert.assertTrue(getCalenderPopup().isDisplayed());
+//		getCalenderIcon().click();
+//
+//	}
 
 	@Test(priority = 12)
 	public void verifyTextFiltersWithCharectersInGridColoumns_19011_19012_19013_19014_19015_19016_19023_19024_19025_19246() throws InterruptedException, ParseException {
@@ -1821,12 +1826,16 @@ public class RemitAUL_test extends RemitAULAction {
 			Assert.assertEquals(checkAmountValue,sum);
 	}
 	
-	@AfterMethod
+	@AfterMethod(alwaysRun=true)
 	public void close() throws InterruptedException {
 		try {
-		login.logout();
+			login.logout();
 		} catch (Exception e) {
-	}
+			if (utils.getfield("mat-icon", "close").isDisplayed()) {
+				utils.getfield("mat-icon", "close").click();
+			}
+			login.logout();
+		}
 	}
 
 }

@@ -80,6 +80,7 @@ public class CalenderUtils extends CalenderPo {
 	}
 	
 	public String calenderTxtbox = "//*[contains(@class,'mat-form-field-infix ng-tns')]";
+	public String calenderIcon = "//button[@aria-label='Open calendar']";
 	public String calenderInPopup = "(//mat-icon[text()='calendar_today'])[2]";
 	
 	//eg: code format to be used in test cases-calendar click>methods

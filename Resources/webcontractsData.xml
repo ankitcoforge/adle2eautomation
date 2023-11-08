@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<URls>
+	<webcontractsURL>adl.aulcorp.com/portal/reports/web-contracts-by-dealer</webcontractsURL>
+	<webcontractsTitle>Web Contracts by Dealer</webcontractsTitle>
+	<statusEntered>ENTERED</statusEntered>
+	<statusDeleted>DELETED</statusDeleted>
+	<statusQuote>QUOTE</statusQuote>
+	<statusremitted>REMITTED</statusremitted>
+	<statusProcessed>PROCESSED</statusProcessed>
+	<perPage25>25</perPage25>
+	<perPage50>50</perPage50>
+	<perPage100>100</perPage100>
+	<pageNo2>2</pageNo2>
+	<pageNo5>5</pageNo5>
+	<pageRecord26>26</pageRecord26>
+	<pageRecord101>101</pageRecord101>
+	<contractNumber>KIKNA004619G22AB</contractNumber>
+	<invalidContractNum>1234567891234567</invalidContractNum>
+	<code>DEF</code>
+	<maxlength>16</maxlength>
+	<maxlength64>64</maxlength64>
+	<maxlengthVIN>6</maxlengthVIN>
+	<lastNemWith64Chars>qwertyuiopasdfghjklzxcvbnmqwrtyuiopasdghjklzxcvbnmqwertyuiopasdf</lastNemWith64Chars>
+    <vin>467085</vin>
+    <vin2>002615</vin2>
+    <invalidVIN>XXXXX1</invalidVIN>
+    <randomNO>123</randomNO>
+</URls>

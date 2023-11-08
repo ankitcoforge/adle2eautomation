@@ -24,5 +24,15 @@ public class LateralMenupo extends baseClass{
 	public String newuserBtnClose = "//button[@aria-label='Close']/span";
 	public String newExceptionBtn = "//span[text()=' + New exception ']";
 	public String newuserBtn = "//span[text()=' + New user ']";
-	
+	public String editUserPopup = "//h3[text()='Edit user']";
+	public String delConfirmationMsg = "//h4[contains(text(),'Are you sure you want to delete')]";
+	public String roleType = "thead > adl-table-header > tr:nth-child(2) > td>div>div>p-multiselect";
+	public String roleType1 = "(//span[contains(@class,'ui-multiselect-trigger-icon ui-clickable')])[1]";
+	public String selectDealerRoleType = "//li[@aria-label='Dealer']/div/div/span";
+	public String selectDealerEmpRoleType = "//li[@aria-label='DealerEmp']/div/div/span";
+	public String roleId = "//input[@placeholder='Please enter the Role ID / Account Name']";
+	public String roleDropdownList = "//mat-option";
+	public String EditStatusDisabled = "//i[@title='Edit']/../i[contains(@class,'pi pi-pencil disabled')]";
+	public String EditStatusEnabled = "//i[@title='Edit']/../i[contains(@class,'pi pi-pencil')]";
+	public String deleteStatus = "//i[@title='Delete']";
 }

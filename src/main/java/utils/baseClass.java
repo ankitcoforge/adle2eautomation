@@ -88,7 +88,6 @@ public class baseClass extends pdfUtils{
 	
 	@AfterTest
 	public void afterTestMethod(ITestContext context) {
-
 		driver.close();
 
 	}
@@ -104,7 +103,7 @@ public class baseClass extends pdfUtils{
 		if (prop == null) {
 			prop = new Properties();
 			try {
-				FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "//config.properties");
+				FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "//config_qa.properties");
 				prop.load(fs);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

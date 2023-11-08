@@ -32,9 +32,9 @@ public class Database_Connectivity extends baseClass {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			//// connection string to connect to aul db
 			//qa
-			//String url = "jdbc:sqlserver://AUL-DEVDB-01;databaseName=OCEAN_BUILD";
+//			String url = "jdbc:sqlserver://AUL-DEVDB-01;databaseName=OCEAN";
 			//qa2
-			String url = "jdbc:sqlserver://AUL-DEVDB-01;databaseName=OCEAN_QA2";
+			String url = "jdbc:sqlserver://AUL-DEVDB-01;databaseName=OCEAN";
 			//// create connection
 			conn = DriverManager.getConnection(url, "webidentity", "webidentity");
 			//// attached session

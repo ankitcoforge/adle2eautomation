@@ -50,6 +50,7 @@ public class WebMileageExceptionAction extends WebMileageExceptionpo{
 	 }
 	 
 	 public void enterRoleAndRoleID(String role,String roleid) throws InterruptedException {
+		 Thread.sleep(2000);
 		    getroledropdwns().get(0).click();
 			 List<WebElement> list = getDriver().findElements(By.xpath(roleDropdownList));
 			 for(int i=0;i<list.size();i++) {

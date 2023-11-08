@@ -35,9 +35,12 @@ public class impersonateAction extends impersonatepo {
 			{
 				list.get(i).click();
 				event.inputfield("xpath", roleId, roleid);
+//				List<WebElement> list2 = getDriver().findElements(By.xpath(roleDropdownList));
+//				list2.get(0).click();
 				break;
 			}
 		 }
+		 Thread.sleep(1000);
 		event.clickfield("xpath", getusersButton);
 		Thread.sleep(2000);
 		event.clickfield("xpath", tableFirstRow);

@@ -1,6 +1,7 @@
 package pageActions;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
@@ -22,12 +23,12 @@ public class loginAction extends loginpo {
 	/***********************Login to ADL page 
 	 * @throws InterruptedException *****************************************/
 	public String login(String username, String password) throws InterruptedException {
-		
-		
 		driver.findElement(By.cssSelector("input[placeholder=\"Enter your username\"]")).isDisplayed();
 		driver.findElement(By.cssSelector("input[placeholder=\"Enter your username\"]")).sendKeys(username);
 		driver.findElement(By.cssSelector("input[placeholder=\"Enter your password\"]")).isDisplayed();
 	    driver.findElement(By.cssSelector("input[placeholder=\"Enter your password\"]")).sendKeys(password);
+	    JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollTo(0, 500)");
 	    driver.findElement(By.cssSelector("button[type='submit']")).click();
 	    Thread.sleep(2000);
 	    driver.findElement(By.cssSelector("[class=\"title-bar\"] >h3")).isDisplayed();
@@ -35,7 +36,9 @@ public class loginAction extends loginpo {
 //		if(event.getfield("mat-icon", "close").isDisplayed()) {
 //				event.getfield("mat-icon", "close").click();
 //		}
+		Thread.sleep(3000);
 		return header1;
+		
 	}
 	
 
@@ -116,6 +119,7 @@ public class loginAction extends loginpo {
 		driver.findElement(By.cssSelector(io.logoutArrow)).isDisplayed();
 		driver.findElement(By.cssSelector(io.logoutArrow)).click();
 		event.clickfield("xpath", io.logout);
+		Thread.sleep(2000);
 	}
 
 }
