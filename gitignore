@@ -6,3 +6,5 @@ target/**
 .settings/
 .loadpath
 *chromedriver*
+*.properties*
+

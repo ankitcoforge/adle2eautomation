@@ -4,6 +4,7 @@
 	<parameter name="testng.metrics.report.logo" value="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Coforge-Logo.png/800px-Coforge-Logo.png" />
 	<test name="ADL Contract Test Suite" group-by-instances="true">
 		<classes>
+
 		    <class name="testsuite.GAP_test"/>
 		    <class name="testsuite.PricingPreferences_test"/>
 		    <class name="testsuite.EmployeePacks_test"/>

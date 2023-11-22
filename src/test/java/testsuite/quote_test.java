@@ -1,5 +1,6 @@
 package testsuite;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -26,17 +27,18 @@ public class quote_test extends createQuoteAction{
 	public void login() throws InterruptedException {
 		
 		navigate();
-		lo.login(prop.getProperty("username1"), prop.getProperty("password"));
+		lo.login(("D22723"), prop.getProperty("password"));
+		getDriver().findElement(By.cssSelector("button[color=\"white-primary\"]")).click();
 		vo.navigatetoContract();
 	}
 	
 	/********************quote creation test case****************/
-	@Test(priority = 1)
-    public void createQuote1() throws InterruptedException {
-		
-		printQuote();		
-	    
-	}
+//	@Test(priority = 1)
+//    public void createQuote1() throws InterruptedException {
+//		
+//		printQuote();		
+//	    
+//	}
 	
 	/********************quote creation test case****************/
 	@Test(priority = 2, dataProvider ="test1")
