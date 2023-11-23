@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import pageActions.EmployeePacksAction;
@@ -23,6 +24,7 @@ import utils.CalenderUtils;
 import utils.utilityClass;
 
 /* 30505 Divyasree */
+/* Total Tc's = 31 */
 
 public class WebMileageException_test extends WebMileageExceptionAction{
 
@@ -37,7 +39,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	CalenderUtils calenderUtils= new CalenderUtils();
 	
 
-	@BeforeClass(alwaysRun = true)
+	@BeforeMethod(alwaysRun = true)
 	public void login() throws InterruptedException {
 		navigate();
 		Assert.assertEquals(login.getTitle(), "AUL Corp.");
@@ -45,12 +47,13 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 
 	@Test(priority = 1)
 	public void verifyMileageExceptionPage_31267() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Mileage & Age Exceptions").isDisplayed());
+		Thread.sleep(2000);
 		enterRoleAndRoleID("Dealer","#1 Auto Liquidators LLC (85860)");
 		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
 			System.out.println("Exceptions are present");
@@ -296,7 +299,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	
 	@Test(priority = 7)
 	public void verifyNewExceptionCreation_31389_31394() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
@@ -347,9 +350,10 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 		getBtnCancel().click();
 	}
 	
+	//bug
 	@Test(priority = 9)
 	public void verifyExceptionWithDealerEmplContract_31391() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
@@ -368,7 +372,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 		}
 		getNewExceptionBtn().click();
 		selectProgramAndentertMileage("Essentials", "100", "1000");
-		entertAge("0", "10");
+		entertAge("0", "30");
 		getBtnSave().click();
 		Thread.sleep(2000);
 		
@@ -386,7 +390,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	
 	@Test(priority = 10)
 	public void verifyExceptionWithLenderEmp_31392() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
@@ -410,7 +414,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 		Thread.sleep(2000);
 		
 		login.logout();
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Thread.sleep(3000);
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("LenderEmp", lenderId);
@@ -424,7 +428,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	
 	@Test(priority = 11)
 	public void verifyExceptionReflectWithMileageForDealer_31589() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
@@ -459,7 +463,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	
 	@Test(priority = 12)
 	public void verifyExceptionReflectWithAgeForDealer_31593_31594() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
@@ -477,23 +481,23 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 			Thread.sleep(2000);
 		}
 		getNewExceptionBtn().click();
-		selectProgramAndentertMileage("Essentials", "100", "1000");
+		selectProgramAndentertMileage("Essentials", "0", "0");
 		entertAge("0", "10");
 		getBtnSave().click();
-		Thread.sleep(4000);
+		Thread.sleep(10000);
 		
 		verticalMenu.navigatetoLeftMenu("Impersonate");
 		impersonate.impersonateUser("Dealer", dealerId);
 		Thread.sleep(5000);
 
 		verticalMenu.navigatetoContract();
-		getProducts("3VWSB81H8WM210368","101");
+		getProducts("5FNRL6H27NB019645","0");
 		getPrograms("Essentials");
 	}
 
 	@Test(priority = 13)
 	public void verifyExceptionReflectWithMileageForLender_31595() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
@@ -530,7 +534,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	
 	@Test(priority = 14)
 	public void verifyExceptionReflectWithAgeForLender_31597_31596() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
@@ -565,7 +569,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	
 	@Test(priority = 15)
 	public void verifyEffectiveDateFeild_31279() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
@@ -592,7 +596,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 
 	@Test(priority = 16)
 	public void verifySortingAndUnsortingDate_31278_31280() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
@@ -640,7 +644,12 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 
 	@AfterMethod(alwaysRun = true)
 	public void close() throws InterruptedException {
+		try {
 		login.logout();
+		}
+		catch (Exception e) {
+			
+		}
 	}
 
 	

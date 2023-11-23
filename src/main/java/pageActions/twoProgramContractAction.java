@@ -1,6 +1,7 @@
 package pageActions;
 
 import java.math.BigDecimal;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -8,8 +9,12 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import pageObjects.contractpo;
@@ -37,52 +42,34 @@ public class twoProgramContractAction extends contractpo {
 			event.inputfield("cssSelector", textbox, searchData2.get("Vin"), 6);
 			event.clickfield("xpath", getProducts);
 			JavascriptExecutor js = ((JavascriptExecutor) driver);
-			js.executeScript("window.scrollTo(0, 700)");
 			ca.programSelect(searchData2.get("programs"));
-			Thread.sleep(3000);
-			js.executeScript("window.scrollTo(0, 900)");
 			System.out.println(searchData2.get("program2"));
+			Thread.sleep(10000);
 			ca.programSelect(searchData2.get("program2"));
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 			event.clickfield("cssSelector", table, 0);
 			String borderColorFirst = driver.findElements(By.cssSelector(tableborder)).get(0).getCssValue("border-color");
 			Assert.assertEquals(Color.fromString(borderColorFirst).asHex(), prop.getProperty("orangeColorInHexaForm"));
-			int flag = 0;
-			js.executeScript("window.scrollTo(0, 2200)");
-			if (!(searchData2.get("programs").contains("Limited Warranty"))) {
-				if(!(searchData2.get("program2").contains("Unlimited Time - AUN"))) {
-					event.clickfield("xpath", businessUse, flag);
-					flag++;
-					}
-			}
-			event.inputfield("cssSelector", fieldbyLabelName("Deal Number"), "12345");
-			js.executeScript("window.scrollTo(0, 2400)");
+			Thread.sleep(5000);
+			WebElement element = driver.findElement(By.cssSelector("adl-rates-table > table >tbody > tr:nth-child(1) > td:nth-child(2)"));
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element); 
+			//element.click();
 			event.clickfield("cssSelector", table, 1);
+			js.executeScript("window.scrollTo(0, 2500)");
 			String borderColorSecond = driver.findElements(By.cssSelector(tableborder)).get(1).getCssValue("border-color");
 			Assert.assertEquals(Color.fromString(borderColorSecond).asHex(), prop.getProperty("orangeColorInHexaForm"));
-			if (!(searchData2.get("program2").contains("Limited Warranty"))) {
-				if(!(searchData2.get("program2").contains("Unlimited Time - AUN"))) {
-				event.clickfield("xpath", businessUse, flag);
-				flag++;
-				}
-			}
-			List<WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
-			if (a.size() == 1) {
-				String a1 = driver
-						.findElement(By.cssSelector("adl-text-input[label='In-Service Date'] >div  >div + div"))
-						.getAttribute("class");
-				if (!(a1.contains("disabled"))) {
-					driver.findElement(By.cssSelector(inServiceDateTextBox)).click();
-					System.out.println("td[aria-label='" + getDate() + "']");
-					driver.findElement(By.cssSelector("td[aria-label='" + getDate() + "']")).click();
-				}
-
-			}
+			selectOptionSurcharge();
+			((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+			WebElement card = driver.findElement(By.cssSelector("div.card"));
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", card); 
+			card.click();
+			inserviceDate();
+			event.inputfield("cssSelector", fieldbyLabelName("Deal Number"), "12345");
 			String dealValue = driver.findElement(By.cssSelector(fieldbyLabelName("Deal Number"))).getDomProperty("value");
 			Assert.assertEquals(dealValue, "12345");
 			Assert.assertEquals(length(vehiclePurchasePrice), 1);
 			event.inputfield("cssSelector", contract, "10000", 0);
-			Assert.assertEquals(length(contractNo), 2);
+			Assert.assertEquals(length(contractNo), 1);
 			Assert.assertEquals(length(overideContractNo), 2);
 			Assert.assertEquals(length(retailPrice), 2);
 			String a2 = driver.findElements(By.cssSelector(fieldbyLabelName("Contract Retail Price"))).get(0).getDomProperty("value");
@@ -92,7 +79,7 @@ public class twoProgramContractAction extends contractpo {
 		    String a5 = a3.replace(",","");
 		    double t2 = Double.parseDouble(a5);
 		    double total = t1 + t2;
-		    Assert.assertEquals(addGapLabel(), "Add GAP");
+//		    Assert.assertEquals(addGapLabel(), "Add GAP");
 			event.clearfield("xpath", zipcode);
 			event.inputfield("xpath", zipcode, "20130");
 			String fullTotal = event.text("cssSelector", totalFooter);

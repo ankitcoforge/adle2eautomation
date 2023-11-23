@@ -163,10 +163,12 @@ public class baseClass extends pdfUtils{
 			//ChromeOptions chromeOptions = new ChromeOptions();
 			//chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
 			HashMap<String,Object> chromePrefs = new HashMap<String, Object>();
-			chromePrefs.put("plugins.always_open_pdf_externally", true);
+			chromePrefs.put("plugins.always_open_pdf_externally", false);
+			chromePrefs.put("profile.default_content_settings.popups", 0);
 			chromePrefs.put("download.default_directory", System.getProperty("user.dir") + "\\PDF");
 			ChromeOptions options = new ChromeOptions();
 			options.setExperimentalOption("prefs", chromePrefs);
+			options.addArguments("--remote-allow-origins=*");
 			driver = new ChromeDriver(options);
 		} else if (browser.equals("IE")) {
 			//Setting system properties of InternetExplorerDriver
@@ -209,6 +211,64 @@ public class baseClass extends pdfUtils{
 			XSSFWorkbook wb = new XSSFWorkbook(fs);
 			//// get excel sheet
 			Sheet sh = wb.getSheet("Test");
+			//// no of rows
+			int totalNoOfRows = sh.getLastRowNum() - sh.getFirstRowNum();
+			excelData = new Object[totalNoOfRows][1];
+			//// no of columns
+			int totalNoOfColumn = sh.getRow(0).getLastCellNum();
+			//// iterate through rows and columns
+			for (int i = 1; i <= totalNoOfRows; i++) {
+				String[] data = new String[totalNoOfColumn];
+				Row row = sh.getRow(i);
+				for (int j = 0; j < totalNoOfColumn; j++) {
+					String abc = "";
+					try {
+						CellType cellType = row.getCell(j).getCellType();
+						//// Switch case to convert excel data to excel
+						switch (cellType.toString().toLowerCase()) {
+						case "string":
+							abc = row.getCell(j).getStringCellValue();
+							break;
+						case "blank":
+							abc = row.getCell(j).getStringCellValue();
+							break;
+						case "numeric":
+							abc = Double.toString(row.getCell(j).getNumericCellValue());
+							break;
+						default:
+							abc = row.getCell(j).getStringCellValue();
+						}
+					} catch (Exception e) {
+						abc = "";
+					}
+					//// appened data in string array
+					data[j] = abc;
+				}
+				excelData[i - 1][0] = data;
+			}
+		} catch (Exception e) {
+			//// do nothing
+
+		}
+
+		return excelData;
+	}
+	
+	/************************
+	 * Read XLSX data from excel file
+	 *************************/
+	@SuppressWarnings("resource")
+	@DataProvider(name = "lendertest")
+	public Object[][] getExcelData2() {
+		//// read data from data provider excel and append in string array
+		Object[][] excelData = null;
+		try {
+			//// read file
+			FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "//Testing.xlsx");
+			//// get workbook based on sheet
+			XSSFWorkbook wb = new XSSFWorkbook(fs);
+			//// get excel sheet
+			Sheet sh = wb.getSheet("lender");
 			//// no of rows
 			int totalNoOfRows = sh.getLastRowNum() - sh.getFirstRowNum();
 			excelData = new Object[totalNoOfRows][1];

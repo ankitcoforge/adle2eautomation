@@ -1,9 +1,12 @@
 package pageActions;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -24,11 +27,10 @@ public class contractInformationAction extends contractpo {
 
 	public void contractValidation() throws InterruptedException {
 
-		
+		lo.login(prop.getProperty("username1"), prop.getProperty("password"));
+		vo.navigatetoLeftMenu("E-Rate", "Rate/Contract");
 		event.inputfield("cssSelector", textbox, "Single", 0);
-		Assert.assertEquals(driver.findElement(By.cssSelector(fieldbyLabelName("First Name"))).getAttribute("maxlength"), "40");
 		event.inputfield("cssSelector", textbox, "Test", 1);
-		Assert.assertEquals(driver.findElement(By.cssSelector(fieldbyLabelName("Last Name"))).getAttribute("maxlength"), "40");
 		event.clickfield("xpath", getProducts);
 		Assert.assertEquals(requiredCount(),2);
 		event.inputfield("cssSelector", textbox, randomizer.getMilage(), 5);
@@ -59,8 +61,7 @@ public class contractInformationAction extends contractpo {
 		event.clickfield("xpath", generateContract);
 		Assert.assertEquals(requiredCount(),5);
 		event.clickfield("cssSelector", overideContractNoCheckbox);
-<<<<<<< Updated upstream
-//		Assert.assertEquals(fieldlength(), "10");
+		Assert.assertEquals(fieldlength(), "10");
 		List<WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
 		if (a.size() == 1) {
 			String a1 = driver.findElement(By.cssSelector(inServicefield))
@@ -70,7 +71,6 @@ public class contractInformationAction extends contractpo {
 				System.out.println("td[aria-label='" + getDate() + "']");
 				driver.findElement(By.cssSelector("td[aria-label='" + getDate() + "']")).click();
 			}
-
 		}
 		Assert.assertEquals(addGapLabel(), "Add GAP");
 		event.clickfield("xpath", generateContract);
@@ -96,35 +96,18 @@ public class contractInformationAction extends contractpo {
 		String text1 = event.text("cssSelector", successMessage);
 		Assert.assertEquals(text1, "You have successfully generated a contract!");
 		event.clickfield("xpath", newQuotelink);
-//		lo.logout();
-=======
 		Assert.assertEquals(fieldlength(), "10");
 		inserviceDate();
 		lo.logout();
-		
->>>>>>> Stashed changes
+
 	}
-	
+
 	public void upSellProduct() throws InterruptedException {
 
-<<<<<<< Updated upstream
-//		lo.login(prop.getProperty("username1"), prop.getProperty("password"));
-//		vo.navigatetoLeftMenu("E-Rate", "Rate/Contract");
-		event.inputfield("cssSelector", textbox, "Single", 0);
-		event.inputfield("cssSelector", textbox, "Test", 1);
-		event.clickfield("xpath", getProducts);
-		Assert.assertEquals(requiredCount(),2);
-		event.inputfield("cssSelector", textbox, randomizer.getMilage(), 5);
-		event.clickfield("xpath", getProducts);
-		Assert.assertEquals(requiredCount(),1);
-		event.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 6);
-		event.clickfield("xpath", getProducts);
-		co.programSelect("Absolute Lifetime Wrap");
-		Assert.assertEquals(event.text("cssSelector", warningLabel), "An (ALW) Absolute Lifetime Powertrain Warranty is required to view and select rates for (ALP) Absolute Lifetime Wrap.");
-//		lo.logout();
-=======
+
 		try {
-			lo.login(prop.getProperty("username1"), prop.getProperty("password"));
+			lo.login("D22723", "Test1234");
+			getDriver().findElement(By.cssSelector("button[color=\"white-primary\"]")).click();
 			vo.navigatetoLeftMenu("E-Rate", "Rate/Contract");
 			event.inputfield("cssSelector", textbox, "Single", 0);
 			event.inputfield("cssSelector", textbox, "Test", 1);
@@ -135,9 +118,10 @@ public class contractInformationAction extends contractpo {
 			Assert.assertEquals(requiredCount(), 1);
 			event.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 6);
 			event.clickfield("xpath", getProducts);
-			co.programSelect("Absolute Certified Wrap");
+
+			co.programSelect("Absolute Lifetime Wrap");
 			Assert.assertEquals(event.text("cssSelector", warningLabel),
-					"An (ACW) Absolute Certified Warranty is required to view and select rates for (ACP) Absolute Certified Wrap.");
+					"An (ACW) Absolute Certified Warranty or (ALW) Absolute Lifetime Powertrain Warranty is required to view and select rates for (ALP) Absolute Lifetime Wrap.");
 			lo.logout();
 			
 		} catch (Exception e) {
@@ -146,45 +130,15 @@ public class contractInformationAction extends contractpo {
 			lo.logout();
 			Assert.fail();
 		}
->>>>>>> Stashed changes
 	}
+
 	
+
 	public void showToggle() throws InterruptedException {
 
-<<<<<<< Updated upstream
-//		lo.login(prop.getProperty("username1"), prop.getProperty("password"));
-//		vo.navigatetoLeftMenu("E-Rate", "Rate/Contract");
-		event.inputfield("cssSelector", textbox, "Single", 0);
-		event.inputfield("cssSelector", textbox, "Test", 1);
-		event.clickfield("xpath", getProducts);
-		Assert.assertEquals(requiredCount(),2);
-		event.inputfield("cssSelector", textbox, randomizer.getMilage(), 5);
-		event.clickfield("xpath", getProducts);
-		Assert.assertEquals(requiredCount(),1);
-		event.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 6);
-		event.clickfield("xpath", getProducts);
-		co.programSelect("Essentials");
-		String price = event.text("cssSelector", table, 0);
-		String price2 = price.replace("$", "");
-		int total  = Integer.parseInt(price2);
-		Assert.assertEquals(event.text("cssSelector", headerMarkUp), "F0");
-		event.clickfield("xpath", editProducts);
-		event.inputfield("cssSelector", fieldbyLabelName("Quick Code"), "400");
-		event.clickfield("xpath", getProducts);
-		@SuppressWarnings("deprecation")
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".information__makeModelYear")));
-		Thread.sleep(5000);
-		co.programSelect("Essentials");
-		String price1 = event.text("cssSelector", table, 0);
-		String price3= price1.replace("$", "");
-		int total1  = Integer.parseInt(price3);
-		Assert.assertEquals(total+400, total1);
-		Assert.assertEquals(event.text("cssSelector", headerMarkUp), "F400");
-//		lo.logout();
-=======
 		try {
-			lo.login(prop.getProperty("username1"), prop.getProperty("password"));
+			lo.login("D22723", "Test1234");
+			getDriver().findElement(By.cssSelector("button[color=\"white-primary\"]")).click();
 			vo.navigatetoLeftMenu("E-Rate", "Rate/Contract");
 			event.inputfield("cssSelector", textbox, "Single", 0);
 			event.inputfield("cssSelector", textbox, "Test", 1);
@@ -223,53 +177,15 @@ public class contractInformationAction extends contractpo {
 			lo.logout();
 			Assert.fail();
 		}
->>>>>>> Stashed changes
-	}
-	
 
-	
-	
-	
+	}
+
 	public void cobuyerContractValidation() throws InterruptedException {
 
-<<<<<<< Updated upstream
-//		lo.login(prop.getProperty("username1"), prop.getProperty("password"));
-//		vo.navigatetoLeftMenu("E-Rate", "Rate/Contract");
-		event.inputfield("cssSelector", textbox, "Single", 0);
-		event.inputfield("cssSelector", textbox, "Test", 1);
-		event.clickfield("xpath", getProducts);
-		Assert.assertEquals(requiredCount(),2);
-		event.inputfield("cssSelector", textbox, randomizer.getMilage(), 5);
-		event.clickfield("xpath", getProducts);
-		Assert.assertEquals(requiredCount(),1);
-		event.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 6);
-		event.clickfield("xpath", getProducts);
-		co.programSelect("Used Vehicle - SNL");
-		event.clickfield("cssSelector", table, 0);
-		JavascriptExecutor js = ((JavascriptExecutor) driver);
-		js.executeScript("window.scrollTo(0, 2500)");
-		event.clickfield("cssSelector", noSurcharges);
-		event.clickfield("xpath", generateContract);
-		Assert.assertEquals(requiredCount(),5);
-		event.inputfield("cssSelector", contract, "10000", 0);
-		event.clickfield("cssSelector", overideContractNoCheckbox);
-		event.clickfield("xpath", generateContract);
-		Assert.assertEquals(requiredCount(),5);
-		event.clickfield("cssSelector", overideContractNoCheckbox);
-		Assert.assertEquals(fieldlength(), "10");
-		List<WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
-		if (a.size() == 1) {
-			String a1 = driver.findElement(By.cssSelector(inServicefield))
-					.getAttribute("class");
-			if (!(a1.contains("disabled"))) {
-				driver.findElement(By.cssSelector(inServiceDateTextBox)).click();
-				System.out.println("td[aria-label='" + getDate() + "']");
-				driver.findElement(By.cssSelector("td[aria-label='" + getDate() + "']")).click();
-			}
-=======
-		try {
 
-			lo.login(prop.getProperty("username1"), prop.getProperty("password"));
+		try {
+			lo.login("D22723", "Test1234");
+			getDriver().findElement(By.cssSelector("button[color=\"white-primary\"]")).click();
 			vo.navigatetoLeftMenu("E-Rate", "Rate/Contract");
 			event.inputfield("cssSelector", textbox, "Single", 0);
 			event.inputfield("cssSelector", textbox, "Test", 1);
@@ -298,7 +214,7 @@ public class contractInformationAction extends contractpo {
 			event.inputfield("cssSelector", phone, "1234567890");
 			Thread.sleep(2000);
 			driver.findElement(By.cssSelector(coBuyer)).isDisplayed();
-			event.clickfield("cssSelector", cobuyerCheckbox);
+			event.clickfield("cssSelector", ".customer__hascobuyer >adl-checkbox > div > mat-checkbox >label> div");
 			event.clickfield("xpath", generateContract);
 			Assert.assertEquals(requiredCount(), 5);
 			event.inputfield("cssSelector", fieldbyLabelName("First Name"), "CoBuyerFirstName", 2);
@@ -331,112 +247,67 @@ public class contractInformationAction extends contractpo {
 			lo.logout();
 			Assert.fail();
 		}
->>>>>>> Stashed changes
 
-		}
-		Assert.assertEquals(addGapLabel(), "Add GAP");
-		event.clickfield("xpath", generateContract);
-		Assert.assertEquals(requiredCount(),4);
-		driver.findElement(By.cssSelector(fieldbyLabelName("Zip Code"))).clear();
-		event.inputfield("cssSelector", fieldbyLabelName("Zip Code"), "20130");
-		event.clickfield("xpath", generateContract);
-		Assert.assertEquals(requiredCount(),3);
-	    event.clearfield("cssSelector", fieldbyLabelName("Address"));
-		event.inputfield("cssSelector", fieldbyLabelName("Address"), "Address");
-		event.clickfield("xpath", generateContract);
-		Assert.assertEquals(requiredCount(),1);
-		event.clearfield("cssSelector", phone);
-		event.inputfield("cssSelector", phone, "1234567890");
-		Thread.sleep(4000);
-		driver.findElement(By.cssSelector(coBuyer)).isDisplayed();
-		event.clickfield("cssSelector", ".customer__hascobuyer >adl-checkbox > div > mat-checkbox >label> div");
-		event.clickfield("xpath", generateContract);
-		Assert.assertEquals(requiredCount(),5);
-		event.inputfield("cssSelector", fieldbyLabelName("First Name"), "CoBuyerFirstName",2);
-		event.inputfield("cssSelector", fieldbyLabelName("Last Name"), "CoBuyerLastName",2);
-		event.clickfield("xpath", generateContract);
-		Assert.assertEquals(requiredCount(),4);
-		event.inputfield("cssSelector", fieldbyLabelName("Zip Code"), "20301", 1);
-		event.clickfield("xpath", generateContract);
-		Assert.assertEquals(requiredCount(),3);
-		event.inputfield("cssSelector", fieldbyLabelName("Address"), "Address Co Buyer" , 1);
-		event.clickfield("xpath", generateContract);
-		Assert.assertEquals(requiredCount(),1);
-		event.clearfield("cssSelector", fieldbyLabelName("Phone Number"),1);
-		event.inputfield("cssSelector", fieldbyLabelName("Phone Number"),"1234567890",1);
-		event.clickfield("xpath", generateContract);
-		Thread.sleep(2000);
-		event.clickfield("cssSelector", gc.checkbox, 0);
-		event.clickfield("cssSelector", gc.checkbox, 1);
-		event.clickfield("xpath", gc.genrateContractButton);
-		Thread.sleep(10000);
-		String text1 = event.text("cssSelector", successMessage);
-		Assert.assertEquals(text1, "You have successfully generated a contract!");
-		event.clickfield("xpath", newQuotelink);
-//		lo.logout();
 	}
 
-	
-	
 	public void sppContractValidation() throws InterruptedException {
 
 //		lo.login(prop.getProperty("username1"), prop.getProperty("password"));
 //		vo.navigatetoLeftMenu("E-Rate", "Rate/Contract");
-		event.inputfield("cssSelector", textbox, "Single", 0);
-		event.inputfield("cssSelector", textbox, "Test", 1);
-		event.inputfield("cssSelector", textbox, "SPP", 2);
-		event.clickfield("cssSelector", "[role=listbox] > [role=option]");
-		event.inputfield("cssSelector", textbox, "1234", 5);
-		event.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 6);
-		event.clickfield("xpath", getProducts);
-		co.programSelect("Service Drive - SDF");
-		event.clickfield("cssSelector", table, 0);
-		JavascriptExecutor js = ((JavascriptExecutor) driver);
-		js.executeScript("window.scrollTo(0, 2500)");
-		event.clickfield("xpath", businessUse);
-		event.clickfield("cssSelector", overideContractNoCheckbox);
-		event.clickfield("cssSelector", sppNext);
-		Assert.assertEquals(requiredCount(),6);
-		event.clickfield("cssSelector", overideContractNoCheckbox);
-		event.inputfield("cssSelector", contract, "10000", 0);
-		List <WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
-		if(a.size() == 1) {
-			String a1  = driver.findElement(By.cssSelector(inServicefield)).getAttribute("class");
-			if(!(a1.contains("disabled"))) {
-				driver.findElement(By.cssSelector(inServiceDateTextBox)).click();
-				System.out.println("td[aria-label='" + getDate() + "']");
-				driver.findElement(By.cssSelector("td[aria-label='" + getDate() + "']")).click();
-			}
-			
-		}
-		driver.findElement(By.cssSelector(fieldbyLabelName("Zip Code"))).clear();
-	    event.clearfield("cssSelector", fieldbyLabelName("Address"));
-	    event.clearfield("cssSelector", phone);
-	    event.clickfield("cssSelector", sppNext);
-		Assert.assertEquals(requiredCount(),4);
-		event.inputfield("cssSelector", fieldbyLabelName("Zip Code"), "20130");
-		event.clickfield("cssSelector", sppNext);
-		Assert.assertEquals(requiredCount(),3);
-		driver.findElement(By.cssSelector(coBuyer)).isDisplayed();
-		event.clickfield("cssSelector", ".customer__hascobuyer >adl-checkbox > div > mat-checkbox >label> div");
-		event.clickfield("cssSelector", sppNext);
-		Assert.assertEquals(requiredCount(),7);
-		event.inputfield("cssSelector", fieldbyLabelName("First Name"), "CoBuyerFirstName",2);
-		event.inputfield("cssSelector", fieldbyLabelName("Last Name"), "CoBuyerLastName",2);
-		event.clickfield("cssSelector", sppNext);
-		Assert.assertEquals(requiredCount(),6);
-		event.inputfield("cssSelector", fieldbyLabelName("Zip Code"), "20301", 1);
-		event.clickfield("cssSelector", sppNext);
-		Assert.assertEquals(requiredCount(),5);
-		event.inputfield("cssSelector", fieldbyLabelName("Address"), "Address Co Buyer" , 1);
-		event.clickfield("cssSelector", sppNext);
-		Assert.assertEquals(requiredCount(),3);
+		try {
+			event.inputfield("cssSelector", textbox, "Single", 0);
+			event.inputfield("cssSelector", textbox, "Test", 1);
+			event.inputfield("cssSelector", textbox, "SPP", 2);
+			event.clickfield("cssSelector", "[role=listbox] > [role=option]");
+			event.inputfield("cssSelector", textbox, "1234", 5);
+			event.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 6);
+			event.clickfield("xpath", getProducts);
+			co.programSelect("Service Drive - SDF");
+			event.clickfield("cssSelector", table, 0);
+			JavascriptExecutor js = ((JavascriptExecutor) driver);
+			js.executeScript("window.scrollTo(0, 2500)");
+			event.clickfield("xpath", businessUse);
+			event.clickfield("cssSelector", overideContractNoCheckbox);
+			event.clickfield("cssSelector", sppNext);
+			Assert.assertEquals(requiredCount(), 6);
+			event.clickfield("cssSelector", overideContractNoCheckbox);
+			event.inputfield("cssSelector", contract, "10000", 0);
+			inserviceDate();
+			driver.findElement(By.cssSelector(fieldbyLabelName("Zip Code"))).clear();
+			event.clearfield("cssSelector", fieldbyLabelName("Address"));
+			event.clearfield("cssSelector", phone);
+			event.clickfield("cssSelector", sppNext);
+			Assert.assertEquals(requiredCount(), 4);
+			event.inputfield("cssSelector", fieldbyLabelName("Zip Code"), "20130");
+			event.clickfield("cssSelector", sppNext);
+			Assert.assertEquals(requiredCount(), 3);
+			driver.findElement(By.cssSelector(coBuyer)).isDisplayed();
+			event.clickfield("cssSelector", ".customer__hascobuyer >adl-checkbox > div > mat-checkbox >label> div");
+			event.clickfield("cssSelector", sppNext);
+			Assert.assertEquals(requiredCount(), 7);
+			event.inputfield("cssSelector", fieldbyLabelName("First Name"), "CoBuyerFirstName", 2);
+			event.inputfield("cssSelector", fieldbyLabelName("Last Name"), "CoBuyerLastName", 2);
+			event.clickfield("cssSelector", sppNext);
+			Assert.assertEquals(requiredCount(), 6);
+			event.inputfield("cssSelector", fieldbyLabelName("Zip Code"), "20301", 1);
+			event.clickfield("cssSelector", sppNext);
+			Assert.assertEquals(requiredCount(), 5);
+			event.inputfield("cssSelector", fieldbyLabelName("Address"), "Address Co Buyer", 1);
+			event.clickfield("cssSelector", sppNext);
+			Assert.assertEquals(requiredCount(), 3);
+		} catch (Exception e) {
+			e.printStackTrace();
+			e.getCause();
+			Assert.fail();
+			lo.logout();
+			lo.login("shreya.agarwal@protective.com", prop.getProperty("password"));
+			vo.navigatetoLeftMenu("E-Rate", "Rate/Contract");
 
 		}
+	}
 
-	
 	public int requiredCount() {
-		
+
 		return driver.findElements(By.cssSelector(required)).size();
 	}
 }

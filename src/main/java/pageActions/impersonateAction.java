@@ -25,23 +25,65 @@ public class impersonateAction extends impersonatepo {
 		 return welcomeTitle;
 	 }
 
-	public void impersonateUser(String role,String roleid) throws InterruptedException {
-		event.clickfield("xpath", roleDropdown);
-		 List<WebElement> list = getDriver().findElements(By.xpath(roleDropdownList));
-		 for(int i=0;i<list.size();i++) {
-			String text = list.get(i).getText();
-			 
-			if(text.equals(role))
-			{
-				list.get(i).click();
-				event.inputfield("xpath", roleId, roleid);
-				break;
-			}
-		 }
-		event.clickfield("xpath", getusersButton);
-		Thread.sleep(2000);
-		event.clickfield("xpath", tableFirstRow);
-		Thread.sleep(2000);
+
+	public void impersonateUser(String role, String roleid) throws InterruptedException {
+		Thread.sleep(3000);
+		if (role == "Dealer") {
+			driver.switchTo().defaultContent();
+			driver.switchTo().frame(1);
+			event.clickfield("id", roleDropdown);
+			getDriver().findElement(By.id(roleDropdown)).sendKeys(Keys.ARROW_DOWN);
+			getDriver().findElement(By.id(roleDropdown)).sendKeys(Keys.ENTER);
+		}
+		
+		if(role =="Lender") {
+			
+			driver.switchTo().defaultContent();
+			driver.switchTo().frame(1);
+			event.clickfield("id", roleDropdown);
+			getDriver().findElement(By.id(roleDropdown)).sendKeys(Keys.ARROW_DOWN);
+			getDriver().findElement(By.id(roleDropdown)).sendKeys(Keys.ARROW_DOWN);
+			getDriver().findElement(By.id(roleDropdown)).sendKeys(Keys.ARROW_DOWN);
+			getDriver().findElement(By.id(roleDropdown)).sendKeys(Keys.ENTER);
+		}
+		Thread.sleep(3000);
+//		event.clickfield("id", role1);
+//		event.inputfield("id", role1, roleid);
+//		event.clickfield("id", button);
+		event.clickfield("id", tableFirstRow);
+		driver.switchTo().defaultContent();
+		driver.switchTo().parentFrame();
+
+	}
+	
+	
+	public void impersonateUser(String role, String roleid, String username) throws InterruptedException {
+		Thread.sleep(3000);
+		if (role == "Dealer") {
+			driver.switchTo().defaultContent();
+			driver.switchTo().frame(1);
+			event.clickfield("id", roleDropdown);
+			getDriver().findElement(By.id(roleDropdown)).sendKeys(Keys.ARROW_DOWN);
+			getDriver().findElement(By.id(roleDropdown)).sendKeys(Keys.ENTER);
+		}
+		
+		if(role =="Lender") {
+			
+			driver.switchTo().defaultContent();
+			driver.switchTo().frame(1);
+			event.clickfield("id", roleDropdown);
+			getDriver().findElement(By.id(roleDropdown)).sendKeys(Keys.ARROW_DOWN);
+			getDriver().findElement(By.id(roleDropdown)).sendKeys(Keys.ARROW_DOWN);
+			getDriver().findElement(By.id(roleDropdown)).sendKeys(Keys.ARROW_DOWN);
+			getDriver().findElement(By.id(roleDropdown)).sendKeys(Keys.ENTER);
+		}
+		Thread.sleep(3000);
+//		event.clickfield("id", role1);
+//		event.inputfield("id", role1, roleid);
+//		event.clickfield("id", button);
+		event.clickfield("id", tableFirstRow);
+		driver.switchTo().defaultContent();
+		driver.switchTo().parentFrame();
 
 	}
 	
@@ -87,11 +129,16 @@ public class impersonateAction extends impersonatepo {
 
  	
  	public String getImpersonatedPageRoledID() {
+ 		String txt = event.text("xpath", "(//button[@class='mat-menu-trigger']/div/span)[2]");
+ 		System.out.println("imp id isssss:"+txt.split(" ")[1]);
+ 		 return txt.split(" ")[1];
+ 	 }
+ 	
+	public String getImpersonatedPageRoledID1() {
  		String txt = event.text("xpath", "(//div[@class='ng-star-inserted']/span)[2]");
  		System.out.println("imp id isssss:"+txt.split(" ")[1]);
  		 return txt.split(" ")[1];
- 		 
- 	 }
+ 		 	 }
  	public WebElement getImpersonatedPageDealerRoledID() {
  		return driver.findElement(By.xpath(dealerRoleid));
  	 }

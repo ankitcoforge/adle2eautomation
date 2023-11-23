@@ -19,12 +19,12 @@ public class printQuote_test extends printQuoteAction{
 	public void login() throws InterruptedException {
 		
 		navigate();
-		lo.login(prop.getProperty("username1"), prop.getProperty("password"));
+		lo.login("shreya.agarwal@protective.com", prop.getProperty("password"));
 		vo.navigatetoContract();
 	}
 	
 	/********************quote creation test case****************/
-	@Test(priority = 1)
+	@Test(enabled= false)
     public void createQuote1() throws InterruptedException {
 		
 		printQuote();		

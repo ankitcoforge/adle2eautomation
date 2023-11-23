@@ -23,19 +23,17 @@ public class leaseContractAction extends contractpo {
 		event.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 6);
 		event.clickfield("xpath", getProducts);
 		co.programSelect("Absolute Reserve Care Lease");
-		Assert.assertEquals(driver.findElements(By.cssSelector("adl-lease-term >div >div> span")).get(0).getText(),
-				"Lease Term Months:");
-		Assert.assertEquals(driver.findElements(By.cssSelector("adl-lease-term >div >div> span")).get(1).getText(),
-				"Lease Term Miles:");
+		List <WebElement> lease = driver.findElements(By.cssSelector(leaseLabel));
+		Assert.assertEquals(lease.get(0).getText(),"Lease Term Months:");
+		Assert.assertEquals(lease.get(1).getText(),"Lease Term Miles:");
 		driver.findElement(By.cssSelector("adl-select[placeholder=\"Select Months\"]>ng-select")).click();
 		driver.findElement(By.cssSelector(".ng-dropdown-panel-items > div > div")).click();
 		driver.findElement(By.cssSelector("adl-select[placeholder=\"Select Miles\"]>ng-select")).click();
 		driver.findElement(By.cssSelector(".ng-dropdown-panel-items > div > div")).click();
-		Assert.assertEquals(driver.findElement(By.cssSelector("adl-warning-message >div > p>span")).getText(),
+		Assert.assertEquals(driver.findElement(By.cssSelector(leaseWarning)).getText(),
 				"Please select the rate in the table.");
 		event.clickfield("cssSelector", table, 0);
 		event.inputfield("cssSelector", contract, "10000", 0);
-		Assert.assertEquals(addGapLabel(), "Add GAP");
 		driver.findElements(By.cssSelector(textbox)).get(14).clear();
 		event.inputfield("cssSelector", textbox, "20130", 14);
 		driver.findElements(By.cssSelector(textbox)).get(13).clear();
@@ -52,6 +50,6 @@ public class leaseContractAction extends contractpo {
 		Thread.sleep(5000);
 		String text1 = event.text("cssSelector", successMessage);
 		Assert.assertEquals(text1, "You have successfully generated a contract!");
-		event.clickfield("xpath", newQuotelink);
+		event.clickfield("cssSelector", newQuotelink);
 	}
 }

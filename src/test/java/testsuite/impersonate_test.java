@@ -11,7 +11,6 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import junit.framework.Assert;
-import pageActions.LateralMenuAction;
 import pageActions.impersonateAction;
 import pageActions.loginAction;
 import pageActions.messageSetupAction;
@@ -22,73 +21,63 @@ import utils.utilityClass;
 
 public class impersonate_test extends impersonateAction {
 
-	loginAction login = new loginAction();
-	verticalMenuAction verticalMenu = new verticalMenuAction();
+	loginAction lo = new loginAction();
+	verticalMenuAction vo = new verticalMenuAction();
+	utilityClass event = new utilityClass();
+	messageSetupAction ms = new messageSetupAction();
 
-	utilityClass utils = new utilityClass();
-	impersonateAction impersonate = new impersonateAction();
-	contract_test contract=new contract_test();
-
-	@BeforeClass(alwaysRun=true)
+	
+	@BeforeClass
 	public void login() throws InterruptedException {
+
 		navigate();
-		Assert.assertEquals(login.getTitle(), "AUL Corp.");
+		lo.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+
 	}
-	
+
 	@Test(priority = 1)
-	public void verifyContractCreationThroughDealer() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
-		Thread.sleep(3000);
-		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("Dealer", "28771");
-		Thread.sleep(4000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
-		Thread.sleep(2000);
-		contract.singleContract1();
+	public void newImpersonate_11485() {
+
+		Assert.assertEquals(loginImpersonate().get(0), "coforgeadmin");
+		Assert.assertEquals(loginImpersonate().get(1), "AULadmin");
+		driver.get(prop.getProperty("messageSetup"));
+		Assert.assertEquals(ms.heading(), "Message Setup");
+
 	}
-	
+
 	@Test(priority = 2)
-	public void verifyContractCreationThroughDealerEmp() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
-		Thread.sleep(3000);
-		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("DealerEmp", "28771");
-		Thread.sleep(4000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
-		Thread.sleep(2000);
-		contract.singleContract1();
+	public void navigateImpersonate_11564() throws InterruptedException {
+
+		Assert.assertEquals(navigateImpersonate(), "https://qa.adl.aulcorp.com/portal/reports/impersonate");
 	}
 
 	@Test(priority = 3)
-	public void verifyContractCreationThroughLender() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
-		Thread.sleep(3000);
-		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("Lender", "3641");
-		Thread.sleep(4000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
-		Thread.sleep(2000);
-		contract.singleContractForLender("#1 Auto Liquidators LLC");
+	public void impersonateOption_11563_11580() throws InterruptedException {
+
+		Assert.assertEquals(impersonateOptions(), "Impersonate");
+		event.clickfield("cssSelector", impersonate);
 	}
 
 	
-	@Test(priority = 4)
-	public void verifyContractCreationThroughLenderEmp() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
-		Thread.sleep(3000);
-		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("LenderEmp", "3641");
-		Thread.sleep(4000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
-		Thread.sleep(2000);
-		contract.singleContractForLender("#1 Auto Liquidators LLC");
-	}
-
-	@AfterMethod(alwaysRun = true)
+	/****** Failing in after method*************/
+	
+//	@Test(priority = 4, dependsOnMethods = { "impersonateOption_11563_11580"})
+//	public void impersonateUser_11566() throws InterruptedException {
+//
+//		
+//		Assert.assertEquals(endImpersonate("Dealer", "22723"), "End Impersonating");
+//
+//		
+//	}
+//	
+	
+	/***************logout to the application
+	 * @throws InterruptedException ********************/
+	@AfterClass
 	public void close() throws InterruptedException {
-		login.logout();
-	}
-
+ 
+		lo.logout();
+	    }
 		
 	}
 

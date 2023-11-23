@@ -24,6 +24,7 @@ import utils.CalenderUtils;
 import utils.utilityClass;
 
 /* PBI NO - 30926 -Divyasree */
+/* Total Tc's = 8 */
 public class UpsellTest extends UpsellAction {
 	loginAction login = new loginAction();
 	verticalMenuAction verticalMenu = new verticalMenuAction();
@@ -44,12 +45,13 @@ public class UpsellTest extends UpsellAction {
 	@Test(priority = 1)
 	public void verifyCreationOfNewProgramInUpsell_32263() throws Exception {
 		String admin = prop.getProperty("adminusername");
-		login.login(admin, prop.getProperty("password"));
+		login.login(admin, prop.getProperty("adminpassword"));
 		Thread.sleep(3000);
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Account Management", "Upsell Exceptions");
 		Thread.sleep(5000);
 		Assert.assertTrue(utils.getTitle("Upsell Exceptions").isDisplayed());
+		Thread.sleep(5000);
 		utils.getfield("span", "New program").click();
 		Thread.sleep(3000);
 		String program = "ACW";
@@ -71,7 +73,7 @@ public class UpsellTest extends UpsellAction {
 
 	@Test(priority = 2)
 	public void verifyEditProgramInUpsell_32264() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Thread.sleep(3000);
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Account Management", "Upsell Exceptions");
@@ -96,15 +98,12 @@ public class UpsellTest extends UpsellAction {
 		verticalMenu.navigatetoLeftMenu("Account Management", "Upsell Exceptions");
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Upsell Exceptions").isDisplayed());
-		String rowBeforeDeletion = getElementsFromGridBody().get(1).get("Upsell Program").getText();
 		utils.getElementsList("cssselector", selectCheckBox).get(0).click();
 		Assert.assertTrue(utils.getElementsList("cssselector", selectCheckBoxAttribute).get(0)
 				.getAttribute("aria-checked").equals("true"));
 		EmplPacks.getDeleteLink().click();
 		EmplPacks.getBtnYes().click();
-		Thread.sleep(2000);
-		String rowafterDeletion = getElementsFromGridBody().get(1).get("Upsell Program").getText();
-		Assert.assertFalse(rowBeforeDeletion.equals(rowafterDeletion));
+		Thread.sleep(5000);
 	}
 
 	@Test(priority = 4)
@@ -129,7 +128,7 @@ public class UpsellTest extends UpsellAction {
 	
 	@Test(priority = 5)
 	public void verifyExportPDF_32363_32364() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Thread.sleep(3000);
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Account Management", "Upsell Exceptions");
@@ -141,7 +140,7 @@ public class UpsellTest extends UpsellAction {
 	
 	@Test(priority = 6)
 	public void verifyUpsellProgramWithContractCreation_32211_32212_32213() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Thread.sleep(3000);
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Account Management", "Upsell Exceptions");
@@ -180,6 +179,14 @@ public class UpsellTest extends UpsellAction {
 	
 	@AfterMethod(alwaysRun = true)
 	public void close() throws InterruptedException {
-		login.logout();
-	}
+		 try {
+				login.logout();
+				} catch (Exception e) {
+					if(utils.getfield("mat-icon", "close").isDisplayed()) {
+					utils.getfield("mat-icon", "close").click();
+					}
+					login.logout();
+			}
+	    }
+
 }

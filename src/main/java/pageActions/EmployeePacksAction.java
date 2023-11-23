@@ -74,7 +74,7 @@ public class EmployeePacksAction extends EmployeePackspo{
 		 utils.clickfield("xpath", selectDealerNamearrow);
 		 List<WebElement> list = getDriver().findElements(By.xpath(selectDealerNameDropdownList));
 		 
-	    for(int i=1;i<list.size();i++) {
+	    for(int i=0;i<list.size();i++) {
 		String text = list.get(i).getText();
 		System.out.println("Progms list is--"+text);
 		if(text.equals(dealer))
@@ -291,6 +291,7 @@ public class EmployeePacksAction extends EmployeePackspo{
 	 
 	 public Integer getVehiclePrice(String vehicleProgram) throws ParseException {
 		 utils.inputfield("cssSelector", textbox, "Single", 0);
+		 //utils.getfield("cssSelector", "textbox").clear();
 		 utils.inputfield("cssSelector", textbox, "Test", 1);
 		 utils.inputfield("cssSelector", textbox, randomizer.getMilage(), 5);
 		 utils.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 6);

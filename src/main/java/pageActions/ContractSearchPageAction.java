@@ -99,8 +99,8 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 		int length = driver.findElements(By.xpath(row)).size();
 		for (int i = 0; i < length; i++) {
 			int x = i + 1;
-			String xpath2 = "//*[@id='contract_search']/tbody/tr[" + x + "]/td//a";
-			String value = driver.findElements(By.xpath(xpath2)).get(3).getText();
+			String xpath2 = "//*[@id='contract_search']/tbody/tr[" + x + "]/td/adl-table-cells/div/a";
+			String value = driver.findElements(By.xpath(xpath2)).get(2).getText();
 			relink.put(i, value);
 		}
 		return (relink);

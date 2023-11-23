@@ -41,7 +41,9 @@ public class toolBox_test extends toolBoxAction {
 	@DataProvider(name = "Login_details")
 	public Object[][] loginOnRoleType() {
 
-		return new Object[][] { { "Dealer7032823", "4558600", "Dealer" }, { "Agent110", "Since1996", "Agent" } };
+		return new Object[][] { { prop.getProperty("agentAutomation"), prop.getProperty("password"), "Agent" }};
+		//{ prop.getProperty("dealerAutomation"), prop.getProperty("password"), "Dealer" }
+		//, { "Agent110", "Since1996", "Agent" } , { "Agent110", "Since1996", "Agent" } };
 	}
 
 	@Test(priority = 1, dataProvider = "Login_details")

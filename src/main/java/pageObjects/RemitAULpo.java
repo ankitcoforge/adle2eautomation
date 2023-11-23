@@ -26,7 +26,7 @@ public class RemitAULpo extends baseClass {
 	public String contractsInGrid="//div[@class='ui-table ui-widget ui-table-responsive ui-table-auto-layout']";
 	public String gridArrowBttn = "adl-table-header>tr>th>p-sorticon>i";
 	public String searchBoxesBelowHeadersInGrid = "thead > adl-table-header > tr:nth-child(2) > td>div>div>input";
-	public String selectAllCheckBox = "thead > adl-table-header > tr:nth-child(2) > td>div>div>mat-checkbox>label>div";
+	public String selectAllCheckBox = "thead > adl-table-header > tr:nth-child(2) > td>div>div>mat-checkbox>label>div>input";
 	public String selectCheckBoxAttribute="td:nth-of-type(1)>adl-table-cells>div>mat-checkbox>label>div>input";
 	public String selectCheckBox="td:nth-of-type(1)>adl-table-cells>div>mat-checkbox>label>div";
 	public String paymentDetailCheckBox="adl-checkbox>div>mat-checkbox>label>div";
@@ -43,4 +43,7 @@ public class RemitAULpo extends baseClass {
 	public String checkAmountValue="//span[text()='Check Amount: ']/b";
 	public String checkAmountFieldInCheckdetailsTab="[class='text-field__input secure text-field__input--prefix']>input";
 	public String calenderPlaceholder="[aria-haspopup='dialog']";
+	public String remitcontracts="//span[text()='Remit Contracts']";
+	public String yesBtn="//span[text()='Yes']";
+	public String noRecordsInGrid = "table>tbody>tr>td";
 }

@@ -31,6 +31,9 @@ public class Database_Connectivity extends baseClass {
 			//// class to access jdbc sql driver
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			//// connection string to connect to aul db
+			//qa
+			//String url = "jdbc:sqlserver://AUL-DEVDB-01;databaseName=OCEAN_BUILD";
+			//qa2
 			String url = "jdbc:sqlserver://AUL-DEVDB-01;databaseName=OCEAN_QA2";
 			//// create connection
 			conn = DriverManager.getConnection(url, "webidentity", "webidentity");

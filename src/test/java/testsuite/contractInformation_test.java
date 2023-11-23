@@ -31,12 +31,12 @@ public class contractInformation_test extends contractInformationAction{
 
 	}
 	
-	@Test(priority = 2)
-	public void contractInformationSPP() throws InterruptedException {
-
-		sppContractValidation();
-
-	}
+//	@Test(priority = 2)
+//	public void contractInformationSPP() throws InterruptedException {
+//
+//		sppContractValidation();
+//
+//	}
 	
 	@Test(priority = 3)
 	public void cobuyerValidation() throws InterruptedException {

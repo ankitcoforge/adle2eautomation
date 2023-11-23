@@ -2,6 +2,7 @@ package pageActions;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import pageObjects.impersonatepo;
 import pageObjects.loginpo;
@@ -29,11 +30,14 @@ public class loginAction extends loginpo {
 	    driver.findElement(By.cssSelector("input[placeholder=\"Enter your password\"]")).sendKeys(password);
 	    driver.findElement(By.cssSelector("button[type='submit']")).click();
 	    Thread.sleep(2000);
+	    //driver.findElement(By.xpath("//mat-icon[text()='close']")).click();
 	    driver.findElement(By.cssSelector("[class=\"title-bar\"] >h3")).isDisplayed();
 		String header1 = driver.findElement(By.cssSelector("[class=\"title-bar\"] >h3")).getText();
+//		if(event.getfield("mat-icon", "close").isDisplayed()) {
+//				event.getfield("mat-icon", "close").click();
+//		}
 		return header1;
 	}
-	
 
 	/***********************Login to ADL page 
 	 * @throws InterruptedException *****************************************/

@@ -30,9 +30,12 @@ public class earlyClaimspo extends baseClass{
 	public String closeIconModal = "button > span > mat-icon";
 	public String closeButtonModal = "footer > div > button";
 	public String contractFilter = "tr.ng-star-inserted > td:nth-child(3) > div > div > input";
-	public String exportPDFPage = "//button[text()='Export pdf' and @class ='btn__exp']";
+	public String exportPDFPage = "//button[text()='Export pdf' and @class ='btn__exp ng-star-inserted']";
+//	public String exportPDFPage = "//button[text()='Export pdf']";
 	public String roleTypeId = "button > span.usertype";
 	public String filterTextBox = "input[placeholder='Search']";
 	public String clearFilterButton = "//span[text()='Clear Filters']";
-	public String exportXlsPage = "//button[text()='Export xls' and @class ='btn__exp']";
+//	public String exportXlsPage = "//button[text()='Export xls' and @class ='btn__exp']";
+	public String exportXlsPage = "//button[text()='Export xls' and @class ='btn__exp ng-star-inserted']";
+	
 }

@@ -20,6 +20,8 @@ import pageActions.verticalMenuAction;
 import pageObjects.impersonatepo;
 import utils.utilityClass;
 
+/* divyasree */
+/* Ignore---lateral menu test cases are updated as vertical menu testcases */
 public class LateraMenu_test extends LateralMenuAction {
 	
 	loginAction login = new loginAction();
@@ -370,6 +372,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	}
 	
 
+<<<<<<< Updated upstream
 	@Test(priority = 21)
 	public void verifyHelpMenuOptionsForDealer_6391() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));

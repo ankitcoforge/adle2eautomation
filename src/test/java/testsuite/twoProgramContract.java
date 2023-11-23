@@ -21,7 +21,7 @@ public class twoProgramContract extends twoProgramContractAction {
 	public void login() throws InterruptedException {
 		
 		navigate();
-		lo.login("dvidesdealer", "Test@1234");
+		lo.login(prop.getProperty("username1"), prop.getProperty("password"));
 		vo.navigatetoContract();
 		
 	}

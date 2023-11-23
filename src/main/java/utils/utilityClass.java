@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
@@ -246,7 +247,7 @@ public class utilityClass extends baseClass{
  		case "id" : getDriver().findElement(By.id(fieldname)).isDisplayed();
  		gText = getDriver().findElement(By.id(fieldname));
  		break;
- 		case "xpath" : getDriver().findElement(By.name(fieldname)).isDisplayed();
+ 		case "xpath" : getDriver().findElement(By.xpath(fieldname)).isDisplayed();
  		gText = getDriver().findElement(By.xpath(fieldname));
  		break;
  		case "cssselector" : getDriver().findElement(By.cssSelector(fieldname)).isDisplayed();
@@ -318,6 +319,16 @@ public class utilityClass extends baseClass{
  		public void scrollDown() {
  			driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL, Keys.PAGE_DOWN);
  		}
+ 		
+ 		public void scrollDownUsingJSE() {
+ 		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollTo(0, 2500)");
+ 		}
+ 		
+ 		public void scrollUpUsingJSE() {
+ 	 		JavascriptExecutor js=(JavascriptExecutor)driver;
+ 			js.executeScript("window.scrollTo(0, -2500)");
+ 	 		}
  		
  		 public WebElement getTitle(String heading) {
  			 WebElement welcomeTitle=getfield("h3", heading);

@@ -94,7 +94,7 @@ public class baseTest extends welcomeAction {
 	@Test(priority = 8)
 	public void verify_aul_logo_7078() {
 		
-		Assert.assertEquals(logo(), "https://qa.adl.aulcorp.com/login");
+		Assert.assertEquals(logo(), "https://mo.adl.aulcorp.com/login");
 		
 	}
 	
@@ -102,7 +102,7 @@ public class baseTest extends welcomeAction {
 	public void verify_aul_logo_resetpassword_7080() {
 		
 		
-		Assert.assertEquals(resetPasswordlogo(), "https://qa.adl.aulcorp.com/login");
+		Assert.assertEquals(resetPasswordlogo(), "https://mo.adl.aulcorp.com/login");
 		
 	}
 
