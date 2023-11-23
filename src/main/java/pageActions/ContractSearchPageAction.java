@@ -81,14 +81,14 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 
 		HashMap<Integer, String> uilink = new HashMap<Integer, String>();
 		int length = driver.findElements(By.xpath(row)).size();
-		for (int i = 0; i < length; i++) {
+		for (int i = 0; i < length-1; i++) {
 			int x = i + 1;
-
 			String xpath2 = "//*[@id='contract_search']/tbody/tr[" + x + "]/td//a";
 			String value = driver.findElements(By.xpath(xpath2)).get(1).getText();
 			uilink.put(i, value);
-
+			System.out.println(uilink);
 		}
+		System.out.println(uilink);
 		return (uilink);
 
 	}

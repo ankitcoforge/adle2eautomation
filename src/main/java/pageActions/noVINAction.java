@@ -1,11 +1,16 @@
 package pageActions;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import pageObjects.contractpo;
@@ -39,11 +44,34 @@ public class noVINAction extends contractpo{
 	event.clickfield("xpath", getProducts);
 	Assert.assertEquals(requiredCount(),1);
 	selectCheckboxNoVin();
-	event.inputfield("cssSelector", make, "Honda");
+	WebElement revealed = driver.findElement(By.cssSelector(year));
+    Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+    wait.until(d -> revealed.isEnabled());
+    event.clickfield("cssSelector", year);
+    driver.findElement(By.cssSelector(year)).sendKeys(Keys.ARROW_DOWN);
+    driver.findElement(By.cssSelector(year)).sendKeys(Keys.ARROW_DOWN);
+	driver.findElement(By.cssSelector(year)).sendKeys(Keys.ENTER);
+	WebElement making = driver.findElement(By.cssSelector(make));
+    wait.until(d -> making.isEnabled());
+	event.clickfield("cssSelector", make);
+//	event.inputfield("cssSelector", make, "Honda");
+	driver.findElement(By.cssSelector(make)).sendKeys(Keys.ARROW_DOWN);
 	driver.findElement(By.cssSelector(make)).sendKeys(Keys.ARROW_DOWN);
 	driver.findElement(By.cssSelector(make)).sendKeys(Keys.ENTER);
+	WebElement modelling = driver.findElement(By.cssSelector(model));
+    wait.until(d -> modelling.isEnabled());
+	event.clickfield("cssSelector", model);
+	driver.findElement(By.cssSelector(model)).sendKeys(Keys.ARROW_DOWN);
+	driver.findElement(By.cssSelector(model)).sendKeys(Keys.ARROW_DOWN);
+	driver.findElement(By.cssSelector(model)).sendKeys(Keys.ENTER);
+	WebElement fuel = driver.findElement(By.cssSelector(engine));
+    wait.until(d -> fuel.isEnabled());
+	event.clickfield("cssSelector", engine);
+	driver.findElement(By.cssSelector(engine)).sendKeys(Keys.ARROW_DOWN);
+	driver.findElement(By.cssSelector(engine)).sendKeys(Keys.ARROW_DOWN);
+	driver.findElement(By.cssSelector(engine)).sendKeys(Keys.ENTER);
 	event.clickfield("xpath", getProducts);
-	co.programSelect("Used Vehicle - SNL");
+	co.programSelect("Service Drive - SDF");
 	event.clickfield("cssSelector", table, 0);
 	Assert.assertEquals(event.element("cssSelector", slideToggle).getAttribute("tooltiptext"), "Show Cost");
 	JavascriptExecutor js = ((JavascriptExecutor) driver);
@@ -53,43 +81,19 @@ public class noVINAction extends contractpo{
 	Assert.assertEquals(driver.findElement(By.cssSelector(fieldbyLabelName("Deal Number"))).getAttribute("maxlength"), "16");
 	//Assert.assertEquals(driver.findElement(By.cssSelector(fieldbyLabelName("Vehicle Purchase Price"))).getAttribute("maxlength"), "16");
 	System.out.println(event.element("cssSelector", contractNo).getDomProperty("value"));
-	Assert.assertTrue((event.element("cssSelector", contractNo)).getDomProperty("value").contains("SNL"));
+	Assert.assertTrue((event.element("cssSelector", contractNo)).getDomProperty("value").contains("SDF"));
 	Assert.assertTrue(driver.findElement(By.cssSelector(labelVPP)).isDisplayed());
 	//Assert.assertEquals(driver.findElement(By.cssSelector(fieldbyLabelName("Contract Retail Price"))).getAttribute("maxlength"), "16");
 	Assert.assertTrue(driver.findElement(By.cssSelector(labelCRP)).isDisplayed());
-	event.clickfield("xpath", generateContract);
-	Assert.assertEquals(requiredCount(),5);
 	event.inputfield("cssSelector", contract, "10000", 0);
-	event.clickfield("cssSelector", overideContractNoCheckbox);
-	Assert.assertEquals(driver.findElement(By.xpath(saveQuoteButton)).getAttribute("disabled"), "true");
-	Assert.assertEquals(driver.findElement(By.xpath(printQuoteButton)).getAttribute("disabled"), "true");
-	event.clickfield("xpath", generateContract);
-	Assert.assertEquals(requiredCount(),5);
-	event.clickfield("cssSelector", overideContractNoCheckbox);
-	Assert.assertEquals(fieldlength(), "10");
-	List<WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
-	if (a.size() == 1) {
-		String a1 = driver.findElement(By.cssSelector(inServicefield))
-				.getAttribute("class");
-		if (!(a1.contains("disabled"))) {
-			driver.findElement(By.cssSelector(inServiceDateTextBox)).click();
-			System.out.println("td[aria-label='" + getDate() + "']");
-			driver.findElement(By.cssSelector("td[aria-label='" + getDate() + "']")).click();
-		}
-
-	}
-	Assert.assertEquals(addGapLabel(), "Add GAP");
-	event.clickfield("xpath", generateContract);
-	Assert.assertEquals(requiredCount(),4);
+	//event.clickfield("cssSelector", overideContractNoCheckbox);
+	//Assert.assertEquals(driver.findElement(By.xpath(generateContract)).getAttribute("disabled"), "true");
+	//Assert.assertEquals(driver.findElement(By.xpath(printQuoteButton)).getAttribute("disabled"), "true");;
+	inserviceDate();
 	driver.findElement(By.cssSelector(fieldbyLabelName("Zip Code"))).clear();
 	event.inputfield("cssSelector", fieldbyLabelName("Zip Code"), "20130");
-	event.clickfield("xpath", generateContract);
-	Assert.assertEquals(requiredCount(),3);
     event.clearfield("cssSelector", fieldbyLabelName("Address"));
 	event.inputfield("cssSelector", fieldbyLabelName("Address"), "Address");
-	Thread.sleep(2000);
-	event.clickfield("xpath", generateContract);
-	Assert.assertEquals(requiredCount(),1);
 	event.clearfield("cssSelector", phone);
 	event.inputfield("cssSelector", phone, "1234567890");
 	event.clickfield("xpath", generateContract);

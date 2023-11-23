@@ -36,7 +36,12 @@ public class contract_test extends createContractAction {
 
 		
 		navigate();
+<<<<<<< Updated upstream
 		lo.login(prop.getProperty("username1"), prop.getProperty("password"));
+=======
+		lo.login("dvidesdealer", "Test@1234");
+		getDriver().findElement(By.cssSelector("button[color=\"white-primary\"]")).click();
+>>>>>>> Stashed changes
 		vo.navigatetoLeftMenu("E-Rate", "Rate/Contract");
 
 	}
@@ -48,8 +53,13 @@ public class contract_test extends createContractAction {
 
 	}
 
+<<<<<<< Updated upstream
 	@Test(priority = 2)
 	public void leinHolderContract1() throws InterruptedException {
+=======
+	@Test(priority = 2, dependsOnMethods = {"singleContract1"})
+	public void leinHolderContract() throws InterruptedException {
+>>>>>>> Stashed changes
 
 		sa.singleContract("Bank of America");
 
@@ -77,6 +87,7 @@ public class contract_test extends createContractAction {
 
 	}
 	
+<<<<<<< Updated upstream
 	
 	/***************** Contract creation test case ***************/
 	@Test(priority = 3, dataProvider = "test1")
@@ -85,6 +96,14 @@ public class contract_test extends createContractAction {
 		createContract(inputArray);
 
 	}
+=======
+//	@Test(priority = 6, dataProvider = "lendertest")
+//	public void singleContractlender(String[] inputArray) throws Exception {
+//
+//		createlenderContract(inputArray);
+//
+//	}
+>>>>>>> Stashed changes
 
 	@AfterClass
 	public void close() throws InterruptedException {

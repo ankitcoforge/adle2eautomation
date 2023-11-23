@@ -176,6 +176,7 @@ public class baseClass extends pdfUtils{
 		}
 		return driver;
 	}
+	
 
 	/**********
 	 * Open the test environment

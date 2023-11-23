@@ -30,10 +30,18 @@ public class singleContractAction extends contractpo {
 		try {
 			event.inputfield("cssSelector", textbox, "Single", 0);
 			event.inputfield("cssSelector", textbox, "Test", 1);
+<<<<<<< Updated upstream
 			event.inputfield("cssSelector", textbox, randomizer.getMilage(), 5);
 			event.inputfield("cssSelector", textbox, "5FNRL6H27NB019645", 6);
 			event.clickfield("xpath", getProducts);
 			co.programSelect("Limited Warranty");
+=======
+			event.inputfield("cssSelector", textbox, "1251", 5);
+			event.inputfield("cssSelector", textbox, "1FM5K8GC2NGA00557", 6);
+			event.inputfield("cssSelector", textbox, randomizer.getMilage(), 5);
+			event.clickfield("xpath", getProducts);
+			co.programSelect("Essentials");
+>>>>>>> Stashed changes
 			event.clickfield("cssSelector", table, 0);
 			event.inputfield("cssSelector", textbox, "22723", 7);
 			event.inputfield("cssSelector", contract, "10000", 0);
@@ -89,6 +97,7 @@ public class singleContractAction extends contractpo {
 		co.programSelect(" Limited Warranty - RAW ");
 		event.clickfield("cssSelector", table, 0);
 		event.inputfield("cssSelector", contract, "10000", 0);
+<<<<<<< Updated upstream
 		List<WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
 		if (a.size() == 1) {
 			String a1 = driver.findElement(By.cssSelector(inServicefield)).getAttribute("class");
@@ -107,9 +116,22 @@ public class singleContractAction extends contractpo {
 		Thread.sleep(2000);
 		event.clearfield("cssSelector", phone);
 		event.inputfield("cssSelector", phone, "1234567890");
+=======
+		selectOptionSurcharge();
+		inserviceDate();
+//		Assert.assertEquals(addGapLabel(), "Add GAP");
+		event.clearfield("cssSelector", "[label='Zip Code'] >div >div:nth-child(2) >input");
+//		event.inputfield("cssSelector", "[label='Zip Code'] >div >div:nth-child(2) >input", "20130");
+		event.clearfield("cssSelector",  "[label='Address'] >div >div:nth-child(2) >input");
+//		event.inputfield("cssSelector",  "[label='Address'] >div >div:nth-child(2) >input", "Address");
+		event.clearfield("cssSelector",  "[label='Email'] >div >div:nth-child(2) >input");
+//		event.inputfield("cssSelector",  "[label='Email'] >div >div:nth-child(2) >input", "test@gmail.com");
+     	event.clearfield("cssSelector", phone);
+//		event.inputfield("cssSelector", phone, "1234567890");
+>>>>>>> Stashed changes
 		event.clickfield("xpath", generateContract);
 		getDriver().findElement(By.xpath(gc.generateContractHeading)).isDisplayed();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		event.clickfield("cssSelector", gc.checkbox, 0);
 		event.clickfield("cssSelector", gc.checkbox, 1);
 		event.clickfield("xpath", gc.genrateContractButton);

@@ -31,7 +31,12 @@ public class contractpo extends baseClass{
 	public String inServiceDate = "adl-text-input[label='In-Service Date']";
 	public String inServiceDateTextBox = "button > span >mat-icon";
 	public String phone = "adl-text-input[label='Phone Number'] > div > div.text-field__input.secure > input";
+<<<<<<< Updated upstream
 	public String newQuotelink = "//a[contains(text(),'Start New Quote')]";
+=======
+	public String cobuyerCheckbox = ".customer__hascobuyer >adl-checkbox > div > mat-checkbox >label> div";
+	public String newQuotelink = "div.notification__container__actions > a.ng-star-inserted:nth-child(3)";
+>>>>>>> Stashed changes
 	public String programNameCode = ".rate__card--rates>adl-rates-table >div >h3";
 	public String zipcode = "//label[contains(text(),'Zip Code')]//..//..//div//input";
 	public String address = "//label[contains(text(),'Address')]//..//..//div//input";
@@ -81,6 +86,9 @@ public class contractpo extends baseClass{
 	public String noVIN  = "//span[contains(text(),'No VIN')]//../div";
 	public String year = "input[placeholder=\"Type & Select\"]";
 	public String make  ="adl-typeahead[label='Make'] >adl-text-input > div>div >input";
+	public String model ="adl-typeahead[label=\"Model\"] >adl-text-input > div >div:nth-child(2) >input";
+	public String engine ="adl-typeahead[label=\"Engine / Trim / Fuel Type\"] >adl-text-input > div >div:nth-child(2) >input";
+	public String awd = "adl-checkbox[label =\"AWD/4WD\"] > div > mat-checkbox >label > div > input[type=\"checkbox\"]";
 	public String wdfield = "//span[contains(text(),'AWD/4WD')]//../div";
 	public String selectDealerTogenerateContract = "//input[@placeholder='Type or Select Dealer Name']";
 	public String btnSignIn = "//span[text()='Sign In']";
