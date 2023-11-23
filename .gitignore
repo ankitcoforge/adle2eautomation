@@ -47,6 +47,7 @@ test-output/**
 target/**
 .loadpath
 *.xlsx
+*.exe
 
 
 # Eclipse m2e generated files
@@ -57,7 +58,3 @@ target/**
 .settings/
 
 # End of file
-<<<<<<< HEAD
-
-=======
->>>>>>> 14af86aaf4063b5eb910c62bf72ad0ecb888574b
