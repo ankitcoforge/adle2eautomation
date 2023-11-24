@@ -32,9 +32,6 @@ public class contract_test extends createContractAction {
 
 		
 		navigate();
-		lo.login("dvidesdealer", "Test@1234");
-		getDriver().findElement(By.cssSelector("button[color=\"white-primary\"]")).click();
-
 		lo.login("D22723", "Test1234");
 		getDriver().findElement(By.cssSelector("button[color=\"white-primary\"]")).click();
 		vo.navigatetoLeftMenu("E-Rate", "Rate/Contract");
