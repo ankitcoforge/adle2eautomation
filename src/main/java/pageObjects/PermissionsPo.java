@@ -18,6 +18,7 @@ public class PermissionsPo extends baseClass{
 	public String arrowInPopup ="//div[@class='ng-tns-c143-134 ui-multiselect-trigger ui-state-default ui-corner-right']";
 	public String editPermissionsTxt ="//h3[text()='Edit Permissions']";
 	public String saveBtn ="//span[text()='Save']/..";
+	public String cancelBtn ="//span[text()='Cancel']/..";
 	public String updateBtn ="//span[text()='Update']/..";
 	public String checkboxesPermissions ="//div[@class='ui-chkbox ui-widget']/div/span";
 }

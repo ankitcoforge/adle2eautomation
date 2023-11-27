@@ -4,7 +4,6 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
@@ -319,7 +318,6 @@ public class contractInformationAction extends contractpo {
 		event.clickfield("cssSelector", sppNext);
 		Assert.assertEquals(requiredCount(),3);
 		}
-	}
 
 	public int requiredCount() {
 

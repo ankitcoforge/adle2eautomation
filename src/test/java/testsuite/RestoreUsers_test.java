@@ -94,6 +94,15 @@ public class RestoreUsers_test extends RestoreUsersAction{
 		Assert.assertTrue(pinnGrid.contains(pin));
 		getPINSearchBox().get("PIN").clear();
 	}
-
+	
+	@Test(priority = 2)
+	public void verifySortingFunctionality_34723() throws Exception {
+		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		utils.getfield("a", "Restore Users").click();
+		Assert.assertTrue(utils.getfield("h3", "Restore Users").isDisplayed());
+		selectDealerInmanageUserPage("22723");
+		HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
+		
+	}
 	
 }

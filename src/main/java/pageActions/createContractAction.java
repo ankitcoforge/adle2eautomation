@@ -1,10 +1,13 @@
 package pageActions;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import pageObjects.contractpo;
 import utils.utilityClass;
@@ -89,7 +92,7 @@ public class createContractAction extends contractpo {
 			}
 			event.clickfield("cssSelector", table, 0);
 			String header = event.text("cssSelector", programNameCode);
-			String[] program = header.split(" • ");
+			String[] program = header.split(" ï¿½ ");
 			String programCode = program[0];
 			String programName = program[1];
 			event.inputfield("cssSelector", contract, "10000", 0);

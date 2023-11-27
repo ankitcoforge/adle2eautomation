@@ -70,12 +70,12 @@ public class contract_test extends createContractAction {
 
 	}
 	
-//	@Test(priority = 5)
-//	public void singleContractForLender(String selectDealer) throws InterruptedException {
-//
-//		sa.singleContractForLender(selectDealer);
-//
-//	}
+	@Test(priority = 5)
+	public void singleContractForLender(String selectDealer) throws InterruptedException {
+
+		sa.singleContractForLender(selectDealer);
+
+	}
 	
 	
 	/***************** Contract creation test case ***************/
