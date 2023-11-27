@@ -311,7 +311,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 	}
 
 	//impersonate as generic role added,hence putting it on hold
-		@Test(priority = 8,enabled=false)
+		@Test(priority = 8)
 	public void verifyDealerPackImpactContractCreationPageThroughSubAgentLogin_35142() throws Exception {
 		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getPortalTitle().getText(), UtilsDataReader.getXMLData("ADLpageTitle"));
@@ -408,10 +408,10 @@ public class EmployeePacks_test extends EmployeePacksAction {
 	@Test(priority = 11)
 	public void verifyLenderEmpPackImpactContractCreationPage_35150() throws Exception {
 		getPermissionsForLenderEmp();
-		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getPortalTitle().getText(), UtilsDataReader.getXMLData("ADLpageTitle"));
-		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("LenderEmp", UtilsDataReader.getXMLData("lenderId"));
+//		verticalMenu.navigatetoimpersonate();
+//		impersonate.impersonateUser("LenderEmp", UtilsDataReader.getXMLData("lenderId"));
 		Thread.sleep(5000);
 
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Lender Packs");
@@ -445,7 +445,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 	}
 
 	//impersonate as generic role added,hence putting it on hold
-	@Test(priority = 12,enabled=false)
+	@Test(priority = 12)
 	public void verifyDealerPackImpactContractCreationPageWhenDealerImpersontedThroughAgent_32015() throws Exception {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getPortalTitle().getText(), UtilsDataReader.getXMLData("ADLpageTitle"));
@@ -489,7 +489,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 	
 	//bug raised
 	//impersonate as generic role added,hence putting it on hold
-		@Test(priority = 13,enabled=false)
+		@Test(priority = 13)
 	public void verifyDealerEmpPackImpactsContractCreationPageWhenDealerEmpImpersontedThroughAgent_32032() throws Exception {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getPortalTitle().getText(), UtilsDataReader.getXMLData("ADLpageTitle"));
@@ -533,7 +533,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 	}
 
 		//impersonate as generic role added,hence putting it on hold
-		@Test(priority = 14,enabled=false)
+		@Test(priority = 14 )
 	public void verifyDealerPackImpactContractCreationPageWhenDealerImpersontedThroughSubAgent_35143() throws Exception {
 		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getPortalTitle().getText(), UtilsDataReader.getXMLData("ADLpageTitle"));
@@ -576,7 +576,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 
 	//bug raised
 		//impersonate as generic role added,hence putting it on hold
-		@Test(priority = 15,enabled=false)
+		@Test(priority = 15 )
 	public void verifyDealerEmpPackImpactsContractCreationPageWhenDealerEmpImpersontedThroughSubAgent_35144() throws Exception {
 		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getPortalTitle().getText(), UtilsDataReader.getXMLData("ADLpageTitle"));

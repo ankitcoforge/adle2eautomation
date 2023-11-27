@@ -17,6 +17,7 @@ public class ManageUserPageAction extends ManageUserPo{
 	utilityClass utils = new utilityClass();
 	impersonateAction impersonate = new impersonateAction();
 	XmlDataReader UtilsDataReader = new XmlDataReader("UtilsData");
+	impersonateAction io = new impersonateAction();
 	
 	public HashMap<Integer, HashMap<String, String>> manageUsersPageGrid() {
 		List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", impersonate.headerLoc);
@@ -94,5 +95,13 @@ public class ManageUserPageAction extends ManageUserPo{
 		utils.clickfield("xpath", impersonate.getusersButton);
 		utils.waituntillPageIsloaded();
 	}
+	
+	 public void selectStatusAsCompleted() throws InterruptedException {
+		 utils.element("xpath", registrationStatusArrow).click();
+		 utils.element("xpath", completedCheckbox).click();
+		 utils.element("xpath", registrationStatusArrow).click();
+		 Thread.sleep(2000);
+		 utils.waitTillElementIsVisible(io.tableFirstRow);
+	 }
 
 }

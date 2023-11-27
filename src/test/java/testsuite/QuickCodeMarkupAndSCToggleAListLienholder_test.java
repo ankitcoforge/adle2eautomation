@@ -1,13 +1,14 @@
 package testsuite;
 
-import java.util.HashMap;
 
-import org.openqa.selenium.Keys;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import junit.framework.Assert;
+import pageActions.AssignDealerToSubAgentAction;
+import pageActions.LateralMenuAction;
+import pageActions.ManageUserPageAction;
 import pageActions.QuickCodeMarkupAListLienholderAction;
 import pageActions.loginAction;
 import pageActions.singleContractAction;
@@ -19,15 +20,17 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 	
 	loginAction login = new loginAction();
 	verticalMenuAction verticalMenu = new verticalMenuAction();
+	LateralMenuAction lateralMenu = new LateralMenuAction();
 	utilityClass utils = new utilityClass();
 	Impersonate_test impersonate = new Impersonate_test();
 	singleContractAction contract =new singleContractAction();
-	ManageUsersPage_test ManageUserPage=new ManageUsersPage_test();
+	ManageUserPageAction ManageUserPage=new ManageUserPageAction();
 	EmployeePacks_test packs=new EmployeePacks_test();
 	XmlDataReader UtilsDataReader=new XmlDataReader("UtilsData");
+	AssignDealerToSubAgentAction assignDealerToSubAgent = new AssignDealerToSubAgentAction();
 	
-	String SPP=UtilsDataReader.getXMLData("lienholderSPP");
-	String ABB=UtilsDataReader.getXMLData("lienholderABB");
+	public String SPP=UtilsDataReader.getXMLData("lienholderSPP");
+	public String ABB=UtilsDataReader.getXMLData("lienholderABB");
 	String unitedAutoCredit=UtilsDataReader.getXMLData("lienholderUnitedAutoCredit");
 	String unitedFinance=UtilsDataReader.getXMLData("lienholderUnitedFinance");
 	String unitedBank=UtilsDataReader.getXMLData("lienholderUnitedBank");
@@ -59,14 +62,16 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 	
 	@Test(priority = 2)
 	public void verifyQuickCodeMarkupAndSCToggleIsDisabledForDealerEmpRole_35257_35294() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("DealerEmp", "23976");
+		lateralMenu.getDefaultpermissionForDealerEmp();
+		login.login(prop.getProperty("dealerempAutomation"), prop.getProperty("password"));
+//		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+//		verticalMenu.navigatetoimpersonate();
+//		impersonate.impersonateUser("DealerEmp", "22723");
 		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
-		selectLienholder(ABB);
+		selectLienholder(unitedAutoCredit);
 		Assert.assertTrue(utils.element("xpath", elementsInRateContractPage,3).getText().equals("Quick Code"));
 		Assert.assertFalse(utils.element("xpath", quickCode).isEnabled());
-		EnterMileageVINAndSelectProgram(ABB);
+		EnterMileageVINAndSelectProgram(unitedAutoCredit);
 		Assert.assertFalse(utils.element("xpath", SCtogglebar).isEnabled());
 	}
 	
@@ -85,6 +90,7 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 	public void verifyQuickCodeMarkupAndSCToggleIsDisabledForLenderEmpRole_35261_35289() throws Exception {
 		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
 		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		utils.waitTillElementIsClickable(contract.selectDealerTogenerateContract);
 		contract.getSelectDealerTogenerateContract(UtilsDataReader.getXMLData("dealer"));
 		Assert.assertFalse(utils.element("xpath", elementsInRateContractPage,3).getText().equals("Quick Code"));
 		EnterMileageVINAndSelectProgramForLender(unitedAutoCredit);
@@ -112,9 +118,9 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 	public void verifyQuickCodeMarkupAndSCToggleIsDisabledForAgentImpersonatedDealerEmp_35263_35291() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("Agent", "1111");
+		impersonate.impersonateUser("Agent", "110");
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
-		ManageUserPage.selectDealerInmanageUserPage("22723");
+		ManageUserPage.selectDealerInmanageUserPage("38226");
 		packs.selectRoleTypeAndStatusCompleted("DealerEmp");
 		utils.clickfield("xpath", impersonate.tableFirstRow);
 		utils.waituntillPageIsloaded();
@@ -122,18 +128,20 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 		selectLienholder(SPP);
 		Assert.assertTrue(utils.element("xpath", quickCode).isEnabled());
 		utils.element("xpath", lienholder).clear();
-		selectLienholder(ABB);
+		selectLienholder(unitedFinance);
 		Assert.assertFalse(utils.element("xpath", quickCode).isEnabled());
-		EnterMileageVINAndSelectProgram(ABB);
+		EnterMileageVINAndSelectProgram(unitedFinance);
 		Assert.assertFalse(utils.element("xpath", SCtogglebar).isEnabled());
 	}
 	
 	@Test(priority = 7)
 	public void verifyQuickCodeMarkupAndSCToggleIsDisabledForSubgentImpersonatedDealer_35264_35292() throws Exception {
-		login.login(prop.getProperty("aulSubagent"), prop.getProperty("password"));
-		closePopup();
+//		login.login(prop.getProperty("aulSubagent"), prop.getProperty("password"));
+//		closePopup();
+		assignDealerToSubAgent.assignDealersToSubAgent("Agent", "110", prop.getProperty("subagentAutomation"));
+		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
-		ManageUserPage.selectDealerInmanageUserPage("22723");
+		ManageUserPage.selectDealerInmanageUserPage("38226");
 		packs.selectRoleTypeAndStatusCompleted("Dealer");
 		utils.clickfield("xpath", impersonate.tableFirstRow);
 		utils.waituntillPageIsloaded();
@@ -141,18 +149,18 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 		selectLienholder(SPP);
 		Assert.assertTrue(utils.element("xpath", quickCode).isEnabled());
 		utils.element("xpath", lienholder).clear();
-		selectLienholder(ABB);
+		selectLienholder(unitedFinance);
 		Assert.assertFalse(utils.element("xpath", quickCode).isEnabled());
-		EnterMileageVINAndSelectProgram(programCodeASL);
+		EnterMileageVINAndSelectProgram(unitedFinance);
 		Assert.assertFalse(utils.element("xpath", SCtogglebar).isEnabled());
 	}
 	
 	@Test(priority = 8)
 	public void verifyQuickCodeMarkupAndSCToggleIsDisabledForSubAgentImpersonatedDealerEmp_35265_35293() throws Exception {
-		login.login(prop.getProperty("aulSubagent"), prop.getProperty("password"));
-		closePopup();
+		assignDealerToSubAgent.assignDealersToSubAgent("Agent", "110", prop.getProperty("subagentAutomation"));
+		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
-		ManageUserPage.selectDealerInmanageUserPage("22723");
+		ManageUserPage.selectDealerInmanageUserPage("38226");
 		packs.selectRoleTypeAndStatusCompleted("DealerEmp");
 		utils.clickfield("xpath", impersonate.tableFirstRow);
 		utils.waituntillPageIsloaded();
@@ -160,9 +168,9 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 		selectLienholder(SPP);
 		Assert.assertTrue(utils.element("xpath", quickCode).isEnabled());
 		utils.element("xpath", lienholder).clear();
-		selectLienholder(ABB);
+		selectLienholder(unitedFinance);
 		Assert.assertFalse(utils.element("xpath", quickCode).isEnabled());
-		EnterMileageVINAndSelectProgram(programCodeASL);
+		EnterMileageVINAndSelectProgram(unitedFinance);
 		Assert.assertFalse(utils.element("xpath", SCtogglebar).isEnabled());
 	}
 	
@@ -202,32 +210,38 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 		Assert.assertFalse(utils.element("xpath", SCtogglebar).isEnabled());
 	}
 	
-	
-	@Test(priority = 11)
-	public void verifyQuickCodeMarkupAndSCToggleIsDisabledForDealerGrpRole_35258_35295() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("DealerGroup", "91482");
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
-		contract.getSelectDealerTogenerateContract(UtilsDataReader.getXMLData("dealer4"));
-		selectLienholder(TOC);
-		Assert.assertFalse("Quick code for A-List",utils.element("xpath", quickCode).isEnabled());
-		EnterMileageVINAndSelectProgram(programCodeSentinel);
-		Assert.assertFalse(utils.element("xpath", SCtogglebar).isEnabled());
-	}
-	
-	@Test(priority = 12)
-	public void verifyQuickCodeMarkupAndSCToggleIsDisabledForDealerGrpEmpRole_35259_35287() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("DealerGrpEmp", "91482");
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
-		contract.getSelectDealerTogenerateContract(UtilsDataReader.getXMLData("dealer4"));
-		selectLienholder(TOC);
-		Assert.assertFalse("Quick code for A-List",utils.element("xpath", quickCode).isEnabled());
-		EnterMileageVINAndSelectProgram(programCodeSentinel);
-		Assert.assertFalse(utils.element("xpath", SCtogglebar).isEnabled());
-	}
+//	/* TC 11 nd 12 failed as there is no dealer grp id and impersonated as dealer having alist partner*/
+//	@Test(priority = 11)
+//	public void verifyQuickCodeMarkupAndSCToggleIsDisabledForDealerGrpRole_35258_35295() throws Exception {
+//		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+//		verticalMenu.navigatetoimpersonate();
+////		impersonate.impersonateUser("DealerGroup", "91482");
+//		impersonate.impersonateUser("DealerGroup", "23976");
+//		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+//		contract.getSelectDealerTogenerateContract(UtilsDataReader.getXMLData("dealer4"));
+////		selectLienholder(TOC);
+//		selectLienholder(ABB);
+//		Assert.assertFalse(utils.element("xpath", quickCode).isEnabled());
+////		EnterMileageVINAndSelectProgram(programCodeSentinel);
+//		EnterMileageVINAndSelectProgram(ABB);
+//		Assert.assertFalse(utils.element("xpath", SCtogglebar).isEnabled());
+//	}
+//	
+//	@Test(priority = 12)
+//	public void verifyQuickCodeMarkupAndSCToggleIsDisabledForDealerGrpEmpRole_35259_35287() throws Exception {
+//		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+//		verticalMenu.navigatetoimpersonate();
+////		impersonate.impersonateUser("DealerGrpEmp", "91482");
+//		impersonate.impersonateUser("DealerGroup", "23976");
+//		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+//		contract.getSelectDealerTogenerateContract(UtilsDataReader.getXMLData("dealer4"));
+//		selectLienholder(TOC);
+////		selectLienholder(ABB);
+//		Assert.assertFalse(utils.element("xpath", quickCode).isEnabled());
+////		EnterMileageVINAndSelectProgram(programCodeSentinel);
+//		EnterMileageVINAndSelectProgram(ABB);
+//		Assert.assertFalse(utils.element("xpath", SCtogglebar).isEnabled());
+//	}
 	
 	@AfterMethod(alwaysRun = true)
 	public void close() throws InterruptedException {

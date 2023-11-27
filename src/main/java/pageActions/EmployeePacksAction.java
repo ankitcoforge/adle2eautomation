@@ -30,6 +30,7 @@ public class EmployeePacksAction extends EmployeePackspo{
 	   NewUserRegistrationPo NewUserRegistrationPage= new NewUserRegistrationPo();
 	   ManageUserPageAction ManageUserPage=new ManageUserPageAction();
 	   LateralMenuAction VerticalMenu=new LateralMenuAction();
+	   PermissionsAction permissions=new PermissionsAction();
 	   
 	
 	 public WebElement getPortalTitle() {
@@ -412,6 +413,16 @@ public class EmployeePacksAction extends EmployeePackspo{
 		 utils.element("xpath", ManageUserPage.registrationStatusArrow).click();
 		 utils.element("xpath", ManageUserPage.completedCheckbox).click();
 		 utils.element("xpath", ManageUserPage.registrationStatusArrow).click();
+			Thread.sleep(2000);
+//		 utils.clickfield("xpath", permissions.editBtn);
+//			Thread.sleep(2000);
+//			utils.clickfield("xpath", permissions.permissionsDropdownInAgentPopup);
+//			permissions.getPermissionListInPopup().get(12).click();
+//			if (permissions.getSelectAllCheckBoxInPopup().getAttribute("aria-checked").equals("false")) {
+//				permissions.getSelectAllCheckBoxInPopup().click();
+//			}
+//			utils.clickfield("xpath", permissions.saveBtn);
+//			Thread.sleep(2000);
 		 utils.waitTillElementIsVisible(io.tableFirstRow);
 	 }
      

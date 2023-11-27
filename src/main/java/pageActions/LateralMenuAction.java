@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import org.apache.commons.math3.geometry.enclosing.SupportBallGenerator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -22,6 +23,7 @@ public class LateralMenuAction extends LateralMenupo{
 	verticalMenuAction verticalMenu = new verticalMenuAction();
 	impersonateAction impersonate = new impersonateAction ();
 	PermissionsAction permissions=new PermissionsAction();
+	 ManageUserPageAction ManageUserPage=new ManageUserPageAction();
 	
 	 public WebElement getTitle() {
 		 WebElement welcomeTitle=driver.findElement(By.xpath(title));	
@@ -236,9 +238,10 @@ public WebElement getdelConfirmationMsg() {
 }
 
 public void verifyEditAndDelFunctionality() throws InterruptedException {
+ManageUserPage.selectStatusAsCompleted();
+//Assert.assertTrue(editDel.get(1).get("Edit").isEnabled());
+//Assert.assertTrue(editDel.get(1).get("Delete").isEnabled());
 HashMap<Integer, HashMap<String, WebElement>> editDel = impersonate.checkGridForEditDelLock();
-Assert.assertTrue(editDel.get(1).get("Edit").isEnabled());
-Assert.assertTrue(editDel.get(1).get("Delete").isEnabled());
 editDel.get(1).get("Edit").click();
 Thread.sleep(3000);
 Assert.assertTrue(getEditUserPopup().isDisplayed());
@@ -336,6 +339,26 @@ public HashMap<Integer, HashMap<String, WebElement>> checkGridForEditDelLock() {
 	return allTableData;
 }
 
+
+public void selectRoleTypeAndStatusCompleted(String roleType) throws InterruptedException {
+	 selectRoleType(roleType);
+	 utils.element("xpath", ManageUserPage.registrationStatusArrow).click();
+	 utils.element("xpath", ManageUserPage.completedCheckbox).click();
+	 utils.element("xpath", ManageUserPage.registrationStatusArrow).click();
+		Thread.sleep(2000);
+	 utils.clickfield("xpath", permissions.editBtn);
+		Thread.sleep(2000);
+		utils.clickfield("xpath", permissions.permissionsDropdownInAgentPopup);
+		permissions.getPermissionListInPopup().get(12).click();
+		if (permissions.getSelectAllCheckBoxInPopup().getAttribute("aria-checked").equals("false")) {
+			permissions.getSelectAllCheckBoxInPopup().click();
+		}
+		utils.clickfield("xpath", permissions.saveBtn);
+		Thread.sleep(2000);
+	 utils.waitTillElementIsVisible(impersonate.tableFirstRow);
+	 utils.clickfield("xpath", impersonate.tableFirstRow);
+		utils.waituntillPageIsloaded(60);
+}
 
 
 

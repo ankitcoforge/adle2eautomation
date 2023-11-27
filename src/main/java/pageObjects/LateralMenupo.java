@@ -35,4 +35,4 @@ public class LateralMenupo extends baseClass{
 	public String EditStatusDisabled = "//i[@title='Edit']/../i[contains(@class,'pi pi-pencil disabled')]";
 	public String EditStatusEnabled = "//i[@title='Edit']/../i[contains(@class,'pi pi-pencil')]";
 	public String deleteStatus = "//i[@title='Delete']";
-}
+	}

@@ -13,6 +13,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import pageActions.LateralMenuAction;
 import pageActions.earlyClaimsAction;
 import pageActions.loginAction;
 import pageActions.verticalMenuAction;
@@ -25,6 +26,7 @@ public class earlyClaims_test extends earlyClaimsAction{
 	loginAction lo = new loginAction();
 	verticalMenuAction vo = new verticalMenuAction();
 	utilityClass utils = new utilityClass();
+	LateralMenuAction VerticalMenu=new LateralMenuAction();
 
 	
 	@DataProvider(name="login1")
@@ -61,6 +63,11 @@ public class earlyClaims_test extends earlyClaimsAction{
 	@BeforeClass
 	public void login() throws InterruptedException {
 		navigate();
+	}
+	
+	@Test(priority = 0)
+    public void permission() throws InterruptedException {
+		VerticalMenu.getDefaultpermissionForDealerEmp();	
 	}
 	
 	/*****************Dropdown related test case***************/

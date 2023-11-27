@@ -32,7 +32,7 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 			// Getting specific row with each iteration
 			String specificRowLoc = "table>tbody>tr:nth-of-type(" + i + ")";
 			LinkedHashMap<String, String> eachRowData = new LinkedHashMap<>();
-			for (int j = 3; j < allHeaderNames.size() - 4; j++) {
+			for (int j = 4; j < allHeaderNames.size() - 4; j++) {
 				String specificRowColLoc = "td:nth-of-type(" + j + ")>adl-table-cells>div>span:nth-of-type(2)";
 				String cellValue = "";
 				cellValue = utils.element("cssSelector", specificRowLoc + ">" + specificRowColLoc).getText();
@@ -188,7 +188,7 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 
 	public WebElement getEditLink(int row) {
 		String specificRowLoc = "table>tbody>tr:nth-of-type(" + row + ")";
-		String specificRowColLoc = "td:nth-of-type(17)>adl-table-cells>div>a";
+		String specificRowColLoc = "td:nth-of-type(18)>adl-table-cells>div>a";
 		WebElement editLinkElement = utils.element("cssSelector", specificRowLoc + ">" + specificRowColLoc);
 		return editLinkElement;
 	}

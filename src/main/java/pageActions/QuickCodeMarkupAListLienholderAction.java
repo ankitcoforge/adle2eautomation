@@ -14,10 +14,12 @@ public class QuickCodeMarkupAListLienholderAction extends QuickCodeMarkupAListLi
 	createContractAction co = new createContractAction();
 
 	public void selectLienholder(String lienholdr) throws InterruptedException {
+		Thread.sleep(2000);
 		utils.element("xpath", lienholder).sendKeys(lienholdr);
 //		utils.waitTillElementIsVisible(partner);
 		Thread.sleep(2000);
 		utils.element("xpath", lienholder).sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
+		Thread.sleep(1000);
 	}
 	
 	public void closePopup() throws InterruptedException {

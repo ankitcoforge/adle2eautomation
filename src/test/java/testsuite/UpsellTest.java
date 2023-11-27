@@ -92,7 +92,7 @@ public class UpsellTest extends UpsellAction {
 
 	@Test(priority = 3)
 	public void verifyDeleteProgramUpsell_32265() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Thread.sleep(3000);
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Account Management", "Upsell Exceptions");
@@ -108,7 +108,7 @@ public class UpsellTest extends UpsellAction {
 
 	@Test(priority = 4)
 	public void verifyMultipleCheckBoxSelection_32362() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Thread.sleep(3000);
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Account Management", "Upsell Exceptions");

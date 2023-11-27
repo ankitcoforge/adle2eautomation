@@ -414,11 +414,11 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 		Thread.sleep(2000);
 		
 		login.logout();
-		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("adminpassword"));
 		Thread.sleep(3000);
-		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("LenderEmp", lenderId);
-		Thread.sleep(5000);
+//		verticalMenu.navigatetoimpersonate();
+//		impersonate.impersonateUser("LenderEmp", lenderId);
+//		Thread.sleep(5000);
 
 		verticalMenu.navigatetoContract();
 		contract.getSelectDealerTogenerateContract("#1 Auto Liquidators LLC");

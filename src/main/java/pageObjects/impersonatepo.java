@@ -13,7 +13,7 @@ public class impersonatepo extends baseClass{
 	public String roleDropdownListForAccountName = "//span[@class='mat-option-text']";
 	public String roleDropdownListForDealer = "//mat-option[@role='option']/span/span";
     public String roleId = "//input[@placeholder='Please enter the Role ID / Account Name']";
-    public String getusersButton = "//span[text()=' Get Users ']";
+    public String getusersButton = "//span[contains(text(),'Get Users')]";
     public String getArrowBtn = "//mat-icon[text()='arrow_forward']";
     public String tableFirstRow = "(//i[@title='Impersonate'])[1]";
     public String impersonateList = "//i[@title='Impersonate']";
@@ -35,8 +35,10 @@ public class impersonatepo extends baseClass{
 	public String btnSubmit = "//span[text()='Submit']";
 	public String resendInvitationConfirmMsg = "//div[contains(text(),'Invitation has been sent')]";
 	public String selectDealerTogenerateContract = "//input[@placeholder='Type or Select Dealer Name']";
-	public String btnSignIn = "//span[text()='Sign In']";
+	public String btnSignIn = "//span[text()='Sign In']/..";
 	public String dealerRoleid = "//span[contains(text(),'Dealer:')]";
+	public String TypeOrSelectDealerNameTxt = "//input[@placeholder='Type or Select Dealer Name']";
+	public String dealerOptionsWhileCreatigQuote = "span.mat-option-text>span";
 	
     
 	

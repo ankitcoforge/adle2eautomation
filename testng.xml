@@ -14,12 +14,11 @@
 		    <class name="testsuite.UpsellTest"/>
 		    <class name="testsuite.VerticalMenu_test"/>
 		    <class name="testsuite.Impersonate_test"/>
-		    <class name="testsuite.ImpersonateNew_test"/>
-		    <class name="testsuite.Permissions_test"/>
+		    <class name="testsuite.EditContract_test"/>
 		    <class name="testsuite.RemitAUL_test"/>
 		    <class name="testsuite.earlyClaims_test"/>
-		 <class name="QuickCodeMarkupAndSCToggleAListLienholder_test"/>
-		    
+		     <class name="testsuite.QuickCodeMarkupAndSCToggleAListLienholder_test"/>
+		      <class name="testsuite.ManageMyDealerGrpEmployee_test"/>
 		</classes>
 	</test>
 	

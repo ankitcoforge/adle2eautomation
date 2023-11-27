@@ -87,7 +87,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 
 	@Test(priority = 5)
     public void verifyNonAdminAccess_26904() throws InterruptedException {
-	login.login(prop.getProperty("lenderusername"),prop.getProperty("password"));
+	login.login(prop.getProperty("lenderAutomation"),prop.getProperty("password"));
 	leftMenu("Report");
 	for (int i = 0; i < getReportsDropdownlist().size(); i++) {
 			Assert.assertFalse(getReportsDropdownlist().get(i).getText().contains(webcontracts.getXMLData("webcontractsTitle")));

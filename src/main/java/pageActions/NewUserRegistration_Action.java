@@ -14,6 +14,7 @@ import java.util.Map;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -38,26 +39,15 @@ public class NewUserRegistration_Action extends NewUserRegistrationPo {
 
 	public String getEmail() throws InterruptedException {
 		driver.get(prop.getProperty("minuteInboxURL"));
-		String newemail1 = driver.findElement(By.cssSelector("span.animace")).getText();
-		System.out.println("old mail before deletion-"+newemail1);
-		utils.element("cssselector", delInGetEmail).click();
+//		String newemail1 = driver.findElement(By.cssSelector("span.animace")).getText();
+//		System.out.println("old mail before deletion-"+newemail1);
+//		utils.element("cssselector", delInGetEmail).click();
 		Thread.sleep(1000);
-//		WebElement iframeElement = driver.findElement(By.id("ad_iframe"));
-//		driver.switchTo().frame(iframeElement).close();
-//		Actions action = new Actions(driver);
-//        action.moveByOffset(500, 1000).click().build().perform();
-//		Actions action = new Actions(driver);
-//		 List<WebElement> a=driver.findElements(By.cssSelector(".close-button"));
-//		 action.moveToElement(a.get(0)).build().perform();
-//		 System.out.println(a.size());
-//		if(a.size()>1) {
-//			a.get(0).click();
+//		if (utils.element("id", closeAdd).isDisplayed()) {
+//			utils.element("id", closeAdd).click();
 //		}
-		if (utils.element("id", closeAdd).isDisplayed()) {
-			utils.element("id", closeAdd).click();
-		}
-        Thread.sleep(1000);
-        driver.switchTo().defaultContent();
+//        Thread.sleep(1000);
+//        driver.switchTo().defaultContent();
 		newemail = driver.findElement(By.cssSelector("span.animace")).getText();
 		System.out.println(newemail);
 		return newemail;
@@ -114,9 +104,12 @@ public class NewUserRegistration_Action extends NewUserRegistrationPo {
 		utils.waitTillElementIsClickable(impersonate.roleDropdown);
 		utils.clickfield("xpath", impersonate.roleDropdown);
 		List<WebElement> list = getDriver().findElements(By.xpath(impersonate.roleDropdownList));
+//		list.get(9).click();
+//		utils.clickfield("xpath", impersonate.roleDropdown);
+//		list.get(9).sendKeys(Keys.ARROW_DOWN,Keys.ENTER);
 		for (int i = 0; i < list.size(); i++) {
 			String text = list.get(i).getText();
-
+			System.out.println("elements list-"+text);
 			if (text.equals(role)) {
 				list.get(i).click();
 				utils.inputfield("xpath", impersonate.roleId, roleid);
@@ -124,7 +117,7 @@ public class NewUserRegistration_Action extends NewUserRegistrationPo {
 			}
 		}
 		utils.clickfield("xpath", impersonate.getusersButton);
-		utils.waituntillPageIsloaded();
+		utils.waitTillElementIsClickable(newUserbtn);
 	}
 
 	public void selectDealerInmanageUserPage() throws InterruptedException {

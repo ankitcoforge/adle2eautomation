@@ -373,9 +373,14 @@ public class Permissions_test extends PermissionsAction {
 
 	@AfterMethod(alwaysRun = true)
 	public void close() throws InterruptedException {
-		try {
-			login.logout();
-			} catch (Exception e) {
-		}
+		 try {
+			 utils.scrollUpUsingJSE();
+				login.logout();
+				} catch (Exception e) {
+					if(utils.getfield("mat-icon", "close").isDisplayed()) {
+					utils.getfield("mat-icon", "close").click();
+					}
+					login.logout();
+			}
 	}
 }

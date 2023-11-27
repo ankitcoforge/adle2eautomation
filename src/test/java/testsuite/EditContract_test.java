@@ -361,8 +361,9 @@ public class EditContract_test extends EditContractAction {
 			throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
-		verticalMenu.navigatetoContract();
-		String contractNum = cobuyerContract.coBuyerContract();
+//		verticalMenu.navigatetoContract();
+//		String contractNum = cobuyerContract.coBuyerContract();
+		String contractNum = "RAWNA004619K23";
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -458,6 +459,7 @@ public class EditContract_test extends EditContractAction {
 		Assert.assertEquals(getCoustomerInfoFields().get(10).getAttribute("value"), cobuyerZipCode);
 		String cobuyerCity = "Dallas1";
 		getCoustomerInfoFields().get(11).clear();
+		Thread.sleep(2000);
 		getCoustomerInfoFields().get(11).sendKeys(cobuyerCity);
 		Assert.assertEquals(getCoustomerInfoFields().get(11).getAttribute("value"), cobuyerCity);
 		String cobuyerEmail = "def@gmail.com";

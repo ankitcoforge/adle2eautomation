@@ -13,6 +13,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pageActions.loginAction;
 import pageActions.verticalMenuAction;
+import pageObjects.MyCommissionsPO;
 import utils.XmlDataReader;
 import utils.utilityClass;
 import pageActions.NewUserRegistration_Action;
@@ -27,6 +28,7 @@ public class NewUserRegistration_test extends NewUserRegistration_Action {
 	utilityClass utils = new utilityClass();
 	LateraMenu_test lateraMenu = new LateraMenu_test();
 	Impersonate_test impersonate = new Impersonate_test();
+	MyCommissionsPO myCommissions =new MyCommissionsPO();
 	
 	@BeforeTest(alwaysRun = true)
 	public void openDriver() throws InterruptedException {
@@ -43,9 +45,9 @@ public class NewUserRegistration_test extends NewUserRegistration_Action {
 		enterRoleIDAndCreateUserThroughAdmin("Agent", "393");
 		lo.logout();
 		getEmailAndCompletenewUserRegistration();
-		if (utils.getfield("mat-icon", "close").isDisplayed()) {
-			utils.getfield("mat-icon", "close").click();
-		}
+//		if (utils.getfield("mat-icon", "close").isDisplayed()) {
+//			utils.getfield("mat-icon", "close").click();
+//		}
 		lo.logout();
 //		driver.close();
 //		Set<String> windows2 = getDriver().getWindowHandles();
@@ -691,6 +693,114 @@ validateDealerGrpPermissions();
 			}
 	}
 	
+	@Test(priority = 42)
+	public void agentPacksRegistrationThroughAdmin_35635() throws InterruptedException {
+		getEmail();
+		navigate();
+		lo.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+		vo.navigatetoLeftMenu("Account Management", "Impersonate");
+		enterRoleIDAndCreateUserThroughAdmin("Agent Pack", "1991");
+		lo.logout();
+		getEmailAndCompletenewUserRegistration();
+	}
+	
+	@Test(priority = 43)
+	public void dealerPassThroughRegistrationThroughAdmin_35636() throws InterruptedException {
+		getEmail();
+		navigate();
+		lo.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+		vo.navigatetoLeftMenu("Account Management", "Impersonate");
+		enterRoleIDAndCreateUserThroughAdmin("Dealer Pass Through", "1271");
+		lo.logout();
+		getEmailAndCompletenewUserRegistration();
+	}
+	
+	@Test(priority = 44)
+	public void lenderPassThroughRegistrationThroughAdmin_35637() throws InterruptedException {
+		getEmail();
+		navigate();
+		lo.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+		vo.navigatetoLeftMenu("Account Management", "Impersonate");
+		enterRoleIDAndCreateUserThroughAdmin("Lender Pass Through", "1970");
+		lo.logout();
+		getEmailAndCompletenewUserRegistration();
+	}
+	
+	@Test(priority = 45)
+	public void integrationPartnerThroughRegistrationThroughAdmin_35638() throws InterruptedException {
+		getEmail();
+		navigate();
+		lo.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+		vo.navigatetoLeftMenu("Account Management", "Impersonate");
+		enterRoleIDAndCreateUserThroughAdmin("Integration Partner Pack", "2");
+		lo.logout();
+		getEmailAndCompletenewUserRegistration();
+	}
+	
+	@Test(priority = 47)
+	public void verifyLateralMenuItemsForForAgentPackDealerLenderPassthroughIntegrationPack_35639() throws InterruptedException {
+		navigate();
+		lo.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+		vo.navigatetoimpersonate();
+		impersonate.impersonateUser("Agent Pack", "1991");
+		utils.waituntillPageIsloaded();
+		ArrayList<String> list = new ArrayList<String>();
+			String[] menuItem =lateraMenu.getLateralMenuItems2().get(0).getText().split("chevron_right");
+			list.add(menuItem[0].trim());
+			String[] menuItem1 =lateraMenu.getLateralMenuItems1().get(0).getText().split("chevron_right");
+			list.add(menuItem1[0].trim());
+		Assert.assertTrue(list.contains("Dashboard"));
+		Assert.assertTrue(list.contains("Report"));
+		vo.navigatetoLeftMainMenu("Report");
+		Assert.assertTrue(lateraMenu.getLaterMenuSubItems().get(0).getText().contains("My Commissions"));
+		lo.logout();
+		lo.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+		vo.navigatetoimpersonate();
+		impersonate.impersonateUser("Dealer Pass Through", "1271");
+		utils.waituntillPageIsloaded();
+		Assert.assertTrue(list.contains("Dashboard"));
+		Assert.assertTrue(list.contains("Report"));
+		vo.navigatetoLeftMainMenu("Report");
+		Assert.assertTrue(lateraMenu.getLaterMenuSubItems().get(0).getText().contains("My Commissions"));
+		lo.logout();
+		lo.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+		vo.navigatetoimpersonate();
+		impersonate.impersonateUser("Lender Pass Through", "1970");
+		utils.waituntillPageIsloaded();
+		Assert.assertTrue(list.contains("Dashboard"));
+		Assert.assertTrue(list.contains("Report"));
+		vo.navigatetoLeftMainMenu("Report");
+		Assert.assertTrue(lateraMenu.getLaterMenuSubItems().get(0).getText().contains("My Commissions"));
+		lo.logout();
+		lo.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+		vo.navigatetoimpersonate();
+		impersonate.impersonateUser("Integration Partner Pack", "2");
+		utils.waituntillPageIsloaded();
+		Assert.assertTrue(list.contains("Dashboard"));
+		Assert.assertTrue(list.contains("Report"));
+		vo.navigatetoLeftMainMenu("Report");
+		Assert.assertTrue(lateraMenu.getLaterMenuSubItems().get(0).getText().contains("My Commissions"));
+	}
+	
+	@Test(priority = 48)
+	public void verifyMyCommissionsPageForAgentPackDealerLenderPassthroughIntegrationPack_35640() throws InterruptedException {
+		getEmail();
+		navigate();
+		navigate();
+		lo.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+		vo.navigatetoimpersonate();
+		impersonate.impersonateUser("Agent Pack", "1991");
+		utils.waituntillPageIsloaded();
+		vo.navigatetoLeftMenu("Report", "My Commissions");
+		utils.waitTillElementIsVisible(myCommissions.myCommissionsTitle);
+		utils.element("xpath", myCommissions.CoustNameNumVIN).sendKeys("ab");
+		Assert.assertTrue(utils.element("xpath", myCommissions.yearArrow).isDisplayed());
+		Assert.assertTrue(utils.element("xpath", myCommissions.monthArrow).isDisplayed());
+		utils.element("xpath", myCommissions.arrowForward).click();
+		Assert.assertTrue(utils.getElementsList("xpath", myCommissions.rows).size() > 0);
+		
+	}
+	
 	
 
 	@AfterTest(alwaysRun = true)
@@ -702,8 +812,8 @@ validateDealerGrpPermissions();
 				utils.getfield("mat-icon", "close").click();
 			}
 			lo.logout();
-			driver.close();
-			Thread.sleep(500);
+//			driver.close();
+//			Thread.sleep(500);
 //			getDriver();
 		}
 	}
