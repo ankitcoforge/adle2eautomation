@@ -121,6 +121,7 @@ public class singleContractAction extends contractpo {
 		WebElement element = new WebDriverWait(driver, Duration.ofSeconds(9)).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(successMessage)));
 		Assert.assertEquals(element.getText(), "You have successfully generated a contract!");
 		event.clickfield("cssSelector", newQuotelink);
+
 	}
 
 	public void getSelectDealerTogenerateContract(String dealer) throws InterruptedException {
