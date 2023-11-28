@@ -107,6 +107,7 @@ public class contractpo extends baseClass{
 	public String btnSignIn = "//span[text()='Sign In']";
 	public String pincode = "adl-text-input[label='Zip Code'] > div > div.text-field__input.secure > input";
 	public String email = "adl-text-input[label='Email'] > div > div.text-field__input.secure > input";
+	public String lenderDealer = "input[placeholder ='Type or Select Dealer Name']";
 	
 	public WebElement getBtnSignIn() {
 		WebElement ele = driver.findElement(By.xpath(btnSignIn));	
@@ -125,14 +126,15 @@ public class contractpo extends baseClass{
 	
 	public void dealerList(String dealerName) {
 		
+		
 		List<WebElement> l = driver.findElements(By.cssSelector("span.dealer__name"));
 		for(int i =0; i <l.size(); i++) {
 			if(l.get(i).getText().contains(dealerName)) {
 				l.get(i).click();
 			}
 		}
-		
-		driver.findElement(By.cssSelector("button[color='primary'] > span.mat-button-wrapper")).click();
+		driver.findElement(By.cssSelector("button[type='button'][color='primary']")).isDisplayed();
+		driver.findElement(By.cssSelector("button[type='button'][color='primary']")).click();
 	}
 	
 	
@@ -176,12 +178,13 @@ public class contractpo extends baseClass{
 		Assert.assertEquals(warningTextMesssage(), "Please select the rate in the table.");
 	}
 	
-	public void filladdress() {
+	public void filladdress() throws InterruptedException {
 		
-		driver.findElements(By.cssSelector(textbox)).get(14).clear();
-		event.inputfield("cssSelector", textbox, "20130", 14);
-		driver.findElements(By.cssSelector(textbox)).get(13).clear();
-		event.inputfield("cssSelector", textbox, "Address", 13);
+		driver.findElements(By.cssSelector(Zipcode)).clear();
+		event.inputfield("cssSelector", Zipcode, "20103");
+		driver.findElements(By.cssSelector(Address)).clear();
+		event.inputfield("cssSelector",Address,"Address");
+		Thread.sleep(2000);
 		event.clearfield("cssSelector", phone);
 		event.inputfield("cssSelector", phone, "1234567890");
 		event.clickfield("xpath", generateContract);

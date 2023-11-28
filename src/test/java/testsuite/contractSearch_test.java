@@ -113,7 +113,6 @@ public class contractSearch_test extends ContractSearchPageAction{
 			laterlist = columnlist(6);
 			Assert.assertEquals(laterlist, firstlist);
 		}
-		}
 		
 //		@Test
 //		public void headerVerification_20969_20761_21279() throws InterruptedException {
