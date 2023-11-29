@@ -37,7 +37,7 @@ public class singleContractAction extends contractpo {
 		String contractNumber = null;
 		try {
 			event.inputfield("cssSelector", textbox, "Single", 0);
-			event.inputfield("cssSelector", textbox, "Test", 1)
+			event.inputfield("cssSelector", textbox, "Test", 1);
 			event.inputfield("cssSelector", textbox, randomizer.getMilage(), 5);
 			event.inputfield("cssSelector", textbox, "1HGCV1F12NA002615", 6);
 			event.clickfield("xpath", getProducts);
@@ -101,6 +101,7 @@ public class singleContractAction extends contractpo {
 		event.clearfield("cssSelector", phone);
 		event.inputfield("cssSelector", phone, "1234567890");
     	event.clickfield("xpath", generateContract);
+
 		getDriver().findElement(By.xpath(gc.generateContractHeading)).isDisplayed();
 		Thread.sleep(2000);
 		event.clickfield("cssSelector", gc.checkbox, 0);
