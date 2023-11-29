@@ -1,5 +1,7 @@
 package pageActions;
+
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import org.openqa.selenium.By;
@@ -75,8 +77,6 @@ public class createContractAction extends contractpo {
 	public void createlenderContract(String[] inputArray) throws InterruptedException {
 
 		try {
-			driver.findElement(By.cssSelector("input[placeholder ='Type or Select Dealer Name']")).click();
-			dealerList("TestDealer_17july2023");
 			HashMap<String, String> searchData1 = new HashMap<String, String>();
 			searchData1 = contractData(inputArray);
 			event.inputfield("cssSelector", textbox, searchData1.get("Firstname"), 0);
@@ -86,10 +86,6 @@ public class createContractAction extends contractpo {
 			event.clickfield("xpath", getProducts);
 			JavascriptExecutor js = ((JavascriptExecutor) driver);
 			programSelect(searchData1.get("program"));
-			if ((searchData1.get("program").contains("Absolute Reserve Care Lease"))) {
-				js.executeScript("window.scrollTo(0, 2200)");
-				leaseProgram();
-			}
 			event.clickfield("cssSelector", table, 0);
 			String header = event.text("cssSelector", programNameCode);
 			String[] program = header.split(" � ");

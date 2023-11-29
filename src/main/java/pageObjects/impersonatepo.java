@@ -22,6 +22,7 @@ public class impersonatepo extends baseClass{
     public String logout = "//button[text()='Logout']";
     
     public String headerLoc = "thead > adl-table-header > tr:nth-child(1) > th[role='columnheader']";
+	public String searchBoxesBelowHeadersInGrid = "thead > adl-table-header > tr:nth-child(2) > td>div>div>input";
 	public String rowLoc = "table>tbody>tr";
 	public String btnYes = "(//button[@color='primary']/span)[2]";
 	public String roleType = "//strong[text()='Role Type: ']";

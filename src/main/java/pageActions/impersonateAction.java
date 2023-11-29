@@ -388,5 +388,16 @@ public class impersonateAction extends impersonatepo {
 //			return contractNumber;
 //			}
 	
+	public HashMap<String, WebElement> getSearchBoxes() {
+		event.scrollDown();
+		HashMap<String, WebElement> map = new HashMap<String, WebElement>();
+		List<String> allHeaderNames = event.getTextValuesForObject("cssSelector", headerLoc);
+		List<WebElement> searchBoxesInGrid = driver.findElements(By.cssSelector(searchBoxesBelowHeadersInGrid));
+		for (int j = 0; j < 4; j++) {
+			map.put(allHeaderNames.get(j), searchBoxesInGrid.get(j));
+		}
+		return map;
+	}
+	
 	
 }

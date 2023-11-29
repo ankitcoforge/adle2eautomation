@@ -37,7 +37,8 @@ public class contract_test extends createContractAction {
 
 		
 		navigate();
-		lo.login("D22723", "Test1234");
+		//lo.login("D22723", "Test1234");
+		lo.login(prop.getProperty("username1"), prop.getProperty("password"));
 		getDriver().findElement(By.cssSelector("button[color=\"white-primary\"]")).click();
 		vo.navigatetoLeftMenu("E-Rate", "Rate/Contract");
 
@@ -51,6 +52,7 @@ public class contract_test extends createContractAction {
 
 	@Test(priority = 2, dependsOnMethods = {"singleContract1"})
 	public void leinHolderContract1() throws InterruptedException {
+
 
 		sa.singleContract("Bank of America");
 

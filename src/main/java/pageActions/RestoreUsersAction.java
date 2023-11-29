@@ -1,5 +1,7 @@
 package pageActions;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -7,6 +9,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import junit.framework.Assert;
 import pageObjects.RestoreUsersPo;
 import utils.utilityClass;
 
@@ -48,6 +51,13 @@ public class RestoreUsersAction extends RestoreUsersPo{
 		utils.scrollUp();	
 		return allTableData;
 		}
+	
+	public WebElement restoreIcon(int i) {
+	String str="table>tbody>tr:nth-of-type("+ i +")>td:nth-of-type(7)>adl-table-cells>div>div:nth-of-type(1)>i";
+	return utils.element("cssSelector",str);
+	}
+	
+	
 
 	public void selectDealerInmanageUserPage(String role) throws InterruptedException {
 		utils.clickfield("xpath", manageUserPage.selectDealerNamearrow);
@@ -58,7 +68,7 @@ public class RestoreUsersAction extends RestoreUsersPo{
 		list.get(0).click();
 		utils.waitTillElementIsVisible(impersonate.getusersButton);
 		utils.clickfield("xpath", impersonate.getusersButton);
-//		utils.waituntillPageIsloaded();
+		utils.waituntillPageIsloaded();
 	}
 	
 	public HashMap<String, WebElement> getSearchBoxes() {
@@ -88,5 +98,42 @@ public class RestoreUsersAction extends RestoreUsersPo{
 		List<WebElement> searchBoxesInGrid = driver.findElements(By.cssSelector(ManageVSCGAPprefrences.searchBoxesBelowHeadersInGrid));
 			map.put(allHeaderNames.get(5), searchBoxesInGrid.get(4));
 		return map;
+	}
+	
+	 public List<String> getRowLoc() {
+		 List<String> rowLoactor = utils.getTextValuesForObject("cssSelector", impersonate.rowLoc);
+         return rowLoactor;
+	 }
+	
+	public WebElement getArrow(String Heading) {
+	String txt = "//th[contains(text(),'"+Heading+"')]/p-sorticon/i";
+	WebElement ele = driver.findElement(By.xpath(txt));
+	return ele;
+	}
+	
+	public void verifysorting(String header) {
+		getArrow(header).click();
+		HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
+		ArrayList<String> list = new ArrayList<String>();
+		for (int i = 1; i <= getRowLoc().size(); i++) {
+			String rowTxt = allTableData.get(i).get(header);
+			list.add(rowTxt);
+		}
+		ArrayList<String> listBeforeSort = list;
+		Collections.sort(list);
+		Assert.assertEquals(listBeforeSort,list);
+		
+		utils.waitTillElementIsClickableByWebEle(getArrow(header));
+		getArrow(header).click();
+		HashMap<Integer, HashMap<String, String>> allTableDataOnArrowClick2 = checkGridBodyDetails();
+		ArrayList<String> listOnArrowClick2 = new ArrayList<String>();
+		for (int i = 1; i <= getRowLoc().size(); i++) {
+			String rowTxt = allTableDataOnArrowClick2.get(i).get(header);
+			listOnArrowClick2.add(rowTxt);
+		}
+		ArrayList<String> ObtainedList = listOnArrowClick2;
+		Collections.sort(listOnArrowClick2);
+		Collections.reverse(listOnArrowClick2);
+		Assert.assertTrue(ObtainedList.equals(listOnArrowClick2));
 	}
 }

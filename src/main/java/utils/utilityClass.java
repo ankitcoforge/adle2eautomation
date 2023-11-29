@@ -358,8 +358,13 @@ public class utilityClass extends baseClass{
  			wait.until(ExpectedConditions.elementToBeClickable(By.xpath(ele)));
  		}
  		
+ 		public void waitTillElementIsClickableByWebEle(WebElement ele) {
+ 			WebDriverWait wait = new WebDriverWait(driver,60);
+ 			wait.until(ExpectedConditions.elementToBeClickable(ele));
+ 		}
+ 		
  		public void waituntillPageIsloaded() {
- 			WebDriverWait wait = new WebDriverWait(driver,30);
+ 			WebDriverWait wait = new WebDriverWait(driver,5);
  			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//ngx-spinner/div")));
  		}
 

@@ -76,8 +76,12 @@ public class NewUserRegistration_Action extends NewUserRegistrationPo {
 			List<WebElement> a = driver.findElements(By.cssSelector("#schranka > tr"));
 			utils.waituntillPageIsloaded();
 			utils.scrollDownUsingJSE();
+			int size=a.size();
+			System.out.println("a size-----"+size);
 			WebDriverWait wait = new WebDriverWait(driver, 100);
-			if (a.size() == 4) {
+			List<WebElement> b = driver.findElements(By.cssSelector("#schranka > tr"));
+			System.out.println("b size---"+b.size());
+			if (b.size() == size+2) {
 				driver.findElement(By.cssSelector("#schranka > tr > td")).click();
 				wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("iframeMail"));
 				// driver.switchTo().frame("iframeMail");
@@ -94,10 +98,26 @@ public class NewUserRegistration_Action extends NewUserRegistrationPo {
 				utils.waituntillPageIsloaded();
 				navigate();
 				lo.login(newemail, prop.getProperty("password"));
-				utils.waituntillPageIsloaded();
-				wait.until(ExpectedConditions.visibilityOf(utils.getfield("mat-icon", "close")));
+				utils.waitTillElementIsClickableByWebEle(utils.getfield("mat-icon", "close"));
+//				utils.waituntillPageIsloaded();
+				utils.getfield("mat-icon", "close").click();
+				Thread.sleep(500);
+				lo.logout();
+				Thread.sleep(2000);
 			}
 		}
+	}
+	
+	public void deleteTheCreatedUser(String role,String roleId,String email) throws InterruptedException {
+		lo.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+		vo.navigatetoimpersonate();
+		impersonate.getUsers(role,roleId);
+		 HashMap<Integer, HashMap<String, WebElement>> allTableDataInImpersonatePagee = impersonate.checkGridForEditDelLock();
+		impersonate.getSearchBoxes().get("Email").sendKeys(email);
+		allTableDataInImpersonatePagee.get(1).get("Delete").click();
+		utils.getfield("span", "Yes").click();
+		impersonate.getSearchBoxes().get("Email").sendKeys(email);
+		 Assert.assertTrue(utils.getfield("td", "There are no records to display").isDisplayed());
 	}
 
 	public void enterRoleRoleIdAndGetUsers(String role, String roleid) throws InterruptedException {

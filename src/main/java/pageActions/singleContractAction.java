@@ -37,7 +37,7 @@ public class singleContractAction extends contractpo {
 		String contractNumber = null;
 		try {
 			event.inputfield("cssSelector", textbox, "Single", 0);
-			event.inputfield("cssSelector", textbox, "Test", 1);
+			event.inputfield("cssSelector", textbox, "Test", 1)
 			event.inputfield("cssSelector", textbox, randomizer.getMilage(), 5);
 			event.inputfield("cssSelector", textbox, "1HGCV1F12NA002615", 6);
 			event.clickfield("xpath", getProducts);
@@ -48,26 +48,13 @@ public class singleContractAction extends contractpo {
 			event.inputfield("cssSelector", contract, "10000", 0);
 			contractNumber = driver.findElement(By.cssSelector(contractNo)).getDomProperty("value");
 			System.out.println("Contract Number is:" + contractNumber);
-
-			List<WebElement> a = driver.findElements(By.cssSelector(inServiceDate));
-			if (a.size() == 1) {
-				String a1 = driver.findElement(By.cssSelector(inServicefield)).getAttribute("class");
-				if (!(a1.contains("disabled"))) {
-					driver.findElement(By.cssSelector(inServiceDateTextBox)).click();
-					driver.findElement(By.cssSelector("td[aria-label='" + getDate() + "']")).click();
-				}
-
-			}
-
-			//Assert.assertEquals(addGapLabel(), "Add GAP");
-			event.clickfield("xpath", businessUse);
+			inserviceDate();
 			driver.findElements(By.cssSelector(textbox)).get(14).clear();
 			event.inputfield("cssSelector", textbox, "20130", 14);
 			driver.findElements(By.cssSelector(textbox)).get(13).clear();
 			event.inputfield("cssSelector", textbox, "Address", 13);
 			driver.findElements(By.cssSelector(textbox)).get(16).clear();
 			event.inputfield("cssSelector", textbox, "test@gmail.com", 16);
-
 			Thread.sleep(2000);
 			event.clearfield("cssSelector", phone);
 			event.inputfield("cssSelector", phone, "1234567890");
@@ -105,14 +92,15 @@ public class singleContractAction extends contractpo {
 		inserviceDate();
 //		Assert.assertEquals(addGapLabel(), "Add GAP");
 		event.clearfield("cssSelector", "[label='Zip Code'] >div >div:nth-child(2) >input");
-//		event.inputfield("cssSelector", "[label='Zip Code'] >div >div:nth-child(2) >input", "20130");
+		event.inputfield("cssSelector", "[label='Zip Code'] >div >div:nth-child(2) >input", "20130");
 		event.clearfield("cssSelector",  "[label='Address'] >div >div:nth-child(2) >input");
-//		event.inputfield("cssSelector",  "[label='Address'] >div >div:nth-child(2) >input", "Address");
+    	event.inputfield("cssSelector",  "[label='Address'] >div >div:nth-child(2) >input", "Address");
 		event.clearfield("cssSelector",  "[label='Email'] >div >div:nth-child(2) >input");
-//		event.inputfield("cssSelector",  "[label='Email'] >div >div:nth-child(2) >input", "test@gmail.com");
-//		event.clearfield("cssSelector", phone);
-//		event.inputfield("cssSelector", phone, "1234567890");
-		event.clickfield("xpath", generateContract);
+    	event.inputfield("cssSelector",  "[label='Email'] >div >div:nth-child(2) >input", "test@gmail.com");
+    	Thread.sleep(2000);
+		event.clearfield("cssSelector", phone);
+		event.inputfield("cssSelector", phone, "1234567890");
+    	event.clickfield("xpath", generateContract);
 		getDriver().findElement(By.xpath(gc.generateContractHeading)).isDisplayed();
 		Thread.sleep(2000);
 		event.clickfield("cssSelector", gc.checkbox, 0);
