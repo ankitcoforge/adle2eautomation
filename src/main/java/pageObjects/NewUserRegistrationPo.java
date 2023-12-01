@@ -14,6 +14,7 @@ public class NewUserRegistrationPo extends baseClass {
 	public String newUserbtn = "//span[contains(text(),'+ New user')]";
 	public String email = "//adl-text-input[@label='Email']/div/div/input";
 	public String submit = "//button[@form='ngFormNewUserRegistration']";
+	public String cancel = "//mat-dialog-content/div[2]/button[2]";
 	public String username = "//p[text()='Username']";
 	public String permissionsArrow = "//label[text()='Permissions']/../p-multiselect/div/div[3]/span";
 	public String permissionsCheckedAndUnchecked = "//div[@class='cdk-virtual-scroll-content-wrapper']/p-multiselectitem/li";

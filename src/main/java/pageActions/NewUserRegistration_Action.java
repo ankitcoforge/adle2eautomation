@@ -39,15 +39,13 @@ public class NewUserRegistration_Action extends NewUserRegistrationPo {
 
 	public String getEmail() throws InterruptedException {
 		driver.get(prop.getProperty("minuteInboxURL"));
-//		String newemail1 = driver.findElement(By.cssSelector("span.animace")).getText();
-//		System.out.println("old mail before deletion-"+newemail1);
-//		utils.element("cssselector", delInGetEmail).click();
 		Thread.sleep(1000);
-//		if (utils.element("id", closeAdd).isDisplayed()) {
-//			utils.element("id", closeAdd).click();
-//		}
-//        Thread.sleep(1000);
-//        driver.switchTo().defaultContent();
+		driver.findElement(By.cssSelector("a.blockLink.delete")).click();
+        List<WebElement> delete = driver.findElements(By.cssSelector("a[href = '/delete-email/'][ title ='Delete this email']"));
+        for(int i =0; i<delete.size()/2; i= i+2) {
+        	delete.get(i).click();
+        	Thread.sleep(1000);
+        }
 		newemail = driver.findElement(By.cssSelector("span.animace")).getText();
 		System.out.println(newemail);
 		return newemail;
@@ -67,6 +65,11 @@ public class NewUserRegistration_Action extends NewUserRegistrationPo {
 		utils.waitTillElementIsVisible(email);
 		utils.element("xpath", email).sendKeys(newemail);
 		utils.waitTillElementIsVisible(submit);
+		utils.element("xpath", cancel).click();
+		utils.getfield("span", "+ New user").click();
+		utils.waitTillElementIsVisible(email);
+		utils.element("xpath", email).sendKeys(newemail);
+		utils.waitTillElementIsVisible(submit);
 		utils.element("xpath", submit).click();
 	}
 
@@ -74,14 +77,10 @@ public class NewUserRegistration_Action extends NewUserRegistrationPo {
 		String email1 = getEmailAfter();
 		if (newemail.matches(email1)) {
 			List<WebElement> a = driver.findElements(By.cssSelector("#schranka > tr"));
+			System.out.println("a size-----"+a.size());
 			utils.waituntillPageIsloaded();
 			utils.scrollDownUsingJSE();
-			int size=a.size();
-			System.out.println("a size-----"+size);
 			WebDriverWait wait = new WebDriverWait(driver, 100);
-			List<WebElement> b = driver.findElements(By.cssSelector("#schranka > tr"));
-			System.out.println("b size---"+b.size());
-			if (b.size() == size+2) {
 				driver.findElement(By.cssSelector("#schranka > tr > td")).click();
 				wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("iframeMail"));
 				// driver.switchTo().frame("iframeMail");
@@ -106,7 +105,7 @@ public class NewUserRegistration_Action extends NewUserRegistrationPo {
 				Thread.sleep(2000);
 			}
 		}
-	}
+//	}
 	
 	public void deleteTheCreatedUser(String role,String roleId,String email) throws InterruptedException {
 		lo.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
@@ -118,9 +117,11 @@ public class NewUserRegistration_Action extends NewUserRegistrationPo {
 		utils.getfield("span", "Yes").click();
 		impersonate.getSearchBoxes().get("Email").sendKeys(email);
 		 Assert.assertTrue(utils.getfield("td", "There are no records to display").isDisplayed());
+		 lo.logout();
 	}
 
 	public void enterRoleRoleIdAndGetUsers(String role, String roleid) throws InterruptedException {
+		driver.navigate().refresh();
 		utils.waitTillElementIsClickable(impersonate.roleDropdown);
 		utils.clickfield("xpath", impersonate.roleDropdown);
 		List<WebElement> list = getDriver().findElements(By.xpath(impersonate.roleDropdownList));
