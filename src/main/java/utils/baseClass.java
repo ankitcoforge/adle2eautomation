@@ -103,7 +103,7 @@ public class baseClass extends pdfUtils{
 		if (prop == null) {
 			prop = new Properties();
 			try {
-				FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "//config_qa2.properties");
+				FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "//config_qa.properties");
 				prop.load(fs);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -136,8 +136,9 @@ public class baseClass extends pdfUtils{
 	@SuppressWarnings("deprecation")
 	public static WebDriver getDriver() {
 		String browserName = prop.getProperty("browser");
+		String mobile = prop.getProperty("mobile");
 		if (driver == null) {
-			driver = createDriver(browserName);
+			driver = createDriver(browserName, mobile);
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			driver.manage().timeouts().setScriptTimeout(30, TimeUnit.SECONDS);
 			driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
@@ -149,25 +150,39 @@ public class baseClass extends pdfUtils{
 
 	/********************
 	 * Method to create web driver
+	 * @param mobile 
 	 *******************************************************/
-	private static WebDriver createDriver(String browser) {
+	private static WebDriver createDriver(String browser, String mobile) {
 
 		if (browser.equals("Mozilla")) {
 			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "//geckodriver.exe");
 			driver = new FirefoxDriver();
 		} else if (browser.equals("Chrome")) {
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//chromedriver.exe");
-			//HashMap<String, String> mobileEmulation = new HashMap();
-			//mobileEmulation.put("deviceName", "Nexus 5");
-			//ChromeOptions chromeOptions = new ChromeOptions();
-			//chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
-			HashMap<String,Object> chromePrefs = new HashMap<String, Object>();
-			chromePrefs.put("plugins.always_open_pdf_externally", true);
-			chromePrefs.put("download.default_directory", System.getProperty("user.dir") + "\\PDF");
-			ChromeOptions options = new ChromeOptions();
-			options.setExperimentalOption("prefs", chromePrefs);
-			options.addArguments("--remote-allow-origins=*");
-			driver = new ChromeDriver(options);
+			if (mobile.equals("true")) {
+				HashMap<String, String> mobileEmulation = new HashMap();
+				mobileEmulation.put("deviceName", "iPhone 6");
+				ChromeOptions chromeOptions = new ChromeOptions();
+				chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
+				HashMap<String,Object> chromePrefs = new HashMap<String, Object>();
+				chromePrefs.put("plugins.always_open_pdf_externally", true);
+				chromePrefs.put("download.default_directory", System.getProperty("user.dir") + "\\PDF");
+//				ChromeOptions options = new ChromeOptions();
+//				options.setExperimentalOption("prefs", chromeOptions);
+				chromeOptions.addArguments("--remote-allow-origins=*");
+				driver = new ChromeDriver(chromeOptions);
+			}
+			else {
+				HashMap<String,Object> chromePrefs = new HashMap<String, Object>();
+				chromePrefs.put("plugins.always_open_pdf_externally", false);
+				chromePrefs.put("profile.default_content_settings.popups", 0);
+				chromePrefs.put("download.default_directory", System.getProperty("user.dir") + "\\PDF");
+				ChromeOptions options = new ChromeOptions();
+				options.setExperimentalOption("prefs", chromePrefs);
+				options.addArguments("--remote-allow-origins=*");
+				driver = new ChromeDriver(options);
+			}
+			
 		} else if (browser.equals("IE")) {
 			//Setting system properties of InternetExplorerDriver
 			System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + "//IEDriverServer.exe"); 
