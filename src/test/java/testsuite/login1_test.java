@@ -16,8 +16,8 @@ public class login1_test extends baseClass {
     public Object[][] getData() {
         return new Object[][] {
         	
-        	{prop.getProperty("username"),prop.getProperty("password")},
-        	{prop.getProperty("agentusername"),prop.getProperty("agentpassword")},
+        	{prop.getProperty("dealerAutomation"),prop.getProperty("password")},
+        	{prop.getProperty("agentAutomation"),prop.getProperty("agentpassword")},
         	{prop.getProperty("adminusername"),prop.getProperty("adminpassword")}
         	
         	
