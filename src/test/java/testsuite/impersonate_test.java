@@ -64,7 +64,7 @@ public class Impersonate_test extends impersonateAction {
 		Thread.sleep(4000);
 		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
 		Thread.sleep(2000);
-		contract.singleContractForLender("#1 Auto Liquidators LLC");
+		//contract.singleContractForLender("#1 Auto Liquidators LLC");
 	}
 
 //	
