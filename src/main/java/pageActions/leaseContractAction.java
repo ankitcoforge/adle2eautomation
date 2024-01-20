@@ -1,9 +1,12 @@
 package pageActions;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import pageObjects.contractpo;
@@ -47,9 +50,8 @@ public class leaseContractAction extends contractpo {
 		event.clickfield("cssSelector", gc.checkbox, 0);
 		event.clickfield("cssSelector", gc.checkbox, 1);
 		event.clickfield("xpath", gc.genrateContractButton);
-		Thread.sleep(5000);
-		String text1 = event.text("cssSelector", successMessage);
-		Assert.assertEquals(text1, "You have successfully generated a contract!");
+		WebElement element = new WebDriverWait(driver, Duration.ofSeconds(9)).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(successMessage)));
+		Assert.assertEquals(element.getText(), "You have successfully generated a contract!");
 		event.clickfield("cssSelector", newQuotelink);
 	}
 }

@@ -37,9 +37,7 @@ public class contract_test extends createContractAction {
 
 		
 		navigate();
-		//lo.login("D22723", "Test1234");
-		lo.login(prop.getProperty("username1"), prop.getProperty("password"));
-		getDriver().findElement(By.cssSelector("button[color=\"white-primary\"]")).click();
+		lo.login(prop.getProperty("username"), prop.getProperty("password"));
 		vo.navigatetoLeftMenu("E-Rate", "Rate/Contract");
 
 	}
@@ -58,7 +56,7 @@ public class contract_test extends createContractAction {
 
 	}
 
-	@Test(priority = 3)
+	@Test(priority = 3, dependsOnMethods = {"singleContract1"} )
 	public void leaseContract1() throws InterruptedException {
 
 		la.leaseContract();
@@ -72,29 +70,15 @@ public class contract_test extends createContractAction {
 
 	}
 	
-	@Test(priority = 5)
-	public void singleContractForLender(String selectDealer) throws InterruptedException {
-
-		sa.singleContractForLender(selectDealer);
-
-	}
-	
 	
 	/***************** Contract creation test case ***************/
-	@Test(priority = 5, dataProvider = "test1")
+	@Test(priority = 5, dataProvider = "test1", dependsOnMethods = {"singleContract1"})
 	public void createContract1(String[] inputArray) throws InterruptedException {
 
 		createContract(inputArray);
 
 	}
 	
-//	@Test(priority = 6, dataProvider = "lendertest")
-//	public void singleContractlender(String[] inputArray) throws Exception {
-//
-//		createlenderContract(inputArray);
-//
-//	}
-
 	@AfterClass
 	public void close() throws InterruptedException {
 
@@ -102,5 +86,3 @@ public class contract_test extends createContractAction {
 	}
 
 }
-
-
