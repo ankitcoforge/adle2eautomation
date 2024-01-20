@@ -16,7 +16,7 @@ import utils.utilityClass;
 
 @Listeners(utils.listnerlogs.class)
 
-public class Impersonate_test extends impersonateAction {
+public class impersonate_test extends impersonateAction {
 
 	loginAction login = new loginAction();
 	verticalMenuAction verticalMenu = new verticalMenuAction();
