@@ -19,6 +19,8 @@ public class createContractAction extends contractpo {
 	utilityClass event = new utilityClass();
 	generateContractAction gc = new generateContractAction();
 	loginAction lo = new loginAction();
+	verticalMenuAction vo = new verticalMenuAction();
+	int i = 0;
 	
 
 	/************************
@@ -29,48 +31,35 @@ public class createContractAction extends contractpo {
 	@SuppressWarnings("deprecation")
 	public void createContract(String[] inputArray) throws InterruptedException {
 
-		try {
-			
+		
+//		try {
+		{
 			HashMap<String, String> searchData1 = new HashMap<String, String>();
 			searchData1 = contractData(inputArray);
-			event.inputfield("cssSelector", textbox, searchData1.get("Firstname"), 0);
-			event.inputfield("cssSelector", textbox, searchData1.get("Lastname"), 1);
-			event.inputfield("cssSelector", textbox, searchData1.get("Mileage"), 5);
-			event.inputfield("cssSelector", textbox, searchData1.get("Vin"), 6);
+			event.inputfield("cssSelector", firstName, searchData1.get("Firstname"));
+			event.inputfield("cssSelector", lastName, searchData1.get("Lastname"));
+			event.inputfield("cssSelector", mileage, searchData1.get("Mileage"));
+			event.inputfield("cssSelector", vinTextbox, searchData1.get("Vin"));
 			event.clickfield("xpath", getProducts);
-			JavascriptExecutor js = ((JavascriptExecutor) driver);
+			getDriver().findElement(By.cssSelector(editProducts)).isEnabled();
+			System.out.println(searchData1.get("program"));
 			programSelect(searchData1.get("program"));
-			if ((searchData1.get("program").contains("Absolute Reserve Care Lease"))) {
-				js.executeScript("window.scrollTo(0, 2200)");
-				leaseProgram();
-			}
+			event.scrollDown();
 			event.clickfield("cssSelector", table, 0);
 			String header = event.text("cssSelector", programNameCode);
-			String[] program = header.split(" � ");
-			String programCode = program[0];
-			String programName = program[1];
-			event.inputfield("cssSelector", contract, "10000", 0);
+			event.scrollDown();
 			System.out.println(searchData1.get("program"));
+			event.inputfield("cssSelector", contract, "10000");
 			selectOptionSurcharge();
 			inserviceDate();
-			filladdress();
+			event.clickfield("xpath", generateContract);
 			getDriver().findElement(By.xpath(gc.generateContractHeading)).isDisplayed();
 			WebElement heading = new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(gc.generateContractHeading)));
-			if ((searchData1.get("GenerateContract")).equals("one")) {
-				gc.generateContractPopUp(programCode, programName);
-			}
 			gc.selectGenerateContract();
 			WebElement element = new WebDriverWait(driver, Duration.ofSeconds(9)).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(successMessage)));
 			Assert.assertEquals(element.getText(), "You have successfully generated a contract!");
 			event.clickfield("cssSelector", newQuotelink);
-		} catch (ElementNotInteractableException e) {
-			e.printStackTrace();
-			System.out.println("Test Case failed ");
-			e.getCause();
-			Assert.fail();
-			lo.logout();
-			lo.login("shreya.agarwal@protective.com", prop.getProperty("password"));
-		}
+	}
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -88,7 +77,7 @@ public class createContractAction extends contractpo {
 			programSelect(searchData1.get("program"));
 			event.clickfield("cssSelector", table, 0);
 			String header = event.text("cssSelector", programNameCode);
-			String[] program = header.split(" � ");
+			String[] program = header.split(" ");
 			String programCode = program[0];
 			String programName = program[1];
 			event.inputfield("cssSelector", contract, "10000", 0);
