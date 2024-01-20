@@ -17,9 +17,9 @@ public class login1_test extends baseClass {
         return new Object[][] {
         	
         	{prop.getProperty("dealerAutomation"),prop.getProperty("password")},
-        	{prop.getProperty("agentAutomation"),prop.getProperty("agentpassword")},
-        	{prop.getProperty("adminusername"),prop.getProperty("adminpassword")}
-        	
+        	{prop.getProperty("agentAutomation"),prop.getProperty("password")},
+        	{prop.getProperty("adminusername"),prop.getProperty("adminpassword")},
+        	{prop.getProperty("lenderAutomation"),prop.getProperty("password")}
         	
         };
     }
@@ -41,8 +41,6 @@ public class login1_test extends baseClass {
 		
 		navigate();
 		String header = la.login(user, pass);
-		Assert.assertEquals(header, "Dashboard");
-		driver.get(prop.getProperty("messageSetup"));
 		Assert.assertEquals(header, "Dashboard");
 		la.logout();
 		

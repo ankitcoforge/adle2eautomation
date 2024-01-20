@@ -22,7 +22,7 @@ public class NewUserRegistrationPo extends baseClass {
 	public String firstandLastName = "adl-text-input > div > div.text-field__input.secure > input";
 	public String passwordField = " adl-text-input > div > div.text-field__input.public.text-field__input--suffix > input";
 	public String submitNewUserRegistrationPage = "button[type='submit']";
-	public String urlToRegister = " tbody > tr > td.button > a";
+	public String urlToRegister = " table > tbody > tr > td [style =\"border-radius: 2px;\"] > a";
 	public String closeInPermPopup = "//a[@tabindex='0']/span";
 	public String registrationStatusArrow = "(//span[contains(@class,'pi pi-chevron-down')])[2]";
 	public String completedCheckbox = "//li[@aria-label='Completed']/div/div";
