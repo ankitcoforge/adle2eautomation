@@ -6,7 +6,7 @@
 		<classes>
 
             
-		     <class name="testsuite.QuickCodeMarkupAndSCToggleAListLienholder_test"/>
+		      <class name="testsuite.QuickCodeMarkupAndSCToggleAListLienholder_test"/>
 		      <class name="testsuite.ManageMyDealerGrpEmployee_test"/>
 		   
 		</classes>
