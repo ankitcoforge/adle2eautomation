@@ -47,7 +47,6 @@ test-output/**
 target/**
 .loadpath
 *.xlsx
-*.exe
 
 
 # Eclipse m2e generated files
