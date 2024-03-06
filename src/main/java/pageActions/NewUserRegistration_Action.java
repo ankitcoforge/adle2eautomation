@@ -14,6 +14,7 @@ import java.util.Map;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -40,32 +41,22 @@ public class NewUserRegistration_Action extends NewUserRegistrationPo {
 	public String getEmail() throws InterruptedException {
 		driver.get(prop.getProperty("minuteInboxURL"));
 		Thread.sleep(1000);
-		driver.findElement(By.cssSelector("a.blockLink.delete")).click();
-        List<WebElement> delete = driver.findElements(By.cssSelector("a[href = '/delete-email/'][ title ='Delete this email']"));
-        for(int i =0; i<delete.size()/2; i= i+2) {
-        	delete.get(i).click();
-        	Thread.sleep(1000);
-        }
-		newemail = driver.findElement(By.cssSelector("span.animace")).getText();
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("const elements = document.getElementsByClassName('adsbygoogle adsbygoogle-noablate'); while (elements.length > 0) elements[0].remove()");
+		newemail = driver.findElement(By.cssSelector("input#mail")).getText();
 		System.out.println(newemail);
 		return newemail;
 	}
 	
 	public String getEmailAfter() {
 		driver.get(prop.getProperty("minuteInboxURL"));
-		newemail = driver.findElement(By.cssSelector("span.animace")).getText();
+		newemail = driver.findElement(By.cssSelector("input#mail")).getText();
 		System.out.println(newemail);
 		return newemail;
 	}
 
 	public void enterRoleIDAndCreateUserThroughAdmin(String role, String roleId) throws InterruptedException {
 		enterRoleRoleIdAndGetUsers(role, roleId);
-		utils.getfield("span", "+ New user").isEnabled();
-		utils.getfield("span", "+ New user").click();
-		utils.waitTillElementIsVisible(email);
-		utils.element("xpath", email).sendKeys(newemail);
-		utils.waitTillElementIsVisible(submit);
-		utils.element("xpath", cancel).click();
 		utils.getfield("span", "+ New user").click();
 		utils.waitTillElementIsVisible(email);
 		utils.element("xpath", email).sendKeys(newemail);
@@ -76,14 +67,13 @@ public class NewUserRegistration_Action extends NewUserRegistrationPo {
 	public void getEmailAndCompletenewUserRegistration() throws InterruptedException {
 		String email1 = getEmailAfter();
 		if (newemail.matches(email1)) {
-			List<WebElement> a = driver.findElements(By.cssSelector("#schranka > tr"));
+			List<WebElement> a = driver.findElements(By.cssSelector("span.inboxSubject >a.viewLink.title-subject"));
 			System.out.println("a size-----"+a.size());
 			utils.waituntillPageIsloaded();
 			utils.scrollDownUsingJSE();
 			WebDriverWait wait = new WebDriverWait(driver, 100);
-				driver.findElement(By.cssSelector("#schranka > tr > td")).click();
-				wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("iframeMail"));
-				// driver.switchTo().frame("iframeMail");
+				driver.findElements(By.cssSelector("span.inboxSubject >a.viewLink.title-subject")).get(1).click();
+				driver.findElement(By.cssSelector(".inbox-area.onemail")).isDisplayed();
 				utils.scrollDownUsingJSE();
 				String url = utils.element("cssselector", urlToRegister).getAttribute("href");
 				driver.get(url);
@@ -117,7 +107,6 @@ public class NewUserRegistration_Action extends NewUserRegistrationPo {
 		utils.getfield("span", "Yes").click();
 		impersonate.getSearchBoxes().get("Email").sendKeys(email);
 		 Assert.assertTrue(utils.getfield("td", "There are no records to display").isDisplayed());
-		 lo.logout();
 	}
 
 	public void enterRoleRoleIdAndGetUsers(String role, String roleid) throws InterruptedException {

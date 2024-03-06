@@ -22,7 +22,7 @@ public class contractpo extends baseClass{
 	public String successMessage = "div.notification__container__message > span";
 	public String textbox = "adl-text-input > div > div.text-field__input.secure > input";
 	public String getProducts = "//span[contains(text(),'Get Products')]";
-	public String editProducts = "//span[contains(text(),'Edit Search')]";
+	public String editProducts = ".actions__submit >button[color =\"accent\"]>span";
 	public String selectProgram = "//mat-checkbox/label/div";
 	public String table = "adl-rates-table > table >tbody > tr:nth-child(1) > td:nth-child(2)";
 	public String tableborder = "adl-rates-table > table >tbody > tr:nth-child(1) > td:nth-child(2)> div";
@@ -58,6 +58,8 @@ public class contractpo extends baseClass{
 	public String mandatoryState = "adl-select[label=\"State\"] >div > label >span";
 	public String dropdownState = "ng-select-container";
 	public String businessUseCheckbox = "adl-checkbox[label=\"Business Use\"] >div >mat-checkbox > label >div >input[type=\"checkbox\"]";
+	public String firstName = "adl-text-input[label='First Name'] >div >div >input";
+	public String lastName = "adl-text-input[label='Last Name'] >div >div >input";
 	public String vinTextbox = "adl-text-input[label=\"VIN\"] >div >div >input";
 	public String mileage = "adl-text-input[label=\"Mileage\"] >div >div >input";
 	public String getProductsButton = "button[type=\"submit\"]";
@@ -183,7 +185,6 @@ public class contractpo extends baseClass{
 		Thread.sleep(2000);
 		event.clearfield("cssSelector", phone);
 		event.inputfield("cssSelector", phone, "1234567890");
-		event.clickfield("xpath", generateContract);
 	}
 	
 	public String[] getProgramCodeName() {

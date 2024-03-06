@@ -27,8 +27,7 @@ public class quote_test extends createQuoteAction{
 	public void login() throws InterruptedException {
 		
 		navigate();
-		lo.login(("D22723"), prop.getProperty("password"));
-		getDriver().findElement(By.cssSelector("button[color=\"white-primary\"]")).click();
+		lo.login(prop.getProperty("username"), prop.getProperty("password"));
 		vo.navigatetoContract();
 	}
 	

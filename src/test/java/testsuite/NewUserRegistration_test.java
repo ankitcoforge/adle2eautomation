@@ -17,6 +17,7 @@ import pageObjects.MyCommissionsPO;
 import utils.XmlDataReader;
 import utils.utilityClass;
 import pageActions.NewUserRegistration_Action;
+import pageActions.RestoreUsersAction;
 
 /* 27501 */
 public class NewUserRegistration_test extends NewUserRegistration_Action {
@@ -29,6 +30,7 @@ public class NewUserRegistration_test extends NewUserRegistration_Action {
 	LateraMenu_test lateraMenu = new LateraMenu_test();
 	Impersonate_test impersonate = new Impersonate_test();
 	MyCommissionsPO myCommissions =new MyCommissionsPO();
+	RestoreUsersAction ru = new RestoreUsersAction();
 	
 	@BeforeTest(alwaysRun = true)
 	public void openDriver() throws InterruptedException {
@@ -48,6 +50,12 @@ public class NewUserRegistration_test extends NewUserRegistration_Action {
 		lo.logout();
 		getEmailAndCompletenewUserRegistration();
 		deleteTheCreatedUser(role, roleId, newUserEmail);
+		utils.getfield("a", "Restore Users").click();
+		Assert.assertTrue(utils.getfield("h3", "Restore Users").isDisplayed());
+		Assert.assertTrue(utils.element("xpath", impersonate.getusersButton).isDisplayed());
+		Assert.assertTrue(utils.element("xpath", impersonate.roleId).isDisplayed());
+		ru.selectDealerInmanageUserPage("22723");
+		
 	}
 
 	@Test(priority = 2)
@@ -62,6 +70,12 @@ public class NewUserRegistration_test extends NewUserRegistration_Action {
 		lo.logout();
 		getEmailAndCompletenewUserRegistration();
 		deleteTheCreatedUser(role, roleId, newUserEmail);
+		utils.getfield("a", "Restore Users").click();
+		Assert.assertTrue(utils.getfield("h3", "Restore Users").isDisplayed());
+		Assert.assertTrue(utils.element("xpath", impersonate.getusersButton).isDisplayed());
+		Assert.assertTrue(utils.element("xpath", impersonate.roleId).isDisplayed());
+		ru.selectDealerInmanageUserPage("22723");
+		
 	}
 
 //	@Test(priority = 3)
@@ -801,16 +815,16 @@ public class NewUserRegistration_test extends NewUserRegistration_Action {
 
 	@AfterTest(alwaysRun = true)
 	public void close() throws InterruptedException {
-		try {
-			lo.logout();
-		} catch (Exception e) {
-			if (utils.getfield("mat-icon", "close").isDisplayed()) {
-				utils.getfield("mat-icon", "close").click();
-			}
-			lo.logout();
+//		try {
+//			lo.logout();
+//		} catch (Exception e) {
+//			if (utils.getfield("mat-icon", "close").isDisplayed()) {
+//				utils.getfield("mat-icon", "close").click();
+//			}
+//			lo.logout();
 //			driver.close();
 //			Thread.sleep(500);
 //			getDriver();
-		}
+//		}
 	}
 }
