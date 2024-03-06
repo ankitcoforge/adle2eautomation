@@ -29,4 +29,5 @@ public class NewUserRegistrationPo extends baseClass {
 	public String registrationStatusArrowNewUserPage = "(//span[contains(@class,'pi pi-chevron-down')])[1]";
 	public String delInGetEmail = "a.delete";
 	public String closeAdd = "dismiss-button";
+	public String selectDealerNamearrow = "//mat-icon[text()='arrow_drop_down']";
 }

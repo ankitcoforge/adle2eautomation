@@ -815,16 +815,18 @@ public class NewUserRegistration_test extends NewUserRegistration_Action {
 
 	@AfterTest(alwaysRun = true)
 	public void close() throws InterruptedException {
-//		try {
-//			lo.logout();
-//		} catch (Exception e) {
+
+		try {
+			lo.logout();
+		} catch (Exception e) {
 //			if (utils.getfield("mat-icon", "close").isDisplayed()) {
 //				utils.getfield("mat-icon", "close").click();
-//			}
-//			lo.logout();
+			}
+			lo.logout();
 //			driver.close();
 //			Thread.sleep(500);
 //			getDriver();
-//		}
-	}
+		}
+	
+
 }

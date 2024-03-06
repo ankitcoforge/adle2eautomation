@@ -1,23 +1,15 @@
 package pageActions;
 
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.InputEvent;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -34,7 +26,6 @@ public class NewUserRegistration_Action extends NewUserRegistrationPo {
 	WebMileageExceptionAction wme = new WebMileageExceptionAction();
 	impersonateAction impersonate = new impersonateAction();
 	verticalMenuAction vo = new verticalMenuAction();
-	EmployeePacksAction packs = new EmployeePacksAction();
 	XmlDataReader UtilsDataReader = new XmlDataReader("UtilsData");
 	LateralMenuAction lateraMenu = new LateralMenuAction();
 
@@ -131,7 +122,7 @@ public class NewUserRegistration_Action extends NewUserRegistrationPo {
 	}
 
 	public void selectDealerInmanageUserPage() throws InterruptedException {
-		utils.clickfield("xpath", packs.selectDealerNamearrow);
+		utils.clickfield("xpath", selectDealerNamearrow);
 		WebElement ele = driver.findElement(By.xpath(enterRole));
 		ele.sendKeys(UtilsDataReader.getXMLData("dealer3"));
 		List<WebElement> list = getDriver().findElements(By.xpath(roleDropdownListForDealer));

@@ -36,7 +36,7 @@ public class ToolBox_New  extends toolBoxAction {
 	@DataProvider(name = "Login_details")
 	public Object[][] loginOnRoleType() {
 
-		return new Object[][] { { prop.getProperty("lenderAutomation"), prop.getProperty("password"), "Lender" }};
+		return new Object[][] { { prop.getProperty("agentAutomation"), prop.getProperty("password"), "Agent" }};
 		//,{ prop.getProperty("agentAutomation"), prop.getProperty("password"), "Agent" },{prop.getProperty("lenderAutomation"), prop.getProperty("password"), "Lender" }};
 	}
 

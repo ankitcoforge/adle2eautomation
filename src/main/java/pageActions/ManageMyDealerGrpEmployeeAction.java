@@ -15,7 +15,8 @@ public class ManageMyDealerGrpEmployeeAction extends ManageMyDealerGrpEmployeePO
 	
 	utilityClass utils = new utilityClass();
 	
-	public void selectUser(String user) {
+	public void selectUser(String user) throws InterruptedException {
+		Thread.sleep(5000);
 		utils.element("xpath", selectUserDropdown).click();
 		 List<WebElement> list = getDriver().findElements(By.xpath(roleDropdownList));
 	    for(int i=0;i<list.size();i++) {

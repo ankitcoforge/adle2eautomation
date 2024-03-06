@@ -27,7 +27,7 @@ public class EmployeePacksAction extends EmployeePackspo{
 	   CalenderUtils calenderUtils= new CalenderUtils();
 	   PricingPreferencesAction preferences = new PricingPreferencesAction();
 	   XmlDataReader UtilsDataReader = new XmlDataReader("UtilsData");
-	   NewUserRegistrationPo NewUserRegistrationPage= new NewUserRegistrationPo();
+	   NewUserRegistration_Action NewUserRegistrationPage= new NewUserRegistration_Action();
 	   ManageUserPageAction ManageUserPage=new ManageUserPageAction();
 	   LateralMenuAction VerticalMenu=new LateralMenuAction();
 	   PermissionsAction permissions=new PermissionsAction();

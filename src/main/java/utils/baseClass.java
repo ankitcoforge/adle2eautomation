@@ -161,7 +161,7 @@ public class baseClass extends pdfUtils{
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//chromedriver.exe");
 			if (mobile.equals("true")) {
 				HashMap<String, String> mobileEmulation = new HashMap();
-				mobileEmulation.put("deviceName", "iPhone 6");
+				mobileEmulation.put("deviceName", "iPhone 12 Pro");
 				ChromeOptions chromeOptions = new ChromeOptions();
 				chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
 				HashMap<String,Object> chromePrefs = new HashMap<String, Object>();
@@ -174,7 +174,7 @@ public class baseClass extends pdfUtils{
 			}
 			else {
 				HashMap<String,Object> chromePrefs = new HashMap<String, Object>();
-				chromePrefs.put("plugins.always_open_pdf_externally", false);
+				chromePrefs.put("plugins.always_open_pdf_externally", true);
 				chromePrefs.put("profile.default_content_settings.popups", 0);
 				chromePrefs.put("download.default_directory", System.getProperty("user.dir") + "\\PDF");
 				ChromeOptions options = new ChromeOptions();

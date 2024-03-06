@@ -1,6 +1,7 @@
 package pageActions;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -38,6 +39,12 @@ public class cancellationQuotesAction extends cancellationQuotespo {
 	public String getFrontText() {
 
 		return event.text("cssSelector", frontText);
+	}
+
+	
+	public WebElement getCancelMileageInput() {
+
+		return event.element("xpath", cancelMileageInput);
 	}
 
 	public String nameMaxLength() {
@@ -93,15 +100,75 @@ public class cancellationQuotesAction extends cancellationQuotespo {
 	}
 	
 	public WebElement quoteLink() {
-
-		return event.element("cssSelector", quote);
+		return event.element("cssSelector", quoteLink);
 	}
+	public WebElement getQuoteBtn() {
 
+		return event.element("xpath", quoteBtn);
+	}
+	
+	public WebElement getCheckBox() {
+
+		return event.element("xpath", checkBox);
+	}
+	
+	public WebElement getEditBtn() {
+
+		return event.element("xpath", editBtn);
+	}
+	
+	public WebElement getCancelContractBtn() {
+
+		return event.element("xpath", cancelContractBtn);
+	}
+	
+	public WebElement getCompleteCancellationBtn() {
+
+		return event.element("xpath", completeCancellationBtn);
+	}
+	
+	
+	public WebElement getBackBtn() {
+
+		return event.element("xpath", backBtn);
+	}
+	
+	public WebElement getContractTextbox() {
+
+		return event.element("cssSelector", contractTextbox);
+	}
+	
+	public WebElement getQuoteErrorMsg() {
+
+		return event.element("xpath", quoteError);
+	}
+	
+	public WebElement getCancellationErrorMsg() {
+
+		return event.element("xpath", cancellationError);
+	}
+	
+	public WebElement getCloseBtn() {
+
+		return event.element("xpath", closeBtn);
+	}
+	
+	public List<WebElement> errorElements() {
+	List<WebElement> elements = driver.findElements(By.xpath(elementsInError));
+	return elements;
+	}
+	
+	public WebElement getCancelBtn() {
+
+		return event.element("xpath", cancelBtn);
+	}
+	
 	public void openCancellationModelBox() {
-		
 		quoteLink().click();
-		
-		
+	}
+	
+	public void waitForThePageToLoad() throws InterruptedException {
+		Thread.sleep(10000);
 	}
 	
 	public HashMap<Integer,HashMap<String, String>> tabledata (){

@@ -18,7 +18,6 @@ public class ManageVSC_GAPpreferencesAction extends ManageVSC_GAPpreferencesPO {
 
 	loginAction login = new loginAction();
 	verticalMenuAction verticalMenu = new verticalMenuAction();
-
 	utilityClass utils = new utilityClass();
 	impersonateAction impersonate = new impersonateAction();
 	singleContractAction contractNew = new singleContractAction();

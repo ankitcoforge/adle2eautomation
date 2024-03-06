@@ -327,9 +327,19 @@ public class utilityClass extends baseClass{
 		js.executeScript("window.scrollTo(0, 2500)");
  		}
  		
+ 		public void scrollLittleDownUsingJSE() {
+ 	 		JavascriptExecutor js=(JavascriptExecutor)driver;
+ 			js.executeScript("window.scrollTo(0, 100)");
+ 	 		}
+ 		
  		public void scrollUpUsingJSE() {
  	 		JavascriptExecutor js=(JavascriptExecutor)driver;
  			js.executeScript("window.scrollTo(0, -2500)");
+ 	 		}
+ 		
+ 		public void scrollLittleUpUsingJSE() {
+ 	 		JavascriptExecutor js=(JavascriptExecutor)driver;
+ 			js.executeScript("window.scrollTo(0, -300)");
  	 		}
  		
  		public void clickUsingJSE(String ele) {
@@ -348,6 +358,11 @@ public class utilityClass extends baseClass{
  			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ele)));
  		}
  		
+ 		public void waitUntilElementisInVisible(WebElement ele) {
+ 			WebDriverWait wait = new WebDriverWait(driver,5);
+ 			wait.until(ExpectedConditions.invisibilityOf(ele));
+ 		}
+ 		
  		public void waitTillElementIsVisibleCss(String ele) {
  			WebDriverWait wait = new WebDriverWait(driver,60);
  			wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(ele)));
@@ -362,6 +377,8 @@ public class utilityClass extends baseClass{
  			WebDriverWait wait = new WebDriverWait(driver,60);
  			wait.until(ExpectedConditions.elementToBeClickable(ele));
  		}
+ 		
+ 		
  		
  		public void waituntillPageIsloaded() {
  			WebDriverWait wait = new WebDriverWait(driver,5);

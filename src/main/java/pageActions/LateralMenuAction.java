@@ -2,6 +2,7 @@ package pageActions;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -359,9 +360,5 @@ public void selectRoleTypeAndStatusCompleted(String roleType) throws Interrupted
 	 utils.clickfield("xpath", impersonate.tableFirstRow);
 		utils.waituntillPageIsloaded(60);
 }
-
-
-
-
 
 }

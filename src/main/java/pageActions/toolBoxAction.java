@@ -106,103 +106,104 @@ public class toolBoxAction extends toolBoxpo {
 		WebElement PDFFile;
 
 		switch (FormName) {
+		//35910 - As per the new changes commenting the code.
 		
-		case "Agent Toolbox":
-
-			LinkedHashMap<String, String> AgentToolBoxFormName = new LinkedHashMap<String, String>();
-
-			AgentToolBoxFormName.put(TBAulCorpContactListPDF, "AUL_Contact_List.pdf");
-
-			Set<String> setOfKey = AgentToolBoxFormName.keySet();
-
-			for (String key : setOfKey) {
-
-				PDFName = driver.findElement(By.xpath(key)).getText();
-
-				PDFFile = driver.findElement(By.xpath(key));
-
-				if (PDFFile.isDisplayed()) {
-
-					DownloadPDF(key);
-					sleepWaitFunction(4000);
-
-					try {
-						isFileDownloaded(System.getProperty("user.dir") + "\\PDF", AgentToolBoxFormName.get(key));
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						System.out.println(e);
-					}
-
-				}
-				sleepWaitFunction(2000);
-			}
-
-			break;
-
-		case "Dealer Toolbox":
-
-			LinkedHashMap<String, String> DealerToolBoxFormName = new LinkedHashMap<String, String>();
-
-			DealerToolBoxFormName.put(TBAulCorpContactListPDF, "AUL_Contact_List.pdf");
-
-			Set<String> setOfKey4 = DealerToolBoxFormName.keySet();
-
-			for (String key : setOfKey4) {
-
-				PDFName = driver.findElement(By.xpath(key)).getText();
-
-				PDFFile = driver.findElement(By.xpath(key));
-
-				if (PDFFile.isDisplayed()) {
-
-					DownloadPDF(key);
-					sleepWaitFunction(4000);
-
-					try {
-						isFileDownloaded(System.getProperty("user.dir") + "\\PDF", DealerToolBoxFormName.get(key));
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						System.out.println(e);
-					}
-
-				}
-				sleepWaitFunction(2000);
-			}
-
-			break;
-			
-		case "Lender Company Toolbox":
-
-			LinkedHashMap<String, String> LenderToolBoxFormName = new LinkedHashMap<String, String>();
-
-			LenderToolBoxFormName.put(TBAulCorpContactListPDF, "AUL_Contact_List.pdf");
-
-			Set<String> setOfKey5 = LenderToolBoxFormName.keySet();
-
-			for (String key : setOfKey5) {
-
-				PDFName = driver.findElement(By.xpath(key)).getText();
-
-				PDFFile = driver.findElement(By.xpath(key));
-
-				if (PDFFile.isDisplayed()) {
-
-					DownloadPDF(key);
-					sleepWaitFunction(4000);
-
-					try {
-						isFileDownloaded(System.getProperty("user.dir") + "\\PDF", LenderToolBoxFormName.get(key));
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						System.out.println(e);
-					}
-
-				}
-				sleepWaitFunction(2000);
-			}
-
-			break;
-
+//		case "Agent Toolbox":
+//
+//			LinkedHashMap<String, String> AgentToolBoxFormName = new LinkedHashMap<String, String>();
+//
+////			AgentToolBoxFormName.put(TBAulCorpContactListPDF, "AUL_Contact_List.pdf");
+//
+//			Set<String> setOfKey = AgentToolBoxFormName.keySet();
+//
+//			for (String key : setOfKey) {
+//
+//				PDFName = driver.findElement(By.xpath(key)).getText();
+//
+//				PDFFile = driver.findElement(By.xpath(key));
+//
+//				if (PDFFile.isDisplayed()) {
+//
+//					DownloadPDF(key);
+//					sleepWaitFunction(4000);
+//
+//					try {
+//						isFileDownloaded(System.getProperty("user.dir") + "\\PDF", AgentToolBoxFormName.get(key));
+//					} catch (Exception e) {
+//						// TODO Auto-generated catch block
+//						System.out.println(e);
+//					}
+//
+//				}
+//				sleepWaitFunction(2000);
+//			}
+//
+//			break;
+//
+//		case "Dealer Toolbox":
+//
+//			LinkedHashMap<String, String> DealerToolBoxFormName = new LinkedHashMap<String, String>();
+//
+//			DealerToolBoxFormName.put(TBAulCorpContactListPDF, "AUL_Contact_List.pdf");
+//
+//			Set<String> setOfKey4 = DealerToolBoxFormName.keySet();
+//
+//			for (String key : setOfKey4) {
+//
+//				PDFName = driver.findElement(By.xpath(key)).getText();
+//
+//				PDFFile = driver.findElement(By.xpath(key));
+//
+//				if (PDFFile.isDisplayed()) {
+//
+//					DownloadPDF(key);
+//					sleepWaitFunction(4000);
+//
+//					try {
+//						isFileDownloaded(System.getProperty("user.dir") + "\\PDF", DealerToolBoxFormName.get(key));
+//					} catch (Exception e) {
+//						// TODO Auto-generated catch block
+//						System.out.println(e);
+//					}
+//
+//				}
+//				sleepWaitFunction(2000);
+//			}
+//
+//			break;
+//			
+//		case "Lender Company Toolbox":
+//
+//			LinkedHashMap<String, String> LenderToolBoxFormName = new LinkedHashMap<String, String>();
+//
+//			LenderToolBoxFormName.put(TBAulCorpContactListPDF, "AUL_Contact_List.pdf");
+//
+//			Set<String> setOfKey5 = LenderToolBoxFormName.keySet();
+//
+//			for (String key : setOfKey5) {
+//
+//				PDFName = driver.findElement(By.xpath(key)).getText();
+//
+//				PDFFile = driver.findElement(By.xpath(key));
+//
+//				if (PDFFile.isDisplayed()) {
+//
+//					DownloadPDF(key);
+//					sleepWaitFunction(4000);
+//
+//					try {
+//						isFileDownloaded(System.getProperty("user.dir") + "\\PDF", LenderToolBoxFormName.get(key));
+//					} catch (Exception e) {
+//						// TODO Auto-generated catch block
+//						System.out.println(e);
+//					}
+//
+//				}
+//				sleepWaitFunction(2000);
+//			}
+//
+//			break;
+//
 
 		case "Forms Library":
 

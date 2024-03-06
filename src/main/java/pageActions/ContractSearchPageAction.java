@@ -32,7 +32,7 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 			// Getting specific row with each iteration
 			String specificRowLoc = "table>tbody>tr:nth-of-type(" + i + ")";
 			LinkedHashMap<String, String> eachRowData = new LinkedHashMap<>();
-			for (int j = 4; j < allHeaderNames.size() - 4; j++) {
+			for (int j = 4; j < allHeaderNames.size() - 5; j++) {
 				String specificRowColLoc = "td:nth-of-type(" + j + ")>adl-table-cells>div>span:nth-of-type(2)";
 				String cellValue = "";
 				cellValue = utils.element("cssSelector", specificRowLoc + ">" + specificRowColLoc).getText();
@@ -58,7 +58,7 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 			// Getting specific row with each iteration
 			String specificRowLoc = "table>tbody>tr:nth-of-type(" + i + ")";
 			LinkedHashMap<String, String> eachRowData = new LinkedHashMap<>();
-			for (int j = 4; j < allHeaderNames.size() - 4; j++) {
+			for (int j = 4; j < allHeaderNames.size() - 5; j++) {
 				String specificRowColLoc = "td:nth-of-type(" + j + ")>adl-table-cells>div>span:nth-of-type(2)";
 				String cellValue = "";
 				cellValue = utils.element("cssSelector", specificRowLoc + ">" + specificRowColLoc).getText();
@@ -188,7 +188,7 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 
 	public WebElement getEditLink(int row) {
 		String specificRowLoc = "table>tbody>tr:nth-of-type(" + row + ")";
-		String specificRowColLoc = "td:nth-of-type(18)>adl-table-cells>div>a";
+		String specificRowColLoc = "td:nth-of-type(17)>adl-table-cells>div>a";
 		WebElement editLinkElement = utils.element("cssSelector", specificRowLoc + ">" + specificRowColLoc);
 		return editLinkElement;
 	}
@@ -198,8 +198,8 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 		HashMap<String, WebElement> map = new HashMap<String, WebElement>();
 		List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
 		List<WebElement> searchBoxesInGrid = driver.findElements(By.cssSelector(searchBoxesBelowHeadersInGrid));
-		for (int j = 0; j <= allHeaderNames.size() - 13; j++) {
-			map.put(allHeaderNames.get(j + 5), searchBoxesInGrid.get(j));
+		for (int j = 0; j < allHeaderNames.size() - 14; j++) {
+			map.put(allHeaderNames.get(j + 4), searchBoxesInGrid.get(j));
 		}
 		return map;
 	}

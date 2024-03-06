@@ -1,9 +1,12 @@
 package testsuite;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -258,7 +261,7 @@ public class EditContract_test extends EditContractAction {
 		getCoustomerInfoFields().get(6).clear();
 		getCoustomerInfoFields().get(6).sendKeys("0000000000");
 		getBtnSave().click();
-		getDriver().switchTo().defaultContent();
+		Thread.sleep(100);
 		Assert.assertTrue(getContractSubmittedSuccessTxt().isDisplayed());
 	}
 
@@ -267,7 +270,7 @@ public class EditContract_test extends EditContractAction {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 		verticalMenu.navigatetoContract();
-		String contractNum = cobuyerContract.coBuyerContract();
+		String contractNum = cobuyerContract.coBuyerContractwithMandatoryFields();
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -361,9 +364,9 @@ public class EditContract_test extends EditContractAction {
 			throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
-//		verticalMenu.navigatetoContract();
-//		String contractNum = cobuyerContract.coBuyerContract();
-		String contractNum = "RAWNA004619K23";
+		verticalMenu.navigatetoContract();
+		String contractNum = cobuyerContract.coBuyerContractwithMandatoryFields();
+//		String contractNum = "RAWNA004619K23";
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -582,6 +585,7 @@ public class EditContract_test extends EditContractAction {
 		Assert.assertEquals(getCoustomerInfoFields().get(3).getAttribute("value"), zipCode);
 		String city = "Dallas";
 		getCoustomerInfoFields().get(4).clear();
+		Thread.sleep(1000);
 		getCoustomerInfoFields().get(4).sendKeys(city);
 		Assert.assertEquals(getCoustomerInfoFields().get(4).getAttribute("value"), city);
 		String email = "abc@gmail.com";
@@ -621,7 +625,7 @@ public class EditContract_test extends EditContractAction {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 		verticalMenu.navigatetoContract();
-		String contractNum = cobuyerContract.coBuyerContract();
+		String contractNum = cobuyerContract.coBuyerContractwithMandatoryFields();
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -1894,6 +1898,7 @@ public class EditContract_test extends EditContractAction {
 	@AfterMethod(alwaysRun=true)
 	public void close() throws InterruptedException {
 		try {
+			utils.scrollUpUsingJSE();
 			login.logout();
 		} catch (Exception e) {
 			if (utils.getfield("mat-icon", "close").isDisplayed()) {

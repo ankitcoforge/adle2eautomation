@@ -91,7 +91,7 @@ public class cancellationQuotes_test extends cancellationQuotesAction {
 			// save data in map
 			dbMap = dc.returnAllData(rs);
 			navigate();
-			lo.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+			lo.login(prop.getProperty("adminusername"), prop.getProperty("password"));
 			HashMap<String, String> data = dbMap.get(1);
 			String roleId = data.get("DEALER_ID");
 			vo.navigatetoimpersonate();
@@ -99,7 +99,7 @@ public class cancellationQuotes_test extends cancellationQuotesAction {
 			vo.navigatetoLeftMenu("Cancellations", "Cancellation Quote");
 			String contractno = data.get("CERT");
 			searchdata("Contract", contractno);
-			Assert.assertEquals(recordText(), "Showing 0 to 1 of 1 records");
+			Assert.assertEquals(recordText(), "Showing 1 to 1 of 1 records");
 			tableMap = tabledata();
 			HashMap<String, String> firstRow = tableMap.get(1);
 			Assert.assertEquals(firstRow.get("VIN"), data.get("VIN"));

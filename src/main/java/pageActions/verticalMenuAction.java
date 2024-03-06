@@ -1,11 +1,13 @@
 package pageActions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import pageObjects.verticalMenupo;
 import utils.baseClass;
@@ -73,6 +75,11 @@ public class verticalMenuAction extends verticalMenupo{
 		Thread.sleep(4000);
 	}
 	
+	 public List<WebElement> getLaterMenuSubItems () {
+		  List<WebElement> subItems = driver.findElements(By.cssSelector(laterMenuSubItems));	
+		 return subItems;
+	 }
+	
 //	public void navigatetoimpersonateFromRightTop() throws InterruptedException {
 //		event.clickfield("xpath", arrowbtnAtRightTop);
 //		Thread.sleep(2000);
@@ -88,5 +95,58 @@ public class verticalMenuAction extends verticalMenupo{
 //		 return list; 
 //	 }
 	
+	 public List<WebElement> getLateralMenuItems1 () {
+		  List<WebElement> menuItems = driver.findElements(By.cssSelector(lateralMenuItems1));	
+		 return menuItems;
+	 }
+	 
+	 public List<WebElement> getLateralMenuItems2 () {
+		  List<WebElement> menuItems = driver.findElements(By.cssSelector(lateralMenuItems2));	
+		 return menuItems;
+	 }
+	 
+	 public void verifyLateralmenuMainItemsForAgentSubAgent() {
+			String toolbox = getLateralMenuItems2().get(1).getText();
+			String dashboard = getLateralMenuItems2().get(0).getText();
+			ArrayList<String> list = new ArrayList<String>();
+			for(int i=0; i<getLateralMenuItems1().size(); i++) {
+				String[] menuItem = getLateralMenuItems1().get(i).getText().split("chevron_right");
+				list.add(menuItem[0].trim());
+				list.add(toolbox);
+				list.add(dashboard);
+			}
+			
+			System.out.println(list);
+			  Assert.assertTrue(list.contains("Dashboard"));
+				Assert.assertTrue(list.contains("E-Rate"));
+				Assert.assertTrue(list.contains("Contracts"));
+				Assert.assertTrue(list.contains("Report"));
+				Assert.assertTrue(list.contains("Dealer Settings"));
+				Assert.assertTrue(list.contains("Agency Settings"));
+				Assert.assertTrue(list.contains("Toolbox"));
+				Assert.assertTrue(list.contains("Help"));
+		}
+	 
+	 public void verifyLateralmenuMainItemsForDealerDealerEmpDealerGrpEmp() {
+			String toolbox = getLateralMenuItems2().get(1).getText();
+			String dashboard = getLateralMenuItems2().get(0).getText();
+			ArrayList<String> list = new ArrayList<String>();
+			for(int i=0; i<getLateralMenuItems1().size(); i++) {
+				String[] menuItem = getLateralMenuItems1().get(i).getText().split("chevron_right");
+				list.add(menuItem[0].trim());
+				list.add(toolbox);
+				list.add(dashboard);
+			}
+			
+			System.out.println(list);
+			  Assert.assertTrue(list.contains("Dashboard"));
+				Assert.assertTrue(list.contains("E-Rate"));
+				Assert.assertTrue(list.contains("Contracts"));
+				Assert.assertTrue(list.contains("Cancellations"));
+				Assert.assertTrue(list.contains("Report"));
+				Assert.assertTrue(list.contains("My Settings"));
+				Assert.assertTrue(list.contains("Toolbox"));
+				Assert.assertTrue(list.contains("Help"));
+		}
 }
 

@@ -5,9 +5,9 @@ import utils.baseClass;
 public class ManageMyDealerGrpEmployeePO extends baseClass{
 	
 	public String checkbox = "//td/adl-table-cells/div/mat-checkbox/label/div/input";
-	public String permissions = "//td/adl-table-cells/div";
+	public String permissions = "//td[2]/adl-table-cells/div";
 	public String selectUserDropdown = "//adl-select/ng-select";
-	public String selectAllCheckBox = "//adl-table-header/tr/td/div/div/mat-checkbox";
+	public String selectAllCheckBox = "//adl-table-header/tr/td/div/div/mat-checkbox//input/..";
 	public String selectAllCheckBoxstatus = "//adl-table-header/tr/td/div/div/mat-checkbox//input";
 	public String permissionsTxtField = "//adl-table-header/tr/td/div/div/input";
 	public String permissionSortIcon = "//th[text()=' Permission ']/p-sorticon/i";
