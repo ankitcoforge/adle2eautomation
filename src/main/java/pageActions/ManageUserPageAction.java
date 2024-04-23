@@ -26,6 +26,11 @@ public class ManageUserPageAction extends ManageUserPo{
 	impersonateAction impersonate = new impersonateAction();
 //	NewUserRegistration_Action NewUserRegistrationPage= new NewUserRegistration_Action();
 	
+	public List<WebElement> getRows() {
+		List<WebElement> allRowsEle = utils.getElementsList("cssSelector", impersonate.rowLoc);
+		return allRowsEle;
+	}
+	
 	public HashMap<Integer, HashMap<String, String>> manageUsersPageGrid() {
 		List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", impersonate.headerLoc);
 		System.out.println("allHeaderNames: " + allHeaderNames);
@@ -100,7 +105,8 @@ public class ManageUserPageAction extends ManageUserPo{
 		list.get(0).click();
 		utils.waitTillElementIsVisible(impersonate.getusersButton);
 		utils.clickfield("xpath", impersonate.getusersButton);
-		utils.waituntillPageIsloaded();
+//		utils.waituntillPageIsloaded();
+		Thread.sleep(10000);
 	}
 	
 	 public void selectStatusAsCompleted() throws InterruptedException {
@@ -132,6 +138,7 @@ public class ManageUserPageAction extends ManageUserPo{
 	 public void selectRoleTypeInGenericImpersonatePopup(String role) throws InterruptedException {
 		 utils.waitTillElementIsClickableByWebEle( utils.element("xpath", impersonate.roleDropdownArrowInPopup));
 			 utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
+			 Thread.sleep(2000);
 			 List<WebElement> list = getDriver().findElements(By.xpath(impersonate.roleDropdownList));
 			 for(int i=0;i<list.size();i++) {
 				String text = list.get(i).getText();
@@ -259,4 +266,51 @@ public void getEditPermissionsInManageUsersPage(String roleType,String status) t
 //		}
 		}
 }
+
+public void getNewUserPageWithAccountNameSelection(String roleType,String newemail) throws InterruptedException {
+	utils.getfield("span", "+ New user").isEnabled();
+	utils.getfield("span", "+ New user").click();
+	utils.waitTillElementIsVisible(impersonate.roleDropdown);
+	utils.clickfield("xpath", impersonate.roleDropdown);
+	List<WebElement> list = getDriver().findElements(By.xpath(roleDropdownList));
+	for (int i = 0; i < list.size(); i++) {
+		String text = list.get(i).getText();
+
+		if (text.equals(roleType)) {
+			list.get(i).click();
+			break;
+		}
+	}
+	utils.waitTillElementIsClickable(roleDropdownForAccountName);
+	utils.clickfield("xpath", roleDropdownForAccountName);
+	List<WebElement> list2 = getDriver().findElements(By.xpath(roleDropdownListForAccountName));
+	list2.get(0).click();
+	utils.waitTillElementIsVisible(email);
+	utils.element("xpath", email).sendKeys(newemail);
+	utils.waitTillElementIsVisible(submit);
+	utils.element("xpath", submit).click();
+	utils.waituntillPageIsloaded();
+}
+
+public void getNewUserPageWithoutAccountNameSelection(String roleType,String newemail) throws InterruptedException {
+	utils.getfield("span", "+ New user").isEnabled();
+	utils.getfield("span", "+ New user").click();
+	utils.waitTillElementIsVisible(impersonate.roleDropdown);
+	utils.clickfield("xpath", impersonate.roleDropdown);
+	List<WebElement> list = getDriver().findElements(By.xpath(roleDropdownList));
+	for (int i = 0; i < list.size(); i++) {
+		String text = list.get(i).getText();
+
+		if (text.equals(roleType)) {
+			list.get(i).click();
+			break;
+		}
+	}
+	utils.waitTillElementIsVisible(email);
+	utils.element("xpath", email).sendKeys(newemail);
+	utils.waitTillElementIsVisible(submit);
+	utils.element("xpath", submit).click();
+	utils.waituntillPageIsloaded();
+}
+
 }

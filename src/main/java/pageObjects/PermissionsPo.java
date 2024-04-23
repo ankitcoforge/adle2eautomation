@@ -20,6 +20,8 @@ public class PermissionsPo extends baseClass{
 	public String editPermissionsTxt ="//h3[text()='Edit Permissions']";
 	public String saveBtn ="//span[text()='Save']/..";
 	public String cancelBtn ="//span[text()='Cancel']/..";
-	public String updateBtn ="//span[text()='Update']/..";
+	public String closeBtn ="//button[@aria-label='Close']/span/mat-icon";
+	public String updateBtn ="//span[text()=' Update ']/..";
+	public String yesBtn ="//span[text()='Yes']";
 	public String checkboxesPermissions ="//div[@class='ui-chkbox ui-widget']/div/span";
 }

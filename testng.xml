@@ -4,10 +4,10 @@
 	<parameter name="testng.metrics.report.logo" value="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Coforge-Logo.png/800px-Coforge-Logo.png" />
 	<test name="ADL Contract Test Suite" group-by-instances="true">
 		<classes>
-
-            
-		      <class name="testsuite.QuickCodeMarkupAndSCToggleAListLienholder_test"/>
-		      <class name="testsuite.ManageMyDealerGrpEmployee_test"/>
+  <class name="testsuite.GAP_test"/>
+		    <class name="testsuite.DeleteGenericUser_test"/>
+		    <class name="testsuite.EmployeePacks_test"/>
+		       <class name="testsuite.GAP_test"/>
 		   
 		</classes>
 	</test>

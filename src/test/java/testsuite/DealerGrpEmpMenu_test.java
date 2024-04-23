@@ -240,9 +240,10 @@ public class DealerGrpEmpMenu_test extends baseClass {
 
 	}
 
+	//all the below test case id's are also covered in this testcase
+	//_35168_34974_34919_34966_34971_34967_34969_34970_34968_34965_34918_34911
 	@Test(priority = 6)
-	public void verifyDetailedMenuOptionsForDealerGrpRole_34912_36037_34923_34924_34926_34925_34917_34922_35814_34815_34921_34920_34986_35791_34988_34987_34985_34972_34975_34973_35168_34974_34919_34966_34971_34967_34969_34970_34968_34965_34918_34911()
-			throws InterruptedException {
+	public void verifyDetailedMenuOptionsForDealerGrpRole_34912_36037_34923_34924_34926_34925_34917_34922_35814_34815_34921_34920_34986_35791_34988_34987_34985_34972_34975_34973() throws InterruptedException  {
 		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
 		Assert.assertTrue(utils.getfield("b", "Welcome to your AUL ADL Portal").isDisplayed());
 		Assert.assertTrue(menu.getLateralMenu().isDisplayed());
@@ -273,6 +274,7 @@ public class DealerGrpEmpMenu_test extends baseClass {
 		verticalMenu.navigatetoLeftMenu("Edit Remit AUL VSC/LW");
 		utils.waitTillElementIsClickableByWebEle(utils.getTitle("Edit Remit AUL VSC/LW"));
 		Assert.assertTrue(utils.getTitle("Edit Remit AUL VSC/LW").isDisplayed());
+		Thread.sleep(2000);
 
 		// Cancellations
 		verticalMenu.navigatetoLeftMainMenu("Cancellations");
@@ -365,15 +367,17 @@ public class DealerGrpEmpMenu_test extends baseClass {
 		
 		
 		
-		 @AfterMethod(alwaysRun=true)
-		    public void close() throws InterruptedException {
-			 try {
-					login.logout();
-					} catch (Exception e) {
-						utils.getfield("mat-icon", "close").click();
-						login.logout();
+		@AfterMethod(alwaysRun = true)
+		public void close() throws InterruptedException {
+			try {
+				login.logout();
+			} catch (Exception e) {
+				if (utils.getfield("mat-icon", "close").isDisplayed()) {
+					utils.getfield("mat-icon", "close").click();
 				}
-		    }
+				login.logout();
+			}
+		}
 
 
 }

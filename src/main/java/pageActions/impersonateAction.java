@@ -45,7 +45,39 @@ public class impersonateAction extends impersonatepo {
 		event.clickfield("xpath", getusersButton);
 		Thread.sleep(2000);
 		event.clickfield("xpath", tableFirstRow);
+		Thread.sleep(6000);
+	}
+	
+	
+	public void impersonateUserForSubagentLendrEmp(String role, String roleid) throws InterruptedException {
+//		event.clickfield("xpath", roleDropdown);
+//		Thread.sleep(10000);
+		if(role.equals("SubAgent") | role.equals("LenderEmp")){
+			event.clickfield("xpath", roleDropdown);
+			List<WebElement> listNew = getDriver().findElements(By.xpath(roleDropdownList));
+			listNew.get(9).click();
+			event.clickfield("xpath", roleDropdown);
+			List<WebElement> list = getDriver().findElements(By.xpath(roleDropdownList));
+			for (int i = 0; i < list.size(); i++) {
+				String text = list.get(i).getText();
+				System.out.println("list-- "+i);
+
+				if (text.equals(role)) {
+					list.get(i).click();
+					event.inputfield("xpath", roleId, roleid);
+					List<WebElement> list2 = getDriver().findElements(By.xpath(roleDropdownListForDealer));
+					list2.get(0).click();
+					Thread.sleep(5000);
+					break;
+				}
+			}
+			event.clickfield("xpath", getusersButton);
+			Thread.sleep(10000);
+//			event.waitUntilElementisInVisible(getMakeSearchToDisplayRecords());
+//		Thread.sleep(2000);
+		event.clickfield("xpath", tableFirstRow);
 		Thread.sleep(2000);
+		}
 	}
 	
 	public void impersonateUserByGivingPermissions(String role, String roleid) throws InterruptedException {
@@ -82,9 +114,16 @@ public class impersonateAction extends impersonatepo {
 		}
 		Thread.sleep(2000);
 		event.element("xpath", closeInPermPopup).click();
-		event.waitTillElementIsVisible(updateBtn);
+//		Thread.sleep(2000);
+		if(!event.element("xpath", updateBtnStatus).getAttribute("disabled").equals("true")) {
 		event.element("xpath", updateBtn).click();
+		Thread.sleep(2000);
+		event.element("xpath", yesBtn).click();
 		event.waituntillPageIsloaded();
+		}
+		else {
+			event.getfield("mat-icon", "close").click();	
+		}
 		Thread.sleep(2000);
 		event.clickfield("xpath", tableFirstRow);
 		Thread.sleep(2000);
@@ -126,6 +165,8 @@ public class impersonateAction extends impersonatepo {
 		event.element("xpath", closeInPermPopup).click();
 		event.waitTillElementIsVisible(updateBtn);
 		event.element("xpath", updateBtn).click();
+		Thread.sleep(1000);
+		event.element("xpath", yesBtn).click();
 		event.waituntillPageIsloaded();
 		Thread.sleep(2000);
 		event.clickfield("xpath", tableFirstRow);
@@ -204,12 +245,13 @@ public class impersonateAction extends impersonatepo {
 				event.inputfield("xpath", roleId, roleid);
 				List<WebElement> list2 = getDriver().findElements(By.xpath(roleDropdownListForDealer));
 				list2.get(0).click();
-				Thread.sleep(10000);
+				Thread.sleep(5000);
 				break;
 			}
 		}
 		event.clickfield("xpath", getusersButton);
-		event.waitUntilElementisInVisible(getMakeSearchToDisplayRecords());
+		Thread.sleep(10000);
+//		event.waitUntilElementisInVisible(getMakeSearchToDisplayRecords());
 	}
 	else {
 		event.clickfield("xpath", roleDropdown);
@@ -228,9 +270,57 @@ public class impersonateAction extends impersonatepo {
 			}
 		}
 		event.clickfield("xpath", getusersButton);
-		event.waitUntilElementisInVisible(getMakeSearchToDisplayRecords());
+		Thread.sleep(10000);
+//		event.waitUntilElementisInVisible(getMakeSearchToDisplayRecords());
 	}
 }
+	
+	public void getUsersForAgentPackDealerPasstroughLenderPassthrough(String role, String roleid) throws InterruptedException {
+		if(role.equals("SubAgent") | role.equals("LenderEmp")){
+		event.clickfield("xpath", roleDropdown);
+		List<WebElement> listNew = getDriver().findElements(By.xpath(roleDropdownList));
+		listNew.get(9).click();
+		event.clickfield("xpath", roleDropdown);
+		List<WebElement> list = getDriver().findElements(By.xpath(roleDropdownList));
+		for (int i = 0; i < list.size(); i++) {
+			String text = list.get(i).getText();
+			System.out.println("list-- "+i);
+
+			if (text.equals(role)) {
+				list.get(i).click();
+				event.inputfield("xpath", roleId, roleid);
+//				List<WebElement> list2 = getDriver().findElements(By.xpath(roleDropdownListForDealer));
+//				list2.get(0).click();
+				Thread.sleep(10000);
+				break;
+			}
+		}
+		event.clickfield("xpath", getusersButton);
+		Thread.sleep(10000);
+//		event.waitUntilElementisInVisible(getMakeSearchToDisplayRecords());
+	}
+	else {
+		event.clickfield("xpath", roleDropdown);
+		List<WebElement> list = getDriver().findElements(By.xpath(roleDropdownList));
+		for (int i = 0; i < list.size(); i++) {
+			String text = list.get(i).getText();
+			System.out.println("list-- "+i);
+
+			if (text.equals(role)) {
+				list.get(i).click();
+				event.inputfield("xpath", roleId, roleid);
+//				List<WebElement> list2 = getDriver().findElements(By.xpath(roleDropdownListForDealer));
+//				list2.get(0).click();
+				Thread.sleep(10000);
+				break;
+			}
+		}
+		event.clickfield("xpath", getusersButton);
+		Thread.sleep(10000);
+//		event.waitUntilElementisInVisible(getMakeSearchToDisplayRecords());
+	}
+}
+
 
 	public WebElement getMakeSearchToDisplayRecords() {
 		WebElement ele = event.getfield("td", "Please make a search to display records");
@@ -270,6 +360,18 @@ public class impersonateAction extends impersonatepo {
 		event.clickfield("xpath", getArrowBtn);
 		Thread.sleep(10000);
 	}
+	
+	public List<String> getAllHeaders() {
+		List<String> allHeaderNames = event.getTextValuesForObject("cssSelector", headerLoc);
+		return allHeaderNames;
+	}
+	
+	public String getHeaderShowPackPasstrough() {
+		String showPackPasstrough=event.text("cssSelector", show)+event.text("cssSelector", pack)+event.text("cssSelector", passthrough);
+		System.out.println("header is: "+showPackPasstrough);
+		return showPackPasstrough;
+	}
+	
 
 	public HashMap<Integer, HashMap<String, WebElement>> checkGridForEditDelLock() {
 		List<String> allHeaderNames = event.getTextValuesForObject("cssSelector", headerLoc);
@@ -312,7 +414,7 @@ public class impersonateAction extends impersonatepo {
 			// Getting specific row with each iteration
 			String specificRowLoc = "table>tbody>tr:nth-of-type(" + i + ")";
 			LinkedHashMap<String, String> eachRowData = new LinkedHashMap<>();
-			for (int j = 1; j < 8; j++) {
+			for (int j = 1; j < 6; j++) {
 
 				String specificRowColLoc = "td:nth-of-type(" + j + ")>adl-table-cells>div>span:nth-of-type(2)";
 
@@ -531,12 +633,12 @@ public class impersonateAction extends impersonatepo {
 	}
 
 	public void getEndImpersonate() throws InterruptedException {
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		driver.switchTo().defaultContent();
 		driver.findElement(By.cssSelector(logoutArrow)).isDisplayed();
 		driver.findElement(By.cssSelector(logoutArrow)).click();
 		event.clickfield("xpath", endImpersonate);
-		Thread.sleep(1000);
+		event.wait(20000);
 	}
 
 	public List<WebElement> getDropDownlistForRoleType() throws InterruptedException {
@@ -593,6 +695,29 @@ public class impersonateAction extends impersonatepo {
 		selectRoleTypeInGenericImpersonatePopup(roleType2);
 		event.element("xpath", impersonateInGenericImpPopup).click();
 		Thread.sleep(10000);
+	}
+	
+	 public WebElement getGridArrowBtn(String name) {
+		 List<String> allHeaderNames = event.getTextValuesForObject("cssSelector", headerLoc);
+		  List<WebElement> gridArrowBtns = driver.findElements(By.cssSelector(gridArrowBttn));
+		  WebElement arrowbtn=null;
+		  for (int i = 0; i <= allHeaderNames.size()-1; i++) {
+			  if(allHeaderNames.get(i).contains(name))
+			  {
+					arrowbtn=gridArrowBtns.get(i);
+				}
+		}
+		  return arrowbtn;
+		 }
+	 
+	 public List<WebElement> getPackPassthroughBtn() {
+			 List<WebElement> btnsList = driver.findElements(By.cssSelector(packPassthroughBtn));
+			return btnsList;
+		}
+	 
+	 public List<WebElement> getImpersonateList() {
+		 List<WebElement> list = driver.findElements(By.xpath(impersonateList));
+		return list;
 	}
 
 }

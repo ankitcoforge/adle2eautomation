@@ -325,7 +325,7 @@ public class EmployeePacksAction extends EmployeePackspo{
 		utils.scrollDown();
 		getPackAmount().sendKeys(packAmount);
 		getBtnSave().click();
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 	 }
 	 
 	 public void createNewPackFutureDate(String program,String packAmount,int days) throws Exception {
@@ -438,15 +438,16 @@ public class EmployeePacksAction extends EmployeePackspo{
 		wait.until(ExpectedConditions
 				.visibilityOfAllElements(utils.getElementsList("xpath", NewUserRegistrationPage.permissionsArrow)));
 		utils.element("xpath", NewUserRegistrationPage.permissionsArrow).click();
-		utils.waituntillPageIsloaded();
+		Thread.sleep(1000);
 		if(utils.element("xpath", ManageUserPage.selectAllLink).getAttribute("aria-checked").equals("false")) {
 		utils.element("xpath", ManageUserPage.selectAllLink).click();
 		}
+		Thread.sleep(1000);
 		utils.element("xpath", ManageUserPage.closeInPermPopup).click();
 		utils.waitTillElementIsVisible( ManageUserPage.saveBtn);
 		utils.element("xpath", ManageUserPage.saveBtn).click();
-		utils.waituntillPageIsloaded();
-//		}
+//		Thread.sleep(2000);
+		utils.waitTillElementIsVisible(io.tableFirstRow);
 		}
 }
      

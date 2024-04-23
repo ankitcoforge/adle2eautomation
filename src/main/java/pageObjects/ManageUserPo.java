@@ -15,5 +15,11 @@ public class ManageUserPo extends baseClass{
 	public String saveBtn = "//span[text()='Save']";
 	public String closeInPermPopup = "//a[@tabindex='0']/span";
 	public String permissionsArrow = "//label[text()='Permissions']/../p-multiselect/div/div[3]/span";
+	//new user popup
+	public String roleDropdownList = "//div[@class='scrollable-content']/div";
+	public String roleDropdownListForAccountName = "//span[@class='mat-option-text']";
+	public String roleDropdownForAccountName = "//input[@placeholder='Account Name']/..";
+	public String email = "//adl-text-input[@label='Email']/div/div/input";
+	public String submit = "//button[@form='ngFormNewUserRegistration']";
 
 }

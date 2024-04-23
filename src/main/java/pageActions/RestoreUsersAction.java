@@ -81,7 +81,8 @@ public class RestoreUsersAction extends RestoreUsersPo{
 		list.get(0).click();
 		utils.waitTillElementIsVisible(impersonate.getusersButton);
 		utils.clickfield("xpath", impersonate.getusersButton);
-		utils.waitUntilElementisInVisible(getMakeSearchToDisplayRecords());
+		Thread.sleep(5000);
+//		utils.waitUntilElementisInVisible(getMakeSearchToDisplayRecords());
 	}
 	
 	public HashMap<String, WebElement> getSearchBoxes() {
@@ -124,7 +125,7 @@ public class RestoreUsersAction extends RestoreUsersPo{
 			}
 	 
 	public WebElement getArrow(String Heading) {
-	String txt = "//th[contains(text(),'"+Heading+"')]/p-sorticon/i";
+	String txt = "//span[contains(text(),'"+Heading+"')]/../p-sorticon/i";
 	WebElement ele = driver.findElement(By.xpath(txt));
 	return ele;
 	}

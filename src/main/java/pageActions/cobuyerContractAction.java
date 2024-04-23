@@ -75,9 +75,9 @@ public class cobuyerContractAction extends contractpo{
 		try {
 		event.inputfield("cssSelector", textbox, "Test", 1);
 		event.inputfield("cssSelector", textbox, "1234", 5);
-		event.inputfield("cssSelector", textbox, "1HGCY2F78PA002834", 6);
+		event.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 6);
 		event.clickfield("cssSelector", ".actions__submit >button");
-		co.programSelect("Limited Warranty");
+		co.programSelect("Limited Warranty - RAW");
 		event.clickfield("cssSelector", table, 0);
 		selectOptionSurcharge();
 		event.inputfield("cssSelector", contract, "10000", 0);

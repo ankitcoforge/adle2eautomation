@@ -389,5 +389,14 @@ public class utilityClass extends baseClass{
  			WebDriverWait wait = new WebDriverWait(driver,time);
  			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//ngx-spinner/div")));
  		}
+ 		
+ 		public void wait1() throws InterruptedException {
+ 			Thread.sleep(5000);
+ 		}
+ 		
+ 		public void wait(int time) throws InterruptedException {
+ 			Thread.sleep(time);
+ 		}
+ 		
 }
 

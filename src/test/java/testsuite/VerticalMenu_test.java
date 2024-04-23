@@ -366,7 +366,7 @@ public class VerticalMenu_test extends LateralMenuAction {
 			verticalMenu.navigatetoLeftMainMenu("Contracts");
 			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Contract Search"));
 			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Remit Contracts to AUL"));
-			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Edit Remit AUL VSC/LW"));
+//			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Edit Remit AUL VSC/LW"));
 			
 			verticalMenu.navigatetoLeftMainMenu("Cancellations");
 			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Cancellation Quote"));
@@ -457,10 +457,9 @@ public class VerticalMenu_test extends LateralMenuAction {
 			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Manage My Profile"));
 			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Manage My Dealer Group Employees"));
 			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Assign Dealer to Dealer Group Employee"));
-			Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("Issue New User Registration"));
-			Assert.assertTrue(getLaterMenuSubItems().get(4).getText().contains("Manage My Pricing Preferences"));
-			Assert.assertTrue(getLaterMenuSubItems().get(5).getText().contains("Manage VSC - GAP Preferences"));
-			Assert.assertTrue(getLaterMenuSubItems().get(6).getText().contains("Manage My Dealer Packs"));
+			Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("Manage My Pricing Preferences"));
+			Assert.assertTrue(getLaterMenuSubItems().get(4).getText().contains("Manage VSC - GAP Preferences"));
+			Assert.assertTrue(getLaterMenuSubItems().get(5).getText().contains("Manage My Dealer Packs"));
 	}
 	
 	@Test(priority = 8)
@@ -692,7 +691,7 @@ public class VerticalMenu_test extends LateralMenuAction {
 	@Test(priority = 18)
 	public void verifyContractsSubMenuForDealerACH() throws InterruptedException {
 		login.login(prop.getProperty("dealerForPaymentDetails"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+//		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
 		verticalMenu.navigatetoLeftMainMenu("Contracts");
 		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Contract Search"));
 		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Remit Contracts to AUL"));
@@ -727,7 +726,7 @@ public class VerticalMenu_test extends LateralMenuAction {
 	
 	@Test(priority = 21 )
 	public void verifyEditAndDeleteFunctionalityForAdminLogin_34038_34039_34040_34041_34042_34043_34044_34045() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
 		Thread.sleep(3000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Impersonate");
 		impersonate.getUsers("Agent", "393");

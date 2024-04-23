@@ -26,6 +26,10 @@ public class impersonatepo extends baseClass{
     public String endImpersonate = "//button[text()='End Impersonating']";
     
     public String headerLoc = "thead > adl-table-header > tr:nth-child(1) > th[role='columnheader']";
+    public String gridArrowBttn = "adl-table-header>tr>th>p-sorticon>i";
+    public String show="thead > adl-table-header > tr:nth-child(1) > th[role='columnheader']>p:nth-of-type(1)";
+    public String pack="thead > adl-table-header > tr:nth-child(1) > th[role='columnheader']>p:nth-of-type(2)";
+    public String passthrough="thead > adl-table-header > tr:nth-child(1) > th[role='columnheader']>p:nth-of-type()";
 	public String searchBoxesBelowHeadersInGrid = "thead > adl-table-header > tr:nth-child(2) > td>div>div>input";
 	public String rowLoc = "table>tbody>tr";
 	public String btnYes = "(//button[@color='primary']/span)[2]";
@@ -46,9 +50,12 @@ public class impersonatepo extends baseClass{
 	public String dealerOptionsWhileCreatigQuote = "span.mat-option-text>span";
 	public String impersonatingDataList="//span[text()='AULadmin']/../div/span";
 	public String aulAdmin = "//span[text()='AULadmin']";
+	public String packPassthroughBtn = "adl-toggle>div>div";
+	public String registrationStatusArrowForSort = "//span[text()='Registration Status']/../p-sorticon/i";
+	public String impersonateInGenericRoleBtn = "//span[text()='Impersonate as Generic Role']/..";
 	
 	//imp as generic role
-	public String impersonateInGenericImpPopup = "//span[text()='Impersonate']/..";
+	public String impersonateInGenericImpPopup = "(//span[text()='Impersonate']/..)[2]";
 	public String impersonateInGenericImpPopupInImpPage = "//div[@class='buttons-container']/button/span[text()='Impersonate']";
 	public String getUsersAndImpersonateBtn = "form>button";
 	public String roleDropdownArrowInPopup="//div[text()='Select Role']/../../span[@class='ng-arrow-wrapper']";
@@ -56,7 +63,9 @@ public class impersonatepo extends baseClass{
 //permission
 	public String permissionsArrow = "//label[text()='Permissions']/../p-multiselect/div/div[3]/span";
 	public String selectAllLink = "//div[@role='checkbox']";
-	public String updateBtn = "//span[text()='Update']";
+	public String updateBtn = "//span[text()=' Update ']";
+	public String updateBtnStatus = "//span[text()=' Update ']/..";
+	public String yesBtn = "//span[text()='Yes']";
 	public String closeInPermPopup = "//a[@tabindex='0']/span";
 	
 	public String registrationStatusArrow = "(//span[contains(@class,'pi pi-chevron-down')])[2]";

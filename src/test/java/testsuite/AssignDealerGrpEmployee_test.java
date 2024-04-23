@@ -18,6 +18,7 @@ import pageActions.verticalMenuAction;
 import utils.utilityClass;
 
 /* 34764 */
+
 public class AssignDealerGrpEmployee_test extends AssignDealerGrpEmployeeAction {
 
 	loginAction login = new loginAction();
@@ -67,7 +68,7 @@ public class AssignDealerGrpEmployee_test extends AssignDealerGrpEmployeeAction 
 		Assert.assertTrue(getRows().size() > 1);
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 3)
 	public void verifyNoDealerIsDeletedAftrClickingNoBtn_34864() throws Exception {
 		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
 		verticalMenu.navigatetoLeftMenu("My Settings", "Assign Dealer to Dealer Group Employee");
@@ -91,7 +92,7 @@ public class AssignDealerGrpEmployee_test extends AssignDealerGrpEmployeeAction 
 		Assert.assertTrue(rowsBefore == rowsAfter);
 	}
 
-	@Test(priority = 3, dependsOnMethods = "verifyDealerIsAssignedToDealerGrpEmp_34859")
+	@Test(priority = 4, dependsOnMethods = "verifyDealerIsAssignedToDealerGrpEmp_34859")
 	public void verifyDealerIsDeletedAftrClickingYesBtn_34863() throws Exception {
 		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
 		verticalMenu.navigatetoLeftMenu("My Settings", "Assign Dealer to Dealer Group Employee");
@@ -119,7 +120,7 @@ public class AssignDealerGrpEmployee_test extends AssignDealerGrpEmployeeAction 
 		Assert.assertTrue(utils.getfield("td", "There are no records to display").isDisplayed());
 	}
 
-	@Test(priority = 4)
+	@Test(priority = 2)
 	public void verifyUserCanAddTwoOrMoreDealers_34860() throws Exception {
 		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
 		verticalMenu.navigatetoLeftMenu("My Settings", "Assign Dealer to Dealer Group Employee");

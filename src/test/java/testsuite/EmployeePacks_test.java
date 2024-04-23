@@ -494,10 +494,8 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getPortalTitle().getText(), UtilsDataReader.getXMLData("ADLpageTitle"));
 		Thread.sleep(5000);
-		
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
 		selectDealerInManageUserPage();
-		//ManageUserPage.selectDealerInmanageUserPage("22723");
 		selectRoleTypeAndStatusCompleted("DealerEmp");
 		 getEditPermissionsInManageUsersPage("DealerEmp","Completed");
 		utils.clickfield("xpath", impersonate.tableFirstRow);

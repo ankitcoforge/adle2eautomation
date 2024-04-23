@@ -293,7 +293,7 @@ public class GAP_test extends GAPAction{
 		getTxtField("MSRP").sendKeys(inputMSRP);
 		Thread.sleep(2000);
 		event.element("xpath", gapRateBtn).click();
-		Thread.sleep(30000);
+		event.wait(10000);
 		selectProgramPlanAndTermMonths();
 		Assert.assertTrue(event.getfield("label", "Program").isDisplayed());
 		Assert.assertTrue(event.getfield("label", "Plan").isDisplayed());
@@ -862,22 +862,17 @@ public class GAP_test extends GAPAction{
 //		Assert.assertTrue(soldDateTxtFldValue.equals(dateSelected));
 //	}
 	
-	@AfterMethod(alwaysRun=true)
+	@AfterMethod(alwaysRun = true)
 	public void close() throws InterruptedException {
-		 try {
-				login.logout();
-				} catch (Exception e) {
-					if(event.getfield("mat-icon", "close").isDisplayed())
-					{
-					event.getfield("mat-icon", "close").click();
-					login.logout();
-					}
-					else {
-                    System.out.println("Exception occured");
-					}
+		try {
+			login.logout();
+		} catch (Exception e) {
+			if (event.getfield("mat-icon", "close").isDisplayed()) {
+				event.getfield("mat-icon", "close").click();
 			}
-	    }
-	
+			login.logout();
+		}
+	}	
 	
 }
 
