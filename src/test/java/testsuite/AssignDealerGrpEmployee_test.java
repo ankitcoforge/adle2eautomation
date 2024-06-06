@@ -25,13 +25,13 @@ public class AssignDealerGrpEmployee_test extends AssignDealerGrpEmployeeAction 
 	verticalMenuAction verticalMenu = new verticalMenuAction();
 	utilityClass utils = new utilityClass();
 	impersonateAction impersonate = new impersonateAction();
-	ManageUsersPage_test manageuser = new ManageUsersPage_test();
+//	ManageUsersPage_test manageuser = new ManageUsersPage_test();
 	PermissionsAction permissions = new PermissionsAction();
 
 	@BeforeMethod(alwaysRun = true)
 	public void login() throws InterruptedException {
 		navigate();
-		Assert.assertEquals(login.getTitle(), "AUL Corp.");
+		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 
 	@Test(priority = 1)

@@ -157,9 +157,12 @@ public class LateralMenuAction extends LateralMenupo{
 			Thread.sleep(1000);
 			utils.clickfield("xpath", permissions.permissionsDropdownInPopup);
 			//permissions.getPermissionListInPopup().get(12).click();
+			Thread.sleep(1000);
 			if (permissions.getSelectAllCheckBoxInPopup().getAttribute("aria-checked").equals("false")) {
 				permissions.getSelectAllCheckBoxInPopup().click();
 			}
+			Thread.sleep(1000);
+			utils.clickfield("xpath", permissions.closeBtnMultiselectableOptions);
 			utils.clickfield("xpath", permissions.saveBtn);
 			Thread.sleep(5000);
 			login.logout();
@@ -176,10 +179,12 @@ public void getDefaultpermissionForsubAgent() throws InterruptedException {
 	utils.clickfield("xpath", permissions.editBtn);
 	Thread.sleep(1000);
 	utils.clickfield("xpath", permissions.permissionsDropdownInAgentPopup);
+	Thread.sleep(1000);
 	if (permissions.getSelectAllCheckBoxInPopup().getAttribute("aria-checked").equals("false")) {
 		permissions.getSelectAllCheckBoxInPopup().click();
 	}
 	Assert.assertTrue((permissions.getSelectAllCheckBoxInPopup().getAttribute("aria-checked").equals("true")));
+	Thread.sleep(1000);
 	utils.clickfield("xpath", permissions.saveBtn);
 	Thread.sleep(5000);
 	login.logout();
@@ -222,10 +227,12 @@ public void getDefaultpermissionForDealerGrpEmp() throws InterruptedException {
 	utils.clickfield("xpath", permissions.editBtn);
 	Thread.sleep(2000);
 	utils.clickfield("xpath", permissions.permissionsDropdownInAgentPopup);
-	permissions.getPermissionListInPopup().get(12).click();
+	Thread.sleep(1000);
+//	permissions.getPermissionListInPopup().get(12).click();
 	if (permissions.getSelectAllCheckBoxInPopup().getAttribute("aria-checked").equals("false")) {
 		permissions.getSelectAllCheckBoxInPopup().click();
 	}
+	utils.clickfield("xpath", permissions.closeBtnMultiselectableOptions);
 	utils.clickfield("xpath", permissions.saveBtn);
 	Thread.sleep(5000);
 	login.logout();
@@ -247,12 +254,12 @@ ManageUserPage.selectStatusAsCompleted();
 //Assert.assertTrue(editDel.get(1).get("Edit").isEnabled());
 //Assert.assertTrue(editDel.get(1).get("Delete").isEnabled());
 HashMap<Integer, HashMap<String, WebElement>> editDel = impersonate.checkGridForEditDelLock();
-editDel.get(1).get("Edit").click();
+editDel.get(2).get("Edit").click();
 Thread.sleep(3000);
 Assert.assertTrue(getEditUserPopup().isDisplayed());
 Thread.sleep(3000);
 impersonate.getIconClose().click();
-editDel.get(1).get("Delete").click();
+editDel.get(2).get("Delete").click();
 Thread.sleep(2000);
 //Assert.assertTrue(getdelConfirmationMsg().isDisplayed());
 impersonate.getIconClose().click();

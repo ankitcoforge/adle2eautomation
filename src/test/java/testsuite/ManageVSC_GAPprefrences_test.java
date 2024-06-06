@@ -57,13 +57,13 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	@BeforeMethod(alwaysRun = true)
 	public void login() throws InterruptedException {
 		navigate();
-		Assert.assertEquals(login.getTitle(), "AUL Corp.");
+		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 
 	@Test(priority = 1)
 	public void verifyManageVscGAPage_31322() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
 		Thread.sleep(2000);
@@ -73,7 +73,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	@Test(priority = 2)
 	public void verifySearchFunctionality_31323_31324_31325_31326_31327_31329() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
 		Thread.sleep(2000);
@@ -169,7 +169,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	@Test(priority = 3)
 	public void verifyDeleteFuctionality_31332_31334() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
 		Thread.sleep(2000);
@@ -191,7 +191,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	@Test(priority = 4)
 	public void verifyGAPFuctionality_31333() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
 		Thread.sleep(2000);
@@ -205,15 +205,15 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	@Test(priority = 5)
 	public void verifyPagination_31335() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage VSC - GAP Preferences").isDisplayed());
 		Thread.sleep(2000);
-		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("window.scrollTo(0, 2500)");
-		Thread.sleep(2000);
+//		JavascriptExecutor js=(JavascriptExecutor)driver;
+//		js.executeScript("window.scrollTo(0, 2500)");
+//		Thread.sleep(2000);
 		wme.getRowsPerPageDropdownbtn().click();
 		wme.getRowsPerPageDropdownlist().get(0).click();
 		Assert.assertTrue(wme.getRowsPerPageSelected().getText().equals("25"), "25 is displayed in dropdown");
@@ -231,7 +231,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	@Test(priority = 5)
 	public void verifyEditPage_31338_31420_31421_31422() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
 		Thread.sleep(2000);
@@ -275,7 +275,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	@Test(priority = 6)
 	public void verifyNewPreferencePage_31339_31431_31432_31433() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
 		Thread.sleep(2000);
@@ -319,7 +319,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	@Test(priority = 7)
 	public void verifySettingsFunctionalityInEditFunction_31412() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
 		Thread.sleep(2000);
@@ -357,7 +357,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	@Test(priority = 8)
 	public void verifyClassesInEditFunction_31413() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
 		Thread.sleep(2000);
@@ -412,7 +412,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	@Test(priority = 9)
 	public void verifyCoverageInEditFunction_31414() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
 		Thread.sleep(2000);
@@ -451,7 +451,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	@Test(priority = 10)
 	public void verifyDeductableInEditFunction_31415_31416() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage VSC - GAP Preferences").isDisplayed());
@@ -496,7 +496,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	@Test(priority = 11)
 	public void verifyMileageBandInEditFunction_31417() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage VSC - GAP Preferences").isDisplayed());
@@ -542,7 +542,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	@Test(priority = 12)
 	public void verifyTermMileageAndMonthsInEditFunction_31418() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage VSC - GAP Preferences").isDisplayed());
@@ -604,7 +604,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	@Test(priority = 13)
 	public void verifySurchargesAndOptionsAndClassesInNewPreference_31423_31424() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
 		Thread.sleep(2000);
@@ -654,7 +654,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	@Test(priority = 14)
 	public void verifyCoverageAndDeductiblesInNewPreference_31425_31426_31427() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
 		Thread.sleep(2000);
@@ -703,7 +703,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	@Test(priority = 15)
 	public void verifyMileageBandAndTermMileageAndMonthsInNewPreference_31428_31429() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage VSC - GAP Preferences").isDisplayed());
@@ -761,7 +761,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	@Test(priority = 16)
 	public void verifySurchargesAndOptionsInEditFunction_31612_31613_31614() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
 		Thread.sleep(2000);
@@ -811,7 +811,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	@Test(priority = 17)
 	public void verifyDisappearingDeductibleOption_32476() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
 		Thread.sleep(2000);
@@ -830,7 +830,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 		wme.getProducts("5FNRL6H27NB019645", "100");
 		getPrograms(program);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("window.scrollTo(0, 2500)");
+		js.executeScript("window.scrollTo(0, 1200)");
 		getDeductibleArrow().isDisplayed();
 		getDeductibleArrow().click();
 		Assert.assertTrue(getDropDown().size()==4,"Deductible dropdown does contain disappearing in list");
@@ -854,7 +854,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 			verticalMenu.navigatetoContract();
 			wme.getProducts("5FNRL6H27NB019645", "100");
 			getPrograms(program);
-			js.executeScript("window.scrollTo(0, 2500)");
+			js.executeScript("window.scrollTo(0, 1200)");
 			getDeductibleArrow().click();
 			Assert.assertTrue(getDropDown().size()==3,"Deductible dropdown does not contain disappearing in list");
 			
@@ -864,7 +864,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	@Test(priority = 18)
 	public void verifyDateFunctionality_31330() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
 		Thread.sleep(2000);
@@ -890,7 +890,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 //	@Test(priority = 19)
 //	public void verifySortingAndUnsortingDate_31336_31337() throws Exception {
 //		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-//		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+//		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 //		Thread.sleep(2000);
 //		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
 //		Thread.sleep(2000);
@@ -938,7 +938,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	@Test(priority = 20)
 	public void verifyDateFunctionalyInEditPage_31419() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
 		Thread.sleep(2000);
@@ -978,7 +978,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	@Test(priority = 21)
 	public void verifyDateFunctionalyInNewPreferencePage_31430() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
 		Thread.sleep(2000);

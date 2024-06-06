@@ -2,6 +2,7 @@ package pageActions;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
@@ -121,5 +122,40 @@ public class loginAction extends loginpo {
 		event.clickfield("xpath", io.logout);
 		Thread.sleep(2000);
 	}
+	
+	 public WebElement getProtectiveLogo() {
+		 WebElement logo=driver.findElement(By.xpath(protectiveLogo));	
+		 return logo;
+	 }
+	 
+	 public WebElement getProtectiveLoginPageTxt() {
+		 WebElement ele=driver.findElement(By.xpath(protectiveLoginPageTxt1));	
+		 return ele;
+	 }
+	 public WebElement getProtectiveLoginPageTxt2() {
+		 WebElement ele=driver.findElement(By.xpath(protectiveLoginPageTxt2));	
+		 return ele;
+	 }
+	 
+	 public WebElement getAgreeProtectivePrivacyPolicyTxt() {
+		 WebElement ele=driver.findElement(By.xpath(agreeProtectivePrivacyPolicyTxt));	
+		 return ele;
+	 }
+	 
+	 public WebElement getPrivacyPolicyLink() {
+		 WebElement ele=driver.findElement(By.xpath(privacyPolicyLink));	
+		 return ele;
+	 }
+	 
+	 public WebElement getProtectiveLogoInPrivacyPolicyPage() {
+		 WebElement ele=driver.findElement(By.xpath(protectiveLogoInPrivacyPolicyPage));	
+		 return ele;
+	 }
+	 
+	 public WebElement getProtectiveLogoInForgotPasswordPage() {
+		 WebElement ele=driver.findElement(By.xpath(protectiveLogoInForgotPasswordPage));	
+		 return ele;
+	 }
+	 
 
 }

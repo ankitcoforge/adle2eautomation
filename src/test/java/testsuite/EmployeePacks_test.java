@@ -41,7 +41,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 	@BeforeMethod(alwaysRun = true)
 	public void login() throws InterruptedException {
 		navigate();
-		Assert.assertEquals(login.getTitle(), "AUL Corp.");
+		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 
 	@Test(priority = 1)

@@ -3,7 +3,7 @@ package pageObjects;
 import utils.baseClass;
 
 public class UpsellPo extends baseClass{
-	public String portalTitle = "//b[text()='Welcome to your AUL ADL Portal!']";
+	public String portalTitle = "//b[text()='Welcome to your Protective ADL Portal!']";
 	public String textbox = "adl-text-input > div > div.text-field__input.secure > input";
 	public String getProducts = "//span[contains(text(),'Get Products')]";
 	public String programArrow = "(//span[@class='ng-arrow-wrapper'])[1]";

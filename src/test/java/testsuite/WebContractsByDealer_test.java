@@ -43,7 +43,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 	@BeforeMethod(alwaysRun=true)
 	public void login() throws InterruptedException {
 		navigate();
-		Assert.assertEquals(login.getTitle(), "AUL Corp.");
+		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 	
 	@Test(priority = 1)
@@ -98,13 +98,14 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 		getElementInFirstGrid("Dealer ID").sendKeys(prop.getProperty("roleid"));
 		getArrowForwardBtn().click();
-		Thread.sleep(10000);
+		Thread.sleep(20000);
 		Assert.assertTrue(getContractsGrid().isDisplayed());
+		Thread.sleep(2000);
 		utils.scrollDownUsingJSE();
 		Assert.assertTrue(getRowsPerPage().isDisplayed());
-		utils.scrollDownUsingJSE();
+//		utils.scrollDownUsingJSE();
 		getRowsPerPageDropdownbtn().click();
-		Thread.sleep(10000);
+		Thread.sleep(1000);
 			String perPage25 = getRowsPerPageDropdownlist().get(0).getText();
 			String perPage50 = getRowsPerPageDropdownlist().get(1).getText();
 			String perPage100 = getRowsPerPageDropdownlist().get(2).getText();
@@ -356,10 +357,10 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 	    System.out.println("VIN is-"+VINWith6Characters);
 	    getElementInFirstGrid("Last 6 of VIN").sendKeys(VINWith6Characters);
 	    getArrowForwardBtn().click();
-	    Thread.sleep(3000);
+	    Thread.sleep(10000);
 	    getElementInFirstGrid("Last 6 of VIN").sendKeys(Keys.BACK_SPACE);
-	    Thread.sleep(2000);
 	    getArrowForwardBtn().click();
+	    Thread.sleep(30000);
 	    String expectedRedColorInHexa = prop.getProperty("redColorInHexaForm");
 	    Assert.assertTrue(getInvalidVINtxt().isDisplayed());
 	    String borderColorOfElement = getInvalidVINtxt().getCssValue("color");

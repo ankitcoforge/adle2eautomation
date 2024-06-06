@@ -33,6 +33,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -103,7 +104,7 @@ public class baseClass extends pdfUtils{
 		if (prop == null) {
 			prop = new Properties();
 			try {
-				FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "//config_qa2.properties");
+				FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "//config_qainternal.properties");
 				prop.load(fs);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -200,6 +201,7 @@ public class baseClass extends pdfUtils{
 	public static void navigate() {
 
 		driver.get(prop.getProperty("urlKey"));
+		
 	}
 
 	/*********** Verify header of the webpage ***********/

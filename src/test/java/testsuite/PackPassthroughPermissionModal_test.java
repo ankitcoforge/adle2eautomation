@@ -21,14 +21,13 @@ public class PackPassthroughPermissionModal_test extends PacksPassthroughAction{
 	verticalMenuAction verticalMenu = new verticalMenuAction();
 	utilityClass utils = new utilityClass();
 	impersonateAction impersonate = new impersonateAction ();
-	ManageUsersPage_test manageuser = new ManageUsersPage_test();
 	XmlDataReader UtilsDataReader = new XmlDataReader("UtilsData");
 	Permissions_test permissions=new Permissions_test();
 
 	@BeforeMethod(alwaysRun = true)
 	public void login() throws InterruptedException {
 		navigate();
-		Assert.assertEquals(login.getTitle(), "AUL Corp.");
+		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 
 	
@@ -69,8 +68,7 @@ public class PackPassthroughPermissionModal_test extends PacksPassthroughAction{
 		}
 	}
 	
-	
-	//doubt
+
 	@Test(priority = 2)
 	public void verifyShowPackPassThroughONandOFFfuctionalityForLender_36876_36842_36836_36854_36839() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
@@ -82,12 +80,12 @@ public class PackPassthroughPermissionModal_test extends PacksPassthroughAction{
 		if(!impersonate.getPackPassthroughBtn().get(i).getAttribute("Class").equals("button button__checked")) {
 		impersonate.getPackPassthroughBtn().get(i).click();
 		utils.waitTillElementIsClickableByWebEle(getArrowInshowpackModel());
-		Assert.assertTrue(utils.getfield("h3", "Dealer Passthrough Permissions").isDisplayed());
+		Assert.assertTrue(utils.getfield("h3", "Lender Passthrough Permissions").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "User").isDisplayed());
-		Assert.assertTrue(utils.getfield("label", "My Dealer Passthrough").isDisplayed());
+		Assert.assertTrue(utils.getfield("label", "My Lender Passthrough").isDisplayed());
 		Assert.assertTrue(permissions.getSaveBtn().getAttribute("disabled").equals("true"));
 		getArrowInshowpackModel().click();
-		permissions.getSelectCheckBoxInPopup().get(1).click();
+		permissions.getSelectCheckBoxInPopup().get(0).click();
 		permissions.getSaveBtn().click();
 		utils.wait1();
 		impersonate.getPackPassthroughBtn().get(i).click();
@@ -119,6 +117,7 @@ public class PackPassthroughPermissionModal_test extends PacksPassthroughAction{
 		for (int i=0;i<impersonate.getPackPassthroughBtn().size(); i++) {
 		if(!impersonate.getPackPassthroughBtn().get(i).getAttribute("Class").equals("button button__checked")) {
 		impersonate.getPackPassthroughBtn().get(i).click();
+		utils.wait(10000);
 		utils.waitTillElementIsClickableByWebEle(getArrowInshowpackModel());
 		Assert.assertTrue(utils.getfield("h3", "My Agent Pack Permissions").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "User").isDisplayed());
@@ -130,9 +129,9 @@ public class PackPassthroughPermissionModal_test extends PacksPassthroughAction{
 		utils.wait1();
 		impersonate.getPackPassthroughBtn().get(i).click();
 		utils.getfield("span", "Continue")	.click();
-		utils.wait1();
+		utils.wait(5000);
 		impersonate.getImpersonateList().get(i).click();
-		utils.wait1();
+		utils.wait(30000);
 		verticalMenu.navigatetoLeftMainMenu("Report");
 		ArrayList<String> list = new ArrayList<String>();
 		for(int j=0; j<verticalMenu.getLaterMenuSubItems().size(); j++) {
@@ -321,9 +320,9 @@ public class PackPassthroughPermissionModal_test extends PacksPassthroughAction{
 		utils.waitTillElementIsClickableByWebEle(getArrowInshowpackModel());
 		permissions.getCancelBtn().click();
 		Assert.assertFalse(impersonate.getPackPassthroughBtn().get(i).getAttribute("Class").equals("button button__checked"));
-		utils.wait1();
+		utils.wait(5000);
 		impersonate.getImpersonateList().get(i).click();
-		utils.wait1();
+		utils.wait(30000);
 		verticalMenu.navigatetoLeftMainMenu("Report");
 		ArrayList<String> list = new ArrayList<String>();
 		for(int j=0; j<verticalMenu.getLaterMenuSubItems().size(); j++) {
@@ -379,9 +378,9 @@ public class PackPassthroughPermissionModal_test extends PacksPassthroughAction{
 		if(!impersonate.getPackPassthroughBtn().get(i).getAttribute("Class").equals("button button__checked")) {
 		impersonate.getPackPassthroughBtn().get(i).click();
 		utils.waitTillElementIsClickableByWebEle(getArrowInshowpackModel());
-		Assert.assertTrue(utils.getfield("h3", "Dealer Passthrough Permissions").isDisplayed());
+		Assert.assertTrue(utils.getfield("h3", "Lender Passthrough Permissions").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "User").isDisplayed());
-		Assert.assertTrue(utils.getfield("label", "My Dealer Passthrough").isDisplayed());
+		Assert.assertTrue(utils.getfield("label", "My Lender Passthrough").isDisplayed());
 		Assert.assertTrue(permissions.getSaveBtn().getAttribute("disabled").equals("true"));
 		getArrowInshowpackModel().click();
 		permissions.getSelectCheckBoxInPopup().get(0).click();

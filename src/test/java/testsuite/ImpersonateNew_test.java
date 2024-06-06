@@ -28,13 +28,13 @@ public class ImpersonateNew_test extends impersonateAction{
 	@BeforeClass(alwaysRun=true)
 	public void login() throws InterruptedException {
 		navigate();
-		Assert.assertEquals(login.getTitle(), "AUL Corp.");
+		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 	
 	@Test(priority = 1)
 	public void verifyUsersWithDBForAgent_31615() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoimpersonate();
 		impersonate.getUsers("Agent", "110");
 		Thread.sleep(2000);
@@ -46,7 +46,7 @@ public class ImpersonateNew_test extends impersonateAction{
 	@Test(priority = 2)
 	public void verifyUsersWithDBForSubAgent_31616() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoimpersonate();
 		impersonate.getUsers("SubAgent", "110");
 		Thread.sleep(2000);
@@ -58,7 +58,7 @@ public class ImpersonateNew_test extends impersonateAction{
 	@Test(priority = 3)
 	public void verifyUsersWithDBForDealer_31617() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoimpersonate();
 		impersonate.getUsers("Dealer", "28771");
 		Thread.sleep(2000);
@@ -70,7 +70,7 @@ public class ImpersonateNew_test extends impersonateAction{
 	@Test(priority = 4)
 	public void verifyUsersWithDBForDealerEmp_31618() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoimpersonate();
 		impersonate.getUsers("DealerEmp", "28771");
 		Thread.sleep(2000);
@@ -82,7 +82,7 @@ public class ImpersonateNew_test extends impersonateAction{
 	@Test(priority = 5)
 	public void verifyUsersWithDBForDealerGrp_31619() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoimpersonate();
 		impersonate.getUsers("DealerGroup", "47421");
 		Thread.sleep(2000);
@@ -94,7 +94,7 @@ public class ImpersonateNew_test extends impersonateAction{
 	@Test(priority = 6)
 	public void verifyUsersWithDBForDealerGrpEmp_31620() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoimpersonate();
 		impersonate.getUsers("DealerGrpEmp", "47421");
 		Thread.sleep(2000);
@@ -106,7 +106,7 @@ public class ImpersonateNew_test extends impersonateAction{
 	@Test(priority = 7)
 	public void verifyUsersWithDBForLender_31621() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoimpersonate();
 		impersonate.getUsers("Lender", "30");
 		Thread.sleep(2000);
@@ -118,7 +118,7 @@ public class ImpersonateNew_test extends impersonateAction{
 	@Test(priority = 8)
 	public void verifyUsersWithDBForLenderEmp_31622() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoimpersonate();
 		impersonate.getUsers("LenderEmp", "30");
 		Thread.sleep(2000);
@@ -130,7 +130,7 @@ public class ImpersonateNew_test extends impersonateAction{
 	@Test(priority = 9)
 	public void verifyImpersonatedIdsThroughAgent_31628() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Agent", "110");
 		Assert.assertTrue(impersonate.getImpersonatedPageRoledID().equals("110"),"Impersonated Successfully");
@@ -146,7 +146,7 @@ public class ImpersonateNew_test extends impersonateAction{
 //	@Test(priority = 10)
 //	public void verifyLockedFunctionality_31629() throws Exception {
 //		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-//		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+//		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 //		verticalMenu.navigatetoimpersonate();
 //		impersonate.getUsers("Agent", "110");
 //		Thread.sleep(2000);
@@ -173,7 +173,7 @@ public class ImpersonateNew_test extends impersonateAction{
 //	@Test(priority = 11)
 //	public void verifyEditFunctionality_31630() throws Exception {
 //		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-//		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+//		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 //		verticalMenu.navigatetoimpersonate();
 //		impersonate.getUsers("Agent", "110");
 //		Thread.sleep(2000);
@@ -201,7 +201,7 @@ public class ImpersonateNew_test extends impersonateAction{
 //	@Test(priority = 12)
 //	public void verifyDeleteFunctionality_31631() throws Exception {
 //		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-//		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+//		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 //		verticalMenu.navigatetoimpersonate();
 //		impersonate.getUsers("Agent", "110");
 //		Thread.sleep(2000);
@@ -221,7 +221,7 @@ public class ImpersonateNew_test extends impersonateAction{
 //	@Test(priority = 13)
 //	public void verifyResendInvitationLink_31632() throws Exception {
 //		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-//		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+//		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 //		verticalMenu.navigatetoimpersonate();
 //		impersonate.getUsers("Agent", "110");
 //		Thread.sleep(2000);
@@ -241,7 +241,7 @@ public class ImpersonateNew_test extends impersonateAction{
 	@Test(priority = 14)
 	public void verifyImpersonateFunctionality_31633() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Agent", "110");
 		Assert.assertTrue(impersonate.getImpersonatedPageRoledID1().equals("110"),"Impersonated Successfully");

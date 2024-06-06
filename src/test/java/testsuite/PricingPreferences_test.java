@@ -36,14 +36,14 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 	@BeforeClass(alwaysRun=true)
 	public void login() throws InterruptedException {
 		navigate();
-		Assert.assertEquals(login.getTitle(), "AUL Corp.");
+		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 	
 	
 	@Test(priority = 1)
 	public void verifyPricingPreferencesPage_31666() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);
@@ -65,7 +65,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 	@Test(priority = 2)
 	public void verifyProgramsInMarkupPage_31667() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);
@@ -91,7 +91,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 	@Test(priority = 3)
 	public void verifyMarkupTypes_31668() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);
@@ -113,7 +113,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 	@Test(priority = 4,enabled= false)
 	public void verifyMarkupByWithFlatType_31669() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);
@@ -155,7 +155,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 	@Test(priority = 5)
 	public void verifySaveBtn_31671() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);
@@ -176,7 +176,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 	@Test(priority = 6)
 	public void verifyMarkupWithContract_31672() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage My Pricing Preferences").isDisplayed());
@@ -222,7 +222,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 	@Test(priority = 7)
 	public void verifyMarkupWithContractForLender_31673() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Lender", "3641");
 		Thread.sleep(5000);
@@ -274,7 +274,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 	public void verifySaveBtnForLender_31674() throws Exception {
 		login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
 		Thread.sleep(2000);
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);
@@ -303,7 +303,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 	public void verifyMarkupWithContractForLenderEmp_31686() throws Exception {
 		lateralMenu.getDefaultpermissionForLenderEmp();
 		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 //		verticalMenu.navigatetoimpersonate();
 //		impersonate.impersonateUser("LenderEmp", "3641");
 		Thread.sleep(5000);
@@ -358,7 +358,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		lateralMenu.getDefaultpermissionForDealerEmp();
 		login.login(prop.getProperty("dealerempAutomation"), prop.getProperty("password"));
 		Thread.sleep(2000);
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage My Pricing Preferences").isDisplayed());
@@ -405,7 +405,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 	public void verifyProgramsInMarkupPageForAgent_31688() throws Exception {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
 		Thread.sleep(2000);
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Pricing Preferences");
 		Thread.sleep(2000);
@@ -433,7 +433,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 	public void verifySaveBtnForAgent_31689() throws Exception {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
 		Thread.sleep(2000);
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Pricing Preferences");
 		Thread.sleep(2000);
@@ -463,14 +463,10 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 	@Test(priority = 13)
 	public void verifyMarkupWithContractForAgent_31690() throws Exception {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
-		Thread.sleep(2000);
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-		Thread.sleep(2000);
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Pricing Preferences");
-		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage Pricing Preferences").isDisplayed());
 		EmplPacks.selectDealerName("Angel Motors Inc");
-		Thread.sleep(2000);
 		if (EmplPacks.getCurrentPageRecord() > 0)
 		{
 		getSelectAllCheckBox().click();
@@ -486,6 +482,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		int markupAmount =Integer.parseInt(priceTobeEnteredInStringFormat);
 		
 		verticalMenu.navigatetoContract();
+		utils.wait(200);
 		contract.getSelectDealerTogenerateContract("Angel Motors Inc");
 		 int vehiclePriceBefore =  EmplPacks.getVehiclePrice(programCode);
 		System.out.println("vehicle Price before------"+vehiclePriceBefore);
@@ -514,7 +511,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 	@Test(priority = 14)
 	public void verifyMarkupByWithEffectiveDate_31670() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);

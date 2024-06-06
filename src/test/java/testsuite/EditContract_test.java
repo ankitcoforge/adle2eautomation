@@ -40,13 +40,13 @@ public class EditContract_test extends EditContractAction {
 	@BeforeMethod(alwaysRun=true)
 	public void login() throws InterruptedException {
 		navigate();
-		Assert.assertEquals(login.getTitle(), "AUL Corp.");
+		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 
 	@Test(priority = 1)
 	public void verifyEditContractTitlePage_11620() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoContract();
 		String contractNum = singleContract.singleContract();
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
@@ -63,7 +63,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 2)
 	public void verifyElementsInEditContractPage_11621() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -125,7 +125,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 3)
 	public void verifyURLInEditContractPage_11622() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -143,6 +143,7 @@ public class EditContract_test extends EditContractAction {
 			contractSearchPage.selectStatusCheckBoxInGrid(1).click();
 			contractSearchPage.getEditLink(1).click();
 		}
+		Thread.sleep(1000);
 		Assert.assertTrue(getEditContractPagetitle().isDisplayed());
 		Assert.assertTrue(driver.getCurrentUrl().contains("adl.aulcorp.com/portal/contracts/edit-contract"));
 	}
@@ -150,7 +151,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 4)
 	public void verifyNavigationUsingKeyboard_11625() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -194,7 +195,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 5)
 	public void verifyEnabledCloseBtnInEditContractPage_11626() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -219,7 +220,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 6)
 	public void verifyEnabledSaveBtnInEditContractPage_11627() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -244,7 +245,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 7)
 	public void verifyCobuyerFieldNotRequiredForEditContract_11630() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoContract();
 		String contractNum = singleContract.singleContract();
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
@@ -268,7 +269,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 8)
 	public void verifyCobuyerInfoIsLoaded_11631() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoContract();
 		String contractNum = cobuyerContract.coBuyerContractwithMandatoryFields();
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
@@ -299,7 +300,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 9)
 	public void verifyCobuyerInfoIsNotLoaded_11632() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoContract();
 		String contractNum = singleContract.singleContract();
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
@@ -317,7 +318,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 10)
 	public void verifyCoustmerInfoElementsLoadedInEditContractPage_11633() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -365,7 +366,7 @@ public class EditContract_test extends EditContractAction {
 	public void verifyEditFunctionalityByUpdatingCobuyerandCustomer_11638_12595_15513_15517_15518_15519_15520_15622_15622_15623()
 			throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoContract();
 		String contractNum = cobuyerContract.coBuyerContractwithMandatoryFields();
 //		String contractNum = "RAWNA004619K23";
@@ -528,7 +529,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 12)
 	public void verifyEditFunctionalityByUpdatingCustomerInfo_11639() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -637,7 +638,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 13)
 	public void verifyEditFunctionalityByUpdatingCoBuyerInfo_11640() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoContract();
 		String contractNum = cobuyerContract.coBuyerContractwithMandatoryFields();
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
@@ -714,7 +715,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 14)
 	public void verifyLienholderTypeAheadFunctionalityInBList_11675_15370() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoContract();
 		singleContract.singleContract("Bank of America");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
@@ -747,7 +748,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 15)
 	public void verifyLienholderOptionSelectionInBList_11676() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -781,7 +782,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 16)
 	public void verifyLienholderNavigationWithKeyboardInBList_11677_15372() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -815,7 +816,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 17)
 	public void verifyLienholderOptionselectionWithKeyboardInBlist_11678() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -851,7 +852,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 18)
 	public void verifyInvalidMsgOnLienholderForInvalidTxt_11757_15624() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -879,7 +880,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 19)
 	public void verifyLienholderdeletionInBlist_11758() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -917,7 +918,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 20)
 	public void verifyLienholderOptionselectionInBlist_12583() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -951,7 +952,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 21)
 	public void verifyLienholderOptionselectionWithKeyboardInBlist_12585() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -986,7 +987,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 22)
 	public void verifyInvalidMsgOnLienholderWithInvalidCharacter_12590() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -1014,7 +1015,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 23)
 	public void verifyBListLienholderDoesntConvertAListLienholder_12594_12610_12587() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoContract();
 		singleContract.singleContract("Bank of America");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
@@ -1079,7 +1080,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 24)
 	public void verifyLienHolderEmptyAndIsntWantToSelectAList_12597_12613_11622_15382_15437() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoContract();
 		String contractNum = singleContract.singleContract();
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
@@ -1118,7 +1119,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 25)
 	public void verifyContractInfoSectionLoadsValidValues_15362() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoContract();
 		String contractNum = singleContract.singleContract();
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
@@ -1142,7 +1143,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 26)
 	public void verifyLienHolderFieldUnderStaticInfoSection_15368() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoContract();
 		String contractNum = singleContract.singleContract();
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
@@ -1162,7 +1163,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 27)
 	public void verifyLienHolderEditFuctionality_15375() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -1193,7 +1194,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 28)
 	public void verifyLienHolderAfterSelectingNotOnTheLink_15379_15396_15436() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoContract();
 		String contractNum = singleContract.singleContract();
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
@@ -1226,7 +1227,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 29)
 	public void verifySaveCancelAndPageRedirection_15510_15511_15512() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -1255,7 +1256,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 30)
 	public void verifyCustomerInfoLoadsAsPerTheExistingContract_15525_15529_15532() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 //		verticalMenu.navigatetoContract();
 		String contractNum = "RAWPX000413C24";
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
@@ -1295,7 +1296,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 31)
 	public void verifyCobuyerInfoLoadsAsPerTheExistingContract_15526_15531() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoContract();
 		String contractNum = cobuyerContract.coBuyerContract();
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
@@ -1329,7 +1330,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 32)
 	public void verifyNoInvalidMsgOnFirstNameField_15601() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -1385,7 +1386,7 @@ public class EditContract_test extends EditContractAction {
 	public void verifyInvalidMsgOnTxtFields_15602_15603_15604_15605_15606_15607_15608_15609_15615_15617()
 			throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -1562,7 +1563,7 @@ public class EditContract_test extends EditContractAction {
 	public void verifyCobuyerInfoWithInvalidEmailPhoneAndZipcode_15619_15620_15621_15640_15642_15643_15644_15645()
 			throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoContract();
 		String contractNum = cobuyerContract.coBuyerContract();
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
@@ -1664,7 +1665,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 35)
 	public void verifyCobuyerSectionWithoutFirstName_15638() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoContract();
 		String contractNum = cobuyerContract.coBuyerContract();
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
@@ -1702,7 +1703,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 36)
 	public void verifyScreenContentAfterUpdatingContract_15853() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -1738,7 +1739,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 37)
 	public void verifyViewOrPrintFunctionality_15854_15910() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -1774,7 +1775,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 38)
 	public void verifyGoToContractsFunctionality_15855() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -1812,7 +1813,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 39)
 	public void verifyStartNewQuoteFunctionality_15856() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -1848,7 +1849,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 40)
 	public void verifyCloseFunctionality_15857() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
@@ -1883,7 +1884,7 @@ public class EditContract_test extends EditContractAction {
 	@Test(priority = 41)
 	public void verifyAllInfoIsLoadedForRequiredFields_15528() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoContract();
 //		String contractNum = "RAWPA002834C24";
 		String contractNum = cobuyerContract.coBuyerContractwithMandatoryFields();

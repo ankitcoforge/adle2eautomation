@@ -3,6 +3,7 @@ package testsuite;
 import java.util.HashMap;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -30,7 +31,7 @@ public class NewUserOptionsInManageDealerPage_test extends ManageUserPageAction{
 	@BeforeMethod(alwaysRun=true)
 	public void login() throws InterruptedException {
 		navigate();
-		Assert.assertEquals(login.getTitle(), "AUL Corp.");
+		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 
 	
@@ -56,6 +57,7 @@ public class NewUserOptionsInManageDealerPage_test extends ManageUserPageAction{
 		manageuser.selectDealerInmanageUserPage(UtilsDataReader.getXMLData("dealer3"));
 		String newUserEmail = UtilsDataReader.getXMLData("newUserMailId");
 		getNewUserPageWithoutAccountNameSelection("DealerEmp",newUserEmail);
+		manageuser.selectRoleTypeInGrid("DealerEmp");
 		 HashMap<Integer, HashMap<String, String>> manageUserPageGrid = manageuser.manageUsersPageGrid();
 		 System.out.println("mail----"+manageUserPageGrid.get(1).get("Email"));
 		 System.out.println("reg status----"+manageUserPageGrid.get(1).get("Registration Status"));
@@ -86,6 +88,7 @@ public class NewUserOptionsInManageDealerPage_test extends ManageUserPageAction{
 		manageuser.selectDealerInmanageUserPage(UtilsDataReader.getXMLData("dealerGrp"));
 		String newUserEmail = UtilsDataReader.getXMLData("newUserMailId");
 		getNewUserPageWithoutAccountNameSelection("DealerGrpEmp",newUserEmail);
+		manageuser.selectRoleTypeInGrid("DealerGrpEmp");
 		 HashMap<Integer, HashMap<String, String>> manageUserPageGrid = manageuser.manageUsersPageGrid();
 		 System.out.println("mail----"+manageUserPageGrid.get(1).get("Email"));
 		 System.out.println("reg status----"+manageUserPageGrid.get(1).get("Registration Status"));
@@ -114,6 +117,7 @@ public class NewUserOptionsInManageDealerPage_test extends ManageUserPageAction{
 		manageuser.selectDealerInmanageUserPage(UtilsDataReader.getXMLData("dealer3"));
 		String newUserEmail = UtilsDataReader.getXMLData("newUserMailId");
 		getNewUserPageWithoutAccountNameSelection("DealerEmp",newUserEmail);
+		manageuser.selectRoleTypeInGrid("DealerEmp");
 		 HashMap<Integer, HashMap<String, String>> manageUserPageGrid = manageuser.manageUsersPageGrid();
 		if(manageUserPageGrid.get(1).get("Email").equals(newUserEmail)) {
 			manageUserPageGrid.get(1).get("Registration Status").equals("Pending");
@@ -140,6 +144,8 @@ public class NewUserOptionsInManageDealerPage_test extends ManageUserPageAction{
 		manageuser.selectDealerInmanageUserPage(UtilsDataReader.getXMLData("dealerGrp"));
 		String newUserEmail = UtilsDataReader.getXMLData("newUserMailId");
 		getNewUserPageWithoutAccountNameSelection("DealerGrpEmp",newUserEmail);
+		utils.wait(1000);
+		manageuser.selectRoleTypeInGrid("DealerGrpEmp");
 		 HashMap<Integer, HashMap<String, String>> manageUserPageGrid = manageuser.manageUsersPageGrid();
 		if(manageUserPageGrid.get(1).get("Email").equals(newUserEmail)) {
 			manageUserPageGrid.get(1).get("Registration Status").equals("Pending");
@@ -151,7 +157,7 @@ public class NewUserOptionsInManageDealerPage_test extends ManageUserPageAction{
 	public void verifySubAgentCanCreateDealerThroughAdminLogin_35939() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUserForSubagentLendrEmp("SubAgent", "393");
+		impersonate.impersonateUserForSubagentLendrEmp("SubAgent", "110");
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
 		manageuser.selectDealerInmanageUserPage(UtilsDataReader.getXMLData("dealer3"));
 		String newUserEmail = UtilsDataReader.getXMLData("newUserMailId");
@@ -166,11 +172,12 @@ public class NewUserOptionsInManageDealerPage_test extends ManageUserPageAction{
 	public void verifySubAgentCanCreateDealerEmpThroughAdminLogin_35941() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUserForSubagentLendrEmp("SubAgent", "393");
+		impersonate.impersonateUserForSubagentLendrEmp("SubAgent", "110");
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
 		manageuser.selectDealerInmanageUserPage(UtilsDataReader.getXMLData("dealer3"));
 		String newUserEmail = UtilsDataReader.getXMLData("newUserMailId");
 		getNewUserPageWithoutAccountNameSelection("DealerEmp",newUserEmail);
+		manageuser.selectRoleTypeInGrid("DealerEmp");
 		 HashMap<Integer, HashMap<String, String>> manageUserPageGrid = manageuser.manageUsersPageGrid();
 		if(manageUserPageGrid.get(1).get("Email").equals(newUserEmail)) {
 			manageUserPageGrid.get(1).get("Registration Status").equals("Pending");
@@ -181,7 +188,7 @@ public class NewUserOptionsInManageDealerPage_test extends ManageUserPageAction{
 	public void verifySubAgentCanCreateDealerGrpThroughAdminLogin_35942() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUserForSubagentLendrEmp("SubAgent", "393");
+		impersonate.impersonateUserForSubagentLendrEmp("SubAgent", "110");
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
 		manageuser.selectDealerInmanageUserPage(UtilsDataReader.getXMLData("dealerGrp"));
 		String newUserEmail = UtilsDataReader.getXMLData("newUserMailId");
@@ -197,11 +204,12 @@ public class NewUserOptionsInManageDealerPage_test extends ManageUserPageAction{
 	public void verifySubAgentCanCreateDealerGrpEmpThroughAdminLogin_35943() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUserForSubagentLendrEmp("SubAgent", "393");
+		impersonate.impersonateUserForSubagentLendrEmp("SubAgent", "110");
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
 		manageuser.selectDealerInmanageUserPage(UtilsDataReader.getXMLData("dealerGrp"));
 		String newUserEmail = UtilsDataReader.getXMLData("newUserMailId");
 		getNewUserPageWithoutAccountNameSelection("DealerGrpEmp",newUserEmail);
+		manageuser.selectRoleTypeInGrid("DealerGrpEmp");
 		 HashMap<Integer, HashMap<String, String>> manageUserPageGrid = manageuser.manageUsersPageGrid();
 		if(manageUserPageGrid.get(1).get("Email").equals(newUserEmail)) {
 			manageUserPageGrid.get(1).get("Registration Status").equals("Pending");
@@ -213,7 +221,7 @@ public class NewUserOptionsInManageDealerPage_test extends ManageUserPageAction{
 	public void verifyAgentCanCreateDealerThroughAdminLogin_35928() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUserForSubagentLendrEmp("Agent", "393");
+		impersonate.impersonateUser("Agent", "110");
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
 		manageuser.selectDealerInmanageUserPage(UtilsDataReader.getXMLData("dealer3"));
 		String newUserEmail = UtilsDataReader.getXMLData("newUserMailId");
@@ -228,11 +236,12 @@ public class NewUserOptionsInManageDealerPage_test extends ManageUserPageAction{
 	public void verifyAgentCanCreateDealerEmpThroughAdminLogin_35935() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUserForSubagentLendrEmp("Agent", "393");
+		impersonate.impersonateUser("Agent", "110");
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
 		manageuser.selectDealerInmanageUserPage(UtilsDataReader.getXMLData("dealer3"));
 		String newUserEmail = UtilsDataReader.getXMLData("newUserMailId");
 		getNewUserPageWithoutAccountNameSelection("DealerEmp",newUserEmail);
+		manageuser.selectRoleTypeInGrid("DealerEmp");
 		 HashMap<Integer, HashMap<String, String>> manageUserPageGrid = manageuser.manageUsersPageGrid();
 		if(manageUserPageGrid.get(1).get("Email").equals(newUserEmail)) {
 			manageUserPageGrid.get(1).get("Registration Status").equals("Pending");
@@ -243,7 +252,7 @@ public class NewUserOptionsInManageDealerPage_test extends ManageUserPageAction{
 	public void verifyAgentCanCreateDealerGrpThroughAdminLogin_35936_36312() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUserForSubagentLendrEmp("Agent", "393");
+		impersonate.impersonateUser("Agent", "110");
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
 		manageuser.selectDealerInmanageUserPage(UtilsDataReader.getXMLData("dealerGrp"));
 		String newUserEmail = UtilsDataReader.getXMLData("newUserMailId");
@@ -259,20 +268,31 @@ public class NewUserOptionsInManageDealerPage_test extends ManageUserPageAction{
 	public void verifyAgentCanCreateDealerGrpEmpThroughAdminLogin_35937() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUserForSubagentLendrEmp("Agent", "393");
+		impersonate.impersonateUser("Agent", "110");
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
 		manageuser.selectDealerInmanageUserPage(UtilsDataReader.getXMLData("dealerGrp"));
 		String newUserEmail = UtilsDataReader.getXMLData("newUserMailId");
 		getNewUserPageWithoutAccountNameSelection("DealerGrpEmp",newUserEmail);
+		utils.wait(1000);
+		manageuser.selectRoleTypeInGrid("DealerGrpEmp");
 		 HashMap<Integer, HashMap<String, String>> manageUserPageGrid = manageuser.manageUsersPageGrid();
 		if(manageUserPageGrid.get(1).get("Email").equals(newUserEmail)) {
 			manageUserPageGrid.get(1).get("Registration Status").equals("Pending");
 		}
 	}
 
-
+	@AfterMethod(alwaysRun = true)
+	public void close() throws InterruptedException {
+	try {
+		login.logout();
+	} catch (Exception e) {
+		if (utils.getfield("mat-icon", "close").isDisplayed()) {
+			utils.getfield("mat-icon", "close").click();
+		}
+		login.logout();
+	}
 	
-	
+	}	
 	
 	
 }

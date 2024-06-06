@@ -31,7 +31,7 @@ public class ManageUserPageAction extends ManageUserPo{
 		return allRowsEle;
 	}
 	
-	public HashMap<Integer, HashMap<String, String>> manageUsersPageGrid() {
+	public HashMap<Integer, HashMap<String, String>> manageUsersPageGrid() throws InterruptedException {
 		List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", impersonate.headerLoc);
 		System.out.println("allHeaderNames: " + allHeaderNames);
 		HashMap<Integer, HashMap<String, String>> allTableData = new HashMap<Integer, HashMap<String, String>>();
@@ -59,7 +59,8 @@ public class ManageUserPageAction extends ManageUserPo{
 			allTableData.put(i, eachRowData);
 		}
 		System.out.println("Complete Grid data: " + allTableData);
-		utils.scrollUp();	
+		utils.scrollUp();
+		Thread.sleep(3000);
 		return allTableData;
 		}
 	
@@ -171,6 +172,7 @@ public void verifyAllTheHeaders() {
 }
 
 public void selectRoleTypeInGrid(String roleType) throws InterruptedException {
+	Thread.sleep(2000);
 	 utils.element("xpath", roleTypeStatusArrow).click();
 	 String ele= "//li[@aria-label='"+roleType +"']/div/div";
 	 utils.element("xpath", ele).click();
@@ -295,7 +297,8 @@ public void getNewUserPageWithAccountNameSelection(String roleType,String newema
 public void getNewUserPageWithoutAccountNameSelection(String roleType,String newemail) throws InterruptedException {
 	utils.getfield("span", "+ New user").isEnabled();
 	utils.getfield("span", "+ New user").click();
-	utils.waitTillElementIsVisible(impersonate.roleDropdown);
+	utils.wait(1000);
+//	utils.waitTillElementIsVisible(impersonate.roleDropdown);
 	utils.clickfield("xpath", impersonate.roleDropdown);
 	List<WebElement> list = getDriver().findElements(By.xpath(roleDropdownList));
 	for (int i = 0; i < list.size(); i++) {
@@ -308,9 +311,11 @@ public void getNewUserPageWithoutAccountNameSelection(String roleType,String new
 	}
 	utils.waitTillElementIsVisible(email);
 	utils.element("xpath", email).sendKeys(newemail);
-	utils.waitTillElementIsVisible(submit);
+	utils.wait(1000);
+//	utils.waitTillElementIsVisible(submit);
 	utils.element("xpath", submit).click();
-	utils.waituntillPageIsloaded();
+	utils.wait(2000);
+//	utils.waituntillPageIsloaded();
 }
 
 }

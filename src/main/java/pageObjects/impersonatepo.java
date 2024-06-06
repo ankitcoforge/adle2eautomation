@@ -4,7 +4,7 @@ import utils.baseClass;
 
 public class impersonatepo extends baseClass{
 	
-	public String title = "//b[text()='Welcome to your AUL ADL Portal!']";
+	public String title = "//b[text()='Welcome to your Protective ADL Portal!']";
 	public String roleDropdown = "//ng-select[@role='listbox']";
 	public String roleDropdownArrow = "//span[@class='ng-arrow-wrapper']";
 	public String roleDropdownInAccountManagementPage = "(//ng-select[@role='listbox'])[1]";
@@ -19,6 +19,7 @@ public class impersonatepo extends baseClass{
     public String getUsersAndImpersonateAsGenericBtnsList = "form>button";
     public String getArrowBtn = "//mat-icon[text()='arrow_forward']";
     public String tableFirstRow = "(//i[@title='Impersonate'])[1]";
+    public String tableSecondRow = "(//i[@title='Impersonate'])[2]";
     public String impersonateList = "//i[@title='Impersonate']";
     public String logoutArrow  = "adl-header > header > div > div > button > mat-icon";
     public String impersonate = "div [role='menu'] > div > ul >li >button";
@@ -67,6 +68,7 @@ public class impersonatepo extends baseClass{
 	public String updateBtnStatus = "//span[text()=' Update ']/..";
 	public String yesBtn = "//span[text()='Yes']";
 	public String closeInPermPopup = "//a[@tabindex='0']/span";
+//	public String closeInPermPopup = "//button[@aria-label='Close']/span/mat-icon";
 	
 	public String registrationStatusArrow = "(//span[contains(@class,'pi pi-chevron-down')])[2]";
 	public String roleTypeStatusArrow = "(//span[contains(@class,'pi pi-chevron-down')])[1]";

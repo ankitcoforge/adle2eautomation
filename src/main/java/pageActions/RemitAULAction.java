@@ -59,7 +59,11 @@ public class RemitAULAction extends RemitAULpo{
 		driver.switchTo().window(remitPage);
 	}
 	
-	
+	public void selectACheckBox() {
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView();", getUnselectedCheckBox());
+		js.executeScript("arguments[0].click();", getUnselectedCheckBox());
+	}
 	
 	 public WebElement getNoRecordsInGrid() {
 		  WebElement rows = driver.findElement(By.cssSelector(noRecordsInGrid));	
@@ -181,7 +185,7 @@ public class RemitAULAction extends RemitAULpo{
 			}
 		
 		 public WebElement getHeaderInTheGrid(String name) {
-			 String header = "//thead/adl-table-header/tr[1]/th[contains(text(),'" + name + "')]";
+			 String header = "//thead/adl-table-header/tr[1]/th/span[contains(text(),'" + name + "')]";
 			 WebElement headerInGrid = driver.findElement(By.xpath(header));
 			 return headerInGrid;
 			 }
@@ -194,7 +198,10 @@ public class RemitAULAction extends RemitAULpo{
 			return statusCheckBox;
 		}
 	 
-	 
+	 public WebElement getUnselectedCheckBox() {
+		    WebElement checkBox = driver.findElement(By.cssSelector(unselectedCheckBox));
+			return checkBox;	
+	 }
 	 
 	 public int getCurrentPageRecordCount() {
 		 WebElement currentPageRecords = driver.findElement(By.xpath(currentPageRecord));

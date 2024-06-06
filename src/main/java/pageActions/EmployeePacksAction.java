@@ -405,7 +405,6 @@ public class EmployeePacksAction extends EmployeePackspo{
 	 
 	 public void selectDealerInManageUserPage() throws InterruptedException {
      ManageUserPage.selectDealerInmanageUserPage(UtilsDataReader.getXMLData("dealer3"));
-     utils.waitTillElementIsVisible(io.tableFirstRow);
 	 }
 	 
 	 public void selectRoleTypeAndStatusCompleted(String roleType) throws InterruptedException {
@@ -433,18 +432,18 @@ public class EmployeePacksAction extends EmployeePackspo{
 		if(allTableData.get(1).get("Role Type").equals(roleType) && allTableData.get(1).get("Registration Status").equals(status) )
 		{
 			tableDataForEditDelLock.get(1).get("Edit").click();
-	
-	 WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions
-				.visibilityOfAllElements(utils.getElementsList("xpath", NewUserRegistrationPage.permissionsArrow)));
+	utils.wait(2000);
+//	 WebDriverWait wait = new WebDriverWait(driver, 10);
+//		wait.until(ExpectedConditions
+//				.visibilityOfAllElements(utils.getElementsList("xpath", NewUserRegistrationPage.permissionsArrow)));
 		utils.element("xpath", NewUserRegistrationPage.permissionsArrow).click();
 		Thread.sleep(1000);
 		if(utils.element("xpath", ManageUserPage.selectAllLink).getAttribute("aria-checked").equals("false")) {
 		utils.element("xpath", ManageUserPage.selectAllLink).click();
 		}
-		Thread.sleep(1000);
+//		Thread.sleep(1000);
 		utils.element("xpath", ManageUserPage.closeInPermPopup).click();
-		utils.waitTillElementIsVisible( ManageUserPage.saveBtn);
+//		utils.waitTillElementIsVisible( ManageUserPage.saveBtn);
 		utils.element("xpath", ManageUserPage.saveBtn).click();
 //		Thread.sleep(2000);
 		utils.waitTillElementIsVisible(io.tableFirstRow);

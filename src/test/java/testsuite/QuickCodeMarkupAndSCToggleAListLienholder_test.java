@@ -28,7 +28,7 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 	EmployeePacks_test packs=new EmployeePacks_test();
 	XmlDataReader UtilsDataReader=new XmlDataReader("UtilsData");
 	AssignDealerToSubAgentAction assignDealerToSubAgent = new AssignDealerToSubAgentAction();
-	
+	//fetching data
 	public String SPP=UtilsDataReader.getXMLData("lienholderSPP");
 	public String ABB=UtilsDataReader.getXMLData("lienholderABB");
 	String unitedAutoCredit=UtilsDataReader.getXMLData("lienholderUnitedAutoCredit");
@@ -44,7 +44,7 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 	@BeforeClass(alwaysRun=true)
 	public void login() throws InterruptedException {
 		navigate();
-		Assert.assertEquals(login.getTitle(), "AUL Corp.");
+		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 	
 	@Test(priority = 1)
@@ -144,7 +144,7 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 		ManageUserPage.selectDealerInmanageUserPage("38226");
 		packs.selectRoleTypeAndStatusCompleted("Dealer");
 		utils.clickfield("xpath", impersonate.tableFirstRow);
-		utils.waituntillPageIsloaded();
+        utils.wait(10000);
 		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
 		selectLienholder(SPP);
 		Assert.assertTrue(utils.element("xpath", quickCode).isEnabled());
@@ -163,7 +163,7 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 		ManageUserPage.selectDealerInmanageUserPage("38226");
 		packs.selectRoleTypeAndStatusCompleted("DealerEmp");
 		utils.clickfield("xpath", impersonate.tableFirstRow);
-		utils.waituntillPageIsloaded();
+		utils.wait(10000);
 		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
 		selectLienholder(SPP);
 		Assert.assertTrue(utils.element("xpath", quickCode).isEnabled());

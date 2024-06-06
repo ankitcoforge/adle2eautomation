@@ -347,6 +347,11 @@ public class utilityClass extends baseClass{
  			jse.executeScript("arguments[0].click()", driver.findElement(By.xpath(ele)));
  	 		}
  		
+ 		public void scrollDownUsingJSE(int value) throws InterruptedException {
+ 	 		JavascriptExecutor js=(JavascriptExecutor)driver;
+ 			js.executeScript("window.scrollTo(0, "+value+")");
+ 			Thread.sleep(500);
+ 	 		}
  		
  		 public WebElement getTitle(String heading) {
  			 WebElement welcomeTitle=getfield("h3", heading);

@@ -4,7 +4,10 @@ import static org.testng.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
+
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -32,14 +35,14 @@ public class Permissions_test extends PermissionsAction {
 	@BeforeClass(alwaysRun = true)
 	public void login() throws InterruptedException {
 		navigate();
-		Assert.assertEquals(login.getTitle(), "AUL Corp.");
+		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 
 //	@Test(priority = 1)
 //	public void verifyPermissionsPage_30720() throws Exception {
 //		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
 //		Thread.sleep(3000);
-//		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+//		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 //		verticalMenu.navigatetoimpersonate();
 //		impersonate.impersonateUser("Dealer", "28771");
 //		Thread.sleep(2000);
@@ -52,7 +55,7 @@ public class Permissions_test extends PermissionsAction {
 	public void verifyPermissionsPageForDealer() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Thread.sleep(3000);
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("My Settings", "Issue New User Registration");
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Issue New User Registration").isDisplayed());
@@ -63,7 +66,6 @@ public class Permissions_test extends PermissionsAction {
 		Thread.sleep(1000);
 		Assert.assertTrue(getEditPermissions().isDisplayed());
 		utils.clickfield("xpath", permissionsDropdownInPopup);
-
 		getPermissionListInPopup().get(12).click();
 
 		ArrayList<String> list = new ArrayList<String>();
@@ -81,6 +83,7 @@ public class Permissions_test extends PermissionsAction {
 		}
 		Collections.sort(list);
 		System.out.println("list1:" + list);
+		utils.clickfield("xpath", closeBtnMultiselectableOptions);
 		utils.clickfield("xpath", saveBtn);
 		Thread.sleep(5000);
 		login.logout();
@@ -180,7 +183,7 @@ public class Permissions_test extends PermissionsAction {
 	public void verifyPermissionsPageForAgent() throws Exception {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
 		Thread.sleep(3000);
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Agency Settings", "Manage Users");
 		Thread.sleep(2000);
 		// Assert.assertTrue(utils.getTitle("Issue New User
@@ -192,14 +195,14 @@ public class Permissions_test extends PermissionsAction {
 		Thread.sleep(1000);
 		Assert.assertTrue(getEditPermissions().isDisplayed());
 		utils.clickfield("xpath", permissionsDropdownInAgentPopup);
-
+		Thread.sleep(1000);
 		ArrayList<String> list = new ArrayList<String>();
 		if (getSelectAllCheckBoxInPopup().getAttribute("aria-checked").equals("false")) {
 			getSelectAllCheckBoxInPopup().click();
 		}
 		Assert.assertTrue((getSelectAllCheckBoxInPopup().getAttribute("aria-checked").equals("true")));
 		String commissionsInPermissionPopup = getPermissionListInPopup().get(0).getText();
-
+		utils.clickfield("xpath", closeBtnMultiselectableOptions);
 		utils.clickfield("xpath", saveBtn);
 		Thread.sleep(5000);
 		login.logout();
@@ -224,12 +227,13 @@ public class Permissions_test extends PermissionsAction {
 		Thread.sleep(1000);
 		Assert.assertTrue(getEditPermissions().isDisplayed());
 		utils.clickfield("xpath", permissionsDropdownInAgentPopup);
-
+		Thread.sleep(1000);
 		if (getSelectAllCheckBoxInPopup().getAttribute("aria-checked").equals("true")) {
 			getSelectAllCheckBoxInPopup().click();
 		}
 
 		Assert.assertFalse(getCheckboxesPermissions().get(0).isSelected());
+		utils.clickfield("xpath", closeBtnMultiselectableOptions);
 		utils.clickfield("xpath", saveBtn);
 		Thread.sleep(5000);
 		login.logout();
@@ -245,7 +249,7 @@ public class Permissions_test extends PermissionsAction {
 	public void verifyPermissionsPageForLender() throws Exception {
 		login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
 		Thread.sleep(3000);
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Lender Settings", "Manage Users");
 		Thread.sleep(2000);
 		String lenderEmp = prop.getProperty("lenderempAutomation");
@@ -255,7 +259,7 @@ public class Permissions_test extends PermissionsAction {
 		Thread.sleep(1000);
 		// Assert.assertTrue(getEditPermissions().isDisplayed());
 		utils.clickfield("xpath", permissionsDropdownInAgentPopup);
-
+		Thread.sleep(1000);
 		getPermissionListInPopup().get(12).click();
 
 		ArrayList<String> list = new ArrayList<String>();
@@ -270,10 +274,18 @@ public class Permissions_test extends PermissionsAction {
 			list.add("Cancellation History");
 			list.add("Actuarials");
 			list.add("Activations");
+			list.add("My Account Statements");
 		}
 		Collections.sort(list);
+		ArrayList<String> listNew = new ArrayList<String>();
+		 Set<String> set = new LinkedHashSet<>(); 
+		 set.addAll(list); 
+		 list.clear(); 
+		 list.addAll(set); 
 		System.out.println("list1:" + list);
+		utils.clickfield("xpath", closeBtnMultiselectableOptions);
 		utils.clickfield("xpath", updateBtn);
+		utils.clickfield("xpath", yesBtn);
 		Thread.sleep(5000);
 		login.logout();
 		Thread.sleep(10000);
@@ -340,7 +352,9 @@ public class Permissions_test extends PermissionsAction {
 		}
 
 		Assert.assertFalse(getCheckboxesPermissions().get(1).isSelected());
+		utils.clickfield("xpath", closeBtnMultiselectableOptions);
 		utils.clickfield("xpath", updateBtn);
+		utils.clickfield("xpath", yesBtn);
 		Thread.sleep(5000);
 		login.logout();
 		Thread.sleep(10000);

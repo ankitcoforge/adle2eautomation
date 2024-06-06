@@ -4,7 +4,7 @@ import utils.baseClass;
 
 public class PricingPreferencesPO extends baseClass{
 	
-	public String portalTitle = "//b[text()='Welcome to your AUL ADL Portal!']";
+	public String portalTitle = "//b[text()='Welcome to your Protective ADL Portal!']";
 	public String headerLoc = "thead > adl-table-header > tr:nth-child(1) > th[role='columnheader']";
 	public String roleDropdownList = "//div[@class='scrollable-content']/div/span";
 	public String markupTxts = "//div[@class='mat-radio-label-content']";

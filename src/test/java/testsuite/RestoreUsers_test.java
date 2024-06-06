@@ -27,7 +27,7 @@ public class RestoreUsers_test extends RestoreUsersAction {
 	@BeforeClass(alwaysRun = true)
 	public void login() throws InterruptedException {
 		navigate();
-		Assert.assertEquals(login.getTitle(), "AUL Corp.");
+		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 	
 
@@ -77,6 +77,8 @@ public class RestoreUsers_test extends RestoreUsersAction {
 		String emailInGrid = allTableData.get(1).get("Email");
 		Assert.assertTrue(emailInGrid.contains(email));
 		getSearchBoxes().get("Email").clear();
+		utils.wait(1000);
+		System.out.println("role name--"+roleName);
 		VerticalMenu.selectRoleType(roleName);
 		String roleNameInGrid = allTableData.get(1).get("Role Name");
 		Assert.assertTrue(roleNameInGrid.contains(roleName));

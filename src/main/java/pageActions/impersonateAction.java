@@ -42,7 +42,7 @@ public class impersonateAction extends impersonatepo {
 			}
 		}
 		Thread.sleep(1000);
-		event.clickfield("xpath", getusersButton);
+		event.clickUsingJSE(getusersButton);
 		Thread.sleep(2000);
 		event.clickfield("xpath", tableFirstRow);
 		Thread.sleep(6000);
@@ -94,32 +94,47 @@ public class impersonateAction extends impersonatepo {
 		}
 		Thread.sleep(1000);
 		event.clickfield("xpath", getusersButton);
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		 event.element("xpath", registrationStatusArrow).click();
 		 event.element("xpath", completedCheckbox).click();
 		 event.element("xpath", registrationStatusArrow).click();
 			Thread.sleep(2000);
 		 HashMap<Integer, HashMap<String, WebElement>> tableDataForEditDelLock = checkGridForEditDelLock();
 		 event.waitTillElementIsVisible(tableFirstRow);
-				tableDataForEditDelLock.get(1).get("Edit").click();
+				tableDataForEditDelLock.get(2).get("Edit").click();
 		
-		 WebDriverWait wait = new WebDriverWait(driver, 10);
-			wait.until(ExpectedConditions
-					.visibilityOfAllElements(event.getElementsList("xpath", permissionsArrow)));
+//		 WebDriverWait wait = new WebDriverWait(driver, 10);
+//			wait.until(ExpectedConditions
+//					.visibilityOfAllElements(event.getElementsList("xpath", permissionsArrow)));
+				event.scrollLittleDownUsingJSE();
+				event.wait(1000);
 		event.element("xpath", permissionsArrow).click();
-		event.waituntillPageIsloaded();
 		Thread.sleep(2000);
-		if(event.element("xpath", selectAllLink).getAttribute("aria-checked").equals("false")) {
+		
+		
+		
+//		if (!permissions.getSelectAllCheckBoxInPopup().isSelected()) {
+//			permissions.getSelectAllCheckBoxInPopup().click();
+//		}
+//		utils.element("xpath", btnClose).click();
+//		if (utils.element("xpath", permissions.saveBtn).isEnabled()) {
+//			utils.clickfield("xpath", permissions.saveBtn);
+//		} else {
+//			utils.clickfield("xpath", permissions.cancelBtn);
+//		}
+		
+		
+		if(!event.element("xpath", selectAllLink).isSelected()) {
 			event.element("xpath", selectAllLink).click();
 		}
 		Thread.sleep(2000);
 		event.element("xpath", closeInPermPopup).click();
-//		Thread.sleep(2000);
-		if(!event.element("xpath", updateBtnStatus).getAttribute("disabled").equals("true")) {
+		Thread.sleep(2000);
+		if(event.element("xpath", updateBtnStatus).isEnabled()) {
 		event.element("xpath", updateBtn).click();
 		Thread.sleep(2000);
 		event.element("xpath", yesBtn).click();
-		event.waituntillPageIsloaded();
+		event.wait(10000);
 		}
 		else {
 			event.getfield("mat-icon", "close").click();	
@@ -143,32 +158,31 @@ public class impersonateAction extends impersonatepo {
 		}
 		Thread.sleep(1000);
 		event.clickfield("xpath", getusersButton);
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		 event.element("xpath", registrationStatusArrow).click();
 		 event.element("xpath", completedCheckbox).click();
 		 event.element("xpath", registrationStatusArrow).click();
 			Thread.sleep(2000);
 		 HashMap<Integer, HashMap<String, WebElement>> tableDataForEditDelLock = checkGridForEditDelLock();
 		 event.waitTillElementIsVisible(tableFirstRow);
-				tableDataForEditDelLock.get(1).get("Edit").click();
-		
-		 WebDriverWait wait = new WebDriverWait(driver, 10);
-			wait.until(ExpectedConditions
-					.visibilityOfAllElements(event.getElementsList("xpath", permissionsArrow)));
+				tableDataForEditDelLock.get(2).get("Edit").click();
+		event.wait(1000);
+//		 WebDriverWait wait = new WebDriverWait(driver, 10);
+//			wait.until(ExpectedConditions
+//					.visibilityOfAllElements(event.getElementsList("xpath", permissionsArrow)));
+			event.scrollLittleDownUsingJSE();
+			event.wait(1000);
 		event.element("xpath", permissionsArrow).click();
-//		event.waituntillPageIsloaded();
-		Thread.sleep(2000);
+		event.wait(1000);
 		if(event.element("xpath", selectAllLink).getAttribute("aria-checked").equals("true")) {
 			event.element("xpath", selectAllLink).click();
 		}
-		Thread.sleep(2000);
 		event.element("xpath", closeInPermPopup).click();
 		event.waitTillElementIsVisible(updateBtn);
 		event.element("xpath", updateBtn).click();
 		Thread.sleep(1000);
 		event.element("xpath", yesBtn).click();
-		event.waituntillPageIsloaded();
-		Thread.sleep(2000);
+		event.wait(10000);
 		event.clickfield("xpath", tableFirstRow);
 		Thread.sleep(2000);
 			}
@@ -693,7 +707,8 @@ public class impersonateAction extends impersonatepo {
 		Thread.sleep(3000);
 //		event.waitTillElementIsClickableByWebEle(getDropDownlistForRoleType().get(0));
 		selectRoleTypeInGenericImpersonatePopup(roleType2);
-		event.element("xpath", impersonateInGenericImpPopup).click();
+		event.wait(300);
+		event.element("xpath", impersonateInGenericImpPopupInImpPage).click();
 		Thread.sleep(10000);
 	}
 	

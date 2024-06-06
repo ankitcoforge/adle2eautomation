@@ -10,8 +10,8 @@ public class ManageMyDealerGrpEmployeePO extends baseClass{
 	public String selectAllCheckBox = "//adl-table-header/tr/td/div/div/mat-checkbox//input/..";
 	public String selectAllCheckBoxstatus = "//adl-table-header/tr/td/div/div/mat-checkbox//input";
 	public String permissionsTxtField = "//adl-table-header/tr/td/div/div/input";
-	public String permissionSortIcon = "//th[text()=' Permission ']/p-sorticon/i";
-	public String permissionTxt = "//th[text()=' Permission ']";
+	public String permissionSortIcon = "//span[text()='Permission']/../p-sorticon/i";
+	public String permissionTxt = "//span[text()='Permission']";
 	public String defaultMailIdForSelectedUser = "//div[@class='ng-select-container ng-has-value']/div/div/span[2]";
 	
 	public String currentPageRecord="//span[@class='ui-paginator-current ng-star-inserted']";
