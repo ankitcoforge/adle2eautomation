@@ -5,7 +5,7 @@ import utils.baseClass;
 
 public class LateralMenupo extends baseClass{
 	
-	public String title = "//b[text()='Welcome to your AUL ADL Portal!']";
+	public String title = "//b[text()='Welcome to your Protective ADL Portal!']";
 	public String lateralMenu = "mat-tree.mat-tree";
 	public String lateralMenuItems1 = "mat-tree>mat-nested-tree-node>li>button";
 	public String lateralMenuItems2 = "mat-tree>mat-nested-tree-node>li>a";

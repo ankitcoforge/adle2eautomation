@@ -45,7 +45,7 @@ public class GAPpo extends baseClass {
 	public String plusIconInOptions = "//mat-icon[text()='add_circle']";
 	public String minusIconInOptions = "//mat-icon[text()='remove_circle_outline']";
 	public String optionSelectedPrice = "//div[@class='card']/div/span";
-	public String editSearch = "//div[contains(@class,'gap__button')]/button";
+	public String editSearch = "//div[contains(@class,'gap__button')]/button/span";
 	public String genrateContractButton = "//span[contains(text(),'Proceed to generate contract(s)')]";
 	public String gridformLabels = "//div[@class='grid form']//label";
 	public String lienholderAddressArrow = "//div[text()='Select Address']/../../span";

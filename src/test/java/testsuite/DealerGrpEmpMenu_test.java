@@ -27,28 +27,32 @@ public class DealerGrpEmpMenu_test extends baseClass {
 	@BeforeClass(alwaysRun = true)
 	public void login() throws InterruptedException {
 		navigate();
-		Assert.assertEquals(login.getTitle(), "AUL Corp.");
+		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 	
 
 	@Test(priority = 0)
 	public void precond_assignPermissionsFordealerGrpEmp() throws InterruptedException {
 		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
+		Assert.assertTrue(utils.getfield("b", "Welcome to your Protective ADL Portal!").isDisplayed());
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Group Employees");
 		Assert.assertTrue(utils.getfield("h3", "Manage My Dealer Group Employees").isDisplayed());
 		dealerGrpEmp.selectUser(prop.getProperty("dealergrpempAutomation"));
-		utils.waituntillPageIsloaded(5);
-		utils.scrollLittleDownUsingJSE();
+		utils.scrollDownUsingJSE(200);
+		utils.wait(1000);
 		WebElement selectAllCheckBoxstat = utils.element("xpath", dealerGrpEmp.selectAllCheckBoxstatus);
-		if (!selectAllCheckBoxstat.isSelected()) {
+		if (selectAllCheckBoxstat.getAttribute("aria-checked").equals("false")) {
 			utils.element("xpath", dealerGrpEmp.selectAllCheckBox).click();
-		} else {
+		}
+		else {
 			utils.element("xpath", dealerGrpEmp.selectAllCheckBox).click();
 			utils.element("xpath", dealerGrpEmp.selectAllCheckBox).click();
 		}
 		Assert.assertTrue(selectAllCheckBoxstat.isSelected());
 		utils.getfield("span", "SAVE").click();
 		Thread.sleep(2000);
+		System.out.println("x1--"+dealerGrpEmp.permissionsSelected());
+		System.out.println("x2--"+dealerGrpEmp.AllPermissions());
 		Assert.assertTrue(dealerGrpEmp.permissionsSelected().containsAll(dealerGrpEmp.AllPermissions()));
 	}
 
@@ -56,7 +60,7 @@ public class DealerGrpEmpMenu_test extends baseClass {
 	public void verifyContractsOptionInMenuForDealerGroupEmpUser_35794_35044_35046_36085_35045_36086()
 			throws InterruptedException {
 		login.login(prop.getProperty("dealergrpempAutomation"), prop.getProperty("password"));
-		Assert.assertTrue(utils.getfield("b", "Welcome to your AUL ADL Portal").isDisplayed());
+		Assert.assertTrue(utils.getfield("b", "Welcome to your Protective ADL Portal!").isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("Contracts");
 		Thread.sleep(10000);
 		ArrayList<String> list = new ArrayList<String>();
@@ -88,11 +92,10 @@ public class DealerGrpEmpMenu_test extends baseClass {
 	public void verifyAdminImpDealerGrpEmpCannotViewEditRemitOptionForNonACHWhenPermissionNotGiven_36020()
 			throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertTrue(utils.getfield("b", "Welcome to your AUL ADL Portal").isDisplayed());
+		Assert.assertTrue(utils.getfield("b", "Welcome to your Protective ADL Portal!").isDisplayed());
 		verticalMenu.navigatetoimpersonate();
 		io.impersonateUserByRemovingPermissions("DealerGrpEmp", "47421");
 		verticalMenu.navigatetoLeftMainMenu("Contracts");
-		Thread.sleep(10000);
 		ArrayList<String> list = new ArrayList<String>();
 		for (int i = 0; i < verticalMenu.getLaterMenuSubItems().size(); i++) {
 			String subItem = verticalMenu.getLaterMenuSubItems().get(i).getText();
@@ -106,7 +109,7 @@ public class DealerGrpEmpMenu_test extends baseClass {
 	public void verifyAdminCanViewEditRemitOptionForNonACHWhenPermissionGiven_36021_35038()
 			throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertTrue(utils.getfield("b", "Welcome to your AUL ADL Portal").isDisplayed());
+		Assert.assertTrue(utils.getfield("b", "Welcome to your Protective ADL Portal!").isDisplayed());
 		verticalMenu.navigatetoimpersonate();
 		io.impersonateUserByGivingPermissions("DealerGrpEmp", "47421");
 		verticalMenu.navigatetoLeftMainMenu("Contracts");
@@ -127,7 +130,7 @@ public class DealerGrpEmpMenu_test extends baseClass {
 	public void verifyAdminImpersonatedDealerGrpEmpCanAccessLateralMenuOptions_35793_35036()
 			throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertTrue(utils.getfield("b", "Welcome to your AUL ADL Portal").isDisplayed());
+		Assert.assertTrue(utils.getfield("b", "Welcome to your Protective ADL Portal!").isDisplayed());
 		verticalMenu.navigatetoimpersonate();
 		io.impersonateUserByGivingPermissions("DealerGrpEmp", "47421");
 		String toolbox = menu.getLateralMenuItems2().get(1).getText();
@@ -151,7 +154,7 @@ public class DealerGrpEmpMenu_test extends baseClass {
 	public void verifyDetailedMenuOptionsForDealerGrpEmpRole_35037_35042_35043_35041_35172_35055_35056_35057_35040_35049_35054_35050_35052_35053_35051_35048_35795_35039_35058_35047()
 			throws InterruptedException {
 		login.login(prop.getProperty("dealergrpempAutomation"), prop.getProperty("password"));
-		Assert.assertTrue(utils.getfield("b", "Welcome to your AUL ADL Portal").isDisplayed());
+		Assert.assertTrue(utils.getfield("b", "Welcome to your Protective ADL Portal!").isDisplayed());
 		Assert.assertTrue(menu.getLateralMenu().isDisplayed());
 		// E-rate
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
@@ -240,11 +243,12 @@ public class DealerGrpEmpMenu_test extends baseClass {
 
 	}
 
+	//all the below test case id's are also covered in this testcase
+	//_35168_34974_34919_34966_34971_34967_34969_34970_34968_34965_34918_34911
 	@Test(priority = 6)
-	public void verifyDetailedMenuOptionsForDealerGrpRole_34912_36037_34923_34924_34926_34925_34917_34922_35814_34815_34921_34920_34986_35791_34988_34987_34985_34972_34975_34973_35168_34974_34919_34966_34971_34967_34969_34970_34968_34965_34918_34911()
-			throws InterruptedException {
+	public void verifyDetailedMenuOptionsForDealerGrpRole_34912_36037_34923_34924_34926_34925_34917_34922_35814_34815_34921_34920_34986_35791_34988_34987_34985_34972_34975_34973() throws InterruptedException  {
 		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
-		Assert.assertTrue(utils.getfield("b", "Welcome to your AUL ADL Portal").isDisplayed());
+		Assert.assertTrue(utils.getfield("b", "Welcome to your Protective ADL Portal!").isDisplayed());
 		Assert.assertTrue(menu.getLateralMenu().isDisplayed());
 		// E-rate
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
@@ -273,6 +277,7 @@ public class DealerGrpEmpMenu_test extends baseClass {
 		verticalMenu.navigatetoLeftMenu("Edit Remit AUL VSC/LW");
 		utils.waitTillElementIsClickableByWebEle(utils.getTitle("Edit Remit AUL VSC/LW"));
 		Assert.assertTrue(utils.getTitle("Edit Remit AUL VSC/LW").isDisplayed());
+		Thread.sleep(2000);
 
 		// Cancellations
 		verticalMenu.navigatetoLeftMainMenu("Cancellations");
@@ -365,15 +370,17 @@ public class DealerGrpEmpMenu_test extends baseClass {
 		
 		
 		
-		 @AfterMethod(alwaysRun=true)
-		    public void close() throws InterruptedException {
-			 try {
-					login.logout();
-					} catch (Exception e) {
-						utils.getfield("mat-icon", "close").click();
-						login.logout();
+		@AfterMethod(alwaysRun = true)
+		public void close() throws InterruptedException {
+			try {
+				login.logout();
+			} catch (Exception e) {
+				if (utils.getfield("mat-icon", "close").isDisplayed()) {
+					utils.getfield("mat-icon", "close").click();
 				}
-		    }
+				login.logout();
+			}
+		}
 
 
 }

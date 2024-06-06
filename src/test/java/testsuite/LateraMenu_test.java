@@ -32,13 +32,13 @@ public class LateraMenu_test extends LateralMenuAction {
 	@BeforeClass(alwaysRun=true)
 	public void login() throws InterruptedException {
 		navigate();
-		Assert.assertEquals(login.getTitle(), "AUL Corp.");
+		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 
 	@Test(priority = 1)
 	public void verifyLateralMenuOptionsForAgent_6284() throws InterruptedException {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		String toolbox = getLateralMenuItems2().get(1).getText();
 		ArrayList<String> list = new ArrayList<String>();
 		for(int i=0; i<getLateralMenuItems1().size(); i++) {
@@ -59,7 +59,7 @@ public class LateraMenu_test extends LateralMenuAction {
 //	@Test(priority = 2)
 //	public void verifyErateOptionsAsAgent_6286() throws InterruptedException  {
 //		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
-//		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+//		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 //		Assert.assertTrue(getLateralMenu().isDisplayed());
 //		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 //		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
@@ -77,7 +77,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 3)
 	public void verifyDashboardByDefaultForDealer_6287() throws InterruptedException  {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		Assert.assertEquals(getLateralMenuItems2().get(0).getText(),"Dashboard");
 		String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
@@ -89,7 +89,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 4)
 	public void verifyMenuClosesByClickingSameOption_6329() throws InterruptedException  {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		Assert.assertEquals(getLaterMenuSubItems().size(), 2);
@@ -102,7 +102,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 5)
 	public void verifyMenuClosesByClickingDiffOption_6330() throws InterruptedException  {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		Assert.assertEquals(getLaterMenuSubItems().size(), 2);
@@ -119,7 +119,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 6)
 	public void verifyMenuOptionHighlightedWhenOpened_6332() throws InterruptedException  {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		 
 		 String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
 		 String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
@@ -137,7 +137,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 7)
 	public void verifyMenuElements_6333() throws InterruptedException  {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		 String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
 		 String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
 		 String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
@@ -163,7 +163,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 8)
 	public void verify3rdLevelMenu_6334() throws InterruptedException  {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
 		 String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
 		 String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
@@ -182,7 +182,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 9)
 	public void verifyLateralMenuOptionsForDealer_6347() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		String toolbox = getLateralMenuItems2().get(1).getText();
 		String dashboard = getLateralMenuItems2().get(0).getText();
 		ArrayList<String> list = new ArrayList<String>();
@@ -206,7 +206,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 10)
 	public void verifyErateOptionsForDealer_6348() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
@@ -216,7 +216,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 11)
 	public void verifyErateOptionPagesForDealer_6349() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
@@ -234,7 +234,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 12)
 	public void verifyPrimaryLevelMenuCollapseByDoubleClickForDealer_6351() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		Assert.assertEquals(getLaterMenuSubItems().size(), 2);
@@ -247,7 +247,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 13)
 	public void verifyMenuClosesByClickingDiffOptionForDealer_6353() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		String[] eRateArrowBefore = getMenu("button", "E-Rate").getText().split("E-Rate");
@@ -266,7 +266,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 14)
 	public void verifyMenuEelementsAsDealer_6354() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		 String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
 		 String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
 		 String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
@@ -278,7 +278,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 15)
 	public void verifyPrimaryMenuHighlightedWhenClickedForDealer_6355() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		 verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		 String color = getMenu("button", "E-Rate").getCssValue("background-color");
 		 String eRateColorInHexa=Color.fromString(color).asHex();
@@ -289,7 +289,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 16)
 	public void verify3rdLevelOptionClosedForDealer_6356() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		 verticalMenu.navigatetoLeftMainMenu("Contracts");
 		 String[] contractsArrow = getMenu("button", "Contracts").getText().split("Contracts");
 		 String contractsArrowTxt = contractsArrow[1].trim();
@@ -305,7 +305,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 17)
 	public void verifyMenuOptionClosedByDefaultForDealer_6357() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		 String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
 		 String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
 		 String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
@@ -335,7 +335,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 18)
 	public void verifyCencellationOptionsForDealer_6362() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("Cancellations");
 		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Cancellation Quote"));
@@ -345,7 +345,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 19)
 	public void verifyCencellationOptionPagesForDealer_6363() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("Cancellations");
 		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Cancellation Quote"));
@@ -363,7 +363,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 20)
 	public void verifyDashboardHighlightedForLender_6375() throws InterruptedException {
 		login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertEquals(getLateralMenuItems2().get(0).getText(),"Dashboard");
 		String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
 		String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
@@ -375,7 +375,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 21)
 	public void verifyHelpMenuOptionsForDealer_6391() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("Help");
 		ArrayList<String> list = new ArrayList<String>();
@@ -392,7 +392,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 22)
 	public void verifyHelpMenuOptionPagesForDealer_6392() throws InterruptedException, IOException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("Help");
 		ArrayList<String> list = new ArrayList<String>();
@@ -422,7 +422,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 23)
 	public void verifyMenuOptionsForDealerEmpUser_6405() throws InterruptedException {
 		login.login(prop.getProperty("dealerempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		String toolbox = getLateralMenuItems2().get(1).getText();
 		String dashboard = getLateralMenuItems2().get(0).getText();
 		ArrayList<String> list = new ArrayList<String>();
@@ -446,7 +446,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 24)
 	public void verifyMenuOptionsForDealerEmpUser_6406() throws InterruptedException {
 		login.login(prop.getProperty("dealerempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
@@ -456,7 +456,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 25)
 	public void verifyMenuOptionsForDealerEmpUser_6407() throws InterruptedException {
 		login.login(prop.getProperty("dealerempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
@@ -474,7 +474,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 26)
 	public void verifyMenuOptionsForDealerEmpUser_6408() throws InterruptedException {
 		login.login(prop.getProperty("dealerempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertEquals(getLateralMenuItems2().get(0).getText(),"Dashboard");
 		String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
 		String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
@@ -485,7 +485,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 27)
 	public void verifyPrimaryLevelMenuCollapseByDoubleClickForDealerEmpUser_6410() throws InterruptedException {
 		login.login(prop.getProperty("dealerempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		Assert.assertEquals(getLaterMenuSubItems().size(), 2);
@@ -498,7 +498,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 28)
 	public void verifyMenuClosesByClickingDiffOptionForDealerEmpUser_6411() throws InterruptedException {
 		login.login(prop.getProperty("dealerempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		String[] eRateArrowBefore = getMenu("button", "E-Rate").getText().split("E-Rate");
@@ -517,7 +517,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 29)
 	public void verifyMenuEelementsAsDealerEmpUser_6412() throws InterruptedException {
 		login.login(prop.getProperty("dealerempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		 String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
 		 String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
 		 String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
@@ -529,7 +529,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 30)
 	public void verifyPrimaryMenuHighlightedWhenClickedForDealerEmpUser_6413() throws InterruptedException {
 		login.login(prop.getProperty("dealerempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		 verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		 String color = getMenu("button", "E-Rate").getCssValue("background-color");
 		 String eRateColorInHexa=Color.fromString(color).asHex();
@@ -540,7 +540,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 31)
 	public void verify3rdLevelOptionClosedForDealerEmpUser_6414() throws InterruptedException {
 		login.login(prop.getProperty("dealerempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		 verticalMenu.navigatetoLeftMainMenu("My Settings");
 		 String[] mySettingsArrow = getMenu("button", "My Settings").getText().split("My Settings");
 		 String mySettingsArrowTxt = mySettingsArrow[1].trim();
@@ -555,7 +555,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 32)
 	public void verifyMenuOptionClosedByDefaultForDealerEmpUser_6415() throws InterruptedException {
 		login.login(prop.getProperty("dealerempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		 String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
 		 String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
 		 String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
@@ -585,7 +585,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 33)
 	public void verifyCencellationOptionsForDealerEmpUser_6436() throws InterruptedException {
 		login.login(prop.getProperty("dealerempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("Cancellations");
 		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Cancellation Quote"));
@@ -595,7 +595,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 34)
 	public void verifyCencellationOptionPagesForDealerEmpUser_6437() throws InterruptedException {
 		login.login(prop.getProperty("dealerempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("Cancellations");
 		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Cancellation Quote"));
@@ -613,7 +613,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 35)
 	public void verifyHelpMenuOptionsForDealerEmpUser_6441() throws InterruptedException {
 		login.login(prop.getProperty("dealerempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("Help");
 		ArrayList<String> list = new ArrayList<String>();
@@ -630,7 +630,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 36)
 	public void verifyHelpMenuOptionPagesForDealerEmpUser_6442() throws InterruptedException, IOException {
 		login.login(prop.getProperty("dealerempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("Help");
 		ArrayList<String> list = new ArrayList<String>();
@@ -660,7 +660,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 37)
 	public void verifyAvailableOptionsForAgent_6505() throws InterruptedException {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		String toolbox = getLateralMenuItems2().get(1).getText();
 		ArrayList<String> list = new ArrayList<String>();
 		for(int i=0; i<getLateralMenuItems1().size(); i++) {
@@ -681,7 +681,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 38)
 	public void verifyERateOptionsAsAgent_6506() throws InterruptedException  {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
@@ -691,7 +691,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 39)
 	public void verifyERateOptionsAsAgent_6507() throws InterruptedException  {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
@@ -709,7 +709,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 40)
 	public void verifyDashboardByDefaultForDealer_6508() throws InterruptedException  {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertEquals(getLateralMenuItems2().get(0).getText(),"Dashboard");
 		String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
 		String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
@@ -721,7 +721,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 41)
 	public void verifyMenuOptionsForAdminUser_6612() throws InterruptedException  {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertEquals(getLateralMenuItems2().get(0).getText(),"Dashboard");
 		String[] reports = getLateralMenuItems1().get(0).getText().split("chevron_right");
 		Assert.assertEquals(reports[0].trim(),"Report");
@@ -731,7 +731,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 42)
 	public void verifyDashboardHighlightedForAdminUser_6619() throws InterruptedException  {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		Assert.assertEquals(getLateralMenuItems2().get(0).getText(),"Dashboard");
 		String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
@@ -743,7 +743,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 43)
 	public void verifyPrimaryLevelMenuCollapseByDoubleClickAsAgentUser_6630() throws InterruptedException {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		Assert.assertEquals(getLaterMenuSubItems().size(), 2);
@@ -756,7 +756,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 44)
 	public void verifyMenuClosesByClickingDiffOptionAsAgentUser_6631() throws InterruptedException {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		String[] eRateArrowBefore = getMenu("button", "E-Rate").getText().split("E-Rate");
@@ -775,7 +775,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 45)
 	public void verifyMenuEelementsAsAgentUser_6632() throws InterruptedException {
 		 login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
-		 Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		 Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		 String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
 		 String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
 		 String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
@@ -787,7 +787,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 46)
 	public void verifyPrimaryMenuHighlightedWhenClickedAsAgentUser_6633() throws InterruptedException {
 		 login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
-		 Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		 Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		 verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		 String color = getMenu("button", "E-Rate").getCssValue("background-color");
 		 String eRateColorInHexa=Color.fromString(color).asHex();
@@ -799,7 +799,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 47)
 	public void verifyMenuOptionClosedByDefaultAsAgentUser_6637() throws InterruptedException {
 		 login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
-		 Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		 Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		 String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
 		 String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
 		 String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
@@ -829,7 +829,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 48)
 	public void verifyPrimaryLevelMenuCollapseByDoubleClickAsAdmin_6645() throws InterruptedException {
 		 login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
-		 Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		 Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		 Assert.assertTrue(getLateralMenu().isDisplayed());
 		 verticalMenu.navigatetoLeftMainMenu("Report");
 		 String[] reportsArrw = getMenu("button", "Report").getText().split("Report");
@@ -858,7 +858,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 49)
 	public void verifyMenuEelementsAsAdminUser_6648() throws InterruptedException {
 		 login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
-		 Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		 Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		 String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
 		 String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
 		 String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
@@ -871,7 +871,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 50)
 	public void verifyMenuOptionClosedByDefaultAsAdminUser_6650() throws InterruptedException {
 		 login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
-		 Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		 Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		 String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
 		 String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
 		 String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
@@ -889,7 +889,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 51)
 	public void verifyPrimaryMenuHighlightedWhenClickedAsAdminUser_6651() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
-		 Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		 Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		 Assert.assertTrue(getLateralMenu().isDisplayed());
 		 verticalMenu.navigatetoLeftMainMenu("Report");
 		 Assert.assertEquals(getLaterMenuSubItems().size(), 5);
@@ -912,7 +912,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 52)
 	public void verifyErateMenuOptionsAsAgentUser_6655() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
@@ -922,7 +922,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 53)
 	public void verifyHelpMenuOptionsAsAgent_6662() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("Help");
 		ArrayList<String> list = new ArrayList<String>();
@@ -939,7 +939,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 54)
 	public void verifyHelpMenuOptionPagesAsAgent_6663() throws InterruptedException, IOException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("Help");
 		ArrayList<String> list = new ArrayList<String>();
@@ -969,7 +969,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 55)
 	public void verifyMenuOptionsForSubAgent_6915() throws InterruptedException {
 		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		String dashboard = getLateralMenuItems2().get(0).getText();
 		String toolbox = getLateralMenuItems2().get(1).getText();
 		ArrayList<String> list = new ArrayList<String>();
@@ -991,7 +991,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 56)
 	public void verifyErateOptionPagesAsSubAgent_6916() throws InterruptedException  {
 		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
@@ -1009,7 +1009,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 57)
 	public void verifyDashboardByDefaultAsSubAgent_6917() throws InterruptedException  {
 		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertEquals(getLateralMenuItems2().get(0).getText(),"Dashboard");
 		String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
 		String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
@@ -1020,7 +1020,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 58)
 	public void verifyPrimaryLevelMenuCollapseByDoubleClickAsSubAgent_6919() throws InterruptedException {
 		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		Assert.assertEquals(getLaterMenuSubItems().size(), 2);
@@ -1033,7 +1033,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 59)
 	public void verifyMenuClosesByClickingDiffOptionAsSubAgent_6920() throws InterruptedException {
 		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		String[] eRateArrowBefore = getMenu("button", "E-Rate").getText().split("E-Rate");
@@ -1052,7 +1052,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 60)
 	public void verifyMenuEelementsAsSubAgent_6921() throws InterruptedException {
 		 login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
-		 Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		 Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		 String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
 		 String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
 		 String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
@@ -1064,7 +1064,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 61)
 	public void verifyPrimaryMenuHighlightedWhenClickedAsSubAgent_6922() throws InterruptedException {
 		 login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
-		 Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		 Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		 verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		 String color = getMenu("button", "E-Rate").getCssValue("background-color");
 		 String eRateColorInHexa=Color.fromString(color).asHex();
@@ -1076,7 +1076,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 62)
 	public void verifyMenuOptionClosedByDefaultAsSubAgent_6924() throws InterruptedException {
 		 login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
-		 Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		 Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		 String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
 		 String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
 		 String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
@@ -1103,7 +1103,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 63)
 	public void verifyErateOptionsAsSubAgent_6929() throws InterruptedException  {
 		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
@@ -1113,7 +1113,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 64)
 	public void verifyHelpMenuOptionsAsSubAgent_6936() throws InterruptedException {
 		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("Help");
 		ArrayList<String> list = new ArrayList<String>();
@@ -1130,7 +1130,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 65)
 	public void verifyHelpMenuOptionPagesAsSubAgent_6937() throws InterruptedException, IOException {
 		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("Help");
 		ArrayList<String> list = new ArrayList<String>();
@@ -1160,7 +1160,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 66)
 	public void verifyAvailableOptionsAsLender_6946() throws InterruptedException {
 		login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		String dashBoard = getLateralMenuItems2().get(0).getText();
 		String toolbox = getLateralMenuItems2().get(1).getText();
 		ArrayList<String> list = new ArrayList<String>();
@@ -1183,7 +1183,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 67)
 	public void verifyERateOptionsAsLender_6947() throws InterruptedException  {
 		login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
@@ -1193,7 +1193,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 68)
 	public void verifyContractOptionsAsLender_6948() throws InterruptedException  {
 		login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("Contracts");
 		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Contract Search"));
@@ -1204,7 +1204,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 69)
 	public void verifyHelpMenuOptionsAsLender_6951() throws InterruptedException {
 		login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("Help");
 		ArrayList<String> list = new ArrayList<String>();
@@ -1221,7 +1221,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 70)
 	public void verifyErateOptionPagesAsLender_6953() throws InterruptedException  {
 		login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
@@ -1240,7 +1240,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 71)
 	public void verifyContractOptionPageAsLender_6954() throws InterruptedException  {
 		login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("Contracts");
 		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Contract Search"));
@@ -1253,7 +1253,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 72)
 	public void verifyHelpMenuOptionPagesAsLender_6957() throws InterruptedException, IOException {
 		login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("Help");
 		ArrayList<String> list = new ArrayList<String>();
@@ -1283,7 +1283,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 73)
 	public void verifyPrimaryLevelMenuCollapseByDoubleClickAsLender_6959() throws InterruptedException {
 		login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		Assert.assertEquals(getLaterMenuSubItems().size(), 2);
@@ -1300,7 +1300,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 74)
 	public void verifyMenuClosesByClickingDiffOptionAsLender_6960() throws InterruptedException {
 		login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		String[] eRateArrowBefore = getMenu("button", "E-Rate").getText().split("E-Rate");
@@ -1323,7 +1323,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 75)
 	public void verifyMenuEelementsAsLender_6961() throws InterruptedException {
 		 login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
-		 Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		 Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		 String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
 		 String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
 		 String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
@@ -1335,7 +1335,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 76)
 	public void verifyMenuOptionClosedByDefaultAsLender_6963() throws InterruptedException {
 		login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		 String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
 		 String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
 		 String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
@@ -1365,7 +1365,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 77)
 	public void verifyClickOnPrimaryLevelMenuAsLender_6964() throws InterruptedException {
 		login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		
 		String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
@@ -1386,7 +1386,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 78)
 	public void verifyDashboardHighlightedByDefaultForLenderEmp_6984() throws InterruptedException  {
 		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		Assert.assertEquals(getLateralMenuItems2().get(0).getText(),"Dashboard");
 		String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
@@ -1398,7 +1398,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 79)
 	public void verifyAvailableOptionsAsLenderEmp_6985() throws InterruptedException {
 		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		String dashBoard = getLateralMenuItems2().get(0).getText();
 		String toolbox = getLateralMenuItems2().get(1).getText();
 		ArrayList<String> list = new ArrayList<String>();
@@ -1421,7 +1421,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 80)
 	public void verifyERateOptionsAsLenderEmp_6986() throws InterruptedException  {
 		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
@@ -1431,7 +1431,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 81)
 	public void verifyContractOptionsAsLenderEmp_6987() throws InterruptedException  {
 		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("Contracts");
 		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Contract Search"));
@@ -1442,7 +1442,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 82)
 	public void verifyHelpMenuOptionsAsLenderEmp_6990() throws InterruptedException {
 		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("Help");
 		ArrayList<String> list = new ArrayList<String>();
@@ -1459,7 +1459,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 83)
 	public void verifyErateOptionPagesAsLenderEmp_6991() throws InterruptedException  {
 		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
@@ -1479,7 +1479,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 84)
 	public void verifyHelpMenuOptionPagesAsLenderEmp_6997() throws InterruptedException, IOException {
 		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("Help");
 		ArrayList<String> list = new ArrayList<String>();
@@ -1509,7 +1509,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 85)
 	public void verifyPrimaryLevelMenuCollapseByDoubleClickAsLenderEmp_7002() throws InterruptedException {
 		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		Assert.assertEquals(getLaterMenuSubItems().size(), 2);
@@ -1526,7 +1526,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 86)
 	public void verifyMenuClosesByClickingDiffOptionAsLenderEmp_7003() throws InterruptedException {
 		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
 		String[] eRateArrowBefore = getMenu("button", "E-Rate").getText().split("E-Rate");
@@ -1549,7 +1549,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 87)
 	public void verifyMenuEelementsAsLenderEmp_7005() throws InterruptedException {
 		 login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
-		 Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		 Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		 String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
 		 String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
 		 String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
@@ -1561,7 +1561,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 88)
 	public void verifyMenuOptionClosedByDefaultAsLenderEmp_7006() throws InterruptedException {
 		 login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
-		 Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		 Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		 String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
 		 String dashBoardHighlighterColorInHexa=Color.fromString(dashBoardHighlighter).asHex();
 		 String expectedOrangeColorInHexa=prop.getProperty("darkOrangeInHexaForm");
@@ -1591,7 +1591,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 89)
 	public void verifyClickOnPrimaryLevelMenuAsLenderEmp_7007() throws InterruptedException {
 		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		
 		String dashBoardHighlighter = getLateralMenuItems2().get(0).getCssValue("border-left-color");
@@ -1612,7 +1612,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 90)
 	public void verifySignInAndSignOutAccessUsingURLAsAgent_7123() throws InterruptedException {
 		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		driver.get(prop.getProperty("signOutURL"));
 		Assert.assertTrue(getDashboardTitle().isDisplayed());
 		
@@ -1621,7 +1621,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 91)
 	public void verifySignInAndSignOutAccessUsingURLAsSubAgent_7124() throws InterruptedException {
 		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		driver.get(prop.getProperty("signOutURL"));
 		Assert.assertTrue(getDashboardTitle().isDisplayed());
 		
@@ -1630,7 +1630,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 92)
 	public void verifySignInAndSignOutAccessUsingURLAsLender_7125() throws InterruptedException {
 		login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		driver.get(prop.getProperty("signOutURL"));
 		Assert.assertTrue(getDashboardTitle().isDisplayed());
 	}
@@ -1638,7 +1638,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 93)
 	public void verifySignInAndSignOutAccessUsingURLAsLenderEmpUser_7125() throws InterruptedException {
 		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		driver.get(prop.getProperty("signOutURL"));
 		Assert.assertTrue(getDashboardTitle().isDisplayed());
 	}
@@ -1646,7 +1646,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 94)
 	public void verifyDashboardOptionLinkFunctionalityForDealerGroupUser_15750() throws InterruptedException {
 		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		getLateralMenuItems2().get(0).click();
 		Assert.assertTrue(driver.getCurrentUrl().contains("adl.aulcorp.com/portal"));
 	}
@@ -1654,7 +1654,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 95)
 	public void verifyRateOrContractMenuOptionLinkForDealerGroupUser_15753() throws InterruptedException {
 		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
 		Assert.assertTrue(getGenerateQuoteTxt().getText().equals("To Generate a Quote Sign In as a Dealer"));
 	}
@@ -1664,7 +1664,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 96)
 	public void verifyContractsOptionInMenuForDealerGroupUser_15755() throws InterruptedException {
 		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMainMenu("Contracts");
 		ArrayList<String> list = new ArrayList<String>();
 		for(int i=0; i<getLaterMenuSubItems().size(); i++) {
@@ -1678,7 +1678,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 97)
 	public void verifyContractsOptionLinkInMenuForDealerGroupUser_15758() throws InterruptedException {
 		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Assert.assertTrue(driver.getCurrentUrl().contains("qa.adl.aulcorp.com/portal/contracts/contract-search"));
 	}
@@ -1686,7 +1686,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 98)
 	public void verifyRemitGAPmenuOptionForDealerGroupUser_15790() throws InterruptedException {
 		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMainMenu("Contracts");
 		ArrayList<String> list = new ArrayList<String>();
 		for(int i=0; i<getLaterMenuSubItems().size(); i++) {
@@ -1700,7 +1700,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 99)
 	public void verifyRemitGAPmenuOptionLinkForDealerGroupUser_15794() throws InterruptedException {
 		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Remit GAP");
 		ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
 		String currentWindow= windowHandles.get(1);
@@ -1714,7 +1714,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 100)
 	public void verifyRemitAncillarymenuOptionLinkForDealerGroupUser_15797() throws InterruptedException {
 		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Ancillary");
 		ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
 		String currentWindow= windowHandles.get(1);
@@ -1728,7 +1728,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 101)
 	public void verifyRemitAncillarymenuOptionForDealerGroupUser_15798() throws InterruptedException {
 		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMainMenu("Contracts");
 		ArrayList<String> list = new ArrayList<String>();
 		for(int i=0; i<getLaterMenuSubItems().size(); i++) {
@@ -1741,7 +1741,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 102)
 	public void verifyStatementsOptionInMenuForDealerGroupUser_15801() throws InterruptedException {
 		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMainMenu("Report");
 		ArrayList<String> list = new ArrayList<String>();
 		for(int i=0; i<getLaterMenuSubItems().size(); i++) {
@@ -1756,7 +1756,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(enabled = false)
 	public void verifyStatementsOptionLinkInMenuForDealerGroupUser_15802() throws InterruptedException {
 		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Report", "Statements");
 		Assert.assertTrue(driver.getCurrentUrl().contains("qa.adl.aulcorp.com/portal/report/statements"));
 		Thread.sleep(10000);
@@ -1767,7 +1767,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 104)
 	public void verifyImpersonateOptionInMenuForDealerGroupUser_15812() throws InterruptedException {
 		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMainMenu("My Settings");
 		ArrayList<String> list = new ArrayList<String>();
 		for(int i=0; i<getLaterMenuSubItems().size(); i++) {
@@ -1780,7 +1780,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 105)
 	public void verifyIssueNewRegistrationOptionLinkForDealerGroupUser_15813() throws InterruptedException {
 		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("My Settings", "Issue New User Registration");
 		Assert.assertTrue(driver.getCurrentUrl().contains("qa.adl.aulcorp.com/portal/my-settings/issue-new-user"));
 	}
@@ -1788,7 +1788,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 106)
 	public void verifyIssueNewRegistrationOptionInMenuForDealerGroupUser_15815() throws InterruptedException {
 		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMainMenu("My Settings");
 		ArrayList<String> list = new ArrayList<String>();
 		for(int i=0; i<getLaterMenuSubItems().size(); i++) {
@@ -1801,7 +1801,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 107)
 	public void verifyPreferencesOptionInMenuForDealerGroupUser_15816() throws InterruptedException {
 		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMainMenu("My Settings");
 		ArrayList<String> list = new ArrayList<String>();
 		for(int i=0; i<getLaterMenuSubItems().size(); i++) {
@@ -1817,7 +1817,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(enabled = false)
 	public void verifyPreferencesOptionLinkForDealerGroupUser_15817() throws InterruptedException {
 		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("My Settings", "Preferences");
 		Thread.sleep(10000);
 		Assert.assertTrue(driver.getCurrentUrl().contains("qa.adl.aulcorp.com/portal/my-settings/preferences"));
@@ -1827,7 +1827,7 @@ public class LateraMenu_test extends LateralMenuAction {
 	@Test(priority = 109)
 	public void verifyDashboardOptionForDealerGroupUser_15738() throws InterruptedException {
 		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your AUL ADL Portal!");
+		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		Assert.assertTrue(getLateralMenu().isDisplayed());
 		Assert.assertEquals(getLateralMenuItems2().get(0).getText(),"Dashboard");
 	}

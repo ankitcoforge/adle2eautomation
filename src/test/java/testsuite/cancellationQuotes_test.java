@@ -45,7 +45,7 @@ public class cancellationQuotes_test extends cancellationQuotesAction {
 			lo.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 			HashMap<String, String> data = dbMap.get(1);
 			String roleId = data.get("ROLE_IDENTIFIER");
-			//Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
+			//Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 			vo.navigatetoimpersonate();
 			impersonate.impersonateUser("Dealer", roleId);
 			vo.navigatetoLeftMenu("Cancellations", "Cancellation Quote");

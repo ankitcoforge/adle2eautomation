@@ -80,7 +80,7 @@ public class WebMileageExceptionAction extends WebMileageExceptionpo{
 					}
 			 Thread.sleep(2000);
 			 utils.clickfield("xpath", arrowbtn);
-			Thread.sleep(1000);
+			Thread.sleep(5000);
 
 		}
 	 
@@ -271,6 +271,7 @@ public HashMap<String, WebElement> getSearchBoxesForModifiedBy() {
 		 getNewExceptionBtn().click();
 			Thread.sleep(5000);
 		    getArrow().click();
+		    Thread.sleep(5000);
 			selectProgramNew(program);
 			utils.scrollDown();
 			getMileageAndAgeFeilds().get(0).clear();

@@ -347,6 +347,11 @@ public class utilityClass extends baseClass{
  			jse.executeScript("arguments[0].click()", driver.findElement(By.xpath(ele)));
  	 		}
  		
+ 		public void scrollDownUsingJSE(int value) throws InterruptedException {
+ 	 		JavascriptExecutor js=(JavascriptExecutor)driver;
+ 			js.executeScript("window.scrollTo(0, "+value+")");
+ 			Thread.sleep(500);
+ 	 		}
  		
  		 public WebElement getTitle(String heading) {
  			 WebElement welcomeTitle=getfield("h3", heading);
@@ -389,5 +394,14 @@ public class utilityClass extends baseClass{
  			WebDriverWait wait = new WebDriverWait(driver,time);
  			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//ngx-spinner/div")));
  		}
+ 		
+ 		public void wait1() throws InterruptedException {
+ 			Thread.sleep(5000);
+ 		}
+ 		
+ 		public void wait(int time) throws InterruptedException {
+ 			Thread.sleep(time);
+ 		}
+ 		
 }
 

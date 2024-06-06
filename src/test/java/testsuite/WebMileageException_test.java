@@ -42,18 +42,15 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	@BeforeMethod(alwaysRun = true)
 	public void login() throws InterruptedException {
 		navigate();
-		Assert.assertEquals(login.getTitle(), "AUL Corp.");
+		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 
 	@Test(priority = 1)
 	public void verifyMileageExceptionPage_31267() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-		Thread.sleep(2000);
+		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
-		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Mileage & Age Exceptions").isDisplayed());
-		Thread.sleep(2000);
 		enterRoleAndRoleID("Dealer","#1 Auto Liquidators LLC (85860)");
 		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
 			System.out.println("Exceptions are present");
@@ -67,14 +64,9 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	@Test(priority = 2)
 	public void verifySearchBoxesInGrid_31268_31269_31270_31271_31272_31273_31379_31380_31274_31388() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
-		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Mileage & Age Exceptions").isDisplayed());
-		Thread.sleep(2000);
 		enterRoleAndRoleID("Dealer","#1 Auto Liquidators LLC (85860)");
-		//System.out.println("row size---"+getRows().size());
 		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
 			preferences.getSelectAllCheckBox().click();
 			gridPacks.getDeleteLink().click();
@@ -82,9 +74,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 			Thread.sleep(2000);
 		}
 		createNewException("UF3");
-
 		HashMap<Integer, HashMap<String, String>> allTableDataTxt = checkGridBodyDetailsTxt();
-		
 		
 		String roleID = allTableDataTxt.get(1).get("Role ID");
 		getSearchBoxesInGrid().get("Role ID").sendKeys(roleID);
@@ -174,12 +164,8 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	@Test(priority = 3)
 	public void verifyEditPage_31275_31395() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
-		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Mileage & Age Exceptions").isDisplayed());
-		Thread.sleep(2000);
 		enterRoleAndRoleID("Dealer","#1 Auto Liquidators LLC (85860)");
 		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
 			preferences.getSelectAllCheckBox().click();
@@ -188,7 +174,6 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 			Thread.sleep(2000);
 		}
 		createNewException("UF3");
-		
 		getEditBtn(1).click();
 		Thread.sleep(2000);
 		Assert.assertTrue(getRoleTypeInPopup().isDisplayed());
@@ -209,12 +194,8 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	@Test(priority = 4)
 	public void verifyDeleteFuctionality_31276_31277() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
-		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Mileage & Age Exceptions").isDisplayed());
-		Thread.sleep(2000);
 		enterRoleAndRoleID("Dealer","#1 Auto Liquidators LLC (85860)");
 		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
 			preferences.getSelectAllCheckBox().click();
@@ -243,12 +224,8 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	@Test(priority = 5)
 	public void verifyCancelBtn_31384() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
-		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Mileage & Age Exceptions").isDisplayed());
-		Thread.sleep(2000);
 		enterRoleAndRoleID("Dealer","#1 Auto Liquidators LLC (85860)");
 		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
 			preferences.getSelectAllCheckBox().click();
@@ -276,12 +253,8 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	@Test(priority = 6)
 	public void verifyPagination_31385() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
-		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Mileage & Age Exceptions").isDisplayed());
-		Thread.sleep(2000);
 		enterRoleAndRoleID("Dealer","#1 Auto Liquidators LLC (85860)");
 		getRowsPerPageDropdownbtn().click();
 		getRowsPerPageDropdownlist().get(0).click();
@@ -300,14 +273,9 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	@Test(priority = 7)
 	public void verifyNewExceptionCreation_31389_31394() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
-		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Mileage & Age Exceptions").isDisplayed());
-		Thread.sleep(2000);
-		enterRoleAndRoleID("Dealer","34159");
-		Thread.sleep(3000);
+		enterRoleAndRoleID("Dealer","#1 Auto Liquidators LLC (85860)");
 		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
 			preferences.getSelectAllCheckBox().click();
 			gridPacks.getDeleteLink().click();
@@ -320,14 +288,9 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	@Test(priority = 8)
 	public void verifyNewExceptionCancelBtn_31390() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
-		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Mileage & Age Exceptions").isDisplayed());
-		Thread.sleep(2000);
 		enterRoleAndRoleID("Dealer","#1 Auto Liquidators LLC (85860)");
-		Thread.sleep(3000);
 		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
 			preferences.getSelectAllCheckBox().click();
 			gridPacks.getDeleteLink().click();
@@ -354,16 +317,10 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	@Test(priority = 9)
 	public void verifyExceptionWithDealerEmplContract_31391() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
-		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Mileage & Age Exceptions").isDisplayed());
-		Thread.sleep(2000);
 		String dealerId = "34159";
 		enterRoleAndRoleID("Dealer",dealerId);
-		Thread.sleep(3000);
-		Thread.sleep(2000);
 		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
 			preferences.getSelectAllCheckBox().click();
 			gridPacks.getDeleteLink().click();
@@ -375,14 +332,10 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 		entertAge("0", "30");
 		getBtnSave().click();
 		Thread.sleep(2000);
-		
 		login.logout();
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Thread.sleep(3000);
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("DealerEmp", dealerId);
-		Thread.sleep(5000);
-
 		verticalMenu.navigatetoContract();
 		getProducts("5FNRL6H27NB019645","101");
 		getPrograms("Essentials");
@@ -391,16 +344,10 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	@Test(priority = 10)
 	public void verifyExceptionWithLenderEmp_31392() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
-		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Mileage & Age Exceptions").isDisplayed());
-		Thread.sleep(2000);
 		String lenderId = "3641";
 		enterRoleAndRoleID("Lender",lenderId);
-		Thread.sleep(3000);
-		Thread.sleep(2000);
 		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
 			preferences.getSelectAllCheckBox().click();
 			gridPacks.getDeleteLink().click();
@@ -412,14 +359,8 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 		entertAge("0", "10");
 		getBtnSave().click();
 		Thread.sleep(2000);
-		
 		login.logout();
 		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("adminpassword"));
-		Thread.sleep(3000);
-//		verticalMenu.navigatetoimpersonate();
-//		impersonate.impersonateUser("LenderEmp", lenderId);
-//		Thread.sleep(5000);
-
 		verticalMenu.navigatetoContract();
 		contract.getSelectDealerTogenerateContract("#1 Auto Liquidators LLC");
 		getProductsForLender("5FNRL6H27NB019645","101");
@@ -429,16 +370,10 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	@Test(priority = 11)
 	public void verifyExceptionReflectWithMileageForDealer_31589() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
-		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Mileage & Age Exceptions").isDisplayed());
-		Thread.sleep(2000);
 		String dealerId = "34159";
 		enterRoleAndRoleID("Dealer",dealerId);
-		Thread.sleep(3000);
-		Thread.sleep(2000);
 		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
 			preferences.getSelectAllCheckBox().click();
 			gridPacks.getDeleteLink().click();
@@ -449,12 +384,8 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 		selectProgramAndentertMileage("Essentials", "100", "1000");
 		getBtnSave().click();
 		Thread.sleep(2000);
-		
-		Thread.sleep(3000);
 		verticalMenu.navigatetoLeftMenu("Impersonate");
 		impersonate.impersonateUser("Dealer", dealerId);
-		Thread.sleep(5000);
-
 		verticalMenu.navigatetoContract();
 		getProducts("5FNRL6H27NB019645","101");
 		getPrograms("Essentials");
@@ -464,16 +395,10 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	@Test(priority = 12)
 	public void verifyExceptionReflectWithAgeForDealer_31593_31594() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
-		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Mileage & Age Exceptions").isDisplayed());
-		Thread.sleep(2000);
 		String dealerId = "34159";
 		enterRoleAndRoleID("Dealer",dealerId);
-		Thread.sleep(3000);
-		Thread.sleep(2000);
 		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
 			preferences.getSelectAllCheckBox().click();
 			gridPacks.getDeleteLink().click();
@@ -484,12 +409,9 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 		selectProgramAndentertMileage("Essentials", "0", "0");
 		entertAge("0", "10");
 		getBtnSave().click();
-		Thread.sleep(10000);
-		
+		Thread.sleep(5000);
 		verticalMenu.navigatetoLeftMenu("Impersonate");
 		impersonate.impersonateUser("Dealer", dealerId);
-		Thread.sleep(5000);
-
 		verticalMenu.navigatetoContract();
 		getProducts("5FNRL6H27NB019645","0");
 		getPrograms("Essentials");
@@ -498,16 +420,10 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	@Test(priority = 13)
 	public void verifyExceptionReflectWithMileageForLender_31595() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
-		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Mileage & Age Exceptions").isDisplayed());
-		Thread.sleep(2000);
 		String lenderId = "3641";
 		enterRoleAndRoleID("Lender",lenderId);
-		Thread.sleep(3000);
-		Thread.sleep(2000);
 		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
 			preferences.getSelectAllCheckBox().click();
 			gridPacks.getDeleteLink().click();
@@ -519,12 +435,8 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 		entertAge("0", "10");
 		getBtnSave().click();
 		Thread.sleep(2000);
-		
-		Thread.sleep(3000);
 		verticalMenu.navigatetoLeftMenu("Impersonate");
 		impersonate.impersonateUser("Lender", lenderId);
-		Thread.sleep(5000);
-
 		verticalMenu.navigatetoContract();
 		contract.getSelectDealerTogenerateContract("#1 Auto Liquidators LLC");
 		getProductsForLender("5GAKRDED0CJ396612","550");
@@ -535,16 +447,10 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	@Test(priority = 14)
 	public void verifyExceptionReflectWithAgeForLender_31597_31596() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
-		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Mileage & Age Exceptions").isDisplayed());
-		Thread.sleep(2000);
 		String lenderId = "3641";
 		enterRoleAndRoleID("Lender",lenderId);
-		Thread.sleep(3000);
-		Thread.sleep(2000);
 		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
 			preferences.getSelectAllCheckBox().click();
 			gridPacks.getDeleteLink().click();
@@ -555,12 +461,8 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 		selectProgramAndentertMileage("UF3", "100", "1000");
 		getBtnSave().click();
 		Thread.sleep(2000);
-		
-		Thread.sleep(3000);
 		verticalMenu.navigatetoLeftMenu("Impersonate");
 		impersonate.impersonateUser("Lender", lenderId);
-		Thread.sleep(5000);
-
 		verticalMenu.navigatetoContract();
 		contract.getSelectDealerTogenerateContract("#1 Auto Liquidators LLC");
 		getProductsForLender("5FNRL6H27NB019645","101");
@@ -570,14 +472,9 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	@Test(priority = 15)
 	public void verifyEffectiveDateFeild_31279() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
-		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Mileage & Age Exceptions").isDisplayed());
-		Thread.sleep(2000);
 		enterRoleAndRoleID("Dealer","34159");
-		Thread.sleep(3000);
 		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
 			preferences.getSelectAllCheckBox().click();
 			gridPacks.getDeleteLink().click();
@@ -597,12 +494,8 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	@Test(priority = 16)
 	public void verifySortingAndUnsortingDate_31278_31280() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your AUL ADL Portal!");
-		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Account Management", "Mileage & Age Exceptions");
-		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Mileage & Age Exceptions").isDisplayed());
-		Thread.sleep(2000);
 		enterRoleAndRoleID("Dealer","28771");
 		if (!getNoRecordsInGrid().getText().contains("There are no records to display")) {
 			preferences.getSelectAllCheckBox().click();
@@ -626,7 +519,6 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 		System.out.println(dateList);
 		Assert.assertEquals(dateListBeforeSort,dateList);
 		Thread.sleep(2000);
-		
 		getGridArrowBtn("Prog Eff.Date").click();
 		HashMap<Integer, HashMap<String, String>> allTableDataTxtOnArrowClick2 = checkGridBodyDetailsTxt();
 		ArrayList<String> dateListOnArrowClick2 = new ArrayList<String>();

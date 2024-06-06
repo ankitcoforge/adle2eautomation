@@ -325,7 +325,7 @@ public class EmployeePacksAction extends EmployeePackspo{
 		utils.scrollDown();
 		getPackAmount().sendKeys(packAmount);
 		getBtnSave().click();
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 	 }
 	 
 	 public void createNewPackFutureDate(String program,String packAmount,int days) throws Exception {
@@ -405,7 +405,6 @@ public class EmployeePacksAction extends EmployeePackspo{
 	 
 	 public void selectDealerInManageUserPage() throws InterruptedException {
      ManageUserPage.selectDealerInmanageUserPage(UtilsDataReader.getXMLData("dealer3"));
-     utils.waitTillElementIsVisible(io.tableFirstRow);
 	 }
 	 
 	 public void selectRoleTypeAndStatusCompleted(String roleType) throws InterruptedException {
@@ -433,20 +432,21 @@ public class EmployeePacksAction extends EmployeePackspo{
 		if(allTableData.get(1).get("Role Type").equals(roleType) && allTableData.get(1).get("Registration Status").equals(status) )
 		{
 			tableDataForEditDelLock.get(1).get("Edit").click();
-	
-	 WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions
-				.visibilityOfAllElements(utils.getElementsList("xpath", NewUserRegistrationPage.permissionsArrow)));
+	utils.wait(2000);
+//	 WebDriverWait wait = new WebDriverWait(driver, 10);
+//		wait.until(ExpectedConditions
+//				.visibilityOfAllElements(utils.getElementsList("xpath", NewUserRegistrationPage.permissionsArrow)));
 		utils.element("xpath", NewUserRegistrationPage.permissionsArrow).click();
-		utils.waituntillPageIsloaded();
+		Thread.sleep(1000);
 		if(utils.element("xpath", ManageUserPage.selectAllLink).getAttribute("aria-checked").equals("false")) {
 		utils.element("xpath", ManageUserPage.selectAllLink).click();
 		}
+//		Thread.sleep(1000);
 		utils.element("xpath", ManageUserPage.closeInPermPopup).click();
-		utils.waitTillElementIsVisible( ManageUserPage.saveBtn);
+//		utils.waitTillElementIsVisible( ManageUserPage.saveBtn);
 		utils.element("xpath", ManageUserPage.saveBtn).click();
-		utils.waituntillPageIsloaded();
-//		}
+//		Thread.sleep(2000);
+		utils.waitTillElementIsVisible(io.tableFirstRow);
 		}
 }
      

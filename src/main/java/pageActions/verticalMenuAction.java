@@ -38,6 +38,7 @@ public class verticalMenuAction extends verticalMenupo{
 		driver.switchTo().activeElement();
 		event.clickfield("xpath", accountManagement);
 		event.clickfield("xpath", impersonate);
+		Thread.sleep(2000);
 
 	}
 	
@@ -47,6 +48,7 @@ public class verticalMenuAction extends verticalMenupo{
 		driver.switchTo().activeElement();
 		event.getfield("button", heading).click();
 		event.getfield("a", subheading).click();
+		Thread.sleep(2000);
 
 	}
 	
@@ -54,6 +56,7 @@ public class verticalMenuAction extends verticalMenupo{
 		Thread.sleep(6000);
 		driver.switchTo().activeElement();
 		event.getfield("a", subheading).click();
+		Thread.sleep(2000);
 
 	}
 
@@ -61,6 +64,7 @@ public class verticalMenuAction extends verticalMenupo{
 		Thread.sleep(6000);
 		driver.switchTo().activeElement();
 		event.getfield("button", heading).click();
+		Thread.sleep(5000);
 	}
 	
 	public String getTitle() {

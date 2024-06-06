@@ -4,7 +4,7 @@ import utils.baseClass;
 
 public class ManageVSC_GAPpreferencesPO extends baseClass {
 
-	public String portalTitle = "//b[text()='Welcome to your AUL ADL Portal!']";
+	public String portalTitle = "//b[text()='Welcome to your Protective ADL Portal!']";
 	public String headerLoc = "thead > adl-table-header > tr:nth-child(1) > th[role='columnheader']";
 	public String searchBoxesBelowHeadersInGrid = "thead > adl-table-header > tr:nth-child(2) > td>div>div>input";
 	public String searchBoxArrow = "p-multiselect>div>div:nth-child(3)";

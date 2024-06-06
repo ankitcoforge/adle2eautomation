@@ -74,14 +74,16 @@ public class singleContractAction extends contractpo {
 		event.inputfield("cssSelector", textbox, listb, 2);
 		event.clickfield("cssSelector", "[role=listbox] > [role=option]");
 		event.inputfield("cssSelector", textbox, "1234", 5);
-//		event.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 6);
-		event.inputfield("cssSelector", textbox, "1HGCY2F55PA001395", 6);
+		event.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 6);
+//		event.inputfield("cssSelector", textbox, "1HGCY2F55PA001395", 6);
 		event.clickfield("xpath", getProducts);
-		co.programSelect("Service Drive - SDF");
+		co.programSelect("Limited Warranty - RAW");
 		event.clickfield("cssSelector", table, 0);
 		event.inputfield("cssSelector", contract, "10000", 0);
 		selectOptionSurcharge();
 		inserviceDate();
+		filladdress();
+		Thread.sleep(5000);
 //		Assert.assertEquals(addGapLabel(), "Add GAP")
     	event.clickfield("xpath", generateContract);
 

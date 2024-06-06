@@ -4,7 +4,7 @@ import utils.baseClass;
 
 public class EditContractpo extends baseClass{
 	
-	public String ADLwelcometitle = "//b[text()='Welcome to your AUL ADL Portal!']";
+	public String ADLwelcometitle = "//b[text()='Welcome to your Protective ADL Portal!']";
 	public String contractSearchPagetitle = "//h3[text()='Contract Search']";
 	public String editContractPagetitle = "//h3[text()='Edit Contract']";
 	public String rateOrContractPageTitle = "//h3[text()='Rate/Contract']";

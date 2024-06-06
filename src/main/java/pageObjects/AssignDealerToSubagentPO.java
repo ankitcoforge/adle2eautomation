@@ -9,4 +9,5 @@ public class AssignDealerToSubagentPO extends baseClass{
 	public String addDealer = "//span[text()=' + Add Dealer ']";
 	public String selectDealerArrow = "//span[contains(@class,'ui-multiselect-trigger-icon ui-clickable')]";
 	public String btnClose = "//a[contains(@class,'ui-multiselect-close')]";
+	public String inputTypeOrSelectSubAgent = "//input[@role='combobox']";
 }

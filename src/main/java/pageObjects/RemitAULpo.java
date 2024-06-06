@@ -4,7 +4,7 @@ import utils.baseClass;
 
 public class RemitAULpo extends baseClass {
 
-	public String ADLwelcometitle = "//b[text()='Welcome to your AUL ADL Portal!']";
+	public String ADLwelcometitle = "//b[text()='Welcome to your Protective ADL Portal!']";
 	public String remitContractsTitle = "//h3[text()='Remit Contracts to AUL']";
 	public String selectContractsTab = "//h5[text()='Select Contracts']";
 	public String selectContractByDefault = "//h5[text()='Select Contracts']/../..";
@@ -29,6 +29,7 @@ public class RemitAULpo extends baseClass {
 	public String selectAllCheckBox = "thead > adl-table-header > tr:nth-child(2) > td>div>div>mat-checkbox>label>div>input";
 	public String selectCheckBoxAttribute="td:nth-of-type(1)>adl-table-cells>div>mat-checkbox>label>div>input";
 	public String selectCheckBox="td:nth-of-type(1)>adl-table-cells>div>mat-checkbox>label>div";
+	public String unselectedCheckBox="td:nth-of-type(1)>adl-table-cells>div>mat-checkbox>label>div>input[aria-checked='false']";
 	public String paymentDetailCheckBox="adl-checkbox>div>mat-checkbox>label>div";
 	public String paymentDetailCheckBoxAttribute="adl-checkbox>div>mat-checkbox>label>div>input";
 	public String searchBox="[placeholder='Search']";

@@ -7,9 +7,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
-import javax.sql.rowset.spi.XmlReader;
-
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -46,7 +43,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 	@BeforeMethod(alwaysRun=true)
 	public void login() throws InterruptedException {
 		navigate();
-		Assert.assertEquals(login.getTitle(), "AUL Corp.");
+		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 	
 	@Test(priority = 1)
@@ -101,12 +98,12 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
 		getElementInFirstGrid("Dealer ID").sendKeys(prop.getProperty("roleid"));
 		getArrowForwardBtn().click();
-		Thread.sleep(10000);
+		Thread.sleep(20000);
 		Assert.assertTrue(getContractsGrid().isDisplayed());
+		Thread.sleep(2000);
 		utils.scrollDownUsingJSE();
 		Assert.assertTrue(getRowsPerPage().isDisplayed());
-		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("window.scrollTo(0, 2500)");
+//		utils.scrollDownUsingJSE();
 		getRowsPerPageDropdownbtn().click();
 		Thread.sleep(1000);
 			String perPage25 = getRowsPerPageDropdownlist().get(0).getText();
@@ -202,34 +199,8 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		getGridArrowBtn("Status").click();
 		verifyRestoreMsgFromRestoreIcon();
 	}
-
-	@Test(priority = 12)
-	public void verifyNavigationUsingTabs_27340() throws InterruptedException {
-	//	login.login(prop.getProperty("dealerAutomation"),prop.getProperty("password"));
-//		verticalMenu.navigatetoContract();
-//		singleContract.singleContract();
-//		login.logout();
-		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
-		Assert.assertTrue(getElementInFirstGrid("Last 6 of VIN").isDisplayed());
-		String enterVIN=prop.getProperty("VIN");
-		getElementInFirstGrid("Last 6 of VIN").sendKeys(enterVIN);
-		Thread.sleep(2000);
-		getElementInFirstGrid("Last 6 of VIN").sendKeys(Keys.TAB);
-		getElementInFirstGrid("Last 6 of VIN").sendKeys(Keys.TAB);
-		getElementInFirstGrid("Last 6 of VIN").sendKeys(Keys.TAB);
-		getElementInFirstGrid("Last 6 of VIN").sendKeys(Keys.TAB);
-		getArrowForwardBtn().click();
-		Assert.assertTrue(getSpinner().isDisplayed(),"Spinner is displayed");
-		Thread.sleep(20000);
-		Assert.assertTrue(getContractsGrid().isDisplayed(),"Navigation Working Correctly");
-		HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
-        String VINnumFromGrid = allTableData.get(1).get("VIN");
-		Assert.assertTrue(VINnumFromGrid.equals(enterVIN),"Records are matching");
-	}
 	
-	@Test(priority = 13)
+	@Test(priority = 12)
 	public void verifySearchForContractNumAndContractHoldrLastName_27341() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"),prop.getProperty("password"));
 		verticalMenu.navigatetoContract();
@@ -255,7 +226,35 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		String ContractHolderLastNameGrid = allTableData.get(1).get("Last Name");
 		Assert.assertTrue(ContractHolderLastNameGrid.equalsIgnoreCase(contractHolderLastName),"Contract Holder Last Name Records are matching");
 	}
+
+
+	@Test(priority = 13)
+	public void verifyNavigationUsingTabs_27340() throws InterruptedException {
+//		login.login(prop.getProperty("dealerAutomation"),prop.getProperty("password"));
+//		verticalMenu.navigatetoContract();
+//		singleContract.singleContract();
+//		login.logout();
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
+		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
+		Assert.assertTrue(getElementInFirstGrid("Last 6 of VIN").isDisplayed());
+		String enterVIN=webcontracts.getXMLData("vin3");
+		getElementInFirstGrid("Last 6 of VIN").sendKeys(enterVIN);
+		Thread.sleep(2000);
+		getElementInFirstGrid("Last 6 of VIN").sendKeys(Keys.TAB);
+		getElementInFirstGrid("Last 6 of VIN").sendKeys(Keys.TAB);
+		getElementInFirstGrid("Last 6 of VIN").sendKeys(Keys.TAB);
+		getElementInFirstGrid("Last 6 of VIN").sendKeys(Keys.TAB);
+		getArrowForwardBtn().click();
+//		Assert.assertTrue(getSpinner().isDisplayed(),"Spinner is displayed");
+		Thread.sleep(20000);
+		Assert.assertTrue(getContractsGrid().isDisplayed(),"Navigation Working Correctly");
+		HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
+        String VINnumFromGrid = allTableData.get(1).get("VIN");
+		Assert.assertTrue(VINnumFromGrid.equals(enterVIN),"Records are matching");
+	}
 	
+		
 	@Test(priority = 14)
 	public void verifySearchForContractNumber_27345() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"),prop.getProperty("password"));
@@ -358,10 +357,10 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 	    System.out.println("VIN is-"+VINWith6Characters);
 	    getElementInFirstGrid("Last 6 of VIN").sendKeys(VINWith6Characters);
 	    getArrowForwardBtn().click();
-	    Thread.sleep(3000);
+	    Thread.sleep(10000);
 	    getElementInFirstGrid("Last 6 of VIN").sendKeys(Keys.BACK_SPACE);
-	    Thread.sleep(2000);
 	    getArrowForwardBtn().click();
+	    Thread.sleep(30000);
 	    String expectedRedColorInHexa = prop.getProperty("redColorInHexaForm");
 	    Assert.assertTrue(getInvalidVINtxt().isDisplayed());
 	    String borderColorOfElement = getInvalidVINtxt().getCssValue("color");
@@ -479,7 +478,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		}
 		
 		@Test(priority = 27)
-		public void verifyVINContractNumbSearch_27563() throws InterruptedException {
+		public void verifyVINContractNumbSearch_27563() throws Exception {
 			login.login(prop.getProperty("dealerAutomation"),prop.getProperty("password"));
 			verticalMenu.navigatetoContract();
 			String contractNumber = singleContract.singleContract();
@@ -491,7 +490,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 			Assert.assertTrue(getElementInFirstGrid("Contract Number").isDisplayed());
 			getElementInFirstGrid("Contract Number").sendKeys(contractNumber);
 			Assert.assertTrue(getElementInFirstGrid("Last 6 of VIN").isDisplayed());
-			String last6digitsOfVINEntered = webcontracts.getXMLData("vin2");
+			String last6digitsOfVINEntered = webcontracts.getXMLData("vin3");
 			getElementInFirstGrid("Last 6 of VIN").sendKeys(last6digitsOfVINEntered);
 			Assert.assertTrue(getArrowForwardBtn().isDisplayed());
 			getArrowForwardBtn().click();

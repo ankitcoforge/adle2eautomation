@@ -21,6 +21,7 @@ public class AssignDealerToSubAgentAction extends AssignDealerToSubagentPO{
 		verticalMenu.navigatetoLeftMenu("Agency Settings", "Assign Dealers to Sub-Agents");
 		selectSubAgentInSubagentDropDown(subAgent);
 		utils.element("xpath",arrowForwardInassignDealerToSubagentPage).click();
+		utils.wait(500);
 		utils.element("xpath",addDealer).click();
 		utils.waitTillElementIsClickable(selectDealerArrow);
 		utils.element("xpath",selectDealerArrow).click();
@@ -39,15 +40,17 @@ public class AssignDealerToSubAgentAction extends AssignDealerToSubagentPO{
 		Thread.sleep(100);
 	}
 
-	public void selectSubAgentInSubagentDropDown(String dealer) {
-		utils.waitTillElementIsVisible(selectSubagentArrow);
-		utils.element("xpath",selectSubagentArrow).click();
+	public void selectSubAgentInSubagentDropDown(String dealer) throws InterruptedException {
+		utils.element("xpath", inputTypeOrSelectSubAgent).sendKeys(dealer);
+//		utils.waitTillElementIsVisible(selectSubagentArrow);
+//		utils.element("xpath",selectSubagentArrow).click();
 		List<WebElement> subagentOptionsList = utils.getElementsList("xpath", subAgentOptions);
 		for(int i=0;i<subagentOptionsList.size();i++) {
 			if(subagentOptionsList.get(i).getText().equalsIgnoreCase(dealer)) {
 				subagentOptionsList.get(i).click();
 			}
 		}
+		utils.wait(1000);
 	}
 
 }

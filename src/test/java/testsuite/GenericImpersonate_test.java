@@ -1,10 +1,13 @@
 package testsuite;
 import java.util.ArrayList;
+import java.util.HashMap;
 
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import junit.framework.Assert;
+import pageActions.DeleteGenericUserAction;
 import pageActions.impersonateAction;
 import pageActions.loginAction;
 import pageActions.verticalMenuAction;
@@ -13,6 +16,8 @@ import utils.utilityClass;
 
 /* PBI 33085 */
 /* Total Tc's - 32*/
+
+/* 5 Tc's added from PBI 35606 */
 public class GenericImpersonate_test extends impersonateAction{
 	loginAction login = new loginAction();
 	verticalMenuAction verticalMenu = new verticalMenuAction();
@@ -21,11 +26,13 @@ public class GenericImpersonate_test extends impersonateAction{
 	utilityClass utils = new utilityClass();
 	impersonateAction impersonate = new impersonateAction();
 	contract_test contract=new contract_test();
+	DeleteGenericUserAction genericUserPage=new DeleteGenericUserAction();
+	Permissions_test permissions=new Permissions_test();
 
 	@BeforeClass(alwaysRun=true)
 	public void login() throws InterruptedException {
 		navigate();
-		Assert.assertEquals(login.getTitle(), "AUL Corp.");
+		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 	
 	@Test(priority = 1)
@@ -102,8 +109,9 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(utils.getfield("span","No").isEnabled());
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("Dealer");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
 //		utils.waituntillPageIsloaded(1);
+		utils.wait(20000);
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Dealer").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());
@@ -131,12 +139,12 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(utils.getfield("span","No").isEnabled());
 		utils.clickfield("xpath", impersonate.roleDropdownArrow);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("DealerEmp");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "DealerEmp").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());
 	}
-	
 	@Test(priority = 5)
 	public void verifysubAgentCannotImpersonateAsGenericDealerWhenDealerIsNotAssignedToSubagent_35687() throws Exception {
 		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
@@ -148,7 +156,7 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(utils.getfield("span", " + New user ").isDisplayed());
 		manageuser.verifyAllTheHeaders();
 		utils.element("xpath", manageuser.enterRole).sendKeys(UtilsDataReader.getXMLData("accountName"));
-		Assert.assertTrue(utils.getElementsList("cssselector", getUsersAndImpersonateBtn).size() ==1 );
+		Assert.assertTrue(utils.element("xpath", impersonateInGenericRoleBtn).getAttribute("disabled").equals("true"));
 	}
 	
 	@Test(priority = 6)
@@ -173,8 +181,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(utils.getfield("span","No").isEnabled());
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("Dealer");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded();
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Dealer").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());
@@ -209,8 +217,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(utils.getfield("span","No").isEnabled());
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("DealerEmp");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded();
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "DealerEmp").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());
@@ -235,10 +243,9 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(manageuser.getDropDownlistForRoleType().get(1).getText().equals("SubAgent"));
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("Agent");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		verticalMenu.verifyLateralmenuMainItemsForAgentSubAgent();
-		//
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
 		Assert.assertTrue(utils.getfield("h3", "Manage Dealers").isDisplayed());
 		Assert.assertTrue(utils.getfield("label", "Role ID / Account Name").isDisplayed());
@@ -258,8 +265,9 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(utils.getfield("span","No").isEnabled());
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("Dealer");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait1();
+		utils.wait1();
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Dealer").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());
@@ -283,8 +291,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(manageuser.getDropDownlistForRoleType().get(1).getText().equals("SubAgent"));
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("Agent");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		verticalMenu.verifyLateralmenuMainItemsForAgentSubAgent();
 		//
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
@@ -306,8 +314,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(utils.getfield("span","No").isEnabled());
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("DealerEmp");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "DealerEmp").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());
@@ -324,7 +332,7 @@ public class GenericImpersonate_test extends impersonateAction{
 	}
 	
 	@Test(priority = 10)
-	public void verifyAgentImpersonatedAsDealer_34930() throws Exception {
+	public void verifyAgentImpersonatedAsDealerGeneric_34930_35878() throws Exception {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
 		Assert.assertTrue(utils.getfield("h3", "Manage Dealers").isDisplayed());
@@ -345,11 +353,12 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(utils.getfield("span","No").isEnabled());
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("Dealer");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		Thread.sleep(200);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Dealer").isDisplayed());
-		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());
+		Assert.assertTrue(utils.getfield("span", "Username").getText().contains("generic"));
 	}
 	
 	
@@ -375,8 +384,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(utils.getfield("span","No").isEnabled());
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("DealerEmp");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "DealerEmp").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());
@@ -384,6 +393,7 @@ public class GenericImpersonate_test extends impersonateAction{
 	
 	@Test(priority = 12)
 	public void verifySubAgentIsAbleToAccessAllTheOptionsAftrEndingGenericImpersonationAsGenericDealer_34947_34916() throws Exception {
+		permissions.getDefaultpermissionForsubAgent();
 		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
 		Assert.assertTrue(utils.getfield("h3", "Manage Dealers").isDisplayed());
@@ -404,8 +414,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(utils.getfield("span","No").isEnabled());
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("Dealer");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded();
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Dealer").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());
@@ -436,8 +446,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(utils.getfield("span","No").isEnabled());
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("DealerEmp");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded();
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "DealerEmp").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());
@@ -458,8 +468,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(manageuser.getDropDownlistForRoleType().get(1).getText().equals("SubAgent"));
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("SubAgent");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		verticalMenu.verifyLateralmenuMainItemsForAgentSubAgent();
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
 		Assert.assertTrue(utils.getfield("h3", "Manage Dealers").isDisplayed());
@@ -480,8 +490,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(utils.getfield("span","No").isEnabled());
 		utils.clickfield("xpath", impersonate.roleDropdownArrow);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("Dealer");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Dealer").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());
@@ -505,8 +515,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(manageuser.getDropDownlistForRoleType().get(1).getText().equals("SubAgent"));
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("SubAgent");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		verticalMenu.verifyLateralmenuMainItemsForAgentSubAgent();
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
 		Assert.assertTrue(utils.getfield("h3", "Manage Dealers").isDisplayed());
@@ -527,8 +537,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(utils.getfield("span","No").isEnabled());
 		utils.clickfield("xpath", impersonate.roleDropdownArrow);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("DealerEmp");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "DealerEmp").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());
@@ -556,8 +566,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(manageuser.getDropDownlistForRoleType().get(1).getText().equals("SubAgent"));
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("Agent");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		verticalMenu.verifyLateralmenuMainItemsForAgentSubAgent();
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
 		Assert.assertTrue(utils.getfield("h3", "Manage Dealers").isDisplayed());
@@ -578,8 +588,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(utils.getfield("span","No").isEnabled());
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("DealerEmp");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "DealerEmp").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());
@@ -605,8 +615,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(manageuser.getDropDownlistForRoleType().get(1).getText().equals("SubAgent"));
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("SubAgent");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		verticalMenu.verifyLateralmenuMainItemsForAgentSubAgent();
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
 		Assert.assertTrue(utils.getfield("h3", "Manage Dealers").isDisplayed());
@@ -627,8 +637,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(utils.getfield("span","No").isEnabled());
 		utils.clickfield("xpath", impersonate.roleDropdownArrow);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("DealerEmp");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "DealerEmp").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());
@@ -649,8 +659,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(manageuser.getDropDownlistForRoleType().get(1).getText().equals("SubAgent"));
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("Agent");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		verticalMenu.verifyLateralmenuMainItemsForAgentSubAgent();
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
 		Assert.assertTrue(utils.getfield("h3", "Manage Dealers").isDisplayed());
@@ -671,8 +681,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(utils.getfield("span","No").isEnabled());
 		utils.clickfield("xpath", impersonate.roleDropdownArrow);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("Dealer");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Dealer").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());
@@ -697,8 +707,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(manageuser.getDropDownlistForRoleType().get(1).getText().equals("SubAgent"));
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("SubAgent");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		verticalMenu.verifyLateralmenuMainItemsForAgentSubAgent();
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
 		Assert.assertTrue(utils.getfield("h3", "Manage Dealers").isDisplayed());
@@ -719,8 +729,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(utils.getfield("span","No").isEnabled());
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("Dealer");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Dealer").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());
@@ -774,8 +784,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(manageuser.getDropDownlistForRoleType().get(0).getText().equals("Agent"));
 		Assert.assertTrue(manageuser.getDropDownlistForRoleType().get(1).getText().equals("SubAgent"));
 		manageuser.selectRoleTypeInGenericImpersonatePopup("Agent");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		verticalMenu.verifyLateralmenuMainItemsForAgentSubAgent();
 	}
 
@@ -790,13 +800,13 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(manageuser.getDropDownlistForRoleType().get(0).getText().equals("Agent"));
 		Assert.assertTrue(manageuser.getDropDownlistForRoleType().get(1).getText().equals("SubAgent"));
 		manageuser.selectRoleTypeInGenericImpersonatePopup("SubAgent");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		verticalMenu.verifyLateralmenuMainItemsForAgentSubAgent();
 	}
 	
 	@Test(priority = 22)
-	public void verifyAdminCanImpersonateDealerEmpGeneric_35008() throws Exception {
+	public void verifyAdminCanImpersonateDealerEmpGeneric_35008_35873_35874() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoimpersonate();
 		Assert.assertTrue(utils.getfield("label", "Role ID / Account Name").isDisplayed());
@@ -804,24 +814,32 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(utils.element("xpath", impersonate.roleId).isDisplayed());
 		Assert.assertTrue(utils.getfield("span", " + New user ").isDisplayed());
 		manageuser.verifyAllTheHeaders();
-		impersonate.impersonateAsGenericUser("DealerEmp", "28771");
+		String roleId=UtilsDataReader.getXMLData("dealerId");
+		impersonate.impersonateAsGenericUser("DealerEmp", roleId);
 		utils.waitTillElementIsClickableByWebEle(utils.element("xpath", impersonate.roleDropdownArrowInPopup));
-		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
-		utils.waitTillElementIsClickableByWebEle(manageuser.getDropDownlistForRoleType().get(0));
-		Assert.assertTrue(manageuser.getDropDownlistForRoleType().get(0).getText().equals("Dealer"));
-		Assert.assertTrue(manageuser.getDropDownlistForRoleType().get(1).getText().equals("DealerEmp"));
-		utils.clickfield("xpath", impersonate.roleDropdownArrow);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("DealerEmp");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		Thread.sleep(200);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "DealerEmp").isDisplayed());
-		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());
+		Assert.assertTrue(utils.getfield("span", "Username").getText().contains("generic"));
+		String[] mailId = utils.getfield("span", "Username").getText().split(" ");
+		String impersonatedGenericMailId = mailId[1];
+		System.out.println("generic uset Id-"+impersonatedGenericMailId);
 		verticalMenu.verifyLateralmenuMainItemsForDealerDealerEmpDealerGrpEmp();
+		impersonate.getEndImpersonate();
+		verticalMenu.navigatetoimpersonate();
+		impersonate.getUsers("DealerEmp", roleId);
+		impersonate.getSearchBoxes().get("Email").sendKeys("generic");
+	    Thread.sleep(1000);
+	    HashMap<Integer, HashMap<String, String>> impersonatePage = genericUserPage.checkGridBodyDetailsInImpersonatePage();
+	    System.out.println("email:"+impersonatePage.get(1).get("Email"));
+	    Assert.assertTrue(impersonatePage.get(1).get("Email").contains(impersonatedGenericMailId));
 	}
 	
 	@Test(priority = 23)
-	public void verifyAdminCanImpersonateDealerGeneric_35005() throws Exception {
+	public void verifyAdminCanImpersonateDealerGeneric_35005_35850_35851() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoimpersonate();
 		Assert.assertTrue(utils.getfield("label", "Role ID / Account Name").isDisplayed());
@@ -829,20 +847,28 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(utils.element("xpath", impersonate.roleId).isDisplayed());
 		Assert.assertTrue(utils.getfield("span", " + New user ").isDisplayed());
 		manageuser.verifyAllTheHeaders();
-		impersonate.impersonateAsGenericUser("Dealer", "28771");
+		String roleId=UtilsDataReader.getXMLData("dealerId");
+		impersonate.impersonateAsGenericUser("Dealer", roleId);
 		utils.waitTillElementIsClickableByWebEle(utils.element("xpath", impersonate.roleDropdownArrowInPopup));
-		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
-		utils.waitTillElementIsClickableByWebEle(manageuser.getDropDownlistForRoleType().get(0));
-		Assert.assertTrue(manageuser.getDropDownlistForRoleType().get(0).getText().equals("Dealer"));
-		Assert.assertTrue(manageuser.getDropDownlistForRoleType().get(1).getText().equals("DealerEmp"));
-		utils.clickfield("xpath", impersonate.roleDropdownArrow);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("Dealer");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		Thread.sleep(200);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Dealer").isDisplayed());
-		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());
+		Assert.assertTrue(utils.getfield("span", "Username").getText().contains("generic"));
+		String[] mailId = utils.getfield("span", "Username").getText().split(" ");
+		String impersonatedGenericMailId = mailId[1];
+		System.out.println("generic uset Id-"+impersonatedGenericMailId);
 		verticalMenu.verifyLateralmenuMainItemsForDealerDealerEmpDealerGrpEmp();
+		impersonate.getEndImpersonate();
+		verticalMenu.navigatetoimpersonate();
+		impersonate.getUsers("Dealer", roleId);
+		impersonate.getSearchBoxes().get("Email").sendKeys("generic");
+	    Thread.sleep(1000);
+	    HashMap<Integer, HashMap<String, String>> impersonatePage = genericUserPage.checkGridBodyDetailsInImpersonatePage();
+	    System.out.println("email:"+impersonatePage.get(1).get("Email"));
+	    Assert.assertTrue(impersonatePage.get(1).get("Email").contains(impersonatedGenericMailId));
 	}
 	
 	@Test(priority = 24)
@@ -854,7 +880,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(utils.element("xpath", impersonate.roleId).isDisplayed());
 		Assert.assertTrue(utils.getfield("span", " + New user ").isDisplayed());
 		manageuser.verifyAllTheHeaders();
-		impersonate.impersonateAsGenericUser("DealerGrpEmp", "47421");
+		String roleId=UtilsDataReader.getXMLData("dealerGrpId");
+		impersonate.impersonateAsGenericUser("DealerGrpEmp", roleId);
 		utils.waitTillElementIsClickableByWebEle(utils.element("xpath", impersonate.roleDropdownArrowInPopup));
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		utils.waitTillElementIsClickableByWebEle(manageuser.getDropDownlistForRoleType().get(0));
@@ -862,12 +889,23 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(manageuser.getDropDownlistForRoleType().get(1).getText().equals("DealerGrpEmp"));
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("DealerGrpEmp");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "DealerGrpEmp").isDisplayed());
-		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());
+		Assert.assertTrue(utils.getfield("span", "Username").getText().contains("generic"));
+		String[] mailId = utils.getfield("span", "Username").getText().split(" ");
+		String impersonatedGenericMailId = mailId[1];
+		System.out.println("generic uset Id-"+impersonatedGenericMailId);
 		verticalMenu.verifyLateralmenuMainItemsForDealerDealerEmpDealerGrpEmp();
+		impersonate.getEndImpersonate();
+		verticalMenu.navigatetoimpersonate();
+		impersonate.getUsers("DealerGrpEmp", roleId);
+		impersonate.getSearchBoxes().get("Email").sendKeys("generic");
+	    Thread.sleep(1000);
+	    HashMap<Integer, HashMap<String, String>> impersonatePage = genericUserPage.checkGridBodyDetailsInImpersonatePage();
+	    System.out.println("email:"+impersonatePage.get(1).get("Email"));
+	    Assert.assertTrue(impersonatePage.get(1).get("Email").contains(impersonatedGenericMailId));
 	}
 	
 	@Test(priority = 25)
@@ -887,8 +925,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(manageuser.getDropDownlistForRoleType().get(1).getText().equals("DealerGrpEmp"));
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("DealerGroup");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "DealerGroup").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());
@@ -912,8 +950,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(manageuser.getDropDownlistForRoleType().get(1).getText().equals("DealerEmp"));
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("Dealer");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Dealer").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());
@@ -939,8 +977,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(manageuser.getDropDownlistForRoleType().get(1).getText().equals("DealerEmp"));
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("DealerEmp");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "DealerEmp").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());
@@ -966,8 +1004,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(manageuser.getDropDownlistForRoleType().get(1).getText().equals("DealerGrpEmp"));
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("DealerGroup");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "DealerGroup").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());
@@ -993,8 +1031,8 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(manageuser.getDropDownlistForRoleType().get(1).getText().equals("DealerGrpEmp"));
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("DealerGrpEmp");
-		utils.element("xpath", impersonate.impersonateInGenericImpPopup).click();
-		utils.waituntillPageIsloaded(10);
+		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
+		utils.wait(20000);
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "DealerGrpEmp").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());
@@ -1003,13 +1041,61 @@ public class GenericImpersonate_test extends impersonateAction{
 		Assert.assertTrue(getImpersonatingDataList().size()==0);
 	}
 	
+	@Test(priority = 30)
+	public void verifyDealerEmpIsShownInGridWhenLoggedInAsSubagent_34898() throws Exception {
+		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
+		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
+		Assert.assertTrue(utils.getfield("h3", "Manage Dealers").isDisplayed());
+		Assert.assertTrue(utils.getfield("label", "Role ID / Account Name").isDisplayed());
+		Assert.assertTrue(utils.element("xpath", impersonate.getusersButton).isDisplayed());
+		Assert.assertTrue(utils.element("xpath", impersonate.roleId).isDisplayed());
+		Assert.assertTrue(utils.getfield("span", " + New user ").isDisplayed());
+		manageuser.verifyAllTheHeaders();
+		manageuser.selectDealerInmanageUserPage(UtilsDataReader.getXMLData("dealer3"));
+		impersonate.getSearchBoxes().get("Email").sendKeys("generic");
+	    Thread.sleep(1000);
+		 HashMap<Integer, HashMap<String, String>> impersonatePage = genericUserPage.checkGridBodyDetailsInImpersonatePage();
+		 manageuser.selectRoleTypeInGrid("DealerEmp");
+		 Assert.assertTrue(impersonatePage.get(1).get("Email").contains("generic"));
+		 HashMap<Integer, HashMap<String, WebElement>> editDelLock = genericUserPage.checkGridForEditLockResendInvitationImpersonateForAllRolesExceptagentDealerLender();
+		    Assert.assertTrue(editDelLock.get(1).get("Locked Out").isEnabled());
+		    Assert.assertTrue(editDelLock.get(1).get("Edit").isEnabled());
+		    Assert.assertTrue(editDelLock.get(1).get("Impersonate").isEnabled());
+		    Assert.assertTrue(editDelLock.get(1).get("Resend Invitation").getAttribute("class").contains("disabled"));
+	}
+	
+	@Test(priority = 31)
+	public void verifyDealerEmpIsShownInGridWhenLoggedInAsAgent_35882() throws Exception {
+		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
+		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
+		Assert.assertTrue(utils.getfield("h3", "Manage Dealers").isDisplayed());
+		Assert.assertTrue(utils.getfield("label", "Role ID / Account Name").isDisplayed());
+		Assert.assertTrue(utils.element("xpath", impersonate.getusersButton).isDisplayed());
+		Assert.assertTrue(utils.element("xpath", impersonate.roleId).isDisplayed());
+		Assert.assertTrue(utils.getfield("span", " + New user ").isDisplayed());
+		manageuser.verifyAllTheHeaders();
+		manageuser.selectDealerInmanageUserPage(UtilsDataReader.getXMLData("dealer3"));
+		impersonate.getSearchBoxes().get("Email").sendKeys("generic");
+	    Thread.sleep(1000);
+		 HashMap<Integer, HashMap<String, String>> impersonatePage = genericUserPage.checkGridBodyDetailsInImpersonatePage();
+		 manageuser.selectRoleTypeInGrid("DealerEmp");
+		 Assert.assertTrue(impersonatePage.get(1).get("Email").contains("generic"));
+		 HashMap<Integer, HashMap<String, WebElement>> editDelLock = manageuser.checkGridForLockImpersonateResendInvitationManageuser();
+		    Assert.assertTrue(editDelLock.get(1).get("Locked Out").isEnabled());
+		    Assert.assertTrue(editDelLock.get(1).get("Edit").isEnabled());
+		    Assert.assertTrue(editDelLock.get(1).get("Impersonate").isEnabled());
+		    Assert.assertTrue(editDelLock.get(1).get("Resend Invitation").getAttribute("class").contains("disabled"));
+	}
+	
 	 @AfterMethod(alwaysRun=true)
 	    public void close() throws InterruptedException {
 		 try {
 				login.logout();
 				} catch (Exception e) {
+					if(utils.getfield("mat-icon", "close").isDisplayed()) {
 					utils.getfield("mat-icon", "close").click();
 					login.logout();
+					}
 			}
 	    }
 

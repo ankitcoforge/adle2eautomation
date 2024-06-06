@@ -27,7 +27,7 @@ public class Cancellations_test extends CancellationsAction {
 	@BeforeMethod(alwaysRun = true)
 	public void login() throws InterruptedException {
 		navigate();
-		Assert.assertEquals(login.getTitle(), "AUL Corp.");
+		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 
 	@Test(priority = 1)
@@ -49,7 +49,7 @@ public class Cancellations_test extends CancellationsAction {
 		int newmileage = mileage++;
 		quotePage.getCancelMileageInput().sendKeys(Integer.toString(newmileage));
 		quotePage.getQuoteBtn().click();
-		quotePage.waitForThePageToLoad();
+		utils.wait(10000);
 		utils.scrollUpUsingJSE();
 		quotePage.getCloseBtn().click();
 		verticalMenu.navigatetoLeftMenu("Cancellation History");
@@ -63,7 +63,8 @@ public class Cancellations_test extends CancellationsAction {
 		Assert.assertEquals(status, "Quote");
 	}
 
-	@Test(priority = 2,enabled = false)
+	//failing at mileage..code is correct > issue with db
+	@Test(priority = 2,enabled= false)
 	public void verifyCancellationSuccessStatus() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
 		HashMap<Integer, HashMap<String, String>> dbMap = getDataFromDB();
@@ -123,38 +124,39 @@ public class Cancellations_test extends CancellationsAction {
 		quotePage.getCancelBtn().click();
 	}
 
-	@Test(priority = 4, enabled = false)
-	public void verifyCancellationFailureMsg() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
-		HashMap<Integer, HashMap<String, String>> dbMap = getDataFromDBForMileageMoreThan3000();
-		HashMap<String, String> data = dbMap.get(2);
-		String roleId = data.get("DEALER_ID");
-		System.out.println("Dealer Id to impersonate--" + roleId);
-		verticalMenu.navigatetoimpersonate();
-//		impersonate.impersonateUser("Dealer", roleId);
-		impersonate.impersonateAsGenericUserWith("Dealer", roleId, "Dealer");
-		verticalMenu.navigatetoLeftMenu("Cancellations", "Cancellation Quote");
-		String certNo = data.get("CERT");
-		System.out.println("cert no:" + certNo);
-		quotePage.searchdata("Contract", certNo);
-		quotePage.quoteLink().click();
-		String miles = data.get("AUTOMILES");
-		int mileage = Integer.parseInt(miles);
-		int newmileage = mileage + 1;
-		quotePage.getCancelMileageInput().sendKeys(Integer.toString(newmileage));
-		quotePage.getQuoteBtn().click();
-		quotePage.waitForThePageToLoad();
-		quotePage.getCancelContractBtn().click();
-		quotePage.getCheckBox().click();
-		quotePage.getCompleteCancellationBtn().click();
-		System.out.println(quotePage.errorElements().size());
-		System.out.println("error msg:" + quotePage.getCancellationErrorMsg().getText());
-		Assert.assertTrue(quotePage.getCancellationErrorMsg().isDisplayed());
-		quotePage.waitForThePageToLoad();
-		quotePage.getBackBtn().click();
-		utils.scrollUpUsingJSE();
-		quotePage.getCancelBtn().click();
-	}
+	//error msg as unable to cancel contract online
+//	@Test(priority = 4)
+//	public void verifyCancellationFailureMsg() throws Exception {
+//		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+//		HashMap<Integer, HashMap<String, String>> dbMap = getDataFromDBForMileageMoreThan3000();
+//		HashMap<String, String> data = dbMap.get(2);
+//		String roleId = data.get("DEALER_ID");
+//		System.out.println("Dealer Id to impersonate--" + roleId);
+//		verticalMenu.navigatetoimpersonate();
+////		impersonate.impersonateUser("Dealer", roleId);
+//		impersonate.impersonateAsGenericUserWith("Dealer", roleId, "Dealer");
+//		verticalMenu.navigatetoLeftMenu("Cancellations", "Cancellation Quote");
+//		String certNo = data.get("CERT");
+//		System.out.println("cert no:" + certNo);
+//		quotePage.searchdata("Contract", certNo);
+//		quotePage.quoteLink().click();
+//		String miles = data.get("AUTOMILES");
+//		int mileage = Integer.parseInt(miles);
+//		int newmileage = mileage + 1;
+//		quotePage.getCancelMileageInput().sendKeys(Integer.toString(newmileage));
+//		quotePage.getQuoteBtn().click();
+//		quotePage.waitForThePageToLoad();
+//		quotePage.getCancelContractBtn().click();
+//		quotePage.getCheckBox().click();
+//		quotePage.getCompleteCancellationBtn().click();
+//		System.out.println(quotePage.errorElements().size());
+//		System.out.println("error msg:" + quotePage.getCancellationErrorMsg().getText());
+//		Assert.assertTrue(quotePage.getCancellationErrorMsg().isDisplayed());
+//		quotePage.waitForThePageToLoad();
+//		quotePage.getBackBtn().click();
+//		utils.scrollUpUsingJSE();
+//		quotePage.getCancelBtn().click();
+//	}
 
 	@Test(priority = 5)
 	public void verifyQuoteGenerationMoreThanThreeTimes_() throws Exception {

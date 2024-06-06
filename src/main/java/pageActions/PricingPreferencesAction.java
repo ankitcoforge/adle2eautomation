@@ -109,7 +109,7 @@ public class PricingPreferencesAction extends PricingPreferencesPO{
 			js.executeScript("arguments[0].click();", getLiftKit());
 			}
 			//utils.clickfield("xpath", liftkit);
-			//utils.clickfield("xpath", businessUse);
+//			utils.clickfield("xpath", businessUse);
 			String contractNumber = driver.findElement(By.cssSelector(contractNo)).getDomProperty("value");
 			System.out.println("Contract Number is:"+contractNumber);
 			
@@ -142,7 +142,7 @@ public class PricingPreferencesAction extends PricingPreferencesPO{
 			Thread.sleep(10000);
 			String text1 = utils.text("cssSelector", contractNew.successMessage);
 			Assert.assertEquals(text1, "You have successfully generated a contract!");
-			utils.clickfield("xpath", contractNew.newQuotelink);
+			utils.clickfield("cssSelector", contractNew.newQuotelink);
 			return contractNumber;
 			}
 
@@ -156,8 +156,13 @@ public class PricingPreferencesAction extends PricingPreferencesPO{
 			utils.inputfield("cssSelector", textbox, "22723", 7);
 			utils.inputfield("cssSelector", contract, "10000", 0);
 			Thread.sleep(1000);
+			JavascriptExecutor js=(JavascriptExecutor)driver;
+			if(!getLiftKitStatus().isSelected()) {
+			js.executeScript("arguments[0].scrollIntoView();", getLiftKit());
+			js.executeScript("arguments[0].click();", getLiftKit());
+			}
 			//utils.clickfield("xpath", liftkit);
-			utils.clickfield("xpath", businessUse);
+//			utils.clickfield("xpath", businessUse);
 			String contractNumber = driver.findElement(By.cssSelector(contractNo)).getDomProperty("value");
 			System.out.println("Contract Number is:"+contractNumber);
 			
@@ -190,7 +195,7 @@ public class PricingPreferencesAction extends PricingPreferencesPO{
 			Thread.sleep(10000);
 			String text1 = utils.text("cssSelector", contractNew.successMessage);
 			Assert.assertEquals(text1, "You have successfully generated a contract!");
-			utils.clickfield("xpath", contractNew.newQuotelink);
+			utils.clickfield("cssSelector", contractNew.newQuotelink);
 			return contractNumber;
 			}
 

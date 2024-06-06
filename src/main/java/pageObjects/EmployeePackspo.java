@@ -4,7 +4,7 @@ import utils.baseClass;
 
 public class EmployeePackspo extends baseClass {
 
-	public String portalTitle = "//b[text()='Welcome to your AUL ADL Portal!']";
+	public String portalTitle = "//b[text()='Welcome to your Protective ADL Portal!']";
 	public String dealerPackstitle = "//h3[text()='Manage My Dealer Packs']";
 	public String lenderPackstitle = "//h3[text()='Manage My Lender Packs']";
 	public String btnNewPack = "//span[text()=' + New Pack ']";

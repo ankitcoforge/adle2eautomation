@@ -5,8 +5,11 @@
 <dealer2>Ahl Motors</dealer2>
 <dealer3>Angel Motors Inc</dealer3>
 <dealer4>101 Motors - 6751</dealer4>
+<dealerGrp>Hansel Auto Group</dealerGrp>
 <accountName>Jeff Nyholm Agency</accountName>
 <lenderId>3641</lenderId>
+<dealerId>28771</dealerId>
+<dealerGrpId>47421</dealerGrpId>
 <aul>aul</aul>
 <lienholderSPP>SPP</lienholderSPP>
 <lienholderABB>ABB</lienholderABB>
@@ -18,4 +21,5 @@
 <programCodeASL>ASL</programCodeASL>
 <programCodeRAW>RAW</programCodeRAW>
 <programCodeSentinel>Sentinel</programCodeSentinel>
+<newUserMailId>abc@gmail.com</newUserMailId>
 </Data>

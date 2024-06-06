@@ -33,7 +33,7 @@ public class ManageMyDealerGrpEmployee_test extends ManageMyDealerGrpEmployeeAct
 	@BeforeMethod(alwaysRun=true)
 	public void login() throws InterruptedException {
 		navigate();
-		Assert.assertEquals(login.getTitle(), "AUL Corp.");
+		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 
 	@Test(priority = 1)
@@ -172,8 +172,9 @@ public class ManageMyDealerGrpEmployee_test extends ManageMyDealerGrpEmployeeAct
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Group Employees");
 		Assert.assertTrue(utils.getfield("h3", "Manage My Dealer Group Employees").isDisplayed());
 		String letter = "A";
-		utils.scrollLittleDownUsingJSE();;
+		utils.scrollDownUsingJSE(200);;
 		utils.element("xpath", permissionsTxtField).sendKeys(letter);
+		utils.wait(1000);
 		utils.element("xpath", permissionsTxtField).sendKeys(letter);
 		utils.element("xpath", permissionsTxtField).sendKeys(Keys.BACK_SPACE);
 		Thread.sleep(1000);
@@ -308,7 +309,7 @@ public class ManageMyDealerGrpEmployee_test extends ManageMyDealerGrpEmployeeAct
 		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Group Employees");
 		Assert.assertTrue(utils.getfield("h3", "Manage My Dealer Group Employees").isDisplayed());
-		utils.scrollLittleDownUsingJSE();
+		utils.scrollDownUsingJSE();
 		if(permissionCheckboxStatus("Activations").isSelected()) {
 			permissionCheckbox("Activations").click();
 			Assert.assertFalse(permissionCheckboxStatus("Activations").isSelected());
@@ -325,7 +326,8 @@ public class ManageMyDealerGrpEmployee_test extends ManageMyDealerGrpEmployeeAct
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Group Employees");
 		Assert.assertTrue(utils.getfield("h3", "Manage My Dealer Group Employees").isDisplayed());
 		selectUser(prop.getProperty("dealergrpempAutomation"));
-		utils.waituntillPageIsloaded(5);
+//		utils.waituntillPageIsloaded(5);
+		utils.wait(2000);
 		utils.scrollLittleDownUsingJSE();
 		WebElement selectAllCheckBoxstat = utils.element("xpath", selectAllCheckBoxstatus);
 		if(!selectAllCheckBoxstat.isSelected()) {
@@ -333,11 +335,13 @@ public class ManageMyDealerGrpEmployee_test extends ManageMyDealerGrpEmployeeAct
 		}
 		else {
 			utils.element("xpath", selectAllCheckBox).click();
+			utils.wait(2000);
 			utils.element("xpath", selectAllCheckBox).click();
 		}
+		utils.wait(2000);
 		Assert.assertTrue(selectAllCheckBoxstat.isSelected());
 		utils.getfield("span", "SAVE").click();
-		Thread.sleep(2000);
+		utils.wait(2000);
 		Assert.assertTrue(permissionsSelected().containsAll(AllPermissions()));
 		ArrayList<String> selectedPermissions = permissionsSelected();
 		login.logout();
@@ -386,7 +390,8 @@ public class ManageMyDealerGrpEmployee_test extends ManageMyDealerGrpEmployeeAct
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Group Employees");
 		Assert.assertTrue(utils.getfield("h3", "Manage My Dealer Group Employees").isDisplayed());
 		selectUser(prop.getProperty("dealergrpempAutomation"));
-		utils.waituntillPageIsloaded(5);
+//		utils.waituntillPageIsloaded(5);
+		utils.wait(2000);
 		utils.scrollLittleDownUsingJSE();
 		WebElement selectAllCheckBoxstat = utils.element("xpath", selectAllCheckBoxstatus);
 		if(selectAllCheckBoxstat.isSelected()) {
@@ -394,8 +399,10 @@ public class ManageMyDealerGrpEmployee_test extends ManageMyDealerGrpEmployeeAct
 		}
 		else {
 			utils.element("xpath", selectAllCheckBox).click();
+			utils.wait(2000);
 			utils.element("xpath", selectAllCheckBox).click();
 		}
+		utils.wait(2000);
 		Assert.assertFalse(selectAllCheckBoxstat.isSelected());
 		utils.scrollDownUsingJSE();
 		permissionCheckbox("Rate/Contract").click();
@@ -422,21 +429,26 @@ public class ManageMyDealerGrpEmployee_test extends ManageMyDealerGrpEmployeeAct
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Group Employees");
 		Assert.assertTrue(utils.getfield("h3", "Manage My Dealer Group Employees").isDisplayed());
 		selectUser(prop.getProperty("dealergrpempAutomation"));
-		utils.waituntillPageIsloaded(5);
+//		utils.waituntillPageIsloaded(5);
 		utils.scrollLittleDownUsingJSE();
+		utils.wait(2000);
 		WebElement selectAllCheckBoxstat = utils.element("xpath", selectAllCheckBoxstatus);
 		if(selectAllCheckBoxstat.isSelected()) {
 		utils.element("xpath", selectAllCheckBox).click();
 		}
 		else {
 			utils.element("xpath", selectAllCheckBox).click();
+			utils.wait(2000);
 			utils.element("xpath", selectAllCheckBox).click();
 		}
+		utils.wait(2000);
 		Assert.assertFalse(selectAllCheckBoxstat.isSelected());
-		utils.scrollDownUsingJSE();
+//		utils.scrollLittleDownUsingJSE();
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+			js.executeScript("window.scrollTo(0, 500)");
 		permissionCheckbox("Manage My Dealer Packs").click();
 		utils.getfield("span", "SAVE").click();
-		utils.waituntillPageIsloaded(5);
+		utils.wait(3000);
 		ArrayList<String> selectedPermissions = permissionsSelected();
 		login.logout();
 		login.login(prop.getProperty("dealergrpempAutomation"), prop.getProperty("password"));
@@ -453,7 +465,8 @@ public class ManageMyDealerGrpEmployee_test extends ManageMyDealerGrpEmployeeAct
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Group Employees");
 		Assert.assertTrue(utils.getfield("h3", "Manage My Dealer Group Employees").isDisplayed());
 		selectUser(prop.getProperty("dealergrpempAutomation"));
-		utils.waituntillPageIsloaded(5);
+//		utils.waituntillPageIsloaded(5);
+		utils.wait(2000);
 		utils.scrollLittleDownUsingJSE();
 		WebElement selectAllCheckBoxstat = utils.element("xpath", selectAllCheckBoxstatus);
 		if(selectAllCheckBoxstat.isSelected()) {
@@ -464,9 +477,10 @@ public class ManageMyDealerGrpEmployee_test extends ManageMyDealerGrpEmployeeAct
 			Thread.sleep(1000);
 			utils.element("xpath", selectAllCheckBox).click();
 		}
+		utils.wait(2000);
 		Assert.assertFalse(selectAllCheckBoxstat.isSelected());
 		utils.getfield("span", "SAVE").click();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		Assert.assertTrue(permissionsSelected().size() == 0);
 		login.logout();
 		login.login(prop.getProperty("dealergrpempAutomation"), prop.getProperty("password"));
@@ -492,25 +506,29 @@ public class ManageMyDealerGrpEmployee_test extends ManageMyDealerGrpEmployeeAct
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Group Employees");
 		Assert.assertTrue(utils.getfield("h3", "Manage My Dealer Group Employees").isDisplayed());
 		selectUser(prop.getProperty("dealergrpempAutomation"));
-		utils.waituntillPageIsloaded(5);
+//		utils.waituntillPageIsloaded(5);
+		utils.wait(2000);
 		utils.scrollLittleDownUsingJSE();
 		WebElement selectAllCheckBoxstat = utils.element("xpath", selectAllCheckBoxstatus);
 		if(!selectAllCheckBoxstat.isSelected()) {
-		Thread.sleep(1000);
+			utils.wait(2000);
 		utils.element("xpath", selectAllCheckBox).click();
 		}
 		else {
 			utils.element("xpath", selectAllCheckBox).click();
-			Thread.sleep(1000);
+			utils.wait(2000);
 			utils.element("xpath", selectAllCheckBox).click();
 		}
+		utils.wait(2000);
 		Assert.assertTrue(selectAllCheckBoxstat.isSelected());
-		utils.scrollDownUsingJSE();
+		utils.scrollDownUsingJSE(300);
 		permissionCheckbox("Cancellation History").click();
 		permissionCheckbox("Cancellation Quote").click();
+		utils.wait(2000);
 		Assert.assertTrue(!permissionCheckboxStatus("Cancellation History").isSelected());
 		Assert.assertTrue(!permissionCheckboxStatus("Cancellation Quote").isSelected());
 		utils.getfield("span", "SAVE").click();
+		utils.wait(2000);
 		Assert.assertTrue(permissionsUnselected().size() == 2);
 		login.logout();
 		login.login(prop.getProperty("dealergrpempAutomation"), prop.getProperty("password"));
@@ -526,7 +544,8 @@ public class ManageMyDealerGrpEmployee_test extends ManageMyDealerGrpEmployeeAct
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Group Employees");
 		Assert.assertTrue(utils.getfield("h3", "Manage My Dealer Group Employees").isDisplayed());
 		selectUser(prop.getProperty("dealergrpempAutomation"));
-		utils.waituntillPageIsloaded(5);
+//		utils.waituntillPageIsloaded(5);
+		utils.wait(2000);
 		utils.scrollLittleDownUsingJSE();
 		WebElement selectAllCheckBoxstat = utils.element("xpath", selectAllCheckBoxstatus);
 		if(!selectAllCheckBoxstat.isSelected()) {
@@ -538,8 +557,9 @@ public class ManageMyDealerGrpEmployee_test extends ManageMyDealerGrpEmployeeAct
 			Thread.sleep(1000);
 			utils.element("xpath", selectAllCheckBox).click();
 		}
+		utils.wait(2000);
 		Assert.assertTrue(selectAllCheckBoxstat.isSelected());
-		utils.scrollLittleDownUsingJSE();
+		utils.scrollDownUsingJSE(300);
 		permissionCheckbox("Actuarials").click();
 		Assert.assertTrue(!permissionCheckboxStatus("Actuarials").isSelected());
 		utils.getfield("span", "SAVE").click();

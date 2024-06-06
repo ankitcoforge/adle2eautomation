@@ -40,7 +40,7 @@ public class GAP_test extends GAPAction{
 	@BeforeClass(alwaysRun = true)
 	public void login() throws InterruptedException {
 		navigate();
-		Assert.assertEquals(login.getTitle(), "AUL Corp.");
+		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 
 	@Test(priority = 1)
@@ -293,7 +293,7 @@ public class GAP_test extends GAPAction{
 		getTxtField("MSRP").sendKeys(inputMSRP);
 		Thread.sleep(2000);
 		event.element("xpath", gapRateBtn).click();
-		Thread.sleep(30000);
+		event.wait(10000);
 		selectProgramPlanAndTermMonths();
 		Assert.assertTrue(event.getfield("label", "Program").isDisplayed());
 		Assert.assertTrue(event.getfield("label", "Plan").isDisplayed());
@@ -507,18 +507,19 @@ public class GAP_test extends GAPAction{
 		selectDropDown("Lease");
 		enterTermFinanceNadaMsrpApr();
 		event.element("xpath", gapRateBtn).click();
-		Thread.sleep(30000);
+		Thread.sleep(10000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("window.scrollTo(0, 2500)");
+		js.executeScript("window.scrollTo(0, 1000)");
 		selectProgramPlanAndTermMonths();
-		
+//		event.scrollDownUsingJSE(800);
 		String gapRetailPriceUnmodified = event.element("xpath", gapRetailPriceTxtBox).getAttribute("value");
 		NumberFormat format = NumberFormat.getNumberInstance();
 			Number number = format.parse(gapRetailPriceUnmodified);
 			String gapAmount = number.toString();
 		   int gapRetailPriceUnmodifiedInt = Integer.parseInt(gapAmount);
 		System.out.println("gap price unmodified-"+gapRetailPriceUnmodified);
-		
+		Thread.sleep(2000);
+		event.scrollDownUsingJSE(1200);
 		getPlusIconInOptions().get(0).click();
 		Thread.sleep(2000);
 		String optionSelected = getOptionSelectedPrice().get(0).getText();
@@ -581,7 +582,7 @@ public class GAP_test extends GAPAction{
 		event.element("xpath", gapRateBtn).click();
 		Thread.sleep(10000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("window.scrollTo(0, 2500)");
+		js.executeScript("window.scrollTo(0, 700)");
 		//Assert.assertTrue(getAsterisk("Residual Amount").isDisplayed(),"Asterisk is displayed for Lease");
 		String nonnemericvalue="abcd";
 		String numericvalue="123456";
@@ -602,15 +603,20 @@ public class GAP_test extends GAPAction{
 		getTxtField("Residual Amount").sendKeys(Keys.BACK_SPACE);
 		getTxtField("Residual Amount").sendKeys(Keys.BACK_SPACE);
 		getTxtField("Residual Amount").sendKeys("0");
-		Assert.assertTrue(getTxtField("Residual Amount").getAttribute("value").contains("0"),"Accepts zero");
-		
+		Thread.sleep(1000);
+		Assert.assertTrue(getTxtField("Residual Amount").getAttribute("value").contains("0"));
+		Thread.sleep(2000);
+//		event.scrollLittleUpUsingJSE();
+		JavascriptExecutor js2=(JavascriptExecutor)driver;
+		js2.executeScript("window.scrollTo(0, -1)");
+		Thread.sleep(2000);
+		js2.executeScript("window.scrollTo(0, 700)");
 		event.element("xpath", editSearch).click();
 		event.element("xpath", selectDealTypeArrow).click();
 		Thread.sleep(1000);
 		selectDropDown("Loan");
 		event.element("xpath", gapRateBtn).click();
 		Thread.sleep(10000);
-		
 		Assert.assertTrue(getAsteriskHeadings().get(0).getText().contains("Monthly Payment"));
 		Assert.assertTrue(getAsteriskHeadings().get(1).getText().contains("Zip Code"),"Residual Amount which is present in between doesnot contain asterisk for type Loan");
 		event.element("xpath", editSearch).click();
@@ -642,7 +648,9 @@ public class GAP_test extends GAPAction{
 		selectDropDown("Balloon");
 		enterTermFinanceNadaMsrpApr();
 		event.element("xpath", gapRateBtn).click();
-		Thread.sleep(30000);
+		Thread.sleep(10000);
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollTo(0, 700)");
 		Assert.assertTrue(getAsterisk("Balloon Amount").getText().equals("*"));
 		String nonnemericvalue="abcd";
 		String numericvalue="123456";
@@ -666,7 +674,7 @@ public class GAP_test extends GAPAction{
 		Assert.assertTrue(getTxtField("Balloon Amount").getAttribute("value").contains("0"),"Accepts zero");
 	}
 	
-	@Test(priority = 11)
+	@Test(priority = 12)
 	public void verifyPlusAndMinusButtonsInOptionSelection_10220_10221() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
 		Thread.sleep(3000);
@@ -683,10 +691,11 @@ public class GAP_test extends GAPAction{
 		selectDropDown("Balloon");
 		enterTermFinanceNadaMsrpApr();
 		event.element("xpath", gapRateBtn).click();
-		Thread.sleep(30000);
+		Thread.sleep(10000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("window.scrollTo(0, 2500)");
+		js.executeScript("window.scrollTo(0, 700)");
 		selectProgramPlanAndTermMonths();
+		event.scrollDownUsingJSE(1200);
 		getPlusIconInOptions().get(0).click();
 		Thread.sleep(2000);
 		String expectedBlueColorInHexa = prop.getProperty("blueColorInHexaForm2");
@@ -702,7 +711,7 @@ public class GAP_test extends GAPAction{
 		Assert.assertEquals(ActualGreycolorInHexaformat, expectedGreyColorInHexa);
 	}
 
-	@Test(priority = 12)
+	@Test(priority = 13)
 	public void verifyLeinholderSection_13337_13338_13339_13343_13344_13345_13347() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
 		Thread.sleep(3000);
@@ -719,24 +728,26 @@ public class GAP_test extends GAPAction{
 		selectDropDown("Loan");
 		enterTermFinanceNadaMsrpApr();
 		event.element("xpath", gapRateBtn).click();
-		Thread.sleep(30000);
+		Thread.sleep(10000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("window.scrollTo(0, 2500)");
+		js.executeScript("window.scrollTo(0, 700)");
+//		JavascriptExecutor js=(JavascriptExecutor)driver;
+//		js.executeScript("window.scrollTo(0, 2500)");
 		selectProgramPlanAndTermMonths();
 		getTxtField("Monthly Payment").sendKeys("100");
-		js.executeScript("window.scrollTo(0, 2500)");
+		js.executeScript("window.scrollTo(0, 700)");
 		event.clickfield("xpath", genrateContractButton);
 		Thread.sleep(2000);
 		Assert.assertTrue(getErrorMsg("Lienholder").getText().equals("Required"));
 		System.out.println("label1-"+getGridformLabels().get(6).getText());
 		System.out.println("label2-"+getGridformLabels().get(7).getText());
 		Assert.assertTrue(getGridformLabels().get(6).getText().equals("Lienholder*"));
-		Assert.assertTrue(getGridformLabels().get(7).getText().equals("Lienholder Address*"),"Lienholder Address dropdown is displayed after Lienholder field");
+		Assert.assertTrue(getGridformLabels().get(7).getText().equals("Lienholder Address*"));
 		Assert.assertFalse(event.element("xpath", lienholderAddressStatus).isEnabled());
 		getTxtFields("Lienholder").get(1).sendKeys("West America Bank");
 		getTxtFields("Lienholder").get(1).sendKeys(Keys.ARROW_DOWN , Keys.ENTER);
 		Thread.sleep(10000);
-		event.clickfield("xpath", lienholderAddressArrow);
+//		event.clickfield("xpath", lienholderAddressArrow);
 		Thread.sleep(1000);
 		Assert.assertTrue(event.element("xpath", lienholderAddressTxtfld).getText().contains("SULSUNCITY | CA | 94585"),"Liendholder address filed is in the format of Street | City | State | Zip Code");
 		Assert.assertTrue(event.element("xpath", lienholderAddressStatus1).isEnabled());
@@ -862,22 +873,17 @@ public class GAP_test extends GAPAction{
 //		Assert.assertTrue(soldDateTxtFldValue.equals(dateSelected));
 //	}
 	
-	@AfterMethod(alwaysRun=true)
+	@AfterMethod(alwaysRun = true)
 	public void close() throws InterruptedException {
-		 try {
-				login.logout();
-				} catch (Exception e) {
-					if(event.getfield("mat-icon", "close").isDisplayed())
-					{
-					event.getfield("mat-icon", "close").click();
-					login.logout();
-					}
-					else {
-                    System.out.println("Exception occured");
-					}
+		try {
+			login.logout();
+		} catch (Exception e) {
+			if (event.getfield("mat-icon", "close").isDisplayed()) {
+				event.getfield("mat-icon", "close").click();
 			}
-	    }
-	
+			login.logout();
+		}
+	}	
 	
 }
 
