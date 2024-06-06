@@ -5,6 +5,7 @@
 	<test name="ADL Contract Test Suite" group-by-instances="true">
 		<classes>
 		
+		<class name="testsuite.baseTest"/>
 		<class name="testsuite.AssignDealerGrpEmployee_test"/>
 		<class name="testsuite.AULtoProtectiveChange_test"/>
 		<class name="testsuite.Cancellations_test"/>

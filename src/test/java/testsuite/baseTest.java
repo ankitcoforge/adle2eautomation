@@ -60,13 +60,13 @@ public class baseTest extends welcomeAction {
 	@Test(priority =3)
 	public void VerifyLocationPrivacyPolicyLink_27224_27239_27254() {
 		
-		Assert.assertEquals(privacyPolicyLink(),"By clicking \"Login\", you agree to AUL's Privacy Policy");		
+		Assert.assertEquals(privacyPolicyLink(),"By clicking \"Login\", you agree to Protective's Privacy Policy");		
 	}
 
 	@Test(priority =4)
 	public void VerifyWelcomeTextOnTheADLUILoginPage_27248_27244_27110() {
 		
-		Assert.assertEquals(welcomeTextLink(),"Please log into your account.");
+		Assert.assertEquals(welcomeTextLink(),"For 60 years, Protective Asset Protection has provided F&I solutions to automotive, marine, powersports and recreational vehicle dealers throughout the U.S.");
 
 	}
 
