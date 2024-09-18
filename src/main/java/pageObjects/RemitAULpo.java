@@ -20,6 +20,7 @@ public class RemitAULpo extends baseClass {
 	public String rowsPerPageSelected="p-paginator>div>p-dropdown>div>div:nth-of-type(2)>span";
 	public String calenderPopup="mat-datepicker-content>mat-calendar";
 	public String calenderIcon="//mat-icon[text()='calendar_today']";
+	public String msgBox="//div[contains(@class,'banner-container')]";
 	// grid
 	public String headerLoc = "thead > adl-table-header > tr:nth-child(1) > th[role='columnheader']";
 	public String rowLoc = "table>tbody>tr";

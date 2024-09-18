@@ -125,6 +125,7 @@ public class GAPAction extends GAPpo{
 		return ele;
 	}
 	
+	
 	public List<WebElement> getAsteriskHeadings() {
 		 List<WebElement> ele = getDriver().findElements(By.xpath(aestriskHeadingInPage));
 		return ele;
@@ -138,7 +139,7 @@ public class GAPAction extends GAPpo{
 	public void selectProgramPlanAndTermMonths() throws InterruptedException {
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("window.scrollTo(0, 700)");
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		selectArrow("Select Program").click();
 		Thread.sleep(2000);
 		selectDropDown();

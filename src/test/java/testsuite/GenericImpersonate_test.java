@@ -266,8 +266,7 @@ public class GenericImpersonate_test extends impersonateAction{
 		utils.clickfield("xpath", impersonate.roleDropdownArrowInPopup);
 		manageuser.selectRoleTypeInGenericImpersonatePopup("Dealer");
 		utils.element("xpath", impersonate.impersonateInGenericImpPopupInImpPage).click();
-		utils.wait1();
-		utils.wait1();
+		utils.wait(10000);
 		Assert.assertTrue(utils.getfield("span", "Impersonating").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Dealer").isDisplayed());
 		Assert.assertTrue(utils.getfield("span", "Username").isDisplayed());

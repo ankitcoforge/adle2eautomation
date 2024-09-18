@@ -129,10 +129,20 @@ public class AssignDealerGrpEmployee_test extends AssignDealerGrpEmployeeAction 
 		selectdealerGrpEmpInDropDown(prop.getProperty("dealergrpempAutomation"));
 		utils.element("xpath", arrowForwardInassignDealerToDealerGrpEmpPage).click();
 		utils.waitTillElementIsClickable(addDealer);
+		Thread.sleep(2000);
+		if (permissions.getSelectAllCheckBoxstatus().getAttribute("aria-checked").equals("false")) {
+			permissions.getSelectAllCheckBoxInGrid().click();
+		}
+		utils.getfield("a", "Delete").click();
+		utils.getfield("span", "Yes").click();
+		Thread.sleep(2000);
+		
 		utils.element("xpath", addDealer).click();
 		utils.waitTillElementIsClickable(selectDealerArrow);
 		utils.element("xpath", selectDealerArrow).click();
 		Thread.sleep(2000);
+		
+		
 		for (int i = 0; i < 2; i++) {
 			if (!permissions.getSelectCheckBoxInPopup().get(i).isSelected()) {
 				permissions.getSelectCheckBoxInPopup().get(i).click();
@@ -144,12 +154,13 @@ public class AssignDealerGrpEmployee_test extends AssignDealerGrpEmployeeAction 
 		} else {
 			utils.clickfield("xpath", permissions.cancelBtn);
 		}
+		Thread.sleep(2000);
 		utils.waitTillElementIsClickable(addDealer);
 		utils.element("xpath", addDealer).click();
 		utils.waitTillElementIsClickable(selectDealerArrow);
 		utils.element("xpath", selectDealerArrow).click();
 		Thread.sleep(2000);
-		if (!permissions.getSelectAllCheckBoxInPopup().isSelected()) {
+		if (permissions.getSelectAllCheckBoxstatus().getAttribute("aria-checked").equals("false")) {
 			permissions.getSelectAllCheckBoxInPopup().click();
 		}
 		utils.element("xpath", btnClose).click();

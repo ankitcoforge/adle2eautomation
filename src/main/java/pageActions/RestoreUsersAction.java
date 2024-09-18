@@ -24,7 +24,7 @@ public class RestoreUsersAction extends RestoreUsersPo{
 	ManageVSC_GAPpreferencesAction ManageVSCGAPprefrences=new ManageVSC_GAPpreferencesAction();
 	Database_Connectivity dc = new Database_Connectivity();
 	
-	public HashMap<Integer, HashMap<String, String>> checkGridBodyDetails() {
+	public HashMap<Integer, HashMap<String, String>> checkGridBodyDetails() throws InterruptedException {
 		List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", impersonate.headerLoc);
 		System.out.println("allHeaderNames: " + allHeaderNames);
 		HashMap<Integer, HashMap<String, String>> allTableData = new HashMap<Integer, HashMap<String, String>>();
@@ -56,7 +56,7 @@ public class RestoreUsersAction extends RestoreUsersPo{
 		return allTableData;
 		}
 	
-	public WebElement restoreIcon(int i) {
+	public WebElement restoreIcon(int i) throws InterruptedException {
 	String str="table>tbody>tr:nth-of-type("+ i +")>td:nth-of-type(7)>adl-table-cells>div>div:nth-of-type(1)>i";
 	return utils.element("cssSelector",str);
 	}
@@ -85,7 +85,7 @@ public class RestoreUsersAction extends RestoreUsersPo{
 //		utils.waitUntilElementisInVisible(getMakeSearchToDisplayRecords());
 	}
 	
-	public HashMap<String, WebElement> getSearchBoxes() {
+	public HashMap<String, WebElement> getSearchBoxes() throws InterruptedException {
 		utils.scrollDown();
 		HashMap<String, WebElement> map = new HashMap<String, WebElement>();
 		List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", ManageVSCGAPprefrences.headerLoc);
@@ -105,7 +105,7 @@ public class RestoreUsersAction extends RestoreUsersPo{
 //		return map;
 //	}
 	
-	public HashMap<String, WebElement> getPINSearchBox() {
+	public HashMap<String, WebElement> getPINSearchBox() throws InterruptedException {
 		utils.scrollDown();
 		HashMap<String, WebElement> map = new HashMap<String, WebElement>();
 		List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", ManageVSCGAPprefrences.headerLoc);
@@ -146,7 +146,7 @@ public class RestoreUsersAction extends RestoreUsersPo{
 		utils.clickfield("xpath", impersonate.getusersButton);
 	}
 	
-	public void verifysorting(String header) {
+	public void verifysorting(String header) throws InterruptedException {
 		getArrow(header).click();
 		HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
 		ArrayList<String> list = new ArrayList<String>();

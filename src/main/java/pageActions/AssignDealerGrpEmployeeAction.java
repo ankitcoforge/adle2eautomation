@@ -16,7 +16,7 @@ public class AssignDealerGrpEmployeeAction extends AssignDealerGrpEmployeePO{
 	utilityClass utils = new utilityClass();
 	impersonateAction impersonate = new impersonateAction();
 	
-	public void selectdealerGrpEmpInDropDown(String dealerGrpEmp) {
+	public void selectdealerGrpEmpInDropDown(String dealerGrpEmp) throws InterruptedException {
 		utils.waitTillElementIsVisible(selectDealerGrpEmployeeArrow);
 		utils.element("xpath",selectDealerGrpEmployeeArrow).click();
 		List<WebElement> dealerGrpEmpOptionsList = utils.getElementsList("xpath", dealerGrpEmpOptions);
@@ -38,7 +38,7 @@ public class AssignDealerGrpEmployeeAction extends AssignDealerGrpEmployeePO{
 		return totalPages;
 	}
 	
-	public HashMap<Integer, HashMap<String, String>> assignDealerToDealerGrpEmpPageGrid() {
+	public HashMap<Integer, HashMap<String, String>> assignDealerToDealerGrpEmpPageGrid() throws InterruptedException {
 		List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", impersonate.headerLoc);
 		System.out.println("allHeaderNames: " + allHeaderNames);
 		HashMap<Integer, HashMap<String, String>> allTableData = new HashMap<Integer, HashMap<String, String>>();
@@ -64,7 +64,7 @@ public class AssignDealerGrpEmployeeAction extends AssignDealerGrpEmployeePO{
 		return allTableData;
 		}
 	
-	public WebElement selectCheckBoxForRow(int row) {
+	public WebElement selectCheckBoxForRow(int row) throws InterruptedException {
 		 String selectCheckBox = "td:nth-of-type("+row+")>adl-table-cells>div>mat-checkbox";
 		 WebElement ele = utils.element("cssselector", selectCheckBox);
 		 return ele;

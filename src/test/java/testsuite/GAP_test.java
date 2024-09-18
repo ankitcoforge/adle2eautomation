@@ -49,7 +49,7 @@ public class GAP_test extends GAPAction{
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Dealer", "28771");
 		Thread.sleep(2000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		Thread.sleep(2000);
 		wme.getProducts("5FNRL6H27NB019645", "100");
 		Assert.assertTrue(event.element("xpath", results).isDisplayed());
@@ -111,7 +111,7 @@ public class GAP_test extends GAPAction{
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Dealer", "28771");
 		Thread.sleep(2000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		Thread.sleep(2000);
 		wme.getProducts("5FNRL6H27NB019645", "100");
 		Assert.assertTrue(event.element("xpath", results).isDisplayed());
@@ -220,7 +220,7 @@ public class GAP_test extends GAPAction{
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Dealer", "28771");
 		Thread.sleep(1000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		wme.getProducts("5FNRL6H27NB019645", "100");
 		Assert.assertTrue(event.element("xpath", results).isDisplayed());
 		selectProgram("RNL");
@@ -265,7 +265,7 @@ public class GAP_test extends GAPAction{
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Dealer", "28771");
 		Thread.sleep(2000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		Thread.sleep(2000);
 		wme.getProducts("5FNRL6H27NB019645", "100");
 		Assert.assertTrue(event.element("xpath", results).isDisplayed());
@@ -348,7 +348,7 @@ public class GAP_test extends GAPAction{
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Dealer", "28771");
 		Thread.sleep(2000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		Thread.sleep(2000);
 		wme.getProducts("5FNRL6H27NB019645", "100");
 		Thread.sleep(2000);
@@ -376,7 +376,7 @@ public class GAP_test extends GAPAction{
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Dealer", "28771");
 		Thread.sleep(2000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		Thread.sleep(2000);
 		wme.getProducts("5FNRL6H27NB019645", "100");
 		Assert.assertTrue(event.element("xpath", results).isDisplayed());
@@ -399,7 +399,7 @@ public class GAP_test extends GAPAction{
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Dealer", "28771");
 		Thread.sleep(2000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		Thread.sleep(2000);
 		wme.getProducts("5FNRL6H27NB019645", "100");
 		Assert.assertTrue(event.element("xpath", results).isDisplayed());
@@ -443,7 +443,7 @@ public class GAP_test extends GAPAction{
 //		verticalMenu.navigatetoimpersonate();
 //		impersonate.impersonateUser("Dealer", "34799");
 //		Thread.sleep(2000);
-//		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+//		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 //		Thread.sleep(2000);
 //		event.clickfield("xpath", calanderbtn);
 //		String dateSelectedInSoldDate = calander.getCurrentDate(2,"MM/dd/yyyy");
@@ -495,7 +495,7 @@ public class GAP_test extends GAPAction{
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Dealer", "28771");
 		Thread.sleep(2000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		Thread.sleep(2000);
 		wme.getProducts("5FNRL6H27NB019645", "100");
 		Assert.assertTrue(event.element("xpath", results).isDisplayed());
@@ -568,7 +568,7 @@ public class GAP_test extends GAPAction{
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Dealer", "28771");
 		Thread.sleep(2000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		Thread.sleep(2000);
 		wme.getProducts("5FNRL6H27NB019645", "100");
 		Assert.assertTrue(event.element("xpath", results).isDisplayed());
@@ -636,7 +636,7 @@ public class GAP_test extends GAPAction{
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Dealer", "28771");
 		Thread.sleep(2000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		Thread.sleep(2000);
 		wme.getProducts("5FNRL6H27NB019645", "100");
 		Assert.assertTrue(event.element("xpath", results).isDisplayed());
@@ -681,7 +681,7 @@ public class GAP_test extends GAPAction{
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Dealer", "28771");
 		Thread.sleep(2000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		Thread.sleep(2000);
 		wme.getProducts("5FNRL6H27NB019645", "100");
 		event.element("xpath", AddGapCheckBox).click();
@@ -698,7 +698,7 @@ public class GAP_test extends GAPAction{
 		event.scrollDownUsingJSE(1200);
 		getPlusIconInOptions().get(0).click();
 		Thread.sleep(2000);
-		String expectedBlueColorInHexa = prop.getProperty("blueColorInHexaForm2");
+		String expectedBlueColorInHexa = prop.getProperty("lightBlueColorInHexaForm2");
 		String OutlineColorBlue = getOptions().get(0).getCssValue("border-color");
 		String ActualBluecolorInHexaformat = Color.fromString(OutlineColorBlue).asHex();
 		Assert.assertEquals(ActualBluecolorInHexaformat, expectedBlueColorInHexa);
@@ -709,6 +709,7 @@ public class GAP_test extends GAPAction{
 		String OutlineColorGrey = getOptions().get(1).getCssValue("border-color");
 		String ActualGreycolorInHexaformat = Color.fromString(OutlineColorGrey).asHex();
 		Assert.assertEquals(ActualGreycolorInHexaformat, expectedGreyColorInHexa);
+//	    event.scrollUpUsingJSE(); 
 	}
 
 	@Test(priority = 13)
@@ -718,7 +719,7 @@ public class GAP_test extends GAPAction{
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Dealer", "28771");
 		Thread.sleep(2000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		Thread.sleep(2000);
 		wme.getProducts("5FNRL6H27NB019645", "100");
 		event.element("xpath", AddGapCheckBox).click();
@@ -761,7 +762,7 @@ public class GAP_test extends GAPAction{
 //		verticalMenu.navigatetoimpersonate();
 //		impersonate.impersonateUser("Dealer", "28771");
 //		Thread.sleep(2000);
-//		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+//		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 //		Thread.sleep(2000);
 //		singleContract();
 //		Assert.assertTrue(contractPage.getIconCheckMark().isDisplayed());
@@ -780,7 +781,7 @@ public class GAP_test extends GAPAction{
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Dealer", "28771");
 		Thread.sleep(2000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		Thread.sleep(2000);
 		String lienholder = "West America Bank";
 		getTxtFields("Lienholder").get(0).sendKeys(lienholder);
@@ -813,7 +814,7 @@ public class GAP_test extends GAPAction{
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Dealer", "28771");
 		Thread.sleep(2000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		Thread.sleep(2000);
 		event.element("xpath",notOnTheListLink).click();
 		Thread.sleep(1000);
@@ -843,7 +844,7 @@ public class GAP_test extends GAPAction{
 //		verticalMenu.navigatetoimpersonate();
 //		impersonate.impersonateUser("Dealer", "34799");
 //		Thread.sleep(2000);
-//		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+//		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 //		Thread.sleep(2000);
 //		event.clickfield("xpath", calanderbtn);
 //		String dateSelectedInSoldDate = calander.getCurrentDate(3,"MM/dd/yyyy");
@@ -876,6 +877,7 @@ public class GAP_test extends GAPAction{
 	@AfterMethod(alwaysRun = true)
 	public void close() throws InterruptedException {
 		try {
+			event.scrollUpUsingJSE();
 			login.logout();
 		} catch (Exception e) {
 			if (event.getfield("mat-icon", "close").isDisplayed()) {

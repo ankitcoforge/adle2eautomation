@@ -33,52 +33,52 @@ public class Impersonate_test extends impersonateAction {
 	
 	@Test(priority = 1)
 	public void verifyContractCreationThroughDealer() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Thread.sleep(3000);
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Dealer", "28771");
 		Thread.sleep(4000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		Thread.sleep(2000);
 		contract.singleContract1();
 	}
 	
 	@Test(priority = 2)
 	public void verifyContractCreationThroughDealerEmp() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Thread.sleep(3000);
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("DealerEmp", "28771");
 		Thread.sleep(4000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		Thread.sleep(2000);
 		contract.singleContract1();
 	}
 
 	@Test(priority = 3)
 	public void verifyContractCreationThroughLender() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Thread.sleep(3000);
 		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("Lender", "3641");
+		impersonate.impersonateUserForSubagentLendrEmp("Lender", "3641");
 		Thread.sleep(4000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		Thread.sleep(2000);
 		//contract.singleContractForLender("#1 Auto Liquidators LLC");
 	}
 
 //	
-//	@Test(priority = 4)
-//	public void verifyContractCreationThroughLenderEmp() throws Exception {
-//		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
-//		Thread.sleep(3000);
-////		verticalMenu.navigatetoimpersonate();
-////		impersonate.impersonateUser("LenderEmp", "3641");
-////		Thread.sleep(4000);
-//		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
-//		Thread.sleep(2000);
+	@Test(priority = 4)
+	public void verifyContractCreationThroughLenderEmp() throws Exception {
+		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		Thread.sleep(3000);
+		verticalMenu.navigatetoimpersonate();
+		impersonate.impersonateUserForSubagentLendrEmp("LenderEmp", "3641");
+		Thread.sleep(5000);
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
+		Thread.sleep(2000);
 //		contract.singleContractForLender("#1 Auto Liquidators LLC");
-//	}
+	}
 	
 
 	@AfterMethod(alwaysRun = true)

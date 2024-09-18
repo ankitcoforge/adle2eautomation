@@ -1,7 +1,5 @@
 package testsuite;
 
-import java.util.HashMap;
-
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -48,7 +46,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage My Pricing Preferences").isDisplayed());
-		Assert.assertTrue(utils.getfield("span", "New markup").isEnabled());
+		Assert.assertTrue(utils.getfield("span", "New Markup").isEnabled());
 		getAllHeaderNames().contains("Program");
 		getAllHeaderNames().contains("Program Code");
 		getAllHeaderNames().contains("Prog Markup Eff.Date");
@@ -77,7 +75,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		EmplPacks.getBtnYes().click();
 		Thread.sleep(2000);
 		}
-		utils.getfield("span", "New markup").click();
+		utils.getfield("span", "New Markup").click();
 		Thread.sleep(3000);
 		EmplPacks.getArrow().click();
 		getDropDwnList().contains("United Auto Credit - UA3");
@@ -96,7 +94,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage My Pricing Preferences").isDisplayed());
-		utils.getfield("span", "New markup").click();
+		utils.getfield("span", "New Markup").click();
 		Thread.sleep(3000);
 		EmplPacks.getArrow().click();
 		EmplPacks.selectProgram();
@@ -125,7 +123,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		EmplPacks.getBtnYes().click();
 		Thread.sleep(2000);
 		}
-		utils.getfield("span", "New markup").click();
+		utils.getfield("span", "New Markup").click();
 		Thread.sleep(3000);
 		EmplPacks.getArrow().click();
 		EmplPacks.selectProgramNew("RNL");
@@ -160,7 +158,14 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage My Pricing Preferences").isDisplayed());
-		utils.getfield("span", "New markup").click();
+		if (EmplPacks.getCurrentPageRecord() > 0)
+		{
+		getSelectAllCheckBox().click();
+		EmplPacks.getDeleteLink().click();
+		EmplPacks.getBtnYes().click();
+		Thread.sleep(2000);
+		}
+		utils.getfield("span", "New Markup").click();
 		Thread.sleep(3000);
 		EmplPacks.getArrow().click();
 		EmplPacks.selectProgram();
@@ -175,8 +180,11 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 	
 	@Test(priority = 6)
 	public void verifyMarkupWithContract_31672() throws Exception {
-		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
+		verticalMenu.navigatetoimpersonate();
+		impersonate.impersonateUser("Dealer", "28771");
+		Thread.sleep(5000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);
 		Assert.assertTrue(utils.getTitle("Manage My Pricing Preferences").isDisplayed());
@@ -201,15 +209,16 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);
 		
-		utils.getfield("span", "New markup").click();
-		Thread.sleep(3000);
-		EmplPacks.getArrow().click();
-		EmplPacks.selectProgramNew(programCode);
-		Thread.sleep(2000);
-		getBtnsmarkup().get(0).click();
-		getBtnsmarkup().get(2).click();
-		Thread.sleep(2000);
-		getMarkupAmountTxtFld().get(0).sendKeys(priceTobeEnteredInStringFormat);
+//		utils.getfield("span", "New Markup").click();
+//		Thread.sleep(3000);
+//		EmplPacks.getArrow().click();
+//		EmplPacks.selectProgramNew(programCode);
+//		Thread.sleep(2000);
+//		getBtnsmarkup().get(0).click();
+//		getBtnsmarkup().get(2).click();
+//		Thread.sleep(2000);
+//		getMarkupAmountTxtFld().get(0).sendKeys(priceTobeEnteredInStringFormat);
+		createMarkupForAll(programCode,"Flat", "All", priceTobeEnteredInStringFormat);
 		utils.getfield("span", "Save").click();
 		Thread.sleep(3000);
 		verticalMenu.navigatetoContract();
@@ -224,7 +233,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("Lender", "3641");
+		impersonate.impersonateUserForSubagentLendrEmp("Lender", "3641");
 		Thread.sleep(5000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);
@@ -252,7 +261,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);
 		
-		utils.getfield("span", "New markup").click();
+		utils.getfield("span", "New Markup").click();
 		Thread.sleep(3000);
 		EmplPacks.getArrow().click();
 		EmplPacks.selectProgramNew(programCode);
@@ -286,7 +295,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		EmplPacks.getBtnYes().click();
 		Thread.sleep(2000);
 		}
-		utils.getfield("span", "New markup").click();
+		utils.getfield("span", "New Markup").click();
 		Thread.sleep(3000);
 		EmplPacks.getArrow().click();
 		EmplPacks.selectProgram();
@@ -301,11 +310,11 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 	
 	@Test(priority = 9)
 	public void verifyMarkupWithContractForLenderEmp_31686() throws Exception {
-		lateralMenu.getDefaultpermissionForLenderEmp();
-		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
+//		lateralMenu.getDefaultpermissionForLenderEmp();
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
-//		verticalMenu.navigatetoimpersonate();
-//		impersonate.impersonateUser("LenderEmp", "3641");
+		verticalMenu.navigatetoimpersonate();
+		impersonate.impersonateUserByGivingPermissionsForSubAgentLenderEmp("LenderEmp", "3641");
 		Thread.sleep(5000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);
@@ -324,7 +333,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		String program = prop.getProperty("lenderProgram");
 		String priceTobeEnteredInStringFormat = "100";
 		int markupAmount =Integer.parseInt(priceTobeEnteredInStringFormat);
-		
+//		
 		verticalMenu.navigatetoContract();
 		contract.getSelectDealerTogenerateContract("#1 Auto Liquidators LLC");
 		 int vehiclePriceBefore =  EmplPacks.getVehiclePriceForLender(programCode);
@@ -333,7 +342,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);
 		
-		utils.getfield("span", "New markup").click();
+		utils.getfield("span", "New Markup").click();
 		Thread.sleep(3000);
 		EmplPacks.getArrow().click();
 		EmplPacks.selectProgramNew(programCode);
@@ -383,7 +392,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
 		Thread.sleep(2000);
 		
-		utils.getfield("span", "New markup").click();
+		utils.getfield("span", "New Markup").click();
 		Thread.sleep(3000);
 		EmplPacks.getArrow().click();
 		EmplPacks.selectProgramNew(programCode);
@@ -419,7 +428,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		EmplPacks.getBtnYes().click();
 		Thread.sleep(2000);
 		}
-		utils.getfield("span", "New markup").click();
+		utils.getfield("span", "New Markup").click();
 		Thread.sleep(3000);
 		EmplPacks.getArrow().click();
 		getDropDwnList().contains("NSE");
@@ -447,7 +456,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		EmplPacks.getBtnYes().click();
 		Thread.sleep(2000);
 		}
-		utils.getfield("span", "New markup").click();
+		utils.getfield("span", "New Markup").click();
 		Thread.sleep(3000);
 		EmplPacks.getArrow().click();
 		EmplPacks.selectProgram();
@@ -474,13 +483,13 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		EmplPacks.getBtnYes().click();
 		Thread.sleep(2000);
 		}
-		
-        //data
+//		
+//        //data
 		String programCode = prop.getProperty("agentProgramCode");
 		String program = prop.getProperty("agentProgram");
 		String priceTobeEnteredInStringFormat = "100";
 		int markupAmount =Integer.parseInt(priceTobeEnteredInStringFormat);
-		
+//		
 		verticalMenu.navigatetoContract();
 		utils.wait(200);
 		contract.getSelectDealerTogenerateContract("Angel Motors Inc");
@@ -490,16 +499,17 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Pricing Preferences");
 		Thread.sleep(2000);
 		
-		utils.getfield("span", "New markup").click();
-		Thread.sleep(3000);
-		EmplPacks.getArrow().click();
-		EmplPacks.selectProgramNew(programCode);
-		Thread.sleep(2000);
-		getBtnsmarkup().get(0).click();
-		getBtnsmarkup().get(2).click();
-		Thread.sleep(2000);
-		getMarkupAmountTxtFld().get(0).sendKeys(priceTobeEnteredInStringFormat);
-		utils.getfield("span", "Save").click();
+//		utils.getfield("span", "New Markup").click();
+//		Thread.sleep(3000);
+//		EmplPacks.getArrow().click();
+//		EmplPacks.selectProgramNew(programCode);
+//		Thread.sleep(2000);
+//		getBtnsmarkup().get(0).click();
+//		getBtnsmarkup().get(2).click();
+//		Thread.sleep(2000);
+//		getMarkupAmountTxtFld().get(0).sendKeys(priceTobeEnteredInStringFormat);
+//		utils.getfield("span", "Save").click();
+		createMarkupForAll(programCode,"Flat", "All", priceTobeEnteredInStringFormat);
 		Thread.sleep(3000);
 		verticalMenu.navigatetoContract();
 		int vehiclePriceBeforeAfter = EmplPacks.getVehiclePrice(programCode);
@@ -524,7 +534,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		Thread.sleep(2000);
 		}
 		try {
-		utils.getfield("span", "New markup").click();
+		utils.getfield("span", "New Markup").click();
 		Thread.sleep(3000);
 		EmplPacks.getArrow().click();
 		EmplPacks.selectProgramNew("RNL");

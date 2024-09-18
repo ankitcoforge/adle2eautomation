@@ -22,7 +22,7 @@ public class WebMileageExceptionpo extends baseClass {
    	public String cancelBtn ="//span[text()='Cancel']";
    	public String iconClose = "//mat-icon[text()='close']";
    	
-   	public String newExceptionBtn = "//span[text()=' + New exception ']";
+   	public String newExceptionBtn = "//span[contains(text(),'New Exception')]";
 	public String roleType = "//div/strong[contains(text(),'Role Type: ')]";
 	public String roleIdInEdidPopup = "//div/strong[contains(text(),'Role ID: ')]";
 	public String programCode = "//div/strong[contains(text(),'Program Code')]";

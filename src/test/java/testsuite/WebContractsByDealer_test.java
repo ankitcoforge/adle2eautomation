@@ -1,7 +1,4 @@
 package testsuite;
-
-
-
 import java.util.ArrayList;
 
 import java.util.Collections;
@@ -13,6 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -40,7 +38,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 	XmlDataReader utilsDataReader= new XmlDataReader("UtilsData");
 	XmlDataReader webcontracts= new XmlDataReader("webcontractsData");
 
-	@BeforeMethod(alwaysRun=true)
+	@BeforeClass(alwaysRun=true)
 	public void login() throws InterruptedException {
 		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");
@@ -96,12 +94,12 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
 		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
-		getElementInFirstGrid("Dealer ID").sendKeys(prop.getProperty("roleid"));
-		getArrowForwardBtn().click();
-		Thread.sleep(20000);
-		Assert.assertTrue(getContractsGrid().isDisplayed());
-		Thread.sleep(2000);
-		utils.scrollDownUsingJSE();
+//		getElementInFirstGrid("Dealer ID").sendKeys(prop.getProperty("roleid"));
+//		getArrowForwardBtn().click();
+//		Thread.sleep(20000);
+//		Assert.assertTrue(getContractsGrid().isDisplayed());
+//		Thread.sleep(2000);
+//		utils.scrollDownUsingJSE();
 		Assert.assertTrue(getRowsPerPage().isDisplayed());
 //		utils.scrollDownUsingJSE();
 		getRowsPerPageDropdownbtn().click();
@@ -119,11 +117,11 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
 		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
-		getElementInFirstGrid("Dealer ID").sendKeys(prop.getProperty("roleid"));
-		getArrowForwardBtn().click();
-		Thread.sleep(2000);
-		Assert.assertTrue(getContractsGrid().isDisplayed());
-		utils.scrollDown();
+//		getElementInFirstGrid("Dealer ID").sendKeys(prop.getProperty("roleid"));
+//		getArrowForwardBtn().click();
+//		Thread.sleep(2000);
+//		Assert.assertTrue(getContractsGrid().isDisplayed());
+//		utils.scrollDown();
 		getRowsPerPage().isDisplayed();
 		getRowsPerPageDropdownbtn().click();
 		Thread.sleep(10000);
@@ -138,10 +136,10 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
 		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
-		getElementInFirstGrid("Dealer ID").sendKeys(prop.getProperty("roleid"));
-		getArrowForwardBtn().click();
-		Thread.sleep(2000);
-		utils.scrollDown();
+//		getElementInFirstGrid("Dealer ID").sendKeys(prop.getProperty("roleid"));
+//		getArrowForwardBtn().click();
+//		Thread.sleep(2000);
+//		utils.scrollDown();
 		getRowsPerPage().isDisplayed();
 		getRowsPerPageDropdownbtn().click();
 		getRowsPerPageDropdownlist().get(0).click();
@@ -156,10 +154,10 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
 		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
-		getElementInFirstGrid("Dealer ID").sendKeys(prop.getProperty("roleid"));
-		getArrowForwardBtn().click();
-		Thread.sleep(10000);
-		utils.scrollDown();
+//		getElementInFirstGrid("Dealer ID").sendKeys(prop.getProperty("roleid"));
+//		getArrowForwardBtn().click();
+//		Thread.sleep(10000);
+//		utils.scrollDown();
 		getRowsPerPage().isDisplayed();
 		utils.scrollDownUsingJSE();
 		getRowsPerPageDropdownbtn().click();

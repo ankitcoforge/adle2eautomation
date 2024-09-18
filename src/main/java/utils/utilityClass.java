@@ -7,8 +7,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 public class utilityClass extends baseClass{
 	
@@ -236,8 +238,9 @@ public class utilityClass extends baseClass{
 		return mText;
      }
 
-     /***********************Method to get Webelement from a link/button**************************/
- 	public WebElement element(String type, String fieldname){
+     /***********************Method to get Webelement from a link/button
+     * @throws InterruptedException **************************/
+ 	public WebElement element(String type, String fieldname) throws InterruptedException{
  		
  		WebElement gText= null;
 
@@ -255,8 +258,8 @@ public class utilityClass extends baseClass{
  		case "cssselector" : getDriver().findElement(By.cssSelector(fieldname)).isDisplayed();
  		gText = getDriver().findElement(By.cssSelector(fieldname));
  		break;
- 		
  		}
+ 		wait(2000);
  		return gText;
  	}
  	
@@ -265,6 +268,13 @@ public class utilityClass extends baseClass{
  		String d = "//"+a+"[contains(text(),'" + name +"')]";
 
  		return(driver.findElement(By.xpath(d)));
+ 	}
+ 	
+public List<WebElement> getfields(String a, String name) {
+ 		
+ 		String d = "//"+a+"[contains(text(),'" + name +"')]";
+
+ 		return(driver.findElements(By.xpath(d)));
  	}
  	
  	public String toastMessage() {
@@ -317,9 +327,11 @@ public class utilityClass extends baseClass{
  			
  		}
  		
- 		/***********************Method to scroll down the web page**************************/
- 		public void scrollDown() {
+ 		/***********************Method to scroll down the web page
+ 		 * @throws InterruptedException **************************/
+ 		public void scrollDown() throws InterruptedException {
  			driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL, Keys.PAGE_DOWN);
+ 			Thread.sleep(1000);
  		}
  		
  		public void scrollDownUsingJSE() {
@@ -327,9 +339,10 @@ public class utilityClass extends baseClass{
 		js.executeScript("window.scrollTo(0, 2500)");
  		}
  		
- 		public void scrollLittleDownUsingJSE() {
+ 		public void scrollLittleDownUsingJSE() throws InterruptedException {
  	 		JavascriptExecutor js=(JavascriptExecutor)driver;
  			js.executeScript("window.scrollTo(0, 100)");
+ 			wait(500);
  	 		}
  		
  		public void scrollUpUsingJSE() {
@@ -395,12 +408,15 @@ public class utilityClass extends baseClass{
  			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//ngx-spinner/div")));
  		}
  		
- 		public void wait1() throws InterruptedException {
- 			Thread.sleep(5000);
- 		}
- 		
  		public void wait(int time) throws InterruptedException {
  			Thread.sleep(time);
+ 		}
+ 		
+ 		public void validateColor(WebElement ele,String color,String ExpectedColorInHexaForm ) {
+ 			String expectedColor = prop.getProperty(ExpectedColorInHexaForm);
+ 			String colorOfElement =ele.getCssValue(color);
+ 			String ActualcolorInHexaformat = Color.fromString(colorOfElement).asHex();
+ 			Assert.assertEquals(ActualcolorInHexaformat, expectedColor);
  		}
  		
 }

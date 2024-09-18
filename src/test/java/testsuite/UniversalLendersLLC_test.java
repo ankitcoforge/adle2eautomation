@@ -45,11 +45,11 @@ public class UniversalLendersLLC_test extends UniversalLendersAction {
 
 	@Test(priority = 1)
 	public void verifyPageAfterSelecetingUniversalLenders_11931_11948_11977() throws InterruptedException, ParseException {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Dealer", "29422");
 		Thread.sleep(2000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		Thread.sleep(2000);
 		getProducts("5FNRL6H27NB019645", "100");
 		Assert.assertTrue(event.element("xpath", gap.results).isDisplayed());
@@ -73,11 +73,11 @@ public class UniversalLendersLLC_test extends UniversalLendersAction {
 	@Test(priority = 2)
 	public void verifyErrorMsgs_11938_11949_11950_11951_11952_11953_11965()
 			throws InterruptedException, ParseException {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Dealer", "29422");
 		Thread.sleep(2000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		Thread.sleep(2000);
 		getProducts("5FNRL6H27NB019645", "100");
 		event.scrollDownUsingJSE();
@@ -134,11 +134,11 @@ public class UniversalLendersLLC_test extends UniversalLendersAction {
 	@Test(priority = 3)
 	public void verifyErrorMsgsForCobuyerFields_11954_11966_11968_11972_11973()
 			throws InterruptedException, ParseException {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Dealer", "29422");
 		Thread.sleep(2000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		Thread.sleep(2000);
 		getProducts("5FNRL6H27NB019645", "100");
 		event.scrollDownUsingJSE();
@@ -172,11 +172,11 @@ public class UniversalLendersLLC_test extends UniversalLendersAction {
 	@Test(priority = 4)
 	public void verifyContractCreationWithUniversalLenders_11939_12620_11940_11990()
 			throws InterruptedException, ParseException {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Dealer", "29422");
 		Thread.sleep(2000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		Thread.sleep(2000);
 		coBuyerContractwithMandatoryFields();
 	}

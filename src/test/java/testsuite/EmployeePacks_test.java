@@ -61,7 +61,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 	}
 
 	@Test(priority = 2)
-	public void verifyNewPackCreation_32000() throws Exception {
+	public void verifyNewPackCreation_32000_38688() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getPortalTitle().getText(), UtilsDataReader.getXMLData("ADLpageTitle"));
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Packs");
@@ -85,6 +85,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		getBtnSave().click();
 		Thread.sleep(2000);
 		Assert.assertTrue(getSuccessMsg().isDisplayed());
+		utils.validateColor(getSuccessMsg(), "background-color", "goldColorInHexaForm");
 	}
 
 	@Test(priority = 3)
@@ -237,7 +238,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getPortalTitle().getText(), UtilsDataReader.getXMLData("ADLpageTitle"));
 		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("Lender", UtilsDataReader.getXMLData("lenderId"));
+		impersonate.impersonateUserForSubagentLendrEmp("Lender", UtilsDataReader.getXMLData("lenderId"));
 		Thread.sleep(5000);
 
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Lender Packs");

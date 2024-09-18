@@ -27,5 +27,5 @@ public class bannerpo extends baseClass {
     public String italicdiv = "div.angular-editor-toolbar-set:nth-child(3)";
     public String italicletter = "div.angular-editor-textarea > i";
     public String messageSetupHeading = ".title-bar>h3";
-	
+    public String adlbanner="adl-banner>div";
 }

@@ -15,6 +15,11 @@ import pageActions.loginAction;
 import pageActions.messageSetupAction;
 import pageActions.verticalMenuAction;
 import utils.utilityClass;
+//mailosour
+import com.mailosaur.MailosaurClient;
+import com.mailosaur.MailosaurException;
+import com.mailosaur.models.*;
+import java.io.IOException;
 
 /* Divyasree */
 /* Tc's active = 10 , invalid = 4 */
@@ -31,6 +36,7 @@ public class ImpersonateNew_test extends impersonateAction{
 		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 	
+
 	@Test(priority = 1)
 	public void verifyUsersWithDBForAgent_31615() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
@@ -134,7 +140,7 @@ public class ImpersonateNew_test extends impersonateAction{
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Agent", "110");
 		Assert.assertTrue(impersonate.getImpersonatedPageRoledID().equals("110"),"Impersonated Successfully");
-		verticalMenu.navigatetoLeftMenu("E-Rate","Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate","Rate / Contract");
 		getSelectDealerTogenerateContract();
 		getBtnSignIn().click();
 		Thread.sleep(2000);
@@ -244,7 +250,7 @@ public class ImpersonateNew_test extends impersonateAction{
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoimpersonate();
 		impersonate.impersonateUser("Agent", "110");
-		Assert.assertTrue(impersonate.getImpersonatedPageRoledID1().equals("110"),"Impersonated Successfully");
+		Assert.assertTrue(impersonate.getImpersonatedPageRoledID1().equals("110"));
 	}
 	
 	

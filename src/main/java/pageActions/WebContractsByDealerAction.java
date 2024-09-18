@@ -227,7 +227,7 @@ public class WebContractsByDealerAction extends WebContractsByDealerPO{
              return allHeaderNames;
 		 }
 		 
-			public HashMap<Integer, HashMap<String, String>> checkGridBodyDetails() {
+			public HashMap<Integer, HashMap<String, String>> checkGridBodyDetails() throws InterruptedException {
 				List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
 				System.out.println("allHeaderNames: " + allHeaderNames);
 				HashMap<Integer, HashMap<String, String>> allTableData = new HashMap<Integer, HashMap<String, String>>();
@@ -259,7 +259,7 @@ public class WebContractsByDealerAction extends WebContractsByDealerPO{
 				return allTableData;
 				}
 			
-			public HashMap<Integer, HashMap<String, WebElement>> getElementsFromGridBody() {
+			public HashMap<Integer, HashMap<String, WebElement>> getElementsFromGridBody() throws InterruptedException {
 				List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
 				HashMap<Integer, HashMap<String, WebElement>> allTableData = new HashMap<Integer, HashMap<String, WebElement>>();
 				List<WebElement> allRowsEle = utils.getElementsList("cssSelector", rowLoc);
@@ -283,7 +283,7 @@ public class WebContractsByDealerAction extends WebContractsByDealerPO{
 			
 			
 			
-			 public void verifyRestoreMsgFromRestoreIcon() {
+			 public void verifyRestoreMsgFromRestoreIcon() throws InterruptedException {
 				 HashMap<Integer, HashMap<String, String>> allTableData = checkGridBodyDetails();
 				 Actions action = new Actions(driver);
 				 if(allTableData.size() > 0) {
@@ -300,7 +300,7 @@ public class WebContractsByDealerAction extends WebContractsByDealerPO{
 			 }
 			 }
 			 
-			 public String getValueFromStatus(String STATUS,String HeaderName) {
+			 public String getValueFromStatus(String STATUS,String HeaderName) throws InterruptedException {
 				HashMap<Integer, HashMap<String, String>> allTableData2 = checkGridBodyDetails();
 				String value = null;
 				for (int i = 1; i < getRowLoc().size(); i++) {
@@ -313,7 +313,7 @@ public class WebContractsByDealerAction extends WebContractsByDealerPO{
 				return value;
 			 }
 			 
-			 public WebElement getEditRestorBtns(int row) {
+			 public WebElement getEditRestorBtns(int row) throws InterruptedException {
 	       					String specificRowLoc = "table>tbody>tr:nth-of-type(" + row + ")";
   							String specificRowColLoc = "td:nth-of-type(11)>adl-table-cells>div";
   							WebElement  element = utils.element("cssSelector", specificRowLoc + ">" + specificRowColLoc);

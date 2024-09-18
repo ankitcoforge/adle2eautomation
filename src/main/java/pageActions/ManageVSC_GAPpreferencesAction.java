@@ -30,7 +30,7 @@ public class ManageVSC_GAPpreferencesAction extends ManageVSC_GAPpreferencesPO {
 		
 	}
 
-	public HashMap<String, WebElement> getSearchBoxesInGrid() {
+	public HashMap<String, WebElement> getSearchBoxesInGrid() throws InterruptedException {
 		utils.scrollDown();
 		HashMap<String, WebElement> map = new HashMap<String, WebElement>();
 		List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
@@ -41,7 +41,7 @@ public class ManageVSC_GAPpreferencesAction extends ManageVSC_GAPpreferencesPO {
 		return map;
 	}
 
-	public HashMap<String, WebElement> getSearchBoxesWithArrowSelection() {
+	public HashMap<String, WebElement> getSearchBoxesWithArrowSelection() throws InterruptedException {
 		utils.scrollDown();
 		HashMap<String, WebElement> map = new HashMap<String, WebElement>();
 		List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
@@ -52,7 +52,7 @@ public class ManageVSC_GAPpreferencesAction extends ManageVSC_GAPpreferencesPO {
 		return map;
 	}
 
-	public HashMap<String, WebElement> getSearchBoxModifiedBy() {
+	public HashMap<String, WebElement> getSearchBoxModifiedBy() throws InterruptedException {
 		utils.scrollDown();
 		HashMap<String, WebElement> map = new HashMap<String, WebElement>();
 		List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
@@ -202,6 +202,7 @@ public class ManageVSC_GAPpreferencesAction extends ManageVSC_GAPpreferencesPO {
 			break;
 		}
 	 }
+	    Thread.sleep(2000);
 	 }
 	
 	 public WebElement getArrow() {

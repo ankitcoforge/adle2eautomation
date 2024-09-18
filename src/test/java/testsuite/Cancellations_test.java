@@ -32,7 +32,7 @@ public class Cancellations_test extends CancellationsAction {
 
 	@Test(priority = 1)
 	public void verifyCancellationQuote() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		HashMap<Integer, HashMap<String, String>> dbMap = getDataFromDB();
 		HashMap<String, String> data = dbMap.get(1);
 		String roleId = data.get("DEALER_ID");
@@ -64,20 +64,23 @@ public class Cancellations_test extends CancellationsAction {
 	}
 
 	//failing at mileage..code is correct > issue with db
-	@Test(priority = 2,enabled= false)
+	@Test(priority = 2,enabled= true)
 	public void verifyCancellationSuccessStatus() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		HashMap<Integer, HashMap<String, String>> dbMap = getDataFromDB();
 		HashMap<String, String> data = dbMap.get(2);
 		String roleId = data.get("DEALER_ID");
 		System.out.println("Dealer Id to impersonate--" + roleId);
 		verticalMenu.navigatetoimpersonate();
-//		impersonate.impersonateUser("Dealer", roleId);
-		impersonate.impersonateAsGenericUserWith("Dealer", roleId, "Dealer");
+		impersonate.impersonateUser("Dealer", roleId);
+//		impersonate.impersonateAsGenericUserWith("Dealer", roleId, "Dealer");
 		verticalMenu.navigatetoLeftMenu("Cancellations", "Cancellation Quote");
 		String certNo = data.get("CERT");
+		System.out.println("cert no--"+certNo);
 		quotePage.searchdata("Contract", certNo);
+		Thread.sleep(5000);
 		quotePage.quoteLink().click();
+		Thread.sleep(5000);
 		String miles = data.get("AUTOMILES");
 		int mileage = Integer.parseInt(miles);
 		int newmileage = mileage + 1;
@@ -101,7 +104,7 @@ public class Cancellations_test extends CancellationsAction {
 
 	@Test(priority = 3)
 	public void verifyQuoteErrorMsg() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		HashMap<Integer, HashMap<String, String>> dbMap = getDataFromDBForMileageMoreThan3000();
 		HashMap<String, String> data = dbMap.get(2);
 		String roleId = data.get("DEALER_ID");
@@ -160,7 +163,7 @@ public class Cancellations_test extends CancellationsAction {
 
 	@Test(priority = 5)
 	public void verifyQuoteGenerationMoreThanThreeTimes_() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		HashMap<Integer, HashMap<String, String>> dbMap = getDataFromDBForMileageMoreThan3000();
 		HashMap<String, String> data = dbMap.get(3);
 		String roleId = data.get("DEALER_ID");

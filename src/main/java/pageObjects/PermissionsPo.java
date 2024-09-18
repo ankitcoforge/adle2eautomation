@@ -15,6 +15,8 @@ public class PermissionsPo extends baseClass{
 	public String permissionsDropdownInAgentPopup = "(//div/p-multiselect/div)[3]";
 	public String permissionsListInPopup = "//div[@class='ui-chkbox ui-widget']/../span";
 	public String selectAllCheckBoxInPopup = "//div[@role='checkbox']";
+	public String selectAllCheckBoxstatus = "//adl-table-header/tr/td/div/div/mat-checkbox//input";
+	public String selectAllCheckBoxInGrid = "//adl-table-header/tr/td/div/div/mat-checkbox//input/..";
 	public String selectCheckBoxInPopup = "p-multiselectitem>li>div>div";
 	public String arrowInPopup ="//div[@class='ng-tns-c143-134 ui-multiselect-trigger ui-state-default ui-corner-right']";
 	public String editPermissionsTxt ="//h3[text()='Edit Permissions']";

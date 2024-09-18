@@ -62,22 +62,21 @@ public class DealerGrpEmpMenu_test extends baseClass {
 		login.login(prop.getProperty("dealergrpempAutomation"), prop.getProperty("password"));
 		Assert.assertTrue(utils.getfield("b", "Welcome to your Protective ADL Portal!").isDisplayed());
 		verticalMenu.navigatetoLeftMainMenu("Contracts");
-		Thread.sleep(10000);
 		ArrayList<String> list = new ArrayList<String>();
 		for (int i = 0; i < verticalMenu.getLaterMenuSubItems().size(); i++) {
 			String subItem = verticalMenu.getLaterMenuSubItems().get(i).getText();
 			list.add(subItem.trim());
 		}
 		Assert.assertTrue(list.contains("Contract Search"));
-		Assert.assertTrue(list.contains("Remit Contracts to AUL"));
+		Assert.assertTrue(list.contains("Remit Contracts to Protective"));
 		Assert.assertTrue(list.contains("Edit Remit AUL VSC/LW"));
 		Assert.assertTrue(list.contains("Remit Classic GAP/Ancillary"));
 		Assert.assertTrue(list.contains("Remit VAS Ancillary"));
 
 		verticalMenu.navigatetoLeftMenu("Contract Search");
 		Assert.assertTrue(utils.getTitle("Contract Search").isDisplayed());
-		verticalMenu.navigatetoLeftMenu("Remit Contracts to AUL");
-		Assert.assertTrue(utils.getTitle("Remit Contracts to AUL").isDisplayed());
+		verticalMenu.navigatetoLeftMenu("Remit Contracts to Protective");
+		Assert.assertTrue(utils.getTitle("Remit Contracts to Protective").isDisplayed());
 		verticalMenu.navigatetoLeftMenu("Edit Remit AUL VSC/LW");
 		Assert.assertTrue(utils.getTitle("Edit Remit AUL VSC/LW").isDisplayed());
 //The below steps are on hold
@@ -121,7 +120,7 @@ public class DealerGrpEmpMenu_test extends baseClass {
 		}
 		Assert.assertTrue(list.contains("Edit Remit AUL VSC/LW"));
 		Assert.assertTrue(list.contains("Contract Search"));
-		Assert.assertTrue(list.contains("Remit Contracts to AUL"));
+		Assert.assertTrue(list.contains("Remit Contracts to Protective"));
 		Assert.assertTrue(list.contains("Remit Classic GAP/Ancillary"));
 		Assert.assertTrue(list.contains("Remit VAS Ancillary"));
 	}
@@ -266,14 +265,14 @@ public class DealerGrpEmpMenu_test extends baseClass {
 		// Contracts
 		verticalMenu.navigatetoLeftMainMenu("Contracts");
 		Assert.assertTrue(menu.getLaterMenuSubItems().get(0).getText().contains("Contract Search"));
-		Assert.assertTrue(menu.getLaterMenuSubItems().get(1).getText().contains("Remit Contracts to AUL"));
+		Assert.assertTrue(menu.getLaterMenuSubItems().get(1).getText().contains("Remit Contracts to Protective"));
 		Assert.assertTrue(menu.getLaterMenuSubItems().get(2).getText().contains("Edit Remit AUL VSC/LW"));
 		verticalMenu.navigatetoLeftMenu("Contract Search");
 		utils.waitTillElementIsClickableByWebEle(utils.getTitle("Contract Search"));
 		Assert.assertTrue(utils.getTitle("Contract Search").isDisplayed());
-		verticalMenu.navigatetoLeftMenu("Remit Contracts to AUL");
-		utils.waitTillElementIsClickableByWebEle(utils.getTitle("Remit Contracts to AUL"));
-		Assert.assertTrue(utils.getTitle("Remit Contracts to AUL").isDisplayed());
+		verticalMenu.navigatetoLeftMenu("Remit Contracts to Protective");
+		utils.waitTillElementIsClickableByWebEle(utils.getTitle("Remit Contracts to Protective"));
+		Assert.assertTrue(utils.getTitle("Remit Contracts to Protective").isDisplayed());
 		verticalMenu.navigatetoLeftMenu("Edit Remit AUL VSC/LW");
 		utils.waitTillElementIsClickableByWebEle(utils.getTitle("Edit Remit AUL VSC/LW"));
 		Assert.assertTrue(utils.getTitle("Edit Remit AUL VSC/LW").isDisplayed());

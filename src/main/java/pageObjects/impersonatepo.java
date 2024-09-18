@@ -14,6 +14,7 @@ public class impersonatepo extends baseClass{
 	public String roleDropdownListForAccountName = "//span[@class='mat-option-text']";
 	public String roleDropdownListForDealer = "//mat-option[@role='option']/span/span";
     public String roleId = "//input[@placeholder='Please enter the Role ID / Account Name']";
+    public String roleIdInPopup = "(//input[@placeholder='Please enter the Role ID / Account Name'])[2]";
     public String getusersButton = "//span[contains(text(),'Get Users')]";
     public String impersonateAsGenericUserButton = "//span[contains(text(),'Impersonate as Generic Role')]";
     public String getUsersAndImpersonateAsGenericBtnsList = "form>button";
@@ -67,7 +68,7 @@ public class impersonatepo extends baseClass{
 	public String updateBtn = "//span[text()=' Update ']";
 	public String updateBtnStatus = "//span[text()=' Update ']/..";
 	public String yesBtn = "//span[text()='Yes']";
-	public String closeInPermPopup = "//a[@tabindex='0']/span";
+	public String closeInPermPopup = "//a[@class='ui-multiselect-close ui-corner-all ng-tns-c161-10']/span";
 //	public String closeInPermPopup = "//button[@aria-label='Close']/span/mat-icon";
 	
 	public String registrationStatusArrow = "(//span[contains(@class,'pi pi-chevron-down')])[2]";
@@ -75,4 +76,6 @@ public class impersonatepo extends baseClass{
 	public String completedCheckbox = "//li[@aria-label='Completed']/div/div";
 	public String roleType1 = "(//span[contains(@class,'ui-multiselect-trigger-icon ui-clickable')])[1]";
 	
+	//mailosaur
+	public String emailMailosaur = "//input[@id='email']";
 }

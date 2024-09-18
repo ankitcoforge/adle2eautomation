@@ -10,51 +10,51 @@ public class welcomeAction extends welcomepo{
 
 	utilityClass uc = new utilityClass();
 
-	public String eclaim() {
+	public String eclaim() throws InterruptedException {
 
 		uc.element("cssSelector", eclaimText).isDisplayed();
 		return (uc.element("cssSelector", eclaimText).getAttribute("link"));
 	}
 
-	public String rememberPassText() {
+	public String rememberPassText() throws InterruptedException {
 
 		uc.element("cssSelector", rememberPassword).isDisplayed();
 		return (uc.element("cssSelector", rememberPassword).getText());
 	}
 
-	public String rememberPassDisplay() {
+	public String rememberPassDisplay() throws InterruptedException {
 
 		uc.element("cssSelector", display).isDisplayed();
 		return (uc.element("cssSelector", display).getAttribute("Style"));
 	}
 
 
-	public String privacyPolicyLink() {
+	public String privacyPolicyLink() throws InterruptedException {
 
 		uc.element("cssSelector", privacyPolicy).isDisplayed();
 		return (uc.element("cssSelector", privacyPolicy).getText());
 	}
 	
-	public String welcomeTextLink() {
+	public String welcomeTextLink() throws InterruptedException {
 
 		uc.element("cssSelector", welcomeText).isDisplayed();
 		return (uc.element("cssSelector", welcomeText).getText());
 	}
 	
-	public String gapPortalLink() {
+	public String gapPortalLink() throws InterruptedException {
 
 		uc.element("cssSelector", gapText).isDisplayed();
 		
 		return (uc.element("cssSelector", gapText).getAttribute("link"));
 	}
 	
-	public String forgotPasswordLink() {
+	public String forgotPasswordLink() throws InterruptedException {
 		
 		uc.element("cssSelector", forgotPassword).isDisplayed();
 		return (uc.element("cssSelector", forgetPasswordText).getText());
 	}
 	
-	public boolean imageShown() {
+	public boolean imageShown() throws InterruptedException {
 		return (uc.element("cssSelector",image).isDisplayed());
 	}
 
@@ -63,7 +63,7 @@ public class welcomeAction extends welcomepo{
 		return(driver.getCurrentUrl());
 	}
 	
-	public String resetPasswordlogo() {
+	public String resetPasswordlogo() throws InterruptedException {
 
 		uc.element("cssSelector", forgotPassword).isDisplayed();
 		uc.clickfield("cssSelector", forgetPasswordText);

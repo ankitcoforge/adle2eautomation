@@ -1,5 +1,6 @@
 package pageActions;
 
+import java.io.IOException;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.HashMap;
@@ -10,6 +11,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.mailosaur.MailosaurException;
 
 import pageObjects.EmployeePackspo;
 import pageObjects.NewUserRegistrationPo;
@@ -76,7 +79,7 @@ public class EmployeePacksAction extends EmployeePackspo{
 	 public void selectProgram() throws InterruptedException {
 		 Thread.sleep(10000);
 			 List<WebElement> list = getDriver().findElements(By.xpath(roleDropdownList));
-			 list.get(0).click();
+			 list.get(1).click();
 		}
 	 
 	 public void selectDealerName(String dealer) throws InterruptedException {
@@ -110,6 +113,7 @@ public class EmployeePacksAction extends EmployeePackspo{
 			break;
 		}
 	 }
+	    Thread.sleep(2000);
 	 }
 
 	 
@@ -144,7 +148,7 @@ public class EmployeePacksAction extends EmployeePackspo{
 		 }
 	 
 	 
-	 public HashMap<Integer, HashMap<String, WebElement>> checkGridBodyDetails() {
+	 public HashMap<Integer, HashMap<String, WebElement>> checkGridBodyDetails() throws InterruptedException {
 			List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
 			System.out.println("allHeaderNames: " + allHeaderNames);
 			HashMap<Integer, HashMap<String, WebElement>> allTableData = new HashMap<Integer, HashMap<String, WebElement>>();
@@ -215,7 +219,7 @@ public class EmployeePacksAction extends EmployeePackspo{
 		}
 	 
 	 
-	 public HashMap<String, WebElement> getSearchBoxesInGrid() {
+	 public HashMap<String, WebElement> getSearchBoxesInGrid() throws InterruptedException {
 			utils.scrollDown();
 			HashMap<String, WebElement> map = new HashMap<String, WebElement>();
 			List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
@@ -226,7 +230,7 @@ public class EmployeePacksAction extends EmployeePackspo{
 			return map;
 		}
 	 
-	 public HashMap<String, WebElement> getSearchBoxesFromPackAmount() {
+	 public HashMap<String, WebElement> getSearchBoxesFromPackAmount() throws InterruptedException {
 			utils.scrollDown();
 			HashMap<String, WebElement> map = new HashMap<String, WebElement>();
 			List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
@@ -284,12 +288,13 @@ public class EmployeePacksAction extends EmployeePackspo{
 //		 
 //	 }
 	 
-	 public Integer getVehiclePriceForLender(String vehicleProgram) throws ParseException {
+	 public Integer getVehiclePriceForLender(String vehicleProgram) throws ParseException, InterruptedException {
 	 utils.inputfield("cssSelector", textbox, "Single", 0);
 	 utils.inputfield("cssSelector", textbox, "Test", 1);
 	 utils.inputfield("cssSelector", textbox, "100", 4);
 	 utils.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 5);
 	 utils.clickfield("xpath", getProducts);
+	 Thread.sleep(3000);
 	 co.programSelect(vehicleProgram);
 	 String txt = utils.text("cssSelector", table, 0);
 	 NumberFormat format = NumberFormat.getCurrencyInstance();
@@ -299,7 +304,12 @@ public class EmployeePacksAction extends EmployeePackspo{
 	 return txtInInteger;
 	 }
 	 
-	 public Integer getVehiclePrice(String vehicleProgram) throws ParseException {
+	 public WebElement mileageSelectionInRateorConrtactPage(String termMonth) {
+		 WebElement termMonths = driver.findElement(By.xpath("//td/div/span[contains(text(),'"+termMonth+"')]/../../../td/div[@class='cell cell--price']/span"));	
+		 return termMonths; 
+	 }
+	 
+	 public Integer getVehiclePriceForTermMonth(String vehicleProgram, String termMonth) throws ParseException, InterruptedException {
 		 utils.inputfield("cssSelector", textbox, "Single", 0);
 		 //utils.getfield("cssSelector", "textbox").clear();
 		 utils.inputfield("cssSelector", textbox, "Test", 1);
@@ -307,7 +317,10 @@ public class EmployeePacksAction extends EmployeePackspo{
 		 utils.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 6);
 		 utils.clickfield("xpath", getProducts);
 		 co.programSelect(vehicleProgram);
-		 String txt = utils.text("cssSelector", table, 0);
+		 utils.scrollLittleDownUsingJSE();
+		 String txt = mileageSelectionInRateorConrtactPage(termMonth).getText();
+//		 String txt = utils.text("cssSelector", table, 0);
+		 Thread.sleep(2000);
 		 NumberFormat format = NumberFormat.getCurrencyInstance();
 			Number number = format.parse(txt);
 			String packAmount = number.toString();
@@ -315,6 +328,43 @@ public class EmployeePacksAction extends EmployeePackspo{
 		 return txtInInteger;
 		 }
 	 
+	 public Integer getVehiclePriceForTermMonthLender(String vehicleProgram, String termMonth) throws ParseException, InterruptedException {
+		 utils.inputfield("cssSelector", textbox, "Single", 0);
+		 //utils.getfield("cssSelector", "textbox").clear();
+		 utils.inputfield("cssSelector", textbox, "Test", 1);
+		 utils.inputfield("cssSelector", textbox, "100", 4);
+		 utils.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 5);
+		 utils.clickfield("xpath", getProducts);
+		 co.programSelect(vehicleProgram);
+		 utils.scrollLittleDownUsingJSE();
+		 String txt = mileageSelectionInRateorConrtactPage(termMonth).getText();
+//		 String txt = utils.text("cssSelector", table, 0);
+		 Thread.sleep(2000);
+		 NumberFormat format = NumberFormat.getCurrencyInstance();
+			Number number = format.parse(txt);
+			String packAmount = number.toString();
+		 Integer txtInInteger= Integer.parseInt(packAmount);
+		 return txtInInteger;
+		 }
+	 
+	 public Integer getVehiclePrice(String vehicleProgram) throws ParseException, InterruptedException {
+		 utils.inputfield("cssSelector", textbox, "Single", 0);
+		 //utils.getfield("cssSelector", "textbox").clear();
+		 utils.inputfield("cssSelector", textbox, "Test", 1);
+		 utils.inputfield("cssSelector", textbox, randomizer.getMilage(), 5);
+		 utils.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 6);
+		 utils.clickfield("xpath", getProducts);
+		 co.programSelect(vehicleProgram);
+		 utils.scrollLittleDownUsingJSE();
+		 String txt = utils.text("cssSelector", table, 0);
+		 Thread.sleep(2000);
+		 NumberFormat format = NumberFormat.getCurrencyInstance();
+			Number number = format.parse(txt);
+			String packAmount = number.toString();
+		 Integer txtInInteger= Integer.parseInt(packAmount);
+		 return txtInInteger;
+		 }
+	
 	 public void createNewPack(String program,String packAmount) throws InterruptedException {
 	 getBtnNewPack().click();
 		Thread.sleep(5000);
@@ -352,7 +402,7 @@ public class EmployeePacksAction extends EmployeePackspo{
 		getBtnSave().click();
 		Thread.sleep(3000);
 	 }
-	 public HashMap<Integer, HashMap<String, WebElement>> checkGridForEditDelLock() {
+	 public HashMap<Integer, HashMap<String, WebElement>> checkGridForEditDelLock() throws InterruptedException {
 			List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
 			System.out.println("allHeaderNames: " + allHeaderNames);
 			HashMap<Integer, HashMap<String, WebElement>> allTableData = new HashMap<Integer, HashMap<String, WebElement>>();
@@ -389,9 +439,10 @@ public class EmployeePacksAction extends EmployeePackspo{
 			preferences.getSelectAllCheckBox().click();
 			getDeleteLink().click();
 			getBtnYes().click();
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 		}
 	 }
+	 
 	 
 //	 public void selectDealerInmanageUserPage() throws InterruptedException {
 //			utils.clickfield("xpath", selectDealerNamearrow);
@@ -451,11 +502,11 @@ public class EmployeePacksAction extends EmployeePackspo{
 }
      
      
-     public void getPermissionsForDealerEmp() throws InterruptedException {
+     public void getPermissionsForDealerEmp() throws InterruptedException, IOException, MailosaurException {
 			VerticalMenu.getDefaultpermissionForDealerEmp();
 		}
      
-     public void getPermissionsForLenderEmp() throws InterruptedException {
+     public void getPermissionsForLenderEmp() throws InterruptedException, IOException, MailosaurException {
 			VerticalMenu.getDefaultpermissionForLenderEmp();
 		}
 }

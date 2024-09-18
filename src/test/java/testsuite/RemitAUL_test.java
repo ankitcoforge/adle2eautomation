@@ -50,7 +50,7 @@ public class RemitAUL_test extends RemitAULAction {
 //	@Test(priority = 0)
 //	public void preCond() throws InterruptedException {
 //		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-//		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+//		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 //		Thread.sleep(2000);
 //		if(!getNoRecordsInGrid().getText().contains("There are no records to display")) {
 ////		if(getRowLoc().size() < 3 | getNoRecordsInGrid().getText().contains("There are no records to display")) 
@@ -66,7 +66,7 @@ public class RemitAUL_test extends RemitAULAction {
 //		login.logout();
 //		Thread.sleep(2000);
 //		login.login(prop.getProperty("dealerForPaymentDetails"), prop.getProperty("password"));
-//		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+//		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 //		Thread.sleep(2000);
 //		if(!getNoRecordsInGrid().getText().contains("There are no records to display") | getRowLoc().size() < 3) {
 ////			if(getRowLoc().size() <= 3 ) {
@@ -90,7 +90,7 @@ public class RemitAUL_test extends RemitAULAction {
 //		verticalMenu.navigatetoimpersonate();
 //		ia.impersonateUser("Dealer", "78788");
 		
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		selectACheckBox();
@@ -110,7 +110,7 @@ public class RemitAUL_test extends RemitAULAction {
 			throws InterruptedException {
 		login.login(prop.getProperty("dealerForPaymentDetails"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 
@@ -129,7 +129,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifySelectContractsTxtDescriptionAndGridHeaders_18818_18819_19056() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		Assert.assertEquals((getSelectContractByDefault()).getAttribute("class"), "tab--active");
@@ -151,7 +151,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyPrefixForMonetoryGridValue_18821() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		Assert.assertEquals((getSelectContractByDefault()).getAttribute("class"), "tab--active");
@@ -169,7 +169,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyRowsPerPageDropDownAndRangeMsg_18826_18830() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		Assert.assertEquals((getSelectContractByDefault()).getAttribute("class"), "tab--active");
@@ -190,7 +190,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyEnablingAndDisablingCheckDetailsTabForCheck_18862_18863() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		Assert.assertEquals((getSelectContractByDefault()).getAttribute("class"), "tab--active");
@@ -216,7 +216,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyEnablingAndDisablingPaymentDetailsTabForACH_18864_18865() throws InterruptedException {
 		login.login(prop.getProperty("dealerForPaymentDetails"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		Assert.assertEquals((getSelectContractByDefault()).getAttribute("class"), "tab--active");
@@ -240,7 +240,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyContractIsSelectableAndDeselectable_18859_18860_18861() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		Assert.assertEquals((getSelectContractByDefault()).getAttribute("class"), "tab--active");
@@ -269,7 +269,7 @@ public class RemitAUL_test extends RemitAULAction {
 			throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		utils.scrollLittleDownUsingJSE();
@@ -399,7 +399,7 @@ public class RemitAUL_test extends RemitAULAction {
 			throws InterruptedException, ParseException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		utils.scrollLittleDownUsingJSE();
@@ -566,7 +566,7 @@ public class RemitAUL_test extends RemitAULAction {
 //	public void verifyCalenderDropdownOnSaleDateField_19003() throws InterruptedException, ParseException {
 //		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 //		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-//		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+//		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 //		Thread.sleep(2000);
 //		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 //		Assert.assertEquals((getSelectContractByDefault()).getAttribute("class"), "tab--active");
@@ -584,7 +584,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyTextFiltersWithCharectersInGridColoumns_19011_19012_19013_19014_19015_19016_19023_19024_19025_19246() throws InterruptedException, ParseException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		Assert.assertEquals((getSelectContractByDefault()).getAttribute("class"), "tab--active");
@@ -692,7 +692,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifySelectAllCheckBox_19032_19033_19035() throws InterruptedException, ParseException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		Assert.assertEquals((getSelectContractByDefault()).getAttribute("class"), "tab--active");
@@ -717,7 +717,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifySelectAllCheckBoxWithOneOptionSelected_19034() throws InterruptedException, ParseException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		Assert.assertEquals((getSelectContractByDefault()).getAttribute("class"), "tab--active");
@@ -742,7 +742,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyNumOfDigitsInVINcoloumn_19057() throws InterruptedException, ParseException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		Assert.assertEquals((getSelectContractByDefault()).getAttribute("class"), "tab--active");
@@ -758,7 +758,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyPaymentDetailsTabCheckBox_19135_19143() throws InterruptedException {
 		login.login(prop.getProperty("dealerForPaymentDetails"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		Assert.assertTrue((getPaymentDetailsTab()).isDisplayed());
@@ -777,7 +777,7 @@ public class RemitAUL_test extends RemitAULAction {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		Assert.assertTrue(getSearchBoxInSelectContractsTab().isDisplayed());
@@ -804,7 +804,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyChkBoxTxtAndCommentsBox_19144_19173_19178_19181_19183() throws InterruptedException {
 		login.login(prop.getProperty("dealerForPaymentDetails"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 //		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -827,7 +827,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyMonetoryIconAndlengthInSearchBar_19226_19245() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		Assert.assertTrue(getSearchBoxInSelectContractsTab().isDisplayed());
@@ -842,7 +842,7 @@ public class RemitAUL_test extends RemitAULAction {
 			throws InterruptedException, ParseException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 //		for (int i = 1; i <= getRowLoc().size(); i++) {
@@ -869,7 +869,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyFixedBarAfterNoRecordsMsg_19284() throws InterruptedException, ParseException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Thread.sleep(2000);
@@ -892,7 +892,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyMonetoryIconForTotalDueAndCheckAmount_19287() throws InterruptedException, ParseException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue(getTotalDueValue().contains("$"));
 		Assert.assertTrue(getCheckAmountValue().contains("$"));
@@ -902,7 +902,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyCheckAmountWhenChangingTabs_19291() throws InterruptedException, ParseException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -941,7 +941,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyPlaceholder_18978_19179_19225() throws InterruptedException, ParseException {
 		login.login(prop.getProperty("dealerForPaymentDetails"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		Assert.assertEquals((getSelectContractByDefault()).getAttribute("class"), "tab--active");
@@ -963,7 +963,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyClearFiltersLinkFunctionalityForSearchFilter_19248() throws InterruptedException, ParseException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		Assert.assertEquals((getSelectContractByDefault()).getAttribute("class"), "tab--active");
@@ -1091,7 +1091,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyClearFiltersLinkFunctionalityForColoumnFilter_19249() throws InterruptedException, ParseException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		Assert.assertEquals((getSelectContractByDefault()).getAttribute("class"), "tab--active");
@@ -1231,7 +1231,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyClearFiltersLinkFunctionalityWithourSearchOperation_19250_19251() throws InterruptedException, ParseException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		Assert.assertEquals((getSelectContractByDefault()).getAttribute("class"), "tab--active");
@@ -1351,7 +1351,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyClearFiltersLinkDoesRemoveTheCheckBoxSelection_19253() throws InterruptedException, ParseException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		Assert.assertEquals((getSelectContractByDefault()).getAttribute("class"), "tab--active");
@@ -1483,7 +1483,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyTotalDueCalculationInCheckDetailsTab_19276() throws InterruptedException, ParseException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		
@@ -1517,7 +1517,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyFixedTabValuesByChangingValuesAndTabs_19286() throws InterruptedException, ParseException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		
@@ -1597,7 +1597,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyFixedTabValuesOnBothTabs_19292() throws InterruptedException, ParseException {
 		login.login(prop.getProperty("dealerForPaymentDetails"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		
@@ -1649,7 +1649,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyFixedBarDoesnotHideWhenFiltering_19278() throws InterruptedException, ParseException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		
@@ -1668,7 +1668,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyCheckAmountCalculationInSelectContractsTab_19282() throws InterruptedException, ParseException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		
@@ -1712,7 +1712,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyCheckAmountCalculationInCheckDetailsTab_19283() throws InterruptedException, ParseException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		
@@ -1758,7 +1758,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyFixedBarAfterNoRecordsMsg_19285() throws InterruptedException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		utils.scrollDown();
@@ -1779,7 +1779,7 @@ public class RemitAUL_test extends RemitAULAction {
 	public void verifyFixedTabWhenChangesTabToCheckDetails_19295() throws InterruptedException, ParseException {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to AUL");
+		verticalMenu.navigatetoLeftMenu("Contracts", "Remit Contracts to Protective");
 		Thread.sleep(2000);
 		Assert.assertTrue((getRemitContractsTitle()).isDisplayed());
 		

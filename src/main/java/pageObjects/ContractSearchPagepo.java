@@ -42,5 +42,7 @@ public class ContractSearchPagepo extends baseClass{
 	public String clearFilterButton = "span.clear-filters";
 	public String makeValue = "//b[contains(text(),'Make')]//..//..//div[2]//span";
 	public String modelValue = "//b[contains(text(),'Model')]//..//..//div[2]//span";
+	public String deleteHightlight = "//div[@class='toolbar__items']";
+	public String cancelLink = "//a[text()='Cancel']";
 	
 }

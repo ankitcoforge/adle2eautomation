@@ -575,7 +575,7 @@ public class NewUserRegistration_Action extends NewUserRegistrationPo {
 		utils.element("xpath", permissionsArrow).click();
 	}
 	
-	public void subAgentPermissionsCheckWithOutSubmit() {
+	public void subAgentPermissionsCheckWithOutSubmit() throws InterruptedException {
 		utils.element("xpath", permissionsArrow).click();
 		WebDriverWait wait = new WebDriverWait(driver, 60);
 		wait.until(ExpectedConditions
@@ -590,7 +590,7 @@ public class NewUserRegistration_Action extends NewUserRegistrationPo {
 		utils.element("xpath", permissionsArrow).click();
 	}
 	
-	public HashMap<Integer, HashMap<String, String>> manageUsersPageGrid() {
+	public HashMap<Integer, HashMap<String, String>> manageUsersPageGrid() throws InterruptedException {
 		List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", impersonate.headerLoc);
 		System.out.println("allHeaderNames: " + allHeaderNames);
 		HashMap<Integer, HashMap<String, String>> allTableData = new HashMap<Integer, HashMap<String, String>>();
@@ -622,7 +622,7 @@ public class NewUserRegistration_Action extends NewUserRegistrationPo {
 		return allTableData;
 		}
 
-	public HashMap<Integer, HashMap<String, String>> issueNewUserRegistrationPageGrid() {
+	public HashMap<Integer, HashMap<String, String>> issueNewUserRegistrationPageGrid() throws InterruptedException {
 		List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", impersonate.headerLoc);
 		System.out.println("allHeaderNames: " + allHeaderNames);
 		HashMap<Integer, HashMap<String, String>> allTableData = new HashMap<Integer, HashMap<String, String>>();
@@ -650,7 +650,7 @@ public class NewUserRegistration_Action extends NewUserRegistrationPo {
 		return allTableData;
 		}
 
-	public WebElement getEditPermissionsLinkInNewUserRegistrationPage(int i) {
+	public WebElement getEditPermissionsLinkInNewUserRegistrationPage(int i) throws InterruptedException {
 		String str="table>tbody>tr:nth-of-type("+i+")>td:nth-of-type(5)>adl-table-cells>div";
 		WebElement EditBtn = utils.element("cssSelector", str);
 		return EditBtn;

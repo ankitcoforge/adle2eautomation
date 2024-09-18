@@ -81,7 +81,7 @@ public class ManageMyDealerGrpEmployeeAction extends ManageMyDealerGrpEmployeePO
 		return checkbox;
 		}
 	
-	public void deSelectedSelectAllChkBx() {
+	public void deSelectedSelectAllChkBx() throws InterruptedException {
 	WebElement selectAllCheckBoxstat = utils.element("xpath", selectAllCheckBoxstatus);
 	if(selectAllCheckBoxstat.isSelected()) {
 		utils.element("xpath", selectAllCheckBox).click();
@@ -93,7 +93,7 @@ public class ManageMyDealerGrpEmployeeAction extends ManageMyDealerGrpEmployeePO
 		Assert.assertFalse(selectAllCheckBoxstat.isSelected());
 	}
 	
-	public void selectedSelectAllChkbx() {
+	public void selectedSelectAllChkbx() throws InterruptedException {
 	WebElement selectAllCheckBoxstat = utils.element("xpath", selectAllCheckBoxstatus);
 	if(!selectAllCheckBoxstat.isSelected()) {
 	utils.element("xpath", selectAllCheckBox).click();

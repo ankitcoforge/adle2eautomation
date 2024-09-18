@@ -64,22 +64,22 @@ public class earlyClaimsAction extends earlyClaimspo {
 		Assert.assertEquals(gridHeaderUI.get(gridHeaderUI.size()-2).equals(""), true);
 	}
 
-	public String getDropdownTitle() {
+	public String getDropdownTitle() throws InterruptedException {
 		uc.element("cssSelector", dropdownTitle).isDisplayed();
 		return (uc.element("cssSelector", dropdownTitle).getText());
 	}
 
-	public String getDropdownDefaultValue() {
+	public String getDropdownDefaultValue() throws InterruptedException {
 		uc.element("cssSelector", dropdownDefaultValue).isDisplayed();
 		return (uc.element("cssSelector", dropdownDefaultValue).getText());
 	}
 	
-	public String getRoleTypeIdUI() {
+	public String getRoleTypeIdUI() throws InterruptedException {
 		uc.element("cssSelector", roleTypeId).isDisplayed();
 		return (uc.element("cssSelector", roleTypeId).getText());
 	}
 
-	public HashMap<Integer, HashMap<String, String>> checkGridBodyDetails() {
+	public HashMap<Integer, HashMap<String, String>> checkGridBodyDetails() throws InterruptedException {
 		List<String> allHeaderNames = uc.getTextValuesForObject("cssSelector", headerLoc);
 		System.out.println("allHeaderNames: " + allHeaderNames);
 		HashMap<Integer, HashMap<String, String>> allTableData = new HashMap<Integer, HashMap<String, String>>();
@@ -183,7 +183,7 @@ public class earlyClaimsAction extends earlyClaimspo {
 		uc.clickfield("cssSelector", expandContractDetails);
 	}
 	
-	public void clickOnViewDetailsFirstRow() {
+	public void clickOnViewDetailsFirstRow() throws InterruptedException {
 		uc.clickfield("xpath", viewDetailFirstRow, 0);
 		WebElement element = uc.element("cssSelector", modal);
 		System.out.println("element: " + element);

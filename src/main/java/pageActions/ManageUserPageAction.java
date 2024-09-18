@@ -64,7 +64,7 @@ public class ManageUserPageAction extends ManageUserPo{
 		return allTableData;
 		}
 	
-	public HashMap<Integer, HashMap<String, String>> issueNewUserRegistrationPageGrid() {
+	public HashMap<Integer, HashMap<String, String>> issueNewUserRegistrationPageGrid() throws InterruptedException {
 		List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", impersonate.headerLoc);
 		System.out.println("allHeaderNames: " + allHeaderNames);
 		HashMap<Integer, HashMap<String, String>> allTableData = new HashMap<Integer, HashMap<String, String>>();
@@ -92,7 +92,7 @@ public class ManageUserPageAction extends ManageUserPo{
 		return allTableData;
 		}
 
-	public WebElement getEditPermissionsLinkInNewUserRegistrationPage(int i) {
+	public WebElement getEditPermissionsLinkInNewUserRegistrationPage(int i) throws InterruptedException {
 		String str="table>tbody>tr:nth-of-type("+i+")>td:nth-of-type(5)>adl-table-cells>div";
 		WebElement EditBtn = utils.element("cssSelector", str);
 		return EditBtn;
@@ -181,7 +181,7 @@ public void selectRoleTypeInGrid(String roleType) throws InterruptedException {
 //	 utils.waitTillElementIsVisible(io.tableFirstRow);
 }
 
-public HashMap<Integer, HashMap<String, WebElement>> checkGridForLockImpersonateResendInvitationManageuser() {
+public HashMap<Integer, HashMap<String, WebElement>> checkGridForLockImpersonateResendInvitationManageuser() throws InterruptedException {
 	List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", impersonate.headerLoc);
 	System.out.println("allHeaderNames: " + allHeaderNames);
 	HashMap<Integer, HashMap<String, WebElement>> allTableData = new HashMap<Integer, HashMap<String, WebElement>>();
@@ -204,12 +204,12 @@ public HashMap<Integer, HashMap<String, WebElement>> checkGridForLockImpersonate
 	return allTableData;
 }
 
-public WebElement editLinkInGrid(int row) {
+public WebElement editLinkInGrid(int row) throws InterruptedException {
 	String del = "tr:nth-of-type("+row+")>td:nth-of-type(9)>adl-table-cells>div>div:nth-of-type(1)>i:nth-of-type(1)";
 	 return utils.element("cssselector", del);
 	 }
 
-public WebElement deleteLinkInGrid(int row) {
+public WebElement deleteLinkInGrid(int row) throws InterruptedException {
 	String del = "table>tbody>tr:nth-of-type("+row+")>td:nth-of-type(10)>adl-table-cells>div>div:nth-of-type(1)>i:nth-of-type(2)";
 	 return utils.element("cssselector", del);
 	 }
@@ -220,7 +220,7 @@ return ele;
 }
 	
 
-public HashMap<Integer, HashMap<String, WebElement>> checkGridForEditDelLock() {
+public HashMap<Integer, HashMap<String, WebElement>> checkGridForEditDelLock() throws InterruptedException {
 	List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", impersonate.headerLoc);
 	System.out.println("allHeaderNames: " + allHeaderNames);
 	HashMap<Integer, HashMap<String, WebElement>> allTableData = new HashMap<Integer, HashMap<String, WebElement>>();
