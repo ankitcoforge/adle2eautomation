@@ -104,7 +104,7 @@ public class baseClass extends pdfUtils{
 		if (prop == null) {
 			prop = new Properties();
 			try {
-				FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "//config_qainternalMFA.properties");
+				FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "//config_qainternal.properties");
 				prop.load(fs);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

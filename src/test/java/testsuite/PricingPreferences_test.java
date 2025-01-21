@@ -200,10 +200,10 @@ public class PricingPreferences_test extends PricingPreferencesAction {
         //data
 		String programCode = prop.getProperty("dealerProgramCode");
 		String priceTobeEnteredInStringFormat = "100";
-		int markupAmount =Integer.parseInt(priceTobeEnteredInStringFormat);
+		double markupAmount =Integer.parseInt(priceTobeEnteredInStringFormat);
 		
 		verticalMenu.navigatetoContract();
-		int vehiclePriceBefore = EmplPacks.getVehiclePrice(programCode);
+		double vehiclePriceBefore = EmplPacks.getVehiclePrice(programCode);
 		System.out.println("vehicle Price before------"+vehiclePriceBefore);
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
@@ -222,7 +222,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		utils.getfield("span", "Save").click();
 		Thread.sleep(3000);
 		verticalMenu.navigatetoContract();
-		int vehiclePriceAfter = EmplPacks.getVehiclePrice(programCode);
+		double vehiclePriceAfter = EmplPacks.getVehiclePrice(programCode);
 		System.out.println("vehicle Price after------"+vehiclePriceAfter);
 		Assert.assertEquals(vehiclePriceAfter, (vehiclePriceBefore + markupAmount));
 		singleContract();
@@ -251,11 +251,11 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		String programCode = prop.getProperty("lenderProgramCode");
 		String program = prop.getProperty("lenderProgram");
 		String priceTobeEnteredInStringFormat = "100";
-		int markupAmount =Integer.parseInt(priceTobeEnteredInStringFormat);
+		double markupAmount =Integer.parseInt(priceTobeEnteredInStringFormat);
 		
 		verticalMenu.navigatetoContract();
 		contract.getSelectDealerTogenerateContract("#1 Auto Liquidators LLC");
-		 int vehiclePriceBefore =  EmplPacks.getVehiclePriceForLender(programCode);
+		double vehiclePriceBefore =  EmplPacks.getVehiclePriceForLender(programCode);
 		System.out.println("vehicle Price before------"+vehiclePriceBefore);
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
@@ -273,7 +273,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		utils.getfield("span", "Save").click();
 		Thread.sleep(3000);
 		verticalMenu.navigatetoContract();
-		int vehiclePriceBeforeAfter = EmplPacks.getVehiclePriceForLender(programCode);
+		double vehiclePriceBeforeAfter = EmplPacks.getVehiclePriceForLender(programCode);
 		System.out.println("vehicle Price after------"+vehiclePriceBeforeAfter);
 		Assert.assertEquals(vehiclePriceBeforeAfter, (vehiclePriceBefore + markupAmount));
 		singleContractForLender();
@@ -332,11 +332,11 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		String programCode = prop.getProperty("lenderProgramCode");
 		String program = prop.getProperty("lenderProgram");
 		String priceTobeEnteredInStringFormat = "100";
-		int markupAmount =Integer.parseInt(priceTobeEnteredInStringFormat);
+		double markupAmount =Integer.parseInt(priceTobeEnteredInStringFormat);
 //		
 		verticalMenu.navigatetoContract();
 		contract.getSelectDealerTogenerateContract("#1 Auto Liquidators LLC");
-		 int vehiclePriceBefore =  EmplPacks.getVehiclePriceForLender(programCode);
+		double vehiclePriceBefore =  EmplPacks.getVehiclePriceForLender(programCode);
 		System.out.println("vehicle Price before------"+vehiclePriceBefore);
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
@@ -354,7 +354,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		utils.getfield("span", "Save").click();
 		Thread.sleep(3000);
 		verticalMenu.navigatetoContract();
-		int vehiclePriceBeforeAfter = EmplPacks.getVehiclePriceForLender(programCode);
+		double vehiclePriceBeforeAfter = EmplPacks.getVehiclePriceForLender(programCode);
 		System.out.println("vehicle Price after------"+vehiclePriceBeforeAfter);
 		Assert.assertEquals(vehiclePriceBeforeAfter, (vehiclePriceBefore + markupAmount));
 		singleContractForLender();
@@ -383,10 +383,10 @@ public class PricingPreferences_test extends PricingPreferencesAction {
         //data
 		String programCode = prop.getProperty("dealerProgramCode");
 		String priceTobeEnteredInStringFormat = "100";
-		int markupAmount =Integer.parseInt(priceTobeEnteredInStringFormat);
+		double markupAmount =Integer.parseInt(priceTobeEnteredInStringFormat);
 		
 		verticalMenu.navigatetoContract();
-		 int vehiclePriceBefore = EmplPacks.getVehiclePrice(programCode);
+		double vehiclePriceBefore = EmplPacks.getVehiclePrice(programCode);
 		System.out.println("vehicle Price before------"+vehiclePriceBefore);
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
@@ -404,7 +404,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		utils.getfield("span", "Save").click();
 		Thread.sleep(3000);
 		verticalMenu.navigatetoContract();
-		int vehiclePriceAfter = EmplPacks.getVehiclePrice(programCode);
+		double vehiclePriceAfter = EmplPacks.getVehiclePrice(programCode);
 		System.out.println("vehicle Price after------"+vehiclePriceAfter);
 		Assert.assertEquals(vehiclePriceAfter, (vehiclePriceBefore + markupAmount));
 		singleContract();	
@@ -488,12 +488,12 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		String programCode = prop.getProperty("agentProgramCode");
 		String program = prop.getProperty("agentProgram");
 		String priceTobeEnteredInStringFormat = "100";
-		int markupAmount =Integer.parseInt(priceTobeEnteredInStringFormat);
+		double markupAmount =Integer.parseInt(priceTobeEnteredInStringFormat);
 //		
 		verticalMenu.navigatetoContract();
 		utils.wait(200);
 		contract.getSelectDealerTogenerateContract("Angel Motors Inc");
-		 int vehiclePriceBefore =  EmplPacks.getVehiclePrice(programCode);
+		double vehiclePriceBefore =  EmplPacks.getVehiclePrice(programCode);
 		System.out.println("vehicle Price before------"+vehiclePriceBefore);
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Pricing Preferences");
@@ -512,7 +512,7 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 		createMarkupForAll(programCode,"Flat", "All", priceTobeEnteredInStringFormat);
 		Thread.sleep(3000);
 		verticalMenu.navigatetoContract();
-		int vehiclePriceBeforeAfter = EmplPacks.getVehiclePrice(programCode);
+		double vehiclePriceBeforeAfter = EmplPacks.getVehiclePrice(programCode);
 		System.out.println("vehicle Price after------"+vehiclePriceBeforeAfter);
 		Assert.assertEquals(vehiclePriceBeforeAfter, (vehiclePriceBefore + markupAmount));
 		singleContract();

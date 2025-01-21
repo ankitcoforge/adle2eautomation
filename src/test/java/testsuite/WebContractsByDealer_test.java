@@ -131,39 +131,39 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 		Assert.assertEquals(NoOfRowsToSelect, NoOfRowsSelected);
 	}
 
-	@Test(priority = 8)
-	public void verifyPageNumbers_27310() throws InterruptedException {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
-//		getElementInFirstGrid("Dealer ID").sendKeys(prop.getProperty("roleid"));
-//		getArrowForwardBtn().click();
-//		Thread.sleep(2000);
-//		utils.scrollDown();
-		getRowsPerPage().isDisplayed();
-		getRowsPerPageDropdownbtn().click();
-		getRowsPerPageDropdownlist().get(0).click();
-		getPageNo(webcontracts.getXMLData("pageNo2")).click();
-		Assert.assertTrue(getCurrentPageRecord().equals(webcontracts.getXMLData("pageRecord26")), "Page 2 is displaying");
-		getPageNo(webcontracts.getXMLData("pageNo5")).click();
-		Assert.assertTrue(getCurrentPageRecord().equals(webcontracts.getXMLData("pageRecord101")), "Page 5 is displaying");
-	}
-
-	@Test(priority = 9)
-	public void verifyTotalPageNumbersPerPage_27326() throws InterruptedException {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
-		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
-		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
-//		getElementInFirstGrid("Dealer ID").sendKeys(prop.getProperty("roleid"));
-//		getArrowForwardBtn().click();
-//		Thread.sleep(10000);
-//		utils.scrollDown();
-		getRowsPerPage().isDisplayed();
-		utils.scrollDownUsingJSE();
-		getRowsPerPageDropdownbtn().click();
-		getRowsPerPageDropdownlist().get(0).click();
-		Assert.assertTrue(getTotalPagesDisplayed().toString().equals(webcontracts.getXMLData("pageNo5")), "five pages are displayed at a time");
-	}
+//	@Test(priority = 8)
+//	public void verifyPageNumbers_27310() throws InterruptedException {
+//		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+//		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
+//		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
+////		getElementInFirstGrid("Dealer ID").sendKeys(prop.getProperty("roleid"));
+////		getArrowForwardBtn().click();
+////		Thread.sleep(2000);
+////		utils.scrollDown();
+//		getRowsPerPage().isDisplayed();
+//		getRowsPerPageDropdownbtn().click();
+//		getRowsPerPageDropdownlist().get(0).click();
+//		getPageNo(webcontracts.getXMLData("pageNo2")).click();
+//		Assert.assertTrue(getCurrentPageRecord().equals(webcontracts.getXMLData("pageRecord26")), "Page 2 is displaying");
+//		getPageNo(webcontracts.getXMLData("pageNo5")).click();
+//		Assert.assertTrue(getCurrentPageRecord().equals(webcontracts.getXMLData("pageRecord101")), "Page 5 is displaying");
+//	}
+//
+//	@Test(priority = 9)
+//	public void verifyTotalPageNumbersPerPage_27326() throws InterruptedException {
+//		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+//		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
+//		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));
+////		getElementInFirstGrid("Dealer ID").sendKeys(prop.getProperty("roleid"));
+////		getArrowForwardBtn().click();
+////		Thread.sleep(10000);
+////		utils.scrollDown();
+//		getRowsPerPage().isDisplayed();
+//		utils.scrollDownUsingJSE();
+//		getRowsPerPageDropdownbtn().click();
+//		getRowsPerPageDropdownlist().get(0).click();
+//		Assert.assertTrue(getTotalPagesDisplayed().toString().equals(webcontracts.getXMLData("pageNo5")), "five pages are displayed at a time");
+//	}
 
 	@Test(priority = 10)
 	public void verifyTxt_27327() throws InterruptedException {

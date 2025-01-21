@@ -7,6 +7,7 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -28,7 +29,7 @@ public class AssignDealerGrpEmployee_test extends AssignDealerGrpEmployeeAction 
 //	ManageUsersPage_test manageuser = new ManageUsersPage_test();
 	PermissionsAction permissions = new PermissionsAction();
 
-	@BeforeMethod(alwaysRun = true)
+	@BeforeClass(alwaysRun = true)
 	public void login() throws InterruptedException {
 		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");

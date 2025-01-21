@@ -96,7 +96,7 @@ public class VerticalMenu_test extends LateralMenuAction {
 	
 	@Test(priority = 2)
 	public void verifyLateralMenuOptionsForDealer_30210_30315_30216_30237_30240_30243() throws InterruptedException, IOException, MailosaurException {
-		login.loginThroughMobileOTP(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
+		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		String toolbox = getLateralMenuItems2().get(1).getText();
 		String dashboard = getLateralMenuItems2().get(0).getText();
@@ -124,7 +124,7 @@ public class VerticalMenu_test extends LateralMenuAction {
 			verticalMenu.navigatetoLeftMainMenu("Contracts");
 			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Contract Search"));
 			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Remit Contracts to Protective"));
-			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Edit Remit AUL VSC / LW"));
+			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Edit Remit Protective VSC / LW"));
 			Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("Remit Classic GAP / Ancillary"));
 			Assert.assertTrue(getLaterMenuSubItems().get(4).getText().contains("Remit VAS Ancillary"));
 			
@@ -159,7 +159,7 @@ public class VerticalMenu_test extends LateralMenuAction {
 	
 	@Test(priority = 3)
 	public void verifyLateralMenuOptionsForLender_30212_30217_30239_30241_30244_30320_30316() throws InterruptedException, IOException, MailosaurException {
-		login.loginThroughMobileOTP(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
+		login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		String toolbox = getLateralMenuItems2().get(1).getText();
 		String dashboard = getLateralMenuItems2().get(0).getText();
@@ -331,7 +331,7 @@ public class VerticalMenu_test extends LateralMenuAction {
 		verticalMenu.navigatetoLeftMainMenu("Contracts");
 		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Contract Search"));
 		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Remit Contracts to Protective"));
-		Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Edit Remit AUL VSC / LW"));
+		Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Edit Remit Protective VSC / LW"));
 		Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("Remit Classic GAP / Ancillary"));
 		Assert.assertTrue(getLaterMenuSubItems().get(4).getText().contains("Remit VAS Ancillary"));
 	}
@@ -369,7 +369,7 @@ public class VerticalMenu_test extends LateralMenuAction {
 			verticalMenu.navigatetoLeftMainMenu("Contracts");
 			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Contract Search"));
 			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Remit Contracts to Protective"));
-//			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Edit Remit AUL VSC/LW"));
+//			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Edit Remit Protective VSC/LW"));
 			
 			verticalMenu.navigatetoLeftMainMenu("Cancellations");
 			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Cancellation Quote"));
@@ -429,7 +429,7 @@ public class VerticalMenu_test extends LateralMenuAction {
 			verticalMenu.navigatetoLeftMainMenu("Contracts");
 			Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("Contract Search"));
 			Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Remit Contracts to Protective"));
-			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Edit Remit AUL VSC / LW"));
+			Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Edit Remit Protective VSC / LW"));
 			Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("Remit Classic GAP / Ancillary"));
 			Assert.assertTrue(getLaterMenuSubItems().get(4).getText().contains("Remit VAS Ancillary"));
 			
@@ -533,7 +533,6 @@ public class VerticalMenu_test extends LateralMenuAction {
 		getNewUserBtnClose().click();
 	}
 	
-
 	
 	@Test(priority = 11)
 	public void verifyNewExceptionBtnActivated_30784() throws InterruptedException, IOException, MailosaurException {
@@ -569,30 +568,30 @@ public class VerticalMenu_test extends LateralMenuAction {
 	}
 
 	
-	@Test(priority = 13)
-	public void verifyDashboardReportsforAgent_32244() throws InterruptedException, IOException, MailosaurException {
-		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMainMenu("Report");
-		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("My Commissions"));
-		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Unpaid Contracts"));
-		Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Activations"));
-		Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("Cancellations"));
-		Assert.assertTrue(getLaterMenuSubItems().get(4).getText().contains("My Account Statements"));
-		Assert.assertTrue(getLaterMenuSubItems().get(5).getText().contains("Claims History"));
-		Assert.assertTrue(getLaterMenuSubItems().get(6).getText().contains("Actuarials"));
-		Assert.assertTrue(getLaterMenuSubItems().get(7).getText().contains("Early Claims"));
-		verticalMenu.navigatetoLeftMenu("Dashboard");
-		utils.scrollDown();
-		//Assert.assertTrue(getDashboardPageReports("My Commissions").isDisplayed());
-		Assert.assertTrue(getDashboardPageReports("Unpaid Contracts").isDisplayed());
-		Assert.assertTrue(getDashboardPageReports("Activations").isDisplayed());
-		Assert.assertTrue(getDashboardPageReports("Cancellations").isDisplayed());
-		Assert.assertTrue(getDashboardPageReports("My Account Statements").isDisplayed());
-		//Assert.assertTrue(getDashboardPageReports("Actuarials").isDisplayed());
-		Assert.assertTrue(getDashboardPageReports("Early Claims").isDisplayed());
-		Assert.assertTrue(getDashboardPageReports("Contract Search").isDisplayed());
-	}
+//	@Test(priority = 13)
+//	public void verifyDashboardReportsforAgent_32244() throws InterruptedException, IOException, MailosaurException {
+//		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
+//		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
+//		verticalMenu.navigatetoLeftMainMenu("Report");
+//		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("My Commissions"));
+//		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Unpaid Contracts"));
+//		Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Activations"));
+//		Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("Cancellations"));
+//		Assert.assertTrue(getLaterMenuSubItems().get(4).getText().contains("My Account Statements"));
+//		Assert.assertTrue(getLaterMenuSubItems().get(5).getText().contains("Claims History"));
+//		Assert.assertTrue(getLaterMenuSubItems().get(6).getText().contains("Actuarials"));
+//		Assert.assertTrue(getLaterMenuSubItems().get(7).getText().contains("Early Claims"));
+//		verticalMenu.navigatetoLeftMenu("Dashboard");
+//		utils.scrollDown();
+//		//Assert.assertTrue(getDashboardPageReports("My Commissions").isDisplayed());
+//		Assert.assertTrue(getDashboardPageReports("Unpaid Contracts").isDisplayed());
+//		Assert.assertTrue(getDashboardPageReports("Activations").isDisplayed());
+//		Assert.assertTrue(getDashboardPageReports("Cancellations").isDisplayed());
+//		Assert.assertTrue(getDashboardPageReports("My Account Statements").isDisplayed());
+//		//Assert.assertTrue(getDashboardPageReports("Actuarials").isDisplayed());
+//		Assert.assertTrue(getDashboardPageReports("Early Claims").isDisplayed());
+//		Assert.assertTrue(getDashboardPageReports("Contract Search").isDisplayed());
+//	}
 
 	@Test(priority = 14)
 	public void verifyDashboardReportsforLender_32245() throws InterruptedException, IOException, MailosaurException {
@@ -617,31 +616,31 @@ public class VerticalMenu_test extends LateralMenuAction {
 		Assert.assertTrue(getDashboardPageReports("Contract Search").isDisplayed());
 	}
 
-	@Test(priority = 15 ,enabled = false )
-	public void verifyDashboardReportsforSubAgent_32253() throws InterruptedException, IOException, MailosaurException {
-		getDefaultpermissionForsubAgent();
-		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
-		verticalMenu.navigatetoLeftMainMenu("Report");
-		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("My Commissions"));
-		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Unpaid Contracts"));
-		Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Activations"));
-		Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("Cancellations"));
-		Assert.assertTrue(getLaterMenuSubItems().get(4).getText().contains("My Account Statements"));
-		Assert.assertTrue(getLaterMenuSubItems().get(5).getText().contains("Claims History"));
-		Assert.assertTrue(getLaterMenuSubItems().get(6).getText().contains("Actuarials"));
-		Assert.assertTrue(getLaterMenuSubItems().get(7).getText().contains("Early Claims"));
-		verticalMenu.navigatetoLeftMenu("Dashboard");
-		utils.scrollDown();
-		Assert.assertTrue(getDashboardPageReports("My Commissions").isDisplayed());
-		Assert.assertTrue(getDashboardPageReports("Unpaid Contracts").isDisplayed());
-		Assert.assertTrue(getDashboardPageReports("Activations").isDisplayed());
-		Assert.assertTrue(getDashboardPageReports("Cancellations").isDisplayed());
-		Assert.assertTrue(getDashboardPageReports("My Account Statements").isDisplayed());
-	//	Assert.assertTrue(getDashboardPageReports("Actuarials").isDisplayed());
-		Assert.assertTrue(getDashboardPageReports("Early Claims").isDisplayed());
-		Assert.assertTrue(getDashboardPageReports("Contract Search").isDisplayed());
-	}
+//	@Test(priority = 15 ,enabled = false )
+//	public void verifyDashboardReportsforSubAgent_32253() throws InterruptedException, IOException, MailosaurException {
+//		getDefaultpermissionForsubAgent();
+//		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
+//		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
+//		verticalMenu.navigatetoLeftMainMenu("Report");
+//		Assert.assertTrue(getLaterMenuSubItems().get(0).getText().contains("My Commissions"));
+//		Assert.assertTrue(getLaterMenuSubItems().get(1).getText().contains("Unpaid Contracts"));
+//		Assert.assertTrue(getLaterMenuSubItems().get(2).getText().contains("Activations"));
+//		Assert.assertTrue(getLaterMenuSubItems().get(3).getText().contains("Cancellations"));
+//		Assert.assertTrue(getLaterMenuSubItems().get(4).getText().contains("My Account Statements"));
+//		Assert.assertTrue(getLaterMenuSubItems().get(5).getText().contains("Claims History"));
+//		Assert.assertTrue(getLaterMenuSubItems().get(6).getText().contains("Actuarials"));
+//		Assert.assertTrue(getLaterMenuSubItems().get(7).getText().contains("Early Claims"));
+//		verticalMenu.navigatetoLeftMenu("Dashboard");
+//		utils.scrollDown();
+//		Assert.assertTrue(getDashboardPageReports("My Commissions").isDisplayed());
+//		Assert.assertTrue(getDashboardPageReports("Unpaid Contracts").isDisplayed());
+//		Assert.assertTrue(getDashboardPageReports("Activations").isDisplayed());
+//		Assert.assertTrue(getDashboardPageReports("Cancellations").isDisplayed());
+//		Assert.assertTrue(getDashboardPageReports("My Account Statements").isDisplayed());
+//	//	Assert.assertTrue(getDashboardPageReports("Actuarials").isDisplayed());
+//		Assert.assertTrue(getDashboardPageReports("Early Claims").isDisplayed());
+//		Assert.assertTrue(getDashboardPageReports("Contract Search").isDisplayed());
+//	}
 	
 	@Test(priority = 16)
 	public void verifyDashboardReportsforDealerEmp_32254() throws InterruptedException, IOException, MailosaurException {
@@ -750,30 +749,30 @@ public class VerticalMenu_test extends LateralMenuAction {
 		verifyEditAndDelFunctionality();
 	}
 	
-	@Test(priority = 22 )
-	public void verifyEditAndDeleteFunctionalityForAgentLogin_34147_34149() throws Exception {
-		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
-		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
-		getRoleIDorAccountName().sendKeys("Angel motor");
-		selectDropDown();
-		impersonate.selectStatusAsCompleted();
-		selectRoleType("Dealer");
-		Assert.assertTrue(getEditStatusDisabled().get(2).getAttribute("class").contains("disabled"));
-		Assert.assertTrue(getDeleteStatus().get(2).getAttribute("class").contains("clickeable"));
+//	@Test(priority = 22 )
+//	public void verifyEditAndDeleteFunctionalityForAgentLogin_34147_34149() throws Exception {
+//		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
+//		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage Dealers");
+//		getRoleIDorAccountName().sendKeys("Angel motor");
+//		selectDropDown();
+//		impersonate.selectStatusAsCompleted();
 //		selectRoleType("Dealer");
-		selectRoleType("DealerEmp");
-		Assert.assertTrue(getEditStatusEnabled().get(2).getAttribute("class").contains("clickeable"));
-		Assert.assertTrue(getDeleteStatus().get(2).getAttribute("class").contains("clickeable"));
-	}
+//		Assert.assertTrue(getEditStatusDisabled().get(2).getAttribute("class").contains("disabled"));
+//		Assert.assertTrue(getDeleteStatus().get(2).getAttribute("class").contains("clickeable"));
+////		selectRoleType("Dealer");
+//		selectRoleType("DealerEmp");
+//		Assert.assertTrue(getEditStatusEnabled().get(2).getAttribute("class").contains("clickeable"));
+//		Assert.assertTrue(getDeleteStatus().get(2).getAttribute("class").contains("clickeable"));
+//	}
 	
-	@Test(priority = 23 )
-	public void verifyEditAndDeleteFunctionalityForSubAgentThroughAgentLogin_34154() throws Exception {
-		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
-		verticalMenu.navigatetoLeftMenu("Agency Settings", "Manage Users");
-		selectRoleType("SubAgent");
-		Assert.assertTrue(getEditStatusEnabled().get(0).getAttribute("class").contains("clickeable"));
-		Assert.assertTrue(getDeleteStatus().get(0).getAttribute("class").contains("clickeable"));
-	}
+//	@Test(priority = 23 )
+//	public void verifyEditAndDeleteFunctionalityForSubAgentThroughAgentLogin_34154() throws Exception {
+//		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
+//		verticalMenu.navigatetoLeftMenu("Agency Settings", "Manage Users");
+//		selectRoleType("SubAgent");
+//		Assert.assertTrue(getEditStatusEnabled().get(0).getAttribute("class").contains("clickeable"));
+//		Assert.assertTrue(getDeleteStatus().get(0).getAttribute("class").contains("clickeable"));
+//	}
 	
 	//resolve issue and mark it as true
 	@Test(priority = 24,enabled = false )

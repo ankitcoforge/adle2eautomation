@@ -50,7 +50,7 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 	@Test(priority = 1)
 	public void verifyQuickCodeMarkupAndSCToggleIsDisabledForDealer_35256_35286() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		selectLienholder(SPP);
 		Assert.assertTrue(utils.element("xpath", quickCode).isEnabled());
 		utils.element("xpath", lienholder).clear();
@@ -67,7 +67,7 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 //		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 //		verticalMenu.navigatetoimpersonate();
 //		impersonate.impersonateUser("DealerEmp", "22723");
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		selectLienholder(unitedAutoCredit);
 		Assert.assertTrue(utils.element("xpath", elementsInRateContractPage,3).getText().equals("Quick Code"));
 		Assert.assertFalse(utils.element("xpath", quickCode).isEnabled());
@@ -79,7 +79,7 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 	@Test(priority = 3)
 	public void verifyQuickCodeMarkupAndSCToggleIsDisabledForLenderRole_35260_35288() throws Exception {
 		login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		contract.getSelectDealerTogenerateContract(UtilsDataReader.getXMLData("dealer"));
 		Assert.assertFalse(utils.element("xpath", elementsInRateContractPage,3).getText().equals("Quick Code"));
 		EnterMileageVINAndSelectProgramForLender(unitedAutoCredit);
@@ -89,7 +89,7 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 	@Test(priority = 4)
 	public void verifyQuickCodeMarkupAndSCToggleIsDisabledForLenderEmpRole_35261_35289() throws Exception {
 		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		utils.waitTillElementIsClickable(contract.selectDealerTogenerateContract);
 		contract.getSelectDealerTogenerateContract(UtilsDataReader.getXMLData("dealer"));
 		Assert.assertFalse(utils.element("xpath", elementsInRateContractPage,3).getText().equals("Quick Code"));
@@ -104,7 +104,7 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 		ManageUserPage.selectDealerInmanageUserPage("38226");
 		utils.clickfield("xpath", impersonate.tableFirstRow);
 		utils.waituntillPageIsloaded();
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		selectLienholder(unitedFinance);
 		Assert.assertTrue(utils.element("xpath", elementsInRateContractPage,3).getText().equals("Quick Code"));
 		Assert.assertFalse(utils.element("xpath", quickCode).isEnabled());
@@ -124,7 +124,7 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 		packs.selectRoleTypeAndStatusCompleted("DealerEmp");
 		utils.clickfield("xpath", impersonate.tableFirstRow);
 		utils.waituntillPageIsloaded();
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		selectLienholder(SPP);
 		Assert.assertTrue(utils.element("xpath", quickCode).isEnabled());
 		utils.element("xpath", lienholder).clear();
@@ -145,7 +145,7 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 		packs.selectRoleTypeAndStatusCompleted("Dealer");
 		utils.clickfield("xpath", impersonate.tableFirstRow);
         utils.wait(10000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		selectLienholder(SPP);
 		Assert.assertTrue(utils.element("xpath", quickCode).isEnabled());
 		utils.element("xpath", lienholder).clear();
@@ -164,7 +164,7 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 		packs.selectRoleTypeAndStatusCompleted("DealerEmp");
 		utils.clickfield("xpath", impersonate.tableFirstRow);
 		utils.wait(10000);
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		selectLienholder(SPP);
 		Assert.assertTrue(utils.element("xpath", quickCode).isEnabled());
 		utils.element("xpath", lienholder).clear();
@@ -177,7 +177,7 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 	@Test(priority = 9)
 	public void verifyEditFunctinalityAndSCToggleFromAListToBList_35307_35304() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		selectLienholder(unitedAutoCredit);
 		Assert.assertFalse("Quick code for A-List",utils.element("xpath", quickCode).isEnabled());
 		EnterMileageVINAndSelectProgram(programCodeUA3);
@@ -195,7 +195,7 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 	@Test(priority = 10)
 	public void verifyEditFunctinalityAndSCToggleFromBListToAList_35309_35305() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		selectLienholder(unitedBank);
 		Assert.assertTrue("Quick code for B-List",utils.element("xpath", quickCode).isEnabled());
 		EnterMileageVINAndSelectProgram(programCodeRAW);
@@ -217,7 +217,7 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 //		verticalMenu.navigatetoimpersonate();
 ////		impersonate.impersonateUser("DealerGroup", "91482");
 //		impersonate.impersonateUser("DealerGroup", "23976");
-//		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+//		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 //		contract.getSelectDealerTogenerateContract(UtilsDataReader.getXMLData("dealer4"));
 ////		selectLienholder(TOC);
 //		selectLienholder(ABB);
@@ -233,7 +233,7 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 //		verticalMenu.navigatetoimpersonate();
 ////		impersonate.impersonateUser("DealerGrpEmp", "91482");
 //		impersonate.impersonateUser("DealerGroup", "23976");
-//		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate/Contract");
+//		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 //		contract.getSelectDealerTogenerateContract(UtilsDataReader.getXMLData("dealer4"));
 //		selectLienholder(TOC);
 ////		selectLienholder(ABB);

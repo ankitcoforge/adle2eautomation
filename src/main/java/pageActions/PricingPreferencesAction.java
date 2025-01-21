@@ -479,6 +479,9 @@ public class PricingPreferencesAction extends PricingPreferencesPO{
 			 else if (mileageBand.equals("0 - 100000")) {
 				 getTxtFldForClassCoverageMileageTermMonthPercent("0").sendKeys(amount);
 			}
+			 else if (mileageBand.equals("0-200000")) {
+				 getMultipleTxtFldForClassPercent("0").get(2).sendKeys(amount);
+			}
 		 }
 		 utils.getfield("span", "Save").click();
 		 Thread.sleep(3000);

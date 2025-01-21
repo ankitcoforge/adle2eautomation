@@ -41,8 +41,8 @@ public class loginAction extends loginpo {
 	    event.element("cssSelector", PW).sendKeys(password);
 		event.element("cssSelector", loginBtn).click();
 	    Thread.sleep(2000);
-	    driver.findElement(By.cssSelector("[class=\"title-bar\"] >h3")).isDisplayed();
-		String header1 = driver.findElement(By.cssSelector("[class=\"title-bar\"] >h3")).getText();
+//	    driver.findElement(By.cssSelector("[class=\"title-bar\"] >h3")).isDisplayed();
+		String header1 = driver.findElement(By.cssSelector("[class='title-bar']>h3")).getText();
 //		if(event.getfield("mat-icon", "close").isDisplayed()) {
 //				event.getfield("mat-icon", "close").click();
 //		}

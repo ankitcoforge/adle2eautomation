@@ -536,10 +536,12 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	@AfterMethod(alwaysRun = true)
 	public void close() throws InterruptedException {
 		try {
-		login.logout();
-		}
-		catch (Exception e) {
-			
+			login.logout();
+		} catch (Exception e) {
+			if (utils.getfield("mat-icon", "close").isDisplayed()) {
+				utils.getfield("mat-icon", "close").click();
+			}
+			login.logout();
 		}
 	}
 

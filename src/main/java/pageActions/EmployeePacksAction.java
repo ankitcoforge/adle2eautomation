@@ -79,7 +79,7 @@ public class EmployeePacksAction extends EmployeePackspo{
 	 public void selectProgram() throws InterruptedException {
 		 Thread.sleep(10000);
 			 List<WebElement> list = getDriver().findElements(By.xpath(roleDropdownList));
-			 list.get(1).click();
+			 list.get(0).click();
 		}
 	 
 	 public void selectDealerName(String dealer) throws InterruptedException {
@@ -288,19 +288,29 @@ public class EmployeePacksAction extends EmployeePackspo{
 //		 
 //	 }
 	 
-	 public Integer getVehiclePriceForLender(String vehicleProgram) throws ParseException, InterruptedException {
+	 public double getVehiclePriceForLender(String vehicleProgram) throws ParseException, InterruptedException {
 	 utils.inputfield("cssSelector", textbox, "Single", 0);
 	 utils.inputfield("cssSelector", textbox, "Test", 1);
 	 utils.inputfield("cssSelector", textbox, "100", 4);
 	 utils.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 5);
 	 utils.clickfield("xpath", getProducts);
 	 Thread.sleep(3000);
+	 utils.scrollLittleDownUsingJSE();
 	 co.programSelect(vehicleProgram);
 	 String txt = utils.text("cssSelector", table, 0);
 	 NumberFormat format = NumberFormat.getCurrencyInstance();
 		Number number = format.parse(txt);
 		String packAmount = number.toString();
-	 Integer txtInInteger= Integer.parseInt(packAmount);
+		double txtInInteger = 0;
+		 try {
+		         txtInInteger = Double.parseDouble(packAmount);
+		    } catch (NumberFormatException nfe) {
+		    }
+		 try { 
+			  txtInInteger= Integer.parseInt(packAmount);
+
+	        } catch(NumberFormatException e) { 
+	        }
 	 return txtInInteger;
 	 }
 	 
@@ -309,7 +319,7 @@ public class EmployeePacksAction extends EmployeePackspo{
 		 return termMonths; 
 	 }
 	 
-	 public Integer getVehiclePriceForTermMonth(String vehicleProgram, String termMonth) throws ParseException, InterruptedException {
+	 public double getVehiclePriceForTermMonth(String vehicleProgram, String termMonth) throws ParseException, InterruptedException {
 		 utils.inputfield("cssSelector", textbox, "Single", 0);
 		 //utils.getfield("cssSelector", "textbox").clear();
 		 utils.inputfield("cssSelector", textbox, "Test", 1);
@@ -324,11 +334,20 @@ public class EmployeePacksAction extends EmployeePackspo{
 		 NumberFormat format = NumberFormat.getCurrencyInstance();
 			Number number = format.parse(txt);
 			String packAmount = number.toString();
-		 Integer txtInInteger= Integer.parseInt(packAmount);
+			double txtInInteger = 0;
+			 try {
+			         txtInInteger = Double.parseDouble(packAmount);
+			    } catch (NumberFormatException nfe) {
+			    }
+			 try { 
+				  txtInInteger= Integer.parseInt(packAmount);
+
+		        } catch(NumberFormatException e) { 
+		        }
 		 return txtInInteger;
 		 }
 	 
-	 public Integer getVehiclePriceForTermMonthLender(String vehicleProgram, String termMonth) throws ParseException, InterruptedException {
+	 public double getVehiclePriceForTermMonthLender(String vehicleProgram, String termMonth) throws ParseException, InterruptedException {
 		 utils.inputfield("cssSelector", textbox, "Single", 0);
 		 //utils.getfield("cssSelector", "textbox").clear();
 		 utils.inputfield("cssSelector", textbox, "Test", 1);
@@ -343,11 +362,20 @@ public class EmployeePacksAction extends EmployeePackspo{
 		 NumberFormat format = NumberFormat.getCurrencyInstance();
 			Number number = format.parse(txt);
 			String packAmount = number.toString();
-		 Integer txtInInteger= Integer.parseInt(packAmount);
+			double txtInInteger = 0;
+			 try {
+			         txtInInteger = Double.parseDouble(packAmount);
+			    } catch (NumberFormatException nfe) {
+			    }
+			 try { 
+				  txtInInteger= Integer.parseInt(packAmount);
+
+		        } catch(NumberFormatException e) { 
+		        }
 		 return txtInInteger;
 		 }
 	 
-	 public Integer getVehiclePrice(String vehicleProgram) throws ParseException, InterruptedException {
+	 public double getVehiclePrice(String vehicleProgram) throws ParseException, InterruptedException {
 		 utils.inputfield("cssSelector", textbox, "Single", 0);
 		 //utils.getfield("cssSelector", "textbox").clear();
 		 utils.inputfield("cssSelector", textbox, "Test", 1);
@@ -361,7 +389,16 @@ public class EmployeePacksAction extends EmployeePackspo{
 		 NumberFormat format = NumberFormat.getCurrencyInstance();
 			Number number = format.parse(txt);
 			String packAmount = number.toString();
-		 Integer txtInInteger= Integer.parseInt(packAmount);
+			double txtInInteger = 0;
+			 try {
+			         txtInInteger = Double.parseDouble(packAmount);
+			    } catch (NumberFormatException nfe) {
+			    }
+			 try { 
+				  txtInInteger= Integer.parseInt(packAmount);
+
+		        } catch(NumberFormatException e) { 
+		        }
 		 return txtInInteger;
 		 }
 	

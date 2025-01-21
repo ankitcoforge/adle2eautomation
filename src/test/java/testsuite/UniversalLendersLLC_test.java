@@ -47,7 +47,7 @@ public class UniversalLendersLLC_test extends UniversalLendersAction {
 	public void verifyPageAfterSelecetingUniversalLenders_11931_11948_11977() throws InterruptedException, ParseException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("Dealer", "29422");
+		impersonate.impersonateAsGenericUserWith("Dealer", "29422","Dealer");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		Thread.sleep(2000);
@@ -75,7 +75,7 @@ public class UniversalLendersLLC_test extends UniversalLendersAction {
 			throws InterruptedException, ParseException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("Dealer", "29422");
+		impersonate.impersonateAsGenericUserWith("Dealer", "29422","Dealer");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		Thread.sleep(2000);
@@ -136,7 +136,7 @@ public class UniversalLendersLLC_test extends UniversalLendersAction {
 			throws InterruptedException, ParseException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("Dealer", "29422");
+		impersonate.impersonateAsGenericUserWith("Dealer", "29422","Dealer");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		Thread.sleep(2000);
@@ -174,7 +174,7 @@ public class UniversalLendersLLC_test extends UniversalLendersAction {
 			throws InterruptedException, ParseException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("Dealer", "29422");
+		impersonate.impersonateAsGenericUserWith("Dealer", "29422","Dealer");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("E-Rate", "Rate / Contract");
 		Thread.sleep(2000);
@@ -187,10 +187,10 @@ public class UniversalLendersLLC_test extends UniversalLendersAction {
 		try {
 			login.logout();
 		} catch (Exception e) {
-			if (event.getfield("mat-icon", "close").isDisplayed()) {
-				event.getfield("mat-icon", "close").click();
-			}
-			login.logout();
+//			if (event.getfield("mat-icon", "close").isDisplayed()) {
+//				event.getfield("mat-icon", "close").click();
+//			}
+//			login.logout();
 		}
 	}
 

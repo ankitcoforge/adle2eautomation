@@ -738,8 +738,8 @@ public class impersonateAction extends impersonatepo {
 		event.inputfield("xpath", roleId, roleid);
 		List<WebElement> list2 = getDriver().findElements(By.xpath(roleDropdownListForAccountName));
 		list2.get(0).click();
-		event.waitTillElementIsClickableByWebEle(event.getfield("span", "Impersonate as Generic Role"));
-		event.getfield("span", "Impersonate as Generic Role").click();
+		event.waitTillElementIsClickableByWebEle(event.getfield("span", "Impersonate As Generic Role"));
+		event.getfield("span", "Impersonate As Generic Role").click();
 		Thread.sleep(5000);
 	}
 

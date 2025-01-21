@@ -216,10 +216,10 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		String programCode = prop.getProperty("dealerProgramCode");
 		String program = prop.getProperty("dealerProgram");
 		String priceTobeEnteredInStringFormat = employeePacksData.getXMLData("packAmount1");
-		int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
+		double packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
 
 		verticalMenu.navigatetoContract();
-		int vehiclePriceBefore = getVehiclePrice(programCode);
+		double vehiclePriceBefore = getVehiclePrice(programCode);
 		System.out.println("vehicle Price before------" + vehiclePriceBefore);
 
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Packs");
@@ -228,7 +228,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 
 		verticalMenu.navigatetoContract();
 		Thread.sleep(5000);
-		int vehiclePriceBeforeAfter = getVehiclePrice(programCode);
+		double vehiclePriceBeforeAfter = getVehiclePrice(programCode);
 		System.out.println("vehicle Price after------" + vehiclePriceBeforeAfter);
 		Assert.assertEquals(vehiclePriceBeforeAfter, (vehiclePriceBefore+packAmount));
 	}
@@ -250,12 +250,12 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		String programCode = prop.getProperty("lenderProgramCode");
 		String program = prop.getProperty("lenderProgramCode");
 		String priceTobeEnteredInStringFormat = employeePacksData.getXMLData("packAmount4");
-		int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
+		double packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
 
 		// checking the price in contract page before creating pack
 		verticalMenu.navigatetoContract();
 		contract.getSelectDealerTogenerateContract(UtilsDataReader.getXMLData("dealer"));
-		int vehiclePriceBefore = getVehiclePriceForLender(programCode);
+		double vehiclePriceBefore = getVehiclePriceForLender(programCode);
 		System.out.println("vehicle Price before------" + vehiclePriceBefore);
 
 		// Creation of Pack
@@ -266,7 +266,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 
 		// checking the price in contract page After creating pack
 		verticalMenu.navigatetoContract();
-		int vehiclePriceBeforeAfter = getVehiclePriceForLender(programCode);
+		double vehiclePriceBeforeAfter = getVehiclePriceForLender(programCode);
 		System.out.println("vehicle Price after------" + vehiclePriceBeforeAfter);
 		Assert.assertEquals(vehiclePriceBeforeAfter, (vehiclePriceBefore+packAmount));
 	}
@@ -291,12 +291,12 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		String programCode = prop.getProperty("agentProgramCode");
 		// String program = prop.getProperty("agentProgram");
 		String priceTobeEnteredInStringFormat = employeePacksData.getXMLData("packAmount1");
-		int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
+		double packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
 
 		verticalMenu.navigatetoContract();
 		contract.getSelectDealerTogenerateContract(UtilsDataReader.getXMLData("dealer2"));
 		Thread.sleep(2000);
-		int vehiclePriceBefore = getVehiclePrice(programCode);
+		double vehiclePriceBefore = getVehiclePrice(programCode);
 		System.out.println("vehicle Price before------" + vehiclePriceBefore);
 
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage My Dealer Packs");
@@ -306,7 +306,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 
 		verticalMenu.navigatetoContract();
 		Thread.sleep(2000);
-		int vehiclePriceBeforeAfter = getVehiclePrice(programCode);
+		double vehiclePriceBeforeAfter = getVehiclePrice(programCode);
 		System.out.println("vehicle Price after------" + vehiclePriceBeforeAfter);
 		Assert.assertEquals(vehiclePriceBeforeAfter, (vehiclePriceBefore+packAmount));
 	}
@@ -331,11 +331,11 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		String programCode = prop.getProperty("agentProgramCode");
 		String program = prop.getProperty("agentProgram");
 		String priceTobeEnteredInStringFormat = employeePacksData.getXMLData("packAmount1");
-		int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
+		double packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
 
 		verticalMenu.navigatetoContract();
 		contract.getSelectDealerTogenerateContract(UtilsDataReader.getXMLData("dealer2"));
-		int vehiclePriceBefore = getVehiclePrice(programCode);
+		double vehiclePriceBefore = getVehiclePrice(programCode);
 		System.out.println("vehicle Price before------" + vehiclePriceBefore);
 
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage My Dealer Packs");
@@ -345,7 +345,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 
 		verticalMenu.navigatetoContract();
 		Thread.sleep(2000);
-		int vehiclePriceBeforeAfter = getVehiclePrice(programCode);
+		double vehiclePriceBeforeAfter = getVehiclePrice(programCode);
 		System.out.println("vehicle Price after------" + vehiclePriceBeforeAfter);
 		Assert.assertEquals(vehiclePriceBeforeAfter, (vehiclePriceBefore+packAmount));
 	}
@@ -389,10 +389,10 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		String programCode = prop.getProperty("dealerProgramCode");
 		String program = prop.getProperty("dealerProgram");
 		String priceTobeEnteredInStringFormat = employeePacksData.getXMLData("packAmount1");
-		int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
+		double packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
 
 		verticalMenu.navigatetoContract();
-		int vehiclePriceBefore = getVehiclePrice(programCode);
+		double vehiclePriceBefore = getVehiclePrice(programCode);
 		System.out.println("vehicle Price before------" + vehiclePriceBefore);
 
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Packs");
@@ -401,7 +401,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 
 		verticalMenu.navigatetoContract();
 		Thread.sleep(5000);
-		int vehiclePriceBeforeAfter = getVehiclePrice(programCode);
+		double vehiclePriceBeforeAfter = getVehiclePrice(programCode);
 		System.out.println("vehicle Price after------" + vehiclePriceBeforeAfter);
 		Assert.assertEquals(vehiclePriceBeforeAfter, (vehiclePriceBefore+packAmount));
 	}
@@ -424,12 +424,12 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		String programCode = prop.getProperty("lenderProgramCode");
 		String program = prop.getProperty("lenderProgramCode");
 		String priceTobeEnteredInStringFormat = employeePacksData.getXMLData("packAmount4");
-		int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
+		double packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
 
 		// checking the price in contract page before creating pack
 		verticalMenu.navigatetoContract();
 		contract.getSelectDealerTogenerateContract(UtilsDataReader.getXMLData("dealer"));
-		int vehiclePriceBefore = getVehiclePriceForLender(programCode);
+		double vehiclePriceBefore = getVehiclePriceForLender(programCode);
 		System.out.println("vehicle Price before------" + vehiclePriceBefore);
 
 		// Creation of Pack
@@ -440,7 +440,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 
 		// checking the price in contract page After creating pack
 		verticalMenu.navigatetoContract();
-		int vehiclePriceBeforeAfter = getVehiclePriceForLender(programCode);
+		double vehiclePriceBeforeAfter = getVehiclePriceForLender(programCode);
 		System.out.println("vehicle Price after------" + vehiclePriceBeforeAfter);
 		Assert.assertEquals(vehiclePriceBeforeAfter, (vehiclePriceBefore+packAmount));
 	}
@@ -469,11 +469,11 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		// data
 		String programCode = prop.getProperty("agentProgramCode");
 		String priceTobeEnteredInStringFormat = employeePacksData.getXMLData("packAmount1");
-		int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
+		double packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
 
 		verticalMenu.navigatetoContract();
 		Thread.sleep(2000);
-		int vehiclePriceBefore = getVehiclePrice(programCode);
+		double vehiclePriceBefore = getVehiclePrice(programCode);
 		System.out.println("vehicle Price before------" + vehiclePriceBefore);
 
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Packs");
@@ -482,7 +482,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 
 		verticalMenu.navigatetoContract();
 		Thread.sleep(2000);
-		int vehiclePriceAfter = getVehiclePrice(programCode);
+		double vehiclePriceAfter = getVehiclePrice(programCode);
 		System.out.println("vehicle Price after------" + vehiclePriceAfter);
 		Assert.assertEquals(vehiclePriceAfter, (vehiclePriceBefore+packAmount));
 	}
@@ -513,11 +513,11 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		// data
 		String programCode = prop.getProperty("agentProgramCode");
 		String priceTobeEnteredInStringFormat = employeePacksData.getXMLData("packAmount1");
-		int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
+		double packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
 
 		verticalMenu.navigatetoContract();
 		Thread.sleep(2000);
-		int vehiclePriceBefore = getVehiclePrice(programCode);
+		double vehiclePriceBefore = getVehiclePrice(programCode);
 		System.out.println("vehicle Price before------" + vehiclePriceBefore);
 
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Packs");
@@ -526,7 +526,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 
 		verticalMenu.navigatetoContract();
 		Thread.sleep(2000);
-		int vehiclePriceBeforeAfter = getVehiclePrice(programCode);
+		double vehiclePriceBeforeAfter = getVehiclePrice(programCode);
 		System.out.println("vehicle Price after------" + vehiclePriceBeforeAfter);
 		Assert.assertEquals(vehiclePriceBeforeAfter, (vehiclePriceBefore+packAmount));
 	}
@@ -555,11 +555,11 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		// data
 		String programCode = prop.getProperty("agentProgramCode");
 		String priceTobeEnteredInStringFormat = employeePacksData.getXMLData("packAmount1");
-		int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
+		double packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
 
 		verticalMenu.navigatetoContract();
 		Thread.sleep(2000);
-		int vehiclePriceBefore = getVehiclePrice(programCode);
+		double vehiclePriceBefore = getVehiclePrice(programCode);
 		System.out.println("vehicle Price before------" + vehiclePriceBefore);
 
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Packs");
@@ -568,7 +568,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 
 		verticalMenu.navigatetoContract();
 		Thread.sleep(2000);
-		int vehiclePriceAfter = getVehiclePrice(programCode);
+		double vehiclePriceAfter = getVehiclePrice(programCode);
 		System.out.println("vehicle Price after------" + vehiclePriceAfter);
 		Assert.assertEquals(vehiclePriceAfter, (vehiclePriceBefore+packAmount));
 	}
@@ -599,11 +599,11 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		// data
 		String programCode = prop.getProperty("agentProgramCode");
 		String priceTobeEnteredInStringFormat = employeePacksData.getXMLData("packAmount1");
-		int packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
+		double packAmount = Integer.parseInt(priceTobeEnteredInStringFormat);
 
 		verticalMenu.navigatetoContract();
 		Thread.sleep(2000);
-		int vehiclePriceBefore = getVehiclePrice(programCode);
+		double vehiclePriceBefore = getVehiclePrice(programCode);
 		System.out.println("vehicle Price before------" + vehiclePriceBefore);
 
 		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Packs");
@@ -612,7 +612,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 
 		verticalMenu.navigatetoContract();
 		Thread.sleep(2000);
-		int vehiclePriceBeforeAfter = getVehiclePrice(programCode);
+		double vehiclePriceBeforeAfter = getVehiclePrice(programCode);
 		System.out.println("vehicle Price after------" + vehiclePriceBeforeAfter);
 		Assert.assertEquals(vehiclePriceBeforeAfter, (vehiclePriceBefore+packAmount));
 	}

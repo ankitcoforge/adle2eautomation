@@ -134,10 +134,10 @@ public class DealerGroupAccountsLinkedWithAgentSubagent extends baseClass{
 		try {
 			login.logout();
 		} catch (Exception e) {
-			if (utils.getfield("mat-icon", "close").isDisplayed()) {
-				utils.getfield("mat-icon", "close").click();
-			}
-			login.logout();
+//			if (utils.getfield("mat-icon", "close").isDisplayed()) {
+//				utils.getfield("mat-icon", "close").click();
+//			}
+//			login.logout();
 		}
 	}
 

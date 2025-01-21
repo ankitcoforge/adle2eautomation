@@ -11,7 +11,7 @@ public class PermissionsPo extends baseClass{
 //	public String permissionsCheckBox = "td>adl-table-cells>div>mat-checkbox";
 	public String txtFieldNewUserRegistration = "section>input";
 	public String editBtn = "//i[@title='Edit']";
-	public String permissionsDropdownInPopup = "(//div/p-multiselect/div)[2]";
+	public String permissionsDropdownInPopup = "(//div/p-multiselect/div)[3]";
 	public String permissionsDropdownInAgentPopup = "(//div/p-multiselect/div)[3]";
 	public String permissionsListInPopup = "//div[@class='ui-chkbox ui-widget']/../span";
 	public String selectAllCheckBoxInPopup = "//div[@role='checkbox']";

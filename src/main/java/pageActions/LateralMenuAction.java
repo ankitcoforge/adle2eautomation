@@ -147,7 +147,7 @@ public class LateralMenuAction extends LateralMenupo{
 		}
 		
 		public void getDefaultpermissionForDealerEmp() throws InterruptedException, IOException, MailosaurException {
-			login.loginThroughMobileOTP(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
+			login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 			Thread.sleep(3000);
 			verticalMenu.navigatetoLeftMenu("My Settings", "Issue New User Registration");
 			Thread.sleep(2000);
@@ -172,7 +172,7 @@ public class LateralMenuAction extends LateralMenupo{
 		}
 public void getDefaultpermissionForsubAgent() throws InterruptedException, IOException, MailosaurException {
 //	login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
-	login.loginThroughOTP(prop.getProperty("agentAutomation"), prop.getProperty("password"));
+	login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
 	Thread.sleep(3000);
 	verticalMenu.navigatetoLeftMenu("Agency Settings", "Manage Users");
 	Thread.sleep(2000);
@@ -197,7 +197,7 @@ public void getDefaultpermissionForsubAgent() throws InterruptedException, IOExc
 			
 		}
 public void getDefaultpermissionForLenderEmp() throws InterruptedException, IOException, MailosaurException {
-	login.loginThroughMobileOTP(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
+	login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
 	Thread.sleep(3000);
 	verticalMenu.navigatetoLeftMenu("Lender Settings", "Manage Users");
 	Thread.sleep(2000);
@@ -221,7 +221,7 @@ public void getDefaultpermissionForLenderEmp() throws InterruptedException, IOEx
 	Thread.sleep(5000);
 }
 public void getDefaultpermissionForDealerGrpEmp() throws InterruptedException, IOException, MailosaurException {
-	login.loginThroughOTP(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
+	login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
 	Thread.sleep(3000);
 	verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Group Employees");
 	Thread.sleep(2000);
