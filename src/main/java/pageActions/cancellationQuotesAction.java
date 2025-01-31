@@ -112,6 +112,11 @@ public class cancellationQuotesAction extends cancellationQuotespo {
 		return event.element("xpath", checkBox);
 	}
 	
+	public WebElement getCheckBoxAgreeMsg() throws InterruptedException {
+
+		return event.element("xpath", checkboxAgreeMsg);
+	}
+	
 	public WebElement getEditBtn() throws InterruptedException {
 
 		return event.element("xpath", editBtn);
@@ -151,6 +156,11 @@ public class cancellationQuotesAction extends cancellationQuotespo {
 	public WebElement getCloseBtn() throws InterruptedException {
 
 		return event.element("xpath", closeBtn);
+	}
+	
+	public WebElement getCloseBtnDuringCancelContractPopup() throws InterruptedException {
+
+		return event.element("xpath", closeBtn,1);
 	}
 	
 	public List<WebElement> errorElements() {

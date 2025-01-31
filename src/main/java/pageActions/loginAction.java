@@ -46,7 +46,7 @@ public class loginAction extends loginpo {
 //		if(event.getfield("mat-icon", "close").isDisplayed()) {
 //				event.getfield("mat-icon", "close").click();
 //		}
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		return header1;
 		
 	}
