@@ -26,7 +26,7 @@ public class DealerGrpEmpMenu_test extends baseClass {
 
 	@BeforeClass(alwaysRun = true)
 	public void login() throws InterruptedException {
-		navigate();
+//		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 	
@@ -49,7 +49,8 @@ public class DealerGrpEmpMenu_test extends baseClass {
 			utils.element("xpath", dealerGrpEmp.selectAllCheckBox).click();
 		}
 		Assert.assertTrue(selectAllCheckBoxstat.isSelected());
-		utils.getfield("span", "SAVE").click();
+		utils.scrollLittleDownUsingJSE();
+		utils.getfield("span", "Save").click();
 		Thread.sleep(2000);
 		System.out.println("x1--"+dealerGrpEmp.permissionsSelected());
 		System.out.println("x2--"+dealerGrpEmp.AllPermissions());
@@ -69,16 +70,16 @@ public class DealerGrpEmpMenu_test extends baseClass {
 		}
 		Assert.assertTrue(list.contains("Contract Search"));
 		Assert.assertTrue(list.contains("Remit Contracts to Protective"));
-		Assert.assertTrue(list.contains("Edit Remit AUL VSC/LW"));
-		Assert.assertTrue(list.contains("Remit Classic GAP/Ancillary"));
+		Assert.assertTrue(list.contains("Edit Remit Protective VSC / LW"));
+		Assert.assertTrue(list.contains("Remit Classic GAP / Ancillary"));
 		Assert.assertTrue(list.contains("Remit VAS Ancillary"));
 
 		verticalMenu.navigatetoLeftMenu("Contract Search");
 		Assert.assertTrue(utils.getTitle("Contract Search").isDisplayed());
 		verticalMenu.navigatetoLeftMenu("Remit Contracts to Protective");
 		Assert.assertTrue(utils.getTitle("Remit Contracts to Protective").isDisplayed());
-		verticalMenu.navigatetoLeftMenu("Edit Remit AUL VSC/LW");
-		Assert.assertTrue(utils.getTitle("Edit Remit AUL VSC/LW").isDisplayed());
+		verticalMenu.navigatetoLeftMenu("Edit Remit Protective VSC / LW");
+		Assert.assertTrue(utils.getTitle("Edit Remit Protective VSC / LW").isDisplayed());
 //The below steps are on hold
 //			verticalMenu.navigatetoLeftMenu("Remit Classic GAP/Ancillary");
 //			Assert.assertTrue(utils.getTitle("Remit Classic GAP/Ancillary").isDisplayed());
@@ -118,10 +119,10 @@ public class DealerGrpEmpMenu_test extends baseClass {
 			String subItem = verticalMenu.getLaterMenuSubItems().get(i).getText();
 			list.add(subItem.trim());
 		}
-		Assert.assertTrue(list.contains("Edit Remit AUL VSC/LW"));
+		Assert.assertTrue(list.contains("Edit Remit Protective VSC / LW"));
 		Assert.assertTrue(list.contains("Contract Search"));
 		Assert.assertTrue(list.contains("Remit Contracts to Protective"));
-		Assert.assertTrue(list.contains("Remit Classic GAP/Ancillary"));
+		Assert.assertTrue(list.contains("Remit Classic GAP / Ancillary"));
 		Assert.assertTrue(list.contains("Remit VAS Ancillary"));
 	}
 
@@ -157,9 +158,9 @@ public class DealerGrpEmpMenu_test extends baseClass {
 		Assert.assertTrue(menu.getLateralMenu().isDisplayed());
 		// E-rate
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
-		Assert.assertTrue(menu.getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
+		Assert.assertTrue(menu.getLaterMenuSubItems().get(0).getText().contains("Rate / Contract"));
 		Assert.assertTrue(menu.getLaterMenuSubItems().get(1).getText().contains("Quote History"));
-		verticalMenu.navigatetoLeftMenu("Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("Rate / Contract");
 		Thread.sleep(2000);
 		Assert.assertTrue(menu.getRateContractTitle().isDisplayed());
 		Assert.assertTrue(driver.getCurrentUrl().contains("/rate/rate-contract"));
@@ -251,9 +252,9 @@ public class DealerGrpEmpMenu_test extends baseClass {
 		Assert.assertTrue(menu.getLateralMenu().isDisplayed());
 		// E-rate
 		verticalMenu.navigatetoLeftMainMenu("E-Rate");
-		Assert.assertTrue(menu.getLaterMenuSubItems().get(0).getText().contains("Rate/Contract"));
+		Assert.assertTrue(menu.getLaterMenuSubItems().get(0).getText().contains("Rate / Contract"));
 		Assert.assertTrue(menu.getLaterMenuSubItems().get(1).getText().contains("Quote History"));
-		verticalMenu.navigatetoLeftMenu("Rate/Contract");
+		verticalMenu.navigatetoLeftMenu("Rate / Contract");
 		Thread.sleep(2000);
 		Assert.assertTrue(menu.getRateContractTitle().isDisplayed());
 		Assert.assertTrue(driver.getCurrentUrl().contains("/rate/rate-contract"));
@@ -266,16 +267,16 @@ public class DealerGrpEmpMenu_test extends baseClass {
 		verticalMenu.navigatetoLeftMainMenu("Contracts");
 		Assert.assertTrue(menu.getLaterMenuSubItems().get(0).getText().contains("Contract Search"));
 		Assert.assertTrue(menu.getLaterMenuSubItems().get(1).getText().contains("Remit Contracts to Protective"));
-		Assert.assertTrue(menu.getLaterMenuSubItems().get(2).getText().contains("Edit Remit AUL VSC/LW"));
+		Assert.assertTrue(menu.getLaterMenuSubItems().get(2).getText().contains("Edit Remit Protective VSC / LW"));
 		verticalMenu.navigatetoLeftMenu("Contract Search");
 		utils.waitTillElementIsClickableByWebEle(utils.getTitle("Contract Search"));
 		Assert.assertTrue(utils.getTitle("Contract Search").isDisplayed());
 		verticalMenu.navigatetoLeftMenu("Remit Contracts to Protective");
 		utils.waitTillElementIsClickableByWebEle(utils.getTitle("Remit Contracts to Protective"));
 		Assert.assertTrue(utils.getTitle("Remit Contracts to Protective").isDisplayed());
-		verticalMenu.navigatetoLeftMenu("Edit Remit AUL VSC/LW");
-		utils.waitTillElementIsClickableByWebEle(utils.getTitle("Edit Remit AUL VSC/LW"));
-		Assert.assertTrue(utils.getTitle("Edit Remit AUL VSC/LW").isDisplayed());
+		verticalMenu.navigatetoLeftMenu("Edit Remit Protective VSC / LW");
+		utils.waitTillElementIsClickableByWebEle(utils.getTitle("Edit Remit Protective VSC / LW"));
+		Assert.assertTrue(utils.getTitle("Edit Remit Protective VSC / LW").isDisplayed());
 		Thread.sleep(2000);
 
 		// Cancellations
@@ -363,9 +364,9 @@ public class DealerGrpEmpMenu_test extends baseClass {
 	}
 	
 	// need data for ACH, hence putting ACH tc's on hold
-		@Test(priority = 7)
-		public void verifyAdminCannotViewEditRemitOptionForACH_35790_35794_36038_35789() throws InterruptedException {
-		}
+//		@Test(priority = 7)
+//		public void verifyAdminCannotViewEditRemitOptionForACH_35790_35794_36038_35789() throws InterruptedException {
+//		}
 		
 		
 		
@@ -374,10 +375,10 @@ public class DealerGrpEmpMenu_test extends baseClass {
 			try {
 				login.logout();
 			} catch (Exception e) {
-				if (utils.getfield("mat-icon", "close").isDisplayed()) {
-					utils.getfield("mat-icon", "close").click();
-				}
-				login.logout();
+//				if (utils.getfield("mat-icon", "close").isDisplayed()) {
+//					utils.getfield("mat-icon", "close").click();
+//				}
+//				login.logout();
 			}
 		}
 

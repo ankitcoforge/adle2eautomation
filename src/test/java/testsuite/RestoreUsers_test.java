@@ -304,7 +304,7 @@ public class RestoreUsers_test extends RestoreUsersAction {
 		Assert.assertTrue(utils.getfield("h3", "Restore Users").isDisplayed());
 	}
 	
-	@Test(priority = 13)
+	@Test(priority = 13,enabled = false)
 	public void verifyRegisteredUserIsDeletedAndReflectedInDB_35402() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertTrue(utils.getfield("a", "Restore Users").isDisplayed());

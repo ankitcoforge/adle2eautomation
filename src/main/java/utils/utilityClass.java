@@ -419,5 +419,20 @@ public List<WebElement> getfields(String a, String name) {
  			Assert.assertEquals(ActualcolorInHexaformat, expectedColor);
  		}
  		
-}
+ 		public void selectDropdown(String value) throws InterruptedException {
+ 			//click on the arrow as pre condition > then call the method
+ 				 Thread.sleep(1000);
+ 					 List<WebElement> list = getDriver().findElements(By.xpath("//div[@class='scrollable-content']/div/span"));
+ 					 for(int i=0;i<list.size();i++) {
+ 						String text = list.get(i).getText();
+ 						System.out.println("Progms list is--"+text);
+ 						if(text.contains(value))
+ 						{
+ 							list.get(i).click();
+ 							break;
+ 						}
+ 					 }
+ 					    Thread.sleep(2000);
+ 				}
+ 		}
 

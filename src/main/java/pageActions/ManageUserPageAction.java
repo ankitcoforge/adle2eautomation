@@ -134,6 +134,7 @@ public class ManageUserPageAction extends ManageUserPo{
 			ele.sendKeys(role);
 			List<WebElement> list = getDriver().findElements(By.xpath(roleDropdownListForDealer));
 			list.get(0).click();
+			Thread.sleep(1000);
 		}
 	 
 	 public void selectRoleTypeInGenericImpersonatePopup(String role) throws InterruptedException {

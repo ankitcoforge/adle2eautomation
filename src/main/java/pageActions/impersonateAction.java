@@ -838,4 +838,113 @@ public class impersonateAction extends impersonatepo {
 			event.scrollUp();
 			return allTableData;
 		}
+	 
+	 public void impersonateUserForAgentPacksDealerPassthroughs(String role, String roleid) throws InterruptedException {
+		 if(role.equals("SubAgent") | role.equals("LenderEmp")){
+				event.clickfield("xpath", roleDropdown);
+				List<WebElement> listNew = getDriver().findElements(By.xpath(roleDropdownList));
+				listNew.get(9).click();
+				event.clickfield("xpath", roleDropdown);
+				List<WebElement> list = getDriver().findElements(By.xpath(roleDropdownList));
+				for (int i = 0; i < list.size(); i++) {
+					String text = list.get(i).getText();
+					System.out.println("list-- "+i);
+
+					if (text.equals(role)) {
+						list.get(i).click();
+						event.inputfield("xpath", roleId, roleid);
+//						List<WebElement> list2 = getDriver().findElements(By.xpath(roleDropdownListForDealer));
+//						list2.get(0).click();
+						Thread.sleep(10000);
+						break;
+					}
+				}
+				event.clickfield("xpath", getusersButton);
+				Thread.sleep(5000);
+				event.clickfield("xpath", tableFirstRow);
+				Thread.sleep(6000);
+//				event.waitUntilElementisInVisible(getMakeSearchToDisplayRecords());
+			}
+			else {
+				event.clickfield("xpath", roleDropdown);
+				List<WebElement> list = getDriver().findElements(By.xpath(roleDropdownList));
+				for (int i = 0; i < list.size(); i++) {
+					String text = list.get(i).getText();
+					System.out.println("list-- "+i);
+
+					if (text.equals(role)) {
+						list.get(i).click();
+						event.inputfield("xpath", roleId, roleid);
+//						List<WebElement> list2 = getDriver().findElements(By.xpath(roleDropdownListForDealer));
+//						list2.get(0).click();
+						Thread.sleep(10000);
+						break;
+					}
+				}
+				event.clickfield("xpath", getusersButton);
+				Thread.sleep(5000);
+				event.clickfield("xpath", tableFirstRow);
+				Thread.sleep(6000);
+//				event.waitUntilElementisInVisible(getMakeSearchToDisplayRecords());
+			}
+	 }
+
+		 
+		 public void impersonateAsGenericUserUserForAgentPacksDealerPassthroughs(String role, String roleid) throws InterruptedException {
+			 if(role.equals("Lender Pass Through") | role.equals("Dealer Pass Through") |  role.equals("Integration Partner Pack") ){
+					event.clickfield("xpath", roleDropdown);
+					List<WebElement> listNew = getDriver().findElements(By.xpath(roleDropdownList));
+					listNew.get(9).click();
+					event.clickfield("xpath", roleDropdown);
+					List<WebElement> list = getDriver().findElements(By.xpath(roleDropdownList));
+					for (int i = 0; i < list.size(); i++) {
+						String text = list.get(i).getText();
+						System.out.println("list-- "+i);
+
+						if (text.equals(role)) {
+							list.get(i).click();
+							event.inputfield("xpath", roleId, roleid);
+//							List<WebElement> list2 = getDriver().findElements(By.xpath(roleDropdownListForDealer));
+//							list2.get(0).click();
+							Thread.sleep(5000);
+							break;
+						}
+					}
+//					event.clickfield("xpath", getusersButton);
+					Thread.sleep(5000);
+					event.waitTillElementIsClickableByWebEle(event.getfield("span", "Impersonate As Generic Role"));
+					event.getfield("span", "Impersonate As Generic Role").click();
+					event.wait(300);
+					event.element("xpath", impersonateInGenericImpPopupInImpPage).click();
+					Thread.sleep(5000);
+					
+				}
+				else {
+					event.clickfield("xpath", roleDropdown);
+					List<WebElement> list = getDriver().findElements(By.xpath(roleDropdownList));
+					for (int i = 0; i < list.size(); i++) {
+						String text = list.get(i).getText();
+						System.out.println("list-- "+i);
+
+						if (text.equals(role)) {
+							list.get(i).click();
+							event.inputfield("xpath", roleId, roleid);
+//							List<WebElement> list2 = getDriver().findElements(By.xpath(roleDropdownListForDealer));
+//							list2.get(0).click();
+							Thread.sleep(10000);
+							break;
+						}
+					}
+					event.clickfield("xpath", getusersButton);
+					Thread.sleep(5000);
+					event.waitTillElementIsClickableByWebEle(event.getfield("span", "Impersonate As Generic Role"));
+					event.getfield("span", "Impersonate As Generic Role").click();
+					event.wait(300);
+					event.element("xpath", impersonateInGenericImpPopupInImpPage).click();
+					Thread.sleep(5000);
+				}
+
+			
+		}
+		
 }

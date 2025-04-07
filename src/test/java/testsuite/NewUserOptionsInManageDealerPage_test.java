@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -28,7 +29,7 @@ public class NewUserOptionsInManageDealerPage_test extends ManageUserPageAction{
 	XmlDataReader UtilsDataReader=new XmlDataReader("UtilsData");
 	NewUserRegistration_Action newUserPage=new NewUserRegistration_Action();
 	
-	@BeforeMethod(alwaysRun=true)
+	@BeforeClass(alwaysRun=true)
 	public void login() throws InterruptedException {
 		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");

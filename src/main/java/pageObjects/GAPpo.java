@@ -25,6 +25,7 @@ public class GAPpo extends baseClass {
 	public String AddGapCheckBoxStatus = "//adl-checkbox[@label='Add GAP']/div/mat-checkbox/label/div/input";
 	public String roleDropdownList = "//div[@class='scrollable-content']/div";
 	public String selectDealTypeArrow = "//div[text()='Select Deal Type']/../../span";
+	public String vehicleAgeTypeArrow = "//label[text()='Vehicle Age Type']/../../ng-select/div/span";
 	public String gapRateBtn = "//span[text()='Get GAP Rate']/..";
 	public String selectDealTypeTxt = "//div[text()='Select Deal Type']";
 	public String adlGapForm=  "//adl-gap-form[@class='gap__form ng-star-inserted']";
@@ -54,5 +55,6 @@ public class GAPpo extends baseClass {
 	public String lienholderAddressStatus1 = "//div[text()='Select Address']/../div[2]";
 	public String disabledLienholderfld = "//div[@class='text-field__input secure text-field__input--disabled']/input[@placeholder='Type & Select a Lienholder']";
 	public String notOnTheListLink = "//a[text()=' Not on the list ']";
+	public String table = "adl-rates-table > table >tbody > tr:nth-child(1) > td:nth-child(2)";
 	
 }

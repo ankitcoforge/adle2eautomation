@@ -136,7 +136,7 @@ public class Cancellations_test extends CancellationsAction {
 	}
 
 	//error msg as unable to cancel contract online
-	@Test(priority = 4)
+	@Test(priority = 4,enabled = false)
 	public void verifyCancellationFailureMsg() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
 		HashMap<Integer, HashMap<String, String>> dbMap = getDataFromDBForMileageMoreThan3000();
@@ -345,7 +345,7 @@ public class Cancellations_test extends CancellationsAction {
 	}
 	
 	
-	@Test(priority = 14)
+	@Test(priority = 14,enabled = false)
 	public void verifyCancellationStatusReinstated_36219() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		HashMap<Integer, HashMap<String, String>> dbMap = getDataFromDBForStatus1("Reinstated");

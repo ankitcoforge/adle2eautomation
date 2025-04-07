@@ -76,6 +76,7 @@ public class baseClass extends pdfUtils{
 		System.out.println(path1);
 		createscreenshotfolder(path1);
 		getDriver();
+		navigate();
 		
 	}
 

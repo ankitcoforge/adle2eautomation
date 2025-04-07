@@ -25,18 +25,35 @@ public class cobuyerContractAction extends contractpo{
 	 * @throws InterruptedException ****************************************/
 	public String coBuyerContract() throws InterruptedException {
 		String contractNumber = null;
-		try {
+//		try {
 		event.inputfield("cssSelector", textbox, "Single", 0);
 		event.inputfield("cssSelector", textbox, "Test", 1);
 		event.inputfield("cssSelector", textbox, "125001", 5);
-		event.inputfield("cssSelector", textbox, "5J6RW2H89NA004619", 6);
+		event.inputfield("cssSelector", textbox, "1HGCY2F69PA001019", 6);
 		event.clickfield("cssSelector", ".actions__submit >button");
-		co.programSelect("Used Vehicle - SNL");
+		co.programSelect("RAW");
 		event.clickfield("cssSelector", table, 0);
 		event.inputfield("cssSelector", contract, "10000", 0);
 		contractNumber = driver.findElement(By.cssSelector(contractNo)).getDomProperty("value");
 		selectOptionSurcharge();
 		inserviceDate();
+		utils.scrollLittleDownUsingJSE();
+		driver.findElements(By.cssSelector(textbox)).get(12).clear();
+		event.inputfield("cssSelector", textbox, "tom", 12);
+//		driver.findElements(By.cssSelector(textbox)).get(14).clear();
+		
+		driver.findElements(By.cssSelector(textbox)).get(13).clear();
+		event.inputfield("cssSelector", textbox, "Address", 13);
+		event.inputfield("cssSelector", textbox, "20130", 14);
+		Thread.sleep(2000);
+//		event.clearfield("cssSelector", phone);
+//		event.inputfield("cssSelector", phone, "1234567890");
+		driver.findElements(By.cssSelector(textbox)).get(16).clear();
+		event.inputfield("cssSelector", textbox, "test@gmail.com", 16);
+		driver.findElements(By.cssSelector(textbox)).get(17).clear();
+		event.inputfield("cssSelector", textbox, "1234567890", 17);
+		Thread.sleep(2000);
+		utils.scrollDownUsingJSE(500);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("arguments[0].click()", driver.findElement(By.cssSelector(coBuyer)));
 		Thread.sleep(2000);
@@ -59,13 +76,13 @@ public class cobuyerContractAction extends contractpo{
 		WebElement element = new WebDriverWait(driver, Duration.ofSeconds(9)).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(successMessage)));
 		Assert.assertEquals(element.getText(), "You have successfully generated a contract!");
 		event.clickfield("cssSelector", newQuotelink);
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-			System.out.println("Test Case failed ");
-			e.getCause();
-			Assert.fail();
-		}
+//		}
+//		catch(Exception e) {
+//			e.printStackTrace();
+//			System.out.println("Test Case failed ");
+//			e.getCause();
+//			Assert.fail();
+//		}
 		return contractNumber;
 		
 	}

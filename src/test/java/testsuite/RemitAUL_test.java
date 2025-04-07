@@ -40,7 +40,7 @@ public class RemitAUL_test extends RemitAULAction {
 	cobuyerContractAction cobuyerContract = new cobuyerContractAction();
 	impersonateAction ia = new impersonateAction();
 
-	@BeforeMethod(alwaysRun = true)
+	@BeforeClass(alwaysRun = true)
 	public void login() throws InterruptedException {
 		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");

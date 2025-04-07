@@ -3,6 +3,7 @@ package testsuite;
 import java.util.ArrayList;
 
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -24,7 +25,7 @@ public class PackPassthroughPermissionModal_test extends PacksPassthroughAction{
 	XmlDataReader UtilsDataReader = new XmlDataReader("UtilsData");
 	Permissions_test permissions=new Permissions_test();
 
-	@BeforeMethod(alwaysRun = true)
+	@BeforeClass(alwaysRun = true)
 	public void login() throws InterruptedException {
 		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");
@@ -435,10 +436,10 @@ public class PackPassthroughPermissionModal_test extends PacksPassthroughAction{
 		try {
 			login.logout();
 		} catch (Exception e) {
-//			if (utils.getfield("mat-icon", "close").isDisplayed()) {
-//				utils.getfield("mat-icon", "close").click();
-//			}
-//			login.logout();
+			if (utils.getfield("mat-icon", "close").isDisplayed()) {
+				utils.getfield("mat-icon", "close").click();
+			}
+			login.logout();
 		}
 	}
 

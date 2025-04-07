@@ -16,7 +16,7 @@ public class impersonatepo extends baseClass{
     public String roleId = "//input[@placeholder='Please enter the Role ID / Account Name']";
     public String roleIdInPopup = "(//input[@placeholder='Please enter the Role ID / Account Name'])[2]";
     public String getusersButton = "//span[contains(text(),'Get Users')]";
-    public String impersonateAsGenericUserButton = "//span[contains(text(),'Impersonate as Generic Role')]";
+    public String impersonateAsGenericUserButton = "//span[contains(text(),'Impersonate As Generic Role')]";
     public String getUsersAndImpersonateAsGenericBtnsList = "form>button";
     public String getArrowBtn = "//mat-icon[text()='arrow_forward']";
     public String tableFirstRow = "(//i[@title='Impersonate'])[1]";
@@ -54,7 +54,7 @@ public class impersonatepo extends baseClass{
 	public String aulAdmin = "//span[text()='AULadmin']";
 	public String packPassthroughBtn = "adl-toggle>div>div";
 	public String registrationStatusArrowForSort = "//span[text()='Registration Status']/../p-sorticon/i";
-	public String impersonateInGenericRoleBtn = "//span[text()='Impersonate as Generic Role']/..";
+	public String impersonateInGenericRoleBtn = "//span[text()='Impersonate As Generic Role']/..";
 	
 	//imp as generic role
 	public String impersonateInGenericImpPopup = "(//span[text()='Impersonate']/..)[2]";

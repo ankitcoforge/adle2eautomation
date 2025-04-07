@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -12,7 +13,8 @@ import pageActions.loginAction;
 import pageActions.verticalMenuAction;
 import utils.utilityClass;
 
-/* 36960 */
+/* 36960  PBI is pending*/
+
 public class MultipleAgencyAccounts_test extends impersonateAction{
 	loginAction login = new loginAction();
 	verticalMenuAction verticalMenu = new verticalMenuAction();
@@ -41,7 +43,7 @@ public class MultipleAgencyAccounts_test extends impersonateAction{
 		utils.getfield("span", "Save").click();
 	}
 	
-	@Test(priority = 1)
+	@Test(priority = 2)
 	public void verifyAgentPackaccountsAreAssignedToAgent() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
@@ -53,10 +55,18 @@ public class MultipleAgencyAccounts_test extends impersonateAction{
 		utils.getfield("span", "Save").click();
 	}
 	
-	@Test(priority = 1)
+	@Test(priority = 3)
 	public void verifyDealerPassthroughaccountsAreAssignedToAgent() throws Exception {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
+	}
+	
+	@AfterMethod(alwaysRun = true)
+	public void close() throws InterruptedException {
+	try {
+		login.logout();
+	} catch (Exception e) {
+	}
 	}
 
 }

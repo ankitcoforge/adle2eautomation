@@ -21,7 +21,7 @@ public class ActuarialReportAction extends ActuarialReportPO{
 	 }
 
 	 public WebElement getFromAndToField() {
-		 WebElement fromAndTo=driver.findElement(By.xpath(fromAndToField));	
+		 WebElement fromAndTo=driver.findElement(By.cssSelector(fromAndToField));	
 		 return fromAndTo;
 	 }
 	 

@@ -10,5 +10,6 @@ public class MyCommissionsPO extends baseClass{
 	public String arrowForward= "//mat-icon[text()='arrow_forward']";
 	public String rows = "//table/tbody/tr";
 	public String myCommissionsTitle = "//h3[text()='My Commissions']";
+	
 
 }

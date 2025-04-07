@@ -41,7 +41,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 	
 	@BeforeClass(alwaysRun = true)
 	public void login() throws InterruptedException {
-		navigate();
+//		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 
@@ -58,7 +58,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		wait.until(ExpectedConditions.visibilityOf(getPopup()));
 		Assert.assertTrue(getPopup().isDisplayed());
 //		//Closing the popup to logout from the page as precondition
-//		getBtnCloseForPopup().click();
+		getBtnCloseForPopup().click();
 	}
 
 	@Test(priority = 2)
@@ -491,7 +491,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 	
 	//bug raised
 	//impersonate as generic role added,hence putting it on hold
-		@Test(priority = 13)
+		@Test(priority = 13,enabled=false)
 	public void verifyDealerEmpPackImpactsContractCreationPageWhenDealerEmpImpersontedThroughAgent_32032() throws Exception {
 		login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getPortalTitle().getText(), UtilsDataReader.getXMLData("ADLpageTitle"));

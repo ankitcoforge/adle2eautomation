@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -26,9 +27,9 @@ public class DealerGroupAccountsLinkedWithAgentSubagent extends baseClass{
 	ManageUserPageAction manageuser = new ManageUserPageAction();
 	XmlDataReader UtilsDataReader=new XmlDataReader("UtilsData");
 	
-	@BeforeMethod(alwaysRun=true)
+	@BeforeClass(alwaysRun=true)
 	public void login() throws InterruptedException {
-		navigate();
+//		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 
