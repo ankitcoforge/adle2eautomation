@@ -23,7 +23,7 @@ public class MultipleAgencyAccounts_test extends impersonateAction{
 
 	@BeforeClass(alwaysRun=true)
 	public void login() throws InterruptedException {
-		navigate();
+//		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 	

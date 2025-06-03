@@ -13,7 +13,7 @@ import pageActions.verticalMenuAction;
 import utils.baseClass;
 import utils.utilityClass;
 
-/* PBI 35236 */
+/* PBI 35236,  Total Tc's = 8 */
 /*implemented by Divyasree*/
 public class AgentPacsksDealerPassthroughs_test extends baseClass{
 

@@ -27,7 +27,7 @@ public class PackPassthroughPermissionModal_test extends PacksPassthroughAction{
 
 	@BeforeClass(alwaysRun = true)
 	public void login() throws InterruptedException {
-		navigate();
+//		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 

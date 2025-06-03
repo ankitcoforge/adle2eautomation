@@ -1,12 +1,5 @@
 package testsuite;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -25,7 +18,7 @@ public class NewUserRegistration_test extends NewUserRegistration_Action {
 	verticalMenuAction vo = new verticalMenuAction();
 	XmlDataReader UtilsDataReader = new XmlDataReader("UtilsData");
 	XmlDataReader employeePacksData = new XmlDataReader("EmployeePacksData");
-	EmployeePacks_test packs = new EmployeePacks_test();
+	Packs_test packs = new Packs_test();
 	utilityClass utils = new utilityClass();
 	LateraMenu_test lateraMenu = new LateraMenu_test();
 	Impersonate_test impersonate = new Impersonate_test();

@@ -34,4 +34,5 @@ public class EmployeePackspo extends baseClass {
 	public String close = "//mat-icon[text()='close']";
 //	public String enterRole = "//input[contains(@placeholder,'Please enter the Role')]";
 //	public String roleDropdownListForDealer = "//mat-option[@role='option']/span/span";
+	public String calenderSoldDate = "(//mat-icon[text()='calendar_today'])[1]";
 }

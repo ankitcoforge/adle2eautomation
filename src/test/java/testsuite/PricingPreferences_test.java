@@ -33,10 +33,21 @@ public class PricingPreferences_test extends PricingPreferencesAction {
 	
 	@BeforeClass(alwaysRun=true)
 	public void login() throws InterruptedException {
-		navigate();
+//		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 	
+	
+	@Test(priority = 0)
+	public void verifyNoPacksArePresentAsaPrecondition() throws Exception {
+		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
+		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
+		EmplPacks.verfyNoExistingPacksPresent();
+		login.logout();
+		login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
+		verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Pricing Preferences");
+		EmplPacks.verfyNoExistingPacksPresent();
+	}
 	
 	@Test(priority = 1)
 	public void verifyPricingPreferencesPage_31666() throws Exception {

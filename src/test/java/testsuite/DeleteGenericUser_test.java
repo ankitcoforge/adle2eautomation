@@ -17,6 +17,7 @@ import utils.utilityClass;
 
 /* PBI 35646 & 35496  */
 /* PBI 35606 is also covered apprx 40 Tc's - but Id's not mentioned*/
+/*Pls check where the edit and lock functionality tc's from 35606*/
 public class DeleteGenericUser_test extends DeleteGenericUserAction{
 	
 	loginAction login = new loginAction();

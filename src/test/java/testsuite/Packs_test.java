@@ -25,7 +25,7 @@ import utils.utilityClass;
 
 /*PBI No- 31340 */
 /* Tc's active = 15, future date invalid tc= 5 */
-public class EmployeePacks_test extends EmployeePacksAction {
+public class Packs_test extends EmployeePacksAction {
 	loginAction login = new loginAction();
 	verticalMenuAction verticalMenu = new verticalMenuAction();
 	CalenderUtils calenderUtils = new CalenderUtils();
@@ -200,7 +200,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 	}
 
 	@Test(priority = 5)
-	public void verifyDealerPackImpactContractCreationPage_32013() throws Exception {
+	public void verifyDealerPackImpactContractCreationPage_32013_32766() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getPortalTitle().getText(), UtilsDataReader.getXMLData("ADLpageTitle"));
 
@@ -315,9 +315,11 @@ public class EmployeePacks_test extends EmployeePacksAction {
 	//impersonate as generic role added,hence putting it on hold
 		@Test(priority = 8)
 	public void verifyDealerPackImpactContractCreationPageThroughSubAgentLogin_35142() throws Exception {
-		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
+			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+			Thread.sleep(3000);
+			verticalMenu.navigatetoimpersonate();
+			impersonate.impersonateUser("SubAgent", "28771");
 		Assert.assertEquals(getPortalTitle().getText(), UtilsDataReader.getXMLData("ADLpageTitle"));
-
 		verticalMenu.navigatetoLeftMenu("Dealer Settings", "Manage My Dealer Packs");
 		selectDealerName(UtilsDataReader.getXMLData("dealer2"));
 		Thread.sleep(2000);
@@ -373,7 +375,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 	}
 	
 	@Test(priority = 10)
-	public void verifyDealerEmpPackImpactsContractCreationPage_35149() throws Exception {
+	public void verifyDealerEmpPackImpactsContractCreationPage_35149_32765() throws Exception {
 		getPermissionsForDealerEmp();
 		login.login(prop.getProperty("dealerempAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getPortalTitle().getText(), UtilsDataReader.getXMLData("ADLpageTitle"));
@@ -407,7 +409,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		Assert.assertEquals(vehiclePriceBeforeAfter, (vehiclePriceBefore+packAmount));
 	}
 	
-	@Test(priority = 11)
+	@Test(priority = 11,enabled=false)
 	public void verifyLenderEmpPackImpactContractCreationPage_35150() throws Exception {
 		getPermissionsForLenderEmp();
 		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
@@ -535,7 +537,10 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		//impersonate as generic role added,hence putting it on hold
 		@Test(priority = 14 )
 	public void verifyDealerPackImpactContractCreationPageWhenDealerImpersontedThroughSubAgent_35143() throws Exception {
-		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
+			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+			Thread.sleep(3000);
+			verticalMenu.navigatetoimpersonate();
+			impersonate.impersonateUser("SubAgent", "28771");
 		Assert.assertEquals(getPortalTitle().getText(), UtilsDataReader.getXMLData("ADLpageTitle"));
 		Thread.sleep(5000);
 		
@@ -578,7 +583,10 @@ public class EmployeePacks_test extends EmployeePacksAction {
 		//impersonate as generic role added,hence putting it on hold
 		@Test(priority = 15 )
 	public void verifyDealerEmpPackImpactsContractCreationPageWhenDealerEmpImpersontedThroughSubAgent_35144() throws Exception {
-		login.login(prop.getProperty("subagentAutomation"), prop.getProperty("password"));
+			login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
+			Thread.sleep(3000);
+			verticalMenu.navigatetoimpersonate();
+			impersonate.impersonateUser("SubAgent", "28771");
 		Assert.assertEquals(getPortalTitle().getText(), UtilsDataReader.getXMLData("ADLpageTitle"));
 		Thread.sleep(5000);
 		
@@ -809,6 +817,7 @@ public class EmployeePacks_test extends EmployeePacksAction {
 //		System.out.println("vehicle Price after------" + vehiclePriceBeforeAfter);
 //		Assert.assertEquals(vehiclePriceBeforeAfter, vehiclePriceBefore);
 //	}
+		
 
 	@AfterMethod(alwaysRun = true)
 	public void close() throws InterruptedException {

@@ -44,7 +44,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 
 	@BeforeClass(alwaysRun = true)
 	public void login() throws InterruptedException {
-		navigate();
+//		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 

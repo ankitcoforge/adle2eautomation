@@ -39,7 +39,7 @@ public class UpsellTest extends UpsellAction {
 
 	@BeforeClass(alwaysRun = true)
 	public void login() throws InterruptedException {
-		navigate();
+//		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 

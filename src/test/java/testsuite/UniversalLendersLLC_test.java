@@ -39,7 +39,7 @@ public class UniversalLendersLLC_test extends UniversalLendersAction {
 
 	@BeforeMethod(alwaysRun = true)
 	public void login() throws InterruptedException {
-		navigate();
+//		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 

@@ -31,7 +31,7 @@ public class NewUserOptionsInManageDealerPage_test extends ManageUserPageAction{
 	
 	@BeforeClass(alwaysRun=true)
 	public void login() throws InterruptedException {
-		navigate();
+//		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 

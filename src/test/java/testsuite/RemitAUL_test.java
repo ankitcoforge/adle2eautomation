@@ -42,7 +42,7 @@ public class RemitAUL_test extends RemitAULAction {
 
 	@BeforeClass(alwaysRun = true)
 	public void login() throws InterruptedException {
-		navigate();
+//		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 

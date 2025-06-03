@@ -20,7 +20,8 @@ import pageActions.verticalMenuAction;
 import utils.utilityClass;
 
 /* Divyasree */
-/* Total Tc's = 61 */
+/* PBI 30152, covered all 90 Tc's*/
+
 
 public class VerticalMenu_test extends LateralMenuAction {
 	
@@ -32,7 +33,7 @@ public class VerticalMenu_test extends LateralMenuAction {
 
 	@BeforeClass(alwaysRun=true)
 	public void login() throws InterruptedException {
-		navigate();
+//		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 	

@@ -2,6 +2,8 @@ package pageActions;
 
 import java.text.NumberFormat;
 import java.text.ParseException;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -32,6 +34,11 @@ public class PricingPreferencesAction extends PricingPreferencesPO{
 	 
 	 public List<String> getAllHeaderNames() {
 		 List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
+         return allHeaderNames;
+	 }
+	 
+	 public List<String> getAllHeaderNamesInHistoryTable() {
+		 List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", historyTableHeaderLoc);
          return allHeaderNames;
 	 }
 	 
@@ -534,6 +541,23 @@ public class PricingPreferencesAction extends PricingPreferencesPO{
 		 utils.getfield("span", "Save").click();
 		 Thread.sleep(3000);
 		 }
+	 
+	 public void editMarkup(String markupType, String markupBy, String amount) throws InterruptedException {
+		 editMarkupBtn().click();
+			Thread.sleep(1000);
+		 if(markupType.equals("Flat")) {
+			 getBtnsmarkup().get(0).click();
+			 selectMarkupBy(markupBy);
+			 getMarkupAmountTxtFld().get(0).sendKeys(amount);
+		 }
+		 else if(markupType.equals("Percentage")) {
+			 getBtnsmarkup().get(1).click();
+			 selectMarkupBy(markupBy);
+			 getMarkupAmountTxtFldForPercentage().get(0).sendKeys(amount);
+		 }
+		 utils.getfield("span", "Save").click();
+		 Thread.sleep(3000);
+		 }
 	
 	 public void createMarkupForAll(String programCode,String markupType, String markupBy, String amount) throws InterruptedException {
 		 utils.getfield("span", "New Markup").click();
@@ -595,12 +619,19 @@ public class PricingPreferencesAction extends PricingPreferencesPO{
 		 return txtInDouble;
 		 }
 	 
-	 public void parseNum(String no) throws ParseException {
-	 }
-	 
+//	 public void parseNum(String no) throws ParseException {
+//	 }
+//	 
 	 
 	 void add2(Integer i, Double d1) {
 		  Double d2= Double.valueOf((double) i.intValue() + d1.doubleValue());
 		}
+	 
+	 public WebElement editMarkupBtn() throws InterruptedException {
+			String editLoc = "table>tbody>tr:nth-of-type(1)>td:nth-of-type(11)>adl-table-cells>div";
+			WebElement ele = utils.element("cssSelector", editLoc);
+			return ele;
+		}
+
 
 }

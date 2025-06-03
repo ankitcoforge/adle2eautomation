@@ -25,6 +25,7 @@ import utils.XmlDataReader;
 import utils.utilityClass;
 
 /* Divyasree */
+/* PBI 26343, 26885, */
 /* Tc's active = 46 , invalid/commented due to bug = 3 */
 
 @Listeners(utils.listnerlogs.class)
@@ -40,7 +41,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 
 	@BeforeClass(alwaysRun=true)
 	public void login() throws InterruptedException {
-		navigate();
+//		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 	
@@ -394,7 +395,7 @@ public class WebContractsByDealer_test extends WebContractsByDealerAction {
 //	}
 
 	@Test(priority = 21)
-	public void verifyNoRecordsMsg_27375() throws InterruptedException {
+	public void verifyNoRecordsMsg_27376() throws InterruptedException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		verticalMenu.navigatetoLeftMenu("Report", "Web Contracts by Dealer");
 		Assert.assertEquals(getTitle(), webcontracts.getXMLData("webcontractsTitle"));

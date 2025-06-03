@@ -6,6 +6,7 @@ public class PricingPreferencesPO extends baseClass{
 	
 	public String portalTitle = "//b[text()='Welcome to your Protective ADL Portal!']";
 	public String headerLoc = "thead > adl-table-header > tr:nth-child(1) > th[role='columnheader']";
+	public String rowLoc = "table>tbody>tr";
 	public String roleDropdownList = "//div[@class='scrollable-content']/div/span";
 	public String markupTxts = "//div[@class='mat-radio-label-content']";
 	//public String markupRadioBtn = "//div[@class='mat-radio-container']/input";
@@ -31,6 +32,7 @@ public class PricingPreferencesPO extends baseClass{
 	public String calenderInPopup = "(//mat-icon[text()='calendar_today'])[2]";
 	public String packArrow = "//span[@class='ng-arrow-wrapper']";
 	public String getProducts = "//span[contains(text(),'Get Products')]";
+	public String historyTableHeaderLoc = "div[class='ui-table-scrollable-header-box']>table>thead > adl-table-header > tr:nth-child(1) > th[role='columnheader']";
 	
 
 }

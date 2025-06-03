@@ -25,7 +25,7 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 	Impersonate_test impersonate = new Impersonate_test();
 	singleContractAction contract =new singleContractAction();
 	ManageUserPageAction ManageUserPage=new ManageUserPageAction();
-	EmployeePacks_test packs=new EmployeePacks_test();
+	Packs_test packs=new Packs_test();
 	XmlDataReader UtilsDataReader=new XmlDataReader("UtilsData");
 	AssignDealerToSubAgentAction assignDealerToSubAgent = new AssignDealerToSubAgentAction();
 	//fetching data
@@ -43,7 +43,7 @@ public class QuickCodeMarkupAndSCToggleAListLienholder_test extends QuickCodeMar
 	
 	@BeforeClass(alwaysRun=true)
 	public void login() throws InterruptedException {
-		navigate();
+//		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 	

@@ -26,7 +26,7 @@ public class RestoreUsers_test extends RestoreUsersAction {
 
 	@BeforeClass(alwaysRun = true)
 	public void login() throws InterruptedException {
-		navigate();
+//		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 	
