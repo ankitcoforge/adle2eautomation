@@ -7,7 +7,7 @@ public class AssignDealerGrpEmployeePO extends baseClass{
 	public String selectDealerGrpEmployeeArrow = "//span[@class='ng-arrow-wrapper']";
 	public String dealerGrpEmpOptions = "//div[@role='option']/span";
 	public String arrowForwardInassignDealerToDealerGrpEmpPage = "//mat-icon[text()='arrow_forward']";
-	public String addDealer = "//span[text()=' + Add Dealer ']";
+	public String addDealer = "//span[contains(text(),'Add Dealer')]";
 	public String selectDealerArrow = "//span[contains(@class,'ui-multiselect-trigger-icon ui-clickable')]";
 	public String btnClose = "//a[contains(@class,'ui-multiselect-close')]";
 	public String rowLoc = "table>tbody>tr";

@@ -125,6 +125,7 @@ public class GAPAction extends GAPpo{
 		return ele;
 	}
 	
+	
 	public List<WebElement> getAsteriskHeadings() {
 		 List<WebElement> ele = getDriver().findElements(By.xpath(aestriskHeadingInPage));
 		return ele;
@@ -135,15 +136,11 @@ public class GAPAction extends GAPpo{
 		return ele;
 	}
 	
-	public void selectProgramPlanAndTermMonths() throws InterruptedException {
-		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("window.scrollTo(0, 700)");
-		Thread.sleep(1000);
-		selectArrow("Select Program").click();
+	public void selectRateTermMonths() throws InterruptedException {
+//		JavascriptExecutor js=(JavascriptExecutor)driver;
+//		js.executeScript("window.scrollTo(0, 700)");
 		Thread.sleep(2000);
-		selectDropDown();
-		Thread.sleep(2000);
-		selectArrow("Select Plan").click();
+		selectArrow("Select Rate").click();
 		Thread.sleep(2000);
 		selectDropDown();
 		Thread.sleep(2000);
@@ -153,17 +150,23 @@ public class GAPAction extends GAPpo{
 		Thread.sleep(2000);
 	}
 	
-	public void enterTermFinanceNadaMsrpApr() throws InterruptedException {
+	public void enterTermFinanceMsrpAprVehicleAge(String vehicleAgeType) throws InterruptedException {
 	String inputTerm=prop.getProperty("inputTerm");
 	String inputFinanceAmount=prop.getProperty("inputFinanceAmount");
-	String inputNADA=prop.getProperty("inputNADA");
+	String inputVehclePurchasePrice=prop.getProperty("inputVehiclePurchasePrice");
 	String inputMSRP=prop.getProperty("inputMSRP");
 	String inputAPR=prop.getProperty("inputAPR");
 	getTxtField("Term").sendKeys(inputTerm);
 	getTxtField("Finance Amount").sendKeys(inputFinanceAmount);
-	getTxtField("NADA").sendKeys(inputNADA);
-	getTxtField("APR").sendKeys(inputAPR);
+	Thread.sleep(2000);
+//	getTxtField("Vehicle Purchase Price").clear();
+	getTxtFields("Vehicle Purchase Price").get(1).sendKeys(inputVehclePurchasePrice);
 	getTxtField("MSRP").sendKeys(inputMSRP);
+	getTxtField("APR").sendKeys(inputAPR);
+	event.element("xpath", vehicleAgeTypeArrow).click();
+	Thread.sleep(2000);
+	selectDropDown(vehicleAgeType);
+	Thread.sleep(2000);
 	}
 	
 	public WebElement getSelectedDateInCalanderBox(){
@@ -224,17 +227,15 @@ public class GAPAction extends GAPpo{
 		
 	}
 	
-	public String singleContract() throws InterruptedException {
+	public String createGapContract(String DealType, String vehicleAgeType) throws InterruptedException {
 		String contractNumber = null;
-		try {
-			event.inputfield("cssSelector", textbox, "Single", 0);
-			event.inputfield("cssSelector", textbox, "Test", 1);
-			event.inputfield("cssSelector", textbox, singleContract.randomizer.getMilage(), 5);
-			event.inputfield("cssSelector", textbox, "JTJBM7FX0A5000592", 6);
+//		try {
+			event.inputfield("cssSelector", textbox, "1000", 5);
+			event.inputfield("cssSelector", textbox, "1HGCY2F69PA001019", 6);
 			event.clickfield("xpath", singleContract.getProducts);
 			singleContract.co.programSelect("Limited Warranty");
 			event.clickfield("cssSelector", singleContract.table, 0);
-			event.inputfield("cssSelector", textbox, "22723", 7);
+//			event.inputfield("cssSelector", textbox, "22723", 8);
 			event.inputfield("cssSelector", singleContract.contract, "10000", 0);
 			//contractNumber = driver.findElement(By.cssSelector(singleContract.contractNo)).getDomProperty("value");
 			//System.out.println("Contract Number is:" + contractNumber);
@@ -249,26 +250,30 @@ public class GAPAction extends GAPpo{
 //
 //			}
 			JavascriptExecutor js=(JavascriptExecutor)driver;
-			js.executeScript("window.scrollTo(0, 2500)");
+			js.executeScript("window.scrollTo(0, 1300)");
 			Assert.assertEquals(singleContract.addGapLabel(), "Add GAP");
 			event.element("xpath", AddGapCheckBox).click();
 			Thread.sleep(2000);
 			event.element("xpath", selectDealTypeArrow).click();
 			Thread.sleep(1000);
-			selectDropDown("Loan");
-			enterTermFinanceNadaMsrpApr();
+			selectDropDown(DealType);
+			enterTermFinanceMsrpAprVehicleAge("New");
 			event.element("xpath", gapRateBtn).click();
-			Thread.sleep(30000);
-			//JavascriptExecutor js=(JavascriptExecutor)driver;
-			js.executeScript("window.scrollTo(0, 2500)");
-			selectProgramPlanAndTermMonths();
-			
+			Thread.sleep(10000);
+//			JavascriptExecutor jse=(JavascriptExecutor)driver;
+//			jse.executeScript("window.scrollTo(0,2500)");
+			selectRateTermMonths();
 			getTxtField("Monthly Payment").sendKeys("100");
+			event.inputfield("cssSelector", textbox, "10", 19);
 			getTxtFields("Lienholder").get(1).sendKeys("West America Bank");
 			getTxtFields("Lienholder").get(1).sendKeys(Keys.ARROW_DOWN , Keys.ENTER);
 			Thread.sleep(20000);
 			
 			js.executeScript("window.scrollTo(0, 2500)");
+			driver.findElements(By.cssSelector(textbox)).get(22).clear();
+			event.inputfield("cssSelector", textbox, "tom", 22);
+//			driver.findElements(By.cssSelector(textbox)).get(20).clear();
+//			event.inputfield("cssSelector", textbox, "alexa", 20);
 			driver.findElements(By.cssSelector(textbox)).get(24).clear();
 			event.inputfield("cssSelector", textbox, "20130", 24);
 			driver.findElements(By.cssSelector(textbox)).get(23).clear();
@@ -288,9 +293,9 @@ public class GAPAction extends GAPpo{
 //			String text1 = event.text("cssSelector", singleContract.successMessage);
 //			Assert.assertTrue(text1, "You have successfully generated a contract!");
 		//	event.clickfield("xpath", singleContract.newQuotelink);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		return contractNumber;
 	}
 

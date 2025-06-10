@@ -20,7 +20,7 @@ public class DeleteGenericUserAction extends DeleteGenericUserPo{
 		 return welcomeTitle;
 	 }
 	 
-	 public HashMap<Integer, HashMap<String, String>> checkGridBodyDetailsInImpersonatePage() {
+	 public HashMap<Integer, HashMap<String, String>> checkGridBodyDetailsInImpersonatePage() throws InterruptedException {
 			List<String> allHeaderNames = event.getTextValuesForObject("cssSelector", headerLoc);
 			System.out.println("allHeaderNames: " + allHeaderNames);
 			HashMap<Integer, HashMap<String, String>> allTableData = new HashMap<Integer, HashMap<String, String>>();
@@ -105,7 +105,7 @@ public class DeleteGenericUserAction extends DeleteGenericUserPo{
 			return allTableData;
 		}
 
-	 public WebElement deleteLinkInGrid(int row) {
+	 public WebElement deleteLinkInGrid(int row) throws InterruptedException {
 	String del = "table>tbody>tr:nth-of-type("+row+")>td:nth-of-type(10)>adl-table-cells>div>div:nth-of-type(1)>i";
 	 return event.element("cssselector", del);
 	 }

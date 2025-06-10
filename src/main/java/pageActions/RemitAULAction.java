@@ -125,7 +125,7 @@ public class RemitAULAction extends RemitAULpo{
 			return contractRecordsInGrid;	
 	 }
 	 
-		public HashMap<Integer, HashMap<String, WebElement>> getElementsFromGridBody() {
+		public HashMap<Integer, HashMap<String, WebElement>> getElementsFromGridBody() throws InterruptedException {
 			List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
 			HashMap<Integer, HashMap<String, WebElement>> allTableData = new HashMap<Integer, HashMap<String, WebElement>>();
 			List<WebElement> allRowsEle = utils.getElementsList("cssSelector", rowLoc);
@@ -160,7 +160,7 @@ public class RemitAULAction extends RemitAULpo{
 			  return arrowbtn;
 			 }
 		 
-		 public HashMap<String, WebElement> getSearchBoxesInGrid() {
+		 public HashMap<String, WebElement> getSearchBoxesInGrid() throws InterruptedException {
 				utils.scrollDown();
 				HashMap<String, WebElement> map = new HashMap<String, WebElement>();
 				List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
@@ -171,7 +171,7 @@ public class RemitAULAction extends RemitAULpo{
 				return map;
 			}
 		 
-		 public HashMap<String, WebElement> getSearchBoxesForAULandRetailPrice() {
+		 public HashMap<String, WebElement> getSearchBoxesForAULandRetailPrice() throws InterruptedException {
 				utils.scrollDown();
 				HashMap<String, WebElement> map = new HashMap<String, WebElement>();
 				List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
@@ -190,7 +190,7 @@ public class RemitAULAction extends RemitAULpo{
 			 return headerInGrid;
 			 }
 	 
-	 public WebElement getSelectStatusCheckBoxInGrid(int row) {
+	 public WebElement getSelectStatusCheckBoxInGrid(int row) throws InterruptedException {
 			utils.scrollDown();
 			String specificRowLoc = "table>tbody>tr:nth-of-type(" + row + ")";
 			String specificRowColLoc = "td:nth-of-type(1)>adl-table-cells>div>mat-checkbox>label>div>input";
@@ -336,5 +336,10 @@ public class RemitAULAction extends RemitAULpo{
 			 WebElement calender = driver.findElement(By.cssSelector(calenderPlaceholder));
 			return calender;	
 	 }
+		 
+		 public WebElement getMsgBox() {
+			    WebElement checkAmount = driver.findElement(By.xpath(msgBox));
+				return checkAmount;	
+		 }
 		 
 }

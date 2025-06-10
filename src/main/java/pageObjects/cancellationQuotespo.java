@@ -23,5 +23,6 @@ public class cancellationQuotespo extends baseClass{
 	public String cancellationError="//div[contains(@aria-label,'This contract cannot be cancelled online')]";
 	public String elementsInError="//div[@class='overlay-container']/div/div";
 	public String editBtn="//span[text()='Edit']/..";
+	public String checkboxAgreeMsg ="//span[text()='I agree to retain all supporting documents within my business for six (6) years, including the Cancellation Form signed by the customer for all voluntary cancellations. I further agree to provide Protective with copies of any supporting documents immediately upon request.']";
 
 }

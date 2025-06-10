@@ -16,7 +16,7 @@ public class bannnerAction extends bannerpo {
 				"mat-radio-button[class='mat-radio-button mat-radio-checked mat-accent'] > label > div[class=\"mat-radio-label-content']");
 	}
 
-	public WebElement bannerElement() {
+	public WebElement bannerElement() throws InterruptedException {
 
 		return event.element("cssSelector", banner);
 	}
@@ -39,6 +39,11 @@ public class bannnerAction extends bannerpo {
 	public void clickSubmit() {
 
 		event.clickfield("cssSelector", submit);
+	}
+	
+	public WebElement getAdlBannner() throws InterruptedException {
+		WebElement ele = event.element("cssSelector", adlbanner);
+		return ele;
 	}
 
 	public void selectEnabled() {

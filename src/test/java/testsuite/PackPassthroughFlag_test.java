@@ -2,6 +2,7 @@ package testsuite;
 
 
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -15,6 +16,7 @@ import utils.utilityClass;
 
 
 /*36298 */
+/* Divyasree */
 public class PackPassthroughFlag_test extends baseClass{
 	
 	loginAction login = new loginAction();
@@ -24,9 +26,9 @@ public class PackPassthroughFlag_test extends baseClass{
 //	ManageUsersPage_test manageuser = new ManageUsersPage_test();
 	XmlDataReader UtilsDataReader = new XmlDataReader("UtilsData");
 
-	@BeforeMethod(alwaysRun = true)
+	@BeforeClass(alwaysRun = true)
 	public void login() throws InterruptedException {
-		navigate();
+//		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 

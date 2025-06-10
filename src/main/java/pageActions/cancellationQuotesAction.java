@@ -42,7 +42,7 @@ public class cancellationQuotesAction extends cancellationQuotespo {
 	}
 
 	
-	public WebElement getCancelMileageInput() {
+	public WebElement getCancelMileageInput() throws InterruptedException {
 
 		return event.element("xpath", cancelMileageInput);
 	}
@@ -62,7 +62,7 @@ public class cancellationQuotesAction extends cancellationQuotespo {
 		return driver.findElement(By.cssSelector(vinTextbox)).getAttribute("maxlength");
 	}
 
-	public WebElement submitButton() {
+	public WebElement submitButton() throws InterruptedException {
 
 		return event.element("cssSelector", submit);
 	}
@@ -99,58 +99,68 @@ public class cancellationQuotesAction extends cancellationQuotespo {
 		return driver.findElement(By.cssSelector("p-paginator >div > span")).getText();
 	}
 	
-	public WebElement quoteLink() {
+	public WebElement quoteLink() throws InterruptedException {
 		return event.element("cssSelector", quoteLink);
 	}
-	public WebElement getQuoteBtn() {
+	public WebElement getQuoteBtn() throws InterruptedException {
 
 		return event.element("xpath", quoteBtn);
 	}
 	
-	public WebElement getCheckBox() {
+	public WebElement getCheckBox() throws InterruptedException {
 
 		return event.element("xpath", checkBox);
 	}
 	
-	public WebElement getEditBtn() {
+	public WebElement getCheckBoxAgreeMsg() throws InterruptedException {
+
+		return event.element("xpath", checkboxAgreeMsg);
+	}
+	
+	public WebElement getEditBtn() throws InterruptedException {
 
 		return event.element("xpath", editBtn);
 	}
 	
-	public WebElement getCancelContractBtn() {
+	public WebElement getCancelContractBtn() throws InterruptedException {
 
 		return event.element("xpath", cancelContractBtn);
 	}
 	
-	public WebElement getCompleteCancellationBtn() {
+	public WebElement getCompleteCancellationBtn() throws InterruptedException {
 
 		return event.element("xpath", completeCancellationBtn);
 	}
 	
 	
-	public WebElement getBackBtn() {
+	public WebElement getBackBtn() throws InterruptedException {
 
 		return event.element("xpath", backBtn);
 	}
 	
-	public WebElement getContractTextbox() {
+	public WebElement getContractTextbox() throws InterruptedException {
 
 		return event.element("cssSelector", contractTextbox);
 	}
 	
-	public WebElement getQuoteErrorMsg() {
+	public WebElement getQuoteErrorMsg() throws InterruptedException {
 
 		return event.element("xpath", quoteError);
 	}
 	
-	public WebElement getCancellationErrorMsg() {
+	public WebElement getCancellationErrorMsg() throws InterruptedException {
 
 		return event.element("xpath", cancellationError);
 	}
 	
-	public WebElement getCloseBtn() {
+	public WebElement getCloseBtn() throws InterruptedException {
 
 		return event.element("xpath", closeBtn);
+	}
+	
+	public WebElement getCloseBtnDuringCancelContractPopup() throws InterruptedException {
+
+		return event.element("xpath", closeBtn,1);
 	}
 	
 	public List<WebElement> errorElements() {
@@ -158,12 +168,12 @@ public class cancellationQuotesAction extends cancellationQuotespo {
 	return elements;
 	}
 	
-	public WebElement getCancelBtn() {
+	public WebElement getCancelBtn() throws InterruptedException {
 
 		return event.element("xpath", cancelBtn);
 	}
 	
-	public void openCancellationModelBox() {
+	public void openCancellationModelBox() throws InterruptedException {
 		quoteLink().click();
 	}
 	

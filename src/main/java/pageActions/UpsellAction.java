@@ -54,7 +54,7 @@ public class UpsellAction extends UpsellPo{
 		 Thread.sleep(2000);
 	 }
 	 
-		public HashMap<Integer, HashMap<String, WebElement>> getElementsFromGridBody() {
+		public HashMap<Integer, HashMap<String, WebElement>> getElementsFromGridBody() throws InterruptedException {
 			List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
 			HashMap<Integer, HashMap<String, WebElement>> allTableData = new HashMap<Integer, HashMap<String, WebElement>>();
 			List<WebElement> allRowsEle = utils.getElementsList("cssSelector", rowLoc);
@@ -76,7 +76,7 @@ public class UpsellAction extends UpsellPo{
 			return allTableData;
 		}
 		
-		public HashMap<Integer, HashMap<String, WebElement>> getDataCreatedBy() {
+		public HashMap<Integer, HashMap<String, WebElement>> getDataCreatedBy() throws InterruptedException {
 			List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
 			HashMap<Integer, HashMap<String, WebElement>> allTableData = new HashMap<Integer, HashMap<String, WebElement>>();
 			List<WebElement> allRowsEle = utils.getElementsList("cssSelector", rowLoc);
@@ -96,7 +96,7 @@ public class UpsellAction extends UpsellPo{
 		}
 		
 		 
-		 public HashMap<String, WebElement> getSearchBoxesInGrid() {
+		 public HashMap<String, WebElement> getSearchBoxesInGrid() throws InterruptedException {
 				utils.scrollDown();
 				HashMap<String, WebElement> map = new HashMap<String, WebElement>();
 				List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
@@ -154,7 +154,7 @@ public class UpsellAction extends UpsellPo{
 			 }
 		 
 		 
-		 public WebElement getEditBtn(int row) {
+		 public WebElement getEditBtn(int row) throws InterruptedException {
        					String specificRowLoc = "table>tbody>tr:nth-of-type(" + row + ")";
 							String specificRowColLoc = "td:nth-of-type(6)>adl-table-cells>div";
 							WebElement  element = utils.element("cssSelector", specificRowLoc + ">" + specificRowColLoc);

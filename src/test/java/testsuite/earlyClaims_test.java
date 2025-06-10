@@ -13,6 +13,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import com.mailosaur.MailosaurException;
+
 import pageActions.LateralMenuAction;
 import pageActions.earlyClaimsAction;
 import pageActions.loginAction;
@@ -66,7 +68,7 @@ public class earlyClaims_test extends earlyClaimsAction{
 	}
 	
 	@Test(priority = 0)
-    public void permission() throws InterruptedException {
+    public void permission() throws InterruptedException, IOException, MailosaurException {
 		VerticalMenu.getDefaultpermissionForDealerEmp();	
 	}
 	

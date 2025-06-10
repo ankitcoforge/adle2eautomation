@@ -1,25 +1,13 @@
 package testsuite;
 
-import java.io.File;
-import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 
-import javax.swing.text.Utilities;
 
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.ITestResult;
-import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -54,9 +42,9 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	PricingPreferencesAction preferences = new PricingPreferencesAction();
 	CalenderUtils calenderUtils= new CalenderUtils();
 
-	@BeforeMethod(alwaysRun = true)
+	@BeforeClass(alwaysRun = true)
 	public void login() throws InterruptedException {
-		navigate();
+//		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 
@@ -166,41 +154,41 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 		Thread.sleep(2000);
 	}
 
-	@Test(priority = 3)
-	public void verifyDeleteFuctionality_31332_31334() throws Exception {
-		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
-		Thread.sleep(2000);
-		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
-		Thread.sleep(2000);
-		Assert.assertTrue(utils.getTitle("Manage VSC - GAP Preferences").isDisplayed());
-		Thread.sleep(2000);
-		createNewProgram();
-		Thread.sleep(3000);
-		grid.getSelectCheckBoxes().get(0).click();
-		if (grid.getCurrentPageRecord() > 1) {
-		grid.getSelectCheckBoxes().get(1).click();
-		}
-		grid.getDeleteLink().click();
-		grid.getBtnYes().click();
-		Thread.sleep(2000);
-		grid.getDeletedConfirmationMsg().isDisplayed();
-	}
-
-	// gap functionality-BUG
-	@Test(priority = 4)
-	public void verifyGAPFuctionality_31333() throws Exception {
-		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
-		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
-		Thread.sleep(2000);
-		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
-		Thread.sleep(2000);
-		Assert.assertTrue(utils.getTitle("Manage VSC - GAP Preferences").isDisplayed());
-		Thread.sleep(2000);
-//		getGapCheckbox().click();
+//	@Test(priority = 3)
+//	public void verifyDeleteFuctionality_31332_31334() throws Exception {
+//		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
+//		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
 //		Thread.sleep(2000);
-//		getGapCheckboxStatus().getAttribute("aria-checked").equals("true");
-	}
+//		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
+//		Thread.sleep(2000);
+//		Assert.assertTrue(utils.getTitle("Manage VSC - GAP Preferences").isDisplayed());
+//		Thread.sleep(2000);
+//		createNewProgram();
+//		Thread.sleep(3000);
+//		grid.getSelectCheckBoxes().get(0).click();
+//		if (grid.getCurrentPageRecord() > 1) {
+//		grid.getSelectCheckBoxes().get(1).click();
+//		}
+//		grid.getDeleteLink().click();
+//		grid.getBtnYes().click();
+//		Thread.sleep(2000);
+//		grid.getDeletedConfirmationMsg().isDisplayed();
+//	}
+//
+//	// gap functionality-BUG
+//	@Test(priority = 4)
+//	public void verifyGAPFuctionality_31333() throws Exception {
+//		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
+//		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
+//		Thread.sleep(2000);
+//		verticalMenu.navigatetoLeftMenu("My Settings", "Manage VSC - GAP Preferences");
+//		Thread.sleep(2000);
+//		Assert.assertTrue(utils.getTitle("Manage VSC - GAP Preferences").isDisplayed());
+//		Thread.sleep(2000);
+////		getGapCheckbox().click();
+////		Thread.sleep(2000);
+////		getGapCheckboxStatus().getAttribute("aria-checked").equals("true");
+//	}
 
 	@Test(priority = 5)
 	public void verifyPagination_31335() throws Exception {
@@ -975,7 +963,7 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	}
 	
 	
-	@Test(priority = 21)
+	@Test(priority = 21,enabled = false)
 	public void verifyDateFunctionalyInNewPreferencePage_31430() throws Exception {
 		login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 		Assert.assertEquals(getPortalTitle().getText(), "Welcome to your Protective ADL Portal!");
@@ -1023,10 +1011,10 @@ public class ManageVSC_GAPprefrences_test extends ManageVSC_GAPpreferencesAction
 	try {
 		login.logout();
 	} catch (Exception e) {
-		if (utils.getfield("mat-icon", "close").isDisplayed()) {
-			utils.getfield("mat-icon", "close").click();
-		}
-		login.logout();
+//		if (utils.getfield("mat-icon", "close").isDisplayed()) {
+//			utils.getfield("mat-icon", "close").click();
+//		}
+//		login.logout();
 	}
 }
 

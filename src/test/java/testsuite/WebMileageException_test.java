@@ -39,9 +39,9 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	CalenderUtils calenderUtils= new CalenderUtils();
 	
 
-	@BeforeMethod(alwaysRun = true)
+	@BeforeClass(alwaysRun = true)
 	public void login() throws InterruptedException {
-		navigate();
+//		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 
@@ -297,7 +297,6 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 			gridPacks.getBtnYes().click();
 			Thread.sleep(2000);
 		}
-		
 		getNewExceptionBtn().click();
 		Thread.sleep(2000);
 		getArrow().click();
@@ -360,7 +359,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 		getBtnSave().click();
 		Thread.sleep(2000);
 		login.logout();
-		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("adminpassword"));
+		login.login(prop.getProperty("lenderempAutomation"), prop.getProperty("password"));
 		verticalMenu.navigatetoContract();
 		contract.getSelectDealerTogenerateContract("#1 Auto Liquidators LLC");
 		getProductsForLender("5FNRL6H27NB019645","101");
@@ -436,7 +435,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 		getBtnSave().click();
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Impersonate");
-		impersonate.impersonateUser("Lender", lenderId);
+		impersonate.impersonateUserForSubagentLendrEmp("Lender", lenderId);
 		verticalMenu.navigatetoContract();
 		contract.getSelectDealerTogenerateContract("#1 Auto Liquidators LLC");
 		getProductsForLender("5GAKRDED0CJ396612","550");
@@ -462,7 +461,7 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 		getBtnSave().click();
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Impersonate");
-		impersonate.impersonateUser("Lender", lenderId);
+		impersonate.impersonateUserForSubagentLendrEmp("Lender", lenderId);
 		verticalMenu.navigatetoContract();
 		contract.getSelectDealerTogenerateContract("#1 Auto Liquidators LLC");
 		getProductsForLender("5FNRL6H27NB019645","101");
@@ -537,10 +536,12 @@ public class WebMileageException_test extends WebMileageExceptionAction{
 	@AfterMethod(alwaysRun = true)
 	public void close() throws InterruptedException {
 		try {
-		login.logout();
-		}
-		catch (Exception e) {
-			
+			login.logout();
+		} catch (Exception e) {
+			if (utils.getfield("mat-icon", "close").isDisplayed()) {
+				utils.getfield("mat-icon", "close").click();
+			}
+			login.logout();
 		}
 	}
 

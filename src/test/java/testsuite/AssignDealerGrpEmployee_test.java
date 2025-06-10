@@ -7,6 +7,7 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -17,7 +18,8 @@ import pageActions.loginAction;
 import pageActions.verticalMenuAction;
 import utils.utilityClass;
 
-/* 34764 */
+/* PBI 34764 *Total tc's = 4/
+/*implemented by Divyasree*/
 
 public class AssignDealerGrpEmployee_test extends AssignDealerGrpEmployeeAction {
 
@@ -28,9 +30,9 @@ public class AssignDealerGrpEmployee_test extends AssignDealerGrpEmployeeAction 
 //	ManageUsersPage_test manageuser = new ManageUsersPage_test();
 	PermissionsAction permissions = new PermissionsAction();
 
-	@BeforeMethod(alwaysRun = true)
+	@BeforeClass(alwaysRun = true)
 	public void login() throws InterruptedException {
-		navigate();
+//		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 
@@ -56,6 +58,59 @@ public class AssignDealerGrpEmployee_test extends AssignDealerGrpEmployeeAction 
 		utils.element("xpath", selectDealerArrow).click();
 		Thread.sleep(2000);
 		if (!permissions.getSelectAllCheckBoxInPopup().isSelected()) {
+			permissions.getSelectAllCheckBoxInPopup().click();
+		}
+		utils.element("xpath", btnClose).click();
+		if (utils.element("xpath", permissions.saveBtn).isEnabled()) {
+			utils.clickfield("xpath", permissions.saveBtn);
+		} else {
+			utils.clickfield("xpath", permissions.cancelBtn);
+		}
+		Thread.sleep(2000);
+		Assert.assertTrue(getRows().size() > 1);
+	}
+	
+	@Test(priority = 2)
+	public void verifyUserCanAddTwoOrMoreDealers_34860() throws Exception {
+		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
+		verticalMenu.navigatetoLeftMenu("My Settings", "Assign Dealer to Dealer Group Employee");
+		Assert.assertTrue(utils.getfield("h3", "Assign Dealer to Dealer Group Employee").isDisplayed());
+		Assert.assertTrue(utils.getfield("td", "There are no records to display").isDisplayed());
+		selectdealerGrpEmpInDropDown(prop.getProperty("dealergrpempAutomation"));
+		utils.element("xpath", arrowForwardInassignDealerToDealerGrpEmpPage).click();
+		utils.waitTillElementIsClickable(addDealer);
+		Thread.sleep(2000);
+		if (permissions.getSelectAllCheckBoxstatus().getAttribute("aria-checked").equals("false")) {
+			permissions.getSelectAllCheckBoxInGrid().click();
+		}
+		utils.getfield("a", "Delete").click();
+		utils.getfield("span", "Yes").click();
+		Thread.sleep(2000);
+		
+		utils.element("xpath", addDealer).click();
+		utils.waitTillElementIsClickable(selectDealerArrow);
+		utils.element("xpath", selectDealerArrow).click();
+		Thread.sleep(2000);
+		
+		
+		for (int i = 0; i < 2; i++) {
+			if (!permissions.getSelectCheckBoxInPopup().get(i).isSelected()) {
+				permissions.getSelectCheckBoxInPopup().get(i).click();
+			}
+		}
+		utils.element("xpath", btnClose).click();
+		if (utils.element("xpath", permissions.saveBtn).isEnabled()) {
+			utils.clickfield("xpath", permissions.saveBtn);
+		} else {
+			utils.clickfield("xpath", permissions.cancelBtn);
+		}
+		Thread.sleep(2000);
+		utils.waitTillElementIsClickable(addDealer);
+		utils.element("xpath", addDealer).click();
+		utils.waitTillElementIsClickable(selectDealerArrow);
+		utils.element("xpath", selectDealerArrow).click();
+		Thread.sleep(2000);
+		if (permissions.getSelectAllCheckBoxstatus().getAttribute("aria-checked").equals("false")) {
 			permissions.getSelectAllCheckBoxInPopup().click();
 		}
 		utils.element("xpath", btnClose).click();
@@ -120,47 +175,7 @@ public class AssignDealerGrpEmployee_test extends AssignDealerGrpEmployeeAction 
 		Assert.assertTrue(utils.getfield("td", "There are no records to display").isDisplayed());
 	}
 
-	@Test(priority = 2)
-	public void verifyUserCanAddTwoOrMoreDealers_34860() throws Exception {
-		login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
-		verticalMenu.navigatetoLeftMenu("My Settings", "Assign Dealer to Dealer Group Employee");
-		Assert.assertTrue(utils.getfield("h3", "Assign Dealer to Dealer Group Employee").isDisplayed());
-		Assert.assertTrue(utils.getfield("td", "There are no records to display").isDisplayed());
-		selectdealerGrpEmpInDropDown(prop.getProperty("dealergrpempAutomation"));
-		utils.element("xpath", arrowForwardInassignDealerToDealerGrpEmpPage).click();
-		utils.waitTillElementIsClickable(addDealer);
-		utils.element("xpath", addDealer).click();
-		utils.waitTillElementIsClickable(selectDealerArrow);
-		utils.element("xpath", selectDealerArrow).click();
-		Thread.sleep(2000);
-		for (int i = 0; i < 2; i++) {
-			if (!permissions.getSelectCheckBoxInPopup().get(i).isSelected()) {
-				permissions.getSelectCheckBoxInPopup().get(i).click();
-			}
-		}
-		utils.element("xpath", btnClose).click();
-		if (utils.element("xpath", permissions.saveBtn).isEnabled()) {
-			utils.clickfield("xpath", permissions.saveBtn);
-		} else {
-			utils.clickfield("xpath", permissions.cancelBtn);
-		}
-		utils.waitTillElementIsClickable(addDealer);
-		utils.element("xpath", addDealer).click();
-		utils.waitTillElementIsClickable(selectDealerArrow);
-		utils.element("xpath", selectDealerArrow).click();
-		Thread.sleep(2000);
-		if (!permissions.getSelectAllCheckBoxInPopup().isSelected()) {
-			permissions.getSelectAllCheckBoxInPopup().click();
-		}
-		utils.element("xpath", btnClose).click();
-		if (utils.element("xpath", permissions.saveBtn).isEnabled()) {
-			utils.clickfield("xpath", permissions.saveBtn);
-		} else {
-			utils.clickfield("xpath", permissions.cancelBtn);
-		}
-		Thread.sleep(2000);
-		Assert.assertTrue(getRows().size() > 1);
-	}
+	
 
 	@AfterMethod(alwaysRun = true)
 	public void close() throws InterruptedException {

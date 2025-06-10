@@ -6,13 +6,15 @@ public class PricingPreferencesPO extends baseClass{
 	
 	public String portalTitle = "//b[text()='Welcome to your Protective ADL Portal!']";
 	public String headerLoc = "thead > adl-table-header > tr:nth-child(1) > th[role='columnheader']";
+	public String rowLoc = "table>tbody>tr";
 	public String roleDropdownList = "//div[@class='scrollable-content']/div/span";
 	public String markupTxts = "//div[@class='mat-radio-label-content']";
 	//public String markupRadioBtn = "//div[@class='mat-radio-container']/input";
 	public String btnsmarkup = "mat-radio-group>mat-radio-button";
 	public String markupAmountDollarSign = "//div[@class='text-field__input secure text-field__input--prefix']/span/span/mat-icon";
 	public String markupAmountPercentSign = "//span[@class='suffix mat-icon-button suffix--text ng-star-inserted']/span";
-	public String markupAmountTxtFld = "//div[@class='text-field__input secure text-field__input--prefix']/input";
+	public String markupAmountTxtFldForFlatType = "//div[@class='text-field__input secure text-field__input--prefix']/input";
+	public String markupAmountTxtFldForPercentage = "//div[@class='text-field__input secure text-field__input--suffix']/input";
 	public String selectAllCheckBox="td:nth-of-type(1)>div>div>mat-checkbox>label>div";
 	public String table = "adl-rates-table > table >tbody > tr:nth-child(1) > td:nth-child(2)";
 	public String textbox = "adl-text-input > div > div.text-field__input.secure > input";
@@ -28,5 +30,9 @@ public class PricingPreferencesPO extends baseClass{
 	public String email = "adl-text-input[label='Email'] > div > div.text-field__input.secure > input";
 	public String noRecordsInGrid = "table>tbody>tr>td";
 	public String calenderInPopup = "(//mat-icon[text()='calendar_today'])[2]";
+	public String packArrow = "//span[@class='ng-arrow-wrapper']";
+	public String getProducts = "//span[contains(text(),'Get Products')]";
+	public String historyTableHeaderLoc = "div[class='ui-table-scrollable-header-box']>table>thead > adl-table-header > tr:nth-child(1) > th[role='columnheader']";
+	
 
 }

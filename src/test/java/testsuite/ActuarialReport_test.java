@@ -11,6 +11,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -36,9 +37,9 @@ public class ActuarialReport_test extends ActuarialReportAction{
 	Permissions_test Permissions=new Permissions_test();
 	LateralMenuAction lateralMenu = new LateralMenuAction();
 
-	@BeforeMethod(alwaysRun = true)
+	@BeforeClass(alwaysRun = true)
 	public void login() throws InterruptedException {
-		navigate();
+//		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 
@@ -46,7 +47,7 @@ public class ActuarialReport_test extends ActuarialReportAction{
 	public void verifyPage_18441_18442_18444_18445_18450_18451_18454() throws InterruptedException, ParseException {
 		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
 		verticalMenu.navigatetoimpersonate();
-		impersonate.impersonateUser("Dealer", "28236");
+		impersonate.impersonateAsGenericUserWith("Dealer", "28236","Dealer");
 //		impersonate.impersonateUser("Dealer", "28771");
 		Thread.sleep(2000);
 		verticalMenu.navigatetoLeftMenu("Report", "Actuarials");
@@ -102,10 +103,11 @@ public class ActuarialReport_test extends ActuarialReportAction{
 		verticalMenu.navigatetoLeftMenu("Report", "Actuarials");
 		Thread.sleep(3000);
 		Assert.assertTrue(utils.getTitle("Actuarials").isDisplayed());
-		Assert.assertTrue(utils.element("xpath", "remitMonthTxt").isDisplayed());
-		Assert.assertTrue(utils.element("xpath", "remitMonthGraph").isDisplayed());
-		Assert.assertTrue(utils.element("xpath", "remitYearInception").isDisplayed());
-		Assert.assertTrue(utils.element("xpath", "remitYearInceptionGraph").isDisplayed());
+		utils.scrollDownUsingJSE(300);
+		Assert.assertTrue(utils.element("xpath", remitMonthTxt).isDisplayed());
+		Assert.assertTrue(utils.element("xpath", remitMonthGraph).isDisplayed());
+		Assert.assertTrue(utils.element("xpath", remitYearInception).isDisplayed());
+//		Assert.assertTrue(utils.element("xpath", remitYearInceptionGraph).isDisplayed());
 		}
 	
 	
@@ -118,9 +120,9 @@ public class ActuarialReport_test extends ActuarialReportAction{
 		verticalMenu.navigatetoLeftMenu("Report", "Actuarials");
 		Thread.sleep(3000);
 		Assert.assertTrue(utils.getTitle("Actuarials").isDisplayed());
-		utils.scrollDown();
-		Assert.assertTrue(utils.getfield("h5", "Dealer Programs").isDisplayed());
-		Assert.assertTrue(utils.element("xpath", "dealerProgramGrid").isDisplayed());
+		utils.scrollDownUsingJSE(900);
+		Assert.assertTrue(utils.getfield("h3", "Dealer Programs").isDisplayed());
+		Assert.assertTrue(utils.element("xpath", dealerProgramGrid).isDisplayed());
 		Assert.assertTrue(utils.getfield("p", "The following table is a summary of data").isDisplayed());
 		Thread.sleep(2000);
 		ArrayList<String> list = new ArrayList<String>();

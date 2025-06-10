@@ -19,7 +19,7 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 	utilityClass utils = new utilityClass();
 	loginAction login = new loginAction();
 
-	public HashMap<Integer, HashMap<String, String>> checkGridBodyDetails() {
+	public HashMap<Integer, HashMap<String, String>> checkGridBodyDetails() throws InterruptedException {
 		List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
 		System.out.println("allHeaderNames: " + allHeaderNames);
 		HashMap<Integer, HashMap<String, String>> allTableData = new HashMap<Integer, HashMap<String, String>>();
@@ -45,7 +45,7 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 		return allTableData;
 	}
 	
-	public HashMap<Integer, HashMap<String, String>> checkGridBodyDetails1() {
+	public HashMap<Integer, HashMap<String, String>> checkGridBodyDetails1() throws InterruptedException {
 		List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
 		System.out.println("allHeaderNames: " + allHeaderNames);
 		HashMap<Integer, HashMap<String, String>> allTableData = new HashMap<Integer, HashMap<String, String>>();
@@ -150,10 +150,10 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 		utils.clickfield("cssSelector", "div.ui-multiselect-trigger");
 		String a = "p-multiselectitem>[aria-label='" + status + "'] >div";
 		utils.clickfield("cssSelector", a);
-		utils.clickfield("cssSelector", "thead.ui-table-thead");
+//		utils.clickfield("cssSelector", "thead.ui-table-thead");
 	}
 
-	public HashMap<Integer, HashMap<String, WebElement>> checkGridBodyDetailsForElement() {
+	public HashMap<Integer, HashMap<String, WebElement>> checkGridBodyDetailsForElement() throws InterruptedException {
 		List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
 		System.out.println("allHeaderNames: " + allHeaderNames);
 		HashMap<Integer, HashMap<String, WebElement>> allTableData = new HashMap<Integer, HashMap<String, WebElement>>();
@@ -178,7 +178,7 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 		return allTableData;
 	}
 
-	public WebElement selectStatusCheckBoxInGrid(int row) {
+	public WebElement selectStatusCheckBoxInGrid(int row) throws InterruptedException{
 		utils.scrollDown();
 		String specificRowLoc = "table>tbody>tr:nth-of-type(" + row + ")";
 		String specificRowColLoc = "td:nth-of-type(3)>adl-table-cells>div>mat-checkbox>label>div";
@@ -186,14 +186,14 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 		return statusCheckBox;
 	}
 
-	public WebElement getEditLink(int row) {
+	public WebElement getEditLink(int row) throws InterruptedException{
 		String specificRowLoc = "table>tbody>tr:nth-of-type(" + row + ")";
 		String specificRowColLoc = "td:nth-of-type(17)>adl-table-cells>div>a";
 		WebElement editLinkElement = utils.element("cssSelector", specificRowLoc + ">" + specificRowColLoc);
 		return editLinkElement;
 	}
 
-	public HashMap<String, WebElement> getSearchBoxesInGrid() {
+	public HashMap<String, WebElement> getSearchBoxesInGrid() throws InterruptedException {
 		utils.scrollDown();
 		HashMap<String, WebElement> map = new HashMap<String, WebElement>();
 		List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", headerLoc);
@@ -240,12 +240,12 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 		utils.clickfield("cssSelector", "i.pi-chevron-right", 0);
 	}
 
-	public WebElement deleteLink() {
+	public WebElement deleteLink() throws InterruptedException {
 
 		return utils.element("cssSelector", ".toolbar__delete >a");
 	}
 
-	public WebElement deleteAttribute() {
+	public WebElement deleteAttribute() throws InterruptedException {
 
 		return utils.element("cssSelector", ".toolbar__delete");
 	}
@@ -277,7 +277,7 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 		return utils.text("cssSelector", selectedItems);
 	}
 
-	public WebElement modelBoxYes() {
+	public WebElement modelBoxYes() throws InterruptedException{
 
 		return utils.element("cssSelector", yesButton);
 	}
@@ -360,18 +360,18 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 		return c;
 	}
 
-	public WebElement modelBoxNo() {
+	public WebElement modelBoxNo() throws InterruptedException{
 
 		return utils.element("cssSelector", noButton);
 
 	}
 
-	public WebElement modelBoxText() {
+	public WebElement modelBoxText() throws InterruptedException{
 
 		return utils.element("cssSelector", text);
 	}
 
-	public WebElement modelBoxClose() {
+	public WebElement modelBoxClose() throws InterruptedException {
 
 		return utils.element("cssSelector", close);
 	}
@@ -500,10 +500,10 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 
 	}
 
-	public void changefilter() {
+	public void changefilter() throws InterruptedException {
 
 		utils.clickfield("cssSelector", filterbox);
-		utils.clickfield("cssSelctor", ".ng-option[role=\"option\"]", 3);
+		utils.clickfield("cssSelctor", ".ng-option[role='option']", 3);
 	}
 
 	public String noResult() {
@@ -511,7 +511,7 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 		return utils.text("cssSelector", empty);
 	}
 
-	public WebElement clearFilter() {
+	public WebElement clearFilter() throws InterruptedException{
 
 		return utils.element("cssSelector", clearFilterButton);
 	}
@@ -519,5 +519,19 @@ public class ContractSearchPageAction extends ContractSearchPagepo {
 	public int length() {
 
 		return driver.findElements(By.xpath("//*[@id=\"contract_search\"]/tbody/tr")).size();
+	}
+	
+	public WebElement getDeleteHightlight() throws InterruptedException{
+		return utils.element("xpath", deleteHightlight);
+	}
+	
+	public void selectTimeFrameDropdown(String option) throws InterruptedException {
+		utils.clickfield("cssSelector", filterbox);
+		utils.wait(1000);
+		driver.findElement(By.xpath("//div[@role='option']/span[text()='"+option+"']")).click();
+	}
+	
+	public List<WebElement> getCancelLink() {
+		return utils.getElementsList("xpath", cancelLink);
 	}
 }

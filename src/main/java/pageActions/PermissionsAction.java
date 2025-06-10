@@ -50,6 +50,16 @@ public class PermissionsAction extends PermissionsPo{
 		 return ele;
 	 }
 	 
+	 public WebElement getSelectAllCheckBoxstatus() {
+		 WebElement ele=driver.findElement(By.xpath(selectAllCheckBoxstatus));	
+		 return ele;
+	 }
+	 
+	 public WebElement getSelectAllCheckBoxInGrid() {
+		 WebElement ele=driver.findElement(By.xpath(selectAllCheckBoxInGrid));	
+		 return ele;
+	 }
+	 
 	 public List<WebElement> getSelectCheckBoxInPopup() {
 		  List<WebElement> ele = driver.findElements(By.cssSelector(selectCheckBoxInPopup));	
 		 return ele;

@@ -21,7 +21,7 @@ public class ActuarialReportAction extends ActuarialReportPO{
 	 }
 
 	 public WebElement getFromAndToField() {
-		 WebElement fromAndTo=driver.findElement(By.xpath(fromAndToField));	
+		 WebElement fromAndTo=driver.findElement(By.cssSelector(fromAndToField));	
 		 return fromAndTo;
 	 }
 	 
@@ -36,7 +36,7 @@ public class ActuarialReportAction extends ActuarialReportPO{
 			return allHeaderNames;
 	 }
 	 
-	 public HashMap<Integer, HashMap<String, WebElement>> getElementsFromGridBody() {
+	 public HashMap<Integer, HashMap<String, WebElement>> getElementsFromGridBody() throws InterruptedException {
 			List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector",webContractsByDealerAction.headerLoc);
 			HashMap<Integer, HashMap<String, WebElement>> allTableData = new HashMap<Integer, HashMap<String, WebElement>>();
 			List<WebElement> allRowsEle = utils.getElementsList("cssSelector", webContractsByDealerAction.rowLoc);

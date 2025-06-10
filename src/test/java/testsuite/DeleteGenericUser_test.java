@@ -5,6 +5,7 @@ import java.util.HashMap;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -16,6 +17,7 @@ import utils.utilityClass;
 
 /* PBI 35646 & 35496  */
 /* PBI 35606 is also covered apprx 40 Tc's - but Id's not mentioned*/
+/*Pls check where the edit and lock functionality tc's from 35606*/
 public class DeleteGenericUser_test extends DeleteGenericUserAction{
 	
 	loginAction login = new loginAction();
@@ -24,15 +26,15 @@ public class DeleteGenericUser_test extends DeleteGenericUserAction{
 	impersonateAction impersonate = new impersonateAction ();
 	ManageUsersPage_test manageuser = new ManageUsersPage_test();
 	
-	@BeforeMethod(alwaysRun = true)
+	@BeforeClass(alwaysRun = true)
 	public void login() throws InterruptedException {
-		navigate();
+//		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 
 	@Test(priority = 1)
 	public void verifyDeleteOptionIsDisabledForDealerGeneric_35931_35932() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoimpersonate();
 		impersonate.getUsers("Dealer", "28771");
@@ -66,7 +68,7 @@ public class DeleteGenericUser_test extends DeleteGenericUserAction{
 	
 	@Test(priority = 2)
 	public void verifyDeleteOptionIsDisabledForDealerEmpGeneric_35933_35934() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 //		verticalMenu.navigatetoimpersonate();
 //		impersonate.getUsers("DealerEmp", "28771");
@@ -101,7 +103,7 @@ public class DeleteGenericUser_test extends DeleteGenericUserAction{
 	
 	@Test(priority = 3)
 	public void verifyDeleteOptionIsDisabledForAgentGeneric_35916_35918() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoimpersonate();
 		impersonate.getUsers("Agent", "393");
@@ -135,7 +137,7 @@ public class DeleteGenericUser_test extends DeleteGenericUserAction{
 	
 	@Test(priority = 4)
 	public void verifyDeleteOptionIsDisabledForSubAgentGeneric_35925_35927() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoimpersonate();
 		impersonate.getUsers("SubAgent", "393");
@@ -168,7 +170,7 @@ public class DeleteGenericUser_test extends DeleteGenericUserAction{
 	
 	@Test(priority = 5)
 	public void verifyDeleteOptionIsDisabledForLenderGeneric_36004() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoimpersonate();
 		impersonate.getUsers("Lender", "30");
@@ -201,7 +203,7 @@ public class DeleteGenericUser_test extends DeleteGenericUserAction{
 	
 	@Test(priority = 6)
 	public void verifyDeleteOptionIsDisabledForLenderEmpGeneric_36005() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoimpersonate();
 		impersonate.getUsers("LenderEmp", "30");
@@ -235,7 +237,7 @@ public class DeleteGenericUser_test extends DeleteGenericUserAction{
 	
 	@Test(priority = 7)
 	public void verifyDeleteOptionIsDisabledForDealerGrpGeneric_35938_35940() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoimpersonate();
 		impersonate.getUsers("DealerGroup", "47421");
@@ -268,7 +270,7 @@ public class DeleteGenericUser_test extends DeleteGenericUserAction{
 	
 	@Test(priority = 8)
 	public void verifyDeleteOptionIsDisabledForDealerGrpEmpGeneric_35944_35955() throws Exception {
-		login.login(prop.getProperty("adminusername"), prop.getProperty("password"));
+		login.login(prop.getProperty("adminusername"), prop.getProperty("adminpassword"));
 		Assert.assertEquals(getTitle().getText(), "Welcome to your Protective ADL Portal!");
 		verticalMenu.navigatetoimpersonate();
 		impersonate.getUsers("DealerGrpEmp", "47421");

@@ -104,6 +104,12 @@
     <version>2.7</version>
 </dependency>
 
+<dependency>
+  <groupId>com.mailosaur</groupId>
+  <artifactId>mailosaur-java</artifactId>
+  <version>8.1.0</version>
+</dependency>
+
 	</dependencies>
 
 </project>

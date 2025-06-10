@@ -102,7 +102,7 @@ public class contractSearch_test extends ContractSearchPageAction{
 		}
 		
 		@Test(enabled = false)
-		public void initialSorting_21281_21233() {
+		public void initialSorting_21281_21233() throws InterruptedException {
 			
 			List firstlist = new ArrayList();
 			firstlist = columnlist(6);

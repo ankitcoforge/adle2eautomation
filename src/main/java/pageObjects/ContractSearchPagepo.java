@@ -14,7 +14,7 @@ public class ContractSearchPagepo extends baseClass{
 	public String row = "//*[@id=\"contract_search\"]/tbody/tr";
 	public String selectCheckBoxInGrid = "td:nth-of-type(+ j +)>adl-table-cells>div>mat-checkbox>label>div";
 	public String searchBoxesBelowHeadersInGrid = "thead > adl-table-header > tr:nth-child(2) > td>div>div>input";
-	public String selectStatus = "thead > adl-table-header > tr:nth-child(2) > td>div>div>p-multiselect";
+	public String selectStatus = "thead > adl-table-header > tr:nth-child(2) > td>div>div>p-multiselect>div>div:nth-child(3)>span";
 	public String enteredStatusChkbox = "//li[@aria-label='Entered']/div/div/span";
 	public String dropdownValue = "span.ng-value-label";
 	public String details = ".tr-expansible__col-group__title > b";
@@ -42,5 +42,7 @@ public class ContractSearchPagepo extends baseClass{
 	public String clearFilterButton = "span.clear-filters";
 	public String makeValue = "//b[contains(text(),'Make')]//..//..//div[2]//span";
 	public String modelValue = "//b[contains(text(),'Model')]//..//..//div[2]//span";
+	public String deleteHightlight = "//div[@class='toolbar__items']";
+	public String cancelLink = "//a[text()='Cancel']";
 	
 }

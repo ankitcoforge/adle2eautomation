@@ -14,7 +14,7 @@ public class EmployeePackspo extends baseClass {
 	public String roleDropdownList = "//div[@class='scrollable-content']/div/span";
 	public String packAmount = "//div[@class='text-field__input secure text-field__input--prefix']/input";
 	public String btnSave = "//span[text()=' Save ' ]";
-	public String ConfirmationMsg = "//div[contains(text(),'saved successfully')]";
+	public String ConfirmationMsg = "//div[contains(text(),'successfully')]/..";
 	public String headerLoc = "thead > adl-table-header > tr:nth-child(1) > th[role='columnheader']";
 	public String rowLoc = "table>tbody>tr";
 	public String noRecordsInGrid = "table>tbody>tr>td";
@@ -34,4 +34,5 @@ public class EmployeePackspo extends baseClass {
 	public String close = "//mat-icon[text()='close']";
 //	public String enterRole = "//input[contains(@placeholder,'Please enter the Role')]";
 //	public String roleDropdownListForDealer = "//mat-option[@role='option']/span/span";
+	public String calenderSoldDate = "(//mat-icon[text()='calendar_today'])[1]";
 }

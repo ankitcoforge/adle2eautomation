@@ -7,7 +7,7 @@ public class EditContractpo extends baseClass{
 	public String ADLwelcometitle = "//b[text()='Welcome to your Protective ADL Portal!']";
 	public String contractSearchPagetitle = "//h3[text()='Contract Search']";
 	public String editContractPagetitle = "//h3[text()='Edit Contract']";
-	public String rateOrContractPageTitle = "//h3[text()='Rate/Contract']";
+	public String rateOrContractPageTitle = "//h3[text()='Rate / Contract']";
 	public String contarctInfoTxtFields1 = "//adl-contract-information-edit-card/section/div[1]/div/adl-text-input/div/div[2]/input";
 	public String vehiclePurchaseTxtField = "adl-text-input[label ='Vehicle Purchase Price']>div>div:nth-child(2)>input";
 	public String contactRetailPriceTxtField = "adl-text-input[label ='Contract Retail Price']>div>div:nth-child(2)>input";

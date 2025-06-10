@@ -27,15 +27,15 @@ public class contractpo extends baseClass{
 	public String table = "adl-rates-table > table >tbody > tr:nth-child(1) > td:nth-child(2)";
 	public String tableborder = "adl-rates-table > table >tbody > tr:nth-child(1) > td:nth-child(2)> div";
 	public String datepicker = "adl-text-input[label='In-Service Date'] >div :nth-child(2) >input";
-//	public String contract = "div.text-field__input.secure.text-field__input--prefix > input";
-	public String contract = " adl-text-input[label='Vehicle Purchase Price'] > div > div:nth-child(2) > input";
+	public String contract = "div.text-field__input.secure.text-field__input--prefix > input";
+//	public String contract = "adl-text-input[label='Vehicle Purchase Price'] > div > div:nth-child(2) > input";
 	public String leaseMonths = "adl-lease-term >div >div> span";
 	public String leaseWarning = "adl-warning-message >div > p>span";
 	public String leaseMiles = "adl-lease-term >div >div> span";
 	public String checkbox = "//mat-checkbox";
 	public String leaseLabel = "adl-lease-term >div >div> span";
 	public String button = "//button";
-	public String generateContract = "//span[contains(text(),'Proceed to generate contract(s)')]";
+	public String generateContract = "//span[contains(text(),'Proceed To Generate Contract(s)')]";
 	public String programfirstname ="//*[contains(text(),'";
 	public String programlastname = "')]";
 	public String total = "adl-rate-contract-footer > footer > div.total__price.col-4_sm-6 ";
@@ -190,7 +190,7 @@ public class contractpo extends baseClass{
 	public String[] getProgramCodeName() {
 		
 		String header = event.text("cssSelector", programNameCode);
-		String[] program = header.split(" • ");
+		String[] program = header.split(" ï¿½ ");
 		return (program );
 	}
 	

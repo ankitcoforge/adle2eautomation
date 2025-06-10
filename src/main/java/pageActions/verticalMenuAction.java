@@ -27,6 +27,7 @@ public class verticalMenuAction extends verticalMenupo{
 		driver.switchTo().activeElement();
 		event.clickfield("xpath", erate);
 		event.clickfield("xpath", contract);
+		Thread.sleep(2000);
 
 	}
 	

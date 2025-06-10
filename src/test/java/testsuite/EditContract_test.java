@@ -15,6 +15,7 @@ import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -37,9 +38,9 @@ public class EditContract_test extends EditContractAction {
 	singleContractAction singleContract = new singleContractAction();
 	cobuyerContractAction cobuyerContract = new cobuyerContractAction();
 
-	@BeforeMethod(alwaysRun=true)
+	@BeforeClass(alwaysRun=true)
 	public void login() throws InterruptedException {
-		navigate();
+//		navigate();
 		Assert.assertEquals(login.getTitle(), "Protective");
 	}
 
@@ -129,12 +130,12 @@ public class EditContract_test extends EditContractAction {
 		verticalMenu.navigatetoLeftMenu("Contracts", "Contract Search");
 		Thread.sleep(1000);
 		Assert.assertTrue((getContractSearchPagetitle()).isDisplayed());
-		utils.scrollDown();
-		HashMap<Integer, HashMap<String, String>> allTableData = contractSearchPage.checkGridBodyDetails1();
+		utils.scrollDownUsingJSE(500);
 		contractSearchPage.getSelectStatus().click();
 		contractSearchPage.getEnteredStatusChkbox().click();
+		HashMap<Integer, HashMap<String, String>> allTableData = contractSearchPage.checkGridBodyDetails1();
 		String contractNumber = allTableData.get(1).get("Contract");
-		utils.scrollDown();
+//		utils.scrollDown();
 		contractSearchPage.getSearchBoxesInGrid().get("Contract").sendKeys(contractNumber);
 		Thread.sleep(1000);
 		HashMap<Integer, HashMap<String, String>> allTableData2 = contractSearchPage.checkGridBodyDetails();
@@ -171,13 +172,14 @@ public class EditContract_test extends EditContractAction {
 		}
 		Assert.assertTrue(getEditContractPagetitle().isDisplayed());
 		getCoustomerInfoFields().get(0).sendKeys(Keys.TAB);
-		String expectedBlueColorInHexaLastName = prop.getProperty("blueColorInHexaForm");
+		String expectedBlueColorInHexaLastName = prop.getProperty("bluecolor");
 		String borderColorOfElementLastName = coustomerInfoHighlighter().get(1).getCssValue("border-color");
 		String ActualcolorInHexaformatLastName = Color.fromString(borderColorOfElementLastName).asHex();
+		System.out.println("actual color is--"+ActualcolorInHexaformatLastName);
 		Assert.assertEquals(ActualcolorInHexaformatLastName, expectedBlueColorInHexaLastName);
 
 		getCoustomerInfoFields().get(1).sendKeys(Keys.TAB);
-		String expectedBlueColorAddress = prop.getProperty("blueColorInHexaForm");
+		String expectedBlueColorAddress = prop.getProperty("bluecolor");
 		String borderColorOfElementAddress = coustomerInfoHighlighter().get(2).getCssValue("border-color");
 		String ActualcolorInHexaformatAddress = Color.fromString(borderColorOfElementAddress).asHex();
 		Assert.assertEquals(ActualcolorInHexaformatAddress, expectedBlueColorAddress);
@@ -186,7 +188,7 @@ public class EditContract_test extends EditContractAction {
 		Assert.assertEquals(ActualcolorInHexaformatLastName, expectedBlueColorInHexaLastName);
 
 		getCoustomerInfoFields().get(1).sendKeys(Keys.SHIFT, Keys.TAB);
-		String expectedBlueColorFirstName = prop.getProperty("blueColorInHexaForm");
+		String expectedBlueColorFirstName = prop.getProperty("bluecolor");
 		String borderColorOfElementFirstName = coustomerInfoHighlighter().get(0).getCssValue("border-color");
 		String ActualcolorInHexaformatFirstName = Color.fromString(borderColorOfElementFirstName).asHex();
 		Assert.assertEquals(ActualcolorInHexaformatFirstName, expectedBlueColorFirstName);

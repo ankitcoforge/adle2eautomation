@@ -14,6 +14,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
+import com.mailosaur.MailosaurException;
+
 import pageObjects.LateralMenupo;
 import utils.utilityClass;
 
@@ -144,7 +146,7 @@ public class LateralMenuAction extends LateralMenupo{
             return ele;
 		}
 		
-		public void getDefaultpermissionForDealerEmp() throws InterruptedException {
+		public void getDefaultpermissionForDealerEmp() throws InterruptedException, IOException, MailosaurException {
 			login.login(prop.getProperty("dealerAutomation"), prop.getProperty("password"));
 			Thread.sleep(3000);
 			verticalMenu.navigatetoLeftMenu("My Settings", "Issue New User Registration");
@@ -168,7 +170,8 @@ public class LateralMenuAction extends LateralMenupo{
 			login.logout();
 			Thread.sleep(10000);
 		}
-public void getDefaultpermissionForsubAgent() throws InterruptedException {
+public void getDefaultpermissionForsubAgent() throws InterruptedException, IOException, MailosaurException {
+//	login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
 	login.login(prop.getProperty("agentAutomation"), prop.getProperty("password"));
 	Thread.sleep(3000);
 	verticalMenu.navigatetoLeftMenu("Agency Settings", "Manage Users");
@@ -185,6 +188,7 @@ public void getDefaultpermissionForsubAgent() throws InterruptedException {
 	}
 	Assert.assertTrue((permissions.getSelectAllCheckBoxInPopup().getAttribute("aria-checked").equals("true")));
 	Thread.sleep(1000);
+	utils.clickfield("xpath",permissions.closeBtnMultiselectableOptions);
 	utils.clickfield("xpath", permissions.saveBtn);
 	Thread.sleep(5000);
 	login.logout();
@@ -192,7 +196,7 @@ public void getDefaultpermissionForsubAgent() throws InterruptedException {
 	
 			
 		}
-public void getDefaultpermissionForLenderEmp() throws InterruptedException {
+public void getDefaultpermissionForLenderEmp() throws InterruptedException, IOException, MailosaurException {
 	login.login(prop.getProperty("lenderAutomation"), prop.getProperty("password"));
 	Thread.sleep(3000);
 	verticalMenu.navigatetoLeftMenu("Lender Settings", "Manage Users");
@@ -208,13 +212,15 @@ public void getDefaultpermissionForLenderEmp() throws InterruptedException {
 		permissions.getSelectAllCheckBoxInPopup().click();
 	}
 	Thread.sleep(2000);
+	utils.clickfield("xpath",permissions.closeBtnMultiselectableOptions);
+	Thread.sleep(2000);
 	utils.clickfield("xpath", permissions.updateBtn);
 	utils.clickfield("xpath", permissions.yesBtn);
 	Thread.sleep(5000);
 	login.logout();
 	Thread.sleep(5000);
 }
-public void getDefaultpermissionForDealerGrpEmp() throws InterruptedException {
+public void getDefaultpermissionForDealerGrpEmp() throws InterruptedException, IOException, MailosaurException {
 	login.login(prop.getProperty("dealergrpAutomation"), prop.getProperty("password"));
 	Thread.sleep(3000);
 	verticalMenu.navigatetoLeftMenu("My Settings", "Manage My Dealer Group Employees");
@@ -326,7 +332,7 @@ public List<WebElement> getDeleteStatus() throws InterruptedException {
 	 return list;
 }
 
-public HashMap<Integer, HashMap<String, WebElement>> checkGridForEditDelLock() {
+public HashMap<Integer, HashMap<String, WebElement>> checkGridForEditDelLock() throws InterruptedException {
 	List<String> allHeaderNames = utils.getTextValuesForObject("cssSelector", impersonate.headerLoc);
 	System.out.println("allHeaderNames: " + allHeaderNames);
 	HashMap<Integer, HashMap<String, WebElement>> allTableData = new HashMap<Integer, HashMap<String, WebElement>>();
