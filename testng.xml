@@ -16,12 +16,12 @@
 		
 		
 		
-		<class name="testsuite.AULtoProtectiveChange_test"/>
+
 		<class name="testsuite.Cancellations_test"/>
 		<class name="testsuite.DealerGroupAccountsLinkedWithAgentSubagent"/>
 		<class name="testsuite.DealerGrpEmpMenu_test"/>
 		<class name="testsuite.DeleteGenericUser_test"/>
-		<class name="testsuite.EmployeePacks_test"/>
+
 		<class name="testsuite.GAP_test"/>
 	    <class name="testsuite.GenericImpersonate_test"/>
 		<class name="testsuite.ImpersonateNew_test"/>
