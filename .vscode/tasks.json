@@ -1,0 +1,15 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "Maven Build and Test",
+			"command": "mvn clean install",
+			"group": "build",
+			"problemMatcher": [
+				"$maven"
+			],
+			"isBackground": false
+		}
+	]
+}
